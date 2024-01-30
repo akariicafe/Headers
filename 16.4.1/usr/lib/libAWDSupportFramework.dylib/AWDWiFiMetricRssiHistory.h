@@ -1,0 +1,70 @@
+@interface AWDWiFiMetricRssiHistory : PBCodable <NSCopying> {
+    struct { int *list; unsigned long long count; unsigned long long size; } _bcnFrmsHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _bcnPerHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _fwTxFrmsHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _fwTxPerHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _rssiHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _txFrmsHistorys;
+    struct { int *list; unsigned long long count; unsigned long long size; } _txPerHistorys;
+    struct { unsigned char timestamp : 1; unsigned char gatewayARPHistory : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (readonly, nonatomic) unsigned long long rssiHistorysCount;
+@property (readonly, nonatomic) int *rssiHistorys;
+@property (readonly, nonatomic) unsigned long long txPerHistorysCount;
+@property (readonly, nonatomic) int *txPerHistorys;
+@property (readonly, nonatomic) unsigned long long txFrmsHistorysCount;
+@property (readonly, nonatomic) int *txFrmsHistorys;
+@property (readonly, nonatomic) unsigned long long fwTxPerHistorysCount;
+@property (readonly, nonatomic) int *fwTxPerHistorys;
+@property (readonly, nonatomic) unsigned long long fwTxFrmsHistorysCount;
+@property (readonly, nonatomic) int *fwTxFrmsHistorys;
+@property (readonly, nonatomic) unsigned long long bcnPerHistorysCount;
+@property (readonly, nonatomic) int *bcnPerHistorys;
+@property (readonly, nonatomic) unsigned long long bcnFrmsHistorysCount;
+@property (readonly, nonatomic) int *bcnFrmsHistorys;
+@property (nonatomic) BOOL hasGatewayARPHistory;
+@property (nonatomic) unsigned int gatewayARPHistory;
+
+- (int)fwTxFrmsHistoryAtIndex:(unsigned long long)a0;
+- (int)txFrmsHistoryAtIndex:(unsigned long long)a0;
+- (void)setRssiHistorys:(int *)a0 count:(unsigned long long)a1;
+- (int)rssiHistoryAtIndex:(unsigned long long)a0;
+- (void)addRssiHistory:(int)a0;
+- (void)clearTxFrmsHistorys;
+- (void)addBcnPerHistory:(int)a0;
+- (void)clearTxPerHistorys;
+- (void)setTxFrmsHistorys:(int *)a0 count:(unsigned long long)a1;
+- (int)bcnPerHistoryAtIndex:(unsigned long long)a0;
+- (int)fwTxPerHistoryAtIndex:(unsigned long long)a0;
+- (void)addTxPerHistory:(int)a0;
+- (void)setBcnPerHistorys:(int *)a0 count:(unsigned long long)a1;
+- (void)clearFwTxFrmsHistorys;
+- (void)addTxFrmsHistory:(int)a0;
+- (void)setBcnFrmsHistorys:(int *)a0 count:(unsigned long long)a1;
+- (void)addFwTxFrmsHistory:(int)a0;
+- (void)setFwTxFrmsHistorys:(int *)a0 count:(unsigned long long)a1;
+- (void)setFwTxPerHistorys:(int *)a0 count:(unsigned long long)a1;
+- (void)setTxPerHistorys:(int *)a0 count:(unsigned long long)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)addFwTxPerHistory:(int)a0;
+- (void)copyTo:(id)a0;
+- (void)dealloc;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)clearFwTxPerHistorys;
+- (unsigned long long)hash;
+- (void)addBcnFrmsHistory:(int)a0;
+- (int)bcnFrmsHistoryAtIndex:(unsigned long long)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)clearRssiHistorys;
+- (id)description;
+- (void)clearBcnPerHistorys;
+- (void)clearBcnFrmsHistorys;
+- (int)txPerHistoryAtIndex:(unsigned long long)a0;
+
+@end

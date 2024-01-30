@@ -1,0 +1,86 @@
+@class NSMapTable, TSDTextureSet, TSDTextureDescription, TSDDrawableInfo, KNAnimationInfo, NSMutableArray, CALayer, NSString, KNAnimatedBuild, NSMutableSet, KNBuildChunk, TSDRep, TSDFPSCounter;
+
+@interface KNBuildRenderer : KNAnimationRenderer <CAAnimationDelegate> {
+    long long _numberOfAnimationsStarted;
+    NSMapTable *_animatedLayers;
+    id _buildEndCallbackTarget;
+    SEL _buildEndCallbackSelector;
+    TSDTextureSet *_endOfBuildTextureSet;
+    TSDTextureSet *_textureSet;
+    TSDTextureSet *_finalAttributesTextureSet;
+    KNAnimationInfo *_animationInfo;
+    BOOL _isPreview;
+    BOOL _interrupted;
+    BOOL _isAnimationForPlayback;
+    BOOL _areAnimationsReadyToStart;
+    BOOL _usingFinalTexture;
+    BOOL _isTextureCachedAtEndOfBuild;
+    BOOL _shouldUseMagicMoveTextures;
+    BOOL _isNonCachedTextureValid;
+    BOOL _animationWillBeginPerformed;
+    TSDFPSCounter *_FPSCounter;
+    NSMutableSet *_texturesToTeardown;
+}
+
+@property (readonly, nonatomic) KNAnimatedBuild *animatedBuild;
+@property (readonly, nonatomic) NSMutableArray *animatedBuildsToStartAtEnd;
+@property (readonly, nonatomic) KNBuildChunk *buildStage;
+@property (readonly, nonatomic) TSDDrawableInfo *info;
+@property (retain, nonatomic) CALayer *parentLayer;
+@property (readonly, nonatomic) TSDRep *rep;
+@property (retain, nonatomic) TSDTextureDescription *textureDescription;
+@property (readonly, nonatomic) unsigned long long textureDeliveryStyle;
+@property (readonly, nonatomic) TSDTextureSet *textureSet;
+@property (readonly, nonatomic) long long textureStageIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)stopAnimations;
+- (void)dealloc;
+- (void)teardown;
+- (void)animate;
+- (void)animationDidEnd;
+- (void)resumeAnimationsIfPausedAtTime:(double)a0;
+- (BOOL)addAnimationsAtLayerTime:(double)a0;
+- (void)addBuildToStartAtEnd:(id)a0;
+- (id)animationWillBegin;
+- (void)fadeOutPreviousStageOn:(id)a0 atLayerTime:(double)a1;
+- (void)forceRemoveAnimations;
+- (void)generateTextures;
+- (id)initWithAnimatedBuild:(id)a0 info:(id)a1 buildStage:(id)a2 animatedSlideView:(id)a3;
+- (id)initializeTextureSetForEndOfBuild:(BOOL)a0 endOfSlide:(BOOL)a1 description:(id)a2 isRenderingToContext:(BOOL)a3;
+- (id)loadPluginIfNeeded;
+- (id)p_filterForTextDelivery:(long long)a0 childRepTextDeliveryFilter:(id *)a1;
+- (id)p_initializeTextureSetForEndOfBuild:(BOOL)a0 endOfSlide:(BOOL)a1 description:(id)a2 isRenderingToContext:(BOOL)a3;
+- (BOOL)p_isDriftAnimation;
+- (BOOL)p_isMovieInfo;
+- (BOOL)p_isTextDrawable;
+- (id)p_keyForAnimation;
+- (void)p_removeAnimations;
+- (void)p_resetAnimations;
+- (id)p_textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(BOOL)a2 shouldForceRebuild:(BOOL)a3 shouldRender:(BOOL)a4;
+- (void)p_updateTextureDescription:(id)a0 forStage:(long long)a1 isAtEndOfBuild:(BOOL)a2;
+- (void)pauseAnimationsAtTime:(double)a0;
+- (void)registerForBuildEndCallback:(SEL)a0 target:(id)a1;
+- (void)removeAnimationsAndFinish:(BOOL)a0;
+- (void)removeBuildToStartAtEnd:(id)a0;
+- (void)renderTextures;
+- (void)resetHighlightsBeforeAnimationOnTextureSet:(id)a0;
+- (void)resetPreviousStageToUnhighlightOnTextureSet:(id)a0;
+- (void)setEndOfBuildTextureSet:(id)a0;
+- (void)setGeometryAndActionAttributesOnTextureSet:(id)a0 isAtEndOfBuild:(BOOL)a1 isAtEndOfSlide:(BOOL)a2 isRenderingToContext:(BOOL)a3;
+- (void)setLayerVisibility:(id)a0 isAtEndOfBuild:(BOOL)a1;
+- (id)setupFinalTextureGivenCurrentTextureSet:(id)a0 isRenderingToContext:(BOOL)a1;
+- (void)setupPluginContext;
+- (BOOL)shouldPreGenerateTextures;
+- (id)textureDescriptionForStage:(long long)a0 isAtEndOfBuild:(BOOL)a1;
+- (id)textureSetForStage:(long long)a0 description:(id)a1 isAtEndOfBuild:(BOOL)a2 shouldForceRebuild:(BOOL)a3 shouldRender:(BOOL)a4;
+- (id)textureSetWithoutRenderedContents;
+- (void)updateAnimationTestingLog;
+- (void)updateAnimationsForLayerTime:(double)a0;
+- (void)waitUntilAsyncRenderingIsCompleteShouldCancel:(BOOL)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __MPPadFullScreenTransportControlsAccessibility_super : UIAccessibilitySafeCategory
+
+@end

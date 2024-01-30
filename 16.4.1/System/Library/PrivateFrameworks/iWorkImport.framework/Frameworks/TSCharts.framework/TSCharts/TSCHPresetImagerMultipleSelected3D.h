@@ -1,0 +1,5 @@
+@interface TSCHPresetImagerMultipleSelected3D : TSCHPresetImagerMultipleSelected
+
+- (void)p_drawUnshadowedContentIntoContext:(struct CGContext { } *)a0 size:(struct CGSize { double x0; double x1; })a1 contentsScale:(double)a2 preset:(id)a3 target:(int)a4 shouldCache:(BOOL *)a5;
+
+@end

@@ -1,0 +1,46 @@
+@interface PLAssetsdDebugClient : PLAssetsdBaseClient
+
+- (id)momentGenerationStatus;
+- (void)clearPrefetchState;
+- (void)resetDupesAnalysis;
+- (BOOL)updateHighlightTitlesWithError:(id *)a0;
+- (BOOL)cleanupEmptyHighlightsWithError:(id *)a0;
+- (BOOL)invalidateHighlightSubtitlesAndRegenerateHighlightTitlesWithError:(id *)a0;
+- (BOOL)processRecentHighlightsWithError:(id *)a0;
+- (BOOL)processUnprocessedMomentLocationsWithError:(id *)a0;
+- (void)enqueuePrefetch;
+- (void)identifyAssetsWithInconsistentCloudState;
+- (void)privateDownloadCloudPhotoLibraryAsset:(id)a0 resourceType:(unsigned long long)a1 highPriority:(BOOL)a2 completionHandler:(id /* block */)a3;
+- (void)rebuildAllThumbnails;
+- (void)recoverAssetsInInconsistentCloudState;
+- (void)updateSiriVocabulary;
+- (void)prefetchResourcesForHighlights:(id)a0;
+- (BOOL)revertToOriginalForAsset:(id)a0 error:(id *)a1;
+- (BOOL)allMomentsMetadataWithOutputPath:(id)a0 metadataDictionary:(id *)a1 error:(id *)a2;
+- (BOOL)backupComputeCacheWithError:(id *)a0;
+- (void)coalesceJournalsForManagerName:(id)a0 payloadClassIDs:(id)a1 withChangeJournalOverThreshold:(float)a2 completionHandler:(id /* block */)a3;
+- (BOOL)debugSidecarFileURLsForAsset:(id)a0 debugSidecarFileURLs:(id *)a1 error:(id *)a2;
+- (id)deferredLogDumpWithFormat:(id)a0;
+- (void)dropSearchIndexWithCompletionHandler:(id /* block */)a0;
+- (BOOL)dumpMetadataForMomentsWithOutputPath:(id)a0 metadataDirectory:(id *)a1 error:(id *)a2;
+- (id)getCPLStateForDebug:(BOOL)a0;
+- (id)getStatus;
+- (id)getTaskConstraintStatus;
+- (id)getXPCTransactionStatus;
+- (void)prefetchResourcesForMemories:(id)a0;
+- (void)prefetchResourcesWithMode:(long long)a0;
+- (void)pruneAssets:(id)a0 resourceTypes:(id)a1;
+- (void)rebuildCloudFeed;
+- (BOOL)rebuildHighlightsDeletingExistingHighlights:(BOOL)a0 error:(id *)a1;
+- (BOOL)rebuildMomentsDeletingExistingMoments:(BOOL)a0 error:(id *)a1;
+- (BOOL)rebuildSearchIndexWithError:(id *)a0;
+- (void)rebuildTableThumbs;
+- (BOOL)restoreComputeCacheWithError:(id *)a0;
+- (void)setSearchIndexPaused:(BOOL)a0 reason:(id)a1 completionHandler:(id /* block */)a2;
+- (void)snapshotJournalsForManagerName:(id)a0 payloadClassIDs:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (BOOL)synchronouslySetSearchIndexPaused:(BOOL)a0 reason:(id)a1 error:(id *)a2;
+- (id)syndicationIngestMutexStateDescriptionWithError:(id *)a0;
+- (void)unloadImageFilesForAsset:(id)a0 minimumFormat:(int)a1 completionHandler:(id /* block */)a2;
+- (void)waitForMomentGeneration;
+
+@end

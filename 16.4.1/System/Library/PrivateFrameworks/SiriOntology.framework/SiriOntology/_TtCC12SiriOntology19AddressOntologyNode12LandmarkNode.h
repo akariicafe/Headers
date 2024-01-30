@@ -1,0 +1,3 @@
+@interface _TtCC12SiriOntology19AddressOntologyNode12LandmarkNode : SiriOntology.NonTerminalOntologyNode
+
+@end

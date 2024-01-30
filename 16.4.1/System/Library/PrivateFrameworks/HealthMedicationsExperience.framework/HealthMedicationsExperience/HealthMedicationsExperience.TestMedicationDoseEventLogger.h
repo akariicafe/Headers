@@ -1,0 +1,3 @@
+@interface HealthMedicationsExperience.TestMedicationDoseEventLogger : HealthMedicationsExperience.MedicationDoseEventLogger
+
+@end

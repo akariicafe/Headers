@@ -1,0 +1,81 @@
+@class NSString, NSDictionary, NSArray, NSDate, NSObject, NSURL;
+
+@interface RCComposition : NSObject <NSMutableCopying, NSCopying, RCDictionaryPListRepresentationCoding>
+
+@property (retain, nonatomic) NSString *savedRecordingUUID;
+@property (retain, nonatomic) NSDate *creationDate;
+@property (retain, nonatomic) NSString *title;
+@property (retain, nonatomic) NSDictionary *musicMemoMetadata;
+@property (retain, nonatomic) NSArray *decomposedFragments;
+@property (nonatomic) BOOL cachedComposedAVURLDurationIsValid;
+@property (nonatomic) double cachedComposedAVURLDuration;
+@property (nonatomic) BOOL readonly;
+@property (retain, nonatomic) NSArray *composedFragments;
+@property (retain, nonatomic) NSObject *composedFragmentsMutex;
+@property (readonly, nonatomic) BOOL isContentBeingModified;
+@property (readonly, nonatomic) NSURL *composedAVURL;
+@property (readonly, nonatomic) NSURL *composedWaveformURL;
+@property (readonly, nonatomic) double composedDuration;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)compositionWithComposedAVURL:(id)a0;
++ (id)compositionLoadedForSavedRecording:(id)a0;
++ (id)compositionLoadedForComposedAVURL:(id)a0 createIfNeeded:(BOOL)a1;
++ (BOOL)excludeFromBackup:(id)a0 error:(id *)a1;
++ (id)compositionBundleURLForComposedAVURL:(id)a0;
++ (BOOL)migrateBackupExclusionFlag:(id)a0;
++ (id)compositionLoadedForEditingSavedRecording:(id)a0 error:(id *)a1;
++ (BOOL)_isSessionWithModificationAccessActiveForComposedAVURL:(id)a0;
++ (BOOL)_markCompositionAVURLsBeingModified:(id)a0;
++ (id)_compositionMetadataURLForCompositionBundleURL:(id)a0;
++ (id)compositionLoadedFromCompositionBundleURL:(id)a0;
++ (BOOL)includeInBackup:(id)a0 error:(id *)a1;
++ (id)_compositionFragmentsFolderForComposedAVURL:(id)a0;
++ (id)_compositionLoadedFromMetadataURL:(id)a0 composedAVURL:(id)a1 savedRecordingUUID:(id)a2 creationDate:(id)a3 createIfNeeded:(BOOL)a4;
++ (id)compositionMetadataURLForComposedAVURL:(id)a0;
++ (id)_unitTestingCompositionWithDecomposedFragments:(id)a0;
++ (id)_compositionLoadedFromMetadataURL:(id)a0 savedRecording:(id)a1;
++ (void)deleteFromFilesystem:(id)a0;
++ (id)uriRepresentationForLegacyComposedAVURL:(id)a0;
++ (id)compositionLoadedForSavedRecordingUUID:(id)a0;
+
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(BOOL)a0 composeWaveform:(BOOL)a1 canGenerateWaveformByProcessingAVURL:(BOOL)a2 completionBlock:(id /* block */)a3;
+- (id)compositionByAppendingFragment:(id)a0;
+- (id)_calculateComposedFragments;
+- (double)_composedDuration;
+- (id)_compositionAsset:(BOOL)a0 error:(id *)a1;
+- (id)_compositionByReplacingDecomposedFragments:(id)a0;
+- (id)_eaccess_repairDecomposedFragmentMetadataIfNecessaryAndSave:(BOOL)a0;
+- (void)_eaccess_saveCompositionAndRecordingDuration:(BOOL)a0;
+- (BOOL)_enumerateFragmentsForInsertion:(id /* block */)a0;
+- (unsigned long long)_fileSizeOfComposedAssetsIncludingRelatedResources:(BOOL)a0;
+- (id)_initWithComposedAVURL:(id)a0 savedRecordingUUID:(id)a1 creationDate:(id)a2 title:(id)a3 musicMemoMetadata:(id)a4 decomposedFragments:(id)a5 composedFragments:(id)a6;
+- (id)_initWithSavedRecording:(id)a0 decomposedFragments:(id)a1 composedFragments:(id)a2;
+- (void)_loadMusicMemoMetadata;
+- (id)composedFragmentsIntersectingTimeRange:(struct { double x0; double x1; })a0;
+- (id)compositionAssetForExport:(id *)a0;
+- (id)compositionByClippingToComposedTimeRange:(struct { double x0; double x1; })a0;
+- (id)compositionByDeletingAndSplittingAtComposedTimeRange:(struct { double x0; double x1; })a0;
+- (id)compositionByDuplicatingResourcesToDestinationComposedAVURL:(id)a0;
+- (id)compositionByOverdubbingWithFragment:(id)a0;
+- (id)compositionByReloadingFromDefaultMetadataLocation;
+- (void)deleteFromFilesystem;
+- (id)dictionaryPListRepresentation;
+- (void)enumerateOrphanedFragmentsWithBlock:(id /* block */)a0;
+- (unsigned long long)estimatedFileSizeOfComposedAssetIncludingRelatedResources:(BOOL)a0;
+- (unsigned long long)fileSizeOfAssetsIncludingRelatedResources:(BOOL)a0;
+- (id)initWithDictionaryPListRepresentation:(id)a0;
+- (id)newRandomFragmentWithInsertionTimeRangeInComposition:(struct { double x0; double x1; })a0 pathExtension:(id)a1;
+- (id)playableAsset:(id *)a0;
+- (id)rcs_repairDecomposedFragmentMetadataIfNecessary;
+- (void)recacheComposedDuration;
+- (BOOL)saveMetadataToDefaultLocation;
+- (void)setSavedRecordingUUIDFromRecoveredRecordingUUID:(id)a0;
+
+@end

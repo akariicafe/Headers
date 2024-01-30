@@ -1,0 +1,88 @@
+@class FACircleContext, AIDAAccountManager, NSDictionary, FAProfilePictureStore, FARequestConfigurator, NSMutableArray, AAGrandSlamSigner, NSString, FATableViewDecorator, FAFamilyCircle, AAFamilyEligibilityResponse, PSSpecifier, NSArray, PSListController, NSOperationQueue;
+@protocol AAUISpecifierProviderDelegate;
+
+@interface FASettingsSpecifierProvider : NSObject <FASetupDelegate, FAFamilySettingsViewControllerDelegate, RemoteUIControllerDelegate, FamilyCircleUI.FAFamilySettingsViewControllerV2Delegate, AAUISpecifierProvider> {
+    FAFamilyCircle *_familyCircle;
+    BOOL _didFailToGetFamilyDetails;
+    FATableViewDecorator *_remoteUIDecorator;
+    PSListController *_presenter;
+    PSSpecifier *_familyCellSpecifier;
+    PSSpecifier *_invitationsCellSpecifier;
+    BOOL _isLoadingFamilyDetails;
+    NSMutableArray *_pendingFamilyDetailsCompletionBlocks;
+    AAFamilyEligibilityResponse *_familyEligibilityResponse;
+    NSMutableArray *_pendingInvites;
+    NSString *_familyStatusSummary;
+    NSString *_invitationSummary;
+    long long _familyEligibilityStatus;
+    BOOL _isHandlingURLForInvite;
+    NSOperationQueue *_networkActivityQueue;
+    AIDAAccountManager *_accountManager;
+    AAGrandSlamSigner *_grandSlamSigner;
+    FARequestConfigurator *_requestConfigurator;
+    FACircleContext *_context;
+    BOOL _delayedEnterInitiateFlow;
+    FAProfilePictureStore *_familyPictureStore;
+    NSDictionary *_cachedResourceDictionary;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<AAUISpecifierProviderDelegate> delegate;
+@property (copy, nonatomic) NSArray *specifiers;
+
+- (BOOL)_isEnabled;
+- (unsigned long long)cachePolicy;
+- (id)initWithAccountManager:(id)a0 presenter:(id)a1;
+- (void)_initiateFamily;
+- (void)_handleObjectModelChangeForController:(id)a0 objectModel:(id)a1 isModal:(BOOL)a2;
+- (id)_accountStore;
+- (void)reloadSpecifiers;
+- (id)_invitationsCellSpecifier;
+- (void)familySetupViewController:(id)a0 didCompleteWithSuccess:(BOOL)a1;
+- (id)_familyBaseSpecifierWithState:(unsigned long long)a0;
+- (void)_showUnderageAlertWithEligibilityResponse:(id)a0;
+- (id)_valueForFamilySpecifier:(id)a0;
+- (void)_reloadFamilySpecifiersAnimated:(BOOL)a0;
+- (void)_reloadFamily;
+- (void)_clearFamilyState;
+- (id)_valueForInvitiationsSpecifier:(id)a0;
+- (void)_reloadFamilySpecifiers;
+- (void)_viewFamilyWithResourceDictionary:(id)a0;
+- (void)_pendingInvitationsSpecifierWasTapped:(id)a0;
+- (id)_grandSlamSigner;
+- (void)_handleShowInviteActionURL:(id)a0 isChildTransfer:(BOOL)a1;
+- (void)_handleStartFamilySetupActionURL:(id)a0;
+- (id)_requestConfigurator;
+- (id)initWithAccountManager:(id)a0;
+- (id)_configureContextWithType:(id)a0 resourceDictionary:(id)a1;
+- (id)_acuPresenter;
+- (void)familySettingsViewControllerDidUpdateFamily:(id)a0;
+- (void)dealloc;
+- (void)_handleFamilyDetailsResponse:(id)a0 error:(id)a1 completion:(id /* block */)a2;
+- (void)_loadFamilyEligibilityWithCompletion:(id /* block */)a0;
+- (void)_handleShowInvitesActionURL:(id)a0;
+- (void)_presentPendingInvitesRemoteUI;
+- (id)_familySpecifier;
+- (void)familySettingsViewControllerDidDeleteFamily:(id)a0;
+- (BOOL)remoteUIController:(id)a0 shouldLoadRequest:(id)a1 redirectResponse:(id)a2;
+- (void)_handleShowFamilySettingsURL:(id)a0;
+- (unsigned long long)_familyState;
+- (void)_handleFamilyChanged:(id)a0;
+- (void)familySettingsViewController2StopFamilySharing:(id)a0;
+- (BOOL)handleURL:(id)a0;
+- (void)remoteUIController:(id)a0 didRefreshObjectModel:(id)a1;
+- (void)_loadFamilyDetailsWithCompletion:(id /* block */)a0;
+- (id)_appleAccount;
+- (void)remoteUIController:(id)a0 willPresentObjectModel:(id)a1 modally:(BOOL)a2;
+- (void)_handleShowChildTransferActionURL:(id)a0;
+- (void)_handleFamilyEligibilityResponse:(id)a0 completion:(id /* block */)a1;
+- (void)_handleShowFamilyInviteActionURL:(id)a0;
+- (void)_setUpFamilySpecifierWasTapped:(id)a0;
+- (void).cxx_destruct;
+- (void)_initiateFamilyWithResources:(id)a0;
+- (void)_viewFamilySpecifierWasTapped;
+
+@end

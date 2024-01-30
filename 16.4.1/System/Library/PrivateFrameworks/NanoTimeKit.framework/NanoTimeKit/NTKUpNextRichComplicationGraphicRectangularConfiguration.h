@@ -1,0 +1,3 @@
+@interface NTKUpNextRichComplicationGraphicRectangularConfiguration : NTKUpNextComplicationConfiguration
+
+@end

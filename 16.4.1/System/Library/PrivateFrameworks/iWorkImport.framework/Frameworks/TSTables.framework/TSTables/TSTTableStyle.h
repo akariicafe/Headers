@@ -1,0 +1,85 @@
+@class NSString, TSDStroke;
+
+@interface TSTTableStyle : TSSStyle <TSTTableStrokeProviding, TSDMixing>
+
+@property (readonly, nonatomic) TSDStroke *defaultHorizontalBorderStroke;
+@property (readonly, nonatomic) TSDStroke *defaultHorizontalBorderStrokeEvenIfNotVisible;
+@property (readonly, nonatomic) TSDStroke *defaultVerticalBorderStroke;
+@property (readonly, nonatomic) TSDStroke *bodyColumnStroke;
+@property (readonly, nonatomic) TSDStroke *bodyRowStroke;
+@property (readonly, nonatomic) TSDStroke *bodyRowStrokeEvenIfNotVisible;
+@property (readonly, nonatomic) TSDStroke *headerColumnBorderStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnBodyColumnStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnBodyRowStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowBorderStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowBodyColumnStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowBodyRowStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *footerRowBorderStroke;
+@property (readonly, nonatomic) TSDStroke *footerRowBodyColumnStroke;
+@property (readonly, nonatomic) TSDStroke *footerRowBodyRowStroke;
+@property (readonly, nonatomic) TSDStroke *footerRowSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel1TopStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel2TopStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel3TopStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel4TopStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel5TopStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel1LabelSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel2LabelSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel3LabelSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel4LabelSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel5LabelSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel1BottomStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel2BottomStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel3BottomStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel4BottomStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel5BottomStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel1InteriorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel2InteriorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel3InteriorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel4InteriorStroke;
+@property (readonly, nonatomic) TSDStroke *categoryLevel5InteriorStroke;
+@property (readonly, nonatomic) TSDStroke *bodyPivotGroupHorizontalStroke;
+@property (readonly, nonatomic) TSDStroke *bodyPivotGroupVerticalStroke;
+@property (readonly, nonatomic) TSDStroke *bodyPivotDeEmphasisHorizontalStroke;
+@property (readonly, nonatomic) TSDStroke *bodyPivotEmphasisVerticalStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnPivotGroupHorizontalStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnPivotGroupDeEmphasisStroke;
+@property (readonly, nonatomic) TSDStroke *headerColumnPivotSeparatorStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowPivotGroupVerticalStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowPivotGroupDeEmphasisStroke;
+@property (readonly, nonatomic) TSDStroke *headerRowPivotTitleStroke;
+@property (readonly, nonatomic) TSDStroke *footerRowPivotGroupVerticalStroke;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)properties;
++ (int)defaultIntValueForProperty:(int)a0;
++ (id)nonEmphasisTableProperties;
++ (id)propertiesAllowingNSNull;
++ (id)styleIDForPreset:(unsigned long long)a0;
++ (void)initDefaultPropertyMap:(id)a0 presetID:(unsigned long long)a1 colors:(id)a2 alternate:(unsigned long long)a3;
++ (void)initDefaultStrokePresetListInPropertyMap:(id)a0 presetID:(unsigned long long)a1 colors:(id)a2;
++ (unsigned long long)presetIDForStyleID:(id)a0;
+
+- (void)validate;
+- (id)boxedValueForProperty:(int)a0 oldBoxedValue:(id)a1 transformedByTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a2;
+- (id)exteriorStrokeForStrokePreset:(unsigned long long)a0;
+- (id)horizontalStrokeForStrokePreset:(unsigned long long)a0;
+- (id)initWithContext:(id)a0 name:(id)a1 overridePropertyMap:(id)a2 isVariation:(BOOL)a3;
+- (unsigned int)maskForStrokePreset:(unsigned long long)a0;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (id)strokeForStrokePreset:(unsigned long long)a0;
+- (id)verticalStrokeForStrokePreset:(unsigned long long)a0;
+- (void)saveToArchiver:(id)a0;
+- (BOOL)isEquivalentForCrossDocumentPasteMasterComparison:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (BOOL)validatedLoadFromUnarchiver:(id)a0;
+- (void)loadTableStylePropertiesIntoPropertyMap:(id)a0 fromArchive:(const void *)a1 unarchiver:(id)a2;
+- (unsigned int)maskForStrokePresets:(id)a0;
+- (void)saveTableStylePropertiesToArchive:(void *)a0 archiver:(id)a1;
+
+@end

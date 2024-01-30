@@ -1,0 +1,3 @@
+@interface CHXPictureOptions : NSObject
+
+@end

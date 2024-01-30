@@ -1,0 +1,3 @@
+@interface ILClassification : NSObject
+
+@end

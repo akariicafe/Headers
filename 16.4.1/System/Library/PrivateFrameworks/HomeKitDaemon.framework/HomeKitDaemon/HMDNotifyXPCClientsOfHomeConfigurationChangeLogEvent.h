@@ -1,0 +1,3 @@
+@interface HMDNotifyXPCClientsOfHomeConfigurationChangeLogEvent : HMMLogEvent
+
+@end

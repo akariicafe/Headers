@@ -1,0 +1,85 @@
+@class NSString, NSArray, UINavigationController, ICQPreferencesRemoteUIDelegateTableCellButton, NSOperationQueue, ICQUICloudStorageOffersManager, RUILoader, ICQUIPreferencesLiftUIDelegate, ICQPreferencesFreshmintManager, NSMutableArray, ACAccount, ICQUILegacyPurchaseFlowManager;
+@protocol DelayedPushDelegate;
+
+@interface ICQPreferencesRemoteUIDelegate : NSObject <ICQUICloudStorageOffersManagerDelegate, ICQUpgradeFlowManagerDelegate, PreferencesRemoteUIDelegateProtocol, RUIObjectModelDelegate, RUILoaderDelegate> {
+    UINavigationController *_navigationController;
+    UINavigationController *_modalNavigationController;
+    ICQUICloudStorageOffersManager *_storageOffersManager;
+    id /* block */ _storageOffersFlowCompletion;
+    NSMutableArray *_objectModels;
+    RUILoader *_loader;
+    NSMutableArray *_deleteLoaders;
+    NSOperationQueue *_deleteQueue;
+    ICQPreferencesRemoteUIDelegateTableCellButton *_button;
+    unsigned long long _forceActionSignal;
+    BOOL _cancelled;
+    int _deleteAllDocumentsAttemptCount;
+    NSString *_requestContentType;
+    id /* block */ _linkCompletionBlock;
+    ACAccount *_account;
+    struct icq_signpost_s { unsigned long long identifier; unsigned long long timestamp; } _signpost;
+    long long _icqAction;
+    ICQUILegacyPurchaseFlowManager *_legacyPurchaseFlowManager;
+}
+
+@property (retain) RUILoader *lastDocumentDeleteLoader;
+@property (retain, nonatomic) ICQPreferencesFreshmintManager *freshmintManager;
+@property (retain, nonatomic) ICQUIPreferencesLiftUIDelegate *liftUIDelegate;
+@property (retain, nonatomic) NSString *initialAction;
+@property (retain, nonatomic) NSArray *dataclassSubstitutions;
+@property (nonatomic) BOOL isManageStorage;
+@property (retain, nonatomic) NSString *nextSignpostId;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<DelayedPushDelegate> delegate;
+
+- (void)dealloc;
+- (id)initWithNavigationController:(id)a0;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void).cxx_destruct;
+- (void)cancelRemoteUI;
+- (void)manager:(id)a0 didCompleteWithError:(id)a1;
+- (void)managerDidCancel:(id)a0;
+- (void)loadURL:(id)a0 postBody:(id)a1;
+- (void)loader:(id)a0 didFinishLoadWithError:(id)a1 forRequest:(id)a2;
+- (void)loader:(id)a0 receivedObjectModel:(id)a1 topActionSignal:(id)a2;
+- (void)objectModel:(id)a0 configureTableRow:(id)a1 page:(id)a2;
+- (BOOL)objectModel:(id)a0 page:(id)a1 deletedTableRow:(id)a2 atIndexPath:(id)a3 withURL:(id)a4 httpMethod:(id)a5;
+- (void)objectModel:(id)a0 page:(id)a1 toggledEditing:(BOOL)a2;
+- (void)objectModel:(id)a0 pressedButton:(id)a1 attributes:(id)a2;
+- (void)objectModel:(id)a0 pressedLink:(id)a1 httpMethod:(id)a2 completion:(id /* block */)a3;
+- (void)objectModelDidChange:(id)a0;
+- (void)objectModelPressedBack:(id)a0;
+- (id)parentViewControllerForObjectModel:(id)a0;
+- (void)upgradeFlowManagerDidCancel:(id)a0;
+- (void)upgradeFlowManagerDidComplete:(id)a0;
+- (void)_popObjectModelAnimated:(BOOL)a0;
+- (void)_postQuotaDidChangeNotification;
+- (BOOL)_loadNativeURL:(id)a0;
+- (void)_activateBackupsElementForObjectModel:(id)a0 completion:(id /* block */)a1;
+- (void)_activatePhotosElementForObjectModel:(id)a0 completion:(id /* block */)a1;
+- (id)_afuiSettingsSpecifier;
+- (void)_freshmintStorageUpgradeWithCompletion:(id /* block */)a0 withURL:(id)a1;
+- (void)_freshmintStorageUpgradeWithICQLink:(id)a0 completion:(id /* block */)a1;
+- (id)_healthSettingsSpecifier;
+- (void)_loadCKStoragePluginSettingsBundleIfNeeded;
+- (void)_presentCloudStorageOffersFlowWithAction:(id)a0 completion:(id /* block */)a1;
+- (void)_processObjectModel:(id)a0;
+- (void)_processTableRow:(id)a0;
+- (void)_reloadQuotaInfo;
+- (void)buyFlowCompletionDidSucceed:(BOOL)a0 error:(id)a1;
+- (void)cleanupLoader;
+- (void)confirmDeleteAll;
+- (void)confirmDeleteWithTitle:(id)a0 prompt:(id)a1 explanation:(id)a2 confirmationAction:(id /* block */)a3;
+- (void)deleteAllDocuments;
+- (id)initWithNavigationController:(id)a0 buyStorageFlow:(BOOL)a1;
+- (id)initWithNavigationController:(id)a0 initialAction:(id)a1;
+- (id)initWithNavigationController:(id)a0 initialAction:(id)a1 account:(id)a2;
+- (void)loadURL:(id)a0 postBody:(id)a1 additionalHeaders:(id)a2;
+- (void)popAndReloadFromRemoteUI:(BOOL)a0 additionalHeaders:(id)a1;
+- (void)reloadTopControllerWithAdditionalHeaders:(id)a0;
+- (void)willShowController:(id)a0;
+
+@end

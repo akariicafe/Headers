@@ -1,0 +1,3 @@
+@interface __PLCropOverlayBottomBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

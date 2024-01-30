@@ -1,0 +1,15 @@
+@class CNObservable;
+
+@interface CNAutocompleteCalendarQueryAssembler : NSObject
+
+@property (readonly) CNObservable *rawCachedObservable;
+@property (readonly) CNObservable *rawUncachedObservable;
+@property (readonly) CNObservable *cachedObservable;
+@property (readonly) CNObservable *uncachedObservable;
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)assemble;
+- (id)initWithRawCachedObservable:(id)a0 rawUncachedObservable:(id)a1;
+
+@end

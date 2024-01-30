@@ -1,0 +1,64 @@
+@class TSDInfoGeometry, NSArray, TSPObject, NSString, TSSPropertySetChangeDetails, NSObject, NSMutableArray;
+@protocol TSDContainerInfo, TSDOwningAttachment;
+
+@interface TSDContainerInfo : TSPObject <TSDMutableContainerInfo, TSKDocumentObject, TSDModelContainer, TSDChangeableInfo> {
+    NSMutableArray *_childInfos;
+    TSSPropertySetChangeDetails *_changes;
+}
+
+@property (readonly, copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) BOOL isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDContainerInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) BOOL inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) NSArray *containedModels;
+
+- (BOOL)isSelectable;
+- (void)dealloc;
+- (Class)layoutClass;
+- (void).cxx_destruct;
+- (id)copyWithContext:(id)a0;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)a0;
+- (id)initWithContext:(id)a0 geometry:(id)a1;
+- (BOOL)isThemeContent;
+- (Class)repClass;
+- (void)setChildInfos:(id)a0;
+- (void)addChildInfo:(id)a0;
+- (void)beginCollectingChanges;
+- (id)endCollectingChanges;
+- (void)insertChildInfo:(id)a0 above:(id)a1;
+- (void)insertChildInfo:(id)a0 atIndex:(unsigned long long)a1;
+- (void)insertChildInfo:(id)a0 below:(id)a1;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (void)moveChildren:(id)a0 toIndexes:(id)a1;
+- (void)removeChildInfo:(id)a0;
+- (void)replaceChildInfo:(id)a0 with:(id)a1;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)willChangeProperties:(id)a0;
+- (void)willChangeProperty:(int)a0;
+- (void)saveToArchiver:(id)a0;
+- (id)infoForSelectionPath:(id)a0;
+- (void)insertContainedModel:(id)a0 atIndex:(unsigned long long)a1;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)loadFromUnarchiver:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (void)moveModel:(id)a0 toIndex:(unsigned long long)a1;
+- (void)removeContainedModel:(id)a0;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (void)setPrimitiveGeometry:(id)a0;
+
+@end

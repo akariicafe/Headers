@@ -1,0 +1,3 @@
+@interface MKFBulletinTimeSpecificationDatabaseID : MKFModelDatabaseID
+
+@end

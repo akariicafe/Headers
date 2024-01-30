@@ -1,0 +1,85 @@
+@class NSString;
+
+@interface HMProtoAccessoryCapabilities : PBCodable <NSCopying> {
+    struct { unsigned char supports2c25465bb0b47366 : 1; unsigned char supports89024c1cadcb8b00 : 1; unsigned char supports90bb069d6bx54e7 : 1; unsigned char supportsAnnounce : 1; unsigned char supportsAssistantAccessControl : 1; unsigned char supportsAudioReturnChannel : 1; unsigned char supportsCaptiveNetworks : 1; unsigned char supportsCloudDataSync : 1; unsigned char supportsCompanionInitiatedRestart : 1; unsigned char supportsCoordinationDoorbellChime : 1; unsigned char supportsDeviceSetup : 1; unsigned char supportsDoorbellChime : 1; unsigned char supportsHomeHub : 1; unsigned char supportsHomeInvitation : 1; unsigned char supportsHomeLevelAnalyticsAndImprovementSetting : 1; unsigned char supportsHomeLevelLocationServiceSetting : 1; unsigned char supportsKeyTransferClient : 1; unsigned char supportsKeyTransferServer : 1; unsigned char supportsKeychainSync : 1; unsigned char supportsManagedConfigurationProfile : 1; unsigned char supportsMediaActions : 1; unsigned char supportsMessagedHomePodSettings : 1; unsigned char supportsMultiUser : 1; unsigned char supportsMusicAlarm : 1; unsigned char supportsPreferredMediaUser : 1; unsigned char supportsStandaloneMode : 1; unsigned char supportsTargetControl : 1; unsigned char supportsThirdPartyMusic : 1; unsigned char supportsThreadBorderRouter : 1; unsigned char supportsUserMediaSettings : 1; unsigned char supportsWholeHouseAudio : 1; unsigned char supportsf9cc0d9d6aa54e7 : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasTag;
+@property (retain, nonatomic) NSString *tag;
+@property (nonatomic) BOOL hasSupportsKeychainSync;
+@property (nonatomic) BOOL supportsKeychainSync;
+@property (nonatomic) BOOL hasSupportsDeviceSetup;
+@property (nonatomic) BOOL supportsDeviceSetup;
+@property (nonatomic) BOOL hasSupportsKeyTransferClient;
+@property (nonatomic) BOOL supportsKeyTransferClient;
+@property (nonatomic) BOOL hasSupportsKeyTransferServer;
+@property (nonatomic) BOOL supportsKeyTransferServer;
+@property (nonatomic) BOOL hasSupportsStandaloneMode;
+@property (nonatomic) BOOL supportsStandaloneMode;
+@property (nonatomic) BOOL hasSupportsCloudDataSync;
+@property (nonatomic) BOOL supportsCloudDataSync;
+@property (nonatomic) BOOL hasSupportsWholeHouseAudio;
+@property (nonatomic) BOOL supportsWholeHouseAudio;
+@property (nonatomic) BOOL hasSupportsAssistantAccessControl;
+@property (nonatomic) BOOL supportsAssistantAccessControl;
+@property (nonatomic) BOOL hasSupportsHomeInvitation;
+@property (nonatomic) BOOL supportsHomeInvitation;
+@property (nonatomic) BOOL hasSupportsTargetControl;
+@property (nonatomic) BOOL supportsTargetControl;
+@property (nonatomic) BOOL hasSupportsMultiUser;
+@property (nonatomic) BOOL supportsMultiUser;
+@property (nonatomic) BOOL hasSupportsHomeLevelLocationServiceSetting;
+@property (nonatomic) BOOL supportsHomeLevelLocationServiceSetting;
+@property (nonatomic) BOOL hasSupportsHomeLevelAnalyticsAndImprovementSetting;
+@property (nonatomic) BOOL supportsHomeLevelAnalyticsAndImprovementSetting;
+@property (nonatomic) BOOL hasSupportsCompanionInitiatedRestart;
+@property (nonatomic) BOOL supportsCompanionInitiatedRestart;
+@property (nonatomic) BOOL hasSupportsMusicAlarm;
+@property (nonatomic) BOOL supportsMusicAlarm;
+@property (nonatomic) BOOL hasSupportsAnnounce;
+@property (nonatomic) BOOL supportsAnnounce;
+@property (nonatomic) BOOL hasSupportsf9cc0d9d6aa54e7;
+@property (nonatomic) BOOL supportsf9cc0d9d6aa54e7;
+@property (nonatomic) BOOL hasSupportsThirdPartyMusic;
+@property (nonatomic) BOOL supportsThirdPartyMusic;
+@property (nonatomic) BOOL hasSupportsPreferredMediaUser;
+@property (nonatomic) BOOL supportsPreferredMediaUser;
+@property (nonatomic) BOOL hasSupportsThreadBorderRouter;
+@property (nonatomic) BOOL supportsThreadBorderRouter;
+@property (nonatomic) BOOL hasSupportsDoorbellChime;
+@property (nonatomic) BOOL supportsDoorbellChime;
+@property (nonatomic) BOOL hasSupportsUserMediaSettings;
+@property (nonatomic) BOOL supportsUserMediaSettings;
+@property (nonatomic) BOOL hasSupportsCoordinationDoorbellChime;
+@property (nonatomic) BOOL supportsCoordinationDoorbellChime;
+@property (nonatomic) BOOL hasSupportsHomeHub;
+@property (nonatomic) BOOL supportsHomeHub;
+@property (nonatomic) BOOL hasSupportsAudioReturnChannel;
+@property (nonatomic) BOOL supportsAudioReturnChannel;
+@property (nonatomic) BOOL hasSupportsManagedConfigurationProfile;
+@property (nonatomic) BOOL supportsManagedConfigurationProfile;
+@property (nonatomic) BOOL hasSupportsCaptiveNetworks;
+@property (nonatomic) BOOL supportsCaptiveNetworks;
+@property (nonatomic) BOOL hasSupportsMessagedHomePodSettings;
+@property (nonatomic) BOOL supportsMessagedHomePodSettings;
+@property (nonatomic) BOOL hasSupportsMediaActions;
+@property (nonatomic) BOOL supportsMediaActions;
+@property (nonatomic) BOOL hasSupports90bb069d6bx54e7;
+@property (nonatomic) BOOL supports90bb069d6bx54e7;
+@property (nonatomic) BOOL hasSupports89024c1cadcb8b00;
+@property (nonatomic) BOOL supports89024c1cadcb8b00;
+@property (nonatomic) BOOL hasSupports2c25465bb0b47366;
+@property (nonatomic) BOOL supports2c25465bb0b47366;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

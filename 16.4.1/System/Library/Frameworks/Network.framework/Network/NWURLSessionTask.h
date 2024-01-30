@@ -1,0 +1,88 @@
+@class NSURL, NSURLResponse, NSProgress, NSDate, NSObject, NSURLSessionDataTask, NWURLSessionTaskConfiguration, NWURLSessionRequestBodyInfo, NSHTTPCookieStorage, NWURLSessionMultipartParser, NWURLSessionDelegateWrapper, NSString, NSURLRequest, NWURLSession, NSArray, NSURLSessionTask, NSError, NSURLSessionTaskMetrics;
+@protocol OS_nw_activity, NWURLSessionResponseConsumer, NSURLSessionTaskDelegate, NWURLLoader, OS_dispatch_queue;
+
+@interface NWURLSessionTask : NSObject <NWURLLoaderClient, NSCopying> {
+    BOOL _suspended;
+    BOOL _pendingRead;
+    BOOL _explicitlySetCookieStorage;
+    NSURLRequest *_originalRequest;
+    NSURLRequest *_currentRequest;
+    NSError *_error;
+    NSObject<OS_dispatch_queue> *_queue;
+    NWURLSessionDelegateWrapper *_publicDelegateWrapper;
+    NWURLSessionDelegateWrapper *_internalDelegateWrapper;
+    id<NWURLLoader> _loader;
+    NWURLSessionMultipartParser *_multipartParser;
+    long long _internalState;
+    NWURLSession *_session;
+    NWURLSessionTaskConfiguration *_configuration;
+    NWURLSessionRequestBodyInfo *_requestBody;
+    id<NWURLSessionResponseConsumer> _responseConsumer;
+    NSHTTPCookieStorage *_cookieStorage;
+    NSURLSessionTaskMetrics *_metrics;
+}
+
+@property (readonly, nonatomic) unsigned long long taskIdentifier;
+@property (readonly, copy, nonatomic) NSURLRequest *originalRequest;
+@property (readonly, copy, nonatomic) NSURLRequest *currentRequest;
+@property (readonly, copy, nonatomic) NSURLResponse *response;
+@property (retain) id<NSURLSessionTaskDelegate> delegate;
+@property (readonly, nonatomic) NSProgress *progress;
+@property (copy, nonatomic) NSDate *earliestBeginDate;
+@property (nonatomic) long long countOfBytesClientExpectsToSend;
+@property (nonatomic) long long countOfBytesClientExpectsToReceive;
+@property (readonly, nonatomic) long long countOfBytesSent;
+@property (readonly, nonatomic) long long countOfBytesReceived;
+@property (readonly, nonatomic) long long countOfBytesExpectedToSend;
+@property (readonly, nonatomic) long long countOfBytesExpectedToReceive;
+@property (copy) NSString *taskDescription;
+@property (readonly) long long state;
+@property (readonly, copy) NSError *error;
+@property float priority;
+@property BOOL prefersIncrementalDelivery;
+@property (retain, nonatomic) id<NSURLSessionTaskDelegate> _internalDelegate;
+@property (nonatomic) BOOL _callCompletionHandlerInline;
+@property (nonatomic) BOOL _keepDownloadTaskFile;
+@property (retain, nonatomic) NSObject<OS_nw_activity> *_nw_activity;
+@property (readonly) NSURLSessionTaskMetrics *_incompleteTaskMetrics;
+@property (copy, nonatomic) NSString *_pathToDownloadTaskFile;
+@property (copy, nonatomic) NSString *_storagePartitionIdentifier;
+@property (copy, nonatomic) NSURL *_siteForCookies;
+@property (nonatomic) BOOL _isTopLevelNavigation;
+@property (nonatomic) BOOL _preconnect;
+@property (copy, nonatomic) id /* block */ _cookieTransformCallback;
+@property (readonly, nonatomic) NSArray *_resolvedCNAMEChain;
+@property long long _bytesPerSecondLimit;
+@property (readonly, nonatomic) NSURLSessionTask *loaderTask;
+@property (readonly, nonatomic) NSURLSessionDataTask *loaderDataTask;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_timingData;
+- (void)suspend;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)cancel;
+- (void)_adoptEffectiveConfiguration:(id)a0;
+- (BOOL)isKindOfClass:(Class)a0;
+- (void).cxx_destruct;
+- (void)resume;
+- (void)_setExplicitCookieStorage:(struct OpaqueCFHTTPCookieStorage { } *)a0;
+- (void)completeTaskWithError:(id)a0;
+- (void)getUnderlyingHTTPConnectionInfoWithCompletionHandler:(id /* block */)a0;
+- (void)loaderBetterPathAvailable;
+- (void)loaderDidFail:(id)a0;
+- (void)loaderDidReceiveChallenge:(id)a0 completionHandler:(id /* block */)a1;
+- (void)loaderDidReceiveClientCertificateChallenge:(id)a0 completionHandler:(id /* block */)a1;
+- (void)loaderDidReceiveServerTrustChallenge:(id)a0 completionHandler:(id /* block */)a1;
+- (void)loaderNeedsBodyProviderFromOffset:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)loaderRunDelegateBlock:(id /* block */)a0;
+- (void)loaderWaitingForConnectivity;
+- (void)loaderWillCacheResponse:(id)a0 completionHandler:(id /* block */)a1;
+- (void)loaderWillPerformHSTSUpgrade;
+- (void)loaderWillPerformHTTPRedirection:(id)a0 newRequest:(id)a1;
+- (void)loaderWillPerformHTTPRedirection:(id)a0 newRequest:(id)a1 completionHandler:(id /* block */)a2;
+- (void)startNextLoad;
+
+@end

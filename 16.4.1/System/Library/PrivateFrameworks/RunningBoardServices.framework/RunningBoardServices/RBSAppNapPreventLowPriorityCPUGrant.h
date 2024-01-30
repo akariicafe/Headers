@@ -1,0 +1,3 @@
+@interface RBSAppNapPreventLowPriorityCPUGrant : RBSAppNapGrant
+
+@end

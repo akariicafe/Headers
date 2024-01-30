@@ -1,0 +1,3 @@
+@interface OADBulletColor : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIIndexBarAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

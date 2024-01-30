@@ -1,0 +1,3 @@
+@interface SNNumberUtils : NSObject
+
+@end

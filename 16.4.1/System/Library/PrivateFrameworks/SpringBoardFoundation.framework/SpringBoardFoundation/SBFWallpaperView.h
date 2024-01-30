@@ -1,0 +1,3 @@
+@interface SBFWallpaperView : PBUIWallpaperView
+
+@end

@@ -1,0 +1,3 @@
+@interface __CAMDrawerLivePhotoButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

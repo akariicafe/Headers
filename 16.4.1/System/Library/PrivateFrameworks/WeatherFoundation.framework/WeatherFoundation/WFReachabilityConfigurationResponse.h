@@ -1,0 +1,14 @@
+@class NSURL, NWPathEvaluator;
+
+@interface WFReachabilityConfigurationResponse : WFResponse <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSURL *reachabilityHostURL;
+@property (readonly, nonatomic) NWPathEvaluator *pathEvaluator;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

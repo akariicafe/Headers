@@ -1,0 +1,9 @@
+@interface UILongPressGestureRecognizerAccessibility : __UILongPressGestureRecognizerAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (BOOL)_accessibilityIsSupportedGestureRecognizer;
+
+@end

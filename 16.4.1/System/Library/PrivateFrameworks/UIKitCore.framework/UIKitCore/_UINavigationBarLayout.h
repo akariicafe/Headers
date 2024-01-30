@@ -1,0 +1,86 @@
+@class _UINavigationBarLargeTitleViewLayout, UILabel, _UIBarBackground, _UINavigationBarLargeTitleView, _UINavigationBarModernPromptView, _UINavigationBarContentViewLayout, NSMutableArray, _UIBarInsertLayoutData, UIView, _UIBarBackgroundLayout, NSString, UISearchBar, _UINavigationBarContentView, _UINavigationBarPalette, NSArray, _UINavigationControllerRefreshControlHost;
+@protocol _UINavigationBarContentViewVisualProvider;
+
+@interface _UINavigationBarLayout : NSObject <NSCopying, _UINavigationBarTransitionContextParticipant> {
+    _UIBarInsertLayoutData *_topWhitespaceLayoutData;
+    _UIBarInsertLayoutData *_promptLayoutData;
+    _UIBarInsertLayoutData *_contentLayoutData;
+    _UIBarInsertLayoutData *_largeTitleLayoutData;
+    _UIBarInsertLayoutData *_refreshControlLayoutData;
+    _UIBarInsertLayoutData *_searchBarLayoutData;
+    _UIBarInsertLayoutData *_scopeBarLayoutData;
+    _UIBarInsertLayoutData *_bottomPaletteLayoutData;
+    NSMutableArray *_priorityOrderedLayout;
+    NSMutableArray *_stackingOrderedLayout;
+    NSArray *_restingHeights;
+    BOOL _largeTitleViewOverlaysContentView;
+    BOOL _backgroundCoversContentOnly;
+    BOOL _clientWantsBackgroundHidden;
+    BOOL _useManualScrollEdgeAppearance;
+    BOOL _clientUsesManualScrollEdgeAppearanceProgressSPI;
+    BOOL _clientCanUpdateChromelessTransitionProgress;
+    BOOL _hasInlineSearchBar;
+    BOOL _clientWantsToPreserveSearchBarAcrossTransitions;
+    BOOL _hidesSearchBarWhenScrolling;
+    _UINavigationBarModernPromptView *_promptView;
+    _UINavigationBarContentView *_contentView;
+    UIView *_animationContentClippingView;
+    _UINavigationBarLargeTitleView *_largeTitleView;
+    id<_UINavigationBarContentViewVisualProvider> _contentViewVisualProvider;
+    _UINavigationBarContentViewLayout *_contentViewLayout;
+    _UINavigationBarLargeTitleViewLayout *_largeTitleViewLayout;
+    _UIBarBackground *_backgroundView;
+    _UIBarBackgroundLayout *_compactBackgroundViewLayout;
+    _UIBarBackgroundLayout *_standardBackgroundViewLayout;
+    double _backgroundExtension;
+    double _requestedBackgroundViewAlpha;
+    double _manualScrollEdgeAppearanceProgress;
+    _UINavigationControllerRefreshControlHost *_refreshControlHost;
+    UILabel *_weeTitleLabel;
+    UISearchBar *_searchBar;
+    long long _representedSearchLayoutState;
+    _UINavigationBarPalette *_bottomPalette;
+    double _largeTitleExposure;
+    double _largeTitleTransitionProgress;
+    double _chromelessTransitionProgress;
+    double _computedBackgroundViewAlpha;
+    long long _apiVersion;
+    struct CGSize { double width; double height; } _layoutSize;
+    struct NSDirectionalEdgeInsets { double top; double leading; double bottom; double trailing; } _largeTitleViewInsets;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _originLayoutFrame;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)recordToStateForTransition:(id)a0;
+- (void)prepareToRecordToState:(id)a0;
+- (id)initWithLayout:(id)a0;
+- (void)recordFromStateForTransition:(id)a0;
+- (void)finalizeStateFromTransition:(id)a0;
+- (void)ensureBackButtonTruncationOccursWithContext:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_bottomPaletteLayoutFrameWithSearchBarMaxY:(double)a0;
+- (void)_updateLayoutParametersForWidth:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_contentViewLayoutFrameWithPromptMaxY:(double)a0;
+- (void)_updateRefreshControlLayoutData;
+- (void)_updateContentViewLayoutItem;
+- (void)_updateLargeTitleViewLayoutItem;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_largeTitleViewLayoutFrameWithContentOrCanvasOrRefreshControlMaxY:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })promptViewLayoutFrameWithTopMaxY:(double)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)_updateWhitespaceLayoutItems;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_searchBarLayoutFrameWithLargeTitleMaxY:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_backgroundViewLayoutFrameWithRelevantMaxY:(double)a0;
+- (void)_reprioritizeLayoutItem:(id)a0 toPriority:(long long)a1;
+- (id)init;
+- (void)_addLayoutItem:(id)a0;
+- (void)_updateLayoutOutputs;
+- (void)_includeContentLayoutDataInLayout:(BOOL)a0;
+- (void)_removeLayoutItem:(id)a0;
+- (void).cxx_destruct;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_refreshControlLayoutFrameWithContentMaxY:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })topWhitespaceLayoutFrame;
+
+@end

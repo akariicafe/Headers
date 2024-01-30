@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.ConvenienceAnswerResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

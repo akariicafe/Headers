@@ -1,0 +1,24 @@
+@class SKUIClientContext, UIView;
+
+@interface SKUICellLayout : NSObject {
+    BOOL _parentWantsCellNeedsLayout;
+}
+
+@property (retain, nonatomic) SKUIClientContext *clientContext;
+@property (readonly, weak, nonatomic) UIView *contentView;
+@property (readonly, weak, nonatomic) UIView *parentCellView;
+
+- (void)setNeedsLayout;
+- (void)setSelected:(BOOL)a0;
+- (void)prepareForReuse;
+- (void)setHighlighted:(BOOL)a0;
+- (void)setBackgroundColor:(id)a0;
+- (void)layoutSubviews;
+- (void).cxx_destruct;
+- (id)initWithParentView:(id)a0;
+- (id)initWithTableViewCell:(id)a0;
+- (void)resetLayout;
+- (id)initWithCollectionViewCell:(id)a0;
+- (void)setColoringWithColorScheme:(id)a0;
+
+@end

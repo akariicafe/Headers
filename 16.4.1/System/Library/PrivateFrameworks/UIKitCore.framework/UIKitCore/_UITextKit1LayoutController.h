@@ -1,0 +1,82 @@
+@class NSString, NSArray, NSTextContainer, UITextRange, UITextView, _UITextCanvasView, NSTextStorage, CUIStyleEffectConfiguration, UITextPosition, NSLayoutManager;
+@protocol NSLayoutManagerDelegate;
+
+@interface _UITextKit1LayoutController : _UITextLayoutControllerBase <_UITextLayoutController> {
+    UITextView *_textView;
+    NSLayoutManager *_originalLayoutManager;
+    _UITextCanvasView *_canvasView;
+}
+
+@property (readonly, nonatomic) NSTextStorage *textStorage;
+@property (readonly, nonatomic) UITextPosition *beginningOfDocument;
+@property (readonly, nonatomic) UITextPosition *endOfDocument;
+@property (readonly, nonatomic) UITextRange *documentRange;
+@property (copy, nonatomic) CUIStyleEffectConfiguration *styleEffectConfiguration;
+@property (readonly, copy, nonatomic) NSArray *textContainers;
+@property (readonly, nonatomic) NSTextContainer *firstTextContainer;
+@property (readonly, nonatomic) BOOL canAccessLayoutManager;
+@property (nonatomic) BOOL usesTiledViews;
+@property (nonatomic) double maxTileHeight;
+@property (nonatomic) BOOL drawsDebugBaselines;
+@property (readonly, nonatomic) NSLayoutManager *layoutManager;
+@property (weak, nonatomic) id<NSLayoutManagerDelegate> layoutManagerDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (double)baselineOffsetForFirstGlyph;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })updateLayoutForSizeChangeOfTextContainer:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })unionRectForCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 bottomInset:(double)a1;
+- (long long)offsetFromPosition:(id)a0 toPosition:(id)a1;
+- (void)addAnnotationAttribute:(id)a0 value:(id)a1 forRange:(id)a2;
+- (unsigned long long)_textStorageLength;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })extraLineFragmentRect;
+- (void)resumeTiling;
+- (void)ensureLayoutForTextContainer:(id)a0;
+- (long long)baseWritingDirectionAtPosition:(id)a0;
+- (void)resetFontForExtraBulletRendering;
+- (id)textRangeForLineEnclosingPosition:(id)a0 effectiveAffinity:(long long)a1;
+- (void)removeInvisibleRange:(id)a0;
+- (void)ensureLayoutForRange:(id)a0;
+- (void)addInvisibleRange:(id)a0;
+- (id)attributesAtPosition:(id)a0 inDirection:(long long)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundingRectForCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)annotatedSubstringForRange:(id)a0;
+- (long long)comparePosition:(id)a0 toPosition:(id)a1;
+- (void)removeAnnotationAttribute:(id)a0 forRange:(id)a1;
+- (void)requestTextGeometryAtPosition:(id)a0 typingAttributes:(id)a1 resultBlock:(id /* block */)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })usedRectForTextContainer:(id)a0;
+- (void)addGhostedRange:(id)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })characterRangeForTextRange:(id)a0;
+- (id)textRangeFromPosition:(id)a0 toPosition:(id)a1;
+- (void)addRenderingAttributes:(id)a0 forRange:(id)a1;
+- (id)emptyTextRangeAtPosition:(id)a0;
+- (id)textRangeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inTextContainer:(id)a1 layoutIfNeeded:(BOOL)a2;
+- (id)annotationAttribute:(id)a0 atPosition:(id)a1;
+- (void)enumerateTextLineFragmentsInRange:(id)a0 usingBlock:(id /* block */)a1;
+- (void)suspendTiling;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })characterRangeForTextRange:(id)a0 clippedToDocument:(BOOL)a1;
+- (void)enumerateTextSegmentsInRange:(id)a0 inTextContainer:(id)a1 usingBlock:(id /* block */)a2;
+- (void)ensureLayoutForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inTextContainer:(id)a1;
+- (id)previewRendererForRange:(id)a0 unifyRects:(BOOL)a1;
+- (id)textContainerForPosition:(id)a0;
+- (id)selectionRectsForRange:(id)a0 fromView:(id)a1 forContainerPassingTest:(id /* block */)a2;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeOfCharacterClusterAtIndex:(unsigned long long)a0 type:(long long)a1;
+- (id)positionWithOffset:(long long)a0 affinity:(long long)a1;
+- (void)removeAllGhostedRanges;
+- (void)invalidateLayoutForRange:(id)a0;
+- (void)removeRenderingAttributes:(id)a0 forRange:(id)a1;
+- (id)dequeueCanvasViewForTextContainer:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundingRectForRange:(id)a0;
+- (id)nearestPositionAtPoint:(struct CGPoint { double x0; double x1; })a0 inContainer:(id)a1;
+- (void)invalidateDisplayForCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })insertionRectForPosition:(id)a0 typingAttributes:(id)a1 placeholderAttachment:(id)a2 textContainer:(id *)a3;
+- (id)textRangeForCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)positionFromPosition:(id)a0 offset:(long long)a1 affinity:(long long)a2;
+- (void).cxx_destruct;
+- (id)attributedTextInRange:(id)a0;
+- (id)cursorPositionAtPoint:(struct CGPoint { double x0; double x1; })a0 inContainer:(id)a1;
+- (long long)affinityForPosition:(id)a0;
+
+@end

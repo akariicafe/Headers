@@ -1,0 +1,3 @@
+@interface SBViewMorphAnimatorContentBlackCurtainView : UIView
+
+@end

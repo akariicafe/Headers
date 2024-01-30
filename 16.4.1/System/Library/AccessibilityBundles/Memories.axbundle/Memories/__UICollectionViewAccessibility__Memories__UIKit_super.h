@@ -1,0 +1,3 @@
+@interface __UICollectionViewAccessibility__Memories__UIKit_super : UIAccessibilitySafeCategory
+
+@end

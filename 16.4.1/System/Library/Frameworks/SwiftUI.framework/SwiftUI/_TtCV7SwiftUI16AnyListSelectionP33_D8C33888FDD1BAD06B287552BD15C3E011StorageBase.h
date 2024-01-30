@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI16AnyListSelectionP33_D8C33888FDD1BAD06B287552BD15C3E011StorageBase : _TtCs12_SwiftObject
+
+@end

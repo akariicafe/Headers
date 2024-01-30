@@ -1,0 +1,3 @@
+@interface __PUImageTileViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

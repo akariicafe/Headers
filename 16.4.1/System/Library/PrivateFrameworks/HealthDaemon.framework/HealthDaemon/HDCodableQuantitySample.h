@@ -1,0 +1,54 @@
+@class NSString, HDCodableSample, NSMutableArray;
+
+@interface HDCodableQuantitySample : PBCodable <HDDecoding, NSCopying> {
+    struct { unsigned char count : 1; unsigned char max : 1; unsigned char min : 1; unsigned char mostRecent : 1; unsigned char mostRecentDate : 1; unsigned char mostRecentDuration : 1; unsigned char valueInCanonicalUnit : 1; unsigned char valueInOriginalUnit : 1; unsigned char final : 1; unsigned char frozen : 1; } _has;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL hasSample;
+@property (retain, nonatomic) HDCodableSample *sample;
+@property (nonatomic) BOOL hasValueInCanonicalUnit;
+@property (nonatomic) double valueInCanonicalUnit;
+@property (nonatomic) BOOL hasValueInOriginalUnit;
+@property (nonatomic) double valueInOriginalUnit;
+@property (readonly, nonatomic) BOOL hasOriginalUnitString;
+@property (retain, nonatomic) NSString *originalUnitString;
+@property (nonatomic) BOOL hasFrozen;
+@property (nonatomic) BOOL frozen;
+@property (nonatomic) BOOL hasCount;
+@property (nonatomic) long long count;
+@property (nonatomic) BOOL hasFinal;
+@property (nonatomic) BOOL final;
+@property (nonatomic) BOOL hasMin;
+@property (nonatomic) double min;
+@property (nonatomic) BOOL hasMax;
+@property (nonatomic) double max;
+@property (nonatomic) BOOL hasMostRecent;
+@property (nonatomic) double mostRecent;
+@property (nonatomic) BOOL hasMostRecentDate;
+@property (nonatomic) double mostRecentDate;
+@property (retain, nonatomic) NSMutableArray *quantitySeriesDatas;
+@property (nonatomic) BOOL hasMostRecentDuration;
+@property (nonatomic) double mostRecentDuration;
+
++ (Class)quantitySeriesDataType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void).cxx_destruct;
+- (void)addQuantitySeriesData:(id)a0;
+- (BOOL)applyToObject:(id)a0;
+- (void)clearQuantitySeriesDatas;
+- (BOOL)isSeries;
+- (id)quantitySeriesDataAtIndex:(unsigned long long)a0;
+- (unsigned long long)quantitySeriesDatasCount;
+
+@end

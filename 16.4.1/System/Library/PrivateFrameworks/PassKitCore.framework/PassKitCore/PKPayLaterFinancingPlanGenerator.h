@@ -1,0 +1,52 @@
+@interface PKPayLaterFinancingPlanGenerator : NSObject
+
++ (id)financingPlanWithConfiguration:(id)a0;
++ (id)_termsDetailsForPlanIdentifier:(id)a0;
++ (id)_appleCashPaymentSource;
++ (id)_appleCashPlanSource;
++ (id)_bankOfAmerciaDebitPaymentSource;
++ (id)_bankOfAmerciaDebitPlanSource;
++ (id)_bankOfTheWestACHPaymentSource;
++ (id)_bankOfTheWestACHPlanSource;
++ (id)_bestBuyMerchant;
++ (id)_boilerPlateAccount;
++ (void)_calculateCurrentBalanceForFinancingPlans:(id)a0 currentBalance:(id *)a1 bnplCurrentBalance:(id *)a2 loanCurrentBalance:(id *)a3 amountPaid:(id *)a4 bnplAmountPaid:(id *)a5 loanAmountPaid:(id *)a6 totalFinanced:(id *)a7 bnplTotalFinanced:(id *)a8 loanTotalFinanced:(id *)a9;
++ (id)_chaseDebitPaymentSource;
++ (id)_chaseDebitPlanSource;
++ (id)_createInstallmentsWithDueDates:(id)a0 installmentAmountWithInterest:(id)a1 currency:(id)a2 planIdentifier:(id)a3;
++ (id)_currentBalanceForPlanWithTotalAmount:(id)a0 installments:(id)a1;
++ (id)_disputesForPayments:(id)a0 paymentIdentifiersForDispute:(id)a1 planIdentifier:(id)a2;
++ (id)_installmentAmountWithInterestForAPR:(id)a0 totalPrincipal:(id)a1 installmentCount:(long long)a2;
++ (id)_installmentDueDatesForInstallmentCount:(long long)a0 productType:(unsigned long long)a1 transactionDate:(id)a2;
++ (id)_installmentsWithPayments:(id)a0 planIdentifier:(id)a1 productType:(unsigned long long)a2 installmentDueDates:(id)a3 installmentAmountWithInterest:(id)a4 currency:(id)a5 disputes:(id)a6;
++ (id)_interestPaidToDateForInstallments:(id)a0 installmentInterest:(id)a1;
++ (id)_macysMerchant;
++ (id)_maximumNumber:(id)a0 number2:(id)a1;
++ (id)_minimumNumber:(id)a0 number2:(id)a1;
++ (id)_nextDateWithProductType:(unsigned long long)a0 referenceDate:(id)a1;
++ (id)_nextDueAmountForFinancingPlans:(id)a0;
++ (id)_nikeMerchant;
++ (id)_paymentFundingSourceFromPlanFundingSource:(id)a0;
++ (id)_paymentsForConfigs:(id)a0 installmentDueDates:(id)a1 planIdentifier:(id)a2 transactionDate:(id)a3 installmentAmountWithInterest:(id)a4 installmentAmountWithoutInterest:(id)a5 installmentInterest:(id)a6 totalAmountWithInterest:(id)a7 totalAmountWithoutInterest:(id)a8 totalInterest:(id)a9 currency:(id)a10 ignoreFutureDates:(BOOL)a11 paymentIdentifiersForDispute:(id *)a12;
++ (id)_principalPaidToDateForInstallments:(id)a0 installmentAmountWithoutInterest:(id)a1;
++ (void)_processCreditRevokedWithPayment:(id)a0 installments:(id)a1 payments:(id)a2 disputes:(id)a3 currency:(id)a4;
++ (void)_processRefundRevokedWithPayment:(id)a0 installments:(id)a1 payments:(id)a2 currency:(id)a3;
++ (id)_saksMerchant;
++ (id)_testMerchant;
++ (id)_wellsFargoACHPaymentSource;
++ (id)_wellsFargoACHPlanSource;
++ (void)deleteMockAccountWithCompletion:(id /* block */)a0;
++ (id)generatePayLaterAccountForFinancingPlans:(id)a0;
++ (void)insertAndUpdateAccountWithAdditionalFinancingPlans:(id)a0 completion:(id /* block */)a1;
++ (void)insertAndUpdateAccountWithNewPlanType:(unsigned long long)a0 installmentCount:(long long)a1 principalAmount:(id)a2 apr:(id)a3 daysSinceTransactionStart:(long long)a4 merchant:(unsigned long long)a5 completion:(id /* block */)a6;
++ (id)maximumAPRForProductType:(unsigned long long)a0;
++ (long long)maximumInstallmentCountForProductType:(unsigned long long)a0;
++ (id)maximumPrincipalAmountForProductType:(unsigned long long)a0;
++ (id)minimumAPRForProductType:(unsigned long long)a0;
++ (long long)minimumInstallmentCountForProductType:(unsigned long long)a0;
++ (id)minimumPrincipalAmountForProductType:(unsigned long long)a0;
++ (id)payLaterFinancingPlanFundingSourceForType:(unsigned long long)a0;
++ (id)payLaterMerchantForType:(unsigned long long)a0;
++ (id)payLaterPaymentFundingSourceForType:(unsigned long long)a0;
+
+@end

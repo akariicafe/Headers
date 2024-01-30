@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.HomeAutomationDiscoveryEntityResponses : HomeAutomationInternal.HomeAutomationEntityResponses
+
+@end

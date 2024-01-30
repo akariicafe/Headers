@@ -1,0 +1,3 @@
+@interface __UIPageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

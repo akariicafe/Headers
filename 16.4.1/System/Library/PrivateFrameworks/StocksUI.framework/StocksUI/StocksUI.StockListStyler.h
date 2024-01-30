@@ -1,0 +1,6 @@
+@interface StocksUI.StockListStyler : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ addButtonStyler;
+    void /* unknown type, empty encoding */ baseStyler;
+}
+
+@end

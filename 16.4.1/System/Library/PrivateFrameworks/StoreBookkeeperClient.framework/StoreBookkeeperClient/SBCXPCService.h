@@ -1,0 +1,26 @@
+@class SBCXPCServiceInterface, NSXPCConnection, SBCClientConfiguration, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SBCXPCService : NSObject
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSXPCConnection *xpcConnection;
+@property (readonly, nonatomic) SBCClientConfiguration *clientConfiguration;
+@property (readonly, nonatomic) SBCXPCServiceInterface *XPCServiceInterface;
+@property (nonatomic, getter=isConnectionConfigured) BOOL connectionConfigured;
+
++ (id)XPCInterfaceDebugDescription;
++ (Class)XPCServiceInterfaceClass;
++ (id)newListener;
+
+- (void)setClientConfiguration:(id)a0;
+- (void)dealloc;
+- (void)closeServiceConnection;
+- (void).cxx_destruct;
+- (void)_openServiceConnection;
+- (void)_serverDidLaunch;
+- (void)didConnectToService;
+- (id)initWithClientConfiguration:(id)a0;
+- (id)newServiceConnection;
+
+@end

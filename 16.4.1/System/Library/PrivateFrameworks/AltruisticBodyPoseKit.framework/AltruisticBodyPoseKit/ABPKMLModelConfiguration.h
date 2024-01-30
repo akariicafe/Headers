@@ -1,0 +1,3 @@
+@interface ABPKMLModelConfiguration : NSObject
+
+@end

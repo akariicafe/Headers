@@ -1,0 +1,3 @@
+@interface MPSNNLabelsNode : MPSNNStateNode
+
+@end

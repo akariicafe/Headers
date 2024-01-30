@@ -1,0 +1,80 @@
+@class NSString, MPSGraph, MPSGraphTensor, MPSGraphTensorData, MPSGraphExecutable, NSObject;
+@protocol OS_dispatch_queue, MTLDevice, MTLEvent, MTLSharedEvent, MTLTexture, MTLFence, MTLCommandQueue;
+
+@interface _MFXTemporalScalingEffectV3 : _MTLFXTemporalScaler <MTLFXTemporalScalerSPI> {
+    id<MTLDevice> _device;
+    void /* unknown type, empty encoding */ _jitterOffset;
+    void /* unknown type, empty encoding */ _motionVectorScale;
+    BOOL _autoExposureEnabled;
+    id<MTLTexture> _history;
+    struct MPSGraphMPSGraphExecutableWrapper { MPSGraph *_graph; MPSGraphExecutable *_graphExecutable; MPSGraphTensor *_input_Tensor; MPSGraphTensor *_output_Tensor; struct BRNetDescriptor { int version; unsigned int image_width; unsigned int image_height; unsigned int input_width; unsigned int input_height; unsigned int input_channels; unsigned int input_unshuffle_ratio; unsigned int unshuffle_width; unsigned int unshuffle_height; unsigned int unshuffle_channels; unsigned int output_shuffle_ratio; unsigned int output_width; unsigned int output_height; unsigned int output_channels; unsigned int up_channels; unsigned int layers_channels[4]; BOOL atrous_filter; BOOL quarter_res; } desc; } _net_wrapper;
+    struct BRNet_v3_Filter { int x0; int x1; int x2; int x3; int x4; int x5; int x6; int x7; int x8; int x9; int x10; unsigned short x11; unsigned short x12; BOOL x13; BOOL x14; int x15; id x16; id x17; id x18; id x19; id x20; id x21; id x22; id x23; id x24; unsigned char x25; id x26[2]; id x27; id x28; id x29[2]; id x30[2]; unsigned char x31; id x32; id x33; id x34; id x35; id x36; id x37; id x38; id x39[2]; id x40[2]; id x41[2]; id x42[2]; id x43; id x44; id x45[2]; id x46; id x47; id x48; id x49; id x50; id x51; id x52; id x53; id x54; id x55; id x56; id x57; id x58; id x59; id x60; id x61; id x62; id x63; id x64; id x65; id x66; id x67; id x68; id x69; } *_filter;
+    MPSGraphTensorData *_input_TensorData;
+    MPSGraphTensorData *_output_TensorData;
+    id<MTLCommandQueue> _commandQueue;
+    id<MTLEvent> _inputEvent;
+    id<MTLEvent> _outputEvent;
+    id<MTLEvent> _midProcessingStartEvent;
+    id<MTLEvent> _midProcessingDoneEvent;
+    id<MTLSharedEvent> _framePowerOnSharedEvent;
+    id<MTLSharedEvent> _frameSharedEvent;
+    unsigned long long _inputEventValue;
+    unsigned long long _outputEventValue;
+    NSObject<OS_dispatch_queue> *_asyncQueue;
+}
+
+@property (nonatomic) struct CGPoint { double x; double y; } previousJitterOffset;
+@property (nonatomic) float exposure;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[4]; } currentWorldToViewMatrix;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[4]; } currentViewToClipMatrix;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[4]; } previousWorldToViewMatrix;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[4]; } previousViewToClipMatrix;
+@property (retain, nonatomic) id<MTLTexture> debugTexture;
+@property (readonly, nonatomic) unsigned long long colorTextureUsage;
+@property (readonly, nonatomic) unsigned long long depthTextureUsage;
+@property (readonly, nonatomic) unsigned long long motionTextureUsage;
+@property (readonly, nonatomic) unsigned long long outputTextureUsage;
+@property (nonatomic) unsigned long long inputContentWidth;
+@property (nonatomic) unsigned long long inputContentHeight;
+@property (retain, nonatomic) id<MTLTexture> colorTexture;
+@property (retain, nonatomic) id<MTLTexture> depthTexture;
+@property (retain, nonatomic) id<MTLTexture> motionTexture;
+@property (retain, nonatomic) id<MTLTexture> outputTexture;
+@property (retain, nonatomic) id<MTLTexture> exposureTexture;
+@property (nonatomic) float preExposure;
+@property (nonatomic) float jitterOffsetX;
+@property (nonatomic) float jitterOffsetY;
+@property (nonatomic) float motionVectorScaleX;
+@property (nonatomic) float motionVectorScaleY;
+@property (nonatomic) BOOL reset;
+@property (nonatomic, getter=isDepthReversed) BOOL depthReversed;
+@property (readonly, nonatomic) unsigned long long colorTextureFormat;
+@property (readonly, nonatomic) unsigned long long depthTextureFormat;
+@property (readonly, nonatomic) unsigned long long motionTextureFormat;
+@property (readonly, nonatomic) unsigned long long outputTextureFormat;
+@property (readonly, nonatomic) unsigned long long inputWidth;
+@property (readonly, nonatomic) unsigned long long inputHeight;
+@property (readonly, nonatomic) unsigned long long outputWidth;
+@property (readonly, nonatomic) unsigned long long outputHeight;
+@property (readonly, nonatomic) float inputContentMinScale;
+@property (readonly, nonatomic) float inputContentMaxScale;
+@property (retain, nonatomic) id<MTLFence> fence;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id).cxx_construct;
+- (id)initWithDevice:(id)a0 descriptor:(id)a1;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)encodeToCommandBuffer:(id)a0;
+- (void)encodeToCommandQueue:(id)a0;
+- (struct CGPoint { double x0; double x1; })jitterOffset;
+- (struct CGPoint { double x0; double x1; })motionVectorScale;
+- (BOOL)reversedDepth;
+- (void)setJitterOffset:(struct CGPoint { double x0; double x1; })a0;
+- (void)setMotionVectorScale:(struct CGPoint { double x0; double x1; })a0;
+- (void)setReversedDepth:(BOOL)a0;
+
+@end

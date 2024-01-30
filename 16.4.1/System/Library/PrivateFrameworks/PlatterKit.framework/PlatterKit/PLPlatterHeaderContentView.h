@@ -1,0 +1,91 @@
+@class UIFont, NSString, NSArray, NSDate, BSUIFontProvider, UIView, UIButton, MTVisualStylingProvider, NSTimeZone, PLPlatterHeaderContentViewLayoutManager, UILabel;
+@protocol BSUIDateLabel;
+
+@interface PLPlatterHeaderContentView : UIView <BSUIDateLabelDelegate, MTVisualStylingRequiring, PLContentSizeCategoryAdjusting> {
+    UILabel<BSUIDateLabel> *_dateLabel;
+    UIButton *_utilityButton;
+    PLPlatterHeaderContentViewLayoutManager *_layoutManager;
+    BOOL _hasUpdatedContent;
+    MTVisualStylingProvider *_visualStylingProvider;
+}
+
+@property (readonly, nonatomic, getter=_titleLabel) UILabel *titleLabel;
+@property (readonly, nonatomic, getter=_dateLabel) UILabel *dateLabel;
+@property (readonly, nonatomic, getter=_titleLabelFont) UIFont *titleLabelFont;
+@property (readonly, nonatomic, getter=_dateLabelFont) UIFont *dateLabelFont;
+@property (retain, nonatomic, getter=_fontProvider, setter=_setFontProvider:) BSUIFontProvider *fontProvider;
+@property (nonatomic, getter=_usesLargeTextLayout, setter=_setUsesLargeTextLayout:) BOOL usesLargeTextLayout;
+@property (nonatomic, getter=_utilityButtonHorizontalLayoutReference, setter=_setUtilityButtonHorizontalLayoutReference:) double utilityButtonHorizontalLayoutReference;
+@property (readonly, nonatomic, getter=_iconDimension) double iconDimension;
+@property (readonly, nonatomic, getter=_iconLeadingPadding) double iconLeadingPadding;
+@property (readonly, nonatomic, getter=_iconTrailingPadding) double iconTrailingPadding;
+@property (retain, nonatomic, getter=_fontProvider, setter=_setFontProvider:) BSUIFontProvider *fontProvider;
+@property (retain, nonatomic, getter=_titleLabel, setter=_setTitleLabel:) UILabel *titleLabel;
+@property (nonatomic, getter=_usesLargeTextLayout, setter=_setUsesLargeTextLayout:) BOOL usesLargeTextLayout;
+@property (nonatomic, getter=_utilityButtonHorizontalLayoutReference, setter=_setUtilityButtonHorizontalLayoutReference:) double utilityButtonHorizontalLayoutReference;
+@property (copy, nonatomic) NSArray *icons;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSDate *date;
+@property (nonatomic, getter=isDateAllDay) BOOL dateAllDay;
+@property (copy, nonatomic) NSTimeZone *timeZone;
+@property (nonatomic) long long dateFormatStyle;
+@property (readonly, nonatomic) NSArray *iconButtons;
+@property (readonly, nonatomic) UIButton *utilityButton;
+@property (retain, nonatomic) UIView *utilityView;
+@property (nonatomic) BOOL heedsHorizontalLayoutMargins;
+@property (readonly, nonatomic) double contentBaseline;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *requiredVisualStyleCategories;
+@property (copy, nonatomic) NSString *preferredContentSizeCategory;
+@property (nonatomic) BOOL adjustsFontForContentSizeCategory;
+
++ (id)_titleLabelFontFromFontProvider:(id)a0;
++ (double)contentBaselineToBoundsBottomWithWidth:(double)a0 scale:(double)a1;
+
+- (id)visualStylingProvider;
+- (void)_configureDateLabelIfNecessary;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (id)_layoutManager;
+- (id)visualStylingProviderForCategory:(long long)a0;
+- (void)_reduceTransparencyStatusDidChange:(id)a0;
+- (void)_configureDateLabel;
+- (void)_recycleDateLabel;
+- (void)setVisualStylingProvider:(id)a0;
+- (void)layoutMarginsDidChange;
+- (void)_updateTextAttributesForDateLabel;
+- (void)dateLabelDidChange:(id)a0;
+- (void)dealloc;
+- (id)_dateLabelPreferredFont;
+- (void)layoutSubviews;
+- (void)_tearDownDateLabel;
+- (id)init;
+- (void)setVisualStylingProvider:(id)a0 forCategory:(long long)a1;
+- (BOOL)adjustForContentSizeCategoryChange;
+- (void).cxx_destruct;
+- (void)_darkerSystemColorsStatusDidChange:(id)a0;
+- (id)_newTitleLabel;
+- (id)_lazyTitleLabel;
+- (id)_attributedStringForTitle:(id)a0;
+- (void)_configureIconButton:(id)a0 withIcon:(id)a1;
+- (void)_configureIconButtonsForIcons:(id)a0;
+- (void)_configureTitleLabel:(id)a0;
+- (void)_configureUtilityButton;
+- (void)_configureUtilityButtonIfNecessary;
+- (double)_headerHeightForWidth:(double)a0;
+- (void)_layoutDateLabelWithScale:(double)a0;
+- (void)_layoutIconButtonsWithScale:(double)a0;
+- (void)_layoutTitleLabelWithScale:(double)a0;
+- (void)_layoutUtilityButtonWithScale:(double)a0;
+- (id)_newIconButton;
+- (id)_titleLabelPreferredFont;
+- (void)_updateStylingForTitleLabel:(id)a0;
+- (void)_updateTextAttributesForTitleLabel:(id)a0;
+- (id)_updateTitleAttributesForAttributedString:(id)a0;
+- (void)_updateUtilityButtonFont;
+- (void)_updateUtilityButtonVisualStyling;
+- (id)_utilityButton;
+
+@end

@@ -1,0 +1,3 @@
+@interface WebAppCanvasDelegate : WebAppSceneDelegate
+
+@end

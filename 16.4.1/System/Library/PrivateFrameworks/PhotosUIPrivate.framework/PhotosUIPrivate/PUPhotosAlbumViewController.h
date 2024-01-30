@@ -1,0 +1,86 @@
+@class NSString, PUPhotosAlbumViewControllerSpec, PHFetchResult, PXEditableNavigationTitleView, PHAssetCollection, NSObject;
+@protocol PLAlbumProtocol;
+
+@interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUPhotosSectionHeaderViewDelegate, PXEditableNavigationTitleViewDelegate> {
+    struct { BOOL sectionHeadersEnabled; } _needsUpdateFlags;
+}
+
+@property (nonatomic, setter=_setCountingAssetTypes:) BOOL _isCountingAssetTypes;
+@property (nonatomic, setter=_setHasAccurateCounts:) BOOL _hasAccurateCounts;
+@property (retain, nonatomic, setter=_setAlbumSpec:) PUPhotosAlbumViewControllerSpec *_albumSpec;
+@property (readonly, nonatomic) PXEditableNavigationTitleView *editableTitleView;
+@property (readonly, nonatomic) BOOL shouldShowSectionHeaders;
+@property (readonly, nonatomic) NSString *globalFooterSubtitle;
+@property (readonly, nonatomic) PHAssetCollection *assetCollection;
+@property (readonly, nonatomic) PHFetchResult *assetCollectionAssets;
+@property (retain, nonatomic) NSObject<PLAlbumProtocol> *album;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)oneUpPresentationOrigin;
+- (void)_collectionView:(id)a0 performDropWithCoordinator:(id)a1;
+- (id)initWithSpec:(id)a0;
+- (id)_collectionView:(id)a0 dropSessionDidUpdate:(id)a1 withDestinationIndexPath:(id)a2;
+- (void)dropInteraction:(id)a0 performDrop:(id)a1;
+- (void)setSessionInfo:(id)a0;
+- (BOOL)canDragOut;
+- (BOOL)prepareForDismissingForced:(BOOL)a0;
+- (void)didTapHeaderView:(id)a0;
+- (BOOL)canDragIn;
+- (void)_setNeedsUpdate;
+- (void)viewDidLoad;
+- (id)px_navigationDestination;
+- (void)navigateToDestination:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (unsigned long long)routingOptionsForDestination:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)updateTitle;
+- (void)setAssetCollection:(id)a0;
+- (BOOL)isCameraRoll;
+- (id)editableNavigationTitleView:(id)a0 validateNewText:(id)a1;
+- (void)editableNavigationTitleViewDidEndEditing:(id)a0;
+- (void)photosDataSource:(id)a0 didReceivePhotoLibraryChange:(id)a1;
+- (BOOL)canBeginStackCollapseTransition;
+- (void)_countAssetTypesIfNeeded;
+- (void)_ensureEditableTitleView;
+- (void)_getDataForVisualSection:(long long)a0 hasActionButton:(BOOL *)a1 locations:(id *)a2 title:(id *)a3 startDate:(id *)a4 endDate:(id *)a5;
+- (id)_globalHeaderTitle;
+- (void)_invalideSectionHeaders;
+- (void)_performAddDropWithSession:(id)a0;
+- (void)_performMoveDropWithCoordinator:(id)a0;
+- (void)_updateSectionHeadersIfNeeded;
+- (unsigned long long)additionalOneUpViewControllerOptions;
+- (BOOL)allowSelectAllButton;
+- (BOOL)canHandleDropSession:(id)a0;
+- (long long)cellFillMode;
+- (void)configureGlobalFooterView:(id)a0;
+- (void)configureGlobalHeaderView:(id)a0;
+- (void)configureSupplementaryView:(id)a0 ofKind:(id)a1 forIndexPath:(id)a2;
+- (struct CGPoint { double x0; double x1; })contentOffsetForPreheating;
+- (id)filterPredicateForAlbum:(id)a0;
+- (double)globalHeaderHeight;
+- (void)handleAddFromAction;
+- (void)handleAddToAlbum:(id)a0 pickedAssets:(id)a1;
+- (void)handleTransitionFade:(BOOL)a0 animate:(BOOL)a1;
+- (id)initWithAlbumSpec:(id)a0;
+- (BOOL)isTrashBinViewController;
+- (id)localizedTitleForAssets:(id)a0;
+- (id)newGridLayout;
+- (double)sectionedGridLayout:(id)a0 accessibilitySectionHeaderHeightForVisualSection:(long long)a1;
+- (double)sectionedGridLayout:(id)a0 sectionHeaderHeightForVisualSection:(long long)a1;
+- (id)sessionInfoForTransferredAssets:(id)a0;
+- (void)setAlbum:(id)a0 existingFetchResult:(id)a1;
+- (void)setAssetCollection:(id)a0 fetchResultContainingAssetCollection:(id)a1 filterPredicate:(id)a2;
+- (void)setAssetCollection:(id)a0 fetchResultContainingAssetCollection:(id)a1 filterPredicate:(id)a2 existingFetchResults:(id)a3;
+- (void)setupScrubber;
+- (void)updateLayoutMetrics;
+- (BOOL)updateSpec;
+- (unsigned long long)userEventSourceType;
+- (BOOL)wantsGlobalFooter;
+
+@end

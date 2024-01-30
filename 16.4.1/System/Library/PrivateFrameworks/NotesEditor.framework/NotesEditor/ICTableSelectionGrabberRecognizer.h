@@ -1,0 +1,3 @@
+@interface ICTableSelectionGrabberRecognizer : UILongPressGestureRecognizer
+
+@end

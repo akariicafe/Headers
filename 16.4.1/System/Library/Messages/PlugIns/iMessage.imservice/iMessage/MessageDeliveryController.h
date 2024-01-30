@@ -1,0 +1,79 @@
+@class NSString, NSMutableDictionary, IMTimer, IMMultiQueue, IDSService;
+@protocol MessageDeliveryControllerDelegate;
+
+@interface MessageDeliveryController : NSObject <IDSServiceDelegatePrivate> {
+    IMMultiQueue *_deliveryQueues;
+    NSMutableDictionary *_typingContext;
+    IMTimer *_typingContextTimer;
+    NSMutableDictionary *_activeDeviceForHandle;
+    IDSService *_idsService;
+    IDSService *_idsBizService;
+    NSMutableDictionary *_pendingSends;
+    NSMutableDictionary *_pendingWillSendBlocks;
+    NSMutableDictionary *_pendingTimestampUpdate;
+}
+
+@property (weak) id<MessageDeliveryControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (id)messageStore;
+- (void)service:(id)a0 account:(id)a1 identifier:(id)a2 didSendWithSuccess:(BOOL)a3 error:(id)a4;
+- (void)service:(id)a0 account:(id)a1 messageIdentifier:(id)a2 alternateCallbackID:(id)a3 updatedWithResponseCode:(long long)a4 error:(id)a5 lastCall:(BOOL)a6 messageContext:(id)a7;
+- (void)_setReplyToGUIDForMessage:(id)a0 messageDictionary:(id)a1;
+- (void)sendEditedMessage:(id)a0 partIndex:(long long)a1 editType:(unsigned long long)a2 destinations:(id)a3 chatIdentifier:(id)a4 account:(id)a5 fromID:(id)a6 backwardCompatabilityText:(id)a7 unsupportedDestinationsHandler:(id /* block */)a8 completionBlock:(id /* block */)a9;
+- (void)noteRecentMessageForPeople:(id)a0;
+- (id)idsDeviceFromPushToken:(id)a0;
+- (id)_fallbackMessageItemFromLinkMetadata:(id)a0 originalMessageItem:(id)a1;
+- (id)_propertyForExpressiveSendStyle:(id)a0;
+- (BOOL)_hasRecentlyMessaged:(id)a0;
+- (id)newNicknameInfoToSend;
+- (void)_appendMyNicknameToMessageDictionary:(id)a0 forMessage:(id)a1 chat:(id)a2;
+- (void)sendMessageErrorWithInfo:(long long)a0 toToken:(id)a1 toID:(id)a2 toGroup:(id)a3 fromID:(id)a4 fromAccount:(id)a5 forMessageID:(id)a6 additionalInfo:(id)a7 fileSize:(id)a8 failureTimeSeconds:(double)a9 failReasonMessage:(id)a10 completionBlock:(id /* block */)a11;
+- (void)_addIdentifierToPendingTimestampUpdateMap:(id)a0 alternateCallbackId:(id)a1;
+- (id)_appendFilePathsWithGUIDs:(id)a0;
+- (void)sendMessageDictionary:(id)a0 fromID:(id)a1 fromAccount:(id)a2 toURIs:(id)a3 toGroup:(id)a4 priority:(long long)a5 options:(id)a6 completionBlock:(id /* block */)a7;
+- (void)sendMessageDictionary:(id)a0 encryptDictionary:(BOOL)a1 fromID:(id)a2 fromAccount:(id)a3 toURIs:(id)a4 toGroup:(id)a5 priority:(long long)a6 options:(id)a7 willSendBlock:(id /* block */)a8 completionBlock:(id /* block */)a9;
+- (void)dealloc;
+- (void)_sendBackwardCompatibilityMessageForEditedMessage:(id)a0 usingMessageGUID:(id)a1 toBackwardCompatabilityDestinations:(id)a2 withOriginalDestinations:(id)a3 chatIdentifier:(id)a4 fromAccount:(id)a5 fromID:(id)a6 backwardCompatabilityText:(id)a7 completionBlock:(id /* block */)a8;
+- (id)_receivingDevicesForHandle:(id)a0 skippedDestinations:(id)a1;
+- (void)_appendRecipientNicknameTruncatedRecordIDToMessageDictionary:(id)a0 forChat:(id)a1;
+- (void)_enqueueUpdateBlock:(id /* block */)a0 willSendBlock:(id /* block */)a1 identifier:(id)a2 callbackID:(id)a3 messageCommandOption:(id)a4;
+- (void)_appendRecipientAvailabilityVerificationInfoToMessageDictionary:(id)a0 forChat:(id)a1;
+- (id)_compressedAttributionInfoForMessage:(id)a0;
+- (void)failMessageSendWithMessageDictionary:(id)a0 URIs:(id)a1 error:(id)a2 completionHandler:(id /* block */)a3;
+- (id)_receivingDevicesForParticipants:(id)a0 skippedDestinations:(id)a1;
+- (void)appendChatRelatedPropertiesToMessageDictionary:(id)a0 forMessage:(id)a1 chatIdentifier:(id)a2;
+- (void)sendBubblePayloadMessageDictionary:(id)a0 fromID:(id)a1 fromAccount:(id)a2 toURIs:(id)a3 toGroup:(id)a4 priority:(long long)a5 options:(id)a6 completionBlock:(id /* block */)a7;
+- (void)sendMessage:(id)a0 context:(id)a1 groupContext:(id)a2 toGroup:(id)a3 toParticipants:(id)a4 originallyToParticipants:(id)a5 fromID:(id)a6 fromAccount:(id)a7 chatIdentifier:(id)a8 originalPayload:(id)a9 replyToMessageGUID:(id)a10 fakeSavedReceiptBlock:(id /* block */)a11 completionBlock:(id /* block */)a12;
+- (id)activeDeviceForHandle:(id)a0;
+- (void)_updateTimeStampForMessageIdentifierIfNeeded:(id)a0 pendingTimeStampUpdateIdentifier:(id)a1 alternateCallbackID:(id)a2 messageContext:(id)a3;
+- (void)updateLatestActiveDestination:(id)a0 ForHandle:(id)a1 incomingType:(unsigned char)a2;
+- (id)init;
+- (void)_enqueueSendMessageWorkBlock:(id /* block */)a0 forURIs:(id)a1;
+- (void)sendMessageDictionary:(id)a0 fromID:(id)a1 fromAccount:(id)a2 toURIs:(id)a3 toGroup:(id)a4 priority:(long long)a5 options:(id)a6 willSendBlock:(id /* block */)a7 completionBlock:(id /* block */)a8;
+- (BOOL)sendToLocalPeersFile:(id)a0 dictionary:(id)a1;
+- (void)sendLogDumpMessageAtFilePath:(id)a0 fromAccount:(id)a1 fromID:(id)a2 toRecipient:(id)a3 shouldDeleteFile:(BOOL)a4 withCompletion:(id /* block */)a5;
+- (id)_computeRegPropertiesForNewFeatures:(id)a0 currentRegProperties:(id)a1 currentInterestingProp:(id)a2;
+- (BOOL)forceBackwardsCompatibleMessageForBundleID:(id)a0;
+- (void)service:(id)a0 account:(id)a1 identifier:(id)a2 alternateCallbackID:(id)a3 willSendToDestinations:(id)a4 skippedDestinations:(id)a5 registrationPropertyToDestinations:(id)a6;
+- (void)_sendIDSMessageWithTransferGUID:(id)a0 andTransfer:(id)a1 fromAccount:(id)a2 fromID:(id)a3 toRecipient:(id)a4 withCompletion:(id /* block */)a5;
+- (id)_chatForChatIdentifier:(id)a0;
+- (void)_updateIDSServiceForTesting:(id)a0;
+- (BOOL)_enableBackwardsCompatibility;
+- (void)sendMessageError:(long long)a0 toToken:(id)a1 toID:(id)a2 toGroup:(id)a3 fromID:(id)a4 fromAccount:(id)a5 forMessageID:(id)a6 completionBlock:(id /* block */)a7;
+- (BOOL)shouldSendAuxXML:(id)a0;
+- (void)_sendMessage:(id)a0 context:(id)a1 deliveryContext:(id)a2 fromID:(id)a3 fromAccount:(id)a4 toID:(id)a5 chatIdentifier:(id)a6 toSessionToken:(id)a7 toGroup:(id)a8 toParticipants:(id)a9 originallyToParticipants:(id)a10 requiredRegProperties:(id)a11 interestingRegProperties:(id)a12 requiresLackOfRegProperties:(id)a13 canInlineAttachments:(BOOL)a14 type:(long long)a15 msgPayloadUploadDictionary:(id)a16 originalPayload:(id)a17 replyToMessageGUID:(id)a18 willSendBlock:(id /* block */)a19 completionBlock:(id /* block */)a20;
+- (BOOL)sendToLocalPeers:(id)a0;
+- (id)localDevice;
+- (void)service:(id)a0 didFlushCacheForRemoteURI:(id)a1 fromURI:(id)a2 guid:(id)a3;
+- (BOOL)shouldSendBackwardsCompatibleMessageForBundleID:(id)a0;
+- (BOOL)_nicknameFeatureEnabled;
+- (void).cxx_destruct;
+- (void)sendCloseSessionMessageDictionary:(id)a0 toBusinessURI:(id)a1 fromURI:(id)a2 fromAccount:(id)a3 completionBlock:(id /* block */)a4;
+
+@end

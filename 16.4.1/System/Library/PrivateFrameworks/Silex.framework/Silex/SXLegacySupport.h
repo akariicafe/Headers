@@ -1,0 +1,3 @@
+@interface SXLegacySupport : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface PlaybackVoiceMemoIntent : INIntent
+
+@end

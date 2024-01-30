@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterTestFabricScopedEventEvent : MTRUnitTestingClusterTestFabricScopedEventEvent
+
+@end

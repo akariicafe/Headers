@@ -1,0 +1,3 @@
+@interface __SKUIButtonCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

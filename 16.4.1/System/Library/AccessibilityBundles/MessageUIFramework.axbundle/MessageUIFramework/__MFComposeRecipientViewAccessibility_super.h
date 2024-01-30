@@ -1,0 +1,3 @@
+@interface __MFComposeRecipientViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

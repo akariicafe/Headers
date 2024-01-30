@@ -1,0 +1,3 @@
+@interface HMDBackingStoreModelObjectStorageInfoDeprecatedField : HMFObject
+
+@end

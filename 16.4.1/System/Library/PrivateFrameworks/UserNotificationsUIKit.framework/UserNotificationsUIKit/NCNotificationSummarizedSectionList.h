@@ -1,0 +1,80 @@
+@class NSUUID, NCNotificationSummaryPlatterContainingView, NCNotificationSummaryOrderProvider, PLSwipeInteraction, NSString;
+
+@interface NCNotificationSummarizedSectionList : NCNotificationCombinedSectionList <NCNotificationListCoalescingControlsHandlerDelegate, NCNotificationSummaryOrderProviderDelegate, PLSwipeInteractionDelegate> {
+    BOOL _adjustsFontForContentSizeCategory;
+}
+
+@property (retain, nonatomic) NCNotificationSummaryPlatterContainingView *summaryPlatterContainingView;
+@property (nonatomic) BOOL shouldAdjustIndex;
+@property (retain, nonatomic) PLSwipeInteraction *summaryPlatterViewSwipeInteraction;
+@property (nonatomic, getter=isPerformingClearAll) BOOL performingClearAll;
+@property (nonatomic, getter=isHorizontallyDisplaced) BOOL horizontallyDisplaced;
+@property (readonly, copy, nonatomic) NSUUID *atxUUID;
+@property (retain, nonatomic) NCNotificationSummaryOrderProvider *summaryOrderProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (double)buttonsCornerRadiusForSwipeInteraction:(id)a0;
+- (BOOL)_shouldHideNotificationRequest:(id)a0;
+- (void)swipeInteractionDidBeginHidingActions:(id)a0;
+- (id)notificationListView:(id)a0 viewForItemAtIndex:(unsigned long long)a1;
+- (void)_didPerformSignificantUserInteraction;
+- (id)_newSectionHeaderView;
+- (void)_configureSummaryPlatterViewSwipeInteractionIfNecessary;
+- (void)_configureSwipeClippingIfNecessary;
+- (BOOL)swipeInteraction:(id)a0 shouldRevealActionsFromLayoutLocation:(unsigned long long)a1;
+- (void)_showSummaryPlatterView;
+- (void)removeNotificationRequest:(id)a0;
+- (void)notificationSummaryOrderProvider:(id)a0 requestsPerformingDefaultActionForNotificationRequest:(id)a1 inGroupList:(id)a2;
+- (id)viewToMoveForSwipeInteraction:(id)a0;
+- (id)titlesForSectionListsInSummaryForSummaryOrderProvider:(id)a0;
+- (void)_collapseSection;
+- (BOOL)_shouldPerformSwipeClipping;
+- (void)_collapseAllSectionListViews;
+- (void)notificationListBaseComponentDidRemoveAll:(id)a0;
+- (void)_setupSwipeClipping;
+- (unsigned long long)notificationCountForSummaryOrderProvider:(id)a0;
+- (void)_updateSectionForRankOrderedIfNecessaryAndReloadDigest:(BOOL)a0;
+- (double)notificationListView:(id)a0 heightForItemAtIndex:(unsigned long long)a1 withWidth:(double)a2;
+- (void)_prepareForExpand;
+- (void)swipeInteractionDidBeginRevealingActions:(id)a0;
+- (void)_expandSection;
+- (void)swipeInteractionDidSignificantUserInteraction:(id)a0;
+- (id)listComponentDelegateForSummaryPlatterViewForNotificationSummaryOrderProvider:(id)a0;
+- (void)updateNotificationSectionSettings:(id)a0 previousSectionSettings:(id)a1;
+- (void)_hideSummaryPlatterView;
+- (void)_collapseAllGroupListViews;
+- (id)_clearAction;
+- (void)notificationSummaryOrderProviderDidTapOnLeadingSummaryPlatterView:(id)a0;
+- (BOOL)shouldContinuePresentingActionButtonsForSwipeInteraction:(id)a0;
+- (void)sectionHeaderViewDidRequestCollapsing:(id)a0;
+- (void)swipeInteraction:(id)a0 didMoveToNewXPosition:(double)a1;
+- (void)notificationSummaryOrderProvider:(id)a0 didUpdateOrderedNotificationGroupLists:(id)a1;
+- (id)swipeInteraction:(id)a0 actionsToRevealFromLayoutLocation:(unsigned long long)a1;
+- (void)_reloadGroupListLeadingNotificationRequests;
+- (void)collapseSummarizedSectionList;
+- (BOOL)adjustsFontForContentSizeCategory;
+- (void)insertNotificationRequest:(id)a0;
+- (id)materialGroupNameBaseForNotificationSummaryOrderProvider:(id)a0;
+- (BOOL)_shouldHideNotificationGroupList:(id)a0;
+- (double)footerViewHeightForNotificationList:(id)a0 withWidth:(double)a1;
+- (void)notificationListComponent:(id)a0 didRemoveNotificationRequest:(id)a1;
+- (id)_notificationGroupsForDigestRankOrdering;
+- (unsigned long long)notificationListViewNumberOfItems:(id)a0;
+- (void)mergeNotificationGroups:(id)a0 reorderGroupNotifications:(BOOL)a1;
+- (void)setDeviceAuthenticated:(BOOL)a0;
+- (BOOL)notificationGroupListShouldReloadNotificationCells:(id)a0;
+- (void)_insertViewToListAtIndex:(unsigned long long)a0 animated:(BOOL)a1;
+- (void)clearAll;
+- (void)notificationSummaryOrderProviderRequestsReloadingLeadingSummaryPlatterView:(id)a0;
+- (void)_resetSwipeClipping;
+- (void)setAdjustsFontForContentSizeCategory:(BOOL)a0;
+- (id)comparisonDate;
+- (BOOL)adjustForContentSizeCategoryChange;
+- (void).cxx_destruct;
+- (void)_configureSectionListView:(id)a0;
+- (void)_removeViewFromListAtIndex:(unsigned long long)a0 animated:(BOOL)a1;
+
+@end

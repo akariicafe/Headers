@@ -1,0 +1,3 @@
+@interface ___UIBarCustomizationChicletAnchorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

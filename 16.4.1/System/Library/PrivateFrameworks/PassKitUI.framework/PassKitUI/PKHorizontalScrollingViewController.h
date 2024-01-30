@@ -1,0 +1,80 @@
+@class NSIndexSet, NSMutableDictionary, NSString, NSMutableSet, UIScrollView, NSObject;
+@protocol OS_dispatch_source, PKHorizontalScrollingViewControllerDataSource;
+
+@interface PKHorizontalScrollingViewController : UIViewController <PKHorizontalScrollingViewControllerDelegate, UIScrollViewDelegate, PKHorizontalScrollingViewControllerDataSource> {
+    id<PKHorizontalScrollingViewControllerDataSource> _dataSource;
+    BOOL _isScrolling;
+    BOOL _isDragging;
+    BOOL _hasPrefetchedLeft;
+    BOOL _hasPrefetchedRight;
+    BOOL _isLowEndDevice;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lockUpdate;
+    NSMutableDictionary *_pendingUpdates;
+    NSMutableSet *_unusedViewControllers;
+    NSMutableDictionary *_pendingDataCollectionViewUpdates;
+    UIScrollView *_scrollView;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _previousBounds;
+    struct CGSize { double width; double height; } _currentSize;
+    double _collectionViewVerticalOffset;
+    NSObject<OS_dispatch_source> *_scrollTimer;
+}
+
+@property (readonly, nonatomic) long long primaryIndex;
+@property (readonly, nonatomic) NSIndexSet *visibleIndices;
+@property (readonly, nonatomic) NSMutableDictionary *indicesToViewControllerMapping;
+@property (readonly, nonatomic) NSMutableDictionary *nonVisibleIndicesToViewControllerMapping;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (id)footerView;
+- (void)_updateScrollViewContentSize;
+- (long long)numberOfItems;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)_scrollViewStoppedScrolling;
+- (void)viewDidLoad;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (id)init;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void).cxx_destruct;
+- (double)_transitionProgress;
+- (long long)startingIndex;
+- (id)_dequeueViewControllerForIndex:(unsigned long long)a0;
+- (BOOL)_canReloadViewControllers;
+- (id)_dequeueNonVisibleViewControllerForIndex:(unsigned long long)a0;
+- (double)_endOfItemAtIndex:(unsigned long long)a0;
+- (unsigned long long)_indexAtContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (void)_layoutCollectionViews;
+- (void)_loadDataForContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (unsigned long long)_primaryIndexAtOffset:(struct CGPoint { double x0; double x1; })a0;
+- (id)_recoverUnusedViewController;
+- (void)_reloadDataForViewControllerAtIndex:(unsigned long long)a0 swap:(BOOL)a1;
+- (void)_reloadPendingViewControllers;
+- (void)_retireViewControllerForIndex:(unsigned long long)a0;
+- (double)_startOfItemAtIndex:(unsigned long long)a0;
+- (void)_switchPrimaryIndexToIndex:(unsigned long long)a0;
+- (void)_updateAlphaDuringTransition;
+- (void)_updatePrimaryIndex:(long long)a0;
+- (void)_updatePrimaryViewScrolling;
+- (id)_visibileIndicesAtContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (double)_yPositionForNonPrimaryViewControllers;
+- (id)cachedDataAtIndex:(long long)a0;
+- (void)clearPendingDataCollectionViewUpdates;
+- (void)didDequeueViewController:(id)a0;
+- (void)didMoveToPrimaryIndex:(long long)a0;
+- (id)emptyViewControllers;
+- (void)enableScrollView:(BOOL)a0;
+- (void)fetchDataAtIndex:(long long)a0 completion:(id /* block */)a1;
+- (double)footerViewContentHeight;
+- (void)horizontalScrollingViewController:(id)a0 scrollViewDidScroll:(id)a1;
+- (id)loadingDataObjectWithCurrentData:(id)a0 index:(long long)a1 swap:(BOOL)a2;
+- (void)prefetchDataIfNecessary;
+- (void)reloadDataForViewControllerAtIndex:(long long)a0 swap:(BOOL)a1;
+- (void)resetVisibleViewControllersWithNewPrimaryIndex:(long long)a0;
+- (void)updateScrollViewContentOffsetWithNewPrimaryIndex:(long long)a0;
+
+@end

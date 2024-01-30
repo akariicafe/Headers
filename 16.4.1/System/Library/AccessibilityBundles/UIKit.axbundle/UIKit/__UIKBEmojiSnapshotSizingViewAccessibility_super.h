@@ -1,0 +1,3 @@
+@interface __UIKBEmojiSnapshotSizingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

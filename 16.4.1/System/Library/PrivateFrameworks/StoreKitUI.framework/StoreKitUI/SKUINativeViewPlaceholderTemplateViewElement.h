@@ -1,0 +1,3 @@
+@interface SKUINativeViewPlaceholderTemplateViewElement : SKUIViewElement
+
+@end

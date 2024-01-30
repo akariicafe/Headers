@@ -1,0 +1,3 @@
+@interface __MFComposeActionCardTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

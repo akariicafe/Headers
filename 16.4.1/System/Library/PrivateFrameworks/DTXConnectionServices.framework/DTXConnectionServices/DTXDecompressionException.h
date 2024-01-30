@@ -1,0 +1,3 @@
+@interface DTXDecompressionException : NSException
+
+@end

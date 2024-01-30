@@ -1,0 +1,3 @@
+@interface SSDocumentUpdateAction : BSAction
+
+@end

@@ -1,0 +1,3 @@
+@interface NMBUISubtitleDisclosureTableCell : NMBUIDisclosureMediaTableCell
+
+@end

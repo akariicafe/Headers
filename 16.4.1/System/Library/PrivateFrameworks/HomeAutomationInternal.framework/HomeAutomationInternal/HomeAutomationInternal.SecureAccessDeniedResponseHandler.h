@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.SecureAccessDeniedResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

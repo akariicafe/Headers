@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterSimpleStruct : MTRUnitTestingClusterSimpleStruct
+
+@end

@@ -1,0 +1,86 @@
+@class NSString, NSArray, NSMutableDictionary, TVMediaPlaybackManager, NSMutableSet, NSMutableArray, NSObject, NSMapTable;
+@protocol VUINowPlayingFeature, TVPAVFPlayback, VUINowPlayingFeatureMonitorDelegate;
+
+@interface VUINowPlayingFeatureMonitor : NSObject <TVMediaPlaybackManagerDelegate> {
+    struct { BOOL respondsToFeatureDidChangeState; BOOL respondsToActiveFeatureChangedFrom; } _delegateFlags;
+}
+
+@property (retain, nonatomic) NSMutableSet *features;
+@property (retain, nonatomic) NSMapTable *featureDependencies;
+@property (retain, nonatomic) NSMapTable *featureTokens;
+@property (retain, nonatomic) NSMapTable *featureBoundaryInfos;
+@property (retain, nonatomic) NSMapTable *featureTimers;
+@property (retain, nonatomic) id<VUINowPlayingFeature> featureLastRequestedUI;
+@property (retain, nonatomic) NSMutableArray *enabledUIModes;
+@property (nonatomic) BOOL observingElapsedTime;
+@property (nonatomic) double lastProcessedElapsedTime;
+@property (retain, nonatomic) NSMutableDictionary *boundaryTimeObserverInfos;
+@property (retain, nonatomic) id elapsedTimeObserverToken;
+@property (retain, nonatomic) NSMutableArray *elapsedTimes;
+@property (readonly, nonatomic) NSArray *allFeatures;
+@property (weak, nonatomic) id<VUINowPlayingFeatureMonitorDelegate> delegate;
+@property (retain, nonatomic) NSObject<TVPAVFPlayback> *player;
+@property (retain, nonatomic) TVMediaPlaybackManager *playbackManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_applicationWillEnterForeground:(id)a0;
+- (void)_applicationDidEnterBackground:(id)a0;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)init;
+- (void).cxx_destruct;
+- (void)addFeature:(id)a0;
+- (id)_activeFeatures;
+- (void)_activateFeature:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (id)_activeFeature;
+- (void)_addObservedToken:(id)a0 forFeature:(id)a1;
+- (void)_addTimeObservingForFeature:(id)a0 withStartTime:(double)a1 andHandler:(id /* block */)a2;
+- (void)_cancelTimerForFeature:(id)a0;
+- (void)_cleanUpEverything;
+- (void)_cleanupFeature:(id)a0;
+- (void)_deactivateFeature:(id)a0 animated:(BOOL)a1;
+- (void)_expireTimerFeaturesIfNeeded;
+- (BOOL)_hasActiveFeaturesInArray:(id)a0;
+- (BOOL)_hasAnyActiveFeature;
+- (BOOL)_isElapsedTimeWithinFeatureTimeWindow:(id)a0;
+- (BOOL)_isHybridFeature:(id)a0;
+- (BOOL)_isTVAdvisoryFeature:(id)a0;
+- (BOOL)_isTimeBoundFeature:(id)a0;
+- (BOOL)_isTimerFeatureExpired:(id)a0;
+- (BOOL)_isTimerTriggeredFeature:(id)a0;
+- (BOOL)_isUserTriggeredFeature:(id)a0;
+- (BOOL)_needsUIForFeature:(id)a0;
+- (id)_observerInfoForFeature:(id)a0 matchingTime:(double)a1;
+- (void)_playbackStateChangedNottificaiton:(id)a0;
+- (void)_processAnyTimeBoundFeatures;
+- (void)_processElapsedTime:(double)a0;
+- (void)_processFeature:(id)a0;
+- (void)_processLastElapsedTime;
+- (void)_processTimeBoundFeature:(id)a0;
+- (void)_processTimerTriggeredFeature:(id)a0;
+- (void)_processUserTriggeredFeature:(id)a0 activate:(BOOL)a1 animated:(BOOL)a2;
+- (void)_registerPlaybackStateChangeNotification;
+- (void)_removeAllObservedTokensForFeature:(id)a0;
+- (void)_removeTimeObservingForFeature:(id)a0 withStartTime:(double)a1;
+- (void)_scheduleDeactivationOfTimeBoundFeature:(id)a0;
+- (void)_setupTimerFeatureExpiration;
+- (BOOL)_shouldActivateTimeBoundFeatureInitially:(id)a0;
+- (BOOL)_shouldAnimateFeature:(id)a0;
+- (void)_startObservingElapsedTime;
+- (id)_timeBoundFeatures;
+- (void)_unregisterPlaybackStateNotification;
+- (void)_updateBoundaryObserverForFeature:(id)a0 change:(id)a1;
+- (id)activeFeatureForType:(unsigned long long)a0;
+- (void)addFeature:(id)a0 withDependencyToPreferredFeatures:(id)a1;
+- (void)deactivateFeature:(id)a0 animated:(BOOL)a1;
+- (void)enableUIMode:(long long)a0 enabled:(BOOL)a1;
+- (id)featuresForType:(unsigned long long)a0;
+- (BOOL)mediaPlaybackManager:(id)a0 shouldEnableUIModeImplicitly:(long long)a1;
+- (void)mediaPlaybackManager:(id)a0 shouldHideUI:(BOOL)a1 animated:(BOOL)a2 animations:(id /* block */)a3 completion:(id /* block */)a4;
+- (void)removeFeature:(id)a0;
+- (void)removeFeaturesMatching:(id)a0;
+
+@end

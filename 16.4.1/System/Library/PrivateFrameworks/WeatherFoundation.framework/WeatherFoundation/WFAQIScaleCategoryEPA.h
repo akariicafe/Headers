@@ -1,0 +1,3 @@
+@interface WFAQIScaleCategoryEPA : WFAQIScaleCategory
+
+@end

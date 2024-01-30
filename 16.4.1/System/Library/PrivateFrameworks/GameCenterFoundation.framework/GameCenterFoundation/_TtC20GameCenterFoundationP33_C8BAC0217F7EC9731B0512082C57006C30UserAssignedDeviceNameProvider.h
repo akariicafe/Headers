@@ -1,0 +1,3 @@
+@interface _TtC20GameCenterFoundationP33_C8BAC0217F7EC9731B0512082C57006C30UserAssignedDeviceNameProvider : _TtCs12_SwiftObject
+
+@end

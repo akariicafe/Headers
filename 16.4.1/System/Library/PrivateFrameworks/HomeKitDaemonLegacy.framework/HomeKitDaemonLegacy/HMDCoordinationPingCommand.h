@@ -1,0 +1,3 @@
+@interface HMDCoordinationPingCommand : COMeshCommand
+
+@end

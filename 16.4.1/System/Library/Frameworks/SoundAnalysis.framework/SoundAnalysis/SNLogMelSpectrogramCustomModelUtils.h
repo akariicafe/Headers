@@ -1,0 +1,3 @@
+@interface SNLogMelSpectrogramCustomModelUtils : NSObject
+
+@end

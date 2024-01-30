@@ -1,0 +1,3 @@
+@interface TSAPdfTaggerRubyTextRunContext : TSAPdfTaggerSecondaryTextRunContext
+
+@end

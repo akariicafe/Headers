@@ -1,0 +1,85 @@
+@class CPChunk, NSMutableArray;
+
+@interface CPPage : CPChunk <CPDisposable> {
+    int pageNumber;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } pageCropBox;
+    BOOL hasZones;
+    BOOL hasTextLines;
+    BOOL isDirty;
+    BOOL isStartOfSection;
+    long long maxLayoutZOrder;
+    CPChunk *background;
+    float complexity;
+    int rotation;
+    NSMutableArray *shapesOnPage;
+    NSMutableArray *imagesOnPage;
+    NSMutableArray *graphicsOnPage;
+    NSMutableArray *columnsOnPage;
+    NSMutableArray *annotationsOnPage;
+    struct CPPDFContext { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; unsigned int x1; struct CPPDFGraphicState *x2; struct CPPDFGraphicState *x3; struct CGPDFContentStream *x4[250]; unsigned int x5; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x6; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x7; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x8; struct CPPDFClipBuffer { unsigned int x0; unsigned int x1; unsigned int x2; struct CPPDFClipSequence *x3; } x9; struct __CFDictionary *x10; struct __CFDictionary *x11; struct __CFDictionary *x12; struct CPPDFStyle *x13; int *x14; unsigned int x15; unsigned int x16; unsigned int x17; int x18; struct CGPDFPage *x19; struct CPMultiUnicodes *x20; long long x21; long long x22; unsigned int *x23; struct CGPath **x24; BOOL x25; struct CGPDFTaggedContext *x26; } *pdfContext;
+    BOOL contextOwner;
+    struct CGPDFPage { } *pdfPage;
+    NSMutableArray *textLinesOnPage;
+    void *_layout;
+    id hitTest;
+    BOOL reconstructed;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } mutex;
+}
+
++ (void)sortByReadingOrder:(id)a0;
+
+- (void)setBackground:(id)a0;
+- (struct CGPDFLayout { } *)layout;
+- (void)setRotation:(int)a0;
+- (void)finalize;
+- (id)parent;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)background;
+- (void)dispose;
+- (void)reconstruct;
+- (void)dealloc;
+- (void)addAnnotation:(id)a0;
+- (id)init;
+- (id)children;
+- (int)rotation;
+- (int)pageNumber;
+- (void)addImage:(id)a0;
+- (void)setPageNumber:(int)a0;
+- (void)addColumns:(id)a0;
+- (void)addShape:(id)a0;
+- (struct CGPDFPage { } *)pdfPage;
+- (void)accept:(id)a0;
+- (struct CPPDFContext { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; unsigned int x1; struct CPPDFGraphicState *x2; struct CPPDFGraphicState *x3; struct CGPDFContentStream *x4[250]; unsigned int x5; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x6; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x7; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x8; struct CPPDFClipBuffer { unsigned int x0; unsigned int x1; unsigned int x2; struct CPPDFClipSequence *x3; } x9; struct __CFDictionary *x10; struct __CFDictionary *x11; struct __CFDictionary *x12; struct CPPDFStyle *x13; int *x14; unsigned int x15; unsigned int x16; unsigned int x17; int x18; struct CGPDFPage *x19; struct CPMultiUnicodes *x20; long long x21; long long x22; unsigned int *x23; struct CGPath **x24; BOOL x25; struct CGPDFTaggedContext *x26; } *)PDFContext;
+- (id)hitTest;
+- (void)setPageCropBox:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)textLinesOnPage;
+- (id)annotationsOnPage;
+- (id)bodyZone;
+- (struct CPPDFClipBuffer { unsigned int x0; unsigned int x1; unsigned int x2; struct CPPDFClipSequence *x3; } *)clipBuffer;
+- (id)columnsOnPage;
+- (float)complexity;
+- (id)graphicsOnPage;
+- (BOOL)hasTextLines;
+- (BOOL)hasZones;
+- (id)imagesOnPage;
+- (id)initWithPDFPage:(struct CGPDFPage { } *)a0;
+- (BOOL)isStartOfSection;
+- (void)layDownObjectsOnPage;
+- (void)layDownObjectsOnPageOld;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })pageCropBox;
+- (BOOL)populatePDFLayout:(struct CGPDFLayout { } *)a0;
+- (void)restoreBackGroundObjectToPage;
+- (unsigned int)setCellPositionsOf:(id)a0 from:(unsigned int)a1;
+- (void)setComplexity:(float)a0;
+- (unsigned int)setGraphicPositions:(id)a0 from:(unsigned int)a1;
+- (void)setHasTextLines:(BOOL)a0;
+- (void)setHasZones:(BOOL)a0;
+- (void)setIsStartOfSection:(BOOL)a0;
+- (void)setPDFContext:(struct CPPDFContext { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; unsigned int x1; struct CPPDFGraphicState *x2; struct CPPDFGraphicState *x3; struct CGPDFContentStream *x4[250]; unsigned int x5; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x6; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x7; struct PrimitiveBuffer { void *x0; void *x1; void *x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; int x7; } x8; struct CPPDFClipBuffer { unsigned int x0; unsigned int x1; unsigned int x2; struct CPPDFClipSequence *x3; } x9; struct __CFDictionary *x10; struct __CFDictionary *x11; struct __CFDictionary *x12; struct CPPDFStyle *x13; int *x14; unsigned int x15; unsigned int x16; unsigned int x17; int x18; struct CGPDFPage *x19; struct CPMultiUnicodes *x20; long long x21; long long x22; unsigned int *x23; struct CGPath **x24; BOOL x25; struct CGPDFTaggedContext *x26; } *)a0;
+- (unsigned int)setPositionsOf:(id)a0 from:(unsigned int)a1;
+- (unsigned int)setReadingOrder:(id)a0 from:(unsigned int)a1;
+- (id)shapesOnPage;
+- (void)sortByReadingOrder;
+- (unsigned int)traverse:(id)a0 ordinal:(unsigned int)a1;
+
+@end

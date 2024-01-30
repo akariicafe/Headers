@@ -1,0 +1,3 @@
+@interface __CAMIntensityStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

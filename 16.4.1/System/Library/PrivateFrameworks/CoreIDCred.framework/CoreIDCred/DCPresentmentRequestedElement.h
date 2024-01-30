@@ -1,0 +1,16 @@
+@class NSString;
+
+@interface DCPresentmentRequestedElement : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) NSString *elementIdentifier;
+@property unsigned long long intentToRetain;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithElementIdentifier:(id)a0 intentToRetain:(unsigned long long)a1;
+
+@end

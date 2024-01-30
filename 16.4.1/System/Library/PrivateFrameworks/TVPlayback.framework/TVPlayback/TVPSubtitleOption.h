@@ -1,0 +1,27 @@
+@class AVMediaSelectionOption, NSString, NSNumber;
+
+@interface TVPSubtitleOption : NSObject
+
+@property (retain, nonatomic) AVMediaSelectionOption *avMediaSelectionOption;
+@property (copy, nonatomic) NSString *languageCodeFromLocale;
+@property (copy, nonatomic) NSString *languageCodeBCP47;
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) NSString *localizedDisplayString;
+@property (retain, nonatomic) NSNumber *cachedContainsOnlyForcedSubtitles;
+@property (retain, nonatomic) NSNumber *cachedSubtitleType;
+@property (readonly, nonatomic) BOOL containsOnlyForcedSubtitles;
+@property (readonly, nonatomic) long long subtitleType;
+
++ (id)autoSubtitleOption;
++ (id)offSubtitleOption;
++ (id)offSubtitleOptionWithAVMediaSelectionOption:(id)a0;
+
+- (void)_currentLocaleDidChange:(id)a0;
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithAVMediaSelectionOption:(id)a0;
+
+@end

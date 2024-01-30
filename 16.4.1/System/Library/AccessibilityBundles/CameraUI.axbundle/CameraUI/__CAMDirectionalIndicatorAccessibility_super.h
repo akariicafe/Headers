@@ -1,0 +1,3 @@
+@interface __CAMDirectionalIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,70 @@
+@interface KCellularPmicHwStats : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char activeDurMs : 1; unsigned char bctActiveDurMs : 1; unsigned char cdmaActiveDurMs : 1; unsigned char dbgActiveDurMs : 1; unsigned char dpuActiveDurMs : 1; unsigned char durationMs : 1; unsigned char gsmActiveDurMs : 1; unsigned char gsmCa5ActiveDurMs : 1; unsigned char highVoltActiveDurMs : 1; unsigned char hostActiveDurMs : 1; unsigned char hostCpuActiveDurMs : 1; unsigned char hostCpuSysActiveDurMs : 1; unsigned char ioActiveDurMs : 1; unsigned char lowVoltActiveDurMs : 1; unsigned char lteActiveDurMs : 1; unsigned char midVoltActiveDurMs : 1; unsigned char perActiveDurMs : 1; unsigned char phyActiveDurMs : 1; unsigned char phyNocActiveDurMs : 1; unsigned char rauActiveDurMs : 1; unsigned char rpcuActiveDurMs : 1; unsigned char sleepDurMs : 1; unsigned char sleepEntryCount : 1; unsigned char tdscdmaActiveDurMs : 1; unsigned char tpcuActiveDurMs : 1; unsigned char wcdmaActiveDurMs : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasDurationMs;
+@property (nonatomic) unsigned int durationMs;
+@property (nonatomic) BOOL hasSleepDurMs;
+@property (nonatomic) unsigned int sleepDurMs;
+@property (nonatomic) BOOL hasActiveDurMs;
+@property (nonatomic) unsigned int activeDurMs;
+@property (nonatomic) BOOL hasSleepEntryCount;
+@property (nonatomic) unsigned int sleepEntryCount;
+@property (nonatomic) BOOL hasLowVoltActiveDurMs;
+@property (nonatomic) unsigned int lowVoltActiveDurMs;
+@property (nonatomic) BOOL hasMidVoltActiveDurMs;
+@property (nonatomic) unsigned int midVoltActiveDurMs;
+@property (nonatomic) BOOL hasHighVoltActiveDurMs;
+@property (nonatomic) unsigned int highVoltActiveDurMs;
+@property (nonatomic) BOOL hasGsmCa5ActiveDurMs;
+@property (nonatomic) unsigned int gsmCa5ActiveDurMs;
+@property (nonatomic) BOOL hasLteActiveDurMs;
+@property (nonatomic) unsigned int lteActiveDurMs;
+@property (nonatomic) BOOL hasWcdmaActiveDurMs;
+@property (nonatomic) unsigned int wcdmaActiveDurMs;
+@property (nonatomic) BOOL hasTdscdmaActiveDurMs;
+@property (nonatomic) unsigned int tdscdmaActiveDurMs;
+@property (nonatomic) BOOL hasHostActiveDurMs;
+@property (nonatomic) unsigned int hostActiveDurMs;
+@property (nonatomic) BOOL hasHostCpuSysActiveDurMs;
+@property (nonatomic) unsigned int hostCpuSysActiveDurMs;
+@property (nonatomic) BOOL hasHostCpuActiveDurMs;
+@property (nonatomic) unsigned int hostCpuActiveDurMs;
+@property (nonatomic) BOOL hasRpcuActiveDurMs;
+@property (nonatomic) unsigned int rpcuActiveDurMs;
+@property (nonatomic) BOOL hasPhyActiveDurMs;
+@property (nonatomic) unsigned int phyActiveDurMs;
+@property (nonatomic) BOOL hasPhyNocActiveDurMs;
+@property (nonatomic) unsigned int phyNocActiveDurMs;
+@property (nonatomic) BOOL hasBctActiveDurMs;
+@property (nonatomic) unsigned int bctActiveDurMs;
+@property (nonatomic) BOOL hasCdmaActiveDurMs;
+@property (nonatomic) unsigned int cdmaActiveDurMs;
+@property (nonatomic) BOOL hasGsmActiveDurMs;
+@property (nonatomic) unsigned int gsmActiveDurMs;
+@property (nonatomic) BOOL hasTpcuActiveDurMs;
+@property (nonatomic) unsigned int tpcuActiveDurMs;
+@property (nonatomic) BOOL hasIoActiveDurMs;
+@property (nonatomic) unsigned int ioActiveDurMs;
+@property (nonatomic) BOOL hasPerActiveDurMs;
+@property (nonatomic) unsigned int perActiveDurMs;
+@property (nonatomic) BOOL hasDbgActiveDurMs;
+@property (nonatomic) unsigned int dbgActiveDurMs;
+@property (nonatomic) BOOL hasDpuActiveDurMs;
+@property (nonatomic) unsigned int dpuActiveDurMs;
+@property (nonatomic) BOOL hasRauActiveDurMs;
+@property (nonatomic) unsigned int rauActiveDurMs;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+
+@end

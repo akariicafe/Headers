@@ -1,0 +1,3 @@
+@interface VUIJSPostPlayItemInterface : VUIJSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface CUUIEnvironment : CUEnvironment
+
+@end

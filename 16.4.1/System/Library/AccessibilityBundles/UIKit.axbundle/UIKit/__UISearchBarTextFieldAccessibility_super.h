@@ -1,0 +1,3 @@
+@interface __UISearchBarTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

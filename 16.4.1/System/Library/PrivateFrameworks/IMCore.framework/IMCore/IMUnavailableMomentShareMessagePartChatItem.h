@@ -1,0 +1,3 @@
+@interface IMUnavailableMomentShareMessagePartChatItem : IMAttachmentMessagePartChatItem
+
+@end

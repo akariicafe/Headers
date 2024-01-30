@@ -1,0 +1,42 @@
+@class ARWorldAlignmentData, CMMotionManager, ARTimeKeyedList, NSObject;
+@protocol OS_dispatch_semaphore;
+
+@interface ARWorldAlignmentTechnique : ARTechnique {
+    ARTimeKeyedList *_deviceOrientationDataByTime;
+    float _deviceOrientationAlignmentAngle;
+    float _trackingAlignmentAngle;
+    void /* unknown type, empty encoding */ _trackingAlignmentTranslation;
+    BOOL _deviceOrientationReferenced;
+    BOOL _trackingReferenced;
+    BOOL _imageMirrored;
+    long long _lastTrackingStateReason;
+    double _lastMajorRelocalizationTimestamp;
+    double _lastHeadingUpdateTimestamp;
+    BOOL _relocalizing;
+    ARWorldAlignmentData *_relocalizedAlignmentData;
+    NSObject<OS_dispatch_semaphore> *_dataSemaphore;
+}
+
+@property (readonly, nonatomic) long long alignment;
+@property (readonly, nonatomic) long long cameraPosition;
+@property (retain, nonatomic) CMMotionManager *motionManager;
+
+- (BOOL)isBusy;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithAlignment:(long long)a0;
+- (id)_fullDescription;
+- (id)processData:(id)a0;
+- (void).cxx_destruct;
+- (id)_deviceOrientationPoseDataFromDeviceOrientation:(id)a0;
+- (void)_handleTrackingStateChanges:(id)a0 initialized:(BOOL *)a1 relocalized:(BOOL *)a2;
+- (void)_referenceDeviceOrientation:(id)a0;
+- (id)_referenceTrackingAlignmentWithPoseData:(id)a0 deviceOrientation:(id)a1;
+- (float)_trackingAlignmentAngleForPoseData:(id)a0 deviceOrientation:(id)a1;
+- (id)_updateHeadingAlignmentWithPoseData:(id)a0 deviceOrientation:(id)a1 timestamp:(double)a2;
+- (id)initWithAlignment:(long long)a0 cameraPosition:(long long)a1;
+- (unsigned long long)optionalSensorDataTypes;
+- (id)predictedResultDataAtTimestamp:(double)a0 context:(id)a1;
+- (void)requestResultDataAtTimestamp:(double)a0 context:(id)a1;
+- (id)resultDataClasses;
+
+@end

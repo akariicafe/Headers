@@ -1,0 +1,3 @@
+@interface NRFProgressiveInferenceData : NSObject
+
+@end

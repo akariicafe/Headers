@@ -1,0 +1,80 @@
+@class NSArray, NSString, ICAccount, ICCloudSyncingObject;
+
+@interface ICAuthenticationPrompt : NSObject
+
+@property (nonatomic, getter=isInternetReachable) BOOL internetReachable;
+@property (copy, nonatomic) NSArray *notes;
+@property (readonly, copy, nonatomic) NSArray *unauthenticatedNotes;
+@property (readonly, nonatomic) BOOL needsKeychain;
+@property (readonly, nonatomic) BOOL needsCloudAccount;
+@property (readonly, nonatomic) BOOL needsDevicePassword;
+@property (nonatomic, getter=isBiometricAuthenticationEnabled) BOOL biometricAuthenticationEnabled;
+@property (nonatomic, getter=isFaceIDAuthenticationEnabled) BOOL faceIDAuthenticationEnabled;
+@property (nonatomic, getter=isTouchIDAuthenticationEnabled) BOOL touchIDAuthenticationEnabled;
+@property (nonatomic, getter=isKeychainAvailable) BOOL keychainAvailable;
+@property (nonatomic) BOOL hasKeychainItem;
+@property (nonatomic) BOOL hasCloudAccount;
+@property (nonatomic) BOOL hasDevicePassword;
+@property (readonly, nonatomic) BOOL hasPassphrase;
+@property (readonly, nonatomic) BOOL hasDivergedPassphrase;
+@property (readonly, nonatomic) BOOL forcesSecondaryAuthentication;
+@property (readonly, nonatomic) BOOL forcesAlternativeAuthentication;
+@property (readonly, nonatomic) BOOL forcesBiometricAuthentication;
+@property (nonatomic) unsigned long long authenticationAction;
+@property (nonatomic) unsigned long long authenticationMechanism;
+@property (readonly, copy, nonatomic) NSString *customAccountName;
+@property (readonly, copy, nonatomic) NSString *deviceAccountName;
+@property (readonly, copy, nonatomic) NSString *cloudAccountName;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *reason;
+@property (copy, nonatomic) NSString *touchBarReason;
+@property (copy, nonatomic) NSString *fallbackButtonTitle;
+@property (copy, nonatomic) NSArray *successAlerts;
+@property (copy, nonatomic) NSArray *failureAlerts;
+@property (readonly, nonatomic) unsigned long long intent;
+@property (nonatomic) short secondaryAuthenticationMode;
+@property (readonly, nonatomic) ICCloudSyncingObject *object;
+@property (readonly, nonatomic) ICAccount *account;
+@property (nonatomic) BOOL usesSecondaryAuthenticationIfAvailable;
+@property (nonatomic) BOOL usesAlternativeAuthenticationIfAvailable;
+@property (nonatomic) BOOL usesBiometricAuthenticationIfAvailable;
+@property (nonatomic) BOOL updatesUserRecordIfNeeded;
+@property (readonly, nonatomic) ICCloudSyncingObject *authenticationObject;
+@property (readonly, nonatomic) BOOL allowsAuthentication;
+@property (readonly, nonatomic) BOOL needsAuthentication;
+@property (readonly, nonatomic) BOOL needsSecondaryAuthentication;
+@property (readonly, nonatomic) BOOL allowsAlternativeAuthentication;
+@property (readonly, nonatomic) BOOL allowsCustomPasswordAuthentication;
+@property (readonly, nonatomic) BOOL allowsDevicePasswordAuthentication;
+@property (readonly, nonatomic) BOOL allowsBiometricAuthentication;
+@property (readonly, nonatomic) BOOL allowsFaceIDAuthentication;
+@property (readonly, nonatomic) BOOL allowsTouchIDAuthentication;
+@property (readonly, nonatomic) BOOL unlocksNotes;
+@property (readonly, nonatomic) BOOL needsUserRecordUpdate;
+
++ (id)promptForChangingMode:(short)a0 account:(id)a1;
++ (id)promptForDeletingNotes:(id)a0;
++ (id)promptForIntent:(unsigned long long)a0 object:(id)a1;
+
+- (void)update;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)description;
+- (void).cxx_destruct;
+- (void)updateMessaging;
+- (id)initWithIntent:(unsigned long long)a0 object:(id)a1;
+- (void)updateForAddLock;
+- (void)updateForChangeMode;
+- (void)updateForChangeModeFrom;
+- (void)updateForChangeModeTo;
+- (void)updateForChangePassword;
+- (void)updateForDeleteMixedNotes;
+- (void)updateForDeleteMultipleNotes;
+- (void)updateForDeleteNotes;
+- (void)updateForDeleteSingleNote;
+- (void)updateForRemoveLock;
+- (void)updateForResetPassword;
+- (void)updateForToggleBiometrics;
+- (void)updateForViewNote;
+
+@end

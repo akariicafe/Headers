@@ -1,0 +1,5 @@
+@interface CHUISWidgetSceneClientSettings : UIApplicationSceneClientSettings
+
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+
+@end

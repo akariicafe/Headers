@@ -1,0 +1,3 @@
+@interface __PXCuratedLibraryViewProviderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

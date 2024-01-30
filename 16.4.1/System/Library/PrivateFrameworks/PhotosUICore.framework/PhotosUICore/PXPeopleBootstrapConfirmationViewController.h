@@ -1,0 +1,75 @@
+@class NSArray, PXPeopleSuggestionManager, NSTimer, NSString, PXPeopleBootstrapContext;
+@protocol PXPeopleFlowViewControllerActionDelegate, PXPeoplePickerConfigurationControllerDelegate;
+
+@interface PXPeopleBootstrapConfirmationViewController : UICollectionViewController <PXPeopleSuggestionManagerDelegate, UIContextMenuInteractionDelegate, PXPeopleFlowViewController>
+
+@property (readonly, nonatomic) PXPeopleSuggestionManager *suggestionManager;
+@property (readonly, nonatomic) NSArray *presentationStatuses;
+@property (retain, nonatomic) NSArray *currentSuggestions;
+@property (retain, nonatomic) NSTimer *loadingDelayTimer;
+@property (nonatomic) BOOL suggestionsPresented;
+@property (nonatomic) unsigned long long viewState;
+@property (nonatomic) unsigned long long type;
+@property (nonatomic) BOOL willAppear;
+@property (nonatomic) struct CGSize { double width; double height; } lastSize;
+@property (nonatomic) BOOL hasSelectionEverChanged;
+@property (nonatomic) BOOL useLowMemoryMode;
+@property (weak, nonatomic) id<PXPeoplePickerConfigurationControllerDelegate> configControllerDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) PXPeopleBootstrapContext *bootstrapContext;
+@property (readonly, nonatomic) BOOL wantsCancelButton;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } preferredSize;
+@property (weak, nonatomic) id<PXPeopleFlowViewControllerActionDelegate> actionDelegate;
+@property (readonly, nonatomic) BOOL shouldConfirmAdvancement;
+
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForHeaderInSection:(long long)a2;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionView:(id)a0 layout:(id)a1 insetForSectionAtIndex:(long long)a2;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForFooterInSection:(long long)a2;
+- (id)contextMenuInteraction:(id)a0 previewForHighlightingMenuWithConfiguration:(id)a1;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)contextMenuInteraction:(id)a0 configurationForMenuAtLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_sectionInsets;
+- (void)keyFaceUpdated:(id)a0;
+- (void)_badgeLoadingCells;
+- (void)_cacheCurrentSuggestions;
+- (id)_descriptionForFooterView;
+- (void)_evaluateIfSuggestionPresentationFinished;
+- (void)_finishedPresentingSuggestions;
+- (id)_keyAssetForPersonAtIndex:(long long)a0;
+- (id)_localizedPromptString;
+- (void)_markSkippedSuggestions;
+- (void)_noSuggestionsFound;
+- (id)_sortedIndexPathsForVisibleCells;
+- (void)_startLoadingTimer;
+- (id)_titleForHeaderView;
+- (id)_titleForPreviewForAsset:(id)a0;
+- (void)_toggleConfirmedForCollectionViewCellAtIndexPath:(id)a0;
+- (void)_updateHeaderContent;
+- (void)_updateNavigationBarForCurrentTraitCollection;
+- (void)_updateViewWithViewState:(unsigned long long)a0;
+- (double)_wonkyAutomaticContentOffset;
+- (id)initWithContext:(id)a0 dataSource:(id)a1;
+- (void)noMoreSuggestionsAvailableForSuggestionManager:(id)a0;
+- (void)suggestionManager:(id)a0 hasNewSuggestionsAvailable:(id)a1;
+- (void)updateImageForCell:(id)a0 withPerson:(id)a1;
+- (void)willLoadMoreSuggestionsForSuggestionManager:(id)a0;
+- (void)willTransitionToNextInFlow;
+
+@end

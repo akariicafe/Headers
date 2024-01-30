@@ -1,0 +1,3 @@
+@interface MTRApplicationLauncherClusterApplicationEP : MTRApplicationLauncherClusterApplicationEPStruct
+
+@end

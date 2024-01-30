@@ -1,0 +1,3 @@
+@interface __UIStatusBarPersonNameItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

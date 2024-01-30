@@ -1,0 +1,94 @@
+@class NSMutableDictionary, NSDictionary, NSString, NSNumber, NSObject;
+@protocol OS_dispatch_workloop, SUPreferencesObserver;
+
+@interface SUPreferences : NSObject {
+    NSObject<OS_dispatch_workloop> *_preferencesWorkloop;
+}
+
+@property (retain, nonatomic) NSDictionary *preferencesDefinitions;
+@property (retain, nonatomic) NSMutableDictionary *cachedPreferences;
+@property (nonatomic) id<SUPreferencesObserver> observer;
+@property (readonly, nonatomic) BOOL disableManagedRequest;
+@property (readonly, nonatomic) BOOL disableUserWiFiOnlyPeriod;
+@property (readonly, nonatomic) BOOL disableBuildNumberComparison;
+@property (readonly, nonatomic) BOOL allowSameBuildUpdates;
+@property (readonly, nonatomic) BOOL disableAvailabilityAlerts;
+@property (readonly, nonatomic, getter=isAutoDownloadDisabled) BOOL disableAutoDownload;
+@property (readonly, nonatomic, getter=isAutoSUDisabled) BOOL disableAutoSU;
+@property (readonly, nonatomic) BOOL scanWeeklyInternally;
+@property (readonly, nonatomic) BOOL forceFullReplacement;
+@property (readonly, nonatomic) BOOL disableFullReplacementFallback;
+@property (readonly, nonatomic) NSNumber *updateDelayInterval;
+@property (readonly, nonatomic) NSNumber *autoDownloadOverrideInterval;
+@property (readonly, nonatomic) BOOL shouldDelayUpdates;
+@property (readonly, nonatomic) BOOL shouldDelayInMinutes;
+@property (readonly, nonatomic) NSNumber *unmetConstraints;
+@property (readonly, nonatomic) NSNumber *mandatorySUFlags;
+@property (readonly, nonatomic) NSString *requestedPMV;
+@property (readonly, nonatomic) BOOL backgroundDLKnownBuilds;
+@property (readonly, nonatomic) NSNumber *autoSUStartDelta;
+@property (readonly, nonatomic) NSNumber *autoSUEndDelta;
+@property (readonly, nonatomic) NSNumber *autoSUUnlockStartDelta;
+@property (readonly, nonatomic) NSNumber *autoSUUnlockEndDelta;
+@property (readonly, nonatomic) BOOL autoUpdateForceOn;
+@property (readonly, nonatomic) BOOL autoUpdateForceOff;
+@property (nonatomic, setter=enableAutomaticUpdateV2:) BOOL isAutomaticUpdateV2Enabled;
+@property (nonatomic, setter=enablePreviousUserSpecifiedAutomaticUpdateV2:) BOOL previousUserSpecifiedAutomaticUpdateV2Enabled;
+@property (readonly, nonatomic) NSNumber *bannerDelay;
+@property (readonly, nonatomic) BOOL autoDownloadDeletedBuild;
+@property (nonatomic, setter=enableAutomaticDownload:) BOOL isAutomaticDownloadEnabled;
+@property (readonly, nonatomic) NSNumber *MDMSoftwareUpdatePath;
+@property (readonly, nonatomic) NSNumber *analyticsSubmissionIntervalOverride;
+@property (readonly, nonatomic) BOOL queryCustomerBuilds;
+@property (readonly, nonatomic) BOOL disableRollback;
+@property (setter=setSuggestedRollbackSplatVersion:) NSString *suggestedRollbackSplatVersion;
+@property (readonly, nonatomic) BOOL useEmptyPatches;
+@property (readonly, nonatomic) BOOL allowSplatUpdate;
+@property (readonly, nonatomic) BOOL fakeSplatInstalled;
+@property (readonly, nonatomic) BOOL allowSameRestoreVersionSplatUpdate;
+@property (readonly, nonatomic) NSNumber *splatScanInterval;
+@property (readonly, nonatomic) BOOL autoInstallSystemDataFilesForceOn;
+@property (readonly, nonatomic) BOOL autoInstallSystemDataFilesForceOff;
+@property (nonatomic, setter=enableAutoInstallSystemAndDataFiles:) BOOL autoInstallSystemAndDataFiles;
+@property (readonly, nonatomic) BOOL autoInstallSecurityResponseForceOn;
+@property (readonly, nonatomic) BOOL autoInstallSecurityResponseForceOff;
+@property (nonatomic, setter=enableAutoInstallSecurityResponse:) BOOL autoInstallSecurityResponse;
+@property (nonatomic, setter=enablePreviousUserSpecifiedAutoInstallSecurityResponse:) BOOL previousUserSpecifiedAutoInstallSecurityResponse;
+@property (readonly, nonatomic) BOOL ignoreBatteryInfo;
+@property (readonly, nonatomic) NSNumber *batteryOverridePluggedIn;
+@property (readonly, nonatomic) NSNumber *batteryOverrideWirelessCharging;
+@property (readonly, nonatomic) NSNumber *batteryLevelOverride;
+@property (readonly, nonatomic) BOOL disablePurgeOnNewerUpdateFound;
+@property (readonly, nonatomic) NSNumber *recommendedUpdateInterval;
+
++ (id)sharedInstance;
+
+- (void)reload;
+- (void)dealloc;
+- (id)init;
+- (BOOL)isChinaDevice;
+- (id)_mandatorySUFlagsForPreferences;
+- (BOOL)_autoDownloadDisableDefaultValue;
+- (BOOL)_autoInstallDefaultValue;
+- (BOOL)_autoInstallSecurityResponseDefaultValue;
+- (BOOL)_autoInstallSystemDataFilesDefaultValue;
+- (BOOL)_cachedBoolValueForKey:(id)a0 withDefaultValue:(BOOL)a1;
+- (id)_cachedNumberValueForKey:(id)a0;
+- (id)_cachedObjectForKey:(id)a0 ofClass:(Class)a1;
+- (id)_cachedStringValueForKey:(id)a0;
+- (id)_copyNumberPreferenceForKey:(id)a0;
+- (void *)_copyPreferenceForKey:(struct __CFString { } *)a0 ofType:(unsigned long long)a1;
+- (id)_copyStringPreferenceForKey:(id)a0;
+- (BOOL)_getBooleanPreferenceForKey:(id)a0 withDefaultValue:(BOOL)a1;
+- (id)_getValueOfKey:(id)a0 withType:(long long)a1;
+- (void)_loadPreferences;
+- (void)_setBooleanPreferenceForKey:(id)a0 value:(BOOL)a1;
+- (void)_setCachedBooleanPreferenceForKey:(id)a0 value:(BOOL)a1;
+- (void)_setObjectPreferenceForKey:(id)a0 value:(id)a1;
+- (void)_setupAutomaticUpdateV2Enabled;
+- (BOOL)disableAutoDownload;
+- (BOOL)isKeySetInPreferences:(id)a0;
+- (void)setPreference:(id)a0 toBool:(BOOL)a1;
+- (void)setPreference:(id)a0 toValue:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UINavigationButtonAccessibility__MediaPlayer__UIKit_super : UIAccessibilitySafeCategory
+
+@end

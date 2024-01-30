@@ -1,0 +1,3 @@
+@interface NTKSchoolTimeFace : NTKFace
+
+@end

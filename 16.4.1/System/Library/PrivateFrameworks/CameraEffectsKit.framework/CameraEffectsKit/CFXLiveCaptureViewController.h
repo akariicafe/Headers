@@ -1,0 +1,82 @@
+@class UIView, CFXEffectComposition, JFXImageView, NSString, JFXVideoWriter, CFXRenderer, JTImage, NSObject, NSMutableArray, JFXOrientationMonitor, CFXThermalPolicyManager;
+@protocol OS_dispatch_queue, JFXAnimojiTrackingLossDelegate, CFXLiveCaptureViewControllerDelegate;
+
+@interface CFXLiveCaptureViewController : UIViewController <CFXRendererDelegate, JFXVideoCameraVideoDelegate, JFXVideoCameraAudioDelegate, UIGestureRecognizerDelegate>
+
+@property (retain, nonatomic) UIView *containerView;
+@property (weak, nonatomic) JFXImageView *renderImageView;
+@property (weak, nonatomic) UIView *debugControlsView;
+@property (retain, nonatomic) UIView *uncroppedRenderImagePlaceHolderView;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *renderQ;
+@property (retain, nonatomic) CFXRenderer *renderer_renderQ;
+@property (retain, nonatomic) CFXEffectComposition *composition;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *recordingQ;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *renderImageQ;
+@property (retain, nonatomic) JTImage *renderedImage_renderImageQ;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } currentRenderPresentationTime_renderImageQ;
+@property (readonly, nonatomic) JTImage *renderedImage;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } currentRenderPresentationTime;
+@property (nonatomic) BOOL isCapturingVideo_recordingQ;
+@property (nonatomic) BOOL isCapturingPhoto_recordingQ;
+@property (retain, nonatomic) JFXVideoWriter *videoWriter;
+@property (retain, nonatomic) NSMutableArray *renderFrameCompletionBlocks;
+@property (retain, nonatomic) JFXOrientationMonitor *orientationMonitor;
+@property (weak, nonatomic) id<JFXAnimojiTrackingLossDelegate> trackingLossDelegate;
+@property (weak, nonatomic) id<CFXLiveCaptureViewControllerDelegate> delegate;
+@property (readonly, nonatomic) struct { double x0; double x1; } normalizedMinimumHitTestArea;
+@property (nonatomic) BOOL useLocalCameraViewfinder;
+@property (readonly, nonatomic) UIView *localCameraViewfinderView;
+@property (readonly, nonatomic) UIView *uncroppedCameraViewfinderPlaceholderView;
+@property (nonatomic) long long captureMode;
+@property (readonly, nonatomic) BOOL isCapturing;
+@property (readonly, nonatomic) BOOL livePlayerIsSaturated;
+@property (retain, nonatomic) CFXThermalPolicyManager *thermalPolicyManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)instantiate;
+
+- (void)didReceiveMemoryWarning;
+- (id)initWithCoder:(id)a0;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)CFX_createUncroppedCameraPlaceholderViewIfNecessary;
+- (void)CFX_executeRenderCallbacksQueuedBeforeTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)CFX_livePreviewPanned:(id)a0;
+- (void)CFX_livePreviewRotated:(id)a0;
+- (void)CFX_setupVideoWriterWithAudio:(BOOL)a0 completion:(id /* block */)a1;
+- (void)CFX_tearDownVideoWriter:(id /* block */)a0;
+- (void)CFX_installGestures;
+- (void)CFX_livePreviewDoubleTapped:(id)a0;
+- (void)CFX_livePreviewPinched:(id)a0;
+- (void)CFX_livePreviewTapped:(id)a0;
+- (void)CFX_setAnimationEnabledForOverlays:(BOOL)a0;
+- (void)cancelVideoRecording;
+- (void)capturePhotoWithFlashMode:(long long)a0 completion:(id /* block */)a1;
+- (void)executeAfterNextFrameIsRendered:(id /* block */)a0;
+- (void)flushRenderer;
+- (struct CGPoint { double x0; double x1; })locationInCaptureViewForGestureRecognizer:(id)a0;
+- (void)pauseRenderingCameraFrames;
+- (void)processAudioSample:(struct opaqueCMSampleBuffer { } *)a0;
+- (void)removeAllEffects:(id /* block */)a0;
+- (void)removeAllEffectsOfType:(id)a0 completion:(id /* block */)a1;
+- (void)renderVideoFrame:(id)a0;
+- (void)renderer:(id)a0 didPrepareToRenderFrameAtPresentationTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+- (void)renderer:(id)a0 didRenderFrame:(id)a1;
+- (void)resumeRenderingCameraFrames;
+- (void)startButtonTouchUpInside:(id)a0;
+- (void)startRenderingCameraFrames;
+- (void)startVideoRecordingWithFlashMode:(long long)a0;
+- (void)stopButtonTouchUpInside:(id)a0;
+- (void)stopRenderingCameraFrames;
+- (void)stopRenderingCameraFrames:(id /* block */)a0;
+- (void)stopVideoRecording:(id /* block */)a0;
+- (void)toggleDebugControlsView:(id)a0;
+- (void)willDropCameraFrame;
+
+@end

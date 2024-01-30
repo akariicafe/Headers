@@ -1,0 +1,3 @@
+@interface SBUnsupportedURLAlertItem : SBDismissOnlyAlertItem
+
+@end

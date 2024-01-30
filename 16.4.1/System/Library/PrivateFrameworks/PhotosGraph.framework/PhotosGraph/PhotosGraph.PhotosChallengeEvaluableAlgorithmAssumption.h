@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmAssumption : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

@@ -1,0 +1,3 @@
+@interface CHDSurfaceType : CHDUnsupportedType
+
+@end

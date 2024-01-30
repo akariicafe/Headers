@@ -1,0 +1,86 @@
+@class NSMutableDictionary, NSString, TSPObject, NSDictionary, NSHashTable, _TtC13TSPersistence23TSPMutableIdentifierSet, TSPReferenceOrderedSet;
+
+@interface TSPArchiverBase : NSObject <TSPArchivableContent> {
+    struct unique_ptr<google::protobuf::Message, std::default_delete<google::protobuf::Message>> { struct __compressed_pair<google::protobuf::Message *, std::default_delete<google::protobuf::Message>> { struct Message *__value_; } __ptr_; } _message;
+    void *_fieldRules;
+    void *_currentFieldPath;
+    NSMutableDictionary *_alternates;
+}
+
+@property (readonly, nonatomic) BOOL isContentUnknown;
+@property (readonly, nonatomic) BOOL isDiff;
+@property (readonly, nonatomic) unsigned long long messageVersion;
+@property (readonly, nonatomic) const void *fieldPath;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) TSPObject *object;
+@property (nonatomic) unsigned long long messageVersion;
+@property (readonly, nonatomic) unsigned long long minimumSupportedVersion;
+@property (readonly, nonatomic) const void *currentFieldPath;
+@property (readonly, nonatomic) NSDictionary *alternates;
+@property (readonly, nonatomic) TSPReferenceOrderedSet *strongReferences;
+@property (readonly, nonatomic) TSPReferenceOrderedSet *weakReferences;
+@property (readonly, nonatomic) NSHashTable *lazyReferences;
+@property (readonly, nonatomic) NSHashTable *dataReferences;
+@property (readonly, nonatomic) _TtC13TSPersistence23TSPMutableIdentifierSet *countedDataReferences;
+@property (readonly, nonatomic) unsigned int messageType;
+@property (readonly, nonatomic) long long targetType;
+@property (readonly, nonatomic) BOOL isForCopy;
+@property (readonly, nonatomic) BOOL isSavingDocumentAs;
+@property (readonly, nonatomic) BOOL isSavingCollaborativeDocument;
+
+- (void)cleanup;
+- (id)initWithObject:(id)a0;
+- (id).cxx_construct;
+- (void)dealloc;
+- (id)init;
+- (struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)message;
+- (void).cxx_destruct;
+- (void)validateMessage:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a0;
+- (void)setStrongLazyReference:(id)a0 message:(void *)a1;
+- (id)alternateDiffToMergeBeforeVersion:(unsigned long long)a0 fileFormatVersion:(unsigned long long)a1 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a2;
+- (struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)messageWithNewFunction:(void /* function */ *)a0 descriptor:(const void *)a1;
+- (void)pushScopeForField:(int)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1 usingBlock:(id /* block */)a2;
+- (void)setDataReference:(id)a0 message:(void *)a1;
+- (void)setDataReferenceArray:(id)a0 message:(void *)a1;
+- (void)setIgnoreAndPreserveRuleForField:(int)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setIgnoreAndPreserveRuleForFieldPath:(int *)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setIgnoreAndPreserveUntilModifiedRuleForField:(int)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setStrongReference:(id)a0 message:(void *)a1;
+- (void)setStrongReferenceArray:(id)a0 message:(void *)a1;
+- (void)setStrongReferenceSet:(id)a0 message:(void *)a1;
+- (void)setWeakLazyReference:(id)a0 message:(void *)a1;
+- (void)setWeakReference:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceArray:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceOrderedSet:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceToObjectUUID:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceToObjectUUIDArray:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceSet:(id)a0 message:(void *)a1;
+- (id)addAlternateArchiverForVersion:(unsigned long long)a0 fieldPath:(const void *)a1 isDiffArchiver:(BOOL)a2 diffReadVersion:(unsigned long long)a3 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a4;
+- (void)addWeakReferenceToObjectUUID:(id)a0;
+- (id)alternateDiffToMergeBeforeVersion:(unsigned long long)a0 fileFormatVersion:(unsigned long long)a1 field:(int)a2 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a3;
+- (id)alternateDiffToMergeBeforeVersion:(unsigned long long)a0 fileFormatVersion:(unsigned long long)a1 fieldPath:(int *)a2 baseFieldPath:(const void *)a3 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a4;
+- (id)alternateDiffToMergeBeforeVersion:(unsigned long long)a0 fileFormatVersion:(unsigned long long)a1 fieldPath:(int *)a2 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a3;
+- (const void *)baseFieldPathAndReturnShouldDeleteReturnedValue:(BOOL *)a0;
+- (void)enumerateFieldRulesUsingBlock:(id /* block */)a0;
+- (void)releaseMessage;
+- (void)setDataReferenceOrderedSet:(id)a0 message:(void *)a1;
+- (void)setDataReferenceSet:(id)a0 message:(void *)a1;
+- (void)setIgnoreAndPreserveUntilModifiedRuleForFieldPath:(int *)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setMustUnderstandRuleForField:(int)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setMustUnderstandRuleForFieldPath:(int *)a0 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a1;
+- (void)setRule:(int)a0 forFieldPath:(int *)a1 fileFormatVersion:(unsigned long long)a2 featureIdentifier:(id)a3 message:(const struct Message { void /* function */ **x0; struct InternalMetadata { void *x0; } x1; } *)a4;
+- (void)setSparseReferenceArray:(id)a0 isWeak:(BOOL)a1 message:(void *)a2;
+- (void)setSparseReferenceArray:(id)a0 message:(void *)a1;
+- (void)setSparseWeakObjectUUIDPathReferenceArray:(id)a0 message:(void *)a1;
+- (void)setSparseWeakObjectUUIDReferenceArray:(id)a0 message:(void *)a1;
+- (void)setSparseWeakReferenceArray:(id)a0 message:(void *)a1;
+- (void)setStrongLazyReferenceArray:(id)a0 message:(void *)a1;
+- (void)setStrongReferenceOrderedSet:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceToObjectUUIDData:(const void *)a0 message:(void *)a1;
+- (void)setWeakReferenceToObjectUUIDPath:(id)a0 message:(void *)a1;
+- (void)setWeakReferenceToObjectUUIDPathArray:(id)a0 message:(void *)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface MTLDebugIOScratchBuffer : MTLToolsIOScratchBuffer
+
+@end

@@ -1,0 +1,33 @@
+@class NSString, ASDServiceBroker;
+
+@interface ASDPersonalizationStore : NSObject <ASDServiceProvider> {
+    ASDServiceBroker *_serviceBroker;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)interface;
+
+- (void)recordMetricsWithCompletionBlock:(id /* block */)a0;
+- (void)flushMetricsWithCompletionBlock:(id /* block */)a0;
+- (id)init;
+- (void)reportAppEvent:(id)a0 completionBlock:(id /* block */)a1;
+- (void)recordLaunchesWithCompletionBlock:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)sendMetricsWithCompletionBlock:(id /* block */)a0;
+- (void)getAppEventsWithCompletionBlock:(id /* block */)a0;
+- (void)getClusterMappingsWithCompletionBlock:(id /* block */)a0;
+- (void)getGroupingToken:(id /* block */)a0;
+- (void)getTasteProfileToken:(id /* block */)a0;
+- (void)reloadClusterMappingsWithCompletionBlock:(id /* block */)a0;
+- (void)resetActorIDWithCompletionBlock:(id /* block */)a0;
+- (void)resetMetricsWithCompletionBlock:(id /* block */)a0;
+- (void)setClusterMapping:(id)a0 completionBlock:(id /* block */)a1;
+- (void)setClusterMappings:(id)a0 completionBlock:(id /* block */)a1;
+- (void)tasteProfileFeatureEnabled:(id /* block */)a0;
+
+@end

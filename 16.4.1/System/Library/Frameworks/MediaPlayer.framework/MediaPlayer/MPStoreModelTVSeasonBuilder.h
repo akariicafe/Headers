@@ -1,0 +1,3 @@
+@interface MPStoreModelTVSeasonBuilder : MPStoreModelObjectBuilder
+
+@end

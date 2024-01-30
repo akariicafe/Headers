@@ -1,0 +1,3 @@
+@interface __PXContentSyndicationGadgetViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

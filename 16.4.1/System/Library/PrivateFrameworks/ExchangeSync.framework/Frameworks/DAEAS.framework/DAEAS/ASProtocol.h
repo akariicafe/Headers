@@ -1,0 +1,76 @@
+@class ASProtocolCapabilities;
+
+@interface ASProtocol : NSObject
+
+@property (retain, nonatomic) ASProtocolCapabilities *capabilities;
+
+- (BOOL)supportsAttachments;
+- (id)init;
+- (id)protocolVersion;
+- (void).cxx_destruct;
+- (int)supportsConversations;
+- (id)initWithVersion:(id)a0;
+- (int)supportsDraftFolderSync;
+- (int)supportsEmailFlagging;
+- (int)supportsMailboxSearch;
+- (int)supportsUniqueServerId;
+- (BOOL)sendUID;
+- (BOOL)includeCommentInMeetingResponse;
+- (id)_initWithVersion:(id)a0 capabilitiesVersion:(id)a1;
+- (id)_requestLinePrefixWithTask:(id)a0;
+- (void)_setCapabilitiesVersion:(id)a0;
+- (id)_usernameOnlyPortionOfUserString:(id)a0;
+- (id)addressBookConstraintsPath;
+- (BOOL)allAttachmentsAreBase64ed;
+- (BOOL)allowsReminderOnCompletedTasks;
+- (BOOL)alwaysSendAttendeeRole;
+- (BOOL)alwaysSendTimezone;
+- (id)calendarConstraintsPath;
+- (BOOL)commandStringNeedsSaveInSent;
+- (BOOL)fetchAttachmentsWithItemOperations;
+- (BOOL)headerNeedsPolicyKey;
+- (BOOL)headerNeedsProtocolVersion;
+- (BOOL)headerNeedsUserAgent;
+- (BOOL)includeExceptionsInParent;
+- (id)initWithCachedVersion:(id)a0;
+- (BOOL)processFullMeetingInvitationData;
+- (id)requestURLStringWithTask:(id)a0;
+- (BOOL)requiresExplicitlyFalseGetChanges;
+- (BOOL)sendAttendeeRole;
+- (BOOL)sendCalendarInfoInRecurrence;
+- (BOOL)sendDTStamp;
+- (BOOL)sendDeviceInfoOnProvision;
+- (BOOL)sendEmailForMeetingInvitationAndResponse;
+- (BOOL)sendEmailInWBXML;
+- (BOOL)sendFirstDayOfWeekInRecurrence;
+- (BOOL)sendUserAgentInDeviceInfo;
+- (BOOL)serverCreatesEventChangesForInvitations;
+- (BOOL)serverUpdatesAttendeeStatusOnEvents;
+- (BOOL)shouldSendClassForFolderItemsSync;
+- (BOOL)shouldSendFullContactInfo;
+- (BOOL)shouldUseWBXMLProvisioning;
+- (BOOL)supportsAttendeesInExceptions;
+- (BOOL)supportsForwarderTracking;
+- (BOOL)supportsFreeBusyLookup;
+- (BOOL)supportsGALPhotos;
+- (BOOL)supportsItemOperationsCommand;
+- (int)supportsMailboxEnhancedSearch;
+- (BOOL)supportsNoteSyncing;
+- (BOOL)supportsProposeNewTime;
+- (BOOL)supportsSettingsCommand;
+- (BOOL)syncSnoozeEvents;
+- (BOOL)useBooleanFolderItemsSyncDeletesAsMoves;
+- (BOOL)useEmptyAttendees;
+- (BOOL)useEmptyLocation;
+- (BOOL)useEmptyRecurrence;
+- (BOOL)useEmptyReminderMinutes;
+- (BOOL)useEventIdsInMeetingResponse;
+- (BOOL)useFloatingTimeForAllDayEvents;
+- (BOOL)useInstanceIdForException;
+- (BOOL)useSmartMailTasks;
+- (BOOL)useStructuredLocation;
+- (BOOL)usesAirSyncBaseNamespace;
+- (BOOL)usesTopLevelStatusCodes;
+- (BOOL)versionChangeRequiresAccountUpgrade:(id)a0;
+
+@end

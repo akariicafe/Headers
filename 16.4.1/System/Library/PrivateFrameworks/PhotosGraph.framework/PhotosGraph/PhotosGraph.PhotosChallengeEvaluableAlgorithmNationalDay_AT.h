@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmNationalDay_AT : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

@@ -1,0 +1,107 @@
+@class TSPObjectContext, TSUUUIDPath, TSPComponent, TSPUnknownContent, NSUUID, NSString;
+@protocol TSPObjectDelegate;
+
+@interface TSPObject : NSObject <TSPReferenceItem> {
+    id<TSPObjectDelegate> _delegate;
+    _Atomic long long _identifier;
+    _Atomic long long _modifyObjectToken;
+    NSUUID *_UUID;
+    struct { unsigned char unarchiverSourceType : 3; unsigned char isTransientObject : 1; } _flags;
+}
+
+@property (class, readonly, nonatomic) BOOL tsp_isPerformingUpgrade;
+@property (class, readonly, nonatomic) BOOL tsp_isInternalObjectContainerClass;
+
+@property (readonly, nonatomic) TSUUUIDPath *objectUUIDPath;
+@property (readonly, nonatomic) BOOL tsp_isInDocument;
+@property (nonatomic) long long tsp_identifier;
+@property (readonly, nonatomic) TSPUnknownContent *tsp_unknownContent;
+@property (nonatomic) long long tsp_modifyObjectToken;
+@property (weak, nonatomic) TSPComponent *tsp_component;
+@property (weak, nonatomic) id<TSPObjectDelegate> tsp_delegate;
+@property (readonly, nonatomic) BOOL tsp_isTransientObject;
+@property (readonly, nonatomic) BOOL needsArchiving;
+@property (readonly, nonatomic) BOOL isCommandObject;
+@property (copy, nonatomic) NSUUID *objectUUID;
+@property (readonly, nonatomic) TSPObject *componentRootObject;
+@property (readonly, nonatomic) BOOL allowsImplicitComponentOwnership;
+@property (readonly, nonatomic) BOOL shouldDelayArchiving;
+@property (readonly, nonatomic) unsigned int delayedArchivingPriority;
+@property (readonly, nonatomic) BOOL canModify;
+@property (readonly, nonatomic) NSString *packageLocator;
+@property (readonly, nonatomic) BOOL isComponentRoot;
+@property (readonly, nonatomic) BOOL componentRequiresCurrentVersion;
+@property (readonly, nonatomic) unsigned long long componentReadVersion;
+@property (readonly, nonatomic) BOOL componentCanBeDropped;
+@property (readonly, nonatomic) long long compressionAlgorithm;
+@property (readonly, nonatomic) unsigned char componentRequiredPackageIdentifier;
+@property (readonly, nonatomic) BOOL storeOutsideObjectArchive;
+@property (readonly, nonatomic) unsigned long long allowedObjectTargetTypes;
+@property (readonly, nonatomic) BOOL shouldAlwaysArchiveWhenInMemory;
+@property (readonly, nonatomic) TSPObjectContext *context;
+@property (readonly, nonatomic) NSString *tsp_description;
+@property (readonly, nonatomic) NSString *tsp_publicLoggingDescription;
+@property (readonly, nonatomic) BOOL tsp_isPersisted;
+@property (readonly, nonatomic) BOOL tsp_isLazyReference;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)tsp_isTransientObjectIdentifier:(long long)a0;
++ (BOOL)needsObjectUUID;
++ (Class)classForUnarchiver:(id)a0;
++ (void)performUpgradeUsingBlock:(id /* block */)a0;
++ (id)tsp_deserializeFromData:(id)a0 options:(id)a1 context:(id)a2 error:(id *)a3;
++ (id)tsp_deserializeFromURL:(id)a0 options:(id)a1 context:(id)a2 isCrossDocumentPaste:(BOOL)a3 isCrossAppPaste:(BOOL)a4 completion:(id /* block */)a5;
++ (unsigned long long)tsp_estimatedByteSizeOfReferenceToObject:(id)a0;
++ (unsigned long long)tsp_estimatedCostOfObject:(id)a0;
+
+- (void)commonInit;
+- (void)dealloc;
+- (id)initWithContext:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)didFinishUnarchiving;
+- (void)didLoadChildObjectFromDocumentSupport:(id)a0;
+- (id)initDocumentObjectWithContext:(id)a0;
+- (void)willModify;
+- (void)willModifyForUpgrade;
+- (void)saveToArchiver:(id)a0;
+- (void)didAddReferenceToData:(id)a0;
+- (void)didInitFromSOS;
+- (void)loadFromUnarchiver:(id)a0;
+- (id)newObjectUUIDWithOffset:(unsigned long long)a0;
+- (void)wasAddedToDocumentDuringUnarchiveWithContext:(id)a0;
+- (void)wasAddedToDocumentWithContext:(id)a0;
+- (void)willBeRemovedFromDocumentWithContext:(id)a0;
+- (void)willRemoveReferenceToData:(id)a0;
+- (void)performBlockIgnoringModifications:(id /* block */)a0;
+- (BOOL)validatedLoadFromUnarchiver:(id)a0;
+- (void)willModifyForUpgradeWithOptions:(unsigned long long)a0;
+- (id)tsp_deepCopyWithOptions:(id)a0;
+- (id)initBaseObjectFromUnarchiver:(id)a0;
+- (id)initBaseObjectWithContext:(id)a0;
+- (void)resetObjectUUIDWithoutUpdatingObjectUUIDMap;
+- (void)setObjectUUID:(id)a0 updatingObjectUUIDMap:(BOOL)a1;
+- (void)tsp_commonInitBaseObjectWithContext:(id)a0;
+- (void)tsp_deepCopyWithContext:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (id)tsp_deepCopyWithContext:(id)a0 options:(id)a1 error:(id *)a2;
+- (id)tsp_deepCopyWithContext:(id)a0 options:(id)a1 objectMap:(id *)a2 error:(id *)a3;
+- (void)tsp_deepCopyWithOptions:(id)a0 completion:(id /* block */)a1;
+- (id)tsp_descriptionWithDepth:(unsigned long long)a0;
+- (BOOL)tsp_hasSameUnknownFieldsAsObject:(id)a0;
+- (id)tsp_objectInfoWithDepth:(unsigned long long)a0;
+- (id)tsp_referencedData;
+- (id)tsp_referencedObjectUUIDs;
+- (id)tsp_referencedObjects;
+- (id)tsp_serializeToDataWithOptions:(id)a0 completion:(id /* block */)a1;
+- (id)tsp_serializeToDataWithOptions:(id)a0 dataReferences:(id *)a1 error:(id *)a2;
+- (id)tsp_serializeToURL:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (id)tsp_writeObjectNSDataRepresentation:(id)a0 andData:(id)a1 toURL:(id)a2 options:(id)a3 completion:(id /* block */)a4;
+- (void)wasAddedToDocumentDuringImportWithContext:(id)a0;
+- (void)wasAddedToDocumentWithContext:(id)a0 options:(unsigned long long)a1;
+- (void)willModifyToComponentRootObject:(id)a0;
+- (void)willModifyWithOptions:(unsigned long long)a0;
+
+@end

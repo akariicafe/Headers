@@ -1,0 +1,83 @@
+@class SBNubView, SBFTraitsParticipant, BSAbsoluteMachTimer, SBTraitsSceneParticipantDelegate, UITapGestureRecognizer, SBTransientUIInteractionManager, SBSceneViewStatusBarAssertion, SBSystemPointerInteractionManager, UIView, SBDeviceApplicationSceneHandle, NSString, SBSystemNotesInteractionSettings, SBSystemNotesPlaceholderContentProvider, SBSSystemNotesPresentationConfiguration, SBDeviceApplicationSceneViewController, SBSystemNotesContentPresentationContext, SBFTraitsArbiter, SBApplicationBlurContentView, SBWindowScene, SBMainWorkspace;
+@protocol SBSystemNotesContentViewControllerDelegate;
+
+@interface SBSystemNotesContentViewController : UIViewController <SBWorkspaceApplicationSceneTransitionContextDelegate, SBSystemPointerInteractionDelegate, SBTransientUITapToDismissParticipant, SBDeviceApplicationSceneHandleObserver, SBSceneHandleActionConsuming, SBPIPSceneContentProviding> {
+    SBSystemNotesInteractionSettings *_notesInteractionSettings;
+    SBDeviceApplicationSceneViewController *_sceneViewController;
+    SBNubView *_nubView;
+    SBApplicationBlurContentView *_blurView;
+    SBMainWorkspace *_workspace;
+    UITapGestureRecognizer *_thumbnailTapGestureRecognizer;
+    UIView *_thumbnailView;
+    SBSystemNotesPlaceholderContentProvider *_placeholderProvider;
+    SBSceneViewStatusBarAssertion *_statusBarAssertion;
+    SBTransientUIInteractionManager *_transientUIInteractionManager;
+    SBSystemPointerInteractionManager *_systemPointerInteractionManager;
+    struct CGSize { double width; double height; } _preferredSceneContentSize;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _lastKnownSceneFrame;
+    SBSSystemNotesPresentationConfiguration *_currentConfiguration;
+    SBSystemNotesContentPresentationContext *_presentationContext;
+    BSAbsoluteMachTimer *_thumbnailCooldownTimer;
+    BOOL _thumbnailCooldownTimerFired;
+    BOOL _haveBeenForeground;
+    NSString *_pendingAnalyticsString;
+    SBFTraitsArbiter *_arbiter;
+    SBWindowScene *_lastKnownWindowScene;
+    SBFTraitsParticipant *_traitsParticipant;
+    SBTraitsSceneParticipantDelegate *_traitsParticipantDelegate;
+}
+
+@property (readonly, nonatomic) SBDeviceApplicationSceneHandle *sceneHandle;
+@property (readonly, nonatomic) SBSSystemNotesPresentationConfiguration *currentConfiguration;
+@property (nonatomic) long long presentationMode;
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+@property (weak, nonatomic) id<SBSystemNotesContentViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)sceneHandle:(id)a0 didCreateScene:(id)a1;
+- (id)previousLayoutStateForApplicationTransitionContext:(id)a0;
+- (void)viewDidMoveToWindow:(id)a0 shouldAppearOrDisappear:(BOOL)a1;
+- (void)sceneHandle:(id)a0 didDestroyScene:(id)a1;
+- (BOOL)shouldAutorotate;
+- (id)layoutStateForApplicationTransitionContext:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })applicationTransitionContext:(id)a0 frameForApplicationSceneEntity:(id)a1;
+- (BOOL)shouldBeginPointerInteractionRequest:(id)a0 atLocation:(struct CGPoint { double x0; double x1; })a1 forView:(id)a2;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })pointerInteractionHitTestInsetsForView:(id)a0;
+- (struct CGSize { double x0; double x1; })preferredContentSize;
+- (id)styleForRegion:(id)a0 forView:(id)a1;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)containerViewControllerDidEndInteraction:(id)a0 targetWindowScene:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)contentView;
+- (void)viewWillLayoutSubviews;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)sceneHandle:(id)a0 didReceiveAction:(id)a1;
+- (void)_acquireTraitsParticipantOnWindowSceneIfNecessary:(id)a0;
+- (void)_handleThumbnailTapGesture:(id)a0;
+- (BOOL)_hitTestTouch:(id)a0 gestureRecognizer:(id)a1;
+- (id)_imageFromUserActivity:(id)a0 presentationMode:(long long)a1;
+- (void)_invalidateTraitsParticipant;
+- (id)_sbWindowSceneForSceneHandle:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_sceneFrame;
+- (unsigned long long)_sendActionForUpdatedConfiguration:(id)a0 sendCreateIfNecessary:(BOOL)a1;
+- (void)_setBlurred:(BOOL)a0;
+- (void)_setPreferredSceneContentSize:(struct CGSize { double x0; double x1; })a0;
+- (id)_thumbnailViewForUserActivity:(id)a0;
+- (BOOL)_updateForegroundStatus:(BOOL)a0;
+- (void)_updateSceneFrameWithCompletion:(id /* block */)a0;
+- (void)containerViewController:(id)a0 didSettleOnStashState:(BOOL)a1;
+- (BOOL)containerViewController:(id)a0 shouldHandleStashingForTransitionContext:(id)a1;
+- (void)containerViewControllerDidEndSizeChange:(id)a0;
+- (void)containerViewControllerWillBeginSizeChange:(id)a0 behavior:(int)a1;
+- (id)initWithSceneHandle:(id)a0 workspace:(id)a1 transientUIInteractionManager:(id)a2 notesInteractionSettings:(id)a3 presentationContext:(id)a4;
+- (BOOL)transientUIHandledTouch:(id)a0 withSystemGestureRecognizer:(id)a1;
+- (unsigned long long)updateConfiguration:(id)a0 sendCreateActionIfNecessary:(BOOL)a1;
+
+@end

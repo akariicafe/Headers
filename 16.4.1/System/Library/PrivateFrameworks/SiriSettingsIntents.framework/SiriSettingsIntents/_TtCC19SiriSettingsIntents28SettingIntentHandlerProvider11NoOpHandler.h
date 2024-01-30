@@ -1,0 +1,3 @@
+@interface _TtCC19SiriSettingsIntents28SettingIntentHandlerProvider11NoOpHandler : _TtCs12_SwiftObject
+
+@end

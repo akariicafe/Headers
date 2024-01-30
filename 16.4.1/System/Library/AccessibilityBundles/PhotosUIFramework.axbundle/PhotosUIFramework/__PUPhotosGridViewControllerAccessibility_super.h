@@ -1,0 +1,3 @@
+@interface __PUPhotosGridViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

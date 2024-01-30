@@ -1,0 +1,3 @@
+@interface PAEFTHueCurveChannelData : PAEHueCurveChannelData
+
+@end

@@ -1,0 +1,3 @@
+@interface __CAMViewfinderViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

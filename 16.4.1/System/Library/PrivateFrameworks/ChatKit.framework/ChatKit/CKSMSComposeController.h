@@ -1,0 +1,84 @@
+@class UINavigationController, CKSMSComposeRemoteViewController, _UIAsyncInvocation, NSString, CKSMSComposeQueuingRemoteViewControllerProxy;
+
+@interface CKSMSComposeController : UIViewController <CKSMSCompose, CKSMSComposeRemoteViewControllerDelegate>
+
+@property (retain, nonatomic) _UIAsyncInvocation *cancellationInvocation;
+@property (retain, nonatomic) UINavigationController *clientNavigationController;
+@property (nonatomic) BOOL safeToAdd;
+@property (nonatomic) BOOL didChangeStatusBarStyle;
+@property (nonatomic) long long savedStatusBarStyle;
+@property (nonatomic) BOOL firstItemWasInserted;
+@property (weak, nonatomic) id delegate;
+@property (retain, nonatomic) CKSMSComposeRemoteViewController *remoteViewController;
+@property (retain, nonatomic) CKSMSComposeQueuingRemoteViewControllerProxy *remoteViewControllerProxy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)acceptsMIMEType:(id)a0;
++ (BOOL)canSendPhotos:(int)a0 videos:(int)a1 audioClips:(int)a2;
++ (double)maxTrimDurationForAudio;
++ (double)maxTrimDurationForVideo;
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (id)initWithNavigationController:(id)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)init;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewServiceDidTerminateWithError:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (void)setContentText:(id)a0;
+- (void)setContentURLs:(id)a0;
+- (void)setNavBarTitle:(id)a0;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 shouldHideClearPluginButton:(BOOL)a3 chatGUID:(id)a4;
+- (void)_addRemoteVCIfNeeded;
+- (BOOL)canInsertMessage;
+- (void)disableCameraAttachments;
+- (void)forceCancelComposition;
+- (void)forceMMS;
+- (BOOL)insertAttachmentWithURL:(id)a0 andDescription:(id)a1;
+- (BOOL)insertCKShareForCollaboration:(id)a0 containerSetupInfo:(id)a1 collaborationShareOptions:(id)a2 isCollaboration:(BOOL)a3;
+- (BOOL)insertCKShareForCollaboration:(id)a0 containerSetupInfo:(id)a1 collaborationShareOptions:(id)a2 isCollaboration:(BOOL)a3 completionHandler:(id /* block */)a4;
+- (BOOL)insertData:(id)a0 MIMEType:(id)a1 exportedFilename:(id)a2;
+- (BOOL)insertFileURLForCollaboration:(id)a0 collaborationShareOptions:(id)a1 metadata:(id)a2 isCollaboration:(BOOL)a3;
+- (BOOL)insertFileURLForCollaboration:(id)a0 collaborationShareOptions:(id)a1 metadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4;
+- (BOOL)insertFileURLForCollaboration:(id)a0 collaborationShareOptions:(id)a1 metadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4 completionHandler:(id /* block */)a5;
+- (BOOL)insertFilename:(id)a0 MIMEType:(id)a1 exportedFilename:(id)a2 options:(id)a3;
+- (BOOL)insertGroupActivity:(id)a0;
+- (void)insertItemForSendingAndCalculateEntryViewFrame:(id)a0 withAlternateFilename:(id)a1 completion:(id /* block */)a2;
+- (BOOL)insertMessage:(id)a0;
+- (BOOL)insertRichLinkWithURL:(id)a0 andData:(id)a1;
+- (BOOL)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2;
+- (BOOL)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2 completionHandler:(id /* block */)a3;
+- (BOOL)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4 completionHandler:(id /* block */)a5;
+- (void)setCanEditRecipients:(BOOL)a0;
+- (void)setCloudPhotoIDs:(id)a0;
+- (void)setGameCenterModeWithPickerBlock:(id /* block */)a0;
+- (void)setGameCenterPickedHandles:(id)a0 playerNames:(id)a1;
+- (void)setPendingAddresses:(id)a0;
+- (void)setPhotoIDs:(id)a0;
+- (void)setShareSheetSessionID:(id)a0;
+- (void)setShouldDisableEntryField:(BOOL)a0;
+- (void)setShouldIgnoreEmailsWhenSending:(BOOL)a0;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 chatGUID:(id)a3 groupName:(id)a4;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 shouldHideClearPluginButton:(BOOL)a3;
+- (void)setTextEntryContentsVisible:(BOOL)a0;
+- (void)setUICustomizationData:(id)a0;
+- (void)setUTIs:(id)a0;
+- (void)showInsertedItemInEntryView;
+- (void)smsComposeControllerAppeared;
+- (void)smsComposeControllerCancelled;
+- (void)smsComposeControllerDataInserted;
+- (void)smsComposeControllerEntryViewContentInserted;
+- (void)smsComposeControllerSendStartedWithText:(id)a0;
+- (void)smsComposeControllerShouldSendMessageWithText:(id)a0 toRecipients:(id)a1 completion:(id /* block */)a2;
+
+@end

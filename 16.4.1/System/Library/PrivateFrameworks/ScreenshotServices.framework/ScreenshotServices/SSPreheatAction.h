@@ -1,0 +1,3 @@
+@interface SSPreheatAction : BSAction
+
+@end

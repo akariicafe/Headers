@@ -1,0 +1,3 @@
+@interface TSgPTPEthernetPort : TSgPTPFDPtPPort
+
+@end

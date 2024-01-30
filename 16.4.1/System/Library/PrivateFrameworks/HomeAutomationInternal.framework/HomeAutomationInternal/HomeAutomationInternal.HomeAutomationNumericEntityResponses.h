@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.HomeAutomationNumericEntityResponses : HomeAutomationInternal.HomeAutomationEntityResponses
+
+@end

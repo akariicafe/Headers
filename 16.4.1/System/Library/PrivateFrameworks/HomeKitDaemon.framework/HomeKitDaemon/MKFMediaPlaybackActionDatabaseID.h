@@ -1,0 +1,3 @@
+@interface MKFMediaPlaybackActionDatabaseID : MKFActionDatabaseID
+
+@end

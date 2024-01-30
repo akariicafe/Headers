@@ -1,0 +1,11 @@
+@interface VNImageClassifier : NSObject
+
++ (BOOL)_dumpIntermediatesFullImage:(id)a0 imageURL:(id)a1 requiredImageSource:(const struct __CVBuffer { } *)a2 imageProcessingType:(int)a3 error:(id *)a4;
++ (BOOL)_dumpIntermediatesTiles:(id)a0 imageURL:(id)a1 requiredImageSource:(const struct __CVBuffer { } *)a2 imageProcessingType:(int)a3 allocatedTileCount:(unsigned int)a4 imageTiles:(const void *)a5 bytesPerPixel:(int)a6 numTiles:(unsigned int)a7 scaleFactor:(float)a8 augmentationMode:(unsigned int)a9 scalingImage:(BOOL)a10 error:(id *)a11;
++ (id)classifyImageHierarchicallyWithDescriptors:(const void *)a0 usingImageClassifier:(void *)a1 hierarchicalClassifier:(struct ImageClassifier_HierarchicalModel { struct ImageClassfier_Graph *x0; } *)a2 minimumClassificationConfidence:(float)a3 minimumClassificationConfidenceRatio:(float)a4 maximumLeafLabels:(unsigned long long)a5 maximumHierarchicalLabels:(unsigned long long)a6 options:(id)a7 metalContext:(id)a8 error:(id *)a9;
++ (id)classifyImageWithDescriptors:(const void *)a0 usingImageClassifier:(void *)a1 andMinConfidenceForClassification:(float)a2 options:(id)a3 metalContext:(id)a4 error:(id *)a5;
++ (BOOL)computeImageCropWithImage:(id)a0 regionOfInterest:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 usingDescriptorProcessor:(struct ImageDescriptorProcessorAbstract { void /* function */ **x0; } *)a2 scalingImage:(BOOL)a3 options:(id)a4 pixelBuffer:(struct __CVBuffer **)a5 error:(id *)a6;
++ (BOOL)computeImageDescriptorsWithImage:(id)a0 pixelBuffer:(struct __CVBuffer **)a1 regionOfInterest:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 usingDescriptorProcessor:(struct ImageDescriptorProcessorAbstract { void /* function */ **x0; } *)a3 tileCount:(int)a4 augmentationMode:(unsigned int)a5 resultantDescriptorBuffer:(void *)a6 options:(id)a7 metalContext:(id)a8 canceller:(id)a9 tileColumns:(unsigned long long *)a10 tileRows:(unsigned long long *)a11 error:(id *)a12;
++ (BOOL)computeLabelsAndConfidence:(void *)a0 usingDescriptorBuffer:(void *)a1 populateLabelsAndConfidence:(void *)a2 options:(id)a3 metalContext:(id)a4 error:(id *)a5;
+
+@end

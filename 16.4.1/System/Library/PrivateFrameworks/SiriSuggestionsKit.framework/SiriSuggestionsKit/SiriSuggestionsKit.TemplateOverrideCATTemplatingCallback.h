@@ -1,0 +1,8 @@
+@interface SiriSuggestionsKit.TemplateOverrideCATTemplatingCallback : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ templateDirectory;
+    void /* unknown type, empty encoding */ sectionId;
+    void /* unknown type, empty encoding */ isSpeakable;
+    void /* unknown type, empty encoding */ templatingResultCallback;
+}
+
+@end

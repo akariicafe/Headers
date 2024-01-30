@@ -1,0 +1,3 @@
+@interface __UIApplicationRotationFollowingWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UIEditMenuListViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

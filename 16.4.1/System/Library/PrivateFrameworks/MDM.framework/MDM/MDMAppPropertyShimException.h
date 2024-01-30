@@ -1,0 +1,3 @@
+@interface MDMAppPropertyShimException : NSException
+
+@end

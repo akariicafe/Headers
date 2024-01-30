@@ -1,0 +1,3 @@
+@interface __PUAdjustmentsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

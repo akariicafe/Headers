@@ -1,0 +1,3 @@
+@interface ___UICalendarDateViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

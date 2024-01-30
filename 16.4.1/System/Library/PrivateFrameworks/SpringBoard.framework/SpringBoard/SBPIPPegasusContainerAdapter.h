@@ -1,0 +1,83 @@
+@class NSString, SBPIPMultidisplayHyperregionComposer, NSArray, SBPIPContainerViewController, PGPictureInPictureViewController, UIButton, SBPIPStashTabSuppressionPolicyProvider, NSNumber;
+@protocol SBPIPContainerViewControllerAdapterContextProviding;
+
+@interface SBPIPPegasusContainerAdapter : NSObject <PGPictureInPictureViewControllerContentContainer, SBPIPStashTabSuppressionPolicyProviderObserver, SBPIPContainerViewControllerAdapter, SBPIPInteractionControllerDataSource> {
+    SBPIPContainerViewController<SBPIPContainerViewControllerAdapterContextProviding> *_containerViewController;
+    UIButton *_menuButton;
+    BOOL _isAnyInteractionGestureActive;
+    struct CGSize { double width; double height; } _minimumStashTabSize;
+    BOOL _invalidated;
+    BOOL _isChangingSize;
+    SBPIPStashTabSuppressionPolicyProvider *_stashTabVisibilityPolicyProvider;
+    SBPIPMultidisplayHyperregionComposer *_pipPositionHyperregionComposer;
+    NSArray *_offScreenHyperregionComposers;
+}
+
+@property (readonly, nonatomic) PGPictureInPictureViewController *pictureInPictureViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) NSNumber *overrideResourcesUsageReductionTimeout;
+@property (readonly, nonatomic) BOOL shouldSuppressAssociatedElementsInSystemAperture;
+
+- (id)debugName;
+- (id)layoutSettings;
+- (void)containerViewControllerStopReducingResourcesUsage:(id)a0;
+- (void)dealloc;
+- (void)invalidate;
+- (void)containerViewControllerStartReducingResourcesUsage:(id)a0;
+- (void).cxx_destruct;
+- (void)setContainerViewController:(id)a0;
+- (void)acquireInterfaceOrientationLock;
+- (void)updateMenuItems;
+- (void)_performStopAnimationWithFinalInterfaceOrientation:(long long)a0 finalLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (BOOL)handleDoubleTapGesture;
+- (BOOL)handleTapWhileStashedGesture;
+- (void)notePictureInPictureViewControllerPrefersHiddenFromClonedDisplayDidChange;
+- (void)notePictureInPictureViewControllerTetheringDidUpdate;
+- (void)performRotateAnimationWithRotation:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)performStartAnimationWithCompletionHandler:(id /* block */)a0;
+- (void)performStartInIsolationWithCompletionHandler:(id /* block */)a0;
+- (void)performStopAnimationWithFinalInterfaceOrientation:(long long)a0 finalLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (void)performStopInIsolationWithCompletionHandler:(id /* block */)a0;
+- (void)pictureInPictureClientDidRequestStashing;
+- (void)preferredContentSizeDidChangeForPictureInPictureViewController;
+- (void)prepareStartAnimationWithInitialInterfaceOrientation:(long long)a0 initialLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (void)relinquishInterfaceOrientationLock;
+- (void)_reloadMenuButton;
+- (void)_createOrInvalidateStashTabVisibilityPolicyProvider;
+- (id)bundleIdentifierForContainerViewController:(id)a0;
+- (void)containerViewController:(id)a0 didUpdateContentViewFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 reason:(id)a2;
+- (void)containerViewController:(id)a0 didUpdateStashProgress:(double)a1;
+- (void)containerViewController:(id)a0 didUpdateStashState:(BOOL)a1 springSettings:(id)a2;
+- (void)containerViewController:(id)a0 wantsStashTabHidden:(BOOL)a1 left:(BOOL)a2 springSettings:(id)a3 completion:(id /* block */)a4;
+- (void)containerViewController:(id)a0 willBeginInteractionWithGestureRecognizer:(id)a1;
+- (void)containerViewControllerDidEndInteraction:(id)a0;
+- (void)containerViewControllerDidEndSizeChange:(id)a0;
+- (void)containerViewControllerWillBeginSizeChange:(id)a0 behavior:(int)a1;
+- (id)contentViewControllerForContainerViewController:(id)a0;
+- (double)currentCornerRadiusForInteractionController:(id)a0;
+- (id)defaultPositionHyperregionComposers;
+- (id)initWithPictureInPictureViewController:(id)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })interactionController:(id)a0 edgeInsetsForWindowScene:(id)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })interactionController:(id)a0 stashedPaddingForWindowScene:(id)a1;
+- (void)interactionController:(id)a0 updateScaleInteractor:(id)a1 pipSize:(struct CGSize { double x0; double x1; })a2 forPanGesture:(id)a3;
+- (id)interactionControllerConnectedWindowScenes:(id)a0;
+- (BOOL)interactionControllerScalesDuringPanGesture:(id)a0;
+- (BOOL)isStashTabHiddenForContainerViewController:(id)a0;
+- (void)layoutSubviewsForContainerViewController:(id)a0;
+- (void)loadSubviewsForContainerViewController:(id)a0;
+- (id)morphAnimatorTargetContainerViewForContainerViewController:(id)a0;
+- (id)morphAnimatorTargetViewForContainerViewController:(id)a0;
+- (int)processIdentifierForContainerViewController:(id)a0;
+- (id)scenePersistenceIdentifierForContainerViewController:(id)a0;
+- (BOOL)shouldDisableIdleTimerForContainerViewController:(id)a0;
+- (BOOL)shouldPointerInteractionBeginForInteractionController:(id)a0;
+- (void)stashTabVisibilityPolicyProviderDidUpdatePolicy:(id)a0;
+- (id)systemGestureManagerForInteractionControllerResizing:(id)a0;
+- (id)systemPointerInteractionManagerForInteractionController:(id)a0;
+- (void)transitionAnimationDidEndForContainerViewController:(id)a0;
+- (void)transitionAnimationWillBeginForContainerViewController:(id)a0;
+
+@end

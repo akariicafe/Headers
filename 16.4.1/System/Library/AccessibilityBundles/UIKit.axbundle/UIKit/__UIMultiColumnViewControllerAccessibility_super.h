@@ -1,0 +1,3 @@
+@interface __UIMultiColumnViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

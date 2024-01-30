@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.StartUnderstandingOnServerRequestMessage : SiriRequestDispatcher.StartRequestMessageBase
+
+@end

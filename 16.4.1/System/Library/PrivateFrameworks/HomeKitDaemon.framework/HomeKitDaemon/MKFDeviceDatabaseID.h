@@ -1,0 +1,3 @@
+@interface MKFDeviceDatabaseID : MKFModelDatabaseID
+
+@end

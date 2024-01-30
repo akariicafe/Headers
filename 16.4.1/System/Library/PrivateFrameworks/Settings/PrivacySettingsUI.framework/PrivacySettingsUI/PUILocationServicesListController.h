@@ -1,0 +1,96 @@
+@class NSDate, NSString, FMFDevice, NSArray, NSOperationQueue, NSDictionary, NSMutableDictionary, NSMutableArray, ACAccount, FMFSession, NSNumber, ACAccountStore;
+@protocol SRRelatedSettingsProvider;
+
+@interface PUILocationServicesListController : PSListController <FMFSessionDelegate> {
+    NSDictionary *_locationEntitiesDetails;
+    NSMutableArray *_coalescedLocationBasedAlertsSystemServices;
+    NSMutableArray *_coalescedHomeKitSystemServices;
+    NSMutableArray *_coalescedRoutingAndTrafficSystemServices;
+    NSMutableArray *_coalescedWirelessSystemServices;
+    NSMutableArray *_coalescedSystemCutomizationSystemServices;
+    NSArray *_ignoredLocationEntities;
+    BOOL _deferredRefreshDueToConfirm;
+    BOOL _locationNotificationsEnabled;
+    NSMutableDictionary *_coalesceAppKeys;
+    NSDate *_twentyFourHoursAgo;
+    ACAccountStore *_accountStore;
+    ACAccount *_primaryAccount;
+    NSNumber *_isLocationServicesEnabled;
+    id<SRRelatedSettingsProvider> _sensorKitSpecifiersProvider;
+}
+
+@property (retain, nonatomic) NSOperationQueue *locationSharingOperationQueue;
+@property (retain, nonatomic) FMFSession *locationSharingSession;
+@property (retain, nonatomic) FMFDevice *locationSharingDevice;
+@property (retain, nonatomic) NSNumber *locationSharingEnabled;
+@property (retain, nonatomic) NSMutableArray *coalescedImproveMapsServices;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isCoreRoutineAuthorized;
++ (BOOL)isLocationRestricted;
++ (void)setCoreRoutineAuthorized:(BOOL)a0;
+
+- (void)willBecomeActive;
+- (void)didChangeActiveLocationSharingDevice:(id)a0;
+- (id)hiddenBundleIdentifiers;
+- (id)accountStore;
+- (id)tableView:(id)a0 willSelectRowAtIndexPath:(id)a1;
+- (void)profileNotification:(id)a0;
+- (id)primaryAccount;
+- (void)dealloc;
+- (id)specifiers;
+- (id)init;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)connectionError:(id)a0;
+- (void)didUpdateHidingStatus:(BOOL)a0;
+- (id)valueForSpecifier:(id)a0;
+- (void)_setEntityAuthorized:(BOOL)a0 specifier:(id)a1;
+- (id)loadSensorKitSpecifiersProvider;
+- (void)_cancelConfirmDisableForSpecifier:(id)a0;
+- (void)_handleAuthenticationForSpecifier:(id)a0 success:(BOOL)a1 error:(id)a2;
+- (BOOL)_isBundleBlacklisted:(id)a0;
+- (BOOL)_isFindMyDeviceSpecifier:(id)a0;
+- (void)_locationSharingSpecifierWasTapped:(id)a0;
+- (void)_pushCoreRoutineViewController;
+- (void)_setLocationServicesEnabled:(BOOL)a0;
+- (BOOL)_shouldEnableLocationSharingSpecifier;
+- (void)disableAfterLoginConfirmation:(id)a0;
+- (id)isEntityAuthorized:(id)a0;
+- (id)isLocationServicesEnabled:(id)a0;
+- (BOOL)isLocationSharingEnabled;
+- (BOOL)isLocationSharingModificationAllowed;
+- (id)localizedDisplayNameForBundleID:(id)a0;
+- (id)locationDetailSpecifiersForAppsAndBundles;
+- (id)locationDetailSpecifiersWithDetailsMatching:(id /* block */)a0;
+- (id)locationSharingSpecifiers;
+- (int)locationUsageBasedOnDetails:(id)a0;
+- (int)locationUsageForEntity:(id)a0;
+- (void)mainThreadConnectionError:(id)a0;
+- (void)mainThreadDidChangeActiveLocationSharingDevice:(id)a0;
+- (void)mainThreadDidUpdateHidingStatus:(BOOL)a0;
+- (void)refreshLinkStatusInParent;
+- (void)setAuthLevel:(unsigned long long)a0 forCell:(id)a1;
+- (void)setEntityAuthorized:(id)a0 specifier:(id)a1;
+- (void)setLocationServicesEnabled:(id)a0 specifier:(id)a1;
+- (void)setSOSEntityAuthorized:(id)a0 specifier:(id)a1;
+- (void)setUsage:(int)a0 forCell:(id)a1;
+- (void)showLocationPrivacyPage;
+- (void)startLocationStatusUpdates;
+- (void)stopLocationStatusUpdates;
+- (void)updateFindMyFriendsStateBasedOnRestriction;
+- (void)updateForApplicationDidBecomeActive:(id)a0;
+- (void)updateLocationSharing;
+- (void)updateLocationSharingSpecifiersWithReload:(BOOL)a0;
+- (void)updateLocationUsage;
+- (void)updateMutableStateBasedOnRestriction;
+- (void)updateMutableStateForLocationSharing;
+- (void)updateRecentlyUsedDate;
+- (void)updateSpecifiersForImposedSettings;
+- (void)updateSpecifiersForImposedSettingsWithReload:(BOOL)a0;
+
+@end

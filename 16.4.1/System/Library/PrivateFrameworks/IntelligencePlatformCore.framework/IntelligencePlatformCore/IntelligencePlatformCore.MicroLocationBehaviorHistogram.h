@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.MicroLocationBehaviorHistogram : IntelligencePlatformCore.CategoricalBehaviorHistogramBase
+
+@end

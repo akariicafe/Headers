@@ -1,0 +1,3 @@
+@interface __PUPhotoEditBaseAdjustmentCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

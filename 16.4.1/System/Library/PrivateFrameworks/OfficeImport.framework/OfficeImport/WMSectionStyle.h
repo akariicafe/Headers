@@ -1,0 +1,3 @@
+@interface WMSectionStyle : WMStyle
+
+@end

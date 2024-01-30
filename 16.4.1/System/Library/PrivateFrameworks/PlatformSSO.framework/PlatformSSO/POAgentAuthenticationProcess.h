@@ -1,0 +1,74 @@
+@class UNUserNotificationCenter, PORegistrationContext, NSDate, POKeyBag, SOExtensionManager, PODirectoryServices, POConfigurationManager, POAuthenticationProcess, NSString, NSTimer, SOConfigurationHost, POKerberosHelper, NSNotificationCenter;
+@protocol POAgentAuthenticationProcessKerberosDelegate;
+
+@interface POAgentAuthenticationProcess : NSObject <UNUserNotificationCenterDelegate, POExtensionDelegate>
+
+@property (retain) POConfigurationManager *configurationManager;
+@property (retain) POAuthenticationProcess *authenticationProcess;
+@property (retain) SOConfigurationHost *configurationHost;
+@property (retain) SOExtensionManager *extensionManager;
+@property (retain) POKeyBag *keyBag;
+@property (retain) UNUserNotificationCenter *userNotificationCenter;
+@property (retain) NSNotificationCenter *notificationCenter;
+@property (retain) POKerberosHelper *kerberosHelper;
+@property (retain) PODirectoryServices *directoryServices;
+@property (retain) PORegistrationContext *registrationContext;
+@property BOOL registrationFailed;
+@property (retain) NSTimer *authenticationTimer;
+@property (retain) NSDate *lastAuthenticationAttempt;
+@property (retain) NSString *userName;
+@property BOOL localAccount;
+@property BOOL platformSSOActive;
+@property (weak) id<POAgentAuthenticationProcessKerberosDelegate> kerberosDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)userNotificationCenter:(id)a0 didReceiveNotificationResponse:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)dealloc;
+- (id)initWithDelegate:(id)a0;
+- (void).cxx_destruct;
+- (void)windowDidClose;
+- (void)postAuthenticationNotification:(unsigned long long)a0;
+- (void)_startDeviceRegistration;
+- (void)_startUserRegistration;
+- (void)configurationChanged:(id)a0;
+- (id)createRegistrationNotificationWithAccountName:(id)a0;
+- (id)createSignInNotificationWithAccountName:(id)a0 extensionIdentifier:(id)a1;
+- (void)exchangeTGTForStatus:(id)a0;
+- (void)handleAgentStartup;
+- (void)handleConfigurationChanged:(BOOL)a0;
+- (void)handleDeviceAndUserRegistrationForRepair:(BOOL)a0;
+- (void)handleDeviceAndUserRegistrationForRepair:(BOOL)a0 notified:(BOOL)a1;
+- (void)handleDeviceRegistrationNotification;
+- (void)handleKerberosMappingForTokens:(id)a0 extensionIdentifier:(id)a1 userConfiguration:(id)a2;
+- (void)handleKerberosMappingForTokens:(id)a0 loginConfiguration:(id)a1 userConfiguration:(id)a2;
+- (void)handleNetworkChange;
+- (void)handlePendingSSOTokens;
+- (void)handleRegistrationViewControllerForExtensionIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)handleRemovingRegistrationForExtension:(id)a0;
+- (void)handleScreenSaverRule;
+- (void)handleScreenUnlock;
+- (void)handleUnfinishedTGTExchanges;
+- (void)handleUserCredentialNeededAtLogin:(BOOL)a0;
+- (void)handleUserCredentialNeededAtLogin:(BOOL)a0 returningContext:(id *)a1;
+- (BOOL)handleUserNeedsReauthenticationAfterDelay:(double)a0;
+- (void)handleUserRegistrationForUser:(id)a0 repair:(BOOL)a1;
+- (void)handleUserRegistrationForUser:(id)a0 repair:(BOOL)a1 notified:(BOOL)a2;
+- (void)handleUserRegistrationNotification;
+- (BOOL)isCurrentSSOExtension:(id)a0;
+- (id)loadSSOExtensionWithExtensionBundleIdentifier:(id)a0;
+- (void)notifyKerberosDelegateTGTDidBegin;
+- (void)notifyKerberosDelegateTGTDidComplete;
+- (BOOL)performLoginForCurrentUser;
+- (void)promptUserForRegistration;
+- (id)registrationTokenForExtensionIdentifier:(id)a0;
+- (void)requestDidCompleteWithError:(id)a0;
+- (void)requestUserAuthenticationWithUserInfo:(id)a0;
+- (void)requestUserAuthenticationWithWindow:(id)a0 completion:(id /* block */)a1;
+- (void)setupNotificationCategories;
+- (void)setupTimerForAuthentication;
+- (int)ssoMethodToUse:(id)a0 profile:(id)a1;
+
+@end

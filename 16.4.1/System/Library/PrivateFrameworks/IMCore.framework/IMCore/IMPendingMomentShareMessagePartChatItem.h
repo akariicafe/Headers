@@ -1,0 +1,3 @@
+@interface IMPendingMomentShareMessagePartChatItem : IMAttachmentMessagePartChatItem
+
+@end

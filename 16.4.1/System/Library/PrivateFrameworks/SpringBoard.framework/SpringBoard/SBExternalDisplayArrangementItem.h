@@ -1,0 +1,3 @@
+@interface SBExternalDisplayArrangementItem : SBDisplayArrangementItem
+
+@end

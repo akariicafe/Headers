@@ -1,0 +1,88 @@
+@class HIDManager, NSString, NSMutableDictionary, NightModeControl, SWSystemSleepMonitor, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue, OS_os_log, OS_dispatch_source;
+
+@interface BLControl : NSObject <SWSystemSleepObserver> {
+    struct __IOHIDEventSystemClient { } *_hidSystemClient;
+    NSObject<OS_dispatch_queue> *_queue;
+    BOOL _ignoreBrightnessKey;
+    BOOL _ignoreBrightnessFactorKeys;
+    BOOL _overrideIgnoreBrightness;
+    BOOL _ignoreALSEvents;
+    id /* block */ _callback;
+    void *_callbackContext;
+    BOOL _monitorALSOnly;
+    BOOL _useMultiCurves;
+    int _ecoModeNotificationToken;
+    id /* block */ _ecoModeNotificationHandler;
+    int _ecoModePreferencesUpdateNotificationToken;
+    id /* block */ _ecoModePreferencesUpdateNotificationHandler;
+    NSMutableDictionary *_clientDisplayMap;
+    NSMutableArray *_displayContainers;
+    NSMutableArray *_hidServiceClients;
+    NSObject<OS_os_log> *_logHandle;
+    unsigned long long _builtInDisplayCount;
+    NightModeControl *_nightModeControl;
+    NSMutableDictionary *_keyboardContainers;
+    HIDManager *_keyboardBacklightHIDManager;
+    unsigned long long _userActiveNotificationHandle;
+    long long _displayMode;
+    NSObject<OS_dispatch_source> *_displayModeCompletionTimer;
+    SWSystemSleepMonitor *_systemSleepMonitor;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)findBacklight;
+- (void)registerNotificationBlock:(id /* block */)a0;
+- (BOOL)setPropertyInternalWithKey:(id)a0 property:(id)a1 client:(id)a2;
+- (BOOL)useSyncBrightnessTransactionForDisplay:(id)a0;
+- (void)systemSleepMonitor:(id)a0 prepareForSleepWithCompletion:(id /* block */)a1;
+- (void)handleHIDEvent:(struct __IOHIDEvent { } *)a0 from:(struct __IOHIDServiceClient { } *)a1;
+- (void)hidServiceArrival:(struct __IOHIDServiceClient { } *)a0;
+- (void)handleCADisplay:(id)a0;
+- (id)copyBLControlPropertyWithkey:(id)a0;
+- (void)handleUserIsActiveStateChange:(BOOL)a0;
+- (BOOL)setDisplayFactor:(float)a0 transitionLength:(float)a1;
+- (BOOL)setPropertyWithKey:(id)a0 property:(id)a1 client:(id)a2;
+- (void)systemSleepMonitorWillWakeFromSleep:(id)a0;
+- (id)copyDisplayList;
+- (void)waitForALSArrival;
+- (BOOL)setBLControlPropertyWithKey:(id)a0 property:(id)a1;
+- (void)systemSleepMonitorDidWakeFromSleep:(id)a0;
+- (void)stopDisplayLookup;
+- (void)handleNotificationInternalForKey:(id)a0 withValue:(id)a1;
+- (void)removeDisplayContainer:(id)a0;
+- (void)handleCAWindowServerDisplay:(id)a0;
+- (BOOL)findDisplays;
+- (void)dealloc;
+- (id)copyDisplayInfo;
+- (void)sendNotificationWithKeyboardIDs;
+- (void)cancelHIDSystemClient;
+- (void)keyboardBacklightHIDDeviceArrived:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)startHIDSystemClient;
+- (BOOL)initKeyboardBacklightHIDManager;
+- (void)sendNotificationFor:(id)a0 withValue:(id)a1;
+- (id)copyPropertyWithKey:(id)a0 client:(id)a1;
+- (void)stop;
+- (BOOL)handleDisplayModeUpdatePropertyHandler:(id)a0;
+- (id)newDevicePariMatchingDictionaryWithPage:(unsigned int)a0 andUsage:(unsigned int)a1;
+- (void)handleExternalDisplayChange;
+- (id)copyPropertyInternalWithKey:(id)a0 forClient:(id)a1;
+- (id)init;
+- (void)removeHIDService:(struct __IOHIDServiceClient { } *)a0;
+- (void)keyboardBacklightHIDDeviceRemovedInternal:(id)a0;
+- (BOOL)start;
+- (void)addDisplayContainer:(id)a0;
+- (void)handleCADisplayRemoval:(id)a0;
+- (id)copyStatusInfo;
+- (void)releaseDisplayModeCompletionTimer;
+- (void)handlePresetChange;
+- (void)keyboardBacklightHIDDeviceRemoved:(id)a0;
+- (void)handleCADisplayArrival:(id)a0;
+- (void)scheduleDisplayModeCompletionTimerIn:(float)a0 forDisplayMode:(long long)a1;
+
+@end

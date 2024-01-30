@@ -1,0 +1,3 @@
+@interface CHUISAvocadoHostViewController : CHUISWidgetHostViewController
+
+@end

@@ -1,0 +1,21 @@
+@class NSMutableArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface MPAVTelevisionRoutingDataSource : MPAVRoutingDataSource {
+    void *_discoveryController;
+    NSMutableArray *_discoveredTelevisions;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+}
+
+- (BOOL)devicePresenceDetected;
+- (void)getPickedRouteHasVolumeControlWithCompletion:(id /* block */)a0;
+- (id)getRoutesForCategory:(id)a0;
+- (void)setDiscoveryMode:(long long)a0;
+- (void)_onQueue_controllerDidDiscoverTelevision:(void *)a0;
+- (id)_discoveredTelevisions;
+- (void)dealloc;
+- (id)init;
+- (void)_onQueue_controllerDidRemoveTelevision:(void *)a0;
+- (void).cxx_destruct;
+
+@end

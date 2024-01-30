@@ -1,0 +1,3 @@
+@interface MKFCameraAccessModeBulletinRegistrationDatabaseID : MKFBulletinRegistrationDatabaseID
+
+@end

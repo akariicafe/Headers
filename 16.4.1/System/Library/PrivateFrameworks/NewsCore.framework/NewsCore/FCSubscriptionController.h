@@ -1,0 +1,85 @@
+@class FCThreadSafeMutableDictionary, NSString, FCTagController, FCSubscriptionList, NSHashTable, FCNotificationController;
+@protocol FCPurchaseProviderType, FCNewsAppConfigurationManager, FCCoreConfigurationManager;
+
+@interface FCSubscriptionController : NSObject <FCSubscriptionListObserving, FCAppActivityObserving> {
+    FCSubscriptionList *_subscriptionList;
+    FCTagController *_tagController;
+    FCThreadSafeMutableDictionary *_subscribedTagsByTagID;
+    NSHashTable *_observers;
+    FCNotificationController *_notificationController;
+    id<FCPurchaseProviderType> _purchaseProvider;
+    id<FCCoreConfigurationManager> _configurationManager;
+    id<FCNewsAppConfigurationManager> _appConfigurationManager;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)mutedTagIDs;
+- (id)subscribedTagIDs;
+- (id)permanentChannelIDs;
+- (id)appleNewsNotificationChannelIDs;
+- (void)_purchaseListDidRemoveTagIDs:(id)a0;
+- (id)subscribedTagIDsWithNotificationsEnabled;
+- (BOOL)addSubscriptionToTag:(id)a0 options:(long long)a1 error:(id *)a2;
+- (id)subscriptions;
+- (BOOL)isAppleNewsNotificationForTagID:(id)a0;
+- (void)subscriptionsWithCompletion:(id /* block */)a0;
+- (void)subscriptionList:(id)a0 didAddSubscriptions:(id)a1 changeSubscriptions:(id)a2 moveSubscriptions:(id)a3 removeSubscriptions:(id)a4;
+- (id)groupableTagIDs;
+- (id)subscriptionSurfacingHeadline:(id)a0;
+- (void)fetchSubscribedTagsWithCallbackQueue:(id)a0 preferCache:(BOOL)a1 completion:(id /* block */)a2;
+- (id)ignoredTagIDs;
+- (void)addObserver:(id)a0;
+- (BOOL)addMutedSubscriptionForTagID:(id)a0 groupID:(id)a1;
+- (void)_purchaseListDidAddTagIDs:(id)a0;
+- (id)orderedCachedSubscribedTags;
+- (BOOL)hasNotificationsEnabledForTag:(id)a0;
+- (id)cachedSubscribedTags;
+- (BOOL)setNotificationsEnabled:(BOOL)a0 forTag:(id)a1 error:(id *)a2;
+- (BOOL)hasAutoFavoriteSubscriptionForTagID:(id)a0;
+- (BOOL)setNotificationsEnabled:(BOOL)a0 forTagID:(id)a1 error:(id *)a2;
+- (BOOL)moveSubscriptionForTagID:(id)a0 beforeTagID:(id)a1;
+- (id)initWithSubscriptionList:(id)a0 tagController:(id)a1 notificationController:(id)a2 purchaseProvider:(id)a3 configurationManager:(id)a4 appConfigurationManager:(id)a5 appActivityMonitor:(id)a6;
+- (void)removeSubscriptionForTagID:(id)a0 type:(unsigned long long)a1;
+- (id)portraitExcludedAutoFavoriteTagIDs;
+- (id)subscriptionForTagID:(id)a0;
+- (BOOL)canAddSubscriptionWithError:(id *)a0;
+- (void)subscriptionListDidResetToEmpty:(id)a0;
+- (void)refreshSubscriptionTags;
+- (BOOL)appendSubscriptionToTag:(id)a0 notificationsEnabled:(BOOL)a1 error:(id *)a2;
+- (BOOL)hasMutedSubscriptionForTagID:(id)a0;
+- (void)removeObserver:(id)a0;
+- (void)subscriptionListDidStopSyncingRemoteChanges:(id)a0;
+- (void)subscriptionListWillStartSyncingRemoteChanges:(id)a0;
+- (BOOL)isChannelPermanentForTagID:(id)a0;
+- (void)prewarmFromCacheWithCallbackQueue:(id)a0 completion:(id /* block */)a1;
+- (void)activityObservingApplicationDidEnterBackground;
+- (id)subscriptionForTag:(id)a0;
+- (id)tagIDsWithType:(unsigned long long)a0;
+- (id)newlySubscribedTagIDsInDateRange:(id)a0;
+- (BOOL)addIgnoredSubscriptionForTagID:(id)a0;
+- (id)init;
+- (BOOL)addMutedSubscriptionForTagID:(id)a0;
+- (id)allSubscribedTagIDs;
+- (BOOL)hasSubscriptionToTagID:(id)a0;
+- (id)subscriptionsWithType:(unsigned long long)a0;
+- (BOOL)removeIgnoredSubscriptionForTagID:(id)a0 groupID:(id)a1;
+- (BOOL)hasSubscriptionToTag:(id)a0;
+- (id)subscribedTagForTagID:(id)a0;
+- (void)removeAllAutoFavoriteSubscriptions:(id /* block */)a0;
+- (void)removeSubscriptionToTag:(id)a0;
+- (id)autoFavoriteTagIDs;
+- (BOOL)removeIgnoredSubscriptionForTagID:(id)a0;
+- (BOOL)hasIgnoredSubscriptionForTagID:(id)a0;
+- (BOOL)addIgnoredSubscriptionForTagID:(id)a0 groupID:(id)a1;
+- (BOOL)addSubscriptionToTag:(id)a0 notificationsEnabled:(BOOL)a1 error:(id *)a2;
+- (BOOL)canAddSubscription;
+- (void)addAutoFavoriteSubscriptionForTagIDs:(id)a0 groupableSubscriptionForTagIDs:(id)a1 originProvider:(id /* block */)a2 completion:(id /* block */)a3;
+- (BOOL)addSubscriptionToTag:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (void)fetchAllTagsWithCallbackQueue:(id)a0 maximumCachedAge:(double)a1 qualityOfService:(long long)a2 completion:(id /* block */)a3;
+
+@end

@@ -1,0 +1,21 @@
+@class NSData, FLOWLINKSchemaFLOWLINKAction;
+
+@interface FLOWLINKSchemaFLOWLINKActionConversionEnded : SISchemaInstrumentationMessage
+
+@property (retain, nonatomic) FLOWLINKSchemaFLOWLINKAction *action;
+@property (nonatomic) BOOL hasAction;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (id)suppressMessageUnderConditions;
+- (id)dictionaryRepresentation;
+- (void)deleteAction;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void).cxx_destruct;
+
+@end

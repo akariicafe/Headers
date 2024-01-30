@@ -1,0 +1,3 @@
+@interface WFAQIScaleCategoryUBA : WFAQIScaleCategory
+
+@end

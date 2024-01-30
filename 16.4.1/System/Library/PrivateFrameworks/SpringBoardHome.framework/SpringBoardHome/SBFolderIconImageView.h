@@ -1,0 +1,80 @@
+@class SBFloatyFolderView, NSString, NSHashTable, UIView, _SBIconGridWrapperView, NSMutableArray;
+
+@interface SBFolderIconImageView : SBIconImageView <SBFolderIconObserver, SBFolderIconImageCacheObserver> {
+    UIView *_solidColorBackgroundView;
+    UIView *_pageGridContainer;
+    _SBIconGridWrapperView *_leftWrapperView;
+    _SBIconGridWrapperView *_rightWrapperView;
+    NSMutableArray *_pageElements;
+    SBFloatyFolderView *_crossfadeFolderView;
+    UIView *_crossfadeScalingView;
+    NSHashTable *_imageUpdateDisableAssertions;
+    unsigned long long _transitionToken;
+}
+
+@property (readonly, nonatomic) unsigned long long concreteBackgroundStyle;
+@property (nonatomic) unsigned long long currentBackgroundStyle;
+@property (nonatomic) unsigned long long backgroundStyle;
+@property (readonly, nonatomic) unsigned long long currentPageIndex;
+@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) double iconGridImageAlpha;
+@property (retain, nonatomic) UIView *backgroundView;
+@property (readonly, nonatomic) BOOL hasCustomBackgroundView;
+@property (nonatomic, getter=isPageGridHidden) BOOL pageGridHidden;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_generateSquareContentsImage;
+- (id)contentsImage;
+- (void)_updateRasterization;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForMiniIconAtIndexPath:(id)a0;
+- (void)iconViewLegibilitySettingsDidChange;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (void)_setPageElements:(id)a0;
+- (void)updateImageAnimated:(BOOL)a0;
+- (void)setBackgroundAndIconGridImageAlpha:(double)a0;
+- (id)disableImageUpdatesForReason:(id)a0;
+- (void)iconViewFolderIconImageCacheDidChange;
+- (Class)_iconGridImageClass;
+- (void)_setAnimating:(BOOL)a0;
+- (void)scrollToGapOrTopIfFullOfPage:(unsigned long long)a0 animated:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })visibleImageRelativeFrameForMiniIconAtIndex:(unsigned long long)a0;
+- (id)_folderIcon;
+- (void)prepareForReuse;
+- (void)fulfillGridImageForPageElement:(id)a0;
+- (void)cleanupAfterFloatyFolderCrossfade;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)invalidateImageUpdatesAssertion:(id)a0;
+- (void)_updateCurrentBackgroundStyle;
+- (void)setIcon:(id)a0 location:(id)a1 animated:(BOOL)a2;
+- (void)scrollToTopOfFirstPageAnimated:(BOOL)a0;
+- (id)_folderIconImageCache;
+- (id)snapshot;
+- (unsigned long long)visibleMiniIconListIndex;
+- (void)_setupGridViewsInDefaultConfiguration;
+- (void)dealloc;
+- (struct CGSize { double x0; double x1; })_interiorGridSize;
+- (void)_showLeftMinigrid;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForMiniIconAtIndex:(unsigned long long)a0;
+- (void)layoutSubviews;
+- (void)folderIconImageCache:(id)a0 didUpdateImagesForFolderIcon:(id)a1;
+- (void)scrollToTopOfPage:(unsigned long long)a0 animated:(BOOL)a1;
+- (void)setIconView:(id)a0;
+- (id)_currentPageElement;
+- (void)scrollToFirstGapAnimated:(BOOL)a0;
+- (unsigned long long)firstVisibleMiniIconIndex;
+- (void)_performScrollingDirection:(long long)a0 targetPageIndex:(unsigned long long)a1 targetPageScrollRow:(unsigned long long)a2 newLeftElement:(id)a3 newRightElement:(id)a4 animated:(BOOL)a5;
+- (unsigned long long)visibleMiniIconCount;
+- (unsigned long long)lastVisibleMiniIconIndex;
+- (id)representedListLayout;
+- (void)setBackgroundScale:(double)a0;
+- (void).cxx_destruct;
+- (void)_showRightMinigrid;
+- (void)_updateAccessibilityBackgroundContrast;
+- (void)prepareToCrossfadeWithFloatyFolderView:(id)a0 allowFolderInteraction:(BOOL)a1;
+- (void)setFloatyFolderCrossfadeFraction:(double)a0;
+- (unsigned long long)centerVisibleMiniIconIndex;
+
+@end

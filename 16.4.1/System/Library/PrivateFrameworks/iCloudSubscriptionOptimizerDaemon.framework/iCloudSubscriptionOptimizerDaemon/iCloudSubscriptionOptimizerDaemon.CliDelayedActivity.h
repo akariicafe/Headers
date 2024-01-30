@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.CliDelayedActivity : iCloudSubscriptionOptimizerDaemon.SystemActivity
+
+@end

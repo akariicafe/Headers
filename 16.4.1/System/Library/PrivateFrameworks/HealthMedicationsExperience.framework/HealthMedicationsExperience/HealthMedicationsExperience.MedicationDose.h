@@ -1,0 +1,9 @@
+@interface HealthMedicationsExperience.MedicationDose : _TtCs12_SwiftObject <HealthMedicationsExperience.MedicationDetailObserver> {
+    void /* unknown type, empty encoding */ medicationDoseType;
+    void /* unknown type, empty encoding */ _medication;
+    void /* unknown type, empty encoding */ medicationDetailProvider;
+}
+
+- (void)medicationDetailDidUpdate:(id)a0 for:(id)a1;
+
+@end

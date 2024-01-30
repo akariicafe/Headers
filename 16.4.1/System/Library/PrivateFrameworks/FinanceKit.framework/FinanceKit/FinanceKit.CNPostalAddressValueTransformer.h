@@ -1,0 +1,10 @@
+@interface FinanceKit.CNPostalAddressValueTransformer : NSSecureUnarchiveFromDataTransformer
+
++ (Class)transformedValueClass;
++ (BOOL)allowsReverseTransformation;
+
+- (id)reverseTransformedValue:(id)a0;
+- (id)transformedValue:(id)a0;
+- (id)init;
+
+@end

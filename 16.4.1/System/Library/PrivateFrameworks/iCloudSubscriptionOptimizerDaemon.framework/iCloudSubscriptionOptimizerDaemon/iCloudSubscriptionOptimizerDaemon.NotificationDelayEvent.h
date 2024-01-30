@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.NotificationDelayEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

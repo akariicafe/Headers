@@ -1,0 +1,3 @@
+@interface WidgetKit.CircularClockComplicationFontDefinition : WidgetKit.DefaultClockComplicationFontDefinition
+
+@end

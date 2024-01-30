@@ -1,0 +1,86 @@
+@class NSString, VCPVNImageprintWrapper;
+
+@interface VCPPhotosFace : NSObject <PFPhotosFaceRepresentation>
+
+@property (readonly, copy, nonatomic) NSString *localIdentifier;
+@property (copy, nonatomic) NSString *personLocalIdentifier;
+@property (nonatomic) long long sourceWidth;
+@property (nonatomic) long long sourceHeight;
+@property (nonatomic) short detectionType;
+@property (nonatomic) double centerX;
+@property (nonatomic) double centerY;
+@property (nonatomic) double size;
+@property (nonatomic) double bodyCenterX;
+@property (nonatomic) double bodyCenterY;
+@property (nonatomic) double bodyWidth;
+@property (nonatomic) double bodyHeight;
+@property (nonatomic) BOOL hidden;
+@property (nonatomic) BOOL isInTrash;
+@property (nonatomic) BOOL manual;
+@property (nonatomic) BOOL isTooSmall;
+@property (nonatomic) BOOL hasSmile;
+@property (nonatomic) double blurScore;
+@property (nonatomic) double exposureScore;
+@property (nonatomic) BOOL isLeftEyeClosed;
+@property (nonatomic) BOOL isRightEyeClosed;
+@property (copy, nonatomic) NSString *adjustmentVersion;
+@property (nonatomic) long long nameSource;
+@property (nonatomic) int trainingType;
+@property (nonatomic) double poseYaw;
+@property (nonatomic) unsigned long long algorithmVersion;
+@property (nonatomic) long long clusterSequenceNumber;
+@property (nonatomic) long long qualityMeasure;
+@property (nonatomic) unsigned short ageType;
+@property (nonatomic) unsigned short sexType;
+@property (nonatomic) unsigned short eyesState;
+@property (nonatomic) unsigned short smileType;
+@property (nonatomic) unsigned short facialHairType;
+@property (nonatomic) unsigned short hairColorType;
+@property (nonatomic) unsigned short glassesType;
+@property (nonatomic) unsigned short expressionType;
+@property (nonatomic) unsigned short headgearType;
+@property (nonatomic) unsigned short hairType;
+@property (nonatomic) unsigned short poseType;
+@property (nonatomic) unsigned short skintoneType;
+@property (nonatomic) unsigned short ethnicityType;
+@property (nonatomic) BOOL hasFaceMask;
+@property (nonatomic) unsigned short gazeType;
+@property (nonatomic) double gazeCenterX;
+@property (nonatomic) double gazeCenterY;
+@property (copy, nonatomic) NSString *groupingIdentifier;
+@property (retain, nonatomic) VCPVNImageprintWrapper *imageprintWrapper;
+@property (nonatomic) double roll;
+@property (nonatomic) double quality;
+
++ (double)_calculateIoUBetweenObservation:(id)a0 andObservation:(id)a1;
++ (double)_calculateOverlappingBetweenFaceObservation:(id)a0 andHumanObservation:(id)a1;
++ (BOOL)_isColocatingAnimalObservation:(id)a0 withFaceObservations:(id)a1 orTorsoObservations:(id)a2;
++ (id)faceFromFaceObservation:(id)a0 humanObservation:(id)a1 sourceWidth:(unsigned long long)a2 sourceHeight:(unsigned long long)a3 visionRequests:(id)a4 processingVersion:(int)a5 force:(BOOL)a6 andError:(id *)a7;
++ (id)faceFromPHFace:(id)a0 copyOption:(long long)a1;
++ (id)faceWithLocalIdentifier:(id)a0;
++ (id)facesFromFaceObservations:(id)a0 humanObservations:(id)a1 animalObservations:(id)a2 sourceWidth:(unsigned long long)a3 sourceHeight:(unsigned long long)a4 visionRequests:(id)a5 blurScorePerFace:(id)a6 exposureScorePerFace:(id)a7 tooSmallFaceObservations:(id)a8 processingVersion:(int)a9;
++ (id)facesFromPHFetchResult:(id)a0 copyOption:(long long)a1;
+
+- (void).cxx_destruct;
+- (id)initWithLocalIdentifier:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })normalizedFaceRect;
+- (double)photosFaceRepresentationCenterX;
+- (double)photosFaceRepresentationQuality;
+- (double)photosFaceRepresentationCenterY;
+- (double)photosFaceRepresentationBlurScore;
+- (long long)photosFaceRepresentationClusterSequenceNumber;
+- (BOOL)photosFaceRepresentationHasSmile;
+- (BOOL)photosFaceRepresentationIsLeftEyeClosed;
+- (BOOL)photosFaceRepresentationIsRightEyeClosed;
+- (id)photosFaceRepresentationLocalIdentifier;
+- (long long)photosFaceRepresentationQualityMeasure;
+- (double)photosFaceRepresentationRoll;
+- (double)photosFaceRepresentationSize;
+- (long long)photosFaceRepresentationSourceHeight;
+- (long long)photosFaceRepresentationSourceWidth;
+- (id)gist;
+- (long long)qualityMeasureWithCountOfFacesOnAsset:(unsigned long long)a0;
+- (void)replaceCoordinatesAndFeaturesFromDetectedFace:(id)a0;
+- (BOOL)setCenterAndSizeFromNormalizedFaceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+
+@end

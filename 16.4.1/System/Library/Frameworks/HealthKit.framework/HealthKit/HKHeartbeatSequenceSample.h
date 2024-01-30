@@ -1,0 +1,3 @@
+@interface HKHeartbeatSequenceSample : HKHeartbeatSeriesSample
+
+@end

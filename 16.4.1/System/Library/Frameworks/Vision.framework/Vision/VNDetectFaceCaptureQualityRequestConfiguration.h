@@ -1,0 +1,3 @@
+@interface VNDetectFaceCaptureQualityRequestConfiguration : VNImageBasedRequestConfiguration
+
+@end

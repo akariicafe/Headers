@@ -1,0 +1,90 @@
+@class PKPass, PKPaymentSessionHandle, NSString, NSData, PKFieldDetector, NSDictionary, PKContactlessInterfaceSession, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue, NPKQuickPaymentSessionDelegate;
+
+@interface NPKQuickPaymentSession : NSObject <PKContactlessInterfaceSessionDelegate, STSSessionDelegate> {
+    NSData *_credential;
+    _Atomic unsigned int _atomicIsSwitchingSessionTypeCount;
+}
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *paymentSessionQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *internalQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue;
+@property (retain, nonatomic) PKPaymentSessionHandle *contactlessSessionHandle;
+@property (retain, nonatomic) PKContactlessInterfaceSession *contactlessSession;
+@property (nonatomic) unsigned long long contactlessValidity;
+@property (nonatomic) unsigned long long authorizationValidity;
+@property (nonatomic, getter=isConfirmed) BOOL confirmed;
+@property (nonatomic, getter=hasPerformedFirstActivation) BOOL performedFirstActivation;
+@property (nonatomic, getter=isDeactivating) BOOL deactivating;
+@property (nonatomic, getter=isDeactivated) BOOL deactivated;
+@property (retain, nonatomic) NSMutableArray *deactivationCompletionBlocks;
+@property (retain, nonatomic) PKFieldDetector *fieldDetector;
+@property (weak, nonatomic) id<NPKQuickPaymentSessionDelegate> delegate;
+@property (retain, nonatomic) PKPass *currentPass;
+@property (readonly, nonatomic) BOOL sessionStarted;
+@property (readonly, nonatomic) BOOL isSwitchingSessionType;
+@property (readonly, nonatomic) unsigned long long sessionType;
+@property (retain, nonatomic) NSDictionary *vasPasses;
+@property (nonatomic) BOOL deferAuthorization;
+@property (nonatomic) BOOL requireFirstInQueue;
+@property (nonatomic) BOOL inServiceMode;
+@property (nonatomic) BOOL endSessionWhenAuthorizationIsConsumed;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_handleNewContactlessSession:(id)a0;
++ (id)_outstandingSessionHashTable;
++ (BOOL)hasOutstandingSessions;
++ (id)sessionWithQueue:(id)a0;
+
+- (BOOL)startSession;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithQueue:(id)a0;
+- (void)setCredential:(id)a0;
+- (void)authorize18013RequestWithDataToRelease:(id)a0 credential:(id)a1;
+- (void)contactlessInterfaceSession:(id)a0 didEndPersistentCardEmulationWithContext:(id)a1;
+- (void)contactlessInterfaceSession:(id)a0 didFinishTransactionWithContext:(id)a1;
+- (void)contactlessInterfaceSession:(id)a0 didReceive18013Request:(id)a1 readerAuthInfo:(id)a2;
+- (void)contactlessInterfaceSessionDidEnterField:(id)a0 withProperties:(id)a1;
+- (void)contactlessInterfaceSessionDidExitField:(id)a0;
+- (void)contactlessInterfaceSessionDidFail:(id)a0 forPaymentApplication:(id)a1 paymentPass:(id)a2 valueAddedServicePasses:(id)a3;
+- (void)contactlessInterfaceSessionDidFailDeferredAuthorization:(id)a0;
+- (void)contactlessInterfaceSessionDidFailTransaction:(id)a0 forPaymentApplication:(id)a1 paymentPass:(id)a2;
+- (void)contactlessInterfaceSessionDidReceiveActivityTimeout:(id)a0;
+- (void)contactlessInterfaceSessionDidReceiveUntrustedTerminal:(id)a0;
+- (void)contactlessInterfaceSessionDidSelectPayment:(id)a0;
+- (void)contactlessInterfaceSessionDidSelectValueAddedService:(id)a0;
+- (void)contactlessInterfaceSessionDidStartTransaction:(id)a0;
+- (void)contactlessInterfaceSessionDidTerminate:(id)a0;
+- (void)contactlessInterfaceSessionDidTerminate:(id)a0 withErrorCode:(unsigned long long)a1;
+- (void)contactlessInterfaceSessionDidTimeout:(id)a0 forPaymentApplication:(id)a1 paymentPass:(id)a2 valueAddedServicePasses:(id)a3;
+- (void)contactlessInterfaceSessionHasPendingServerRequest:(id)a0;
+- (void)_callbackQueue_invokeDidCompleteForReason:(unsigned long long)a0 withTransactionContext:(id)a1;
+- (void)_checkContactlessValidity:(unsigned long long)a0 authorizationValidity:(unsigned long long)a1 performWork:(id /* block */)a2;
+- (void)_checkContactlessValidity:(unsigned long long)a0 performWork:(id /* block */)a1;
+- (void)_handleConventionalTransactionWithContext:(id)a0;
+- (void)_handleTransitTransactionWithContext:(id)a0;
+- (void)_internalQueue_deactivateSessionWithCompletion:(id /* block */)a0;
+- (void)_internalQueue_getContactlessAndAuthorizationValidityAndPerformWork:(id /* block */)a0;
+- (void)_internalQueue_invokeDeactivationCompletionBlocks;
+- (void)_internalQueue_setCurrentPass:(id)a0;
+- (void)_internalQueue_updateContactlessSessionForPass:(id)a0 vasPasses:(id)a1 deferAuthorization:(BOOL)a2;
+- (void)_internalQueue_updateContactlessValidityAndPerformWork:(id /* block */)a0;
+- (void)_internalQueue_updateSessionWithCurrentPassAndLoyaltyState;
+- (void)_loyaltyEngineConfigurationChanged:(id)a0;
+- (BOOL)_sessionQueue_authorizeWithUseCredential:(BOOL)a0 deferAuthorizationIfCredentialUsed:(BOOL)a1;
+- (BOOL)_sessionQueue_enablePersistentCardEmulation;
+- (void)_sessionQueue_invokeAppropriateCallbackForActivationWithSuccess:(BOOL)a0 invokeOnSuccess:(BOOL)a1 contactlessValidity:(unsigned long long)a2 forPass:(id)a3;
+- (BOOL)_sessionQueue_startContactlessSessionWithSuccessfulCompletionOnInternalQueue:(id /* block */)a0;
+- (BOOL)_sessionQueue_updateContactlessSessionForPass:(id)a0 paymentApplication:(id)a1 vasPasses:(id)a2 sessionConfirmed:(BOOL)a3 deferAuthorization:(BOOL)a4;
+- (void)_updateAuthorizationValidity;
+- (void)_updateSessionWithCredentialAndActivate;
+- (void)confirmSessionExpectingCredential:(BOOL)a0;
+- (void)deactivateSessionWithCompletion:(id /* block */)a0;
+- (void)executeRKEActionForPass:(id)a0 function:(id)a1 action:(id)a2 withCompletion:(id /* block */)a3;
+- (BOOL)startSessionWithCompletion:(id /* block */)a0;
+
+@end

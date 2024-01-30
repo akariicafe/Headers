@@ -1,0 +1,3 @@
+@interface __MiroAssetSuggestionsCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

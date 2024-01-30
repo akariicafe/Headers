@@ -1,0 +1,3 @@
+@interface __SKUICircleProgressIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

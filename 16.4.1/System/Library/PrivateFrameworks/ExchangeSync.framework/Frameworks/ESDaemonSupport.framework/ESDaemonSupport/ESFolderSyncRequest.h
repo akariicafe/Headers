@@ -1,0 +1,18 @@
+@class DAFolder, NSArray;
+
+@interface ESFolderSyncRequest : NSObject
+
+@property (retain, nonatomic) DAFolder *folder;
+@property (nonatomic) BOOL hasRemoteChanges;
+@property (nonatomic) BOOL isInitialUberSync;
+@property (retain, nonatomic) NSArray *actions;
+@property (retain, nonatomic) NSArray *skippedActions;
+@property (nonatomic) BOOL isResyncAfterConnectionFailed;
+@property (nonatomic) BOOL isResyncAfterServerError;
+@property (nonatomic) BOOL containsPostponedActions;
+
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithFolder:(id)a0 hasRemoteChanges:(BOOL)a1 isInitialUberSync:(BOOL)a2;
+
+@end

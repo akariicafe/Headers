@@ -1,0 +1,6 @@
+@interface StocksUI.StockFeedPoolService : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ stockFeedService;
+    void /* unknown type, empty encoding */ featureAvailability;
+}
+
+@end

@@ -1,0 +1,78 @@
+@interface NewsArticles.ArticleViewController : UIViewController <NUArticleHostViewControllerDelegate, TSTabBarSplitViewAutoObserver, NULoadingDelegate, NUArticleViewControllerLoadingListener, NAArticleFooterDelegate, NUArticleHardPaywallPresentationReporting, UIScrollViewDelegate, NAZoomable, FCBundleSubscriptionChangeObserver, NUURLHandlerDelegate> {
+    void /* unknown type, empty encoding */ model;
+    void /* unknown type, empty encoding */ observableScrollView;
+    void /* unknown type, empty encoding */ modalHostStyle;
+    void /* unknown type, empty encoding */ isImpressionable;
+    void /* unknown type, empty encoding */ pageDelegate;
+    void /* unknown type, empty encoding */ contentBackgroundColor;
+    void /* unknown type, empty encoding */ headline;
+    void /* unknown type, empty encoding */ styler;
+    void /* unknown type, empty encoding */ eventHandler;
+    void /* unknown type, empty encoding */ articleViewController;
+    void /* unknown type, empty encoding */ presentationContext;
+    void /* unknown type, empty encoding */ keyCommandManager;
+    void /* unknown type, empty encoding */ documentSectionBlueprintProvider;
+    void /* unknown type, empty encoding */ hardPaywallViewController;
+    void /* unknown type, empty encoding */ footerProvider;
+    void /* unknown type, empty encoding */ footers;
+    void /* unknown type, empty encoding */ headerProvider;
+    void /* unknown type, empty encoding */ headers;
+    void /* unknown type, empty encoding */ urlHandler;
+    void /* unknown type, empty encoding */ paywallPreparationEventManager;
+    void /* unknown type, empty encoding */ destinationViewSize;
+    void /* unknown type, empty encoding */ viewingSessionID;
+    void /* unknown type, empty encoding */ scrollDebounce;
+    void /* unknown type, empty encoding */ commands;
+    void /* unknown type, empty encoding */ coverViewManager;
+    void /* unknown type, empty encoding */ keyboardInputMonitor;
+    void /* unknown type, empty encoding */ didDisappearCompletions;
+    void /* unknown type, empty encoding */ completedReadingDebouncer;
+    void /* unknown type, empty encoding */ multiDelegate;
+    void /* unknown type, empty encoding */ spaceKeyCommandsRegistered;
+}
+
+@property (nonatomic, readonly) BOOL canBecomeFirstResponder;
+
+- (void)bundleSubscriptionDidSubscribe:(id)a0;
+- (BOOL)shouldUpdateFocusInContext:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)zoomOut;
+- (BOOL)isPreviewing;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (BOOL)resignFirstResponder;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidLayoutSubviews;
+- (void)zoomIn;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)resetZoom;
+- (void)tabBarSplitViewDidChangeFocusToFocus:(long long)a0 action:(long long)a1;
+- (void)handleKeyCommandWithKeyCommand:(id)a0;
+- (void)URLHandler:(id)a0 wantsToPresentViewController:(id)a1 animated:(BOOL)a2;
+- (void)URLHandler:(id)a0 willOpenURL:(id)a1;
+- (BOOL)accessibilityShouldScroll:(id)a0;
+- (BOOL)accessibilityShouldScroll:(id)a0 defaultValue:(BOOL)a1;
+- (void)articleHostViewController:(id)a0 didScrollToPosition:(id)a1;
+- (void)articleHostViewControllerDidScrollToBottomOfPrimaryContent:(id)a0;
+- (BOOL)canDecreaseTextSize;
+- (BOOL)canIncreaseTextSize;
+- (BOOL)canResetZoom;
+- (BOOL)canZoomIn;
+- (BOOL)canZoomOut;
+- (void)decreaseTextSize;
+- (void)didLoadArticle:(id)a0 withContext:(id)a1;
+- (void)footerNeedsLayout:(id)a0;
+- (void)increaseTextSize;
+- (BOOL)isShowingHardPaywall;
+- (void)loadingDidFinishWithError:(id)a0;
+- (void)loadingWillStart;
+- (BOOL)shouldOccludeAccessibilityElement:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+
+@end

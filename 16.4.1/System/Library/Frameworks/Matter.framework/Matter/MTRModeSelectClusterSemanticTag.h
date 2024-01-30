@@ -1,0 +1,3 @@
+@interface MTRModeSelectClusterSemanticTag : MTRModeSelectClusterSemanticTagStruct
+
+@end

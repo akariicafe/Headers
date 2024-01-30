@@ -1,0 +1,49 @@
+@interface _TtCV10PegasusAPI36Apple_Parsec_Search_V2_SearchRequestP33_C0BAC08EDD69D8921D332789179C79B513_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _queryType;
+    void /* unknown type, empty encoding */ _query;
+    void /* unknown type, empty encoding */ _secretKey;
+    void /* unknown type, empty encoding */ _sendTopHit;
+    void /* unknown type, empty encoding */ _countryCode;
+    void /* unknown type, empty encoding */ _locale;
+    void /* unknown type, empty encoding */ _cardLocale;
+    void /* unknown type, empty encoding */ _effectiveSystemLanguage;
+    void /* unknown type, empty encoding */ _preferredLanguages;
+    void /* unknown type, empty encoding */ _inputMode;
+    void /* unknown type, empty encoding */ _calendar;
+    void /* unknown type, empty encoding */ _timeZone;
+    void /* unknown type, empty encoding */ _tempUnit;
+    void /* unknown type, empty encoding */ _measurementSystem;
+    void /* unknown type, empty encoding */ _hourFormat;
+    void /* unknown type, empty encoding */ _modelVersionL2;
+    void /* unknown type, empty encoding */ _modelVersionL3;
+    void /* unknown type, empty encoding */ _localSuggestions;
+    void /* unknown type, empty encoding */ _dictionarySignature;
+    void /* unknown type, empty encoding */ _silhouette;
+    void /* unknown type, empty encoding */ _location;
+    void /* unknown type, empty encoding */ _routineMode;
+    void /* unknown type, empty encoding */ _transportationMode;
+    void /* unknown type, empty encoding */ _installedAppsSignature;
+    void /* unknown type, empty encoding */ _managedDevice;
+    void /* unknown type, empty encoding */ _storeFront;
+    void /* unknown type, empty encoding */ _subscriptions;
+    void /* unknown type, empty encoding */ _userGuid;
+    void /* unknown type, empty encoding */ _uiScale;
+    void /* unknown type, empty encoding */ _mapsSession;
+    void /* unknown type, empty encoding */ _suggest;
+    void /* unknown type, empty encoding */ _queryLanguage;
+    void /* unknown type, empty encoding */ _lookupAppBundleID;
+    void /* unknown type, empty encoding */ _lookupHintDomain;
+    void /* unknown type, empty encoding */ _lookupSelectionType;
+    void /* unknown type, empty encoding */ _siriLocale;
+    void /* unknown type, empty encoding */ _hsEnabled;
+    void /* unknown type, empty encoding */ _internalBuild;
+    void /* unknown type, empty encoding */ _seedBuild;
+    void /* unknown type, empty encoding */ _abTestSeed;
+    void /* unknown type, empty encoding */ _experimentNamespaceID;
+    void /* unknown type, empty encoding */ _isClientOnlyExperiment;
+    void /* unknown type, empty encoding */ _isInReservedAllocationForExperiment;
+    void /* unknown type, empty encoding */ _exp;
+    void /* unknown type, empty encoding */ _debugLevels;
+}
+
+@end

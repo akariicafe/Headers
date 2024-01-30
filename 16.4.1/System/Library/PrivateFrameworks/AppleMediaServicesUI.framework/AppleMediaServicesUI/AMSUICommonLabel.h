@@ -1,0 +1,3 @@
+@interface AMSUICommonLabel : UILabel
+
+@end

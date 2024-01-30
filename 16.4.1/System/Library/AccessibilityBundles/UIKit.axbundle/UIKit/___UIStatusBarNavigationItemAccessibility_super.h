@@ -1,0 +1,3 @@
+@interface ___UIStatusBarNavigationItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

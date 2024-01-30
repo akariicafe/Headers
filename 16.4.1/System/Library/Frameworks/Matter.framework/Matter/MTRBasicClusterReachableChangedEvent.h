@@ -1,0 +1,3 @@
+@interface MTRBasicClusterReachableChangedEvent : MTRBasicInformationClusterReachableChangedEvent
+
+@end

@@ -1,0 +1,3 @@
+@interface MTRContentLauncherClusterParameter : MTRContentLauncherClusterParameterStruct
+
+@end

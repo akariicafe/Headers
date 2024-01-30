@@ -1,0 +1,87 @@
+@class NSString, NSMutableDictionary;
+
+@interface MultiwayCall : NSObject {
+    int _interval;
+    int _frequency;
+    unsigned long long _downlinkRateSum;
+    unsigned int _downlinkRateUpdateCounter;
+    unsigned long long _actualBitrateSum;
+    unsigned int _actualBitrateUpdateCounter;
+    unsigned int _videoStreamSwitchCount;
+    unsigned int _audioStreamSwitchCount;
+    unsigned int _averageReceiveFramerate;
+    BOOL _isVideoDegraded;
+    unsigned int _videoDegradedTotalCounter;
+    double _videoDegradedTotalTime;
+    double _videoDegradedStartTime;
+    double _handshakeStartTime;
+    double _handshakeDuration;
+}
+
+@property (readonly) NSString *remoteParticipantID;
+@property (readonly, getter=isLive) BOOL live;
+@property BOOL isAudioEnabled;
+@property BOOL isVideoEnabled;
+@property BOOL isScreenEnabled;
+@property BOOL isExpanseEnabled;
+@property BOOL isFullSize;
+@property BOOL hasWebParticipant;
+@property int duration;
+@property int adjustedDuration;
+@property (readonly) NSMutableDictionary *streamGroups;
+@property unsigned int downlinkTargetBitrateSwitchCount;
+@property unsigned int timeToHearFirstRemoteAudioFrame;
+@property unsigned int averageJitterbufferLength;
+@property double connectionTime;
+@property unsigned int decryptionTimeoutCount;
+@property int mkmRecoveryAttemptCount;
+@property int startDate;
+@property BOOL reportRateControlExperimentRemote;
+@property unsigned char rateControlExperimentVersionRemote;
+@property unsigned char rateControlExperimentGroupIndexRemote;
+@property (readonly) NSMutableDictionary *streamGroupStats;
+@property BOOL isRTXTelemetryAvailable;
+@property unsigned long long nacksSent;
+@property unsigned long long nacksFulfilled;
+@property unsigned long long nacksFulfilledOnTime;
+@property unsigned long long lateFramesScheduledWithRTXCount;
+@property unsigned long long assembledFramesWithRTXPacketsCount;
+@property unsigned long long failedToAssembleFramesWithRTXPacketsCount;
+
+- (void)dealloc;
+- (BOOL)isVideoDegraded;
+- (void)processVideoDegraded:(BOOL)a0 timestamp:(double)a1;
+- (double)significantVideoStallTotalTime:(id)a0;
+- (unsigned int)RTPeriod;
+- (unsigned long long)downlinkRateSum;
+- (void)processActualBitrateRateChange:(unsigned int)a0;
+- (unsigned long long)actualBitrateSum;
+- (unsigned int)actualBitrateUpdateCounter;
+- (void)addAudioStreamGroupTelemetry:(id)a0 streamGroupID:(id)a1;
+- (void)addControlChannelTelemetry:(id)a0 timestamp:(double)a1;
+- (void)addRTXStreamGroupTelemetry:(id)a0 streamGroupID:(id)a1;
+- (void)addStreamGroupTelemetry:(id)a0;
+- (void)addVideoStreamGroupTelemetry:(id)a0 streamGroupID:(id)a1;
+- (unsigned short)audioErasureCount:(id)a0;
+- (double)audioErasureTotalTime:(id)a0;
+- (double)avgJBDelay:(id)a0;
+- (double)avgJBTargetSizeChanges:(id)a0;
+- (unsigned int)downlinkRateUpdateCounter;
+- (void)finalizeCall:(double)a0;
+- (void)incrementAudioStreamSwitchCounterForStreamGroup:(id)a0;
+- (void)incrementVideoStreamSwitchCounterForStreamGroup:(id)a0;
+- (id)initCallWithRemoteParticipantID:(id)a0;
+- (double)markHandshakeCompletion:(double)a0;
+- (void)markHandshakeStart:(double)a0;
+- (unsigned short)maxAudioErasureCount:(id)a0;
+- (unsigned short)maxJBTargetSizeChanges:(id)a0;
+- (unsigned short)maxVideoStallCount:(id)a0;
+- (unsigned short)minVideoFrameRate:(id)a0;
+- (void)processDownlinkRateChange:(unsigned int)a0;
+- (void)processStreamData:(id)a0 streamGroupID:(id)a1;
+- (void)processVideoDegraded:(BOOL)a0 streamGroup:(id)a1 timestamp:(double)a2;
+- (unsigned short)significantVideoStallCount:(id)a0;
+- (void)updatePerfTimingWithFirstVideoFrameProcessingDelta:(double)a0 firstMediaReceivedDelta:(double)a1 firstMKIDelta:(double)a2 totalMediaStallSaveDelta:(double)a3 streamGroupID:(id)a4;
+- (id)videoDegradedTotalCounter:(id)a0;
+
+@end

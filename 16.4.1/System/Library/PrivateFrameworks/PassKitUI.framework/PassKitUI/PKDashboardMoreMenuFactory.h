@@ -1,0 +1,88 @@
+@class PKTransitBalanceModel, PKPaymentDefaultDataProvider, PKPassLibraryDefaultDataProvider, PKTransitPassProperties, UINavigationController, PKNavigationDashboardPassViewController, PKPeerPaymentAccount, PKExpressPassController, PKAccount, NSString, NSArray, PKPass, PKPaymentWebService, PKIdentityReplaceFingerprintHelper, PKAccountService;
+@protocol PKDashboardMoreMenuFactoryDelegate;
+
+@interface PKDashboardMoreMenuFactory : NSObject <PKPaymentDataProviderDelegate, PKAccountServiceObserver> {
+    PKIdentityReplaceFingerprintHelper *_fingerprintHelper;
+    PKPaymentDefaultDataProvider *_paymentServiceDataProvider;
+    PKTransitPassProperties *_transitPassProperties;
+    PKTransitBalanceModel *_transitBalanceModel;
+    PKPaymentWebService *_webService;
+    PKPassLibraryDefaultDataProvider *_passLibraryDataProvider;
+    PKExpressPassController *_expressPassController;
+    PKAccountService *_accountService;
+    PKPeerPaymentAccount *_peerPaymentAccount;
+    NSArray *_accounts;
+}
+
+@property (nonatomic) long long moreMenuType;
+@property (retain, nonatomic) PKPass *pass;
+@property (retain, nonatomic) PKAccount *account;
+@property (weak, nonatomic) PKNavigationDashboardPassViewController *navigationDashboardPassVC;
+@property (weak, nonatomic) id<PKDashboardMoreMenuFactoryDelegate> delegate;
+@property (readonly, nonatomic) BOOL forceShowMoreMenuIcon;
+@property (weak, nonatomic) UINavigationController *navigationController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didReceivePlanUpdate:(id)a1;
+- (void)accountChanged:(id)a0;
+- (void)dealloc;
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didReceiveBalanceUpdate:(id)a1;
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didUpdateWithTransitPassProperties:(id)a1;
+- (id)init;
+- (void).cxx_destruct;
+- (unsigned long long)_feature;
+- (BOOL)_canShowPaymentCardNumberAction;
+- (BOOL)_isPayLaterPass;
+- (id)_showAccountManageNotifications;
+- (id)_transferToBank;
+- (id)_accessPassMenuItems;
+- (id)_addMoneyAppleBalanceAction;
+- (id)_addMoneyPeerPaymentAction;
+- (id)_appleBalanceMenuItems;
+- (id)_appleCardMenuItems;
+- (id)_appleCashMenuItems;
+- (id)_barcodePassMenuItems;
+- (BOOL)_canShowNotificationsInfo;
+- (id)_eMoneyPassMenuItems;
+- (BOOL)_hasGroupActions;
+- (BOOL)_hasTransitCardNumber;
+- (BOOL)_hasValidEnteredValueActions;
+- (BOOL)_hasValidSelectedItemActions;
+- (BOOL)_isAppleBalancePass;
+- (BOOL)_isCreditPass;
+- (BOOL)_isPassActivated;
+- (BOOL)_isPassActivating;
+- (BOOL)_isPassRequiresActivation;
+- (BOOL)_isPeerPaymentPass;
+- (long long)_moreMenuTypeValue;
+- (id)_openRewardsHubAction;
+- (id)_passActions;
+- (id)_paymentPassMenuItems;
+- (void)_recalculateTransitPassDetails;
+- (id)_redeemAction;
+- (void)_reevaluateMoreMenuType;
+- (void)_reloadMoreMenuItems;
+- (id)_removePassAction;
+- (id)_removePassLocalizedTitle;
+- (id)_savingsDetailsAction;
+- (id)_savingsMenuItems;
+- (id)_showEnteredValuePassActions;
+- (id)_showInstallmentPlansAction;
+- (id)_showPassActionGroups;
+- (id)_showPassInfoAction;
+- (id)_showPassInfoLocalizedTitle;
+- (id)_showPassManageNotifications;
+- (id)_showPaymentCardNumberAction;
+- (id)_showSavingsDebugAction;
+- (id)_showSavingsDocumentsAction;
+- (id)_showScheduledPaymentsAction;
+- (id)_showSelectedItemPassActions;
+- (id)_showTransitCardNumberAction;
+- (id)_transitPassMenuItems;
+- (BOOL)isActivating;
+- (id)moreMenu;
+
+@end

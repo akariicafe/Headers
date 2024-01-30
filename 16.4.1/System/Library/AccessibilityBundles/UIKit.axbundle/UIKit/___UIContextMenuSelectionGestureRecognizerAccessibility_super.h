@@ -1,0 +1,3 @@
+@interface ___UIContextMenuSelectionGestureRecognizerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

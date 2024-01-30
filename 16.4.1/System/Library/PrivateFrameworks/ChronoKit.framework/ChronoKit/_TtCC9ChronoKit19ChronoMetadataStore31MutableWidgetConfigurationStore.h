@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore31MutableWidgetConfigurationStore : _TtCC9ChronoKit19ChronoMetadataStore21ConfiguredWidgetStore
+
+@end

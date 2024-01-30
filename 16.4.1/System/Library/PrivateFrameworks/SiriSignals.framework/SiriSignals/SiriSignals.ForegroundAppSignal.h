@@ -1,0 +1,7 @@
+@interface SiriSignals.ForegroundAppSignal : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ candidateAppBundleIds;
+    void /* unknown type, empty encoding */ cdKeypath;
+    void /* unknown type, empty encoding */ name;
+}
+
+@end

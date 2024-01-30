@@ -1,0 +1,3 @@
+@interface CNUIDSHandleAvailabilityPromise : CNPromise
+
+@end

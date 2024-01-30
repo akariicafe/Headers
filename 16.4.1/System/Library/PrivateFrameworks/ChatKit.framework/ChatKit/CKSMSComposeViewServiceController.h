@@ -1,0 +1,93 @@
+@class NSArray, NSString, CKModalTranscriptController;
+@protocol CKSMSComposeViewServiceControllerDelegate;
+
+@interface CKSMSComposeViewServiceController : UINavigationController <CKComposeChatControllerDelegate, CKSMSComposeViewServiceProtocol> {
+    BOOL _forceMMS;
+    BOOL _disableCameraAttachments;
+}
+
+@property (nonatomic) BOOL supportsMessageInspection;
+@property (retain, nonatomic) NSArray *utiTypes;
+@property (retain, nonatomic) NSArray *contentURLs;
+@property (retain, nonatomic) NSArray *photoIDs;
+@property (retain, nonatomic) NSArray *cloudPhotoIDs;
+@property (retain, nonatomic) NSArray *contentText;
+@property (retain, nonatomic) NSString *shareSheetSessionID;
+@property (copy, nonatomic) id /* block */ gameCenterPickerBlock;
+@property (copy, nonatomic) id /* block */ entryViewCompletion;
+@property (retain, nonatomic) CKModalTranscriptController *modalTranscriptController;
+@property (nonatomic) BOOL canEditRecipients;
+@property (nonatomic) BOOL shouldDisableEntryField;
+@property (nonatomic) BOOL shouldHideClearPluginButton;
+@property (weak, nonatomic) id<CKSMSComposeViewServiceControllerDelegate> composeDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_isSecureForRemoteViewService;
++ (id)_exportedInterface;
++ (id)_remoteViewControllerInterface;
+
+- (BOOL)_canShowWhileLocked;
+- (BOOL)supportsAttachments;
+- (void)dealloc;
+- (id)init;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_willAppearInRemoteViewController;
+- (void)setNavBarTitle:(id)a0;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 shouldHideClearPluginButton:(BOOL)a3 chatGUID:(id)a4;
+- (void)_forceMMSIfNecessary;
+- (BOOL)_hostSandboxAllowsFileReadAtFileURL:(id)a0;
+- (void)_insertAttachmentWithURL:(id)a0 andDescription:(id)a1 preview:(id)a2 isFullyRealized:(BOOL)a3 appendedVideoURL:(id)a4 appendedBundleURL:(id)a5 completion:(id /* block */)a6;
+- (void)_insertFileURL:(id)a0 filename:(id)a1 transcoderUserInfo:(id)a2 preview:(id)a3 isFullyRealized:(BOOL)a4 appendedVideoURL:(id)a5 completion:(id /* block */)a6;
+- (void)_removeCloudKitShareIfNeeded:(id)a0;
+- (void)chatController:(id)a0 didReportSpamForConversation:(id)a1;
+- (void)chatController:(id)a0 didSendCompositionInConversation:(id)a1;
+- (void)chatController:(id)a0 forwardComposition:(id)a1;
+- (void)chatController:(id)a0 requestDeleteJunkConversation:(id)a1;
+- (void)chatController:(id)a0 requestRecoverJunkConversation:(id)a1;
+- (void)chatController:(id)a0 willSendComposition:(id)a1 inConversation:(id)a2;
+- (void)composeChatController:(id)a0 didLoadEntryViewContentWithCompletion:(id /* block */)a1;
+- (void)composeChatController:(id)a0 didSelectNewConversation:(id)a1;
+- (void)composeChatController:(id)a0 shouldSendComposition:(id)a1 inConversation:(id)a2 completion:(id /* block */)a3;
+- (BOOL)composeChatControllerCanEditRecipients;
+- (void)composeChatControllerDidCancelComposition:(id)a0;
+- (BOOL)composeChatControllerShouldShowBackButtonViewDuringSendAnimation:(id)a0;
+- (void)disableCameraAttachments;
+- (void)donateInteractionWithConversation:(id)a0;
+- (void)forceCancelComposition;
+- (void)forceMMS;
+- (void)hideEntryViewContent:(BOOL)a0;
+- (void)insertAttachmentWithURL:(id)a0 andDescription:(id)a1;
+- (void)insertCKShareForCollaboration:(id)a0 containerSetupInfo:(id)a1 collaborationShareOptions:(id)a2 isCollaboration:(BOOL)a3;
+- (void)insertCKShareForCollaboration:(id)a0 containerSetupInfo:(id)a1 collaborationShareOptions:(id)a2 isCollaboration:(BOOL)a3 completionHandler:(id /* block */)a4;
+- (void)insertData:(id)a0 MIMEType:(id)a1 exportedFilename:(id)a2;
+- (void)insertFileURL:(id)a0 filename:(id)a1 transcoderUserInfo:(id)a2;
+- (void)insertFileURLForCollaboration:(id)a0 collaborationShareOptions:(id)a1 metadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4;
+- (void)insertFileURLForCollaboration:(id)a0 collaborationShareOptions:(id)a1 metadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4 completionHandler:(id /* block */)a5;
+- (void)insertFilename:(id)a0 MIMEType:(id)a1 exportedFilename:(id)a2 options:(id)a3;
+- (void)insertGroupActivity:(id)a0;
+- (void)insertRemoteItemForSending:(id)a0;
+- (void)insertRemoteItemForSendingAndCalculateEntryViewFrame:(id)a0 completion:(id /* block */)a1;
+- (void)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2;
+- (void)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2 completionHandler:(id /* block */)a3;
+- (void)insertSWYPendingCollaboration:(id)a0 collaborationShareOptions:(id)a1 collaborationMetadata:(id)a2 sendAsCopyURL:(id)a3 isCollaboration:(BOOL)a4 completionHandler:(id /* block */)a5;
+- (void)prewarmCameraIfNecessaryForChatController:(id)a0;
+- (id)recipientsFromChatGUID:(id)a0 groupName:(id)a1 handles:(id)a2;
+- (void)setGameCenterModeWithPickerBlock:(id /* block */)a0;
+- (void)setGameCenterPickedHandles:(id)a0 playerNames:(id)a1;
+- (void)setPendingAddresses:(id)a0;
+- (void)setShouldIgnoreEmailsWhenSending:(BOOL)a0;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 chatGUID:(id)a3 groupName:(id)a4;
+- (void)setText:(id)a0 subject:(id)a1 addresses:(id)a2 shouldHideClearPluginButton:(BOOL)a3;
+- (void)setTextEntryContentsVisible:(BOOL)a0;
+- (void)setUICustomizationData:(id)a0;
+- (void)setUTIs:(id)a0;
+- (void)showInsertedItemInEntryView;
+
+@end

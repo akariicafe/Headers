@@ -1,0 +1,87 @@
+@class UITableViewCell, UIView, NSArray, NSString, SSOBBoldTrayButton, CTRemotePlan, CTDeviceIdentifier, NSLayoutConstraint, NSMutableArray, SSSpinner, CTDisplayPlanList;
+@protocol TSSIMSetupFlowDelegate;
+
+@interface TSTransferListViewController : TSOBTableWelcomeController <SSSpinnerProtocol, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, TSSetupFlowItem> {
+    BOOL _inBuddy;
+    BOOL _isActivationPolicyMismatch;
+    BOOL _isDualeSIMCapabilityLoss;
+    BOOL _receivedPendingInstallItems;
+    BOOL _receivedTransferItems;
+    BOOL _continueButtonTappedOnce;
+    BOOL _isSinglePhysicalSIMTransfer;
+    BOOL _confirmCellularPlanTransfer;
+    BOOL _installingALSPlan;
+    BOOL _showOtherOptions;
+    NSLayoutConstraint *_tableHeightAnchor;
+    SSOBBoldTrayButton *_continueButton;
+    CTDisplayPlanList *_pendingInstallItems;
+    CTDisplayPlanList *_carrierSetupItems;
+    unsigned long long _numNonRemotePlanItems;
+    BOOL _speedBumper;
+    BOOL _followDirections;
+    BOOL _isCloudTransfer;
+    long long _backOption;
+}
+
+@property (retain) NSArray *transferItems;
+@property (retain, nonatomic) NSLayoutConstraint *heightAnchor;
+@property (retain) UITableViewCell *sectionFooter;
+@property (retain) NSMutableArray *chosenUseIndexPaths;
+@property BOOL requireDelayBluetoothConnection;
+@property BOOL showSIMSetup;
+@property BOOL isStandaloneProximityFlow;
+@property (retain) CTRemotePlan *transferPlan;
+@property (retain) CTDeviceIdentifier *transferPlanDeviceID;
+@property (weak) id<TSSIMSetupFlowDelegate> delegate;
+@property BOOL isOtherButtonTapped;
+@property BOOL installingTransferPlan;
+@property BOOL isCarrierSetupItemSelected;
+@property BOOL animating;
+@property (retain) NSArray *cachedButtons;
+@property (retain) SSSpinner *spinner;
+@property (retain) UIView *spinnerContainer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)tableView:(id)a0 willSelectRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)tableView:(id)a0 didDeselectRowAtIndexPath:(id)a1;
+- (double)tableView:(id)a0 heightForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (BOOL)canBeShownFromSuspendedState;
+- (void)_continueButtonTapped;
+- (id)_calculatePlanSelection;
+- (void)_cancelTransferringPlan;
+- (void)_dismissSelf;
+- (double)_heightAnchorConstant;
+- (void)_installSelectedPlans;
+- (BOOL)_isCarrierSetupItemSelected:(unsigned long long)a0;
+- (void)_maybeDisplayConsent:(BOOL)a0 phoneNumber:(id)a1;
+- (void)_maybeDisplayPhysicalPlanConversionAlert:(BOOL)a0 phoneNumber:(id)a1 completion:(id /* block */)a2;
+- (void)_maybeUpdateTableView;
+- (void)_otherButtonTapped;
+- (void)_startPendingInstall:(id)a0;
+- (void)_startPlanTransfer:(id)a0 withDeviceID:(id)a1;
+- (void)_transferConsentOnSource;
+- (long long)backOption;
+- (BOOL)customizeSpinner;
+- (id)getLocalizedStringIf:(id)a0 then:(id)a1 otherwise:(id)a2;
+- (id)getRemoteDeviceDisplayName:(id)a0;
+- (id)initWithPendingInstallItems:(id)a0;
+- (id)initWithTransferItems:(id)a0 confirmCellularPlanTransfer:(BOOL)a1 isActivationPolicyMismatch:(BOOL)a2 isDualeSIMCapabilityLoss:(BOOL)a3 pendingInstallItems:(id)a4 carrierSetupItems:(id)a5 showOtherOptions:(BOOL)a6;
+- (id)initWithTransferItems:(id)a0 confirmCellularPlanTransfer:(BOOL)a1 isActivationPolicyMismatch:(BOOL)a2 isDualeSIMCapabilityLoss:(BOOL)a3 pendingInstallItems:(id)a4 carrierSetupItems:(id)a5 showOtherOptions:(BOOL)a6 isStandaloneProximityFlow:(BOOL)a7;
+- (id)initWithTransferItems:(id)a0 confirmCellularPlanTransfer:(BOOL)a1 isActivationPolicyMismatch:(BOOL)a2 isDualeSIMCapabilityLoss:(BOOL)a3 showOtherOptions:(BOOL)a4;
+- (void)updateFooterView;
+
+@end

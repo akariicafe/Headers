@@ -1,0 +1,29 @@
+@class FCNewsPersonalizationAggregateModificationConfiguration;
+
+@interface FCNewsPersonalizationAggregateModificationConfigurations : NSObject
+
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *articleSeenAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *articleVisitedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *articleReadAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *dislikeAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *undislikeAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *likeAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *unlikeAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *shareAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *muteAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *savedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *unsavedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *unmuteAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *followAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *unfollowAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *feedViewAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *tagIgnoreAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *trackVisitedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *trackListenedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *trackFinishedAggregateModificationConfiguration;
+@property (retain, nonatomic) FCNewsPersonalizationAggregateModificationConfiguration *sportsTagSeenAggregateModificationConfiguration;
+
+- (id)initWithDictionary:(id)a0;
+- (void).cxx_destruct;
+
+@end

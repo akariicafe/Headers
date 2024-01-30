@@ -1,0 +1,81 @@
+@class NSData, NSString, NSDate, SFBLEData, CBScalablePipeManager, CBCentralManager, NSObject, NSMutableArray, NSMutableData, CBScalablePipe, NSMutableDictionary;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface SFBLEPipe : NSObject <CBCentralManagerDelegate, CBScalablePipeManagerDelegate> {
+    BOOL _activateCalled;
+    CBCentralManager *_btCentral;
+    struct channel { } *_btChannel;
+    BOOL _btConnected;
+    BOOL _btConnecting;
+    BOOL _btEndpointRegistering;
+    BOOL _btEndpointRegistered;
+    int _btFD;
+    unsigned char _btReadHeader[4];
+    NSMutableData *_btReadPayload;
+    unsigned long long _btReadLen;
+    unsigned long long _btReadOffset;
+    struct channel_ring_desc { } *_btReadRing;
+    NSObject<OS_dispatch_source> *_btReadSource;
+    NSData *_btWriteData;
+    SFBLEData *_btWriteItem;
+    unsigned long long _btWriteLen;
+    unsigned long long _btWriteOffset;
+    const char *_btWritePtr;
+    NSMutableArray *_btWriteQueue;
+    struct channel_ring_desc { } *_btWriteRing;
+    NSObject<OS_dispatch_source> *_btWriteSource;
+    BOOL _btWriteSuspended;
+    CBScalablePipe *_btPipe;
+    long long _btPipePriority;
+    CBScalablePipeManager *_btPipeManager;
+    NSMutableDictionary *_frameHandlers;
+    BOOL _invalidateCalled;
+    NSDate *_lastDisconnectDate;
+    struct LogCategory { int x0; int x1; char *x2; unsigned int x3; char *x4; char *x5; int x6; struct LogCategory *x7; struct LogOutput *x8; struct LogOutput *x9; unsigned long long x10; unsigned long long x11; unsigned int x12; unsigned int x13; char *x14; struct LogCategoryPrivate *x15; } *_ucat;
+}
+
+@property (copy, nonatomic) id /* block */ bluetoothStateChangedHandler;
+@property (readonly, nonatomic) long long connectionState;
+@property (copy, nonatomic) id /* block */ connectionStateChangedHandler;
+@property (copy, nonatomic) id /* block */ frameHandler;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) id /* block */ invalidationHandler;
+@property (nonatomic) BOOL manualConnect;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)centralManager:(id)a0 didDisconnectPeripheral:(id)a1 error:(id)a2;
+- (id)initWithPriority:(long long)a0;
+- (void)scalablePipeManager:(id)a0 didUnregisterEndpoint:(id)a1;
+- (void)_setupIfNeeded;
+- (void)centralManager:(id)a0 didFailToConnectPeripheral:(id)a1 error:(id)a2;
+- (void)scalablePipeManagerDidUpdateState:(id)a0;
+- (void)_frameHandler:(unsigned char)a0 data:(id)a1;
+- (void)centralManagerDidUpdateState:(id)a0;
+- (void)centralManager:(id)a0 didConnectPeripheral:(id)a1;
+- (id)_defaultPairedDeviceBluetoothIdentifier;
+- (void)addFrameHandlerForType:(unsigned char)a0 handler:(id /* block */)a1;
+- (void)sendFrameTypeDirect:(unsigned char)a0 payload:(id)a1 completion:(id /* block */)a2;
+- (void)sendFrameType:(unsigned char)a0 payload:(id)a1 completion:(id /* block */)a2;
+- (void)scalablePipeManager:(id)a0 pipeDidDisconnect:(id)a1 error:(id)a2;
+- (void)_activate;
+- (void)scalablePipeManager:(id)a0 pipeDidConnect:(id)a1;
+- (void)dealloc;
+- (void)_setupPipe:(id)a0;
+- (id)getPeerUUID;
+- (void)_readHandler;
+- (id)init;
+- (void)removeFrameHandlerForType:(unsigned char)a0;
+- (void)activate;
+- (void)invalidate;
+- (void)_tearDownPipe;
+- (void)_writeHandler;
+- (void)_sendFrameType:(unsigned char)a0 payload:(id)a1 completion:(id /* block */)a2;
+- (void)_invalidate;
+- (void).cxx_destruct;
+- (void)scalablePipeManager:(id)a0 didRegisterEndpoint:(id)a1 error:(id)a2;
+
+@end

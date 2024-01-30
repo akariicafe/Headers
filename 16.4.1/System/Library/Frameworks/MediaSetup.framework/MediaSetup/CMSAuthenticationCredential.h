@@ -1,0 +1,28 @@
+@class NSString, NSDate;
+
+@interface CMSAuthenticationCredential : NSObject <NSSecureCoding, NSCopying> {
+    NSString *_authHeader;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSString *authToken;
+@property (readonly) NSString *tokenType;
+@property (readonly) NSDate *authTokenExpiration;
+@property (readonly) NSString *scope;
+@property (readonly) NSString *refreshToken;
+@property (readonly) NSString *authHeader;
+
++ (id)authCredentialFromMSAuthData:(id)a0;
++ (id)authCredentialWithToken:(id)a0 tokenType:(id)a1 expirationDate:(id)a2 scope:(id)a3 refreshToken:(id)a4;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)jsonDictionary;
+- (id)description;
+- (void).cxx_destruct;
+- (id)basicPropertiesDictionary;
+- (id)initWithToken:(id)a0 tokenType:(id)a1 expirationDate:(id)a2 scope:(id)a3 refreshToken:(id)a4;
+
+@end

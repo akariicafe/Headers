@@ -1,0 +1,3 @@
+@interface TRIPBSourceContextRoot : TRIPBRootObject
+
+@end

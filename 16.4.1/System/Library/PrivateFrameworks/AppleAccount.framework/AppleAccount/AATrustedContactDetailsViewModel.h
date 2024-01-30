@@ -1,0 +1,3 @@
+@interface AATrustedContactDetailsViewModel : AAAccountContactPromptModel
+
+@end

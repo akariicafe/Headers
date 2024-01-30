@@ -1,0 +1,3 @@
+@interface ___UIStatusBarCellularNetworkTypeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

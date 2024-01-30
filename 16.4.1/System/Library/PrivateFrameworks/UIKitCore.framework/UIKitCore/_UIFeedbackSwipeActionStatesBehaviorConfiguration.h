@@ -1,0 +1,3 @@
+@interface _UIFeedbackSwipeActionStatesBehaviorConfiguration : _UIStatesFeedbackGeneratorSwipeActionConfiguration
+
+@end

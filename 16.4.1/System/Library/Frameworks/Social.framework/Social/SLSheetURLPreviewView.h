@@ -1,0 +1,19 @@
+@class SLURLPreviewGenerator, UIImageView, UIImage, UIView;
+
+@interface SLSheetURLPreviewView : SLSheetImagePreviewView {
+    UIImage *_shadowImage;
+    SLURLPreviewGenerator *_webPreviewGenerator;
+    UIView *_placeholderPreviewView;
+    UIImageView *_placeholderGlyphView;
+}
+
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setImage:(id)a0;
+- (void)layoutSubviews;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_generateAutomaticPreviewForURL:(id)a0;
+- (void)ensurePlaceholderPreviewImage;
+- (BOOL)generatePreviewImageFromAttachments;
+
+@end

@@ -1,0 +1,94 @@
+@class MPMediaControlsConfiguration, MPAVEndpointRoute, MediaControlsEndpointsManager, NSString, UIViewPropertyAnimator, MPAVOutputDeviceRoutingDataSource, MPAVRoutingViewController, AVExternalPlaybackMonitor;
+
+@interface MediaControlsEndpointsViewController : MediaControlsCollectionViewController <MRPlatterViewControllerDelegate, MediaControlsCollectionViewDataSource, MediaControlsCollectionViewDelegate, MediaControlsEndpointsManagerDelegate, CCUIContentModuleContentViewController> {
+    MPAVOutputDeviceRoutingDataSource *_outputDeviceRoutingDataSource;
+    long long _lastSelectedModeForActivePlatterViewController;
+    BOOL _didRetrieveActiveSystemRouteOnce;
+    BOOL _shouldReselectActiveSystemRoute;
+    BOOL _prewarming;
+    BOOL _shouldTransitionToVisibleWhenReady;
+    BOOL _didTransitionToVisible;
+}
+
+@property (nonatomic, getter=isDismissing) BOOL dismissing;
+@property (nonatomic, getter=isOnScreen) BOOL onScreen;
+@property (retain, nonatomic) MediaControlsEndpointsManager *endpointsManager;
+@property (retain, nonatomic) MPAVRoutingViewController *routingViewController;
+@property (retain, nonatomic) MPAVEndpointRoute *selectedRoute;
+@property (copy, nonatomic) NSString *routingContextUID;
+@property (retain, nonatomic) AVExternalPlaybackMonitor *externalPlaybackMonitor;
+@property (retain, nonatomic) MPMediaControlsConfiguration *configuration;
+@property (copy, nonatomic) id /* block */ routingCornerViewTappedBlock;
+@property (copy, nonatomic) id /* block */ homeGestureDismissalAllowedBlock;
+@property (nonatomic) BOOL shouldPresentUsingViewService;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) double preferredExpandedContentHeight;
+@property (readonly, nonatomic) double preferredExpandedContentWidth;
+@property (readonly, nonatomic) double preferredExpandedContinuousCornerRadius;
+@property (readonly, nonatomic) BOOL providesOwnPlatter;
+@property (readonly, nonatomic) UIViewPropertyAnimator *customAnimator;
+@property (readonly, nonatomic) BOOL shouldPerformHoverInteraction;
+@property (readonly, nonatomic) BOOL shouldPerformClickInteraction;
+
++ (BOOL)_shouldTransitionEarlyOnSystemRoute;
+
+- (void)dismissPresentedContentAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (BOOL)canDismissPresentedContent;
+- (void)updateContentInsets;
+- (BOOL)_canShowWhileLocked;
+- (void)reloadData;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)endpointsManager:(id)a0 activeSystemRouteDidChange:(id)a1;
+- (void)_routeDidChangeNotification:(id)a0;
+- (void)setDisplayMode:(long long)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)init;
+- (void)viewDidDisappear:(BOOL)a0;
+- (BOOL)shouldExpandModuleOnTouch:(id)a0;
+- (void)endpointsManager:(id)a0 defersRoutesReplacement:(id /* block */)a1;
+- (void)endUpdates;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)homeObserverDidUpdateKnownUIDs:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)startPrewarming;
+- (void)stopPrewarming;
+- (BOOL)_isReadyForAppearanceTransition;
+- (id)platterViewController:(id)a0 presentingViewForPresentedViewController:(id)a1;
+- (void)_assignRouteViewControllerToSelectedPanelViewController;
+- (BOOL)_isSelectedRouteInRoutes;
+- (void)_selectActiveSystemRouteIfNeeded;
+- (void)_setSelectedRoute:(id)a0 isUserSelected:(BOOL)a1 animated:(BOOL)a2;
+- (void)_setupEndpointsManager;
+- (void)_setupRoutingViewController;
+- (void)_supportedModesForSelectedRoute:(unsigned long long *)a0 selectedMode:(long long *)a1;
+- (void)_transitionToVisible:(BOOL)a0;
+- (void)_transitionToVisibleIfNeeded;
+- (void)_updateDiscoveryMode;
+- (void)_updateEndpointRouteForOutputDeviceDataSource:(id)a0;
+- (void)_updateModesForSelectedPlatterViewController;
+- (void)_updateSupportedModesForSelectedPlatterViewController;
+- (long long)defaultSelectedItemIndexForCollectionViewController:(id)a0;
+- (void)didSelectEndpoint:(id)a0;
+- (void)dismissPlatterViewController:(id)a0 completion:(id /* block */)a1;
+- (BOOL)mediaControlsCollectionViewController:(id)a0 canSelectItemAtIndex:(long long)a1;
+- (void)mediaControlsCollectionViewController:(id)a0 didDisplayViewController:(id)a1 forItemAtIndex:(long long)a2;
+- (void)mediaControlsCollectionViewController:(id)a0 didEndDisplayingViewController:(id)a1 forItemAtIndex:(long long)a2;
+- (void)mediaControlsCollectionViewController:(id)a0 didSelectItemAtIndex:(long long)a1 withReason:(long long)a2;
+- (id)mediaControlsCollectionViewController:(id)a0 viewControllerForItemAtIndex:(long long)a1;
+- (void)mediaControlsCollectionViewController:(id)a0 willDisplayViewController:(id)a1 forItemAtIndex:(long long)a2;
+- (void)mediaControlsCollectionViewController:(id)a0 willSelectItemAtIndex:(long long)a1 withReason:(long long)a2;
+- (long long)numberOfItemsInCollectionViewController:(id)a0;
+- (void)platterViewController:(id)a0 didPickRoute:(id)a1;
+- (void)platterViewController:(id)a0 didToggleRoutingPicker:(BOOL)a1;
+- (void)platterViewController:(id)a0 homeGestureDismisalAllowedDidChange:(BOOL)a1;
+- (void)platterViewController:(id)a0 willToggleRoutingPicker:(BOOL)a1;
+- (double)preferredItemHeight;
+- (double)preferredItemHeightGivenWidth:(double)a0;
+- (BOOL)shouldPresentUsingViewServicePlatterViewController:(id)a0;
+
+@end

@@ -1,0 +1,32 @@
+@class CTStewieSupport, NSString, CoreTelephonyClient, NSObject;
+@protocol OS_dispatch_queue, HKCoreTelephonyClientDelegate;
+
+@interface HKCoreTelephonyClient : NSObject <CoreTelephonyClientDelegate, CoreTelephonyClientRegistrationDelegate, CoreTelephonyClientProvisioningDelegate> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSObject<OS_dispatch_queue> *_queue;
+    CoreTelephonyClient *_client;
+    NSString *_cachedCountryCode;
+    CTStewieSupport *_cachedStewieSupport;
+}
+
+@property (weak, nonatomic) id<HKCoreTelephonyClientDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)subscriptionInfoDidChange;
+- (void)invalidateCachedCountryCode;
+- (void)stewieSupportChanged;
+- (void)onForeground:(id)a0;
+- (void)fetchMobileCountryCodeFromCellularWithCompletion:(id /* block */)a0;
+- (void)dealloc;
+- (void)activeSubscriptionsDidChange;
+- (void)fetchStewieSupportedWithCompletion:(id /* block */)a0;
+- (id)init;
+- (void)simLessSubscriptionsDidChange;
+- (void)plmnChanged:(id)a0 plmn:(id)a1;
+- (void).cxx_destruct;
+- (id)initWithQueue:(id)a0;
+
+@end

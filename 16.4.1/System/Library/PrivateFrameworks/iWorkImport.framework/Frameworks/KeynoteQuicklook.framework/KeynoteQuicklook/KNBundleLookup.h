@@ -1,0 +1,3 @@
+@interface KNBundleLookup : NSObject
+
+@end

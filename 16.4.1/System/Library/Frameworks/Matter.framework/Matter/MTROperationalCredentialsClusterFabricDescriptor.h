@@ -1,0 +1,3 @@
+@interface MTROperationalCredentialsClusterFabricDescriptor : MTROperationalCredentialsClusterFabricDescriptorStruct
+
+@end

@@ -1,0 +1,80 @@
+@class FBSDisplayLayoutMonitorConfiguration, RTDataProtectionManager, NSDate, RTWorkoutRouteManager, RTDefaultsManager, RTPlatform, RTTimerManager, RTBatteryManager, RTWorkoutSchedulerMetrics, RTXPCActivityManager, RTHealthKitManager, RTLocationManager, RTTimer, FBSDisplayLayoutMonitor;
+
+@interface RTWorkoutScheduler : RTService
+
+@property (retain, nonatomic) RTBatteryManager *batteryManager;
+@property (retain, nonatomic) RTXPCActivityManager *xpcActivityManager;
+@property (retain, nonatomic) RTDataProtectionManager *dataProtectionManager;
+@property (retain, nonatomic) RTWorkoutRouteManager *workoutRouteManager;
+@property (retain, nonatomic) RTHealthKitManager *healthKitManager;
+@property (retain, nonatomic) RTLocationManager *locationManager;
+@property (retain, nonatomic) RTTimerManager *timerManager;
+@property (retain, nonatomic) RTDefaultsManager *defaultsManager;
+@property (retain, nonatomic) RTPlatform *platform;
+@property (nonatomic) unsigned long long singleWorkoutClusteringTaskState;
+@property (nonatomic) unsigned long long updateRelevanceScoreTaskState;
+@property (nonatomic) unsigned long long currentNWorkouts;
+@property (nonatomic) unsigned long long totalWorkouts;
+@property (retain, nonatomic) NSDate *lastClusterAndSyncDate;
+@property (retain, nonatomic) NSDate *lastWorkoutComparisonDate;
+@property (retain, nonatomic) NSDate *lastRelevanceScoreUpdateDate;
+@property (retain, nonatomic) NSDate *lastSingleWorkoutClusteringDate;
+@property (retain, nonatomic) NSDate *lastPruneDistanceMatrixDate;
+@property (retain, nonatomic) RTTimer *clusteringDeferralTimer;
+@property long long encryptedDataAvailability;
+@property (retain, nonatomic) RTWorkoutSchedulerMetrics *metrics;
+@property (retain, nonatomic) FBSDisplayLayoutMonitor *layoutMonitor;
+@property (retain, nonatomic) FBSDisplayLayoutMonitor *displayLayoutMonitor;
+@property (retain, nonatomic) FBSDisplayLayoutMonitorConfiguration *configuration;
+
++ (id)taskTypeToString:(unsigned long long)a0;
++ (id)taskStateToString:(unsigned long long)a0;
+
+- (void)_evaluateSchedulingTaskPriority;
+- (void)_onCurrentLocationUpdate:(id)a0;
+- (BOOL)_isEligibleForClusterAndSync;
+- (void)_registerForCircularRegionEvents;
+- (void)_onHealthKitNotification;
+- (void)readTaskStates;
+- (BOOL)_isEligibleForWorkoutComparison;
+- (long long)_chargerConnectionState;
+- (void)_getCurrentLocationAndMonitorForRegion;
+- (void)layoutMonitorDidUpdateDisplayLayout:(id)a0 withContext:(id)a1;
+- (void)handleCircularRegionCallback:(long long)a0 region:(id)a1 clientIdentifier:(id)a2;
+- (void)_onLayoutMonitorUpdateDisplayBacklightLevelNotification:(long long)a0;
+- (void)_setupDisplayLayoutMonitor;
+- (void)_scheduleWorkoutComparisonIfCharging;
+- (void)_scheduleClusteringTask:(unsigned long long)a0;
+- (BOOL)checkRoutinedFootprint;
+- (id)initWithBatteryManager:(id)a0 dataProtectionManager:(id)a1 workoutRouteManager:(id)a2 healthKitManager:(id)a3 locationManager:(id)a4 defaultsManager:(id)a5 platform:(id)a6 xpcActivityManager:(id)a7;
+- (void)_scheduleSingleWorkoutClustering;
+- (BOOL)_isEligibibleForRelevanceScoreUpdateRetry;
+- (BOOL)_deviceEligible;
+- (void)clearTaskStatesWithHandler:(id /* block */)a0;
+- (void)_setup;
+- (void)onCurrentLocationUpdate:(id)a0;
+- (BOOL)_isEligibleForPruneDistanceMatrix;
+- (void)_scheduleUpdateRelevanceScore;
+- (void)logTaskStates;
+- (void)_startClusteringBufferTimerWithLatency:(double)a0;
+- (void)_clearOutSchedulerState;
+- (void)_schedulePruneDistanceMatrix;
+- (void)_handleVersionChange;
+- (void)onHealthKitNotification;
+- (void)saveTaskStates;
+- (void)_onDailyXPCActivity;
+- (void)onDataProtectionNotification:(id)a0;
+- (BOOL)_isPasscodeDisabled;
+- (BOOL)_isEligibleForInitialClusterAndSync;
+- (id)initWithBatteryManager:(id)a0 dataProtectionManager:(id)a1 workoutRouteManager:(id)a2 healthKitManager:(id)a3 locationManager:(id)a4 defaultsManager:(id)a5 timerManager:(id)a6 platform:(id)a7 xpcActivityManager:(id)a8;
+- (void)_onClusteringTimerExpiry;
+- (void)_onDataProtectionNotification:(id)a0;
+- (BOOL)_didClusterAndSyncOccurInLastInterval;
+- (BOOL)_isVersionChangeDetected;
+- (void)_evaluateVersionChange;
+- (void)_shutdownWithHandler:(id /* block */)a0;
+- (BOOL)_isSchedulingWorkDone;
+- (void).cxx_destruct;
+- (unsigned long long)topNWorkoutsWithIncrement:(unsigned long long)a0;
+
+@end

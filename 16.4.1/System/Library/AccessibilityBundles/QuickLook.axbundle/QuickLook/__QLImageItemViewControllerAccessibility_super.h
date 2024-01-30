@@ -1,0 +1,3 @@
+@interface __QLImageItemViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

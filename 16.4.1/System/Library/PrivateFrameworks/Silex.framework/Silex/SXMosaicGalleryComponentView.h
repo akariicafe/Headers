@@ -1,0 +1,71 @@
+@class SXMosaicGalleryLayouter, NSMutableSet, NSString, SXFullscreenCanvasController, UIView, NSMutableArray, SXMediaViewEvent;
+@protocol SXGalleryItemImageViewFactory;
+
+@interface SXMosaicGalleryComponentView : SXGalleryComponentView <SXMosaicGalleryLayouterDataSource, SXFullscreenCanvasShowable, SXImageViewDelegate, SXFullscreenCaptionDataSource, SXViewportChangeListener>
+
+@property (readonly, nonatomic) id<SXGalleryItemImageViewFactory> imageViewFactory;
+@property (readonly, nonatomic) SXFullscreenCanvasController *fullScreenCanvasController;
+@property (retain, nonatomic) UIView *galleryView;
+@property (readonly, nonatomic) NSMutableArray *imageViews;
+@property (readonly, nonatomic) NSMutableArray *visibleImageViews;
+@property (retain, nonatomic) SXMediaViewEvent *mediaViewEvent;
+@property (nonatomic) BOOL loadedAtleastOneImage;
+@property (retain, nonatomic) SXMosaicGalleryLayouter *galleryLayouter;
+@property (retain, nonatomic) NSMutableSet *exposedGalleryItems;
+@property (nonatomic, getter=isLayoutRequired) BOOL layoutRequired;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)discardContents;
+- (void).cxx_destruct;
+- (id)imageViewForItemAtIndex:(unsigned long long)a0;
+- (void)presentComponentWithChanges:(struct { BOOL x0; BOOL x1; BOOL x2; })a0;
+- (void)receivedInfo:(id)a0 fromLayoutingPhaseWithIdentifier:(id)a1;
+- (void)renderContents;
+- (void)imageView:(id)a0 didLoadAnimatedImage:(id)a1;
+- (BOOL)allowHierarchyRemoval;
+- (unsigned long long)analyticsGalleryType;
+- (unsigned long long)analyticsMediaType;
+- (id)componentTextStyleForIdentifier:(id)a0 inheritingFromComponentTextStyle:(id)a1;
+- (id)contentSizeCategoryForCaption:(id)a0;
+- (void)createMediaViewEventForGalleryItem:(id)a0;
+- (id)documentColumnLayoutForGalleryLayouter:(id)a0;
+- (void)finishMediaViewEvent;
+- (void)forceImageViewFullscreen:(id)a0;
+- (id)fullScreenCanvasController:(id)a0 canvasViewControllerForShowable:(id)a1 completionBlock:(id /* block */)a2;
+- (id)fullScreenCanvasController:(id)a0 captionForShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (void)fullScreenCanvasController:(id)a0 didHideShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (void)fullScreenCanvasController:(id)a0 didShowShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fullScreenCanvasController:(id)a0 fullScreenFrameForShowable:(id)a1 viewIndex:(unsigned long long)a2 withinRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3;
+- (unsigned long long)fullScreenCanvasController:(id)a0 numberOfViewsForShowable:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fullScreenCanvasController:(id)a0 originalFrameForShowable:(id)a1 onCanvasView:(id)a2 viewIndex:(unsigned long long)a3;
+- (id)fullScreenCanvasController:(id)a0 originalViewForShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (void)fullScreenCanvasController:(id)a0 shouldAddGestureView:(id)a1 forShowable:(id)a2;
+- (void)fullScreenCanvasController:(id)a0 showable:(id)a1 didHideViewWithIndex:(unsigned long long)a2;
+- (void)fullScreenCanvasController:(id)a0 showable:(id)a1 didShowViewWithIndex:(unsigned long long)a2;
+- (BOOL)fullScreenCanvasController:(id)a0 showable:(id)a1 gestureRecognizerShouldBegin:(id)a2;
+- (void)fullScreenCanvasController:(id)a0 showable:(id)a1 shouldTransferToOriginalViewWithIndex:(unsigned long long)a2;
+- (void)fullScreenCanvasController:(id)a0 showable:(id)a1 willShowViewWithIndex:(unsigned long long)a2;
+- (unsigned long long)fullScreenCanvasController:(id)a0 viewIndexForPoint:(struct CGPoint { double x0; double x1; })a1 inShowable:(id)a2;
+- (void)fullScreenCanvasController:(id)a0 willHideShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (BOOL)fullScreenCanvasController:(id)a0 willShowShowable:(id)a1 viewIndex:(unsigned long long)a2;
+- (struct CGSize { double x0; double x1; })galleryLayouter:(id)a0 dimensionsForItemAtIndex:(unsigned long long)a1;
+- (id)galleryLayouter:(id)a0 viewForItemAtIndex:(unsigned long long)a1;
+- (BOOL)galleryLayouter:(id)a0 viewIsCurrentlyFullscreenForItemAtIndex:(unsigned long long)a1;
+- (void)imageView:(id)a0 didLoadImage:(id)a1 ofQuality:(int)a2;
+- (id)imageViewForLocation:(struct CGPoint { double x0; double x1; })a0;
+- (id)initWithDOMObjectProvider:(id)a0 viewport:(id)a1 presentationDelegate:(id)a2 componentStyleRendererFactory:(id)a3 analyticsReporting:(id)a4 appStateMonitor:(id)a5 mediaSharingPolicyProvider:(id)a6 imageViewFactory:(id)a7 canvasControllerFactory:(id)a8;
+- (unsigned long long)numberOfItemsForGalleryLayouter:(id)a0;
+- (void)renderContentsInDrawableRect;
+- (BOOL)requestInteractivityFocusForFullScreenCanvasController:(id)a0;
+- (BOOL)shouldSubmitMediaExposureEventForExposedBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)submitEvents;
+- (id)textResizerForCaption:(id)a0;
+- (id)textRulesForCaption:(id)a0;
+- (id)textStyleForIdentifier:(id)a0;
+- (void)visibleBoundsChanged;
+- (void)willSubmitMediaExposureEvent:(id)a0;
+
+@end

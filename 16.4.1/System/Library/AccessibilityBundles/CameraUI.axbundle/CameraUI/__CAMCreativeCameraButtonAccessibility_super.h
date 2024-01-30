@@ -1,0 +1,3 @@
+@interface __CAMCreativeCameraButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface SNStringUtils : NSObject
+
+@end

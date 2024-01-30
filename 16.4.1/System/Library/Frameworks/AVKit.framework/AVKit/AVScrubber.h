@@ -1,0 +1,95 @@
+@class NSTimer, UIView, NSArray, NSString, UIImageView, UISelectionFeedbackGenerator, NSMutableArray, AVLayoutItemAttributes, UIScrollView;
+@protocol AVScrubberDelegate;
+
+@interface AVScrubber : UISlider <UIScrollViewDelegate, AVExternalGestureRecognizerPreventing, AVPlaybackControlsViewItem> {
+    double _trackingStartTime;
+    float _previousValue;
+    double _previousValueChangeTime;
+    double _currentValueChangedTime;
+    BOOL _didHaveLessThanFullScrubbingSpeedSinceTrackingBegin;
+}
+
+@property (retain, nonatomic) UIScrollView *scrollView;
+@property (nonatomic, getter=isScrollScrubbing) BOOL scrollScrubbing;
+@property (nonatomic) long long scrubbingSpeed;
+@property (nonatomic) double resolution;
+@property (nonatomic) BOOL slowKnobMovementDetected;
+@property (nonatomic) BOOL shouldRecoverFromPrecisionScrubbingIfNeeded;
+@property (readonly, nonatomic) UIView *loadedTrackOverlayView;
+@property (weak, nonatomic) UIImageView *currentThumbView;
+@property (retain, nonatomic) NSMutableArray *previousScrubberVelocities;
+@property (retain, nonatomic) NSTimer *updateSlowKnobMovementDetectedTimer;
+@property (nonatomic) double timestampWhenTrackingEnded;
+@property (readonly, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator;
+@property (nonatomic) BOOL scrubsWhenTappedAnywhere;
+@property (nonatomic) BOOL canChangeScrubbingSpeed;
+@property (nonatomic) BOOL hasChangedLocationAtLeastOnce;
+@property (nonatomic) BOOL scrubberEnabledStatus;
+@property (retain, nonatomic) NSMutableArray *interstitialOverlayViews;
+@property (retain, nonatomic) NSMutableArray *photosensitiveOverlayViews;
+@property (nonatomic) double currentScrubberParentHeight;
+@property (nonatomic) double newScrubberParentHeight;
+@property (weak, nonatomic) id<AVScrubberDelegate> delegate;
+@property (copy, nonatomic) NSArray *loadedTimeRanges;
+@property (copy, nonatomic) NSArray *interstitialDisplayTimes;
+@property (copy, nonatomic) NSArray *photosensitiveDisplayTimes;
+@property (nonatomic) BOOL showsTimelineMarkers;
+@property (readonly, nonatomic) NSString *localizedScrubbingSpeedName;
+@property (nonatomic) float estimatedFrameRate;
+@property (nonatomic) struct NSDirectionalEdgeInsets { double top; double leading; double bottom; double trailing; } hitRectInsets;
+@property (readonly, nonatomic) double timeIntervalSinceTrackingEnded;
+@property (nonatomic, setter=setScrubberParentHeight:) double scrubberParentHeight;
+@property (nonatomic) float rate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) struct CGSize { double width; double height; } extrinsicContentSize;
+@property (nonatomic, getter=isRemoved) BOOL removed;
+@property (nonatomic, getter=isCollapsed) BOOL collapsed;
+@property (nonatomic, getter=isIncluded) BOOL included;
+@property (readonly, nonatomic, getter=isCollapsedOrExcluded) BOOL collapsedOrExcluded;
+@property (nonatomic) BOOL hasAlternateAppearance;
+@property (nonatomic) BOOL hasFullScreenAppearance;
+@property (readonly, nonatomic) AVLayoutItemAttributes *layoutAttributes;
+
++ (id)keyPathsForValuesAffectingLocalizedScrubbingSpeedName;
+
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })trackRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutAttributesDidChange;
+- (void)_updateLayoutItem;
+- (id)createThumbView;
+- (BOOL)isTracking;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })hitRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })maximumValueImageRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })thumbRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 trackRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 value:(float)a2;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })minimumValueImageRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (float)duration;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (BOOL)beginTrackingWithTouch:(id)a0 withEvent:(id)a1;
+- (void)cancelTrackingWithEvent:(id)a0;
+- (void)layoutSubviews;
+- (void)endTrackingWithTouch:(id)a0 withEvent:(id)a1;
+- (void)setEnabled:(BOOL)a0;
+- (BOOL)continueTrackingWithTouch:(id)a0 withEvent:(id)a1;
+- (void).cxx_destruct;
+- (void)setValue:(float)a0;
+- (void)_updateSlowKnobMovementDetected;
+- (void)_layoutPhotosensitiveRegions:(float)a0;
+- (void)_layoutTimeLineMarkerViews:(float)a0;
+- (float)_normalizeSliderValue:(float)a0;
+- (BOOL)_shouldTrackTouchAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_updateSlowKnobMovementDetectedForTargetValue:(float)a0;
+- (BOOL)avkit_shouldPreventExternalGestureRecognizerAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (float)clampedEstimatedFrameRate;
+- (struct CGPoint { double x0; double x1; })contentOffsetFromValue;
+- (void)endOrCancelTracking;
+- (float)normalizedPosition;
+- (double)normalizedScrollOffset;
+- (void)updateScrollViewContentSizeAndOffsetIfNeeded;
+- (float)valueFromScrollView;
+
+@end

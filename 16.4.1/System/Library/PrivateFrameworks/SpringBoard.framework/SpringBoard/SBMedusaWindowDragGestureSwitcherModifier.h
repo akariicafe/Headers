@@ -1,0 +1,83 @@
+@class SBDisplayItem, NSString, SBAppLayout, SBMedusaWindowDragGestureDestinationModifier;
+
+@interface SBMedusaWindowDragGestureSwitcherModifier : SBGestureSwitcherModifier <SBMedusaWindowDragGestureDestinationModifierDelegate> {
+    SBMedusaWindowDragGestureDestinationModifier *_destinationModifier;
+    struct CGPoint { double x; double y; } _location;
+    struct CGPoint { double x; double y; } _translation;
+    struct CGPoint { double x; double y; } _initialAnchorPoint;
+    struct CGPoint { double x; double y; } _anchorPoint;
+    double _progressToMaxTranslation;
+    double _toHomeScreenAlpha;
+    double _toHomeScreenBlurProgress;
+    double _toHomeScreenDimmingAlpha;
+    SBDisplayItem *_selectedDisplayItem;
+    struct CGSize { double width; double height; } _sizeOfSelectedDisplayItem;
+    BOOL _dragBeganInOtherSwitcher;
+    BOOL _dragBeganInOurSwitcher;
+}
+
+@property (readonly, nonatomic) SBAppLayout *selectedLeafAppLayout;
+@property (readonly, nonatomic) SBAppLayout *initialMainAppLayout;
+@property (readonly, nonatomic) SBAppLayout *initialFloatingAppLayout;
+@property (readonly, nonatomic) long long currentFloatingConfiguration;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)appLayoutContainingAppLayout:(id)a0;
+- (BOOL)isContentStatusBarVisibleForIndex:(unsigned long long)a0;
+- (id)resizeGrabberLayoutAttributesForAppLayout:(id)a0;
+- (id)keyboardSuppressionMode;
+- (double)scaleForIndex:(unsigned long long)a0;
+- (id)visibleHomeAffordanceLayoutElements;
+- (double)homeScreenAlpha;
+- (double)opacityForLayoutRole:(long long)a0 inAppLayout:(id)a1 atIndex:(unsigned long long)a2;
+- (struct CGPoint { double x0; double x1; })anchorPointForIndex:(unsigned long long)a0;
+- (BOOL)isSwitcherWindowVisible;
+- (void)didMoveToParentModifier:(id)a0;
+- (double)dimmingAlphaForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (struct UIRectCornerRadii { double x0; double x1; double x2; double x3; })cornerRadiiForIndex:(unsigned long long)a0;
+- (long long)shadowStyleForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)isResizeGrabberVisibleForAppLayout:(id)a0;
+- (long long)wallpaperStyle;
+- (struct SBSwitcherAsyncRenderingAttributes { BOOL x0; BOOL x1; })asyncRenderingAttributesForAppLayout:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForIndex:(unsigned long long)a0;
+- (BOOL)isWallpaperRequiredForSwitcher;
+- (double)homeScreenDimmingAlpha;
+- (id)animationAttributesForLayoutElement:(id)a0;
+- (id)topMostLayoutElements;
+- (BOOL)isSwitcherWindowUserInteractionEnabled;
+- (BOOL)isLayoutRoleMatchMovedToScene:(long long)a0 inAppLayout:(id)a1;
+- (double)blurViewIconScaleForIndex:(unsigned long long)a0;
+- (BOOL)isHomeScreenContentRequired;
+- (double)backgroundOpacityForIndex:(unsigned long long)a0;
+- (double)homeScreenBackdropBlurProgress;
+- (id)handleTransitionEvent:(id)a0;
+- (double)shadowOpacityForLayoutRole:(long long)a0 atIndex:(unsigned long long)a1;
+- (id)adjustedAppLayoutsForAppLayouts:(id)a0;
+- (id)topMostLayoutRolesForAppLayout:(id)a0;
+- (id)visibleAppLayouts;
+- (long long)homeScreenBackdropBlurType;
+- (BOOL)isLayoutRoleBlurred:(long long)a0 inAppLayout:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForLayoutRole:(long long)a0 inAppLayout:(id)a1 withBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void).cxx_destruct;
+- (unsigned long long)currentDestination;
+- (BOOL)_anyProposedAppLayoutContainsSelectedDisplayItem;
+- (id)_appLayoutContainingSelectedDisplayItem;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_boundsForDraggingAppLayout;
+- (double)_distanceYToMaxTranslation;
+- (BOOL)_draggingFullScreenAppOrSplitView;
+- (double)_gestureProgressToMaxTranslationForTranslation:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_initialTransformedFrameForDraggingAppLayout;
+- (BOOL)_ourProposedAppLayoutContainsSelectedDisplayItem;
+- (double)_platterScale;
+- (double)_scaleForTranslation:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)_shouldPushInFullScreenContent;
+- (BOOL)_updateHomeScreenStyleInteractively;
+- (id)handleGestureEvent:(id)a0;
+- (id)handleSceneReadyEvent:(id)a0;
+- (id)initWithGestureID:(id)a0 selectedLeafAppLayout:(id)a1 initialMainAppLayout:(id)a2 initialFloatingAppLayout:(id)a3 initialFloatingConfiguration:(long long)a4;
+- (double)platterScaleForWindowDragGestureDestinationModifier:(id)a0;
+
+@end

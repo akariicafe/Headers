@@ -1,0 +1,15 @@
+@class NSString, RMProtocolSynchronizationTokens;
+
+@interface RMProtocolPushMessage : RMModelPayloadBase
+
+@property (copy, nonatomic) NSString *messageEnrollmentToken;
+@property (copy, nonatomic) RMProtocolSynchronizationTokens *messageSyncTokens;
+
++ (id)requestWithEnrollmentToken:(id)a0 syncTokens:(id)a1;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void).cxx_destruct;
+- (BOOL)loadFromDictionary:(id)a0 serializationType:(short)a1 error:(id *)a2;
+- (id)serializeWithType:(short)a0;
+
+@end

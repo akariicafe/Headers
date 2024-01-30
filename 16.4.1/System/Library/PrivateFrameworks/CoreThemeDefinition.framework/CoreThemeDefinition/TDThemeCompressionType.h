@@ -1,0 +1,3 @@
+@interface TDThemeCompressionType : TDThemeConstant
+
+@end

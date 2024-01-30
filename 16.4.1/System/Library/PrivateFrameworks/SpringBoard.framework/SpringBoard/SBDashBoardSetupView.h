@@ -1,0 +1,86 @@
+@class SBUICallToActionLabel, SBUILegibilityLabel, UILabel, SBFTouchPassThroughView, CSHomeAffordanceView, NSObject, _UILegibilitySettings, UIButton, UIView, NSString, UIStackView, NSArray, SBCursiveTextView, CADisplayLink, UIImageView;
+@protocol OS_dispatch_source;
+
+@interface SBDashBoardSetupView : UIView <CAAnimationDelegate> {
+    UILabel *_titleLabel;
+    UIStackView *_activationLockStackView;
+    UIImageView *_activationLockImage;
+    UILabel *_activationLockWarningLabel;
+    UILabel *_activationLockDetailLabel;
+    UILabel *_storeRestrictedTitleLabel;
+    UILabel *_storeRestrictedBodyLabel;
+    UILabel *_storeRestrictedLinkLabel;
+    UIView *_storeRestrictedContainer;
+    UILabel *_securityResearchDeviceTitleLabel;
+    UIView *_securityResearchDeviceContainer;
+    UIImageView *_securityResearchHeaderIcon;
+    UILabel *_securityResearchSubtitleLabel;
+    SBFTouchPassThroughView *_homeAffordanceContainer;
+    UIView *_homeAffordanceCallToActionContainer;
+    SBUILegibilityLabel *_homeAffordanceCallToActionLabel;
+    SBUICallToActionLabel *_homeButtonCallToActionLabel;
+    NSObject<OS_dispatch_source> *_homeButtonCallToActionTimer;
+    NSArray *_activationInfoViewConstraints;
+    NSString *_currentLanguage;
+    SBCursiveTextView *_cursiveTextView;
+    double _startTime;
+    double _customDelayDuration;
+    CADisplayLink *_displayLink;
+    BOOL _isStoreRestricted;
+    BOOL _isSecurityResearchDevice;
+}
+
+@property (retain, nonatomic) CSHomeAffordanceView *homeAffordanceView;
+@property (retain, nonatomic) UIView *activationInfoView;
+@property (retain, nonatomic) UIView *regulatoryInfoView;
+@property (retain, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property (readonly, nonatomic) UIButton *infoButton;
+@property (nonatomic, getter=isActivationLocked) BOOL activationLocked;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)_removeResetAnimationForKeyPath:(id)a0 onLayer:(id)a1;
+- (void)_setupConstraints;
+- (void)dealloc;
+- (void)_updateLegibilitySettings;
+- (void)layoutSubviews;
+- (void)_layoutHomeAffordance;
+- (void)_onDisplayLink:(id)a0;
+- (void).cxx_destruct;
+- (void)_addTitleLabel;
+- (void)_removeDisplayLink;
+- (BOOL)_actsLikeStoreRestricted;
+- (void)_addActivationLockLabels;
+- (void)_addHomeAffordanceCallToAction;
+- (void)_addHomeAffordanceForCoverSheetContext:(id)a0;
+- (void)_addHomeButtonCallToAction;
+- (void)_addInfoButton;
+- (void)_addResetAnimationForKeyPath:(id)a0 onLayer:(id)a1 dispatchGroup:(id)a2;
+- (void)_addSecurityResearchLabels;
+- (void)_addStoreRestrictedLabels;
+- (void)_adjustTitleVisibilityForInfoViews;
+- (void)_animateCursiveForTimePassed;
+- (void)_animateHomeAffordanceCallToActionToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_animateHomeAffordanceToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_animateHomeButtonCallToActionToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_animateView:(id)a0 toActive:(BOOL)a1 withDispatchGroup:(id)a2;
+- (void)_createDisplayLink;
+- (BOOL)_isShowingModalTakeoverUI;
+- (void)_layoutActivationInfoView;
+- (void)_layoutHomeAffordanceCallToAction;
+- (void)_layoutHomeButtonCallToAction;
+- (void)_layoutRegulatoryInfo;
+- (void)_removeNormalAnimationForKeyPath:(id)a0 onLayer:(id)a1;
+- (void)_setupActivationInfoConstraintsIfNeeded;
+- (void)animateComponents:(unsigned long long)a0 toActive:(BOOL)a1 withCompletion:(id /* block */)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 usingHomeAffordance:(BOOL)a1 coverSheetContext:(id)a2 isStoreRestricted:(BOOL)a3 isSecurityResearchDevice:(BOOL)a4;
+- (void)setActivationLockWarningString:(id)a0 detailString:(id)a1 forLanguage:(id)a2;
+- (void)setCallToActionString:(id)a0 forLanguage:(id)a1;
+- (void)setInfoButtonVisible:(BOOL)a0 animated:(BOOL)a1 withDelay:(double)a2;
+- (void)setStoreRestrictedStrings:(id)a0 bodyString:(id)a1 linkString:(id)a2 forLanguage:(id)a3;
+- (double)setTitleString:(id)a0 forLanguage:(id)a1;
+
+@end

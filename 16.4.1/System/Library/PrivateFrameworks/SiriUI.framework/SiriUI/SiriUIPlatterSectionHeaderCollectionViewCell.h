@@ -1,0 +1,17 @@
+@class NSString, SiriUIPlatterSectionHeaderView;
+
+@interface SiriUIPlatterSectionHeaderCollectionViewCell : SiriUIContentCollectionViewCell {
+    SiriUIPlatterSectionHeaderView *_headerView;
+}
+
+@property (copy, nonatomic) NSString *text;
+@property (nonatomic) long long textAlignment;
+
++ (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0 text:(id)a1;
+
+- (void)prepareForReuse;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void).cxx_destruct;
+
+@end

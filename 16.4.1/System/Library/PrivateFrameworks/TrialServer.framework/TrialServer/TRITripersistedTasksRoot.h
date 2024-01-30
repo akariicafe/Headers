@@ -1,0 +1,3 @@
+@interface TRITripersistedTasksRoot : TRIPBRootObject
+
+@end

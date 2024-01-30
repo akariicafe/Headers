@@ -1,0 +1,26 @@
+@class NSArray;
+@protocol PXFavoritesSettingsDelegate;
+
+@interface PXFavoritesSettings : PXSettings {
+    BOOL _didEncounterUnknownSettingsClassName;
+}
+
+@property (weak, nonatomic) id<PXFavoritesSettingsDelegate> delegate;
+@property (copy, nonatomic) NSArray *favoritesSettingsClassNames;
+
++ (id)sharedInstance;
++ (id)transientProperties;
++ (id)favoritesSubmoduleWithFavoritesSettingsKeyPath:(id)a0 delegate:(id)a1;
+
+- (id)parentSettings;
+- (id)valueForKey:(id)a0;
+- (void).cxx_destruct;
+- (void)_notifyChange;
+- (id)_keyForFavoriteExistingAtIndex:(long long)a0;
+- (id)_keyForFavoriteNameAtIndex:(long long)a0;
+- (void)_performBlockAfterLoadingAccessorySettings:(id /* block */)a0;
+- (void)_requestFavoriteSettingsAtIndex:(long long)a0 fromViewController:(id)a1 resultHandler:(id /* block */)a2;
+- (BOOL)isFavoriteSettings:(id)a0;
+- (void)setIsFavorite:(BOOL)a0 settings:(id)a1;
+
+@end

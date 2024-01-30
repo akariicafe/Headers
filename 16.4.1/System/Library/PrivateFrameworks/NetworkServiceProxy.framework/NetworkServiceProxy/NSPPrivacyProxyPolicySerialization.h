@@ -1,0 +1,3 @@
+@interface NSPPrivacyProxyPolicySerialization : NSObject
+
+@end

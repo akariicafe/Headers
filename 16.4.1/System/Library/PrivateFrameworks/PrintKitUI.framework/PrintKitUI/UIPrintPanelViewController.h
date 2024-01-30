@@ -1,0 +1,90 @@
+@class NSURL, UIPrintPanelWindow, UIActivityViewController, UITableView, NSObject, UIViewController, UIPrintOptionsTableViewController, UIView, _UIPrintMessageAndSpinnerView, NSLayoutConstraint, UIPrintPanelNavigationController, UIPopoverController, UIPrintPreviewInfo, NSString, UIPrintPreviewViewController, NSArray, UIPrintInteractionController, UIPrintInfo;
+@protocol OS_dispatch_queue, UIPrintAppExtensionProtocol;
+
+@interface UIPrintPanelViewController : UIViewController <UIPopoverPresentationControllerDelegate, UIPrintPanelAppearanceDelegate> {
+    NSObject<OS_dispatch_queue> *_lookupPrinterQueue;
+}
+
+@property (copy, nonatomic) id /* block */ previewUpdateCompletionHandler;
+@property (retain, nonatomic) UIPrintPanelWindow *printPanelWindow;
+@property (retain, nonatomic) UIPrintPanelNavigationController *printPanelNavigationController;
+@property (weak, nonatomic) UIViewController *parentController;
+@property (retain, nonatomic) UIView *previewSeparatorView;
+@property (retain, nonatomic) UIPrintPreviewViewController *previewViewController;
+@property (retain, nonatomic) UIView *previewPanelView;
+@property (retain, nonatomic) _UIPrintMessageAndSpinnerView *messageAndSpinner;
+@property (retain, nonatomic) NSLayoutConstraint *previewHeightConstraint;
+@property (retain, nonatomic) UIPrintOptionsTableViewController *printOptionsTableViewController;
+@property (retain, nonatomic) NSLayoutConstraint *printOptionsWidthConstraint;
+@property (nonatomic) long long lastUsedPrinterIndex;
+@property (retain) NSArray *lastUsedPrinterArray;
+@property (retain, nonatomic) NSArray *vertScrollPrintPanelConstraints;
+@property (retain, nonatomic) NSArray *horizScrollPrintPanelConstraints;
+@property (retain, nonatomic) UIPopoverController *poverController;
+@property (retain, nonatomic) UIActivityViewController *activityViewController;
+@property (retain, nonatomic) NSURL *pdfURL;
+@property (retain, nonatomic) UIPrintPreviewInfo *previewInfo;
+@property (nonatomic) BOOL dismissed;
+@property (nonatomic) BOOL animated;
+@property (nonatomic) BOOL showingPreview;
+@property (retain, nonatomic) UIPrintInfo *printInfo;
+@property (retain, nonatomic) UIPrintPanelNavigationController *printOptionsNavController;
+@property (retain, nonatomic) UITableView *printOptionsTableView;
+@property (retain, nonatomic) UIViewController<UIPrintAppExtensionProtocol> *appPrintExtensionController;
+@property (retain, nonatomic) UIPrintInteractionController *printInteractionController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_preventsAppearanceProxyCustomization;
+
+- (void)updateLayout;
+- (void)dismissAnimated:(BOOL)a0;
+- (void)updateViewConstraints;
+- (void)setPrinter:(id)a0;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)keyCommands;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewWillLayoutSubviews;
+- (void)_generatePDFForQuickLookCompletion:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)cancelButtonPressed:(id)a0;
+- (void)backButtonPressed:(id)a0;
+- (void)updatePageRange;
+- (void)_presentInParentAnimated:(BOOL)a0;
+- (void)addCanelButtonToNavItem:(id)a0;
+- (void)addPrintShareButtonsToNavItem:(id)a0;
+- (BOOL)canShowAnnotations;
+- (void)cancelPrinting;
+- (void)dismissPrintPanelWithAction:(long long)a0 animated:(BOOL)a1;
+- (id)initWithPrintInterationController:(id)a0 inParentController:(id)a1;
+- (void)lookupLastUsedPrinter;
+- (void)presentPrintPanelAnimated:(BOOL)a0 hostingScene:(id)a1;
+- (void)presentPrintPanelFromBarButtonItem:(id)a0 animated:(BOOL)a1;
+- (void)presentPrintPanelFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1 animated:(BOOL)a2;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })previewVisibleRange;
+- (void)printButtonPressed:(id)a0;
+- (void)printNavigationConrollerDidDismiss;
+- (void)printPanelDidDisappear;
+- (id)printerDisplayName:(id)a0;
+- (void)readPrintOptions;
+- (void)setPdfFileURL:(id)a0 shouldRenderOnChosenPaper:(BOOL)a1 completed:(BOOL)a2 pdfPassword:(id)a3;
+- (void)setShowPreviewGenerating:(BOOL)a0;
+- (void)shareButtonPress:(id)a0;
+- (BOOL)showPageRange;
+- (void)showPreviewGenerating;
+- (BOOL)showingLayout;
+- (BOOL)showingVerticalPreview;
+- (void)startNewPreviewBlock:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)startPrinting;
+- (void)updatePreveiw;
+- (void)updatePreviewLayoutConstraints;
+- (void)updatePrintPreviewInfo;
+
+@end

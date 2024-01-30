@@ -1,0 +1,81 @@
+@class _UIDatePickerCalendarTimeView, NSString, _UIDatePickerDataModel, UIDatePicker, UICalendarView, UICalendarSelectionSingleDate;
+
+@interface _UIDatePickerCalendarView : UIView <UICalendarSelectionSingleDateDelegate, _UIDatePickerCalendarTimeViewDelegate, _UIDatePickerViewComponent> {
+    struct { unsigned char needsUpdateDate : 1; unsigned char animateUpdateDate : 1; unsigned char isEnabled : 1; } _flags;
+    UICalendarView *_calendarView;
+    UICalendarSelectionSingleDate *_selection;
+    _UIDatePickerCalendarTimeView *_timeView;
+    struct CGSize { double width; double height; } _lastSize;
+    unsigned long long _stateUpdatesInFlight;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) UIDatePicker *datePicker;
+@property (retain, nonatomic) _UIDatePickerDataModel *data;
+@property (readonly, nonatomic) long long datePickerStyle;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } appliedInsetsToEdgeOfContent;
+@property (nonatomic) double timeInterval;
+@property (readonly, nonatomic) double contentWidth;
+
+- (void)_reload;
+- (struct CGSize { double x0; double x1; })_intrinsicSizeWithinSize:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_setEnabled:(BOOL)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutMarginsDidChange;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })defaultSize;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_updateLayoutMargins;
+- (void).cxx_destruct;
+- (void)didChangeLocale;
+- (void)_reloadTimeView;
+- (void)didChangeRoundsToMinuteInterval;
+- (unsigned long long)_axesForDerivingIntrinsicContentSizeFromLayoutSize;
+- (void)_reloadCalendarView;
+- (void)_reloadDateRange;
+- (void)_setNeedsUpdateDateAnimated:(BOOL)a0;
+- (BOOL)_shouldDisplayCalendarView;
+- (BOOL)_shouldDisplayTimeView;
+- (BOOL)_shouldUpdateDataForComponents:(id)a0 date:(id)a1;
+- (BOOL)_shouldUpdateTimeViewForSelectedTime:(id)a0;
+- (struct CGSize { double x0; double x1; })_sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateContentSizeLimitations;
+- (void)_updateCustomFonts;
+- (void)_updateDataForComponents:(id)a0;
+- (void)_updateDate;
+- (void)_updateDateIfNeeded;
+- (void)_updateEnabledStyling;
+- (void)_updateModuleVisibility;
+- (void)_updateSelectedDay:(id)a0 animated:(BOOL)a1 notify:(BOOL)a2;
+- (void)_updateSelectedDay:(id)a0 time:(id)a1 animated:(BOOL)a2 notify:(BOOL)a3;
+- (void)_updateSelectedTime:(id)a0 notify:(BOOL)a1;
+- (void)_updateTimeViewForSelectedDate:(id)a0 animated:(BOOL)a1;
+- (void)_workaround66574039_datePickerDidUpdateLayoutMargins;
+- (id)createDatePickerForTimeView:(id)a0;
+- (BOOL)dateSelection:(id)a0 canSelectDate:(id)a1;
+- (void)dateSelection:(id)a0 didSelectDate:(id)a1;
+- (void)didChangeCalendar;
+- (void)didChangeCustomFontDesign;
+- (void)didChangeDateFrom:(id)a0 animated:(BOOL)a1;
+- (void)didChangeMaximumDate;
+- (void)didChangeMinimumDate;
+- (void)didChangeMinuteInterval;
+- (void)didChangeMode;
+- (void)didChangeTimeZone;
+- (void)didChangeToday;
+- (void)didReset;
+- (void)displaySelectedDateAnimated:(BOOL)a0;
+- (BOOL)hasDefaultSize;
+- (id)primaryFirstResponder;
+- (void)timeView:(id)a0 didSelectTime:(id)a1;
+- (void)timeViewDidBeginEditing:(id)a0;
+- (void)timeViewDidEndEditing:(id)a0;
+- (void)timeViewWillBecomeFirstResponder:(id)a0;
+- (BOOL)usesAutoLayout;
+
+@end

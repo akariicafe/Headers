@@ -1,0 +1,3 @@
+@interface MTRMediaPlaybackClusterStopPlaybackParams : MTRMediaPlaybackClusterStopParams
+
+@end

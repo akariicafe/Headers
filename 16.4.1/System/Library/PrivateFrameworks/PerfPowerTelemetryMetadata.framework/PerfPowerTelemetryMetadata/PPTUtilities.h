@@ -1,0 +1,3 @@
+@interface PPTUtilities : NSObject
+
+@end

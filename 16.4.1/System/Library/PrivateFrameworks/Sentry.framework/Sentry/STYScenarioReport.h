@@ -1,0 +1,27 @@
+@class NSString, NSMutableDictionary, SignpostInterval, STYUserScenario;
+
+@interface STYScenarioReport : NSObject
+
+@property (retain) NSString *metadata;
+@property (retain) SignpostInterval *interval;
+@property (retain) NSMutableDictionary *symptomsSignature;
+@property (readonly) float observedLatencyInMs;
+@property float targetLatencyInMs;
+@property (readonly) float observedFps;
+@property (readonly) float targetFps;
+@property (readonly) unsigned long long scenarioStartTime;
+@property (readonly) unsigned long long scenarioEndTime;
+@property (readonly) NSString *issueCategory;
+@property (readonly) STYUserScenario *scenario;
+
++ (id)reportFromSignpostInterval:(id)a0 error:(id *)a1;
++ (id)reportFromSignpostEvent:(id)a0 error:(id *)a1;
+
+- (id)symptomsSignatureForReport;
+- (id)initWithSignpostEvent:(id)a0 scenario:(id)a1 error:(id *)a2;
+- (id)initWithScenario:(id)a0;
+- (id)convertDictionaryToString:(id)a0;
+- (id)initWithSignpostInterval:(id)a0 scenario:(id)a1 error:(id *)a2;
+- (void).cxx_destruct;
+
+@end

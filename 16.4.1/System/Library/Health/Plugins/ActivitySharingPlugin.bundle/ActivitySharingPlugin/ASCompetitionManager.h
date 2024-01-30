@@ -1,0 +1,81 @@
+@class ASContactsManager, ASRelationshipManager, HDProfile, NSObject, ASAsyncTransactionQueue, ASActivityDataManager, ASPeriodicUpdateManager, ASCompetitionBulletinManager, ASCompetitionStore, ASAchievementManager, NSString, NSSet, NSHashTable, ASFriendListManager, NSNumber, ASCloudKitManager;
+@protocol OS_dispatch_queue;
+
+@interface ASCompetitionManager : NSObject <ASCloudKitManagerChangesObserver, HDDatabaseProtectedDataObserver, ASActivityDataManagerObserver, ASActivitySharingManagerReadyObserver, ASPeriodicUpdateRecordProvider> {
+    ASAchievementManager *_achievementManager;
+    ASActivityDataManager *_activityDataManager;
+    ASCloudKitManager *_cloudKitManager;
+    ASCompetitionBulletinManager *_competitionBulletinManager;
+    ASContactsManager *_contactsManager;
+    ASFriendListManager *_friendListManager;
+    ASPeriodicUpdateManager *_periodicUpdateManager;
+    ASRelationshipManager *_relationshipManager;
+    HDProfile *_profile;
+    ASCompetitionStore *_competitionStore;
+    ASAsyncTransactionQueue *_transactionQueue;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    NSObject<OS_dispatch_queue> *_observerQueue;
+    NSHashTable *_observers;
+    NSSet *_existingFriendUUIDsAwaitingMyCompetitionResponse;
+    NSSet *_existingFriendUUIDsWithAcceptedCompetitionRequestsFromMe;
+    NSSet *_existingFriendUUIDsWithCompletedCompetitions;
+    NSSet *_friendUUIDsWithUpdatedCompetitions;
+    NSNumber *_scoreCapCelebrationAnchor;
+    BOOL _deviceParticipatesInAutomaticCompetitionManagement;
+    BOOL _hasFetchedProtectedData;
+}
+
+@property (readonly, nonatomic) BOOL isReadyToProcessChanges;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithIsWatch:(BOOL)a0;
+- (void)database:(id)a0 protectedDataDidBecomeAvailable:(BOOL)a1;
+- (void)_handleCompetitionRequestFromFriendWithUUID:(id)a0;
+- (void)activityDataManager:(id)a0 didUpdateTodaySummary:(id)a1 yesterdaySummary:(id)a2;
+- (void)cloudKitManager:(id)a0 didReceiveNewCompetitionListsForSelf:(id)a1 moreComing:(BOOL)a2 changesProcessedHandler:(id /* block */)a3;
+- (void)_setScoreCapCelebrationAnchor:(id)a0;
+- (void)loadCachedCompetitions;
+- (void)activitySharingManagerReady:(id)a0;
+- (void)_queue_handleSavedCompetitionListRecords:(id)a0;
+- (id)_contactsWithActiveCompetitions;
+- (id)recordsToSave;
+- (void)_loadCachedCompetitionsAndNotifyObservers;
+- (void)addObserver:(id)a0;
+- (void)periodicUpdateManager:(id)a0 didSaveRecords:(id)a1;
+- (void)_queue_showScoreCapCelebrationForFriendsWithCappedInProgressCompetitions:(id)a0;
+- (id)_archivedCompetitionListByMergingCurrentCompetitionList:(id)a0;
+- (void)periodicUpdateManager:(id)a0 didFailToSaveRecords:(id)a1;
+- (void)_queue_autoAcceptCompetitionRequestFromContact:(id)a0 completion:(id /* block */)a1;
+- (void)ignoreCompetitionRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)_queue_notifyObserversOfCompetitionUpdatesForFriendsWithUUIDs:(id)a0;
+- (id)_loadOrCreateCurrentCompetitionListForFriendWithUUID:(id)a0;
+- (id)recordIDsToDelete;
+- (void)_queue_showCompetitionAcceptedForFriendWithUUID:(id)a0 competition:(id)a1;
+- (void)cloudKitManager:(id)a0 didEndUpdatesForFetchWithType:(long long)a1;
+- (id)_localUserDefaultsDomainWithProfile:(id)a0;
+- (id)_recordForCurrentCompetitionList:(id)a0 contact:(id)a1;
+- (void)cloudKitManager:(id)a0 didBeginUpdatesForFetchWithType:(long long)a1;
+- (void)_queue_showCompetitionEndedWithFriendWithUUID:(id)a0;
+- (void)removeObserver:(id)a0;
+- (void)_handleAcceptedCompetitionFromFriendWithUUID:(id)a0;
+- (void)_queue_setActivityDataVisibleIfNecessaryForContact:(id)a0 completion:(id /* block */)a1;
+- (void)deleteCachedCompetitions;
+- (id)_scoreCapCelebrationAnchorWithProfile:(id)a0;
+- (void)cloudKitManager:(id)a0 didReceiveNewCompetitionLists:(id)a1 moreComing:(BOOL)a2 changesProcessedHandler:(id /* block */)a3;
+- (void)completeCompetitionWithFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)sendCompetitionRequestToFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)_saveCurrentCompetitionList:(id)a0 archivedCompetitionList:(id)a1 contact:(id)a2 completion:(id /* block */)a3;
+- (void)updateAllActiveCompetitionsWithScores:(id)a0 completion:(id /* block */)a1;
+- (void)_queue_completeCompetitionIfNecessaryForFriendWithUUID:(id)a0;
+- (id)competitionsForFriendWithUUID:(id)a0;
+- (void)_queue_updateScoresWithTodaySummary:(id)a0 yesterdaySummary:(id)a1;
+- (void)_queue_showCompetitionRequestFromFriendWithUUID:(id)a0 competition:(id)a1;
+- (void)_queue_handleNewRemoteCompetitionList:(id)a0 contact:(id)a1;
+- (void).cxx_destruct;
+- (id)_localCompetitionForRemoteCompetition:(id)a0 friendUUID:(id)a1;
+- (void)acceptCompetitionRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+
+@end

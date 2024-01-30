@@ -1,0 +1,97 @@
+@class MFLock, NSString, NSURL, MFCastleEmailAliasUpdater, DeliveryAccount, NSMutableDictionary, ACAccount, NSObject, EDiCloudAliasSupport, ACAccountStore;
+@protocol OS_dispatch_queue;
+
+@interface CastleIMAPAccount : IMAPAccount {
+    MFLock *_appleAccountLock;
+    ACAccount *_appleAccount;
+    DeliveryAccount *_deliveryAccount;
+    unsigned char _readyForPushRegistration : 1;
+    NSMutableDictionary *_aliasChanges;
+    NSString *_updatedDefaultEmail;
+    NSObject<OS_dispatch_queue> *_aliasUpdateQueue;
+}
+
+@property (readonly, nonatomic) ACAccount *appleAccount;
+@property (readonly, nonatomic) ACAccountStore *accountStore;
+@property (readonly, nonatomic) NSString *deliveryHostname;
+@property (readonly, nonatomic) unsigned int deliveryPortNumber;
+@property (readonly, nonatomic) BOOL deliveryUsesSSL;
+@property (readonly, nonatomic) NSURL *aliasLookupURL;
+@property (readonly, nonatomic) EDiCloudAliasSupport *aliasSupport;
+@property (readonly, nonatomic) MFCastleEmailAliasUpdater *aliasUpdater;
+@property (readonly, retain, nonatomic) NSString *personID;
+@property (readonly, retain, nonatomic) NSString *authToken;
+@property (readonly, retain, nonatomic) NSString *clientInfo;
+
++ (void)initialize;
++ (id)accountTypeIdentifier;
++ (id)accountTypeString;
++ (BOOL)primaryDeliveryAccountIsDynamic;
++ (id)defaultPathNameForAccountWithHostname:(id)a0 username:(id)a1;
++ (id)displayedAccountTypeString;
++ (id)emailAddressHostPart;
++ (BOOL)isPredefinedAccountType;
++ (id)newChildAccountWithParentAccount:(id)a0 error:(id *)a1;
++ (BOOL)usernameIsEmailAddress;
+
+- (id)hostname;
+- (BOOL)usesSSL;
+- (void)setUsesSSL:(BOOL)a0;
+- (void)setUsername:(id)a0;
+- (BOOL)isEnabledForDataclass:(id)a0;
+- (unsigned int)portNumber;
+- (void)setHostname:(id)a0;
+- (void)setPortNumber:(unsigned int)a0;
+- (id)displayName;
+- (void)startListeningForNotifications;
+- (id)anisetteDataWithError:(id *)a0;
+- (BOOL)allowsTrustPrompt;
+- (id)username;
+- (void)setDefaultEmailAddress:(id)a0;
+- (void)dealloc;
+- (void)setDisplayName:(id)a0;
+- (void).cxx_destruct;
+- (void)_accountsChanged:(id)a0;
+- (id)emailAddressStrings;
+- (id)_deliveryAccountCreateIfNeeded:(BOOL)a0;
+- (id)displayUsername;
+- (id)uniqueIdForPersistentConnection;
+- (BOOL)_emailAliasesAreStale;
+- (id)_fromEmailAddressesIncludingDisabled:(BOOL)a0;
+- (id)_mailPropertyFromAppleAccountForKey:(id)a0;
+- (void)_removePasswordInKeychain;
+- (void)_resetAppleAccount;
+- (void)_updateEmailAddressAndAliases;
+- (void)_updateEmailAddressAndAliasesWithResult:(id)a0;
+- (id)authTokenWithError:(id *)a0;
+- (BOOL)canAttemptPushRegistration;
+- (BOOL)canReceiveNewMailNotifications;
+- (unsigned long long)credentialAccessibility;
+- (BOOL)derivesDeliveryAccountInfoFromMailAccount;
+- (id)emailAddressesAndAliasesList;
+- (id)firstEmailAddress;
+- (id)fromEmailAddresses;
+- (id)fromEmailAddressesIncludingDisabled;
+- (void)handleAlertResponse:(id)a0;
+- (void)handleOverQuotaResponse:(id)a0;
+- (id)iconString;
+- (id)initWithLibrary:(id)a0 persistentAccount:(id)a1;
+- (void)invalidateEmailAliases;
+- (BOOL)isEquivalentTo:(id)a0 hostname:(id)a1 username:(id)a2;
+- (id)passwordFromKeychain;
+- (void)persistentAccountDidChange:(id)a0 previousAccount:(id)a1;
+- (id)preferredAuthScheme;
+- (void)pushUpdateForAliasData;
+- (void)setEnabled:(BOOL)a0 forEmailAddress:(id)a1;
+- (void)setLocalDefaultEmailAddress:(id)a0;
+- (void)setLocallyEnabled:(BOOL)a0 forEmailAddress:(id)a1;
+- (void)setPasswordInKeychain:(id)a0;
+- (BOOL)shouldDisplayHostnameInErrorMessages;
+- (BOOL)shouldFetchACEDBInfoForError:(id)a0;
+- (BOOL)shouldFetchRemoteLinksWithDateReceived:(id)a0;
+- (BOOL)shouldRegisterForPush;
+- (id)statisticsKind;
+- (BOOL)supportsArchiving;
+- (void)updateEmailAliasesIfNeeded;
+
+@end

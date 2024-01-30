@@ -1,0 +1,3 @@
+@interface HealthExperienceUI.DefaultFeatureRegulatoryInfoTransformProvider : _TtCs12_SwiftObject
+
+@end

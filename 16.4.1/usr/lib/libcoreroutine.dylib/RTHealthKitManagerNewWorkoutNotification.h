@@ -1,0 +1,3 @@
+@interface RTHealthKitManagerNewWorkoutNotification : RTNotification
+
+@end

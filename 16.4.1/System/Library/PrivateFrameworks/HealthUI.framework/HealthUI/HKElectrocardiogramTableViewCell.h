@@ -1,0 +1,20 @@
+@class HKElectrocardiogram, HKElectrocardiogramCardView, NSLayoutConstraint;
+
+@interface HKElectrocardiogramTableViewCell : UITableViewCell
+
+@property (retain, nonatomic) HKElectrocardiogramCardView *cardView;
+@property (retain, nonatomic) NSLayoutConstraint *bottomPaddingConstraint;
+@property (retain, nonatomic) HKElectrocardiogram *sample;
+@property (nonatomic) BOOL bottomPaddingDisabled;
+
++ (double)estimatedHeight;
++ (id)defaultReuseIdentifier;
+
+- (void)prepareForReuse;
+- (void)_setupConstraints;
+- (void).cxx_destruct;
+- (void)_setupUIWithSample:(id)a0 dateCache:(id)a1 onboarding:(BOOL)a2 activeAlgorithmVersion:(long long)a3;
+- (id)initWithSample:(id)a0 dateCache:(id)a1 onboarding:(BOOL)a2 activeAlgorithmVersion:(long long)a3;
+- (void)setActiveAlgorithmVersion:(long long)a0;
+
+@end

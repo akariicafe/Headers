@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.EndDictationRequestMessage : SiriRequestDispatcher.EndRequestMessageBase
+
+@end

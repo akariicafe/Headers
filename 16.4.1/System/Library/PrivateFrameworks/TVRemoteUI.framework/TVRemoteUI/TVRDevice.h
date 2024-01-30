@@ -1,0 +1,3 @@
+@interface TVRDevice : INObject
+
+@end

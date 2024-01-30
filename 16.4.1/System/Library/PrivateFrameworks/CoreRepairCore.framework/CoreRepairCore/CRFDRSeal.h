@@ -1,0 +1,96 @@
+@class NSData, NSString, NSArray, NSURL, NSSet, NSMutableDictionary, NSDictionary, NSMutableArray, CRFDRBaseDeviceHandler, NSNumber;
+@protocol setupModuleChallengeCallBack;
+
+@interface CRFDRSeal : NSObject <CRFDR> {
+    NSString *currentSerialNumber;
+    NSString *currentMLBSerialNumber;
+    NSDictionary *claimDict;
+    NSDictionary *updateClassDict;
+    NSString *KBBSerialNumber;
+    NSString *KGBSerialNumber;
+    NSString *FDRCAURL;
+    NSString *trustObjectURL;
+    NSString *FDRDSURL;
+    NSString *FDRSealingURL;
+    BOOL doSeal;
+    BOOL enableStagedSeal;
+    BOOL enableProxy;
+    NSURL *dataDirectoryURL;
+    NSDictionary *metadataDict;
+    NSSet *partSPC;
+    NSString *failedSPC;
+    NSDictionary *updateProperties;
+    NSArray *removedProperties;
+    NSDictionary *manifestDataClassesAndInstances;
+    NSSet *overridePropertySet;
+    NSMutableArray *currentClasses;
+    NSMutableArray *currentInstances;
+    NSDictionary *currentProperties;
+    NSMutableArray *makeClasses;
+    NSMutableArray *makeInstances;
+    NSDictionary *makeProperties;
+    NSMutableDictionary *postSealingManifest;
+    NSMutableDictionary *preSealingManifest;
+    NSString *FDRPersistentDataPath;
+    NSString *sealedDataInstance;
+    NSMutableArray *mergedDataClasses;
+    NSMutableArray *mergedDataInstances;
+    NSMutableDictionary *networkUsage;
+    NSMutableDictionary *repairStats;
+    int sealCount;
+    NSString *SOCKSHost;
+    NSNumber *SOCKSPort;
+    NSNumber *displayMaxDuration;
+    NSArray *patchDataClasses;
+    NSArray *patchDataInstances;
+    NSArray *patchValues;
+    NSArray *expectedPatchDataClasses;
+    NSArray *expectedPatchDataInstances;
+    NSArray *expectedPatchValues;
+    NSArray *minimalSealingInstances;
+    NSArray *minimalSealedClasses;
+    NSArray *minimalSealedInstances;
+}
+
+@property (retain, nonatomic) NSData *apTicketData;
+@property (weak, nonatomic) id<setupModuleChallengeCallBack> delegate;
+@property (retain, nonatomic) CRFDRBaseDeviceHandler *handler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)currentProcessHasEntitlement:(id)a0;
+
+- (id)initWithParameters:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (long long)CRFDRDataRepairRecover:(struct __AMFDR { } *)a0 fdrRemote:(struct __AMFDR { } *)a1 fdrError:(id *)a2;
+- (long long)CRFDRVerifyLocal:(struct __AMFDR { } *)a0 fdrRemote:(struct __AMFDR { } *)a1 sealedData:(struct __AMFDRSealedData **)a2 mergedDataClasses:(id)a3 mergedDataInstances:(id)a4 currentManifestProperties:(id)a5 fdrError:(id *)a6 syncEAN:(BOOL)a7;
+- (long long)CRFDRLocalPopulate:(struct __AMFDR { } *)a0 fdrRemote:(struct __AMFDR { } *)a1 sealedData:(struct __AMFDRSealedData **)a2 fdrError:(id *)a3;
+- (long long)CRFDRVerifyProperties:(struct __AMFDR { } *)a0 currentManifestProperties:(id)a1 fdrError:(id *)a2;
+- (id)_baseFDROptionsWithDataStore:(id)a0;
+- (BOOL)_commitData:(id)a0 fdrlocal:(struct __AMFDR { } *)a1 fdrError:(id *)a2;
+- (long long)_commitSealedData:(struct __AMFDR { } *)a0 fdrRemote:(struct __AMFDR { } *)a1 sealedData:(struct __AMFDRSealedData { } *)a2 returnError:(id *)a3;
+- (id)_copyFDROptionsForPatch:(struct __AMFDR { } *)a0;
+- (long long)_fetchRemoteTrustObject:(struct __AMFDR { } *)a0 apTrustObjectDigest:(id)a1 remoteTrustObject:(id *)a2 fdrError:(id *)a3;
+- (id)_getCRFDRMetaDataDictionary;
+- (void)_logSealingRequest:(struct __AMFDRSealedData { } *)a0;
+- (id)_personalizeTrustObjectWithDigest:(id)a0 withError:(id *)a1;
+- (id)_setLocalAndRemotePermission:(struct __AMFDR { } *)a0 fdrRemote:(struct __AMFDR { } *)a1;
+- (BOOL)_urlsOverrideIsAllowed;
+- (id)extractNetworkUsage;
+- (BOOL)generateFinalData;
+- (id)initForRegisterChangeWithParameters:(id)a0;
+- (long long)patchWithOptions:(id)a0 fdrRemote:(struct __AMFDR { } *)a1 dataClasses:(id)a2 dataInstances:(id)a3 values:(id)a4 error:(id *)a5 local:(BOOL)a6;
+- (long long)performHTTPChallengeClaim:(struct __AMFDR { } *)a0 fdrLocal:(struct __AMFDR { } *)a1 fdrError:(id *)a2 claimClassDict:(id)a3 registerOnly:(BOOL)a4;
+- (long long)performMakeAndRecover:(struct __AMFDR { } *)a0 fdrLocal:(struct __AMFDR { } *)a1 fdrError:(id *)a2;
+- (long long)performPartialRepairSealing:(struct __AMFDR { } *)a0 fdrLocal:(struct __AMFDR { } *)a1 fdrError:(id *)a2;
+- (long long)prefetchPermissionsForSealingWith:(struct __AMFDR { } *)a0 fdrLocal:(struct __AMFDR { } *)a1 returnError:(id *)a2;
+- (long long)prefetchPermissionsWith:(struct __AMFDR { } *)a0 claimClassDict:(id)a1 returnError:(id *)a2;
+- (long long)registerChangeForComponent:(id)a0 fdrError:(id *)a1;
+- (long long)seal:(id *)a0 oldSealingManifest:(id *)a1 newSealingManifest:(id *)a2 stats:(id *)a3;
+- (long long)sealWithDataClass:(id)a0 fdrError:(id *)a1 registerOnly:(BOOL)a2;
+- (long long)setLocalAndRemoteTrustObject:(struct __AMFDR { } *)a0 fdrLocal:(struct __AMFDR { } *)a1 remoteTrustObjectDigest:(id)a2 fdrError:(id *)a3;
+
+@end

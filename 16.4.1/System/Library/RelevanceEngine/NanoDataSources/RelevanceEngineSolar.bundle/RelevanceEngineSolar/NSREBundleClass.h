@@ -1,0 +1,3 @@
+@interface NSREBundleClass : NSObject
+
+@end

@@ -1,0 +1,82 @@
+@class ICDocCamImageCache, ICDocCamDocumentInfoCollection, UIImage, UIView, ICDocCamExtractedDocumentViewController, ICNAEventReporter, NSString, ICAttachmentPreviewImageCache, ICAttachment, ICDocCamScannedDocumentEditor, NSIndexPath;
+@protocol ICGalleryAttachmentEditorControllerDelegate;
+
+@interface ICGalleryAttachmentEditorController : NSObject <ICDocCamExtractedDocumentControllerDelegate, ICDocCamViewControllerDelegate, ICRemoteDocCamViewControllerDelegate, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate, ICAttachmentUIState>
+
+@property (retain, nonatomic) ICAttachment *galleryAttachment;
+@property (retain, nonatomic) ICDocCamExtractedDocumentViewController *extractedDocumentController;
+@property (retain, nonatomic) ICDocCamDocumentInfoCollection *documentInfoCollection;
+@property (retain, nonatomic) ICDocCamImageCache *imageCache;
+@property (retain, nonatomic) ICAttachmentPreviewImageCache *thumbnailCache;
+@property (retain, nonatomic) ICDocCamScannedDocumentEditor *editor;
+@property (weak, nonatomic) id<ICGalleryAttachmentEditorControllerDelegate> delegate;
+@property (nonatomic) BOOL browserMode;
+@property (nonatomic) BOOL useCustomRecropTransition;
+@property (nonatomic) long long orientationForRecrop;
+@property (retain, nonatomic) NSIndexPath *indexPathForRecrop;
+@property (retain, nonatomic) UIImage *filteredImageForRecrop;
+@property (retain, nonatomic) UIImage *unfilteredImageForRecrop;
+@property (retain, nonatomic) UIView *sourceViewForZoomTransition;
+@property (retain, nonatomic) ICNAEventReporter *eventReporter;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)activityTypeOrder;
+
+- (id)navigationController:(id)a0 animationControllerForOperation:(long long)a1 fromViewController:(id)a2 toViewController:(id)a3;
+- (id)animationControllerForDismissedController:(id)a0;
+- (id)animationControllerForPresentedController:(id)a0 presentingController:(id)a1 sourceController:(id)a2;
+- (void)applicationWillTerminate:(id)a0;
+- (void)dealloc;
+- (id)presentationControllerForPresentedViewController:(id)a0 presentingViewController:(id)a1 sourceViewController:(id)a2;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void).cxx_destruct;
+- (void)attachmentDidLoad:(id)a0;
+- (id)scanDataDelegateWithIdentifier:(id)a0;
+- (void)applyAttachmentUIStateIfNecessary:(id)a0;
+- (void)attachmentTitleDidChange;
+- (id)attachmentUIState;
+- (BOOL)documentCameraController:(id)a0 canAddImages:(unsigned long long)a1;
+- (void)documentCameraController:(id)a0 didFinishWithDocInfoCollection:(id)a1 imageCache:(id)a2 warnUser:(BOOL)a3;
+- (void)documentCameraController:(id)a0 didFinishWithDocInfoCollection:(id)a1 imageCache:(id)a2 warnUser:(BOOL)a3 closeViewController:(BOOL)a4;
+- (id)documentCameraControllerCreateDataCryptorIfNecessary;
+- (void)documentCameraControllerDidCancel:(id)a0;
+- (void)documentCameraControllerDidCancelWithPresentingViewController:(id)a0;
+- (void)documentCameraControllerDidRetake:(id)a0 pageCount:(unsigned long long)a1;
+- (void)documentCameraPresentingViewController:(id)a0 didFinishWithInfoCollection:(id)a1 imageCache:(id)a2 warnUser:(BOOL)a3 closeViewController:(BOOL)a4;
+- (void)extractedDocumentController:(id)a0 didTapRecrop:(id)a1 index:(long long)a2;
+- (void)extractedDocumentController:(id)a0 shareDocument:(id)a1 sender:(id)a2;
+- (void)extractedDocumentController:(id)a0 startMarkupOnDocument:(id)a1 inkStyle:(unsigned long long)a2 startPresentBlock:(id /* block */)a3 dismissCompletionBlock:(id /* block */)a4;
+- (void)extractedDocumentControllerDidApplyFilter:(short)a0 forDocument:(id)a1;
+- (void)extractedDocumentControllerDidChangeTitle:(id)a0;
+- (void)extractedDocumentControllerDidDeleteDocument:(id)a0;
+- (void)extractedDocumentControllerDidMovePageFromIndex:(unsigned long long)a0 toIndex:(unsigned long long)a1 forDocument:(id)a2;
+- (void)extractedDocumentControllerDidRotateDocument:(id)a0;
+- (void)extractedDocumentControllerDidSelectCopyFromMenuForDocument:(id)a0;
+- (void)extractedDocumentControllerDidSelectShareFromMenuForDocument:(id)a0 sourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 sourceView:(id)a2;
+- (void)extractedDocumentControllerDidTapAddImage;
+- (void)extractedDocumentControllerDidTapDone:(unsigned long long)a0;
+- (void)extractedDocumentControllerDidTapDone:(unsigned long long)a0 scanDataDelegate:(id)a1;
+- (void)extractedDocumentControllerDidTapRetake:(unsigned long long)a0;
+- (void)extractedDocumentControllerDiscardMarkupModelDataForDocument:(id)a0;
+- (id)extractedDocumentControllerImageForDocument:(id)a0;
+- (struct CGSize { double x0; double x1; })extractedDocumentControllerImageSizeForDocument:(id)a0;
+- (void)extractedDocumentControllerLoadThumbnailForDocument:(id)a0 size:(struct CGSize { double x0; double x1; })a1 completionBlock:(id /* block */)a2;
+- (id)extractedDocumentControllerMarkupModelDataForDocument:(id)a0;
+- (id)extractedDocumentControllerTitle;
+- (id)extractedDocumentControllerUncroppedImageForDocument:(id)a0;
+- (id)extractedDocumentControllerUndoManager;
+- (id)initWithGalleryAttachment:(id)a0 browserMode:(BOOL)a1 delegate:(id)a2;
+- (void)movePageFromIndex:(unsigned long long)a0 toIndex:(unsigned long long)a1;
+- (BOOL)openEditorOnViewController:(id)a0 pageIndex:(unsigned long long)a1 sourceView:(id)a2;
+- (void)previewImageDidUpdate:(id)a0;
+- (void)remoteDocumentCameraController:(id)a0 didFailWithError:(id)a1;
+- (void)remoteDocumentCameraController:(id)a0 didFinishWithInfoCollection:(id)a1;
+- (void)remoteDocumentCameraControllerDidCancel:(id)a0;
+- (BOOL)shouldAllowEditing;
+- (void)updateDocInfoForAttachment:(id)a0;
+- (BOOL)updateDocumentViewControllerFromModel;
+
+@end

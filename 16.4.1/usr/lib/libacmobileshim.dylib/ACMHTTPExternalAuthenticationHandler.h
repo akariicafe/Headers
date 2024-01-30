@@ -1,0 +1,3 @@
+@interface ACMHTTPExternalAuthenticationHandler : ACMHTTPAuthenticationHandler
+
+@end

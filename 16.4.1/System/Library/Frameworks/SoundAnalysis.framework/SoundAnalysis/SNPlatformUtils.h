@@ -1,0 +1,3 @@
+@interface SNPlatformUtils : NSObject
+
+@end

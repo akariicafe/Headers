@@ -1,0 +1,3 @@
+@interface __PUTrimToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface DOCPromisedItem : DOCItemBookmark
+
+@end

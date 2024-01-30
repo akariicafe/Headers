@@ -1,0 +1,87 @@
+@class ACAccountStore, NSString, NSArray, PLCloudSharedAlbumInvitationRecord, UISwitch, NSOperationQueue, AAUIProfilePictureStore, UITableView, NSMutableDictionary, PLCloudSharedAlbum, UIBarButtonItem;
+@protocol PXAlbumStreamingOptionsViewControllerDelegate;
+
+@interface PXAlbumStreamingOptionsViewController : UIViewController <PLInvitationRecordsObserver, UITableViewDataSource, UITableViewDelegate> {
+    NSString *_visiblePublicURL;
+    BOOL _showShareLink;
+    UIBarButtonItem *_cancelButton;
+    UIBarButtonItem *_doneButton;
+    UITableView *_optionsTableView;
+    UISwitch *_wantsPublicWebsiteSwitch;
+    UISwitch *_wantsMultipleContributorsSwitch;
+    UISwitch *_wantsAcceptCloudNotificationSwitch;
+    unsigned long long _addSubscribersRow;
+    NSOperationQueue *_familyRequestQueue;
+    ACAccountStore *_familyAccountStore;
+    NSArray *_familyMembers;
+    AAUIProfilePictureStore *_familyMemberPictureStore;
+    NSMutableDictionary *_familyProfilePictures;
+}
+
+@property (retain, nonatomic) PLCloudSharedAlbum *album;
+@property (copy, nonatomic) NSString *albumName;
+@property (retain, nonatomic) NSArray *sharedAlbumSubscribers;
+@property (nonatomic) BOOL streamOwner;
+@property (retain, nonatomic, setter=_setSelectedSubscriberInvitationRecord:) PLCloudSharedAlbumInvitationRecord *_selectedSubscriberInvitationRecord;
+@property (nonatomic, setter=_setShouldScrollToTopOnNextViewLayout:) BOOL _shouldScrollToTopOnNextViewLayout;
+@property (copy, nonatomic, setter=_setLastPublicURLSectionFooterTitle:) NSString *_lastPublicURLSectionFooterTitle;
+@property (copy, nonatomic, setter=_setLastMultiContributorsSectionFooterTitle:) NSString *_lastMultiContributorsSectionFooterTitle;
+@property (nonatomic) BOOL albumIsFamilyStream;
+@property (nonatomic, setter=_setShowingPublicURLActivitySpinner:) BOOL _showingPublicURLActivitySpinner;
+@property (weak, nonatomic) id<PXAlbumStreamingOptionsViewControllerDelegate> delegate;
+@property (nonatomic, getter=isPresentedModally) BOOL presentedModally;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)invitationRecordsDidChange:(id)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_updateNavigationItem;
+- (struct CGSize { double x0; double x1; })contentSizeForViewInPopover;
+- (id)tableView:(id)a0 titleForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void)viewDidUnload;
+- (BOOL)_publicURLEnabled;
+- (void)_displayConfirmationWithMessage:(id)a0 destructiveTitle:(id)a1 actionHandler:(id /* block */)a2;
+- (void)_changeWantsAcceptCloudNotification:(id)a0;
+- (void)_changeWantsMultipleContributors:(id)a0;
+- (void)_changeWantsPublicWebsite:(id)a0;
+- (void)_deletePhotoStream;
+- (void)_displayActivitySheet;
+- (void)_displayConfirmationForRemovalOfSelectedSubscriber;
+- (void)_displayDeleteConfirmation:(id)a0;
+- (void)_doneAction:(id)a0;
+- (void)_handleCompletionWithReason:(int)a0;
+- (BOOL)_multipleContributorsEnabled;
+- (id)_personViewControllerSubscriberInfo:(id)a0 canResendInvitation:(BOOL)a1 canRemoveSubscriber:(BOOL)a2;
+- (void)_removeSelectedSubscriber;
+- (void)_resendInvitationToSelectedSubscriber;
+- (void)_setShowingMultipleContributorSpinner:(BOOL)a0;
+- (BOOL)_shouldShowPublicURLActivitySpinner;
+- (id)_suppressionContexts;
+- (void)_updateAllControls;
+- (void)_updateMultipleContributorsState;
+- (void)_updatePublicURLStateIfNecessaryAnimated:(BOOL)a0;
+- (void)_updateWantsAcceptCloudNotificationField;
+- (void)_updateWantsMultipleContributorsField;
+- (void)_updateWantsPublicWebsiteField;
+- (id)initWithAlbum:(id)a0;
+- (id)initWithPHAlbum:(id)a0;
+
+@end

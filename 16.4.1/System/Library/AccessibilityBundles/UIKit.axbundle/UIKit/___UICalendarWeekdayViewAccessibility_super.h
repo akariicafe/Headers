@@ -1,0 +1,3 @@
+@interface ___UICalendarWeekdayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

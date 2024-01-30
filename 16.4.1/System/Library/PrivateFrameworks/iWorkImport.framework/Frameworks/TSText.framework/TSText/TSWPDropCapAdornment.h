@@ -1,0 +1,81 @@
+@class TSWPCharacterStyle, NSArray, TSDWrapSegments, TSUBezierPath, TSWPDropCapStyle, TSWPDropCap, TSWPDropCapCharacterMetrics, NSString, TSDFill, TSWPParagraphStyle;
+@protocol TSWPTextSource;
+
+@interface TSWPDropCapAdornment : NSObject <TSWPTextAdornment, TSWPTextAdornmentRenderer>
+
+@property (nonatomic) struct TSWPFontHeightInfo { double spaceBefore; double attachmentHeight; double ascent; double capHeight; double descent; double leadingAbove; double leadingBelow; double spaceAfter; double verticalHeight; double xHeight; double underlinePosition; double underlineThickness; } unscaledFontHeightInfo;
+@property (nonatomic) long long lineSpacingMode;
+@property (nonatomic) double lineSpacingAmount;
+@property (retain, nonatomic) TSWPDropCap *dropCap;
+@property (nonatomic) double singleLineHeight;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } dropCapFrame;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } textFrame;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } insetTextFrame;
+@property (retain, nonatomic) TSWPDropCapCharacterMetrics *characterMetrics;
+@property (retain, nonatomic) NSArray *glyphPaths;
+@property (retain, nonatomic) NSArray *glyphAuthorColors;
+@property (nonatomic) struct CGPoint { double x; double y; } glyphOffset;
+@property (retain, nonatomic) TSUBezierPath *shapePath;
+@property (nonatomic) double wrapPadding;
+@property (retain, nonatomic) TSDWrapSegments *wrapSegments;
+@property (retain, nonatomic) TSUBezierPath *pathForExteriorWrap;
+@property (retain, nonatomic) TSUBezierPath *underlineWrapPath;
+@property (nonatomic) BOOL hasChangeTracking;
+@property (retain, nonatomic) TSWPDropCapStyle *dropCapStyle;
+@property (retain, nonatomic) TSWPCharacterStyle *characterStyle;
+@property (retain, nonatomic) TSWPParagraphStyle *paragraphStyle;
+@property (retain, nonatomic) id<TSWPTextSource> text;
+@property (retain, nonatomic) NSString *coreTextString;
+@property (nonatomic) struct TSWPFontHeightInfo { double spaceBefore; double attachmentHeight; double ascent; double capHeight; double descent; double leadingAbove; double leadingBelow; double spaceAfter; double verticalHeight; double xHeight; double underlinePosition; double underlineThickness; } heightInfo;
+@property (nonatomic) double advance;
+@property (nonatomic) struct CGSize { double width; double height; } size;
+@property (copy, nonatomic) NSString *fontPostScriptName;
+@property (nonatomic) double unscaledFontSize;
+@property (nonatomic) double fontScaleFactor;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } outermostPathRawBounds;
+@property (readonly, nonatomic) BOOL isRightToLeft;
+@property (readonly, nonatomic) BOOL isVertical;
+@property (readonly, nonatomic) double outdentInPoints;
+@property (readonly, nonatomic) double baselineShift;
+@property (readonly, nonatomic) double dynamicPadding;
+@property (readonly, nonatomic) TSDFill *characterFill;
+@property (readonly, nonatomic) BOOL characterFillShouldFillTextContainer;
+@property (nonatomic) struct CGPoint { double x; double y; } origin;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } rectAllocatedForUnderline;
+@property (nonatomic) double underlineOffsetFromBaseline;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } characterFillRect;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } trailingCaretBounds;
+@property (readonly, nonatomic) BOOL suppressLineFragmentTextRendering;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } erasableBounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } glyphBounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } bounds;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsOfMinimumCircleEnclosingPath:(id)a0;
++ (unsigned long long)convertPointsToConvexHull:(struct CGPoint { double x0; double x1; } *)a0 count:(unsigned long long)a1;
+
+- (void).cxx_destruct;
+- (void)offsetBy:(struct CGSize { double x0; double x1; })a0;
+- (id)styleArray;
+- (id)adornmentRenderer;
+- (void)drawAdornment:(id)a0 inContext:(struct CGContext { } *)a1 viewScale:(double)a2 flipShadows:(BOOL)a3 blackAndWhite:(BOOL)a4;
+- (struct CGPoint { double x0; double x1; })glyphOriginIncludingOutdent;
+- (id)initWithDropCapStyle:(id)a0 characterStyle:(id)a1 paragraphStyle:(id)a2 text:(id)a3 rightToLeft:(BOOL)a4 vertical:(BOOL)a5 fontHeightInfo:(struct TSWPFontHeightInfo { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; })a6 lineSpacingMode:(long long)a7 lineSpacingAmount:(double)a8;
+- (struct CGPoint { double x0; double x1; })originIncludingOutdent;
+- (BOOL)p_calculateMetrics;
+- (id)p_createWrapSegments;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })p_imageBoundsIncludingShadow:(BOOL)a0;
+- (id)p_paddedPathForExteriorWrap;
+- (id)p_pathForExteriorWrap;
+- (id)p_styleArray;
+- (id)p_styleArrayWithFontSize:(double)a0;
+- (id)paddedPathForExteriorWrap;
+- (double)scaledFontSize;
+- (id)splitLine:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 skipHint:(out double *)a1;
+- (id)styleArrayWithFontSize:(double)a0;
+- (double)widthForCharacterAtIndex:(unsigned long long)a0;
+
+@end

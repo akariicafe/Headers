@@ -1,0 +1,29 @@
+@class NSString, DRSProtoTaskingConfigMetadata;
+
+@interface DRSProtoTaskingConfigCompletion : PBCodable <CKCodeOperationMessageMutation, NSCopying> {
+    struct { unsigned char activeDuration : 1; } _has;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL hasTaskingConfigMetadata;
+@property (retain, nonatomic) DRSProtoTaskingConfigMetadata *taskingConfigMetadata;
+@property (readonly, nonatomic) BOOL hasCompletionType;
+@property (retain, nonatomic) NSString *completionType;
+@property (readonly, nonatomic) BOOL hasCompletionDescription;
+@property (retain, nonatomic) NSString *completionDescription;
+@property (nonatomic) BOOL hasActiveDuration;
+@property (nonatomic) float activeDuration;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,6 @@
+@interface _UIEventDeferringBehavior_PineBoard : _UIEventDeferringBehavior_SystemShell
+
+- (BOOL)shouldEvaluateEventDeferringForAnyRemoteViewControllerWindowMovement;
+- (BOOL)shouldConsiderKeyWindowChangesForRemoteViewControllerAutomaticEventDeferring;
+
+@end

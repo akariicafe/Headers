@@ -1,0 +1,88 @@
+@class IKMediaContentElement, IKImageElement, TVMediaInfo, UIViewController, _TVStackWrappingView, TVObservableEventController, UIView, _TVStackCollectionView, NSString, _TVFocusCaptureView, IKViewElement, IKAudioElement, NSArray, UIImage;
+@protocol TVMediaPlaying;
+
+@interface _TVStackCommonTemplateController : _TVBgImageLoadingViewController <UIGestureRecognizerDelegate, TVAppTemplateImpressionable, TVObserving, _TVCollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, TVMediaProviding> {
+    UIView *_overlayView;
+    _TVFocusCaptureView *_disabledTemplateFocusCaptureView;
+    double _impressionThreshold;
+}
+
+@property (retain, nonatomic) IKViewElement *viewElement;
+@property (retain, nonatomic) IKAudioElement *audioElement;
+@property (retain, nonatomic) IKViewElement *collectionListElement;
+@property (retain, nonatomic) IKViewElement *backgroundElement;
+@property (retain, nonatomic) IKImageElement *heroImgElement;
+@property (retain, nonatomic) IKImageElement *bgImgElement;
+@property (retain, nonatomic) IKImageElement *uberImgElement;
+@property (retain, nonatomic) IKMediaContentElement *bgMediaContentElement;
+@property (retain, nonatomic) UIImage *bgImage;
+@property (weak, nonatomic) id<TVMediaPlaying> mediaPlayer;
+@property (retain, nonatomic) TVMediaInfo *selectedMediaInfo;
+@property (copy, nonatomic) NSArray *supplementaryViewControllers;
+@property (retain, nonatomic) UIViewController *focusedSupplementaryViewController;
+@property (readonly, retain, nonatomic) _TVStackWrappingView *stackWrappingView;
+@property (retain, nonatomic) _TVStackCollectionView *collectionView;
+@property (readonly, nonatomic) TVObservableEventController *observableEventController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewSafeAreaInsetsDidChange;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didEndDisplayingCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)scrollToTop;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (id)preferredFocusEnvironments;
+- (void)dealloc;
+- (void)didUpdateFocusInContext:(id)a0 withAnimationCoordinator:(id)a1;
+- (void)removeObserver:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (long long)_blurEffectStyle;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)loadView;
+- (id)_flowLayout;
+- (id)_overlayView;
+- (BOOL)automaticallyAdjustsScrollViewInsets;
+- (void)_updateViewLayout;
+- (void)collectionView:(id)a0 didReceiveLongPressForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didReceivePhysicalPlayForItemAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 shouldHandleLongPressForItemAtIndexPath:(id)a1;
+- (void)_mediaPlayerCoverImageDidChange;
+- (id)parsedMediaInfo;
+- (id)_backgroundImageProxy;
+- (struct CGSize { double x0; double x1; })_backgroundImageProxySize;
+- (BOOL)_backgroundImageRequiresBlur;
+- (void)_cancelImpressionsUpdate;
+- (void)_configureWithBgImage:(id)a0 backdropImage:(id)a1;
+- (void)_disableScrollingIfNecessary:(id)a0;
+- (void)_dispatchEvent:(id)a0 forItemAtIndexPath:(id)a1;
+- (BOOL)_isBackdropNeeded;
+- (void)_mediaPlayerStateDidChange;
+- (id)_modalPresenterPresentedViewController;
+- (id)_preferredFocusedSupplementaryView;
+- (void)_recordImpressionsForVisibleView;
+- (BOOL)_shouldLoadBackgroundImageAsynchronously;
+- (long long)_supplementaryViewSectionIndex;
+- (void)_updateBackgroundViews;
+- (void)_updateImpressions;
+- (BOOL)_updateSupplementaryViewControllersWithElements:(id)a0 updateStyles:(BOOL)a1;
+- (void)_updateViewOverlay;
+- (void)_updateViewSupplementaryViews;
+- (void)addObserver:(id)a0 forEvent:(id)a1;
+- (void)didUpdateSupplementarySectionInfo;
+- (void)handleEvent:(id)a0 sender:(id)a1 withUserInfo:(id)a2;
+- (id)impressionableElementsContainedInDocument:(id)a0;
+- (void)removeObserver:(id)a0 forEvent:(id)a1;
+- (void)updateBackgroundAndBackdrop;
+- (void)updateBackgroundAndBackdropMaskFactor;
+- (void)updateWithViewElement:(id)a0;
+- (id)viewControllerWithElement:(id)a0 layout:(id)a1 existingController:(id)a2;
+
+@end

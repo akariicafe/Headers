@@ -1,0 +1,3 @@
+@interface ___UIQueuingScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

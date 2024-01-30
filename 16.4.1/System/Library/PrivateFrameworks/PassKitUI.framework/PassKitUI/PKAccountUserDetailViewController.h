@@ -1,0 +1,82 @@
+@class PKAccountUser, PKPhysicalCardActionController, PKApplyController, PKPhysicalCardController, PKPeerPaymentAccount, PKAppleAccountInformation, PKFamilyMemberCollection, PKAccount, NSString, PKPaymentPass, CNContact, PKPeerPaymentAssociatedAccountsController, PKAccountUserDetailHeaderView, PKFeatureApplication, PKContactResolver, PKPaymentService, PKContactAvatarManager, PKAccountService;
+
+@interface PKAccountUserDetailViewController : PKSettingsTableViewController <PKAccountServiceObserver, PKPaymentServiceDelegate, PKPhysicalCardActionControllerDelegate> {
+    PKPaymentPass *_paymentPass;
+    long long _style;
+    PKAccount *_account;
+    PKAccountUser *_accountUser;
+    PKFeatureApplication *_accountUserInvitation;
+    PKFamilyMemberCollection *_familyMemberCollection;
+    PKContactAvatarManager *_avatarManager;
+    PKContactResolver *_contactResolver;
+    PKPeerPaymentAccount *_peerPaymentAccount;
+    PKAppleAccountInformation *_appleAccountInformation;
+    PKAccountService *_accountService;
+    PKPaymentService *_paymentService;
+    PKPhysicalCardController *_physicalCardController;
+    PKPhysicalCardActionController *_physicalCardActionController;
+    PKApplyController *_applyController;
+    CNContact *_contact;
+    BOOL _performingAction;
+    PKPeerPaymentAssociatedAccountsController *_associatedAccountsController;
+    PKAccountUserDetailHeaderView *_headerView;
+    double _previousHeaderHeight;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (void)featureApplicationChanged:(id)a0;
+- (void)accountChanged:(id)a0;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)featureApplicationRemoved:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (void).cxx_destruct;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void)accountUsersChanged:(id)a0 forAccountIdentifier:(id)a1;
+- (void)physicalCardsChanged:(id)a0 forAccountIdentifier:(id)a1;
+- (void)_appendActionsSectionToConfiguration:(id)a0;
+- (void)_appendNotificationsSectionToConfiguration:(id)a0;
+- (void)_appendPhysicalCardSectionToConfiguration:(id)a0;
+- (void)_appendRewardsBalanceToConfiguration:(id)a0;
+- (void)_appendShowAvailableCreditToConfiguration:(id)a0;
+- (void)_appendSpendNotificationsSectionToConfiguration:(id)a0;
+- (void)_appendTransactionLimitToConfiguration:(id)a0;
+- (id)_currentConfigurationForAccountUser;
+- (id)_currentConfigurationForAccountUserInvitation;
+- (id)_footerForTransactionLimitSection;
+- (id)_footerViewForPeerPaymentAccountSetup;
+- (BOOL)_hasPhysicalCardAction;
+- (void)_loadPeerPaymentAccount;
+- (void)_presentAccountUserInvitation;
+- (void)_presentCancelInvitationAlert;
+- (void)_presentDisplayableError:(id)a0;
+- (void)_presentPasswordAuthorizationWithReason:(id)a0 completion:(id /* block */)a1;
+- (void)_presentPeerPaymentFamilySharingSetupForFamilyMember:(id)a0;
+- (void)_presentStopSharingAlert;
+- (void)_setPerformingAction:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)_shouldShowRewardsBalance;
+- (void)_updateConfigurationAnimated:(BOOL)a0;
+- (void)_updateHeaderViewAnimated:(BOOL)a0;
+- (void)_updateMonthlySpendLimit:(id)a0;
+- (void)_updateMonthlySpendNotificationThreshold:(id)a0;
+- (void)_updateNotificationSettings:(id)a0;
+- (void)_updatePreferences:(id)a0;
+- (void)_updateShowAvailableCredit:(BOOL)a0;
+- (void)_updateSpendingEnabled:(BOOL)a0;
+- (void)_updateTransactionLimit:(id)a0;
+- (void)_updateTransactionNotificationThreshold:(id)a0;
+- (void)_updateTransactionNotificationsEnabled:(BOOL)a0;
+- (id)initWithPaymentPass:(id)a0 style:(long long)a1 account:(id)a2 accountUser:(id)a3 familyMemberCollection:(id)a4 avatarManager:(id)a5 contactResolver:(id)a6;
+- (id)initWithPaymentPass:(id)a0 style:(long long)a1 account:(id)a2 accountUserInvitation:(id)a3 familyMemberCollection:(id)a4 avatarManager:(id)a5 contactResolver:(id)a6;
+- (id)initWithPaymentPass:(id)a0 style:(long long)a1 account:(id)a2 familyMemberCollection:(id)a3 avatarManager:(id)a4 contactResolver:(id)a5;
+- (void)physicalCardActionController:(id)a0 didChangeToState:(long long)a1 withError:(id)a2;
+- (id)presentationSceneIdentifierForPhysicalCardActionController:(id)a0;
+
+@end

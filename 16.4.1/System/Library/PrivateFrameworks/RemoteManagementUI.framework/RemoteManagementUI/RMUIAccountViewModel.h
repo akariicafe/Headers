@@ -1,0 +1,3 @@
+@interface RMUIAccountViewModel : RMUIKeyValueViewModel
+
+@end

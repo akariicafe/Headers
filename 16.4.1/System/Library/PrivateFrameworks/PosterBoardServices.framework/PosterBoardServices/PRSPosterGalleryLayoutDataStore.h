@@ -1,0 +1,3 @@
+@interface PRSPosterGalleryLayoutDataStore : NSObject
+
+@end

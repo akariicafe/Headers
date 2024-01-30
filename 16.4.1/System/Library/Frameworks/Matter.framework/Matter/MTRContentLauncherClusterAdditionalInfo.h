@@ -1,0 +1,3 @@
+@interface MTRContentLauncherClusterAdditionalInfo : MTRContentLauncherClusterAdditionalInfoStruct
+
+@end

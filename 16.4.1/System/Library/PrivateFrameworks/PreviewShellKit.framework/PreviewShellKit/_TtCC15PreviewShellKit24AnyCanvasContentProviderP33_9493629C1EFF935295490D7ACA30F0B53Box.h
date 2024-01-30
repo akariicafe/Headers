@@ -1,0 +1,3 @@
+@interface _TtCC15PreviewShellKit24AnyCanvasContentProviderP33_9493629C1EFF935295490D7ACA30F0B53Box : _TtCs12_SwiftObject
+
+@end

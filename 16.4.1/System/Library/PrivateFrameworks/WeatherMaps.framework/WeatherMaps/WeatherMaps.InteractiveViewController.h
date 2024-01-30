@@ -1,0 +1,83 @@
+@class NSArray;
+
+@interface WeatherMaps.InteractiveViewController : UIViewController <MKMapViewDelegate, WeatherMaps.WeatherMKMapViewAccessibilityDelegate> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ controlsVisiblity;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_mapView;
+    void /* unknown type, empty encoding */ configuration;
+    void /* unknown type, empty encoding */ selectedLocationZoomLevel;
+    void /* unknown type, empty encoding */ isUserInteractionEnabled;
+    void /* unknown type, empty encoding */ annotationManager;
+    void /* unknown type, empty encoding */ cameraFocusFactory;
+    void /* unknown type, empty encoding */ geocodeManager;
+    void /* unknown type, empty encoding */ interaction;
+    void /* unknown type, empty encoding */ locationMetadataManager;
+    void /* unknown type, empty encoding */ mapLocationAccessibilityModelManager;
+    void /* unknown type, empty encoding */ overlayManager;
+    void /* unknown type, empty encoding */ overlayProgressReporter;
+    void /* unknown type, empty encoding */ visibleMapRect;
+    void /* unknown type, empty encoding */ backgroundEffectView;
+    void /* unknown type, empty encoding */ overlayProgressBar;
+    void /* unknown type, empty encoding */ activeOverlay;
+    void /* unknown type, empty encoding */ annotatedLocations;
+    void /* unknown type, empty encoding */ presentingOverlayKind;
+    void /* unknown type, empty encoding */ selectedLocation;
+    void /* unknown type, empty encoding */ doNotForwardSelectedAnnotationToDelegate;
+    void /* unknown type, empty encoding */ debugLabel;
+    void /* unknown type, empty encoding */ previousParent;
+    void /* unknown type, empty encoding */ lastHoverLocation;
+    void /* unknown type, empty encoding */ controlsView;
+    void /* unknown type, empty encoding */ controlsAdded;
+    void /* unknown type, empty encoding */ scrubberStore;
+    void /* unknown type, empty encoding */ scrubberObserver;
+    void /* unknown type, empty encoding */ scrubberOverlayViewController;
+    void /* unknown type, empty encoding */ progressBarHeight;
+    void /* unknown type, empty encoding */ verticalSpacingAttributionToScrubber;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_backgroundEffectManagerBlur;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_backgroundEffectManagerUltraThin;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_showDebugConsole;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_backgroundEffectManagerVibrancyFill;
+    void /* unknown type, empty encoding */ contentStatusBannerViewController;
+    void /* unknown type, empty encoding */ backdropLayerBlur;
+    void /* unknown type, empty encoding */ backdropLayerUltraThin;
+    void /* unknown type, empty encoding */ wasPlayingBeforeBackgrounded;
+    void /* unknown type, empty encoding */ wasPlayingBeforeSonification;
+    void /* unknown type, empty encoding */ refreshTimer;
+    void /* unknown type, empty encoding */ overlayAccessibilityDataManager;
+    void /* unknown type, empty encoding */ overlaySonifier;
+    void /* unknown type, empty encoding */ accessibilityFrameDateFormatter;
+    void /* unknown type, empty encoding */ animationDelegates;
+}
+
+@property (nonatomic, readonly) NSArray *keyCommands;
+
+- (void)mapView:(id)a0 didSelectAnnotationView:(id)a1;
+- (void)mapView:(id)a0 regionDidChangeAnimated:(BOOL)a1;
+- (id)mapView:(id)a0 rendererForOverlay:(id)a1;
+- (id)mapView:(id)a0 viewForAnnotation:(id)a1;
+- (void)mapViewDidChangeVisibleRegion:(id)a0;
+- (id)accessibilityModelOverlayKeyForMapView:(id)a0;
+- (void)mapView:(id)a0 requestedAccessibilityModelForLocation:(id)a1 completion:(id /* block */)a2;
+- (void)didMoveToParentViewController:(id)a0;
+- (void)handleVoiceOverStatusDidChangeWithNotification:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)zoomOut;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)zoomIn;
+- (BOOL)accessibilityPerformEscape;
+- (BOOL)accessibilityPerformMagicTap;
+- (void)didHoverMap:(id)a0;
+- (void)didMoveToBackground;
+- (void)didMoveToForeground;
+- (void)didTapMap:(id)a0;
+- (void)mapGestureDidChange;
+- (void)selectAirQualityOverlay;
+- (void)selectPrecipitationOverlay;
+- (void)selectTemperatureOverlay;
+
+@end

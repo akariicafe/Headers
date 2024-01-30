@@ -1,0 +1,3 @@
+@interface WUBundleLookupClass : NSObject
+
+@end

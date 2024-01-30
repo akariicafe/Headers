@@ -1,0 +1,97 @@
+@class _DKCoreDataStorage, _CDInteraction, _CDInteractionStoreNotifier, NSObject, _DKKnowledgeStore;
+@protocol OS_dispatch_queue;
+
+@interface _CDInteractionStore : NSObject <_CDInteractionRecording, _CDInteractionQuerying, _CDInteractionDeleting> {
+    NSObject<OS_dispatch_queue> *_workQueue;
+    _CDInteractionStoreNotifier *_notifier;
+    NSObject<OS_dispatch_queue> *_pendingShareInteractionQueue;
+    BOOL _inMaintenanceMode;
+    _DKKnowledgeStore *_knowledgeStore;
+}
+
+@property (retain, nonatomic) _CDInteraction *pendingShareSheetInteraction;
+@property (readonly, nonatomic) _DKCoreDataStorage *storage;
+@property (nonatomic) BOOL readConcurrently;
+
++ (id)storeWithDirectory:(id)a0 knowledgeStore:(id)a1 readOnly:(BOOL)a2;
++ (id)defaultDatabaseDirectory;
++ (id)storeWithDirectory:(id)a0 readOnly:(BOOL)a1;
+
+- (id)histogramContactInteractionsUsingPredicate:(id)a0 withLimit:(unsigned long long)a1;
+- (id)batchFetchExistingContactRecords:(id)a0 context:(id)a1 error:(id *)a2;
+- (unsigned long long)countContactsUsingPredicate:(id)a0 error:(id *)a1;
+- (void)anonymizeContactsWithSalt:(id)a0;
+- (id)queryContactsUsingPredicate:(id)a0 withLimit:(unsigned long long)a1 error:(id *)a2;
+- (void)anonymizeAttachmentsWithSalt:(id)a0;
+- (id)queryInteractionsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2;
+- (id)interactionCountPerMechanism;
+- (long long)queryVersionNumber;
+- (id)errorForException:(id)a0;
+- (id)queryInteractionsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 error:(id *)a3;
+- (id)batchFetchExistingAttachmentRecords:(id)a0 context:(id)a1 error:(id *)a2;
+- (void)recordInteractions:(id)a0 completionHandler:(id /* block */)a1;
+- (void)queryContactsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (BOOL)recordInteractions:(id)a0;
+- (BOOL)recordInteractionsBatch:(id)a0 error:(id *)a1;
+- (id)recipientArrayWithMostRecentSenderFirstFromIncomingInteraction:(id)a0 outgoingInteraction:(id)a1;
+- (void)deleteInteractionsMatchingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (id)getContactForRecord:(id)a0;
+- (unsigned long long)deleteUnreferencedContacts;
+- (id)createAttachmentFromRecord:(id)a0;
+- (unsigned long long)deleteInteractionsWithBundleId:(id)a0 domainIdentifiers:(id)a1 error:(id *)a2;
+- (unsigned long long)deleteUnreferencedKeywords;
+- (id)dateFromTimeIntervalSinceRef:(double)a0;
+- (BOOL)recordVersionNumber:(long long)a0;
+- (unsigned long long)deleteOldInteractionsIfNeededToLimitTotalNumber:(unsigned long long)a0 limit:(unsigned long long)a1;
+- (void)countContactsUsingPredicate:(id)a0 completionHandler:(id /* block */)a1;
+- (id)fetchOrCreateAttachmentRecord:(id)a0 context:(id)a1 cache:(id)a2 error:(id *)a3;
+- (unsigned long long)numberOfContactsMatchingPredicate:(id)a0;
+- (id)fetchOrCreateKeywordRecord:(id)a0 context:(id)a1 error:(id *)a2;
+- (id)usersWithInteractions;
+- (id)queryContactInteractionsUsingPredicate:(id)a0 withLimit:(unsigned long long)a1;
+- (id)createInteractionRecord:(id)a0 context:(id)a1 keywordCache:(id)a2 attachmentCache:(id)a3 contactCache:(id)a4 error:(id *)a5;
+- (void)fillWithoutRelationshipsInteractionRecord:(id)a0 fromInteraction:(id)a1;
+- (BOOL)deleteStorage;
+- (void)countInteractionsUsingPredicate:(id)a0 completionHandler:(id /* block */)a1;
+- (void)updateCachedStatsForContactRecord:(id)a0 isSender:(BOOL)a1 withInteraction:(id)a2;
+- (id)initWithDatabasePath:(id)a0 inDirectory:(id)a1;
+- (unsigned long long)deleteInteractionsWithBundleId:(id)a0 account:(id)a1 error:(id *)a2;
+- (void)anonymizeKeywordsWithSalt:(id)a0;
+- (id)fetchOrCreateKeywordRecord:(id)a0 context:(id)a1 cache:(id)a2 error:(id *)a3;
+- (void)deleteInteractionsWithBundleId:(id)a0 completionHandler:(id /* block */)a1;
+- (unsigned long long)deleteInteractionsWithBundleId:(id)a0 domainIdentifier:(id)a1 error:(id *)a2;
+- (id)createInteractionFromRecord:(id)a0;
+- (unsigned long long)numberOfInteractionsMatchingPredicate:(id)a0;
+- (id)queryInteractionsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 offset:(unsigned long long)a3 error:(id *)a4;
+- (unsigned long long)countInteractionsUsingPredicate:(id)a0 error:(id *)a1;
+- (BOOL)openAndCheckIfReadable;
+- (void)deleteInteractionsWithBundleId:(id)a0 account:(id)a1 completionHandler:(id /* block */)a2;
+- (void)closeStorage;
+- (id)initWithDirectory:(id)a0 knowledgeStore:(id)a1 readOnly:(BOOL)a2;
+- (BOOL)recordInteractions:(id)a0 error:(id *)a1;
+- (unsigned long long)deleteInteractionsMatchingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 error:(id *)a3;
+- (id)queryInteractionsUsingPredicate:(id)a0 withLimit:(unsigned long long)a1;
+- (id)init;
+- (id)batchFetchExistingKeywordRecords:(id)a0 context:(id)a1 error:(id *)a2;
+- (id)kMostRecentConversationsWithLimit:(unsigned long long)a0;
+- (id)fetchOrCreateContactRecord:(id)a0 context:(id)a1 error:(id *)a2;
+- (void)exitMaintenanceMode;
+- (unsigned long long)deleteInteractionsWithBundleId:(id)a0 error:(id *)a1;
+- (id)batchFetchExistingInteractionsWithUUIDs:(id)a0 context:(id)a1 error:(id *)a2;
+- (id)conversationsWithInteractions;
+- (unsigned long long)deleteInteractionsOlderThanDate:(id)a0 limit:(unsigned long long)a1;
+- (void)anonymizeInteractionsWithSalt:(id)a0;
+- (void)deleteInteractionsWithBundleId:(id)a0 domainIdentifiers:(id)a1 completionHandler:(id /* block */)a2;
+- (id)anonymizedCopyToDirectory:(id)a0 salt:(id)a1;
+- (id)fetchOrCreateContactRecord:(id)a0 context:(id)a1 cache:(id)a2 error:(id *)a3;
+- (void)enterMaintenanceMode;
+- (void)deleteInteractionsWithBundleId:(id)a0 domainIdentifier:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)recordInteraction:(id)a0;
+- (id)queryContactsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 error:(id *)a3;
+- (void).cxx_destruct;
+- (void)queryInteractionsUsingPredicate:(id)a0 sortDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (id)queryInteractionsUsingPredicate:(id)a0 matchingNameTokens:(id)a1 sortDescriptors:(id)a2 limit:(unsigned long long)a3 error:(id *)a4;
+- (id)createKeywordFromRecord:(id)a0;
+- (void)anonymizeWithSalt:(id)a0;
+
+@end

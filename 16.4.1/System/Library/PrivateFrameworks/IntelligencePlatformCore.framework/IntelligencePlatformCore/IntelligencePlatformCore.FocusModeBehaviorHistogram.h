@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.FocusModeBehaviorHistogram : IntelligencePlatformCore.CategoricalBehaviorHistogramBase
+
+@end

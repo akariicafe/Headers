@@ -1,0 +1,28 @@
+@class NSString, PKSpendingSummaryView, UIImage;
+
+@interface PKSpendingSummaryPresenter : NSObject <PKDashboardItemPresenter> {
+    PKSpendingSummaryView *_sampleView;
+    UIImage *_upImage;
+    UIImage *_downImage;
+    BOOL _needsSizing;
+    struct CGSize { double width; double height; } _summarySize;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (Class)itemClass;
+- (void)_configureView:(id)a0 item:(id)a1 presentationStyle:(unsigned long long)a2;
+- (id)cellForItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2;
+- (id)collectionViewCellClasses;
+- (void)didSelectItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2 navigationController:(id)a3 canPresent:(id /* block */)a4;
+- (struct CGSize { double x0; double x1; })sizeForItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2;
+- (void)swapSummaryInCell:(id)a0 forItem:(id)a1 inCollectionView:(id)a2 atIndexPath:(id)a3;
+- (void)traitCollectionDidChangeFromTrait:(id)a0 toTrait:(id)a1 inCollectionView:(id)a2;
+- (void)updateCell:(id)a0 forItem:(id)a1 inCollectionView:(id)a2 atIndexPath:(id)a3;
+
+@end

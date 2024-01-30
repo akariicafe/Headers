@@ -1,0 +1,28 @@
+@class NSMutableArray;
+
+@interface RMSAvailableServicesDidUpdateMessage : PBCodable <NSCopying> {
+    struct { unsigned char sessionIdentifier : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasSessionIdentifier;
+@property (nonatomic) int sessionIdentifier;
+@property (retain, nonatomic) NSMutableArray *services;
+
++ (Class)servicesType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (unsigned long long)servicesCount;
+- (void)addServices:(id)a0;
+- (void)clearServices;
+- (id)servicesAtIndex:(unsigned long long)a0;
+
+@end

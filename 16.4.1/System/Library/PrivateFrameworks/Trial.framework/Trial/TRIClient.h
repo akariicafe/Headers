@@ -1,0 +1,91 @@
+@class TRILogger, NSString, _PASLock, TRITrackingId, TRIFactorsState, NSObject, TRIDefaultFactorProvider;
+@protocol OS_dispatch_queue, TRIPaths;
+
+@interface TRIClient : NSObject <TRIFactorProviding> {
+    id<TRIPaths> _paths;
+    TRIDefaultFactorProvider *_defaultFactorProvider;
+    int _projectId;
+    double _staleFactorsUsageGracePeriod;
+    _PASLock *_lock;
+    NSObject<OS_dispatch_queue> *_notificationQueue;
+    TRIFactorsState *_factorsState;
+}
+
+@property (readonly, nonatomic) TRITrackingId *trackingId;
+@property (readonly, nonatomic) TRILogger *logger;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isPlatformBinary;
++ (id)clientWithIdentifier:(int)a0 unit:(int)a1;
++ (id)activeRolloutInformation:(id *)a0;
++ (id)printedExperimentInformation:(id *)a0;
++ (id)printedNCVInformation;
++ (id)printedRolloutInformation:(id *)a0;
++ (id)clientWithIdentifier:(int)a0;
++ (id)activeExperimentInformation:(id *)a0;
++ (BOOL)requiresTrialDataVaultAccess;
++ (id)clientWithProjectId:(int)a0 factorsState:(id)a1;
++ (BOOL)requiresLogging;
++ (id)sysdiagnoseInfoWithError:(id *)a0;
+
+- (void)refresh;
+- (id)rolloutIdWithNamespaceName:(id)a0;
+- (id)treatmentIdWithNamespaceName:(id)a0;
+- (void)_registerUpdateHandlerForNamespaceName:(id)a0 notificationCallback:(id)a1 clientMethodNameForLogging:(const char *)a2 callingFunctionReturnAddressForLogging:(void *)a3;
+- (id)factorLevelsWithNamespaceName:(id)a0;
+- (void)removeLevelsForFactorsImmediately:(id)a0 withNamespace:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (BOOL)setFactorsProvisionalForNamespace:(id)a0 error:(id *)a1;
+- (id)newTrackingIdWithTreatmentRefresh:(BOOL)a0;
+- (BOOL)_hasAppropriatePermissionsForNamespaceName:(id)a0;
+- (id)treatmentIdWithNamespace:(unsigned int)a0;
+- (void)removeLevelsForFactors:(id)a0 withNamespace:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (void)setLogger:(id)a0;
+- (id)addUpdateHandlerForNamespaceId:(unsigned int)a0 queue:(id)a1 usingBlock:(id /* block */)a2;
+- (id)experimentIdWithNamespaceName:(id)a0;
+- (BOOL)deregisterNamespaceName:(id)a0 error:(id *)a1;
+- (id)levelForFactor:(id)a0 withNamespace:(unsigned int)a1;
+- (BOOL)immediateDownloadForNamespaceNames:(id)a0 allowExpensiveNetworking:(BOOL)a1 error:(id *)a2;
+- (id)rolloutIdentifiersWithNamespaceName:(id)a0;
+- (void)_setupExcessiveStaleFactorsUsageTimerWithGuardedData:(id)a0 namespace:(id)a1 clientMethodNameForLogging:(const char *)a2 callingFunctionReturnAddressForLogging:(void *)a3;
+- (void)dispose;
+- (id)purgeabilityLevelsForFactorsWithNamespaceName:(id)a0;
+- (void)dealloc;
+- (BOOL)registerNamespaceName:(id)a0 compatibilityVersion:(unsigned int)a1 defaultsFileURL:(id)a2 applicationGroup:(id)a3 cloudKitContainerId:(int)a4 error:(id *)a5;
+- (id)newTrackingId;
+- (id)sizesForFactors:(id)a0 withNamespaceName:(id)a1 forMetric:(unsigned long long)a2 error:(id *)a3;
+- (id)factorLevelsWithNamespace:(unsigned int)a0;
+- (id)levelForFactor:(id)a0 withNamespaceName:(id)a1;
+- (void)removeUpdateHandlerForToken:(id)a0;
+- (id)addUpdateHandlerForNamespaceId:(unsigned int)a0 usingBlock:(id /* block */)a1;
+- (id)initWithClientIdentifier:(int)a0 paths:(id)a1 unit:(int)a2 factorsState:(id)a3 staleFactorsUsageGracePeriod:(double)a4 logger:(id)a5;
+- (long long)_appContainerType:(id)a0;
+- (id)initWithClientIdentifier:(int)a0 paths:(id)a1 unit:(int)a2 staleFactorsUsageGracePeriod:(double)a3 logger:(id)a4;
+- (unsigned int)compatibilityVersionWithNamespaceName:(id)a0;
+- (id)addUpdateHandlerForNamespaceName:(id)a0 usingBlock:(id /* block */)a1;
+- (void)_invalidateFactors;
+- (BOOL)trialIdentifiersWithNamespaceName:(id)a0 experimentId:(id *)a1 deploymentId:(int *)a2 treatmentId:(id *)a3;
+- (void)_lazyInit;
+- (id)_rampIdForRolloutDeployment:(id)a0;
+- (id)_refresh:(BOOL)a0;
+- (id)experimentIdentifiersWithNamespaceName:(id)a0;
+- (void)downloadNamespaceWithName:(id)a0 options:(id)a1 progress:(id /* block */)a2 completion:(id /* block */)a3;
+- (void)downloadLevelsForFactors:(id)a0 withNamespace:(id)a1 queue:(id)a2 options:(id)a3 progress:(id /* block */)a4 completion:(id /* block */)a5;
+- (BOOL)hasRegisteredNamespaceWithName:(id)a0;
+- (id)addUpdateHandlerForNamespaceName:(id)a0 queue:(id)a1 usingBlock:(id /* block */)a2;
+- (id)experimentIdWithNamespace:(unsigned int)a0;
+- (void)downloadNamespaceWithName:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (id)initWithNonLoggingClientIdentifier:(int)a0 paths:(id)a1;
+- (id)backgroundMLTaskIdentifiersWithNamespaceName:(id)a0;
+- (BOOL)hasDownloadedNamespaceWithName:(id)a0;
+- (BOOL)evaluateBMLTTargetingExpression:(id)a0 withParameters:(id)a1 error:(id *)a2;
+- (BOOL)promoteFactorsForNamespace:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (void)removeDownloadStatusHandlersWithToken:(id)a0;
+- (unsigned long long)statusOfDownloadForFactors:(id)a0 withNamespace:(id)a1 token:(id *)a2 queue:(id)a3 progress:(id /* block */)a4 completion:(id /* block */)a5;
+- (BOOL)setPurgeabilityLevelsForFactors:(id)a0 withNamespaceName:(id)a1;
+- (void)_checkEntitlements;
+
+@end

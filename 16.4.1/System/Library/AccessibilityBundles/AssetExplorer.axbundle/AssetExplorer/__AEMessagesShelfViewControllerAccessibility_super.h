@@ -1,0 +1,3 @@
+@interface __AEMessagesShelfViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

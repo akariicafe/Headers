@@ -1,0 +1,3 @@
+@interface __PLExpandableImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,24 @@
+@class WBSCloudHistory, WBSHistoryService, NSObject, WBSCloudHistoryConfiguration;
+@protocol OS_dispatch_queue;
+
+@interface WBSHistoryConnection : NSObject <WBSHistoryConnectionProtocol> {
+    WBSHistoryService *_historyService;
+    NSObject<OS_dispatch_queue> *_internalQueue;
+    WBSCloudHistory *_cloudHistory;
+    WBSCloudHistoryConfiguration *_cloudHistoryConfiguration;
+}
+
+- (void)finishClearingHistoryIfNecessaryWithCompletionHandler:(id /* block */)a0;
+- (void)getServiceInfo:(id /* block */)a0;
+- (void)debugGetDatabaseURLWithCompletionHandler:(id /* block */)a0;
+- (void)connectWithOptions:(id)a0 delegate:(id)a1 completionHandler:(id /* block */)a2;
+- (void)queryMemoryFootprint:(id /* block */)a0;
+- (void)initializeCloudHistoryWithConfiguration:(id)a0 completionHandler:(id /* block */)a1;
+- (void)ensureConnected:(id /* block */)a0;
+- (void)beginURLCompletionSession:(id /* block */)a0;
+- (void)releaseCloudHistory:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)beginHistoryAccessSession:(id /* block */)a0;
+- (id)initWithHistoryService:(id)a0;
+
+@end

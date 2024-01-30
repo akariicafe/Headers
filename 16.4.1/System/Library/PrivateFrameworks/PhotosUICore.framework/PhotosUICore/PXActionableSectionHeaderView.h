@@ -1,0 +1,82 @@
+@class PXCuratedLibrarySectionHeaderLayoutSpec, NSString, UIImage, UITraitCollection, UIImageView, UIControl, PXCuratedLibraryOverlayButton, UIButton, UIVisualEffectView, UILabel;
+@protocol PXActionableSectionHeaderViewDelegate, NSCopying;
+
+@interface PXActionableSectionHeaderView : UICollectionReusableView <PXGReusableView> {
+    struct { unsigned char headerViewDidPressActionButton : 1; } _delegateFlags;
+    BOOL _hasBackgroundView;
+    BOOL _isModifyingGroupedBackgroundProperties;
+    BOOL _wantsGroupedBackgroundPropertiesUpdate;
+}
+
+@property (copy, nonatomic) id<NSCopying> userData;
+@property (nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } clippingRect;
+@property (readonly, nonatomic) BOOL shouldReuseWhenInvisible;
+@property (retain, nonatomic) UILabel *primaryLabel;
+@property (retain, nonatomic) UILabel *spacerLabel;
+@property (retain, nonatomic) UILabel *secondaryLabel;
+@property (retain, nonatomic) UIButton *systemActionButton;
+@property (retain, nonatomic) PXCuratedLibraryOverlayButton *backdropActionButton;
+@property (readonly, nonatomic) UIControl *currentActionButton;
+@property (readonly, nonatomic) UIVisualEffectView *visualEffectView;
+@property (readonly, nonatomic) UIImageView *backgroundImageView;
+@property (nonatomic) BOOL inLayoutTransition;
+@property (retain, nonatomic) UITraitCollection *selfSizingTraits;
+@property (readonly, nonatomic) long long layoutMode;
+@property (weak, nonatomic) id<PXActionableSectionHeaderViewDelegate> delegate;
+@property (nonatomic) struct PXSimpleIndexPath { long long dataSourceIdentifier; long long section; long long item; long long subitem; } sectionIndexPath;
+@property (copy, nonatomic) NSString *primaryText;
+@property (copy, nonatomic) NSString *secondaryText;
+@property (nonatomic) unsigned long long buttonStyle;
+@property (nonatomic) BOOL showsActionButton;
+@property (nonatomic) BOOL actionButtonEnabled;
+@property (copy, nonatomic) NSString *actionText;
+@property (retain, nonatomic) PXCuratedLibrarySectionHeaderLayoutSpec *backdropButtonSpec;
+@property (nonatomic) unsigned long long backgroundStyle;
+@property (nonatomic) BOOL wantsBackground;
+@property (nonatomic) long long speedRegime;
+@property (nonatomic) BOOL avoidsTintedButtonsAtHighSpeed;
+@property (retain, nonatomic) UIImage *backgroundImage;
+@property (nonatomic) double backgroundImageAlpha;
+@property (nonatomic) double backgroundImageOverhang;
+@property (copy, nonatomic) NSString *backdropViewGroupName;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } contentInsets;
+@property (nonatomic) BOOL supportsMultipleLinesInCompactLayout;
+@property (readonly, nonatomic) double baselineToBottomSpacing;
+
+- (void)applyLayoutAttributes:(id)a0;
+- (id)traitCollection;
+- (void)becomeReusable;
+- (void)_contentSizeCategoryDidChangeNotification:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)dealloc;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (BOOL)_disableRasterizeInAnimations;
+- (void).cxx_destruct;
+- (void)_actionButtonPressed:(id)a0;
+- (void)_updateLabelColors;
+- (void)didTransitionFromLayout:(id)a0 toLayout:(id)a1;
+- (void)willTransitionFromLayout:(id)a0 toLayout:(id)a1;
+- (void)_updateLabelFonts;
+- (void)_updateActionButton;
+- (void)_updateClipping;
+- (BOOL)_isMovingFast;
+- (void)_updateActionButtonConfiguration;
+- (void)_updateActionButtonEnabledAnimated:(BOOL)a0;
+- (void)_updateBackdropActionButton;
+- (void)_updateBackdropViewGroupName;
+- (void)_updateBackgroundAnimated:(BOOL)a0;
+- (void)_updateLabelLineNumbers;
+- (void)_updateSpacerLabelHiddenState;
+- (void)_updateSystemActionButton;
+- (void)_updateWithCurrentTraits;
+- (BOOL)_wantsActionButton;
+- (double)heightForSizeClass:(long long)a0 width:(double)a1 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a2;
+- (long long)layoutModeForHorizontalSizeClass:(long long)a0;
+- (void)performChangesToGroupedBackgroundPropertiesAnimated:(BOOL)a0 withBlock:(id /* block */)a1;
+- (void)setActionButtonEnabled:(BOOL)a0 animated:(BOOL)a1;
+- (void)setWantsBackground:(BOOL)a0 animated:(BOOL)a1;
+
+@end

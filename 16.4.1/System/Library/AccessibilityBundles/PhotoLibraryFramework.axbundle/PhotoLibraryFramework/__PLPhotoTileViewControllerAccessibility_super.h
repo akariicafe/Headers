@@ -1,0 +1,3 @@
+@interface __PLPhotoTileViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

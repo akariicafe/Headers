@@ -1,0 +1,5 @@
+@interface ReminderKitInternal.MersenneTwister : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ generator;
+}
+
+@end

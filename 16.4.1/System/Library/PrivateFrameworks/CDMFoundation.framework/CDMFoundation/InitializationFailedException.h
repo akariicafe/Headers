@@ -1,0 +1,3 @@
+@interface InitializationFailedException : NSException
+
+@end

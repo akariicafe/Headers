@@ -1,0 +1,3 @@
+@interface SPCoreSpotlightLiveQueryTask : SPCoreSpotlightTask
+
+@end

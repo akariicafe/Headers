@@ -1,0 +1,3 @@
+@interface __PXUIWidgetHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

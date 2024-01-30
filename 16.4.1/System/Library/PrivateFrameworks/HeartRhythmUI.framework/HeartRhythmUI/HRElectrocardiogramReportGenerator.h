@@ -1,0 +1,70 @@
+@class NSArray;
+@protocol HRElectrocardiogramReportDataSource;
+
+@interface HRElectrocardiogramReportGenerator : NSObject
+
+@property (nonatomic) struct CGContext { } *pdfContext;
+@property (retain, nonatomic) NSArray *waveformPaths;
+@property (nonatomic) unsigned long long heartGlyphPositionInFirstSectionText;
+@property (nonatomic) double descriptionTextSizeAdjustment;
+@property (readonly, weak, nonatomic) id<HRElectrocardiogramReportDataSource> dataSource;
+
+- (id)initWithDataSource:(id)a0;
+- (void).cxx_destruct;
+- (id)_footerAttributedText;
+- (id)_iOSVersionText;
+- (id)_sampleDateText;
+- (id)_appleWatchModelText;
+- (id)_averageHeartRateSectionTitleAttributedTextWithText:(id)a0;
+- (id)_averageHeartRateTitleText;
+- (id)_birthdateAttributedText;
+- (struct CGPoint { double x0; double x1; })_birthdateLeadingOrigin;
+- (id)_birthdateText;
+- (id)_blackColorWithFraction:(double)a0;
+- (id)_bulletedDescriptionAttributedTextWithBullets:(id)a0;
+- (id)_bulletedDescriptionTextAttributes;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowOneAxisBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowOneGridBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowThreeAxisBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowThreeGridBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowTwoAxisBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chartRowTwoGridBox;
+- (id)_descriptionAttributedTextWithText:(id)a0;
+- (BOOL)_didMultilineBulletFlowIntoSectionThree:(id)a0 remainingRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)_drawAttributedText:(id)a0 atOrigin:(struct CGPoint { double x0; double x1; })a1 leftAligned:(BOOL)a2;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_drawAttributedText:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 distanceToFirstBaseline:(double)a2 drawHeartGlyph:(BOOL)a3 mustFitInRect:(BOOL)a4;
+- (void)_drawElectrocardiogramChartWithWaveformPathIndex:(long long)a0 gridRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 axisStartingIndex:(long long)a3 displayControlSignal:(BOOL)a4;
+- (void)_drawHorizontalSeparatorAt:(double)a0;
+- (void)_drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_drawUIKitContentAtDocumentOrigin:(struct CGPoint { double x0; double x1; })a0 drawingBlock:(id /* block */)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_footerBox;
+- (id)_horizontalChartResolutionText;
+- (double)_horizontalSeparatorY;
+- (id)_informationalText;
+- (id)_leadNameText;
+- (id)_nameAttributedText;
+- (struct CGPoint { double x0; double x1; })_nameLeadingOrigin;
+- (id)_nameText;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_pdfCropBox;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_pdfMediaBox;
+- (id)_rhythmClassificationDescriptionText;
+- (id)_rhythmClassificationTitleText;
+- (id)_sampleAlgorithmVersionText;
+- (id)_sampleDateAttributedText;
+- (struct CGPoint { double x0; double x1; })_sampleDateTrailingOrigin;
+- (id)_samplingRateText;
+- (id)_sectionOneAttributedText;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_sectionOneBox;
+- (id)_sectionThreeAttributedTextWithRemainingSectionTwoAttributedText:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_sectionThreeBox;
+- (id)_sectionTitleAttributedTextWithText:(id)a0;
+- (id)_sectionTwoAttributedText;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_sectionTwoBox;
+- (id)_symptomsContinuedTitleText;
+- (id)_symptomsDescriptionText;
+- (id)_symtpomsTitleText;
+- (id)_verticalChartResolutionText;
+- (id)_watchOSVersionText;
+- (id)generatePDF;
+
+@end

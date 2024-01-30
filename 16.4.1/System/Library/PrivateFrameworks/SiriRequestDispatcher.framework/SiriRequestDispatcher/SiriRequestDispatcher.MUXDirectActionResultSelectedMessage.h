@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.MUXDirectActionResultSelectedMessage : SiriRequestDispatcher.ResultSelectedMessageBase
+
+@end

@@ -1,0 +1,5 @@
+@interface CLClientTypesPrivate : NSObject
+
++ (struct { double x0; double x1; double x2; double x3; double x4; float x5; float x6; float x7; BOOL x8; int x9; struct { double x0; double x1; } x10; double x11; int x12; int x13; BOOL x14; struct { double x0; double x1; BOOL x2; BOOL x3; int x4; double x5; long long x6; double x7; double x8; double x9; } x15; struct { struct { int x0; double x1; double x2; double x3; double x4; double x5; struct { double x0; double x1; } x6; double x7; double x8; } x0; int x1; unsigned long long x2; int x3; int x4; int x5; int x6; double x7; BOOL x8; } x16; struct { double x0; double x1; } x17; int x18; float x19; struct { double x0; double x1; } x20; double x21; double x22; int x23; BOOL x24; double x25; double x26; double x27; double x28; double x29; double x30; double x31; double x32; BOOL x33; BOOL x34; struct { double x0; double x1; } x35; double x36; int x37; double x38; double x39; double x40; double x41; int x42; double x43; double x44; int x45; })defaultCLClientLocationPrivate;
+
+@end

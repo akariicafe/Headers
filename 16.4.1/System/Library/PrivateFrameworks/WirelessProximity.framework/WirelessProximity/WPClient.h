@@ -1,0 +1,94 @@
+@class NSXPCListener, NSString, NSXPCConnection, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface WPClient : NSObject <NSXPCListenerDelegate, WPXPCClientProtocol, WPXPCDaemonProtocol>
+
+@property (class, readonly, nonatomic) BOOL isHomePod;
+@property (class, readonly, nonatomic) BOOL isAppleTV;
+@property (class, readonly, nonatomic) BOOL isHomePodOrIOS;
+@property (class, readonly, nonatomic) BOOL supportsRanging;
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *daemonDeliveryQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_semaphore> *daemonRegisteredSemaphore;
+@property (retain, nonatomic) NSString *machName;
+@property long long state;
+@property long long advertiserState;
+@property long long scannerState;
+@property (retain, nonatomic) NSXPCConnection *xpcConnection;
+@property unsigned char type;
+@property BOOL peerTrackingSlotsAvailable;
+@property BOOL needsToRegister;
+@property BOOL registering;
+@property BOOL servicesAdded;
+@property (retain) NSXPCListener *xpcListener;
+@property BOOL isTestClient;
+@property BOOL isBubbleTestClient;
+@property long long connectionUseCase;
+@property long long maxAllowedConnectionDelayMs;
+@property (readonly) long long pipeState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)stateAsString:(long long)a0;
++ (long long)holdVouchers;
+
+- (void)isRangingEnabledReply:(id /* block */)a0;
+- (void)peerTrackingFull;
+- (void)startAdvertising:(id)a0;
+- (id)connection;
+- (void)enableRanging:(BOOL)a0 reply:(id /* block */)a1;
+- (void)peerTrackingAvailable;
+- (id)clientAsString;
+- (void)stateDidChange:(long long)a0;
+- (void)populateClientGATT:(id /* block */)a0;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)updateAdvertisingRequest:(id)a0 withUpdate:(id /* block */)a1;
+- (void)unregisterEndpoint:(id)a0;
+- (void)stopTrackingAllZones;
+- (void)enableTestMode;
+- (void)sendDatatoLePipe:(id)a0 forPeer:(id)a1;
+- (void)disableScanning;
+- (void)sendDataToCharacteristic:(id)a0 inService:(id)a1 forPeer:(id)a2;
+- (void)overrideScanTimeout:(double)a0;
+- (void)registerEndpoint:(id)a0 requireAck:(BOOL)a1 requireEncryption:(BOOL)a2;
+- (void)updateScanningRequest:(id)a0 withUpdate:(id /* block */)a1;
+- (void)stopTrackingPeerWithRequest:(id)a0;
+- (void)discoverCharacteristicsAndServices:(id)a0 forPeripheral:(id)a1;
+- (void)disconnectFromPeer:(id)a0;
+- (void)startTrackingZone:(id)a0;
+- (void)startScanning:(id)a0;
+- (void)dumpDaemonState;
+- (void)overrideAdvTimeout:(double)a0;
+- (void)getPowerLogStats:(id /* block */)a0;
+- (void)stopTrackingZones:(id)a0;
+- (void)dealloc;
+- (void)registerForAnyScanResults:(BOOL)a0;
+- (void)listenToBandwidthNotifications;
+- (void)shouldSubscribe:(BOOL)a0 toPeer:(id)a1 withCharacteristic:(id)a2 inService:(id)a3;
+- (void)stopScanning:(id)a0;
+- (void)sendTestRequest:(id)a0;
+- (void)connectToPeer:(id)a0;
+- (void)invalidate;
+- (void)checkAllowDuplicates:(id /* block */)a0;
+- (void)stopAdvertising:(id)a0;
+- (void)startTrackingPeerWithRequest:(id)a0;
+- (void)receivedTestResponse:(id)a0;
+- (void)connectToPeer:(id)a0 withOptions:(id)a1;
+- (void).cxx_destruct;
+- (void)getAllTrackedZones;
+- (void)establishConnection;
+- (void)destroyConnection;
+- (id)initWithQueue:(id)a0 machName:(id)a1;
+- (void)addServices;
+- (void)allowlistConnectionMethods:(id)a0;
+- (void)enableBubbleTestMode;
+- (void)notifyNotApprovedUseCase:(id)a0;
+- (void)registeredWithDaemonAndContinuingSession:(BOOL)a0;
+- (void)setupMachXPCService;
+- (void)startScanning:(id)a0 andAdvertising:(id)a1;
+
+@end

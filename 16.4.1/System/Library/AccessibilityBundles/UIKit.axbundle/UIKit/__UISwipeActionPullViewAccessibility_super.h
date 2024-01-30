@@ -1,0 +1,3 @@
+@interface __UISwipeActionPullViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

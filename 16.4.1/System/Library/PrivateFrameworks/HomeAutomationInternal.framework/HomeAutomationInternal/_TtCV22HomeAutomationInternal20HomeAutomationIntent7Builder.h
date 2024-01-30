@@ -1,0 +1,56 @@
+@interface _TtCV22HomeAutomationInternal20HomeAutomationIntent7Builder : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ alternatives;
+    void /* unknown type, empty encoding */ capabilityAttribute;
+    void /* unknown type, empty encoding */ confirmation;
+    void /* unknown type, empty encoding */ dateTime;
+    void /* unknown type, empty encoding */ dateAttribute;
+    void /* unknown type, empty encoding */ delta;
+    void /* unknown type, empty encoding */ deltaQuantifier;
+    void /* unknown type, empty encoding */ deltaRole;
+    void /* unknown type, empty encoding */ deviceQuantifiers;
+    void /* unknown type, empty encoding */ event;
+    void /* unknown type, empty encoding */ homes;
+    void /* unknown type, empty encoding */ hues;
+    void /* unknown type, empty encoding */ limit;
+    void /* unknown type, empty encoding */ misc;
+    void /* unknown type, empty encoding */ noun;
+    void /* unknown type, empty encoding */ placeHints;
+    void /* unknown type, empty encoding */ tagSets;
+    void /* unknown type, empty encoding */ rooms;
+    void /* unknown type, empty encoding */ scenes;
+    void /* unknown type, empty encoding */ services;
+    void /* unknown type, empty encoding */ accessoryTypes;
+    void /* unknown type, empty encoding */ serviceNames;
+    void /* unknown type, empty encoding */ serviceGroups;
+    void /* unknown type, empty encoding */ accessoryNames;
+    void /* unknown type, empty encoding */ fromEntities;
+    void /* unknown type, empty encoding */ toEntities;
+    void /* unknown type, empty encoding */ states;
+    void /* unknown type, empty encoding */ units;
+    void /* unknown type, empty encoding */ verb;
+    void /* unknown type, empty encoding */ questionType;
+    void /* unknown type, empty encoding */ phrases;
+    void /* unknown type, empty encoding */ zones;
+    void /* unknown type, empty encoding */ trigger;
+    void /* unknown type, empty encoding */ fallbackWebSearchQuery;
+    void /* unknown type, empty encoding */ numericValues;
+    void /* unknown type, empty encoding */ allWordsMatched;
+    void /* unknown type, empty encoding */ referenceType;
+    void /* unknown type, empty encoding */ serviceTypeSpans;
+    void /* unknown type, empty encoding */ accessoryTypeSpans;
+    void /* unknown type, empty encoding */ serviceNameSpans;
+    void /* unknown type, empty encoding */ accessoryNameSpans;
+    void /* unknown type, empty encoding */ groupNameSpans;
+    void /* unknown type, empty encoding */ numberOfTokens;
+    void /* unknown type, empty encoding */ resolvedFiltersInReference;
+    void /* unknown type, empty encoding */ flags;
+    void /* unknown type, empty encoding */ systemDialogActTaskType;
+    void /* unknown type, empty encoding */ hasVocabTags;
+    void /* unknown type, empty encoding */ hasSettingsTags;
+    void /* unknown type, empty encoding */ hasReferences;
+    void /* unknown type, empty encoding */ synonymRooms;
+    void /* unknown type, empty encoding */ userEntityNames;
+    void /* unknown type, empty encoding */ fuzzyMatchingValues;
+}
+
+@end

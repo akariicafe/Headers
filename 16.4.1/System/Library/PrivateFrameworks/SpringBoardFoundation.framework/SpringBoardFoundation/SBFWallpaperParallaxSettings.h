@@ -1,0 +1,3 @@
+@interface SBFWallpaperParallaxSettings : PBUIWallpaperParallaxSettings
+
+@end

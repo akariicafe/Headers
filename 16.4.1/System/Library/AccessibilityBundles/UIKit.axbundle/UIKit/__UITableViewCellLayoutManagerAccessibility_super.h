@@ -1,0 +1,3 @@
+@interface __UITableViewCellLayoutManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

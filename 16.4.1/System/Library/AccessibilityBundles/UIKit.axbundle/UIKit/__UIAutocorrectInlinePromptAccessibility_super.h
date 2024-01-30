@@ -1,0 +1,3 @@
+@interface __UIAutocorrectInlinePromptAccessibility_super : UIAccessibilitySafeCategory
+
+@end

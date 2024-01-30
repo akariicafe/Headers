@@ -1,0 +1,76 @@
+@class GKMatchRequest, NSString, UIFocusGuide, GKTurnBasedMatchesDataSource, GKTurnBasedInviteViewController, GKCollectionViewController, GKGame;
+@protocol GKTurnBasedMatchesViewControllerDelegate, UIStateRestoring;
+
+@interface GKTurnBasedMatchesViewController : GKCollectionViewController <GKTurnBasedInviteViewControllerDelegate, GKTurnBasedMatchDetailViewControllerDelegate, GKTurnBasedMatchesDataSourceDelegate, UIPopoverControllerDelegate, UIStateRestoring, UIPopoverPresentationControllerDelegate>
+
+@property (retain, nonatomic) GKTurnBasedMatchesDataSource *matchesDataSource;
+@property (nonatomic) long long maxMatchesSeen;
+@property (retain, nonatomic) NSString *matchIDWaitingForTurnEvent;
+@property (retain, nonatomic) GKTurnBasedInviteViewController *inviteController;
+@property (nonatomic) double initialSectionHeaderHeight;
+@property (retain, nonatomic) UIFocusGuide *detailButtonFocusGuide;
+@property (weak, nonatomic) GKCollectionViewController *masterViewController;
+@property (retain, nonatomic) GKGame *game;
+@property (retain, nonatomic) GKMatchRequest *matchRequest;
+@property (weak, nonatomic) id<GKTurnBasedMatchesViewControllerDelegate> delegate;
+@property (nonatomic) BOOL showExistingMatches;
+@property (nonatomic) BOOL showPlay;
+@property (nonatomic) BOOL showQuit;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<UIStateRestoring> restorationParent;
+@property (readonly, nonatomic) Class objectRestorationClass;
+
+- (void)applicationDidEnterBackground;
+- (void)collectionView:(id)a0 didUpdateFocusInContext:(id)a1 withAnimationCoordinator:(id)a2;
+- (void)popoverPresentationControllerDidDismissPopover:(id)a0;
+- (void)cancelButtonPressed;
+- (void)configureDataSource;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)init;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)configureDetailButtonFocusGuide;
+- (void)_gkRestorePopoverWithViewControllers:(id)a0 completion:(id /* block */)a1;
+- (BOOL)_gkShouldRefreshContentsForDataType:(unsigned int)a0 userInfo:(id)a1;
+- (void)acceptInviteForMatch:(id)a0;
+- (void)addPressed;
+- (void)configureCollectionViewFocusGuide;
+- (void)configureHeader:(id)a0 indexPath:(id)a1;
+- (void)configureNavigationBarFocusGuide;
+- (void)configureViewFactories;
+- (void)detailPressedForMatch:(id)a0;
+- (void)didEnterNoContentState;
+- (void)dismissDetailViewControllerAnimated:(BOOL)a0;
+- (void)dismissDetailViewControllerInPopover:(BOOL)a0 completion:(id /* block */)a1;
+- (void)handleTurnBasedEvent:(id)a0;
+- (id)initWithMatchRequest:(id)a0;
+- (BOOL)isInGame;
+- (BOOL)isLoadingOrRemovingPreloadedMatch;
+- (void)launchGameAndShowMatch:(id)a0;
+- (void)loadDataWithCompletionHandlerAndError:(id /* block */)a0;
+- (void)notifyGameWithMatch:(id)a0 orError:(id)a1;
+- (void)presentNavigationControllerInPopover:(id)a0 fromCell:(id)a1 completion:(id /* block */)a2;
+- (void)showDetailForMatch:(id)a0;
+- (void)showInviteControllerAnimated:(BOOL)a0;
+- (void)showMatch:(id)a0;
+- (void)turnBasedInviteViewController:(id)a0 didCreateMatchID:(id)a1;
+- (void)turnBasedInviteViewController:(id)a0 didFailWithError:(id)a1;
+- (void)turnBasedInviteViewControllerWasCancelled:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidAcceptInvitation:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidChooseMatch:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidDeclineInvitation:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidQuitMatch:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidRemoveMatch:(id)a0;
+- (void)turnBasedMatchDetailViewControllerDidShowStore:(id)a0;
+- (void)turnBasedMatchesDataSource:(id)a0 didQuitMatch:(id)a1;
+- (void)updateUIBasedOnTraitCollection;
+
+@end

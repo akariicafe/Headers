@@ -1,0 +1,8 @@
+@interface SiriKitFlow.RenderResponseChunkAction : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ nextAction;
+    void /* unknown type, empty encoding */ debugDescription;
+    void /* unknown type, empty encoding */ renderer;
+    void /* unknown type, empty encoding */ chunkProvider;
+}
+
+@end

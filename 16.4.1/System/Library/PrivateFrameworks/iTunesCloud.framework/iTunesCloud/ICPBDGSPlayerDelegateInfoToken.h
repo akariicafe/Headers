@@ -1,0 +1,20 @@
+@class NSString, NSData;
+
+@interface ICPBDGSPlayerDelegateInfoToken : PBCodable <NSCopying> {
+    double _expirationTimeInterval;
+    unsigned long long _sessionID;
+    NSString *_storefrontIdentifier;
+    NSData *_token;
+    struct { unsigned char expirationTimeInterval : 1; unsigned char sessionID : 1; } _has;
+}
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

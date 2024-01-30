@@ -1,0 +1,3 @@
+@interface AVMutableCompositionInternal : NSObject
+
+@end

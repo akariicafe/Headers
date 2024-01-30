@@ -1,0 +1,3 @@
+@interface CSDelegateConstants : NSObject
+
+@end

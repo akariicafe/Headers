@@ -1,0 +1,3 @@
+@interface AMSPaymentAuthorizationDialogRequest : AMSPaymentSheetRequest
+
+@end

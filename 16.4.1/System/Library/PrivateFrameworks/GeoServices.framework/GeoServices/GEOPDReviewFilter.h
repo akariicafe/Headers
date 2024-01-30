@@ -1,0 +1,23 @@
+@class PBUnknownFields;
+
+@interface GEOPDReviewFilter : PBCodable <NSCopying> {
+    PBUnknownFields *_unknownFields;
+    struct GEOPDPhotoSizeFilterValue { unsigned int x0; unsigned int x1; struct { unsigned char x0 : 1; unsigned char x1 : 1; } x2; } *_photoSizeFilters;
+    unsigned long long _photoSizeFiltersCount;
+    unsigned long long _photoSizeFiltersSpace;
+    BOOL _suppressSyntheticReviews;
+    struct { unsigned char has_suppressSyntheticReviews : 1; } _flags;
+}
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (id)jsonRepresentation;
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

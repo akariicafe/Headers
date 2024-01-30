@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.XpcCallStartedEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

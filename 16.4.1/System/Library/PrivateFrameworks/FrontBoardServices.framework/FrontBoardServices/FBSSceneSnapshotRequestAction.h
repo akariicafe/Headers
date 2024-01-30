@@ -1,0 +1,12 @@
+@class FBSSceneSnapshotContext;
+
+@interface FBSSceneSnapshotRequestAction : BSAction
+
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic) FBSSceneSnapshotContext *context;
+
+- (id)keyDescriptionForSetting:(unsigned long long)a0;
+- (id)valueDescriptionForFlag:(long long)a0 object:(id)a1 ofSetting:(unsigned long long)a2;
+- (id)_initWithType:(unsigned long long)a0 context:(id)a1 responder:(id)a2;
+
+@end

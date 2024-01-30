@@ -1,0 +1,3 @@
+@interface __MFComposeImageSizeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

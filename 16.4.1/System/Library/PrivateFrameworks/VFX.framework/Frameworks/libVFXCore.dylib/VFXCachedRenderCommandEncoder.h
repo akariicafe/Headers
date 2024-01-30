@@ -1,0 +1,81 @@
+@class NSString;
+@protocol MTLSamplerState, MTLRenderCommandEncoder, MTLDevice, MTLDepthStencilState, MTLTexture, MTLRenderPipelineState, MTLBuffer;
+
+@interface VFXCachedRenderCommandEncoder : NSObject <MTLRenderCommandEncoder> {
+    id<MTLRenderCommandEncoder> _encoder;
+    struct Cache { id<MTLDepthStencilState> depthStencilStates; id<MTLRenderPipelineState> renderPipelineState; unsigned long long winding; unsigned long long cullMode; unsigned long long fillMode; unsigned long long clipMode; BOOL windingChanged; BOOL cullModeChanged; BOOL fillModeChanged; BOOL clipModeChanged; BOOL inverseWinding; unsigned int stencilReferenceValueFront; unsigned int stencilReferenceValueBack; } _cache;
+    struct BindingsCache { struct BufferAndOffset { id<MTLBuffer> buffer; unsigned long long offset; } buffers[32]; id<MTLTexture> textures[32]; id<MTLSamplerState> samplers[16]; } _vertexCache;
+    struct BindingsCache { struct BufferAndOffset { id<MTLBuffer> buffer; unsigned long long offset; } buffers[32]; id<MTLTexture> textures[32]; id<MTLSamplerState> samplers[16]; } _fragmentCache;
+}
+
+@property (readonly) unsigned long long tileWidth;
+@property (readonly) unsigned long long tileHeight;
+@property (readonly) id<MTLDevice> device;
+@property (copy) NSString *label;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)endEncoding;
+- (void)setViewport:(struct { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (id)init:(id)a0;
+- (void)setDepthStoreAction:(unsigned long long)a0;
+- (void)setStencilStoreActionOptions:(unsigned long long)a0;
+- (void)setDepthStoreActionOptions:(unsigned long long)a0;
+- (void)setStencilStoreAction:(unsigned long long)a0;
+- (void)setColorStoreAction:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2 stages:(unsigned long long)a3;
+- (void)setColorStoreActionOptions:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void)setVertexAmplificationCount:(unsigned long long)a0 viewMappings:(const struct { unsigned int x0; unsigned int x1; } *)a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2;
+- (void)setVertexBufferOffset:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setFragmentBufferOffset:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)popDebugGroup;
+- (void)setFragmentSamplerState:(id)a0 atIndex:(unsigned long long)a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1;
+- (void)setViewports:(const struct { double x0; double x1; double x2; double x3; double x4; double x5; } *)a0 count:(unsigned long long)a1;
+- (void)setFragmentSamplerStates:(const id *)a0 lodMinClamps:(const float *)a1 lodMaxClamps:(const float *)a2 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3;
+- (void)setVertexSamplerState:(id)a0 atIndex:(unsigned long long)a1;
+- (id).cxx_construct;
+- (void)setStencilFrontReferenceValue:(unsigned int)a0 backReferenceValue:(unsigned int)a1;
+- (void)setVertexTextures:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)pushDebugGroup:(id)a0;
+- (void)setDepthBias:(float)a0 slopeScale:(float)a1 clamp:(float)a2;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5 baseVertex:(long long)a6 baseInstance:(unsigned long long)a7;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2;
+- (void)setFragmentTextures:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setVertexBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setVertexSamplerState:(id)a0 lodMinClamp:(float)a1 lodMaxClamp:(float)a2 atIndex:(unsigned long long)a3;
+- (void)setRenderPipelineState:(id)a0;
+- (void)setTriangleFillMode:(unsigned long long)a0;
+- (void)setFragmentBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)setVertexBytes:(const void *)a0 length:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setFragmentSamplerState:(id)a0 lodMinClamp:(float)a1 lodMaxClamp:(float)a2 atIndex:(unsigned long long)a3;
+- (void)setDepthClipMode:(unsigned long long)a0;
+- (void)setVertexBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)setDepthStencilState:(id)a0;
+- (void)setVertexSamplerStates:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setFragmentSamplerStates:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setFragmentTexture:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setFragmentBytes:(const void *)a0 length:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setScissorRect:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0;
+- (void)setVertexTexture:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setVertexSamplerStates:(const id *)a0 lodMinClamps:(const float *)a1 lodMaxClamps:(const float *)a2 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2 instanceCount:(unsigned long long)a3 baseInstance:(unsigned long long)a4;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4;
+- (void)setScissorRects:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a0 count:(unsigned long long)a1;
+- (void)setStencilReferenceValue:(unsigned int)a0;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexType:(unsigned long long)a1 indexBuffer:(id)a2 indexBufferOffset:(unsigned long long)a3 indirectBuffer:(id)a4 indirectBufferOffset:(unsigned long long)a5;
+- (void)setFragmentBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setBlendColorRed:(float)a0 green:(float)a1 blue:(float)a2 alpha:(float)a3;
+- (void)setFrontFacingWinding:(unsigned long long)a0;
+- (void)setCullMode:(unsigned long long)a0;
+- (void)drawPrimitives:(unsigned long long)a0 indirectBuffer:(id)a1 indirectBufferOffset:(unsigned long long)a2;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2 instanceCount:(unsigned long long)a3;
+- (void)insertDebugSignpost:(id)a0;
+- (void)applyChangedStates;
+
+@end

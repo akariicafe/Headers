@@ -1,0 +1,3 @@
+@interface __SKUIGiftDateTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface HPSUtilities : NSObject
+
+@end

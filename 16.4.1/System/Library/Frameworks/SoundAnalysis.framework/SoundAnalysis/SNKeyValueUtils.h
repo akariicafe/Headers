@@ -1,0 +1,3 @@
+@interface SNKeyValueUtils : NSObject
+
+@end

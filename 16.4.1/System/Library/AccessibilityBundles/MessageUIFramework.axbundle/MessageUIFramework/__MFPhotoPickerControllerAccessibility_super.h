@@ -1,0 +1,3 @@
+@interface __MFPhotoPickerControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

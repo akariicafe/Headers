@@ -1,0 +1,3 @@
+@interface TDGroupedRecognitionProduction : TDNamedArtworkProduction
+
+@end

@@ -1,0 +1,3 @@
+@interface TSAPdfTaggerTateChuYokoTextRunContext : TSAPdfTaggerSecondaryTextRunContext
+
+@end

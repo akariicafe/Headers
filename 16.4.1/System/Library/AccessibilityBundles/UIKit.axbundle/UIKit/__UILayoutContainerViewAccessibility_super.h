@@ -1,0 +1,3 @@
+@interface __UILayoutContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

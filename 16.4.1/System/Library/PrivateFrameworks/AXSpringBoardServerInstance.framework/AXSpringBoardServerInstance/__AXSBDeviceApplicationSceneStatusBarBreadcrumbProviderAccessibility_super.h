@@ -1,0 +1,3 @@
+@interface __AXSBDeviceApplicationSceneStatusBarBreadcrumbProviderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

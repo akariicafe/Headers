@@ -1,0 +1,74 @@
+@class UIStackView, UIView, HKSeparatorLineView, NSDate, HRStackedButtonView, UIImageView, NSString, NSLayoutConstraint, NSNumber, UILabel;
+
+@interface HROnboardingAtrialFibrillationGateViewController : HKOnboardingBaseViewController <HRStackedButtonViewDelegate, HKOnboardingCompactDatePickerViewDelegate>
+
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *bodyLabel;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayTopSeparator;
+@property (retain, nonatomic) UIStackView *birthdayEntryView;
+@property (retain, nonatomic) UILabel *birthdayFooterLabel;
+@property (retain, nonatomic) NSDate *dateOfBirth;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayBottomSeparator;
+@property (retain, nonatomic) UILabel *diagnosisPromptLabel;
+@property (retain, nonatomic) NSNumber *diagnosis;
+@property (retain, nonatomic) NSNumber *prefilledDiagnosis;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisTopSeparator;
+@property (retain, nonatomic) UIView *diagnosisYesBackground;
+@property (retain, nonatomic) UIStackView *diagnosisYesRow;
+@property (retain, nonatomic) UIImageView *diagnosisYesCheckmark;
+@property (retain, nonatomic) UILabel *diagnosisYesLabel;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisMiddleSeparator;
+@property (retain, nonatomic) UIView *diagnosisNoBackground;
+@property (retain, nonatomic) UIStackView *diagnosisNoRow;
+@property (retain, nonatomic) UIImageView *diagnosisNoCheckmark;
+@property (retain, nonatomic) UILabel *diagnosisNoLabel;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisBottomSeparator;
+@property (retain, nonatomic) UILabel *diagnosisFooterLabel;
+@property (retain, nonatomic) HRStackedButtonView *stackedButtonView;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewBottomConstraint;
+@property (nonatomic) BOOL didLayoutSubviewsOnce;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewDidLoad;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (id)_bodyFont;
+- (id)ageLimit;
+- (void)compactDatePickerView:(id)a0 didChangeValue:(id)a1;
+- (void)_updateButtonState;
+- (void)setUpConstraints;
+- (id)_footnoteFont;
+- (void)setUpUI;
+- (id)initForOnboarding:(BOOL)a0 upgradingFromAlgorithmVersion:(long long)a1;
+- (void)stackedButtonView:(id)a0 didTapButtonAtIndex:(long long)a1;
+- (double)_separatorToFooterFirstBaseline;
+- (void)_adjustButtonFooterViewLocationForViewContentHeight;
+- (double)_ageEntryFooterToDiagnosisPromptFirstBaseline;
+- (double)_ageEntryLastBaselineToBottomSeparator;
+- (id)_ageEntryTitleFont;
+- (double)_ageEntryTopSeparatorToFirstBaseline;
+- (id)_defaultDOB;
+- (double)_diagnosisFooterLabelToContinueButton;
+- (double)_diagnosisLastBaselineToBottomSeparator;
+- (id)_diagnosisPromptFont;
+- (double)_diagnosisPromptLastBaselineToDiagnosisTop;
+- (void)_diagnosisRowTapped:(id)a0;
+- (double)_diagnosisTopSeparatorToFirstBaseline;
+- (BOOL)_meetsAgeRequirement;
+- (BOOL)_meetsDiagnosisRequirement;
+- (void)_setUpBirthdayEntryView;
+- (void)_setUpButtonFooterView;
+- (void)_setUpDiagnosisRowWithTitle:(id)a0 value:(BOOL)a1;
+- (id)ageIneligiblePromptAckButtonString;
+- (id)ageIneligiblePromptBodyString;
+- (id)ageIneligiblePromptTitleString;
+- (id)ageWithDate:(id)a0;
+- (id)diagnosisIneligiblePromptAckButtonString;
+- (id)diagnosisIneligiblePromptBodyString;
+- (id)diagnosisIneligiblePromptTitleString;
+- (id)initForOnboarding:(BOOL)a0 hasAtrialFibrillationDiagnosis:(id)a1;
+
+@end

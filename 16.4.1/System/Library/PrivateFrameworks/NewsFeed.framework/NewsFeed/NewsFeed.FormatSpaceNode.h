@@ -1,0 +1,7 @@
+@interface NewsFeed.FormatSpaceNode : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _identifier;
+    void /* unknown type, empty encoding */ _size;
+    void /* unknown type, empty encoding */ _adjustments;
+}
+
+@end

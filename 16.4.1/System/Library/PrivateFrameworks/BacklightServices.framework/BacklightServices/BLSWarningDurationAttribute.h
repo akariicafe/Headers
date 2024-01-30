@@ -1,0 +1,3 @@
+@interface BLSWarningDurationAttribute : BLSDurationAttribute
+
+@end

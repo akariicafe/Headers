@@ -1,0 +1,3 @@
+@interface __UILongPressGestureRecognizerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

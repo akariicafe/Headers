@@ -1,0 +1,3 @@
+@interface COMeshWithdrawalCommand : COMeshCommand
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UISystemGestureWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

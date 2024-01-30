@@ -1,0 +1,3 @@
+@interface MKFTriggerDatabaseID : MKFModelDatabaseID
+
+@end

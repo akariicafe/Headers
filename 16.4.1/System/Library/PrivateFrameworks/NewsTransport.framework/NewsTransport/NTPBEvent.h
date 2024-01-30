@@ -1,0 +1,97 @@
+@class NSString, NTPBEventObject, NSData, NSMutableArray;
+
+@interface NTPBEvent : PBCodable <NSCopying> {
+    struct { unsigned char appConfigTreatmentId : 1; unsigned char duration : 1; unsigned char personalizationTreatmentId : 1; unsigned char personalizedTreatmentId : 1; unsigned char startTimestamp : 1; unsigned char bundleSubscriptionStatus : 1; unsigned char cellularRadioAccessTechnology : 1; unsigned char deviceOrientation : 1; unsigned char gestureType : 1; unsigned char interfaceOrientation : 1; unsigned char reachabilityStatus : 1; unsigned char isAmplifyUser : 1; unsigned char isBundlePurchaser : 1; unsigned char isPaidSubscriberDuringEvent : 1; unsigned char isPaidSubscriberFromAppStoreDuringEvent : 1; unsigned char isPaidSubscriberFromNewsDuringEvent : 1; unsigned char isPaidSubscriberFromThirdPartyDuringEvent : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasEventObject;
+@property (retain, nonatomic) NTPBEventObject *eventObject;
+@property (readonly, nonatomic) BOOL hasSessionId;
+@property (retain, nonatomic) NSData *sessionId;
+@property (readonly, nonatomic) BOOL hasUserId;
+@property (retain, nonatomic) NSString *userId;
+@property (readonly, nonatomic) BOOL hasUserStorefrontId;
+@property (retain, nonatomic) NSString *userStorefrontId;
+@property (nonatomic) BOOL hasStartTimestamp;
+@property (nonatomic) long long startTimestamp;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) long long duration;
+@property (nonatomic) BOOL hasDeviceOrientation;
+@property (nonatomic) int deviceOrientation;
+@property (readonly, nonatomic) BOOL hasReferringType;
+@property (retain, nonatomic) NSString *referringType;
+@property (readonly, nonatomic) BOOL hasReferringSource;
+@property (retain, nonatomic) NSString *referringSource;
+@property (readonly, nonatomic) BOOL hasWindowFrameInScreen;
+@property (retain, nonatomic) NSString *windowFrameInScreen;
+@property (nonatomic) BOOL hasGestureType;
+@property (nonatomic) int gestureType;
+@property (nonatomic) BOOL hasInterfaceOrientation;
+@property (nonatomic) int interfaceOrientation;
+@property (nonatomic) BOOL hasReachabilityStatus;
+@property (nonatomic) int reachabilityStatus;
+@property (nonatomic) BOOL hasCellularRadioAccessTechnology;
+@property (nonatomic) int cellularRadioAccessTechnology;
+@property (nonatomic) BOOL hasPersonalizationTreatmentId;
+@property (nonatomic) long long personalizationTreatmentId;
+@property (nonatomic) BOOL hasPersonalizedTreatmentId;
+@property (nonatomic) long long personalizedTreatmentId;
+@property (nonatomic) BOOL hasIsPaidSubscriberDuringEvent;
+@property (nonatomic) BOOL isPaidSubscriberDuringEvent;
+@property (nonatomic) BOOL hasIsPaidSubscriberFromNewsDuringEvent;
+@property (nonatomic) BOOL isPaidSubscriberFromNewsDuringEvent;
+@property (nonatomic) BOOL hasIsPaidSubscriberFromAppStoreDuringEvent;
+@property (nonatomic) BOOL isPaidSubscriberFromAppStoreDuringEvent;
+@property (nonatomic) BOOL hasIsPaidSubscriberFromThirdPartyDuringEvent;
+@property (nonatomic) BOOL isPaidSubscriberFromThirdPartyDuringEvent;
+@property (readonly, nonatomic) BOOL hasNotwUserId;
+@property (retain, nonatomic) NSString *notwUserId;
+@property (readonly, nonatomic) BOOL hasSessionIdWatch;
+@property (retain, nonatomic) NSData *sessionIdWatch;
+@property (nonatomic) BOOL hasAppConfigTreatmentId;
+@property (nonatomic) long long appConfigTreatmentId;
+@property (readonly, nonatomic) BOOL hasWidgetSessionId;
+@property (retain, nonatomic) NSData *widgetSessionId;
+@property (retain, nonatomic) NSMutableArray *userPaidSubscriptionStatus;
+@property (readonly, nonatomic) BOOL hasWidgetUserId;
+@property (retain, nonatomic) NSString *widgetUserId;
+@property (nonatomic) BOOL hasBundleSubscriptionStatus;
+@property (nonatomic) int bundleSubscriptionStatus;
+@property (readonly, nonatomic) BOOL hasBundlePurchaseId;
+@property (retain, nonatomic) NSString *bundlePurchaseId;
+@property (readonly, nonatomic) BOOL hasBundleOfferId;
+@property (retain, nonatomic) NSString *bundleOfferId;
+@property (nonatomic) BOOL hasIsBundlePurchaser;
+@property (nonatomic) BOOL isBundlePurchaser;
+@property (readonly, nonatomic) BOOL hasAppAnalyticsEventIdentifier;
+@property (retain, nonatomic) NSString *appAnalyticsEventIdentifier;
+@property (readonly, nonatomic) BOOL hasAppAnalyticsEventPath;
+@property (retain, nonatomic) NSString *appAnalyticsEventPath;
+@property (nonatomic) BOOL hasIsAmplifyUser;
+@property (nonatomic) BOOL isAmplifyUser;
+@property (readonly, nonatomic) BOOL hasSBundlePurchaseId;
+@property (retain, nonatomic) NSString *sBundlePurchaseId;
+
++ (Class)userPaidSubscriptionStatusType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (int)StringAsBundleSubscriptionStatus:(id)a0;
+- (int)StringAsCellularRadioAccessTechnology:(id)a0;
+- (unsigned long long)userPaidSubscriptionStatusCount;
+- (int)StringAsReachabilityStatus:(id)a0;
+- (void)clearUserPaidSubscriptionStatus;
+- (void)addUserPaidSubscriptionStatus:(id)a0;
+- (id)bundleSubscriptionStatusAsString:(int)a0;
+- (id)cellularRadioAccessTechnologyAsString:(int)a0;
+- (id)reachabilityStatusAsString:(int)a0;
+- (id)userPaidSubscriptionStatusAtIndex:(unsigned long long)a0;
+
+@end

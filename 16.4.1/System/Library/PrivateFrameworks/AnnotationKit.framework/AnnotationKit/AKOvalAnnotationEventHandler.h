@@ -1,0 +1,3 @@
+@interface AKOvalAnnotationEventHandler : AKRectangularAnnotationEventHandler
+
+@end

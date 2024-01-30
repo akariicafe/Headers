@@ -1,0 +1,87 @@
+@class ASPeriodicUpdateManager, NSString, ASFriendInviteBulletinManager, ASActivityDataManager, ASActivityDataBulletinManager, ASAchievementManager, ASCompetitionManager, ASSetupManager, ASCloudKitManager, ASFakingManager, ASContactsManager, FIFitnessAppsStateObserver, NSObject, ASRelationshipManager, ASFriendListManager, ASFakeBulletinManager, ASGatewayManager, HDProfile, HDKeyValueDomain, ASActivityDataNotificationManager, ASCompetitionBulletinManager;
+@protocol OS_dispatch_queue, OS_dispatch_group, ASBulletinPostingManager;
+
+@interface ASActivitySharingManager : NSObject <HDHealthDaemonReadyObserver, HDNanoSyncManagerObserver, FIFitnessAppsStateObserverDelegate> {
+    NSObject<OS_dispatch_queue> *_readWriteQueue;
+    NSObject<OS_dispatch_queue> *_submanagerBarrierQueue;
+    NSObject<OS_dispatch_group> *_submanagerBarrierGroup;
+    BOOL _submanagerInitializationComplete;
+    BOOL _submanagerProcessingStarted;
+    NSString *_appBundleIdentifier;
+    BOOL _appInstalled;
+    BOOL _fitnessAppsRestricted;
+    int _pairingStatusChangedToken;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _submanagersProcessingStartedLock;
+}
+
+@property (readonly, weak, nonatomic) HDProfile *profile;
+@property (readonly, nonatomic) BOOL isWatch;
+@property (readonly, nonatomic) FIFitnessAppsStateObserver *fitnessAppsStateObserver;
+@property (readonly, nonatomic) ASAchievementManager *achievementManager;
+@property (readonly, nonatomic) ASActivityDataManager *activityDataManager;
+@property (readonly, nonatomic) ASActivityDataNotificationManager *activityDataNotificationManager;
+@property (readonly, nonatomic) ASActivityDataBulletinManager *activityDataBulletinManager;
+@property (readonly, nonatomic) ASCloudKitManager *cloudKitManager;
+@property (readonly, nonatomic) ASCompetitionManager *competitionManager;
+@property (readonly, nonatomic) ASCompetitionBulletinManager *competitionBulletinManager;
+@property (readonly, nonatomic) ASContactsManager *contactsManager;
+@property (readonly, nonatomic) ASFakeBulletinManager *fakeBulletinManager;
+@property (readonly, nonatomic) ASFakingManager *fakingManager;
+@property (readonly, nonatomic) ASFriendInviteBulletinManager *friendInviteBulletinManager;
+@property (readonly, nonatomic) ASFriendListManager *friendListManager;
+@property (readonly, nonatomic) ASGatewayManager *gatewayManager;
+@property (readonly, nonatomic) ASPeriodicUpdateManager *periodicUpdateManager;
+@property (readonly, nonatomic) ASRelationshipManager *relationshipManager;
+@property (readonly, nonatomic) id<ASBulletinPostingManager> bulletinPostingManager;
+@property (readonly, nonatomic) ASSetupManager *setupManager;
+@property (readonly, nonatomic) HDKeyValueDomain *deviceLocalActivitySharingKeyValueDomain;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)fitnessAppsStateObserver:(id)a0 restrictedStateDidChange:(long long)a1;
+- (void)removeFriendListObserver:(id)a0;
+- (void)daemonReady:(id)a0;
+- (void)handleNotificationResponse:(id)a0 completion:(id /* block */)a1;
+- (void)_deactivateActivitySharingManager;
+- (void)pushActivityDataToAllFriendsWithCompletion:(id /* block */)a0;
+- (void)removeFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (id)initWithProfile:(id)a0 isWatch:(BOOL)a1;
+- (void)fetchAllDataWithCompletion:(id /* block */)a0;
+- (void)addFriendListObserver:(id)a0;
+- (void)sendWithdrawInviteRequestToFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)ignoreCompetitionRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)_waitUntilSubmanagersReady;
+- (void)expireChangeTokenWithCompletion:(id /* block */)a0;
+- (BOOL)_mainQueue_shouldCompleteSetup;
+- (BOOL)_mainQueue_stopSubmanagerProcessingIfNeeded;
+- (void)fetchAreMultipleDevicesSharingDataForSnapshotIndex:(id)a0 withCompletion:(id /* block */)a1;
+- (void)fetchAllDataIfTimeSinceLastFetchIsGreaterThan:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)_mainQueue_completeSetupIfNeeded;
+- (void)_mainQueue_nanoRegistryInfoChanged;
+- (void)_updateSubmanagerProcessingStarted:(BOOL)a0;
+- (void)setMuteEnabled:(BOOL)a0 forFriendWithUUID:(id)a1 completion:(id /* block */)a2;
+- (void)dealloc;
+- (void)queryAppBadgeCountWithCompletion:(id /* block */)a0;
+- (void)_mainQueue_notifySubmanagersOfManagerReady;
+- (void)nanoSyncManager:(id)a0 pairedDevicesChanged:(id)a1;
+- (void)_activateActivitySharingManager;
+- (void)fitnessAppsStateObserver:(id)a0 applicationInstallStateDidChangeForBundleIdentifiers:(id)a1;
+- (void)fetchFriendWithRemoteUUID:(id)a0 completion:(id /* block */)a1;
+- (void)completeCompetitionWithFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)sendInviteRequestToDestination:(id)a0 callerID:(id)a1 serviceIdentifier:(id)a2 completion:(id /* block */)a3;
+- (void)ignoreInviteRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)sendCompetitionRequestToFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)cloudKitAccountStatusWithCompletion:(id /* block */)a0;
+- (BOOL)processingStarted;
+- (void)clearFriendListWithCompletion:(id /* block */)a0;
+- (id)allFriends;
+- (void)acceptInviteRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (BOOL)_mainQueue_startSubmanagerProcessingIfNeeded;
+- (void)pushFakeActivityDataToAllFriendsWithCompletion:(id /* block */)a0;
+- (void)setActivityDataVisible:(BOOL)a0 toFriendWithUUID:(id)a1 completion:(id /* block */)a2;
+- (void)acceptCompetitionRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+
+@end

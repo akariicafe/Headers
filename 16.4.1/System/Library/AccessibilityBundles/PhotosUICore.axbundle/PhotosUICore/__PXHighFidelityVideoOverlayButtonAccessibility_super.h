@@ -1,0 +1,3 @@
+@interface __PXHighFidelityVideoOverlayButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

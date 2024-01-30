@@ -1,0 +1,15 @@
+@class CLKTextProvider, CLKGaugeProvider;
+
+@interface CLKComplicationTemplateGraphicExtraLargeCircularClosedGaugeText : CLKComplicationTemplateGraphicExtraLargeCircular
+
+@property (copy, nonatomic) CLKGaugeProvider *gaugeProvider;
+@property (copy, nonatomic) CLKTextProvider *centerTextProvider;
+
++ (id)templateWithGaugeProvider:(id)a0 centerTextProvider:(id)a1;
+
+- (void).cxx_destruct;
+- (void)_enumerateGaugeProviderKeysWithBlock:(id /* block */)a0;
+- (void)_enumerateTextProviderKeysWithBlock:(id /* block */)a0;
+- (id)initWithGaugeProvider:(id)a0 centerTextProvider:(id)a1;
+
+@end

@@ -1,0 +1,5 @@
+@interface _UIEventDeferringBehavior_tvOS : _UIEventDeferringBehavior_Default
+
+- (BOOL)shouldEvaluateEventDeferringForAnyRemoteViewControllerWindowMovement;
+
+@end

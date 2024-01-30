@@ -1,0 +1,29 @@
+@class NSString, NSMutableDictionary, NSMutableOrderedSet;
+
+@interface TMLState : NSObject {
+    NSMutableDictionary *_properties;
+    TMLState *_baseState;
+}
+
+@property (readonly, nonatomic) NSMutableOrderedSet *propertyKeys;
+@property (readonly, nonatomic) NSString *tmlStateName;
+@property (readonly, nonatomic) NSString *tmlStateExtends;
+
++ (Class)registerState:(id)a0 forClass:(Class)a1;
++ (id)stateForClass:(Class)a0 stateName:(id)a1;
+
+- (void)setValue:(id)a0 forKeyPath:(id)a1;
+- (void)setValue:(id)a0 forKey:(id)a1;
+- (id)valueForKeyPath:(id)a0;
+- (id)valueForKey:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)applyToObject:(id)a0 fromState:(id)a1;
+- (void)applyToObject:(id)a0 ignorePropertyKeys:(id)a1;
+- (void)enterStateFromState:(id)a0;
+- (id)initWithStateName:(id)a0;
+- (void)leaveStateToState:(id)a0;
+- (void)setTMLValue:(id)a0 forKeyPath:(id)a1;
+- (id)tmlIdentifier;
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.HomeAutomationBooleanResponses : HomeAutomationInternal.HomeAutomationEntityResponses
+
+@end

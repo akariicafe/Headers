@@ -1,0 +1,11 @@
+@class SIRINLUINTERNALITFMITFMParserRequest, SIRINLUEXTERNALRewriteMessage;
+
+@interface CDMPSCRequestCommand : CDMBaseCommand
+
+@property (readonly, nonatomic) SIRINLUINTERNALITFMITFMParserRequest *parserRequest;
+@property (readonly, nonatomic) SIRINLUEXTERNALRewriteMessage *rewriteMsg;
+
+- (void).cxx_destruct;
+- (id)initWithParserRequest:(id)a0 rewriteMsg:(id)a1;
+
+@end

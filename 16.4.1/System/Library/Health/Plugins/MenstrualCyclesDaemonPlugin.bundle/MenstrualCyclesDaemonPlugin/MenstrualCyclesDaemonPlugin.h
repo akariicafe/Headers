@@ -1,0 +1,3 @@
+@interface MenstrualCyclesDaemonPlugin : HDMenstrualCyclesPlugin
+
+@end

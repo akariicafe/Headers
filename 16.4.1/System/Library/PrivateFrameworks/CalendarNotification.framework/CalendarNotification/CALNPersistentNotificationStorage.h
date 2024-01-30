@@ -1,0 +1,29 @@
+@class NSString, NSObject, CALNInMemoryNotificationStorage;
+@protocol OS_dispatch_queue;
+
+@interface CALNPersistentNotificationStorage : NSObject <CALNNotificationStorage> {
+    BOOL _protected;
+}
+
+@property (readonly, copy, nonatomic) NSString *path;
+@property (readonly, nonatomic) CALNInMemoryNotificationStorage *inMemoryStorage;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)notificationRecordsFromPersistentNotificationStorageWithPath:(id)a0 error:(id *)a1;
++ (id)persistentNotificationStorageWithPath:(id)a0 isProtectedStorage:(BOOL)a1;
+
+- (void)addNotificationRecords:(id)a0;
+- (id)notificationRecords;
+- (id)initWithPath:(id)a0 isProtectedStorage:(BOOL)a1;
+- (void)removeAllNotificationRecords;
+- (void)addNotificationRecord:(id)a0;
+- (BOOL)_loadNotificationsWithError:(id *)a0;
+- (void)removeNotificationRecordsPassingTest:(id /* block */)a0;
+- (BOOL)_saveNotificationsWithError:(id *)a0;
+- (void).cxx_destruct;
+
+@end

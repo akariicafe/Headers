@@ -1,0 +1,97 @@
+@class NSData, NSString, NSArray, NSURL, WebPDFViewPlaceholder, UITapGestureRecognizer, UIPDFDocument, NSObject, NSMutableArray, UIColor;
+@protocol UIWebPDFViewDelegate;
+
+@interface UIWebPDFView : UIView <UIPDFPageViewDelegate, UIPDFAnnotationControllerDelegate, WebPDFViewPlaceholderDelegate, UIPopoverControllerDelegate, UIGestureRecognizerDelegate> {
+    NSMutableArray *_backingLayerImageViews;
+    struct CGPDFDocument { } *_cgPDFDocument;
+    UIPDFDocument *_document;
+    BOOL _hasScheduledCacheUpdate;
+    BOOL _delegateRespondsToDidScroll;
+    UITapGestureRecognizer *_tapGestureRecognizer;
+    BOOL _rotating;
+    BOOL _zooming;
+    struct CGPoint { double x; double y; } _contentOffsetAtScrollStart;
+    NSMutableArray *_pageViews;
+}
+
+@property WebPDFViewPlaceholder *pdfPlaceHolderView;
+@property (retain, nonatomic) NSURL *documentURL;
+@property (nonatomic) double initialZoomScale;
+@property (retain, nonatomic) UIColor *backgroundColorForUnRenderedContent;
+@property (nonatomic) BOOL hideActivityIndicatorForUnRenderedContent;
+@property (nonatomic) BOOL hidePageViewsUntilReadyToRender;
+@property (nonatomic) long long ignoreContentOffsetChanges;
+@property (nonatomic) struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } documentTransform;
+@property (retain, nonatomic) NSString *documentPassword;
+@property (readonly, nonatomic) double documentScale;
+@property (retain, nonatomic) NSArray *pageRects;
+@property (nonatomic) BOOL readyForSnapshot;
+@property (retain, nonatomic) NSArray *pageMinYs;
+@property (nonatomic) NSObject<UIWebPDFViewDelegate> *pdfDelegate;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } documentBounds;
+@property (readonly, nonatomic) unsigned long long totalPages;
+@property (readonly, nonatomic) struct CGPDFDocument { } *cgPDFDocument;
+@property (readonly, nonatomic) UIPDFDocument *document;
+@property (readonly, nonatomic) NSData *documentData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (void)setAsPDFDocRepAndView;
+
+- (void)_didScroll;
+- (void)clearSelection;
+- (void)willRotate:(id)a0;
+- (void)_translate:(id)a0;
+- (void)didReceiveMemoryWarning:(id)a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)_define:(id)a0;
+- (void)didRotate:(id)a0;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)_share:(id)a0;
+- (void)_tapGestureRecognized:(id)a0;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (id)_selection;
+- (void)ensureCorrectPagesAreInstalled:(BOOL)a0;
+- (id)_addPageAtIndex:(unsigned long long)a0;
+- (void)_addSubViewsInViewCoordsBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 force:(BOOL)a1;
+- (BOOL)_checkIfDocumentNeedsUnlock;
+- (void)_didLongPress:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 atPoint:(struct CGPoint { double x0; double x1; })a2 linkingToPageIndex:(unsigned long long)a3;
+- (void)_didLongPress:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 atPoint:(struct CGPoint { double x0; double x1; })a2 linkingToURL:(id)a3;
+- (void)_didTouch:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 atPoint:(struct CGPoint { double x0; double x1; })a2 linkingToPageIndex:(unsigned long long)a3;
+- (void)_didTouch:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 atPoint:(struct CGPoint { double x0; double x1; })a2 linkingToURL:(id)a3;
+- (BOOL)_hasPageRects;
+- (id)_installViewAtIndex:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (unsigned long long)_pageNumberForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_pageWithSelection;
+- (void)_recreateUIPDFDocument;
+- (void)_removeBackgroundImageObserverIfNeeded:(id)a0;
+- (void)_removePageViewsNotInCurrentViewCoordsRect;
+- (void)_removePageViewsNotInViewCoordsRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_scheduleRemovePageViewsNotInViewCoordsRect;
+- (BOOL)_tryToUnlockDocumentWithPassword:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_viewCachingBoundsInUIViewCoords;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_viewportBoundsInUIVIewCoordsWithView:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_viewportBoundsInUIViewCoords;
+- (void)annotation:(id)a0 isBeingPressedAtPoint:(struct CGPoint { double x0; double x1; })a1 controller:(id)a2;
+- (void)annotation:(id)a0 wasTouchedAtPoint:(struct CGPoint { double x0; double x1; })a1 controller:(id)a2;
+- (void)didCompleteLayout;
+- (void)didZoom:(id)a0;
+- (unsigned long long)firstVisiblePageNumber;
+- (id)imageForContactRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 onPageInViewRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 destinationRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (id)initWithWebPDFViewPlaceholder:(id)a0;
+- (void)prepareForSnapshot:(BOOL)a0;
+- (void)resetZoom:(id)a0;
+- (void)snapshotComplete;
+- (id)uiPDFDocument;
+- (id)viewAtIndex:(long long)a0;
+- (void)viewWillClose;
+- (id)viewportView;
+- (void)willScroll:(id)a0;
+- (void)willZoom:(id)a0;
+- (void)zoom:(id)a0 to:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 atPoint:(struct CGPoint { double x0; double x1; })a2 kind:(int)a3;
+
+@end

@@ -1,0 +1,92 @@
+@class NSString, NSUUID, NSURL, KGDatabase;
+@protocol KGEntityFactory;
+
+@interface KGDegasGraphStore : NSObject <KGGraphStore>
+
+@property (class, readonly, copy, nonatomic) NSString *persistentStoreFileExtension;
+
+@property (retain, nonatomic) NSURL *url;
+@property (readonly, nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } lock;
+@property (nonatomic) long long transactionCounter;
+@property (readonly, nonatomic) BOOL isReadOnly;
+@property (readonly, nonatomic) KGDatabase *database;
+@property (nonatomic) unsigned long long graphVersion;
+@property (readonly, nonatomic) id<KGEntityFactory> entityFactory;
+@property (readonly, nonatomic) NSUUID *graphIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)migrateFromURL:(id)a0 toURL:(id)a1 error:(id *)a2;
++ (BOOL)destroyAtURL:(id)a0 error:(id *)a1;
++ (BOOL)copyFromURL:(id)a0 toURL:(id)a1 error:(id *)a2;
+
+- (id)initWithURL:(id)a0;
+- (id)edgeIdentifiersWithStartNodeIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 error:(id *)a2;
+- (id)nodeLabels;
+- (BOOL)commitTransactionWithError:(id *)a0;
+- (id)sourcesByTargetWithEdgeIdentifiers:(id)a0 error:(id *)a1;
+- (BOOL)openWithMode:(unsigned long long)a0 error:(id *)a1;
+- (id)edgeLabels;
+- (id)edgeChangesAfterToken:(id)a0 transactionLimit:(long long)a1 edgeFilter:(id)a2 error:(id *)a3;
+- (BOOL)beginTransactionWithError:(id *)a0;
+- (id)edgeIdentifiersForNodeIdentifier:(unsigned long long)a0 withLabels:(id)a1 edgeDirection:(unsigned long long)a2 error:(id *)a3;
+- (id)_lock_sourcesByTargetWithEdgeIdentifiers:(id)a0 error:(id *)a1;
+- (BOOL)_lock_filterEdgesWithOptionalLabels:(id)a0 includeTombstones:(BOOL)a1 edgeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (BOOL)_lock_filterEdgesWithProperties:(id)a0 includeTombstones:(BOOL)a1 edgeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (id)edgeIdentifiers:(id)a0 sortedByIntegerPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (BOOL)removeNodeForIdentifier:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)_lock_filterNodesWithOptionalLabels:(id)a0 includeTombstones:(BOOL)a1 nodeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (id)nodeIdentifiers:(id)a0 sortedByIntegerPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (id)propertiesForEdgesWithIdentifiers:(id)a0 propertyName:(id)a1 error:(id *)a2;
+- (id)edgeIdentifiers:(id)a0 sortedByStringPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (BOOL)updateEdgeForIdentifier:(unsigned long long)a0 withProperties:(id)a1 error:(id *)a2;
+- (BOOL)copyToURL:(id)a0 error:(id *)a1;
+- (BOOL)addEdges:(id)a0 error:(id *)a1;
+- (id)transitiveClosureNeighborNodeIdentifiersWithStartNodeIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 edgeFilter:(id)a2 error:(id *)a3;
+- (BOOL)openWithMode:(unsigned long long)a0 nameCache:(id)a1 error:(id *)a2;
+- (BOOL)removeEdgesForIdentifiers:(id)a0 error:(id *)a1;
+- (id)edgeForIdentifier:(unsigned long long)a0 error:(id *)a1;
+- (id)edgeIdentifiersMatchingFilter:(id)a0 intersectingIdentifiers:(id)a1 error:(id *)a2;
+- (id)targetsBySourceWithEdgeIdentifiers:(id)a0 error:(id *)a1;
+- (void)_lock_enumerateNodesWithIdentifiers:(id)a0 block:(id /* block */)a1;
+- (id)_lock_nodeIdentifiersMatchingFilter:(id)a0 intersectingIdentifiers:(id)a1 error:(id *)a2;
+- (id)arrayOfEdgesWithIdentifiers:(id)a0 error:(id *)a1;
+- (id)_lock_edgeIdentifiersWithStartNodeIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 error:(id *)a2;
+- (id)nodeIdentifiers:(id)a0 sortedByStringPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (id)nodeForIdentifier:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)_lock_filterNodesWithProperties:(id)a0 includeTombstones:(BOOL)a1 nodeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (BOOL)removeEdgeForIdentifier:(unsigned long long)a0 error:(id *)a1;
+- (id)orderedArrayOfNodesWithIdentifiers:(id)a0 error:(id *)a1;
+- (id)propertiesForNodesWithIdentifiers:(id)a0 propertyName:(id)a1 error:(id *)a2;
+- (id)nodeChangesAfterToken:(id)a0 transactionLimit:(long long)a1 nodeFilter:(id)a2 error:(id *)a3;
+- (id)_lock_nodeForIdentifier:(unsigned long long)a0 error:(id *)a1;
+- (id)_resolvedPropertyValue:(id)a0 isScalar:(BOOL *)a1;
+- (void)close;
+- (id)nodeIdentifiersMatchingFilter:(id)a0 intersectingIdentifiers:(id)a1 error:(id *)a2;
+- (id)edgeIdentifiers:(id)a0 sortedByFloatPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (BOOL)rollbackTransactionWithError:(id *)a0;
+- (id)nodeIdentifiersOfEdgesWithIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 error:(id *)a2;
+- (BOOL)removeNodesForIdentifiers:(id)a0 error:(id *)a1;
+- (BOOL)_lock_filterEdgesWithRequiredLabels:(id)a0 includeTombstones:(BOOL)a1 edgeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (id)neighborNodeIdentifiersWithStartNodeIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 edgeFilter:(id)a2 error:(id *)a3;
+- (BOOL)_lock_enumerateEdgesWithIdentifiers:(id)a0 error:(id *)a1 block:(id /* block */)a2;
+- (id)_lock_edgeIdentifiersMatchingFilter:(id)a0 intersectingIdentifiers:(id)a1 error:(id *)a2;
+- (id)orderedArrayOfEdgesWithIdentifiers:(id)a0 error:(id *)a1;
+- (BOOL)updateNodeForIdentifier:(unsigned long long)a0 withProperties:(id)a1 error:(id *)a2;
+- (id)labelsOfNodesForIdentifiers:(id)a0;
+- (BOOL)addNodes:(id)a0 error:(id *)a1;
+- (id)nodeIdentifiers:(id)a0 sortedByFloatPropertyForName:(id)a1 ascending:(BOOL)a2 limit:(long long)a3 error:(id *)a4;
+- (id)_lock_nodeIdentifiersOfEdgesWithIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 error:(id *)a2;
+- (id)arrayOfNodesWithIdentifiers:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (id)_lock_targetsBySourceWithEdgeIdentifiers:(id)a0 error:(id *)a1;
+- (BOOL)_lock_filterNodesWithRequiredLabels:(id)a0 includeTombstones:(BOOL)a1 nodeIdentifiers:(inout id *)a2 error:(id *)a3;
+- (id)initWithURL:(id)a0 entityFactory:(id)a1;
+- (id)changesAfterToken:(id)a0 transactionLimit:(long long)a1 error:(id *)a2;
+- (id)labelsOfEdgesForIdentifiers:(id)a0;
+- (id)_lock_neighborNodeIdentifiersWithStartNodeIdentifiers:(id)a0 edgeDirection:(unsigned long long)a1 edgeFilter:(id)a2 error:(id *)a3;
+- (id)_lock_graphIdentifier;
+
+@end

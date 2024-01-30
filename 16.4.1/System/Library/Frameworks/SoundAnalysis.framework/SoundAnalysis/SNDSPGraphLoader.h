@@ -1,0 +1,3 @@
+@interface SNDSPGraphLoader : NSObject
+
+@end

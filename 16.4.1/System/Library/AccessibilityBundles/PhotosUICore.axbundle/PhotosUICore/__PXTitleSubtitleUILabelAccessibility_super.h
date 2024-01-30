@@ -1,0 +1,3 @@
+@interface __PXTitleSubtitleUILabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

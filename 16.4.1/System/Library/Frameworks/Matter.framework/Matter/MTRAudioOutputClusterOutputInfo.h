@@ -1,0 +1,3 @@
+@interface MTRAudioOutputClusterOutputInfo : MTRAudioOutputClusterOutputInfoStruct
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UICollectionViewListCellReorderControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

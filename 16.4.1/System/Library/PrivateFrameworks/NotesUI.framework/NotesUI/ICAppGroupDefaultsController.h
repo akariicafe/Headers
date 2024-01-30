@@ -1,0 +1,3 @@
+@interface ICAppGroupDefaultsController : NSObject
+
+@end

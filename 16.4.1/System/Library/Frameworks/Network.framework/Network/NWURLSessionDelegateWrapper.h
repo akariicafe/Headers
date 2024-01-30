@@ -1,0 +1,72 @@
+@class NSURLSession, NWURLSessionDelegateQueue, NSObject;
+@protocol OS_dispatch_queue, NSObject;
+
+@interface NWURLSessionDelegateWrapper : NSObject {
+    unsigned char checked_sessionDidBecomeInvalidWithError : 1;
+    unsigned char checked_sessionDidReceiveChallenge : 1;
+    unsigned char checked_sessionDidFinishEventsForBackgroundURLSession : 1;
+    unsigned char checked_didCreateTask : 1;
+    unsigned char checked_willBeginDelayedRequest : 1;
+    unsigned char checked_isWaitingForConnectivity : 1;
+    unsigned char checked_willPerformHTTPRedirection : 1;
+    unsigned char checked_didReceiveChallenge : 1;
+    unsigned char checked_needNewBodyStream : 1;
+    unsigned char checked_didSendBodyData : 1;
+    unsigned char checked_didFinishCollectingMetrics : 1;
+    unsigned char checked_didCompleteWithError : 1;
+    unsigned char checked__schemeUpgraded : 1;
+    unsigned char checked__didReceiveInformationalResponse : 1;
+    unsigned char checked_didReceiveResponse : 1;
+    unsigned char checked_didBecomeDownloadTask : 1;
+    unsigned char checked_didBecomeStreamTask : 1;
+    unsigned char checked_didReceiveData_withoutCB : 1;
+    unsigned char checked_didReceiveData_withCB : 1;
+    unsigned char checked_willCacheResponse : 1;
+    unsigned char checked_didFinishDownloadingToURL : 1;
+    unsigned char checked_didWriteData : 1;
+    unsigned char checked_didResumeAtOffset : 1;
+    unsigned char checked_readClosed : 1;
+    unsigned char checked_writeClosed : 1;
+    unsigned char checked_betterRouteDiscovered : 1;
+    unsigned char checked_didBecomeInputOutputStream : 1;
+    unsigned char checked_didOpenWithProtocol : 1;
+    unsigned char checked_didCloseWithCode : 1;
+    unsigned char accept_sessionDidBecomeInvalidWithError : 1;
+    unsigned char accept_sessionDidReceiveChallenge : 1;
+    unsigned char accept_sessionDidFinishEventsForBackgroundURLSession : 1;
+    unsigned char accept_didCreateTask : 1;
+    unsigned char accept_willBeginDelayedRequest : 1;
+    unsigned char accept_isWaitingForConnectivity : 1;
+    unsigned char accept_willPerformHTTPRedirection : 1;
+    unsigned char accept_didReceiveChallenge : 1;
+    unsigned char accept_needNewBodyStream : 1;
+    unsigned char accept_didSendBodyData : 1;
+    unsigned char accept_didFinishCollectingMetrics : 1;
+    unsigned char accept_didCompleteWithError : 1;
+    unsigned char accept__schemeUpgraded : 1;
+    unsigned char accept__didReceiveInformationalResponse : 1;
+    unsigned char accept_didReceiveResponse : 1;
+    unsigned char accept_didBecomeDownloadTask : 1;
+    unsigned char accept_didBecomeStreamTask : 1;
+    unsigned char accept_didReceiveData_withoutCB : 1;
+    unsigned char accept_didReceiveData_withCB : 1;
+    unsigned char accept_willCacheResponse : 1;
+    unsigned char accept_didFinishDownloadingToURL : 1;
+    unsigned char accept_didWriteData : 1;
+    unsigned char accept_didResumeAtOffset : 1;
+    unsigned char accept_readClosed : 1;
+    unsigned char accept_writeClosed : 1;
+    unsigned char accept_betterRouteDiscovered : 1;
+    unsigned char accept_didBecomeInputOutputStream : 1;
+    unsigned char accept_didOpenWithProtocol : 1;
+    unsigned char accept_didCloseWithCode : 1;
+    id<NSObject> _wrappedDelegate;
+    NWURLSessionDelegateWrapper *_fallbackDelegateWrapper;
+    NSURLSession *_session;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    NWURLSessionDelegateQueue *_delegateQueueWrapper;
+}
+
+- (void).cxx_destruct;
+
+@end

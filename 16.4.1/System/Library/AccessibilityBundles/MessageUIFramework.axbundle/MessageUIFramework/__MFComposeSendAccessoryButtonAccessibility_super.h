@@ -1,0 +1,3 @@
+@interface __MFComposeSendAccessoryButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

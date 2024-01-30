@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_BECF04E63F0B9E9C7C249670363F5A8C31NavigationV3StateKeyStorageBase : _TtCs12_SwiftObject
+
+@end

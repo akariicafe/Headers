@@ -1,0 +1,32 @@
+@class NSTimer, NSLock, CADisplayLink;
+
+@interface SUICTickMarkView : UIView {
+    CADisplayLink *_displayLink;
+    BOOL _shown;
+    long long _currentPreferredFrameRate;
+    long long _currentFrame;
+    int _animState;
+    NSTimer *_safetyTimer;
+    BOOL _completionCalled;
+    id /* block */ _completionBlock;
+    NSLock *_completionLock;
+    long long _fadeInFrames;
+    long long _pauseFrames;
+    long long _fadeOutFrames;
+}
+
++ (void)initialize;
+
+- (void)setHidden:(BOOL)a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)didMoveToSuperview;
+- (id)init;
+- (void).cxx_destruct;
+- (void)handleSafetyTimer:(id)a0;
+- (struct CGImage { } *)imageMask:(BOOL)a0;
+- (void)setUpDisplayLink;
+- (void)startAnimationsForTickMark:(BOOL)a0 fadeInFrames:(long long)a1 pauseFrames:(long long)a2 fadeOutFrames:(long long)a3 completion:(id /* block */)a4;
+- (void)tearDownDisplayLink;
+
+@end

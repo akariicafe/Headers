@@ -1,0 +1,3 @@
+@interface HRElectrocardiogramEducationViewController : HKTableViewController
+
+@end

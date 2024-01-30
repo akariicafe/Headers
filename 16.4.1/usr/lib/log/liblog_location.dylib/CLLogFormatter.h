@@ -1,0 +1,67 @@
+@class NSMethodSignature, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CLLogFormatter : NSObject {
+    NSMutableDictionary *_selectorForType;
+    NSMethodSignature *_formatterSignature;
+    NSObject<OS_dispatch_queue> *_q;
+}
+
+- (id)JSONObjectWith_CLDaemonLocationPrivate__OriginDevice:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_IOMessage:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CMWakeGestureCrownOrientation:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLMotionActivity__Confidence:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith__CLLocationManagerStateTrackerState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLLocationProvider_Type__MotionDetected:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLAppMonitor_Type__Notification:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLBarometerCalibration_Types__Context:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_RTLState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLBatteryChargerType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CMWakeGestureWristOrientation:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CMMotionCoprocessorReply_Log:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientServiceTypeMask:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLMotionActivity:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLStreamingAwareLocationProviderLocalGPSStateMachine__LocationSourceState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLStreamingAwareLocationProviderNoLocalGPSStateMachine__LocationSourceState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLLocationDictionaryUtilitiesArrowState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLLocationStreamingGranularity:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_escape_only:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLWifiService_Type__ScanType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientLocation:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientLocationReferenceFrame:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLSensorRecorder_Types__DataType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_RTLGestureType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLLocationDictionaryUtilitiesEntityClass:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientLocationSuitability:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_Generic:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientManager_Type__AuthorizationRequestType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLRegionState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CMWakeGestureState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (SEL)selectorForType:(id)a0;
+- (id)JSONObjectWith_CLDaemonStatus_Type__Reachability:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (void)dealloc;
+- (id)JSONObjectWith_CLClientAuthorizationStatus:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_PSYSyncSessionType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLLocationType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLClientManager_Type__ClientInUseLevel:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLMotionActivity__Type:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith__CLClientManagerStateTrackerState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_RTRoutineMode:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLStreamingAwareLocationProviderStateMachine__LocationSource:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_SqliteResult:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_RTLocationOfInterestType:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLDaemonStatus_Type__Battery:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)init;
+- (id)JSONObjectWith_SYSessionState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLSimulationLocationRepeatBehavior:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLTelephonyService_Type__Cell:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWithType:(const char *)a0 value:(id)a1 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a2;
+- (id)JSONObjectWith_CLLocationProvider_Type__Notification:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLSubHarvesterIdentifier:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_PSYSyncRestriction:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLDaemonLocation:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith__CLDaemonStatusStateTrackerState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLStreamingAwareLocationProviderLocalGPSStateMachine__WorkoutState:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+- (id)JSONObjectWith_CLSimulationLocationDeliveryBehavior:(id)a0 info:(struct os_log_type_info_s { unsigned int x0; BOOL x1; } *)a1;
+
+@end

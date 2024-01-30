@@ -1,0 +1,3 @@
+@interface MTRContentLauncherClusterContentSearch : MTRContentLauncherClusterContentSearchStruct
+
+@end

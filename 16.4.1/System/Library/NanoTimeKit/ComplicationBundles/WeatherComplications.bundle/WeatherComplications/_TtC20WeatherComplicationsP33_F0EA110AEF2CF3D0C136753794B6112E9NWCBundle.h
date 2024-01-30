@@ -1,0 +1,3 @@
+@interface _TtC20WeatherComplicationsP33_F0EA110AEF2CF3D0C136753794B6112E9NWCBundle : _TtCs12_SwiftObject
+
+@end

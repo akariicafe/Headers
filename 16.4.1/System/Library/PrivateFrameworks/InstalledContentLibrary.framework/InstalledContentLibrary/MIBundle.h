@@ -1,0 +1,79 @@
+@class NSArray, NSDictionary, NSString, NSURL, NSSet;
+
+@interface MIBundle : NSObject
+
+@property (retain, nonatomic) NSArray *pluginKitBundles;
+@property (retain, nonatomic) NSArray *extensionKitBundles;
+@property (retain, nonatomic) NSArray *frameworkBundles;
+@property (retain, nonatomic) NSArray *xpcServiceBundles;
+@property (retain, nonatomic) NSArray *driverKitExtensionBundles;
+@property (nonatomic) BOOL isPlaceholderStatusValid;
+@property (readonly, copy, nonatomic) NSDictionary *infoPlistSubset;
+@property (readonly, copy, nonatomic) NSString *identifier;
+@property (readonly, copy, nonatomic) NSString *parentBundleID;
+@property (readonly, nonatomic) NSURL *bundleURL;
+@property (readonly, copy, nonatomic) NSString *bundleName;
+@property (readonly, nonatomic) unsigned char bundleType;
+@property (readonly, nonatomic) BOOL isStaticContent;
+@property (readonly, copy, nonatomic) NSString *bundleTypeDescription;
+@property (copy, nonatomic) NSURL *bundleParentDirectoryURL;
+@property (readonly, copy, nonatomic) NSString *bundleParentSubdirectory;
+@property (readonly, copy, nonatomic) NSString *minimumOSVersion;
+@property (readonly, copy, nonatomic) NSArray *deviceFamilies;
+@property (readonly, copy, nonatomic) NSArray *supportedDevices;
+@property (readonly, nonatomic) BOOL needsDataContainer;
+@property (readonly, nonatomic) BOOL isWatchApp;
+@property (readonly, nonatomic) BOOL isPlaceholder;
+@property (readonly, nonatomic) BOOL isLaunchProhibited;
+@property (readonly, nonatomic) BOOL isRemovableSystemApp;
+@property (readonly, nonatomic) BOOL allowsAppExtensionsNotInExtensionCache;
+@property (readonly, nonatomic) NSSet *siriIntents;
+@property (readonly, weak, nonatomic) MIBundle *parentBundle;
+@property (readonly, copy, nonatomic) NSString *sdkBuildVersion;
+@property (readonly, copy, nonatomic) NSString *bundleVersion;
+@property (readonly, copy, nonatomic) NSString *bundleShortVersion;
+
++ (id)_URLOfFirstBundleInDirectory:(id)a0 withExtension:(id)a1 error:(id *)a2;
++ (id)bundleForURL:(id)a0 error:(id *)a1;
++ (BOOL)bundleIsBlacklisted:(id)a0;
++ (id)bundlesInParentBundle:(id)a0 subDirectory:(id)a1 matchingPredicate:(id /* block */)a2 error:(id *)a3;
+
+- (id)initForTesting;
+- (id)description;
+- (void).cxx_destruct;
+- (id)_infoPlistKeysToLoad;
+- (BOOL)_isMinimumOSVersion:(id)a0 applicableToOSVersion:(id)a1 requiredOS:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)_validateExtensions:(id)a0 withType:(id)a1 withError:(id *)a2;
+- (BOOL)_validateWithError:(id *)a0;
+- (id)appExtensionBundlesPerformingPlatformValidation:(unsigned char)a0 withError:(id *)a1;
+- (id)appExtensionBundlesWithError:(id *)a0;
+- (id)currentOSVersionForValidationWithError:(id *)a0;
+- (id)driverKitExtensionBundlesWithError:(id *)a0;
+- (id)extensionKitBundlesPerformingPlatformValidation:(unsigned char)a0 withError:(id *)a1;
+- (id)extensionKitBundlesWithError:(id *)a0;
+- (id)frameworkBundlesWithError:(id *)a0;
+- (void)infoPlistSubsetForTesting:(id)a0;
+- (id)initWithBundleInDirectory:(id)a0 withExtension:(id)a1 error:(id *)a2;
+- (id)initWithBundleParentURL:(id)a0 parentSubdirectory:(id)a1 bundleName:(id)a2 error:(id *)a3;
+- (id)initWithBundleURL:(id)a0 error:(id *)a1;
+- (id)initWithParentBundle:(id)a0 parentSubdirectory:(id)a1 bundleName:(id)a2 error:(id *)a3;
+- (BOOL)isApplicableToCurrentDeviceCapabilitiesWithError:(id *)a0;
+- (BOOL)isApplicableToCurrentDeviceFamilyWithError:(id *)a0;
+- (BOOL)isApplicableToCurrentOSVersionWithError:(id *)a0;
+- (BOOL)isApplicableToOSVersion:(id)a0 error:(id *)a1;
+- (BOOL)isApplicableToOSVersionEarlierThan:(id)a0;
+- (BOOL)isCompatibleWithDeviceFamily:(int)a0;
+- (BOOL)isMinimumOSVersion:(id)a0 applicableToOSVersion:(id)a1 error:(id *)a2;
+- (id)pluginKitBundlesPerformingPlatformValidation:(unsigned char)a0 withError:(id *)a1;
+- (id)pluginKitBundlesWithError:(id *)a0;
+- (BOOL)sdkBuildVersionIsAtLeast:(id)a0;
+- (BOOL)setIsPlaceholderWithError:(id *)a0;
+- (BOOL)thinningMatchesCurrentDeviceWithError:(id *)a0;
+- (BOOL)validateAppMetadataWithError:(id *)a0;
+- (BOOL)validateBundleMetadataWithError:(id *)a0;
+- (BOOL)validateDriverKitExtensionMetadataWithError:(id *)a0;
+- (BOOL)validateExtensionKitMetadataWithError:(id *)a0;
+- (BOOL)validatePluginKitMetadataWithError:(id *)a0;
+- (id)xpcServiceBundlesWithError:(id *)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface CarrierSettingsTelephony : PhoneSettingsTelephony
+
+@end

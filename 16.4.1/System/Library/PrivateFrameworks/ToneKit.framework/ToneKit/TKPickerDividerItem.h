@@ -1,0 +1,3 @@
+@interface TKPickerDividerItem : TKPickerRowItem
+
+@end

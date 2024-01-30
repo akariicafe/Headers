@@ -1,0 +1,3 @@
+@interface ___UIFindNavigatorViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

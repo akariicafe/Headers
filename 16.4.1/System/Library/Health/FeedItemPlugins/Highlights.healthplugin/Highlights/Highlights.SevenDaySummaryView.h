@@ -1,0 +1,20 @@
+@interface Highlights.SevenDaySummaryView : UIView {
+    void /* unknown type, empty encoding */ $__lazy_storage_$_diagramImageView;
+    void /* unknown type, empty encoding */ context;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_averageLineOffset;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_descriptionLabel;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_valueLabel;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_lineLayer;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_metricsCalculator;
+    void /* unknown type, empty encoding */ accentColor;
+    void /* unknown type, empty encoding */ objectType;
+}
+
+- (id)initWithCoder:(id)a0;
+- (struct CGSize { double x0; double x1; })systemLayoutSizeFittingSize:(struct CGSize { double x0; double x1; })a0 withHorizontalFittingPriority:(float)a1 verticalFittingPriority:(float)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)a0;
+- (void).cxx_destruct;
+
+@end

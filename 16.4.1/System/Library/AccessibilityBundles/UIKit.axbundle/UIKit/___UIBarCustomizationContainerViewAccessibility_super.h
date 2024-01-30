@@ -1,0 +1,3 @@
+@interface ___UIBarCustomizationContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

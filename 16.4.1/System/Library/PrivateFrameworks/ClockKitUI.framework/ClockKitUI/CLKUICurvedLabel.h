@@ -1,0 +1,81 @@
+@class UIFont, NSString, UIView, NSAttributedString, NSLayoutManager, NSTextContainer, NSTextStorage, NSNumber, UIColor;
+
+@interface CLKUICurvedLabel : UILabel <CLKUILabel> {
+    NSTextStorage *_textStorage;
+    NSLayoutManager *_layoutManager;
+    NSTextContainer *_textContainer;
+    BOOL _storageIsNonAttributedText;
+    double _maxTextWidth;
+    NSNumber *_isTextTruncated;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _cachedBounds;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _cachedGlyphsBoundingRect;
+    struct CGSize { double width; double height; } _cachedSize;
+    BOOL _cachedSizeIsValid;
+    UIColor *_textColor;
+    NSAttributedString *_attributedStringWithoutColorModification;
+    NSAttributedString *_attributedStringUnmodified;
+    double _viewAlpha;
+    UIFont *_font;
+    BOOL _hasMonospacedNumbers;
+}
+
+@property (nonatomic) double circleRadius;
+@property (nonatomic) BOOL interior;
+@property (nonatomic) double centerAngle;
+@property (nonatomic) double maxAngularWidth;
+@property (readonly, nonatomic) double maxLinearWidth;
+@property (readonly, nonatomic) double maxLinearTextWidth;
+@property (readonly, nonatomic) BOOL isTextTruncated;
+@property (nonatomic) double tracking;
+@property (nonatomic) BOOL attributedTextProvidesColor;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } textBoundingRect;
+@property (nonatomic) unsigned long long imagePlacement;
+@property (nonatomic) double imagePadding;
+@property (weak, nonatomic) UIView *imageView;
+@property (nonatomic) double animationAlpha;
+@property (nonatomic) struct CGSize { double width; double height; } imageViewOverrideSize;
+@property (retain, nonatomic) UIFont *font;
+@property (retain, nonatomic) UIColor *textColor;
+@property (nonatomic) long long textAlignment;
+@property (readonly, nonatomic) double _lastLineBaseline;
+@property (copy, nonatomic) NSString *text;
+@property (copy, nonatomic) NSAttributedString *attributedText;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } opticalInsets;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setNumberOfLines:(long long)a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)setAlpha:(double)a0;
+- (void)drawTextInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)dealloc;
+- (void)layoutSubviews;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)traitCollectionDidChange:(id)a0;
+- (void).cxx_destruct;
+- (double)alpha;
+- (double)_distance;
+- (void)_setAttributedText:(id)a0;
+- (BOOL)_hasImage;
+- (void)_updateTextColor;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_imageBounds;
+- (struct __CTLine { } *)_newLineFromDrawableTextStorage;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_drawableCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a0;
+- (void)_enumerateTransformsForDrawableCharacters:(id /* block */)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_glyphsBoundingRect;
+- (struct CGPoint { double x0; double x1; })_offsetOfBoundingRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_updateMaxSize;
+- (void)invalidateCachedSize;
+- (void)setImageView:(id)a0 placement:(unsigned long long)a1 padding:(double)a2;
+- (void)getTextCenter:(struct CGPoint { double x0; double x1; } *)a0 startAngle:(double *)a1 endAngle:(double *)a2;
+- (void)_updateTracking;
+- (void)_enumerateTransforms:(BOOL)a0 callback:(id /* block */)a1;
+- (double)_extraWidthForImage;
+- (void)_transformForImage:(id /* block */)a0;
+- (struct CGPoint { double x0; double x1; })centerForImage;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transformForImage;
+
+@end

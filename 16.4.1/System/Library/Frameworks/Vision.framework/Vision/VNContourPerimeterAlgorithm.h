@@ -1,0 +1,3 @@
+@interface VNContourPerimeterAlgorithm : NSObject
+
+@end

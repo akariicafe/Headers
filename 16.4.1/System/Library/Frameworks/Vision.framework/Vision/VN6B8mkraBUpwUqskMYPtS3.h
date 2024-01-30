@@ -1,0 +1,24 @@
+@interface VN6B8mkraBUpwUqskMYPtS3 : VNEspressoModelImageprint
+
+@property (readonly) unsigned long long imageSignatureHashType;
+
++ (BOOL)supportsSecureCoding;
++ (id)defaultOriginatingRequestClassNameForRequestRevision:(unsigned long long)a0;
++ (id)currentVersion;
++ (unsigned int)currentCodingVersion;
++ (unsigned long long)currentSerializationVersion;
++ (unsigned long long)serializationMagicNumber;
++ (BOOL)shouldAssumeOriginatingRequestClassForHeaderSerializationVersion:(unsigned int)a0;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithState:(id)a0 error:(id *)a1;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)initWithState:(id)a0 byteOffset:(unsigned long long *)a1 error:(id *)a2;
+- (id)encodeHashDescriptorWithBase64EncodingAndReturnError:(id *)a0;
+- (id)initWithData:(const void *)a0 elementCount:(unsigned long long)a1 elementType:(unsigned long long)a2 lengthInBytes:(unsigned long long)a3 imageSignatureHashType:(unsigned long long)a4 requestRevision:(unsigned long long)a5;
+- (unsigned long long)serializeStateIntoData:(id)a0 startingAtByteOffset:(unsigned long long)a1 error:(id *)a2;
+- (unsigned long long)serializedLength;
+
+@end

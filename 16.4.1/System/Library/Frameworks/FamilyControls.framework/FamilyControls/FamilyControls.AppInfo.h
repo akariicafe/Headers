@@ -1,0 +1,9 @@
+@interface FamilyControls.AppInfo : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ source;
+    void /* unknown type, empty encoding */ bundleIdentifier;
+    void /* unknown type, empty encoding */ displayName;
+    void /* unknown type, empty encoding */ localURL;
+    void /* unknown type, empty encoding */ artworkURL;
+}
+
+@end

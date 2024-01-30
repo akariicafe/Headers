@@ -1,0 +1,3 @@
+@interface TRITripersistedExperimentArtifactRoot : TRIPBRootObject
+
+@end

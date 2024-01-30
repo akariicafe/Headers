@@ -1,0 +1,22 @@
+@interface PVPersonPromoterProfile : NSObject
+
+@property (nonatomic) double interestingPersonMomentsNormalDistributionSigmaFactor;
+@property (nonatomic) double interestingPersonMomentsCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double interestingPersonFacesNormalDistributionSigmaFactor;
+@property (nonatomic) double interestingPersonFacesCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double interestingPersonTimeNormalDistributionSigmaFactor;
+@property (nonatomic) double interestingPersonTimeCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double interestingPersonLastSeenNormalDistributionSigmaFactor;
+@property (nonatomic) double interestingPersonLastSeenCumulativeNormalDistributionLowerTail;
+@property (nonatomic) double interestingPersonLastSeenCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double highlyInterestingPersonMomentsCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double highlyInterestingPersonFacesCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double highlyInterestingPersonTimeCumulativeNormalDistributionUpperTail;
+@property (nonatomic) double highlyInterestingPersonLastSeenCumulativeNormalDistributionLowerTail;
+@property (nonatomic) double highlyInterestingPersonLastSeenCumulativeNormalDistributionUpperTail;
+@property (nonatomic) unsigned long long interestingPersonNormalDistributionsToMatch;
+@property (nonatomic) unsigned long long highlyInterestingPersonNormalDistributionsToMatch;
+
+- (id)init;
+
+@end

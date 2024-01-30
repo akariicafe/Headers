@@ -1,0 +1,68 @@
+@interface MTRBaseClusterBridgedDeviceBasic : MTRBaseClusterBridgedDeviceBasicInformation
+
++ (void)readAttributeAcceptedCommandListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeAttributeListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeClusterRevisionWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeFeatureMapWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeGeneratedCommandListWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeHardwareVersionStringWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeHardwareVersionWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeManufacturingDateWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeNodeLabelWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributePartNumberWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeProductLabelWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeProductNameWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeProductURLWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeReachableWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeSerialNumberWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeSoftwareVersionStringWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeSoftwareVersionWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeUniqueIDWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeVendorIDWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
++ (void)readAttributeVendorNameWithAttributeCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completionHandler:(id /* block */)a3;
+
+- (id)initWithDevice:(id)a0 endpoint:(unsigned short)a1 queue:(id)a2;
+- (void)readAttributeAcceptedCommandListWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeAttributeListWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeFeatureMapWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeGeneratedCommandListWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeHardwareVersionStringWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeHardwareVersionWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeManufacturingDateWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeNodeLabelWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributePartNumberWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeProductLabelWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeProductNameWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeProductURLWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeReachableWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeSerialNumberWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeSoftwareVersionStringWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeSoftwareVersionWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeUniqueIDWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeVendorIDWithCompletionHandler:(id /* block */)a0;
+- (void)readAttributeVendorNameWithCompletionHandler:(id /* block */)a0;
+- (void)subscribeAttributeAcceptedCommandListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeAttributeListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeClusterRevisionWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeFeatureMapWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeGeneratedCommandListWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeHardwareVersionStringWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeHardwareVersionWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeManufacturingDateWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeNodeLabelWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributePartNumberWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeProductLabelWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeProductNameWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeProductURLWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeReachableWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeSerialNumberWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeSoftwareVersionStringWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeSoftwareVersionWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeUniqueIDWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeVendorIDWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)subscribeAttributeVendorNameWithMinInterval:(id)a0 maxInterval:(id)a1 params:(id)a2 subscriptionEstablished:(id /* block */)a3 reportHandler:(id /* block */)a4;
+- (void)writeAttributeNodeLabelWithValue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)writeAttributeNodeLabelWithValue:(id)a0 params:(id)a1 completionHandler:(id /* block */)a2;
+
+@end

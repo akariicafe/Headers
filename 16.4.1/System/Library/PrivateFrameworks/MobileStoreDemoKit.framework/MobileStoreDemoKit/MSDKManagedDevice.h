@@ -1,0 +1,88 @@
+@class NSMutableDictionary, NSObject;
+@protocol OS_xpc_object, MSDKManagedDeviceDelegate;
+
+@interface MSDKManagedDevice : NSObject
+
+@property (retain) NSObject<OS_xpc_object> *connection;
+@property (retain) NSObject<OS_xpc_object> *helperConnection;
+@property (retain) NSMutableDictionary *xpc_cache;
+@property (weak, nonatomic) id<MSDKManagedDeviceDelegate> delegate;
+
++ (id)sharedInstance;
+
+- (void)handleMessage:(id)a0;
+- (void)checkInWithCompletion:(id /* block */)a0;
+- (BOOL)setupConnection;
+- (id)init;
+- (BOOL)prepare;
+- (void).cxx_destruct;
+- (BOOL)cancelOperation;
+- (BOOL)needOwnershipWarning:(id *)a0;
+- (BOOL)isBetterTogetherDemoDevice;
+- (BOOL)isContentFrozen_xpc;
+- (BOOL)_isContentFrozen_xpc:(id *)a0 checkDemo:(BOOL)a1;
+- (BOOL)isContentFrozen;
+- (BOOL)lockDemoContent;
+- (id)_getCurrentNetworkInfoForKeys:(id)a0 outError:(id *)a1;
+- (id)_getDeviceOptions:(id *)a0 checkDemo:(BOOL)a1;
+- (id)_getStoreID:(id *)a0 checkDemo:(BOOL)a1;
+- (void)_handleCheckInXPCResponse:(id)a0 withCompletion:(id /* block */)a1;
+- (void)_handleMarkAsNotDemoXPCResponse:(id)a0 withCompletion:(id /* block */)a1;
+- (void)_handleSearchXPCResponse:(id)a0 withCompletion:(id /* block */)a1;
+- (BOOL)_isEnrolled:(id *)a0 checkDemo:(BOOL)a1;
+- (BOOL)_needOwnershipWarning:(id *)a0 error:(id *)a1;
+- (BOOL)_prepareWithOptions:(id)a0;
+- (unsigned long long)_typeOfDemoDevice:(id *)a0 checkDemo:(BOOL)a1;
+- (BOOL)_unenrollWithOptions:(id)a0 outError:(id *)a1;
+- (BOOL)_unlockDemoContentWithOptions:(id)a0 outError:(id *)a1;
+- (BOOL)checkInBlockingUI;
+- (BOOL)clearOwnershipWarning;
+- (BOOL)collectAppUsageWithSessionStart:(id)a0 andEnd:(id)a1;
+- (BOOL)commitNewDemoContent;
+- (BOOL)configureWiFi:(id)a0 password:(id)a1;
+- (BOOL)deleteDataBlob;
+- (BOOL)disconnectAndForgetWiFi:(id *)a0;
+- (id)errorWithXPCDictionary:(id)a0;
+- (id)getCacheIdentifier;
+- (id)getCurrentNetworkInfoForKeys:(id)a0 outError:(id *)a1;
+- (long long)getDemoInstallState;
+- (id)getDeviceOptions;
+- (id)getDeviceOptions:(id *)a0;
+- (id)getFriendlyDeviceName;
+- (id)getPersistentWiFiSsid;
+- (id)getScreenSaverConfig;
+- (id)getStoreID;
+- (id)getStoreID:(id *)a0;
+- (void)handleContentUpdateStatus:(const char *)a0 event:(id)a1;
+- (BOOL)inferContentFrozenFromPreferencesFile;
+- (BOOL)isContentFrozen:(id *)a0;
+- (BOOL)isDeviceClassSupported;
+- (BOOL)isEnrolled;
+- (BOOL)isEnrolled:(id *)a0;
+- (void)markAsNotDemoWithCompletion:(id /* block */)a0;
+- (BOOL)needOwnershipWarning:(id *)a0 error:(id *)a1;
+- (BOOL)prepareWithOptions:(id)a0;
+- (BOOL)prepareWithWiFi:(id)a0 password:(id)a1;
+- (id)readNVRam:(id)a0;
+- (id)retrieveDataBlob;
+- (id)retrieveXPCConnectionToPeerService;
+- (BOOL)revertDemoContent;
+- (BOOL)saveBluetoothPairingInfo;
+- (BOOL)saveScreenSaverConfig:(id)a0;
+- (id)saveScreenSaverIdleDelay:(id)a0;
+- (id)saveStoreHour:(id)a0;
+- (void)searchStoreWithOptions:(id)a0 completion:(id /* block */)a1;
+- (BOOL)setDeviceLanguage:(id)a0 andRegion:(id)a1;
+- (BOOL)setIdleDelay:(long long)a0;
+- (BOOL)setStoreOpenAt:(long long)a0 openMinute:(long long)a1 closeHour:(long long)a2 closeMinute:(long long)a3;
+- (BOOL)setupConnection:(id)a0 withMachService:(id)a1;
+- (BOOL)setupHelperConnection;
+- (BOOL)storeDataBlob:(id)a0;
+- (unsigned long long)typeOfDemoDevice;
+- (unsigned long long)typeOfDemoDevice:(id *)a0;
+- (BOOL)unenroll:(BOOL)a0;
+- (BOOL)unenrollWithOptions:(id)a0 outError:(id *)a1;
+- (BOOL)unlockDemoContent;
+- (BOOL)unlockDemoContentWithOptions:(id)a0 outError:(id *)a1;
+
+@end

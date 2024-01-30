@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.EndSpeechDictationSessionMessage : SiriRequestDispatcher.SessionMessageBase
+
+@end

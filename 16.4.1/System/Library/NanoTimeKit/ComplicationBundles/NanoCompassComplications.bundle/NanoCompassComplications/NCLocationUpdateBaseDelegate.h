@@ -1,0 +1,97 @@
+@class NSDate, PCPersistentTimer, NSString, CLLocationManager, NSArray, NSMutableDictionary, NCLocation, NCAltitude, NCWaypoint, NCMotionClassificationManager;
+
+@interface NCLocationUpdateBaseDelegate : NSObject <NCBacktrackLocationDataSource, CLLocationManagerDelegate> {
+    CLLocationManager *_locationManager;
+    unsigned long long _locationToken;
+    NSMutableDictionary *_locationUpdateHandlers;
+    unsigned long long _locationServiceToken;
+    NSMutableDictionary *_locationServiceUpdateHandlers;
+    NCMotionClassificationManager *_motionClassificationManager;
+    PCPersistentTimer *_locationUpdateIdleTimer;
+    NCLocation *_location;
+    NCAltitude *_altitude;
+    BOOL _transcriptSessionActive;
+    NSArray *_waypoints;
+    NCWaypoint *_parkedCarWaypoint;
+    NCWaypoint *_nearestWaypoint;
+    NCWaypoint *_furthestWaypoint;
+    double _shortestDistance;
+    double _furthestDistance;
+    id /* block */ _nearestWaypointHandler;
+    id /* block */ _furthestWaypointHandler;
+    BOOL _furthestNeedsResend;
+    BOOL _nearestNeedsResend;
+    id /* block */ _locationAccuracyHandler;
+    id /* block */ _motionActivityHandler;
+    NSDate *_locationLogTimestamp;
+    BOOL _authorizationStatusDetermined;
+    id /* block */ _locationPromptCompletionHandler;
+}
+
+@property (nonatomic) double currentLocationAccuracy;
+@property (readonly, nonatomic) long long motionType;
+@property (readonly, nonatomic, getter=isStationary) BOOL stationary;
+@property (nonatomic, getter=shouldForce1Hz) BOOL force1Hz;
+@property (nonatomic, getter=shouldStartLocationUpdate) BOOL startLocationUpdate;
+@property (nonatomic) int locationAuthorizationStatus;
+@property (nonatomic) BOOL waypointComplicationIsActive;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)CLAuthorizationStatusToString:(int)a0;
+
+- (void)setWaypoints:(id)a0;
+- (void)locationManager:(id)a0 didUpdateLocations:(id)a1;
+- (void)_startIdleTimer;
+- (void)locationManagerDidChangeAuthorization:(id)a0;
+- (void)stopLocationUpdatesForToken:(id)a0;
+- (void)locationManager:(id)a0 didFailWithError:(id)a1;
+- (id)init;
+- (void)endSession:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)startSession:(id /* block */)a0;
+- (id)getAltitude;
+- (id)getLocation;
+- (id)startLocationUpdatesWithHandler:(id /* block */)a0;
+- (void)stopLocationUpdates;
+- (double)initialAccuracy;
+- (id)_accuracyToString:(double)a0;
+- (double)_cappedMaxDistance;
+- (void)_idleTimerFired:(id)a0;
+- (void)_invalidateIdleTimer;
+- (void)_logCurrentLocation:(id)a0;
+- (void)_notifyLocationUpdateHandlers;
+- (void)_resetLocationAndAltitude;
+- (void)_setFurthestWaypoint:(id)a0 withDistance:(double)a1;
+- (void)_setNearestWaypoint:(id)a0 withDistance:(double)a1;
+- (void)_updateMotionType:(long long)a0 isDeviceStationary:(BOOL)a1;
+- (void)activateWaypointComplication;
+- (void)adjustLocationUpdateAccuracy;
+- (void)deactivateWaypointComplication;
+- (double)expectedAccuracy;
+- (void)fetchLocationsWithinRadius:(double)a0 count:(int)a1 taskIdentifier:(id)a2 completionHandler:(id /* block */)a3;
+- (id)filterWaypointsOnSameDEMTile:(id)a0 with:(id)a1;
+- (unsigned long long)getClientCount;
+- (id)getGroundAltitudeByLocation:(id)a0;
+- (double)getNearestWaypointDistance;
+- (BOOL)isLocationServiceOff;
+- (void)locationPromptIsShownWithCompletion:(id /* block */)a0;
+- (void)populateNearestAndFurthestWaypoints;
+- (void)setParkedCarWaypoint:(id)a0;
+- (void)startFurthestWaypointUpdatesWithHandler:(id /* block */)a0;
+- (void)startLocationAccuracyUpdatesWithHandler:(id /* block */)a0;
+- (id)startLocationServiceUpdateWithHandler:(id /* block */)a0;
+- (void)startLocationUpdatesWithAccuracy:(double)a0;
+- (void)startMotionActivityUpdatesWithHandler:(id /* block */)a0;
+- (void)startNearestWaypointUpdatesWithHandler:(id /* block */)a0;
+- (void)stopFurthestWaypointUpdates;
+- (void)stopLocationAccuracyUpdates;
+- (void)stopLocationServiceUpdatesForToken:(id)a0;
+- (void)stopMotionActivityUpdates;
+- (void)stopNearestWaypointUpdates;
+- (void)updateLocation:(id)a0 error:(id)a1;
+- (void)updateLocationManagerWithCurrentAuthorizationStatus;
+
+@end

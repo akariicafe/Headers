@@ -1,0 +1,7 @@
+@interface SiriLinkDataTools.V3ImportedFramework : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ name;
+    void /* unknown type, empty encoding */ importAll;
+    void /* unknown type, empty encoding */ actionAbsoluteNames;
+}
+
+@end

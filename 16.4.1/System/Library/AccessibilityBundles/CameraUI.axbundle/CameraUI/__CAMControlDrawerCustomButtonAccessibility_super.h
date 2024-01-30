@@ -1,0 +1,3 @@
+@interface __CAMControlDrawerCustomButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

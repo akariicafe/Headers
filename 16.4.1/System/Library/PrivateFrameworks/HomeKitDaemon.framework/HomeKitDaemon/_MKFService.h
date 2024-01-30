@@ -1,0 +1,95 @@
+@class NSUUID, NSString, NSArray, NSPredicate, NSDate, NSSet, _MKFApplicationData, MKFServiceDatabaseID, Protocol, _MKFHAPAccessory, NSNumber;
+@protocol MKFHome, MKFApplicationData, MKFHAPAccessory;
+
+@interface _MKFService : _MKFModel <HMDNSManagedObjectBackingStoreModelObjectRepresentable, MKFService, MKFServicePrivateExtensions>
+
+@property (class, readonly) Class cd_modelClass;
+@property (class, readonly) NSPredicate *homeRelation;
+@property (class, readonly, copy, nonatomic) Protocol *backingModelProtocol;
+
+@property (readonly, copy, nonatomic) NSUUID *hmd_modelID;
+@property (readonly, copy, nonatomic) NSUUID *hmd_parentModelID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSUUID *associatedServiceType;
+@property (copy, nonatomic) NSNumber *configurationState;
+@property (copy, nonatomic) NSString *expectedConfiguredName;
+@property (copy, nonatomic) NSNumber *instanceID;
+@property (copy, nonatomic) NSNumber *labelIndex;
+@property (copy, nonatomic) NSNumber *labelNamespace;
+@property (copy, nonatomic) NSNumber *lastKnownDiscoveryMode;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingState;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingStateAbnormalReasons;
+@property (retain, nonatomic) NSArray *linkedServices;
+@property (retain, nonatomic) NSArray *mediaSourceDisplayOrder;
+@property (copy, nonatomic) NSNumber *mediaSourceIdentifier;
+@property (copy, nonatomic) NSUUID *modelID;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *providedName;
+@property (copy, nonatomic) NSNumber *serviceProperties;
+@property (copy, nonatomic) NSUUID *serviceSubtype;
+@property (copy, nonatomic) NSUUID *serviceType;
+@property (copy, nonatomic) NSDate *writerTimestamp;
+@property (retain, nonatomic) _MKFHAPAccessory *accessory;
+@property (retain, nonatomic) NSSet *actionCharacteristicWrites_;
+@property (retain, nonatomic) _MKFApplicationData *applicationData;
+@property (retain, nonatomic) NSSet *characteristics_;
+@property (retain, nonatomic) NSSet *eventCharacteristics_;
+@property (retain, nonatomic) NSSet *serviceGroups_;
+@property (copy, nonatomic) NSUUID *associatedServiceType;
+@property (copy, nonatomic) NSNumber *configurationState;
+@property (copy, nonatomic) NSString *expectedConfiguredName;
+@property (readonly, copy, nonatomic) NSNumber *instanceID;
+@property (copy, nonatomic) NSNumber *labelIndex;
+@property (copy, nonatomic) NSNumber *labelNamespace;
+@property (copy, nonatomic) NSNumber *lastKnownDiscoveryMode;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingState;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingStateAbnormalReasons;
+@property (retain, nonatomic) NSArray *linkedServices;
+@property (retain, nonatomic) NSArray *mediaSourceDisplayOrder;
+@property (copy, nonatomic) NSNumber *mediaSourceIdentifier;
+@property (copy, nonatomic) NSUUID *modelID;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *providedName;
+@property (copy, nonatomic) NSNumber *serviceProperties;
+@property (copy, nonatomic) NSUUID *serviceSubtype;
+@property (copy, nonatomic) NSUUID *serviceType;
+@property (copy, nonatomic) NSDate *writerTimestamp;
+@property (readonly, retain, nonatomic) id<MKFHAPAccessory> accessory;
+@property (readonly, retain, nonatomic) NSArray *actionCharacteristicWrites;
+@property (retain, nonatomic) id<MKFApplicationData> applicationData;
+@property (retain, nonatomic) NSArray *characteristics;
+@property (readonly, retain, nonatomic) NSArray *eventCharacteristics;
+@property (readonly, retain, nonatomic) NSArray *serviceGroups;
+@property (readonly, copy, nonatomic) MKFServiceDatabaseID *databaseID;
+@property (readonly) id<MKFHome> home;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)fetchRequest;
++ (id)modelIDForKeyAttribute:(id)a0 parent:(id)a1;
+
+- (id)castIfService;
+- (id)createCharacteristicsRelationOfType:(id)a0 instanceID:(id)a1;
+- (id)createCharacteristicsRelationOfTypeCharacteristicWithInstanceID:(id)a0;
+- (id)createCharacteristicsRelationOfTypeFloatCharacteristicWithInstanceID:(id)a0;
+- (id)createCharacteristicsRelationOfTypeIntegerCharacteristicWithInstanceID:(id)a0;
+- (id)createCharacteristicsRelationOfTypeStringCharacteristicWithInstanceID:(id)a0;
+- (id)findCharacteristicsRelationOfTypeCharacteristicWithInstanceID:(id)a0;
+- (id)findCharacteristicsRelationOfTypeFloatCharacteristicWithInstanceID:(id)a0;
+- (id)findCharacteristicsRelationOfTypeIntegerCharacteristicWithInstanceID:(id)a0;
+- (id)findCharacteristicsRelationOfTypeStringCharacteristicWithInstanceID:(id)a0;
+- (id)materializeOrCreateApplicationDataRelation:(BOOL *)a0;
+- (id)materializeOrCreateCharacteristicsRelationOfType:(id)a0 instanceID:(id)a1 createdNew:(BOOL *)a2;
+- (id)materializeOrCreateCharacteristicsRelationOfTypeCharacteristicWithInstanceID:(id)a0 createdNew:(BOOL *)a1;
+- (id)materializeOrCreateCharacteristicsRelationOfTypeFloatCharacteristicWithInstanceID:(id)a0 createdNew:(BOOL *)a1;
+- (id)materializeOrCreateCharacteristicsRelationOfTypeIntegerCharacteristicWithInstanceID:(id)a0 createdNew:(BOOL *)a1;
+- (id)materializeOrCreateCharacteristicsRelationOfTypeStringCharacteristicWithInstanceID:(id)a0 createdNew:(BOOL *)a1;
+- (id)pr_findCharacteristicWithInstanceID:(id)a0;
+- (void)synchronizeCharacteristicsRelationWith:(id)a0;
+
+@end

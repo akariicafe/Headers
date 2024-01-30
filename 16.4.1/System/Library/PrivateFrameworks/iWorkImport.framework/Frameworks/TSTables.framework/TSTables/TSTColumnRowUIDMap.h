@@ -1,0 +1,85 @@
+@class TSTColumnRowUIDMapper;
+
+@interface TSTColumnRowUIDMap : TSPObject <TSCEColumnRowUIDMapping> {
+    struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *__begin_; struct TSKUIDStruct *__end_; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *__value_; } __end_cap_; } _columnUidForIndex;
+    struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *__begin_; struct TSKUIDStruct *__end_; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *__value_; } __end_cap_; } _rowUidForIndex;
+    struct unordered_map<TSKUIDStruct, unsigned short, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, std::allocator<std::pair<const TSKUIDStruct, unsigned short>>> { struct __hash_table<std::__hash_value_type<TSKUIDStruct, unsigned short>, std::__unordered_map_hasher<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned short>, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, true>, std::__unordered_map_equal<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned short>, std::equal_to<TSKUIDStruct>, std::hash<TSKUIDStruct>, true>, std::allocator<std::__hash_value_type<TSKUIDStruct, unsigned short>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned short>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned short>, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned short>, std::equal_to<TSKUIDStruct>, std::hash<TSKUIDStruct>, true>> { float __value_; } __p3_; } __table_; } _columnIndexForUid;
+    struct unordered_map<TSKUIDStruct, unsigned int, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, std::allocator<std::pair<const TSKUIDStruct, unsigned int>>> { struct __hash_table<std::__hash_value_type<TSKUIDStruct, unsigned int>, std::__unordered_map_hasher<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned int>, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, true>, std::__unordered_map_equal<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned int>, std::equal_to<TSKUIDStruct>, std::hash<TSKUIDStruct>, true>, std::allocator<std::__hash_value_type<TSKUIDStruct, unsigned int>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSKUIDStruct, unsigned int>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned int>, std::hash<TSKUIDStruct>, std::equal_to<TSKUIDStruct>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<TSKUIDStruct, std::__hash_value_type<TSKUIDStruct, unsigned int>, std::equal_to<TSKUIDStruct>, std::hash<TSKUIDStruct>, true>> { float __value_; } __p3_; } __table_; } _rowIndexForUid;
+    TSTColumnRowUIDMapper *_copyOnWriteUIDMapper;
+}
+
+@property (readonly, nonatomic) unsigned short numberOfColumns;
+@property (readonly, nonatomic) unsigned int numberOfRows;
+@property (readonly, nonatomic) struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; } range;
+@property (readonly, nonatomic) unsigned long long versionCounter;
+
+- (BOOL)isEmpty;
+- (id).cxx_construct;
+- (id)initWithContext:(id)a0;
+- (void).cxx_destruct;
+- (void)reset;
+- (id)copyWithContext:(id)a0;
+- (void)removeRowsAtIndexes:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })columnUIDForColumnIndex:(unsigned short)a0;
+- (struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })rowUIDForRowIndex:(unsigned int)a0;
+- (struct TSKUIDStructCoord { struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; })cellUIDForCellID:(struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; })a0;
+- (id)mutableIndexesForUIDSet:(id)a0 isRows:(BOOL)a1;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })prunedColumnUIDsFromColumnUIDs:(const void *)a0;
+- (const void *)rowUIDs;
+- (BOOL)_checkStructure;
+- (id)UIDSetForIndexes:(id)a0 isRows:(BOOL)a1;
+- (void)applyMap:(const void *)a0 toRows:(BOOL)a1;
+- (void)assertCollaborationConvergence;
+- (struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; })cellIDForCellUID:(struct TSKUIDStructCoord { struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; })a0;
+- (struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; })cellRangeForUIDRange:(const void *)a0;
+- (id)cellRegionForUIDRange:(const void *)a0;
+- (id)cellTractRefForUIDRectRef:(id)a0;
+- (struct TSKUIDStructTract { struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; } x0; struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; } x1; })cellUIDRangeForCellRange:(struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; })a0;
+- (unsigned short)columnIndexForColumnUID:(struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })a0;
+- (unsigned short)columnIndexForUUIDBytes:(unsigned char[16])a0;
+- (id)columnIndexesForUIDs:(const void *)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })columnRangeForUIDs:(const void *)a0;
+- (const void *)columnUIDs;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })columnUIDsForColumnIndexes:(id)a0;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })columnUIDsForColumnRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)columnUuids;
+- (void)convertCellUIDLookupList:(id)a0 toCellRangeVector:(void *)a1 prunedSummaryCellUIDs:(void *)a2;
+- (id)copyOnWriteUIDMapper;
+- (struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })firstUidFromUIDSet:(id)a0 isRows:(BOOL)a1;
+- (void)getUUIDBytes:(unsigned char[16])a0 forColumnIndex:(unsigned short)a1;
+- (void)getUUIDBytes:(unsigned char[16])a0 forRowIndex:(unsigned int)a1;
+- (void)incrementVersionCounter;
+- (id)initWithContext:(id)a0 columnUIDs:(const void *)a1 rowUIDs:(const void *)a2;
+- (id)initWithContext:(id)a0 tableUUID:(id)a1 numberOfRows:(unsigned int)a2 numberOfColumns:(unsigned int)a3;
+- (void)insertColumnsWithUIDs:(const void *)a0 atIndex:(unsigned short)a1;
+- (void)insertNewColumnsInIndexRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)insertNewRowsInIndexRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)insertRowsWithUIDs:(const void *)a0 atIndex:(unsigned int)a1;
+- (void)moveColumnIndexRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 toIndex:(unsigned short)a1;
+- (void)moveRowIndexRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 toIndex:(unsigned int)a1;
+- (id)mutableColumnIndexesForUIDs:(const void *)a0;
+- (id)mutableIndexesForUIDSet:(id)a0 isRows:(BOOL)a1 notFoundUIDs:(id)a2;
+- (id)mutableRowIndexesForUIDs:(const void *)a0;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })orderedColumnUidsFromUids:(const void *)a0;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })orderedRowUidsFromUids:(const void *)a0;
+- (id)p_mutableColumnIndexesForUIDSet:(id)a0 notFoundUIDs:(id)a1;
+- (id)p_mutableRowIndexesForUIDSet:(id)a0 notFoundUIDs:(id)a1;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })prunedRowUIDsFromRowUIDs:(const void *)a0;
+- (void)removeColumnsAtIndexes:(id)a0;
+- (void)replaceColumnsWithUids:(const void *)a0;
+- (void)replaceRowsWithUids:(const void *)a0;
+- (unsigned int)rowIndexForRowUID:(struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })a0;
+- (unsigned int)rowIndexForUUIDBytes:(unsigned char[16])a0;
+- (id)rowIndexesForUIDs:(const void *)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rowRangeForUIDs:(const void *)a0;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })rowUIDsForRowIndexes:(id)a0;
+- (struct TSKUIDStructVectorTemplate<TSKUIDStruct> { struct TSKUIDStruct *x0; struct TSKUIDStruct *x1; struct __compressed_pair<TSKUIDStruct *, std::allocator<TSKUIDStruct>> { struct TSKUIDStruct *x0; } x2; })rowUIDsForRowRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)rowUuids;
+- (void)swapRowAtIndex:(unsigned int)a0 withRowAtIndex:(unsigned int)a1;
+- (struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x1; })tableRangeCoordinate;
+- (id)uidRectRefForCellTractRef:(id)a0;
+- (BOOL)writeCellIDsInCellUIDList:(id)a0 toVector:(void *)a1 prunedCellUIDs:(void *)a2;
+
+@end

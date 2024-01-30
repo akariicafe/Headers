@@ -1,0 +1,97 @@
+@class _SBAdaptiveKeyLineBackdropView, NSString, SBSystemApertureSettings, UIView, _SBSystemApertureGainMapView, NSMutableDictionary, _UILumaTrackingBackdropView, SAUILayoutObstruction, UIViewController, NSMutableSet, UIColor;
+@protocol SBSystemApertureElementOrientationAuthority, SBSystemApertureContainerViewDelegate, SAUIElementViewControlling, SAUILayoutObstructed;
+
+@interface SBSystemApertureContainerView : UIView <_UILumaTrackingBackdropViewDelegate, PTSettingsKeyObserver, SBSystemApertureElementViewControllingContaining, SBSystemApertureGainMapBackedRendering, SBSystemApertureElementOrientationObserving, SAUITransitionTracking, SBSystemApertureElementOrientationAuthority> {
+    SBSystemApertureSettings *_settings;
+    UIView *_contentClippingView;
+    _UILumaTrackingBackdropView *_backgroundLumaSamplingBackdrop;
+    UIView *_darkBkgKeyLineView;
+    _SBAdaptiveKeyLineBackdropView *_lightBkgKeyLineView;
+    UIView *_shadowView;
+    UIView *_blobEnablingBlackFillView;
+    _SBSystemApertureGainMapView *_gainMapView;
+    UIView *_backgroundGroupingView;
+    UIView *_subBackgroundGroupingView;
+    UIView *_hitTestView;
+    UIView<SAUILayoutObstructed> *_contentView;
+    long long _shadowStyle;
+    long long _keyLineStyle;
+    long long _renderingBackgroundLuminanceLevel;
+    UIColor *_keyLineTintColor;
+    UIColor *_cachedValidatedKeyLineTintColor;
+    SAUILayoutObstruction *_sensorRegionObstruction;
+    NSMutableDictionary *_transitionIDsToReasons;
+    struct UIEdgeInsets { double top; double left; double bottom; double right; } _gainMapLayerInsets;
+    struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } _previousContentTransform;
+    struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } _activeContentRotationTransform;
+    struct CGSize { double width; double height; } _referenceSizeForContentScale;
+    NSMutableSet *_contentScalingReasons;
+    unsigned long long _rank;
+    BOOL _needsKeyLineStyleUpdate;
+    BOOL _needsShadowStyleUpdate;
+}
+
+@property (nonatomic) unsigned long long rank;
+@property (weak, nonatomic) id<SBSystemApertureContainerViewDelegate> delegate;
+@property (nonatomic, getter=isContentClippingEnabled) BOOL contentClippingEnabled;
+@property (nonatomic) double contentAlpha;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } interSensorRegion;
+@property (nonatomic) long long shadowStyle;
+@property (nonatomic) long long keyLineStyle;
+@property (copy, nonatomic) UIColor *keyLineTintColor;
+@property (nonatomic) long long renderingBackgroundLuminanceLevel;
+@property (readonly, nonatomic) long long sampledBackgroundLuminanceLevel;
+@property (readonly, nonatomic, getter=isScalingContent) BOOL scalingContent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) UIViewController<SAUIElementViewControlling> *elementViewController;
+@property (readonly, weak, nonatomic) UIViewController<SAUIElementViewControlling> *outgoingElementViewController;
+@property (nonatomic) struct SBSystemApertureContainerRenderingConfiguration { long long x0; long long x1; } renderingConfiguration;
+@property (weak, nonatomic) id<SBSystemApertureElementOrientationAuthority> elementOrientationAuthority;
+@property (readonly, nonatomic, getter=isTrackingTransition) BOOL trackingTransition;
+
++ (double)_defaultCornerRadiusForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inWindow:(id)a1;
+
+- (void)setNeedsLayout;
+- (void)backgroundLumaView:(id)a0 didTransitionToLevel:(unsigned long long)a1;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)setCenter:(struct CGPoint { double x0; double x1; })a0;
+- (void)_setCornerRadius:(double)a0;
+- (void)settings:(id)a0 changedValueForKey:(id)a1;
+- (void)layoutSubviews;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)willMoveToSuperview:(id)a0;
+- (void)_setContinuousCornerRadius:(double)a0;
+- (void).cxx_destruct;
+- (BOOL)isTrackingTransitionWithReason:(id)a0;
+- (id)_alphaDimmedTintColorForValidatedTintColor:(id)a0;
+- (void)_applySettingsValues;
+- (double)_cornerRadiusForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_generateAccessibilityIdentifier;
+- (void)_invertColorsChanged:(id)a0;
+- (BOOL)_isInRotationTransition;
+- (void)_layoutContentWithBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 referenceSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_layoutHitTestViewWithBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_setContentViewTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0 elementViewControllerInterfaceOrientation:(long long)a1;
+- (void)_setScalingContent:(BOOL)a0 updatingImmediately:(BOOL)a1;
+- (void)_updateContentViewTransformImmediately;
+- (void)_updateKeyLineFilters;
+- (void)_updateKeyLineStyle;
+- (void)_updateShadowStyleIfNeeded;
+- (id)_validatedKeyLineTintColor;
+- (long long)activeElementInterfaceOrientationForSystemApertureElementOrientationObserver:(id)a0;
+- (void)addContentSubview:(id)a0;
+- (void)beginTrackingTransitionWithUniqueIdentifier:(id)a0 reason:(id)a1;
+- (void)elementOrientationDidChangeWithTransitionCoordinator:(id)a0;
+- (void)endTrackingTransitionWithUniqueIdentifier:(id)a0;
+- (id)initIncludingSensorRegion:(BOOL)a0;
+- (BOOL)isScalingContentForReason:(id)a0;
+- (void)sb_setID0CornerRadius:(double)a0;
+- (void)setScalingContent:(BOOL)a0 forReason:(id)a1;
+- (void)setScalingContent:(BOOL)a0 forReason:(id)a1 updatingImmediately:(BOOL)a2;
+- (void)stopScalingContentUpdatingImmediately:(BOOL)a0;
+- (void)updateKeyLineStyleIfNeeded;
+
+@end

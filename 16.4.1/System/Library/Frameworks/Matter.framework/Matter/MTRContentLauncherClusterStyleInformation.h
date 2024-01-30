@@ -1,0 +1,3 @@
+@interface MTRContentLauncherClusterStyleInformation : MTRContentLauncherClusterStyleInformationStruct
+
+@end

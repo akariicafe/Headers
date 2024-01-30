@@ -1,0 +1,3 @@
+@interface UIKeyboardCandidateViewConfigurationPadInline : UIKeyboardCandidateViewConfigurationPhoneInline
+
+@end

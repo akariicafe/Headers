@@ -1,0 +1,82 @@
+@class NSUUID, CNKForegroundApp;
+
+@interface CNKConversationControlsManager : NSObject <UIPopoverPresentationControllerDelegate> {
+    void /* unknown type, empty encoding */ initiallyActiveParticipantIdentifiers;
+    void /* unknown type, empty encoding */ conversationController;
+    void /* unknown type, empty encoding */ noticeCoordinator;
+    void /* unknown type, empty encoding */ activeNoticeCancellable;
+    void /* unknown type, empty encoding */ countdownController;
+    void /* unknown type, empty encoding */ contentExtractor;
+    void /* unknown type, empty encoding */ isOnScreenSubscription;
+    void /* unknown type, empty encoding */ defaults;
+    void /* unknown type, empty encoding */ features;
+    void /* unknown type, empty encoding */ activeShareCardHandle;
+    void /* unknown type, empty encoding */ systemConversationControlsDelegate;
+    void /* unknown type, empty encoding */ inCallConversationControlsDelegate;
+    void /* unknown type, empty encoding */ inCallDetailsViewControllerDelegate;
+    void /* unknown type, empty encoding */ audioRoutingDelegate;
+    void /* unknown type, empty encoding */ handoffCompletedDelegate;
+    void /* unknown type, empty encoding */ approvalDelegate;
+    void /* unknown type, empty encoding */ _shouldOpenMessages;
+    void /* unknown type, empty encoding */ _shouldEnableStartingStagedActivity;
+    void /* unknown type, empty encoding */ _audioRoute;
+    void /* unknown type, empty encoding */ _bluetoothAudioFormat;
+    void /* unknown type, empty encoding */ _localAudioEnabled;
+    void /* unknown type, empty encoding */ _localVideoButtonState;
+    void /* unknown type, empty encoding */ _shareMenuButtonState;
+    void /* unknown type, empty encoding */ _pttChannelState;
+    void /* unknown type, empty encoding */ _pttChannelTransmissionMode;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_pttViewModel;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_pttCallUpdateSubject;
+    void /* unknown type, empty encoding */ incomingTransmissionReceivedSubject;
+    void /* unknown type, empty encoding */ pttCallStatusUpdateCancellable;
+    void /* unknown type, empty encoding */ pttCallIncomingTransmissionReceivedCancellable;
+    void /* unknown type, empty encoding */ confirmLeavePTTChannelAlert;
+    void /* unknown type, empty encoding */ _foregroundApp;
+    void /* unknown type, empty encoding */ foregroundCollaborationState;
+    void /* unknown type, empty encoding */ collaborationInitiationManager;
+    void /* unknown type, empty encoding */ _ephemeralAlert;
+    void /* unknown type, empty encoding */ shouldShowDelayedLMIBanner;
+    void /* unknown type, empty encoding */ entitlementsChecker;
+    void /* unknown type, empty encoding */ isWaitingOnFirstRemoteFrame;
+    void /* unknown type, empty encoding */ shouldShowAVLessLeaveConfirmation;
+    void /* unknown type, empty encoding */ avLessLeaveConfirmationPresentedDate;
+    void /* unknown type, empty encoding */ activityLaunchTimer;
+    void /* unknown type, empty encoding */ _appLaunchButtonType;
+    void /* unknown type, empty encoding */ screenShareCountdownTimer;
+}
+
+@property (nonatomic, readonly) NSUUID *callUUID;
+@property (nonatomic, readonly) BOOL conversationIsAVLess;
+@property (nonatomic) void /* unknown type, empty encoding */ shouldShowCallDetailsWhenReady;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ localAudioTogglingDelegate;
+@property (nonatomic, readonly) BOOL isConfirmLeavePTTChannelAlertPresented;
+@property (nonatomic, retain) CNKForegroundApp *foregroundApp;
+@property (nonatomic) void /* unknown type, empty encoding */ applicationState;
+
+- (long long)adaptivePresentationStyleForPresentationController:(id)a0 traitCollection:(id)a1;
+- (void)acceptCallButtonTappedWithButton:(id)a0;
+- (void)accessibilityDidAddPendingParticipant:(id)a0;
+- (void)pttLeaveButtonTappedWithButton:(id)a0;
+- (void)avLessContinueButtonTappedWithButton:(id)a0;
+- (void)collaborateButtonTappedWithButton:(id)a0;
+- (void)continueHandoffButtonTapped;
+- (void)dismissConfirmLeavePTTChannelAlert;
+- (void)handleDidChangeIsWaitingOnFirstRemoteFrame:(id)a0;
+- (void)joinButtonTappedWithButton:(id)a0;
+- (void)leaveButtonTappedWithButton:(id)a0;
+- (void)notNowButtonTappedWithButton:(id)a0;
+- (void)openMessagesButtonTapped;
+- (void)pttDoneButtonTappedWithRecognizer:(id)a0;
+- (void)pttTalkButtonGestureChangedWithRecognizer:(id)a0;
+- (void)rejectCallButtonTappedWithButton:(id)a0;
+- (void)showInCallHUD;
+- (void)toggleMicButtonTappedWithButton:(id)a0;
+- (void)toggleVideoButtonTappedWithButton:(id)a0;
+- (void)dealloc;
+- (id)initWithActiveCall:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)refreshShareableContentWithBundleIdentifier:(id)a0;
+
+@end

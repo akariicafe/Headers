@@ -1,0 +1,97 @@
+@class MFMailboxUid, NSString, MFIMAPConnection, NSLock, EFCancelationToken, NSObject, MFMailMessageLibrary, IMAPAccount;
+@protocol OS_os_log;
+
+@interface MFLegacyIMAPMailboxTaskManager : NSObject <MFIMAPConnectionDelegate, MFIMAPSequenceIdentifierProvider, ECIMAPLocalActionReplayerDelegate, EFLoggable, MFIMAPMailboxTaskManager> {
+    BOOL _supportsForwardedFlag;
+    BOOL _supportsDollarForwardedFlag;
+    BOOL _supportsFlagColorBitFlags;
+    BOOL _settingServerCount;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _activeFetchVsReplayLock;
+    NSString *_mailboxName;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _serverCountLock;
+    unsigned long long _serverMessageCount;
+    unsigned long long _serverDeletedCount;
+    unsigned long long _lastHighestModSequence;
+    unsigned long long _highestModSequence;
+    MFIMAPConnection *_cachedConnection;
+    NSLock *_cachedConnectionLock;
+    NSString *_loggingPrefix;
+}
+
+@property (class, readonly) NSObject<OS_os_log> *log;
+
+@property (readonly, nonatomic) MFMailboxUid *mailbox;
+@property (readonly, copy, nonatomic) NSString *mailboxName;
+@property BOOL shouldUseIDLE;
+@property (retain, nonatomic) EFCancelationToken *cancelationToken;
+@property (readonly, nonatomic) IMAPAccount *account;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) MFMailMessageLibrary *library;
+@property (readonly, nonatomic) BOOL canFetchMessageIDs;
+
+- (void)compact;
+- (id)_idleConditionsObservable;
+- (BOOL)moveSupportedFromMailboxURL:(id)a0 toURL:(id)a1;
+- (id)deletedMessages;
+- (void)reselectMailbox;
+- (BOOL)fetchDataForMimePart:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 isComplete:(BOOL *)a2 consumer:(id)a3;
+- (id)initWithMailbox:(id)a0;
+- (void)_fetchServerUnreadCountWithConnection:(id)a0;
+- (BOOL)_selectMailbox:(id)a0 withConnection:(id)a1;
+- (void)setSequenceIdentifier:(id)a0 forUIDs:(id)a1;
+- (void)setServerMessageCount:(unsigned long long)a0;
+- (void)handleFlagsChangedForMessages:(id)a0 flags:(id)a1 oldFlagsByMessage:(id)a2;
+- (void)_performActionsOnConnection:(id)a0 uidsToFetch:(id *)a1 uidsToSync:(id *)a2 messagesToCompact:(id *)a3 serverMessages:(id)a4 flagSearchResults:(id)a5 shouldForce:(BOOL)a6 newUIDsToFetch:(unsigned int *)a7;
+- (id)offlineCacheIfOffline;
+- (void)growFetchWindow;
+- (id)_remoteBodySearchForCriterion:(id)a0;
+- (BOOL)shouldStartIdleForConnection:(id)a0;
+- (void)_updateServerUnreadCount:(unsigned long long)a0;
+- (id)fetchDataForMessage:(id)a0 partial:(BOOL *)a1;
+- (id)imapMailboxNameForMailboxURL:(id)a0;
+- (id)replayAction:(id)a0;
+- (id)messageIdRollCall:(id)a0;
+- (BOOL)performOperationRequiringConnection:(BOOL)a0 withOptions:(int)a1 failedToSelectMailbox:(BOOL *)a2 operation:(id /* block */)a3;
+- (void)willRemoveDelegation:(id)a0;
+- (void)updateServerUnreadCountClosingConnection:(BOOL)a0;
+- (BOOL)checkUIDValidity:(unsigned int)a0 mailboxURL:(id)a1;
+- (id)messageDataForRemoteID:(id)a0 mailboxURL:(id)a1;
+- (void)dealloc;
+- (id)_searchFlagsForUIDs:(id)a0 usingConnection:(id)a1;
+- (id)messageDataForMessage:(id)a0;
+- (void)_fetchMessagesMatchingCriterion:(id)a0 limit:(unsigned int)a1 withOptions:(int)a2 handler:(id /* block */)a3;
+- (id)_downloadForMessageBodyData:(id)a0 usingDownloadCache:(id)a1;
+- (void)close;
+- (unsigned long long)_fetchMessagesWithUIDs:(id)a0 connection:(id)a1 newCount:(unsigned long long)a2 flagsToSet:(unsigned long long)a3 queueClass:(Class)a4;
+- (id)_newSearchResponseQueueForConnection:(id)a0 limit:(unsigned int)a1;
+- (void)_scheduleIdleTransition:(BOOL)a0;
+- (id)fetchDataForMessage:(id)a0 didDownload:(BOOL *)a1;
+- (id)fetchHeadersForMessage:(id)a0;
+- (BOOL)_waitForDataFromDownload:(id)a0 uid:(unsigned int)a1 downloadCache:(id)a2 connection:(id)a3;
+- (unsigned long long)serverMessageCount;
+- (void)updateDeletedCount;
+- (BOOL)connection:(id)a0 shouldHandleUntaggedResponse:(id)a1 forCommand:(id)a2;
+- (unsigned long long)_fetchMessagesWithArguments:(id)a0 idRange:(id)a1 onConnection:(id)a2 synchronize:(BOOL)a3 limit:(unsigned long long)a4 topUIDToCompact:(unsigned long long)a5 topKnownUID:(unsigned long long)a6 success:(BOOL *)a7 examinedRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a8 fetchableUIDsFound:(unsigned long long *)a9 preserveUID:(unsigned long long *)a10 numFetchedUIDs:(unsigned long long *)a11;
+- (void)updateDeletedCountWithNotDeletedCount:(unsigned long long)a0;
+- (id)offlineCache;
+- (unsigned long long)syncMessagesWithUIDs:(id)a0 connection:(id)a1 serverMessages:(id)a2 flagSearchResults:(id)a3;
+- (void)deleteMessagesOlderThanNumberOfDays:(int)a0 compact:(BOOL)a1;
+- (BOOL)downloadMimePartNumber:(id)a0 message:(id)a1 withProgressBlock:(id /* block */)a2;
+- (BOOL)_shouldContinueToPreservedUID:(unsigned long long)a0;
+- (long long)fetchNumMessages:(unsigned long long)a0 preservingUID:(id)a1 options:(unsigned long long)a2;
+- (id)sequenceIdentifierForUIDs:(id)a0;
+- (void)setHighestModSequence:(unsigned long long)a0;
+- (void).cxx_destruct;
+- (id)storeSearchResultMatchingCriterion:(id)a0 limit:(unsigned int)a1 offset:(id)a2 error:(id *)a3;
+- (BOOL)errorIsIMAPError:(id)a0;
+- (id)_fetchFullMessageDataForMessage:(id)a0 download:(id *)a1;
+- (long long)fetchMessagesWithMessageIDs:(id)a0 andSetFlags:(unsigned long long)a1;
+- (id)flagsForIMAPUIDs:(id)a0 mailboxURL:(id)a1;
+- (id)_observeChangesInIdleConditions;
+- (void)connection:(id)a0 didReceiveResponse:(id)a1 forCommand:(id)a2;
+- (id)_performBodyDataDownload:(id)a0 usingConnection:(id)a1 downloadCache:(id)a2 isPartial:(BOOL *)a3;
+
+@end

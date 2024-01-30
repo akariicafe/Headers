@@ -1,0 +1,3 @@
+@interface ARServiceUpdateParameters : NSObject
+
+@end

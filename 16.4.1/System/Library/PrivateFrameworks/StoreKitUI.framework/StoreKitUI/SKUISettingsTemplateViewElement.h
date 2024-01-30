@@ -1,0 +1,3 @@
+@interface SKUISettingsTemplateViewElement : SKUIViewElement
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UILabelAttributedStringContentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

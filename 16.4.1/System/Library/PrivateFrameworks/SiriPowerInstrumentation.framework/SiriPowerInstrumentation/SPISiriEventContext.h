@@ -1,0 +1,3 @@
+@interface SPISiriEventContext : SPIEventContext
+
+@end

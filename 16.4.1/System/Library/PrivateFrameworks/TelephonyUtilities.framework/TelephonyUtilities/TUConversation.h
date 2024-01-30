@@ -1,0 +1,98 @@
+@class TUConversationParticipantAssociation, NSObject, TUConversationMember, TUConversationActivitySession, TUConversationHandoffEligibility, NSString, NSSet, TUConversationReport, TUConversationLink, TUConversationProvider, NSArray, TUHandle, NSUUID;
+@protocol TUFeatureFlags;
+
+@interface TUConversation : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSArray *supportedMediaTypes;
+@property (retain, nonatomic) NSUUID *UUID;
+@property (retain, nonatomic) NSUUID *groupUUID;
+@property (retain, nonatomic) TUConversationLink *link;
+@property (nonatomic) long long state;
+@property (nonatomic) long long letMeInRequestState;
+@property (nonatomic) BOOL hasReceivedLetMeInRequest;
+@property (nonatomic) long long avcSessionToken;
+@property (copy, nonatomic) NSString *avcSessionIdentifier;
+@property (nonatomic, getter=isAudioEnabled) BOOL audioEnabled;
+@property (nonatomic, getter=isVideoEnabled) BOOL videoEnabled;
+@property (nonatomic, getter=isVideoPaused) BOOL videoPaused;
+@property (nonatomic, getter=isScreenEnabled) BOOL screenEnabled;
+@property (nonatomic) unsigned long long avMode;
+@property (nonatomic, getter=isLocallyCreated) BOOL locallyCreated;
+@property (nonatomic, getter=hasJoined) BOOL hasJoined;
+@property (nonatomic) BOOL isAnyOtherAccountDeviceActive;
+@property (nonatomic, getter=isPendingConversation) BOOL pendingConversation;
+@property (retain, nonatomic) TUConversationMember *localMember;
+@property (nonatomic) unsigned long long localParticipantIdentifier;
+@property (retain, nonatomic) TUConversationParticipantAssociation *localParticipantAssociation;
+@property (nonatomic, getter=isOneToOneHandoffOngoing) BOOL oneToOneHandoffOngoing;
+@property (retain, nonatomic) TUConversationHandoffEligibility *handoffEligibility;
+@property (copy, nonatomic) NSSet *remoteMembers;
+@property (copy, nonatomic) NSSet *pendingMembers;
+@property (copy, nonatomic) NSSet *kickedMembers;
+@property (copy, nonatomic) NSSet *rejectedMembers;
+@property (copy, nonatomic) NSSet *lightweightMembers;
+@property (copy, nonatomic) NSSet *otherInvitedHandles;
+@property (nonatomic) BOOL ignoreLMIRequests;
+@property (retain, nonatomic) NSUUID *messagesGroupUUID;
+@property (copy, nonatomic) NSSet *participantHandles;
+@property (copy, nonatomic) NSSet *activeRemoteParticipants;
+@property (copy, nonatomic) NSSet *activeLightweightParticipants;
+@property (retain, nonatomic) TUHandle *initiator;
+@property (copy, nonatomic) NSString *messagesGroupName;
+@property (nonatomic) long long maxVideoDecodesAllowed;
+@property (retain, nonatomic) NSObject *reportingHierarchyToken;
+@property (retain, nonatomic) NSObject *reportingHierarchySubToken;
+@property (copy, nonatomic) TUConversationReport *report;
+@property (nonatomic, getter=isOneToOneModeEnabled) BOOL oneToOneModeEnabled;
+@property (nonatomic, getter=isBackedByGroupSession) BOOL backedByGroupSession;
+@property (copy, nonatomic) NSSet *activitySessions;
+@property (copy, nonatomic) NSSet *systemActivitySessions;
+@property (copy, nonatomic) NSSet *highlightIdentifiers;
+@property (copy, nonatomic) TUConversationActivitySession *stagedActivitySession;
+@property (copy, nonatomic) NSSet *virtualParticipants;
+@property (copy, nonatomic) NSSet *invitationPreferences;
+@property (nonatomic, getter=isFromStorage) BOOL fromStorage;
+@property (retain, nonatomic) NSUUID *selectiveSharingSessionUUID;
+@property (nonatomic, getter=isMirageEnabled) BOOL mirageEnabled;
+@property (retain, nonatomic) id conversationFailureContext;
+@property (retain, nonatomic) TUConversationProvider *provider;
+@property (retain, nonatomic) id<TUFeatureFlags> featureFlags;
+@property (readonly, nonatomic) unsigned long long resolvedAudioVideoMode;
+
++ (id)emptyConversationWithGroupUUID:(id)a0;
++ (id)numberFormatter;
+
+- (BOOL)isVideo;
+- (void)setVideo:(BOOL)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)displayName;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)supportsAVMode:(unsigned long long)a0;
+- (unsigned long long)hash;
+- (id)bundleIdentifier;
+- (id)description;
+- (id)handles;
+- (void).cxx_destruct;
+- (BOOL)supportsMediaType:(long long)a0;
+- (id)initWithConversation:(id)a0;
+- (id)messagesGroupPhotoData;
+- (id)contactNamesByHandleWithContactsDataSource:(id)a0;
+- (BOOL)eligibleForDowngradeToAVModeNoneFromUI;
+- (BOOL)hasJoinedActivitySession;
+- (id)initWithUUID:(id)a0 groupUUID:(id)a1;
+- (id)initWithUUID:(id)a0 groupUUID:(id)a1 provider:(id)a2;
+- (BOOL)isEqualToConversation:(id)a0;
+- (BOOL)isRepresentedByRemoteMembers:(id)a0 andLink:(id)a1;
+- (id)joinedActivitySession;
+- (id)remoteParticipantForLightweightParticipantHandle:(id)a0;
+- (BOOL)shouldShowInvitationOfStyles:(long long)a0 forHandle:(id)a1 defaultValue:(BOOL)a2;
+- (BOOL)shouldShowInvitationRingingUIForAnyHandleType;
+- (BOOL)shouldShowInvitationRingingUIForHandle:(id)a0;
+- (BOOL)shouldShowInvitationUserNotificationForHandle:(id)a0;
+
+@end

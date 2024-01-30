@@ -1,0 +1,3 @@
+@interface TSKViewStateRoot : TSPObject
+
+@end

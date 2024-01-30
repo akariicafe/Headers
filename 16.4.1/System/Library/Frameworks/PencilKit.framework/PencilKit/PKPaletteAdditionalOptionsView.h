@@ -1,0 +1,71 @@
+@class UIStackView, PKPaletteButtonGroupView, PKPaletteKeyboardButton, NSString, PKPaletteMoreOptionsViewController, UIViewController, NSLayoutConstraint, PKPaletteButton;
+@protocol PKPaletteAdditionalOptionsViewDelegate, PKPalettePopoverPresenting;
+
+@interface PKPaletteAdditionalOptionsView : UIView <PKPaletteMoreOptionsViewControllerDelegate, UIPopoverPresentationControllerDelegate, PKPaletteEdgeLocating, PKPalettePopoverUpdating, PKPalettePopoverDismissing, PKPaletteViewSizeScaling>
+
+@property (retain, nonatomic) UIStackView *contentStackView;
+@property (retain, nonatomic) UIStackView *textShapeStackView;
+@property (retain, nonatomic) UIStackView *plusEllipsisStackView;
+@property (retain, nonatomic) PKPaletteButton *plusButton;
+@property (retain, nonatomic) PKPaletteButton *textButton;
+@property (retain, nonatomic) PKPaletteButton *ellipsisButton;
+@property (retain, nonatomic) PKPaletteButtonGroupView *keyboardButtonGroupView;
+@property (retain, nonatomic) PKPaletteKeyboardButton *keyboardButton;
+@property (retain, nonatomic) PKPaletteButton *returnKeyButton;
+@property (retain, nonatomic) PKPaletteMoreOptionsViewController *moreOptionsViewController;
+@property (retain, nonatomic) UIViewController *presentedPopoverViewController;
+@property (retain, nonatomic) NSLayoutConstraint *plusButtonWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *plusButtonHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *ellipsisButtonWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *ellipsisButtonHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *textButtonWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *textButtonHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *shapeButtonWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *shapeButtonHeightConstraint;
+@property (weak, nonatomic) id<PKPalettePopoverPresenting> palettePopoverPresenting;
+@property (weak, nonatomic) id<PKPaletteAdditionalOptionsViewDelegate> delegate;
+@property (readonly, nonatomic) PKPaletteButton *shapeButton;
+@property (nonatomic) BOOL showsPlusButton;
+@property (nonatomic) BOOL showsTextButton;
+@property (nonatomic) BOOL showsShapeButton;
+@property (nonatomic, getter=isAutoHideOn) BOOL autoHideOn;
+@property (nonatomic) BOOL isFingerDrawsOn;
+@property (nonatomic) BOOL shouldShowFingerDrawsOption;
+@property (nonatomic) BOOL shouldShowTapToRadarOption;
+@property (nonatomic) BOOL wantsEllipsisButtonVisible;
+@property (nonatomic) BOOL wantsInputAssistantViewVisible;
+@property (nonatomic) BOOL enableKeyboardButtons;
+@property (nonatomic) long long floatingKeyboardType;
+@property (nonatomic) BOOL shouldHideHoverPreviewToggle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) unsigned long long edgeLocation;
+@property (nonatomic) double scalingFactor;
+
+- (long long)adaptivePresentationStyleForPresentationController:(id)a0 traitCollection:(id)a1;
+- (long long)adaptivePresentationStyleForPresentationController:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)willMoveToSuperview:(id)a0;
+- (void).cxx_destruct;
+- (void)_updateUI;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })plusButtonFrame;
+- (id)_keyboardButtonGroupViewButtons;
+- (void)updatePopoverUI;
+- (void)_didSelectEllipsisButton:(id)a0;
+- (void)_handleKeyboardButton;
+- (void)_handleReturnKeyButton;
+- (void)dismissPalettePopoverWithCompletion:(id /* block */)a0;
+- (void)handleRemoteHoverSettingsDidChange;
+- (void)moreOptionsViewControllerDidSelectOpenPencilSettings:(id)a0;
+- (void)moreOptionsViewControllerDidSelectTapToRadar:(id)a0;
+- (void)moreOptionsViewControllerDidToggleAutoHide:(id)a0;
+- (void)moreOptionsViewControllerDidToggleFingerDraws:(id)a0;
+- (void)moreOptionsViewControllerDidToggleHoverPreview:(id)a0;
+
+@end

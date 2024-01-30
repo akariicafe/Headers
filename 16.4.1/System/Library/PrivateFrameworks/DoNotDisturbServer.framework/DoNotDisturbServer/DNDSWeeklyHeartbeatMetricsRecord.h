@@ -1,0 +1,3 @@
+@interface DNDSWeeklyHeartbeatMetricsRecord : DNDSHeartbeatMetricsRecord
+
+@end

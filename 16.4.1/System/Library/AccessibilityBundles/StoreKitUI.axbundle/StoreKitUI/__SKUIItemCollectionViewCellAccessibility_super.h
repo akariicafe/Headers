@@ -1,0 +1,3 @@
+@interface __SKUIItemCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

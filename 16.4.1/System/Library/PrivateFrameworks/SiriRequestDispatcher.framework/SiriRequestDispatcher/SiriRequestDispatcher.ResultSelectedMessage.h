@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.ResultSelectedMessage : SiriRequestDispatcher.ResultSelectedMessageBase
+
+@end

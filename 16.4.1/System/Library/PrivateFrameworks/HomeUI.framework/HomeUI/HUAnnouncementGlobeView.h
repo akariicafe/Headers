@@ -1,0 +1,72 @@
+@class UIView, NSString, UITapGestureRecognizer, ANRemotePlaybackSession, NSMutableDictionary, HFAudioPlayer, UIImageView, NSObject, NSMutableArray, UIVisualEffectView, UILabel;
+@protocol OS_dispatch_queue, HUAnnouncementsGlobeViewDelegate;
+
+@interface HUAnnouncementGlobeView : UIView <HFAudioPlayerDelegate>
+
+@property (retain, nonatomic) NSMutableDictionary *announcementsInfo;
+@property (retain, nonatomic) NSMutableArray *announcementIDs;
+@property (retain, nonatomic) NSMutableArray *currentlyDisplayedAnnouncements;
+@property (retain, nonatomic) NSMutableArray *visitedAnnouncements;
+@property (retain, nonatomic) NSString *announcementGroupID;
+@property (retain, nonatomic) ANRemotePlaybackSession *announceRemotePlaybackSession;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dataSourceUpdateQueue;
+@property (weak, nonatomic) id<HUAnnouncementsGlobeViewDelegate> globeViewDelegate;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (retain, nonatomic) NSString *lastPlayedAnnouncementID;
+@property (retain, nonatomic) HFAudioPlayer *audioPlayer;
+@property (retain, nonatomic) UIVisualEffectView *backgroundView;
+@property (retain, nonatomic) UIView *tappableCoverView;
+@property (retain, nonatomic) UIImageView *playImageView;
+@property (retain, nonatomic) UILabel *announcementsProgressLabel;
+@property (nonatomic) unsigned long long totalNumberOfAnnouncements;
+@property (nonatomic) long long seedOnceToken;
+@property (nonatomic) long long displayVisitedOnceToken;
+@property (retain, nonatomic) NSString *selectedAnnouncementID;
+@property (nonatomic) struct CGSize { double width; double height; } playbackBoundingBoxSize;
+@property (nonatomic) BOOL hasActivePlaybackSession;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)stopPlayback;
+- (void)layoutSubviews;
+- (void)updateConstraints;
+- (void)traitCollectionDidChange:(id)a0;
+- (void).cxx_destruct;
+- (void)_playRecentlyAddedAnnouncements;
+- (void)_addOrInsertAnnouncementsFromIDs:(id)a0 withInfo:(id)a1 withinRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 inFreeSlots:(unsigned long long)a3;
+- (void)_addVisitedAnnouncementsToDisplayQueueIfNeeded;
+- (void)_appendAnnouncements:(id)a0 withInfo:(id)a1;
+- (id)_blurEffectForCurrentInterfaceStyle;
+- (void)_configureVisualStyleForBackgroundView;
+- (unsigned long long)_indexOfLatestCachedAnnouncementFromIDs:(id)a0;
+- (BOOL)_isNextAnnouncementTheOldest;
+- (void)_layoutPlaybackViewCenteredIfNeeded:(id)a0;
+- (void)_layoutPlaybackViewsWithAnimationDuration:(double)a0 completion:(id /* block */)a1;
+- (id)_nextAnnouncementPlaybackView;
+- (unsigned long long)_numberOfSlotsAvailableForNewAnnouncements:(id)a0;
+- (unsigned long long)_numberOfUnplayedAnnouncements;
+- (id)_onQueue_fetchNewAnnouncementInfo:(id)a0 oldestVisitedAnnouncementID:(id)a1;
+- (void)_playAnnouncementWithInfo:(id)a0;
+- (void)_playNextAnnouncement;
+- (double)_radiusOfPlaybackViewInSlotPosition:(unsigned long long)a0;
+- (void)_seedVisitedAnouncements:(id)a0 withInfo:(id)a1;
+- (void)_setupConstrainstsForPlaybackViews;
+- (void)_setupConstraintsForPlaybackViewIfNeeded:(id)a0 slotPosition:(unsigned long long)a1;
+- (void)_setupIncomingAnnouncementSession;
+- (void)_setupSubviewsForAnnouncementInfo:(id)a0;
+- (void)_showVisitedAnnouncementsView;
+- (void)_submitAnalyticsForAnnouncePlaybackCompletedSuccessfully:(BOOL)a0 forAnnouncementID:(id)a1 interruptedByUser:(BOOL)a2;
+- (void)_togglePlayback:(id)a0;
+- (void)_updateLayoutAndAppearanceForPlaybackView:(id)a0 atSlotPosition:(unsigned long long)a1;
+- (double)_xCoordinateForPlaybackViewInSlotPosition:(unsigned long long)a0;
+- (double)_yCoordinateForPlaybackViewInSlotPosition:(unsigned long long)a0;
+- (void)audioPlayer:(id)a0 didPausePlaybackWithReason:(id)a1;
+- (void)audioPlayer:(id)a0 didUpdateAveragePower:(double)a1;
+- (void)audioPlayerDidFinishPlayback:(id)a0 withError:(id)a1;
+- (id)initWithAnnouncementPayload:(id)a0 delegate:(id)a1;
+- (void)skipToNextAnnouncement;
+- (void)teardownAnnouncements;
+
+@end

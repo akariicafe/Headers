@@ -1,0 +1,80 @@
+@class MRDestination, NSString, MRAVEndpoint, MRPlayerPath, MSVVariableIntervalTimer, MRDestinationResolverDependencies, NSObject, MROrigin, MRAVEndpointObserver;
+@protocol OS_dispatch_queue, MRDestinationResolverDelegate;
+
+@interface MRDestinationResolver : NSObject
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *serialQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (retain, nonatomic) MRDestinationResolverDependencies *dependencies;
+@property (nonatomic) BOOL resolving;
+@property (nonatomic) BOOL registeredForNotifications;
+@property (nonatomic) BOOL registeredForEndpointChanges;
+@property (nonatomic) BOOL registeredForEndpointInvalidations;
+@property (nonatomic) BOOL registeredForPlayerPathInvalidations;
+@property (retain, nonatomic) id playerPathInvalidationObserver;
+@property (retain, nonatomic) MRAVEndpointObserver *endpointObserver;
+@property (retain, nonatomic) NSString *endpointObserverGroupUID;
+@property (retain, nonatomic) MRDestination *originalDestination;
+@property (retain, nonatomic) MRAVEndpoint *delegateEndpoint;
+@property (retain, nonatomic) MROrigin *delegateOrigin;
+@property (retain, nonatomic) MRPlayerPath *delegatePlayerPath;
+@property (retain, nonatomic) MRAVEndpoint *resolvingEndpoint;
+@property (retain, nonatomic) MRPlayerPath *resolvingPlayerPath;
+@property (retain, nonatomic) MSVVariableIntervalTimer *reconRetryTimer;
+@property (retain, nonatomic) MSVVariableIntervalTimer *connectionRetryTimer;
+@property (weak, nonatomic) id<MRDestinationResolverDelegate> delegate;
+@property (readonly, copy, nonatomic) MRDestination *destination;
+@property (readonly, nonatomic) NSString *label;
+
++ (void)resolveDestination:(id)a0 level:(long long)a1 timeout:(double)a2 completion:(id /* block */)a3;
++ (void)resolveDestination:(id)a0 timeout:(double)a1 completion:(id /* block */)a2;
++ (void)resolvePartialDestination:(id)a0 level:(long long)a1 timeout:(double)a2 completion:(id /* block */)a3;
++ (void)resolvePartialDestination:(id)a0 level:(long long)a1 timeout:(double)a2 dependencies:(id)a3 completion:(id /* block */)a4;
+
+- (void)onQueue_setResolvedPlayerPath:(id)a0;
+- (void)_handleEndpointDidDisconnectNotification:(id)a0;
+- (id)debugDescription;
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (void)resolve;
+- (void)notifyDelegateOfEndpointChange:(id)a0;
+- (void)onQueue_clearStateForPlayerPath;
+- (void)resolveForUnresolvedPlayerPath:(id)a0;
+- (void)beginResolving;
+- (void)createPlayerPathForEndpoint:(id)a0 client:(id)a1 player:(id)a2 completion:(id /* block */)a3;
+- (void)endpointDidDisconnect:(id)a0;
+- (void)handleActiveSystemEndpointChangedNotification:(id)a0;
+- (void)handleEndpointChanged;
+- (void)handleEndpointInvalidated;
+- (void)handleEndpointResolution:(id)a0 client:(id)a1 player:(id)a2 source:(id)a3 error:(id)a4;
+- (void)handlePlayerPathInvalidatedWithPlayerPath:(id)a0;
+- (id)initWithDestination:(id)a0 label:(id)a1;
+- (id)initWithDestination:(id)a0 label:(id)a1 dependencies:(id)a2;
+- (BOOL)isDynamicEndpoint;
+- (BOOL)isProactiveEndpoint;
+- (BOOL)isUserSelectedEndpoint;
+- (void)notifyDelegateOfError:(id)a0;
+- (void)notifyDelegateOfInvalidation;
+- (void)notifyDelegateOfOriginChange:(id)a0;
+- (void)notifyDelegateOfPlayerPathChange:(id)a0;
+- (void)onQueue_clearStateForEndpoint;
+- (void)onQueue_clearStateForOutputDeviceUID;
+- (void)onQueue_registerForEndpointInvalidations:(id)a0;
+- (void)onQueue_registerForPlayerPathInvalidationsForUnresolvedPlayerPath:(id)a0;
+- (void)onQueue_retrieveEndpointForContextUID:(id)a0 completion:(id /* block */)a1;
+- (void)onQueue_retrieveEndpointForUID:(id)a0 completion:(id /* block */)a1;
+- (void)onQueue_setEndpoint:(id)a0;
+- (void)onQueue_setOrigin:(id)a0;
+- (void)onQueue_setUnresolvedPlayerPath:(id)a0;
+- (void)registerForEndpointChangesForOutputDeviceUID:(id)a0;
+- (void)resolveForEndpoint:(id)a0 client:(id)a1 player:(id)a2;
+- (void)resolveForOutputContextUID:(id)a0 client:(id)a1 player:(id)a2;
+- (void)resolveForOutputDeviceUID:(id)a0 client:(id)a1 player:(id)a2;
+- (void)resolveForResolvedPlayerPath:(id)a0;
+- (void)resolvePlayerPath:(id)a0 completion:(id /* block */)a1;
+- (void)unregisterForEndpointChanges;
+- (void)unregisterForEndpointInvalidations;
+- (void)unregisterForPlayerPathInvalidations;
+
+@end

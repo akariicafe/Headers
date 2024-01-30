@@ -1,0 +1,3 @@
+@interface TRSetupProxyDeviceRequest : TRRequestMessage
+
+@end

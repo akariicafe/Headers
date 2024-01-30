@@ -1,0 +1,14 @@
+@class NSError;
+
+@interface CATSessionMessageDidInvalidate : CATSessionMessage
+
+@property (copy, nonatomic) NSError *error;
+
++ (BOOL)supportsSecureCoding;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithError:(id)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,91 @@
+@class PHObjectPlaceholder, PHFaceprint, NSString, NSURL, NSMutableArray, NSManagedObjectID;
+
+@interface PHFaceChangeRequest : PHChangeRequest <PHInsertChangeRequest, PHUpdateChangeRequest> {
+    PHFaceprint *_faceprint;
+    BOOL _didSetFaceprint;
+    NSMutableArray *_detectionTraits;
+    BOOL _didSetDetectionTraits;
+    NSString *_associatedPersonUUID;
+    BOOL _didSetAssociatedPersonUUID;
+}
+
+@property (nonatomic) BOOL shouldClearFaceCropGenerationState;
+@property (copy, nonatomic) NSURL *associatedPersonLibraryURL;
+@property (readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedFace;
+@property (nonatomic) double size;
+@property (nonatomic) double centerX;
+@property (nonatomic) double centerY;
+@property (nonatomic) double bodyCenterX;
+@property (nonatomic) double bodyCenterY;
+@property (nonatomic) double bodyWidth;
+@property (nonatomic) double bodyHeight;
+@property (nonatomic) short detectionType;
+@property (nonatomic) long long sourceWidth;
+@property (nonatomic) long long sourceHeight;
+@property (nonatomic) double roll;
+@property (nonatomic) BOOL isInVIPModel;
+@property (nonatomic, getter=isHidden) BOOL hidden;
+@property (nonatomic, getter=isInTrash) BOOL inTrash;
+@property (nonatomic) BOOL manual;
+@property (nonatomic) BOOL hasSmile;
+@property (nonatomic) double blurScore;
+@property (nonatomic, getter=isLeftEyeClosed) BOOL leftEyeClosed;
+@property (nonatomic, getter=isRightEyeClosed) BOOL rightEyeClosed;
+@property (copy, nonatomic) id adjustmentVersion;
+@property (nonatomic) long long nameSource;
+@property (nonatomic) long long faceAlgorithmVersion;
+@property (nonatomic) double poseYaw;
+@property (retain, nonatomic) PHFaceprint *faceprint;
+@property (nonatomic) long long clusterSequenceNumber;
+@property (nonatomic) long long qualityMeasure;
+@property (nonatomic) double quality;
+@property (nonatomic) unsigned short ageType;
+@property (nonatomic) unsigned short sexType;
+@property (nonatomic) unsigned short eyesState;
+@property (nonatomic) unsigned short smileType;
+@property (nonatomic) unsigned short facialHairType;
+@property (nonatomic) unsigned short hairColorType;
+@property (nonatomic) unsigned short glassesType;
+@property (nonatomic) unsigned short eyeMakeupType;
+@property (nonatomic) unsigned short lipMakeupType;
+@property (nonatomic) unsigned short faceExpressionType;
+@property (nonatomic) unsigned short headgearType;
+@property (nonatomic) unsigned short hairType;
+@property (nonatomic) unsigned short poseType;
+@property (nonatomic) unsigned short skintoneType;
+@property (nonatomic) unsigned short ethnicityType;
+@property (nonatomic) BOOL hasFaceMask;
+@property (nonatomic) unsigned short gazeType;
+@property (nonatomic) double gazeCenterX;
+@property (nonatomic) double gazeCenterY;
+@property (retain, nonatomic) NSString *groupingIdentifier;
+@property (readonly) BOOL isNewRequest;
+@property (nonatomic) BOOL shouldPerformConcurrentWork;
+@property (readonly, getter=isMutated) BOOL mutated;
+@property (readonly, nonatomic) NSString *managedEntityName;
+@property (readonly, nonatomic) NSManagedObjectID *objectID;
+@property (readonly, nonatomic, getter=isClientEntitled) BOOL clientEntitled;
+@property (readonly, nonatomic) NSString *clientName;
+@property (readonly, nonatomic) long long accessScopeOptionsRequirement;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)deleteFaces:(id)a0;
++ (id)changeRequestForFace:(id)a0;
++ (id)creationRequestForFace;
+
+- (void).cxx_destruct;
+- (BOOL)_associateFace:(id)a0 withPersonInPhotoLibrary:(id)a1 error:(id *)a2;
+- (id)_copyPersonWithPersonUUID:(id)a0 toLibrary:(id)a1 error:(id *)a2;
+- (BOOL)applyMutationsToManagedObject:(id)a0 photoLibrary:(id)a1 error:(id *)a2;
+- (void)associateFaceWithPersonUUID:(id)a0;
+- (id)createManagedObjectForInsertIntoPhotoLibrary:(id)a0 error:(id *)a1;
+- (void)encodeToXPCDict:(id)a0;
+- (id)initForNewObject;
+- (id)initWithUUID:(id)a0 objectID:(id)a1;
+- (id)initWithXPCDict:(id)a0 request:(id)a1 clientAuthorization:(id)a2;
+- (void)setDetectionTraits:(id)a0;
+
+@end

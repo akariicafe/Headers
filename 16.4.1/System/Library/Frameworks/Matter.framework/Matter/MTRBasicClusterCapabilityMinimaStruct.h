@@ -1,0 +1,3 @@
+@interface MTRBasicClusterCapabilityMinimaStruct : MTRBasicInformationClusterCapabilityMinimaStruct
+
+@end

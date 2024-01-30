@@ -1,0 +1,15 @@
+@class NSNumber, NSData;
+
+@interface MTRDoorLockClusterUnlockWithTimeoutParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *timeout;
+@property (copy, nonatomic) NSData *pinCode;
+@property (copy, nonatomic) NSNumber *timedInvokeTimeoutMs;
+@property (copy, nonatomic) NSNumber *serverSideProcessingTimeout;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

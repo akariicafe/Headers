@@ -1,0 +1,76 @@
+@class NSString;
+
+@interface NSNumber : NSValue
+
+@property (readonly) struct { unsigned char x0 : 8; unsigned char x1 : 4; unsigned char x2 : 1; unsigned char x3 : 1; unsigned int x4 : 18; unsigned short x5[8]; } decimalValue;
+@property (readonly) char charValue;
+@property (readonly) unsigned char unsignedCharValue;
+@property (readonly) short shortValue;
+@property (readonly) unsigned short unsignedShortValue;
+@property (readonly) int intValue;
+@property (readonly) unsigned int unsignedIntValue;
+@property (readonly) long long longValue;
+@property (readonly) unsigned long long unsignedLongValue;
+@property (readonly) long long longLongValue;
+@property (readonly) unsigned long long unsignedLongLongValue;
+@property (readonly) float floatValue;
+@property (readonly) double doubleValue;
+@property (readonly) BOOL boolValue;
+@property (readonly) long long integerValue;
+@property (readonly) unsigned long long unsignedIntegerValue;
+@property (readonly, copy) NSString *stringValue;
+
++ (void)initialize;
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (BOOL)supportsSecureCoding;
++ (id)numberWithBool:(BOOL)a0;
++ (id)numberWithLong:(long long)a0;
++ (id)numberWithFloat:(float)a0;
++ (id)numberWithInt:(int)a0;
++ (id)numberWithInteger:(long long)a0;
++ (id)numberWithLongLong:(long long)a0;
++ (id)numberWithShort:(short)a0;
++ (id)numberWithUnsignedInt:(unsigned int)a0;
++ (id)numberWithUnsignedInteger:(unsigned long long)a0;
++ (id)numberWithUnsignedLong:(unsigned long long)a0;
++ (id)numberWithUnsignedLongLong:(unsigned long long)a0;
++ (id)numberWithChar:(char)a0;
++ (id)numberWithDouble:(double)a0;
++ (id)numberWithUnsignedChar:(unsigned char)a0;
++ (id)numberWithUnsignedShort:(unsigned short)a0;
+
+- (id)initWithInteger:(long long)a0;
+- (BOOL)_allowsDirectEncoding;
+- (void)encodeWithCoder:(id)a0;
+- (unsigned long long)_cfTypeID;
+- (id)initWithLong:(long long)a0;
+- (id)initWithUnsignedChar:(unsigned char)a0;
+- (id)initWithCoder:(id)a0;
+- (id)redactedDescription;
+- (id)initWithFloat:(float)a0;
+- (Class)classForCoder;
+- (id)initWithChar:(char)a0;
+- (BOOL)isNSNumber__;
+- (id)initWithDouble:(double)a0;
+- (id)initWithUnsignedInteger:(unsigned long long)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithUnsignedShort:(unsigned short)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithShort:(short)a0;
+- (unsigned long long)hash;
+- (id)initWithLongLong:(long long)a0;
+- (long long)compare:(id)a0;
+- (id)descriptionWithLocale:(id)a0;
+- (id)description;
+- (id)initWithBool:(BOOL)a0;
+- (id)initWithUnsignedLongLong:(unsigned long long)a0;
+- (id)initWithInt:(int)a0;
+- (id)initWithUnsignedInt:(unsigned int)a0;
+- (id)initWithUnsignedLong:(unsigned long long)a0;
+- (BOOL)isEqualToNumber:(id)a0;
+- (long long)_cfNumberType;
+- (BOOL)_getCString:(char *)a0 length:(int)a1 multiplier:(double)a2;
+- (unsigned char)_getValue:(void *)a0 forType:(long long)a1;
+- (long long)_reverseCompare:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface DOMCSSUnknownRule : DOMCSSRule
+
+@end

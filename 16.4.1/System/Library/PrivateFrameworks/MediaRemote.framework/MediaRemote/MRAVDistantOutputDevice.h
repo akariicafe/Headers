@@ -1,0 +1,91 @@
+@class _MRAVOutputDeviceDescriptorProtobuf, MRAVOutputDeviceSourceInfo, NSDictionary, NSArray;
+
+@interface MRAVDistantOutputDevice : MRAVOutputDevice <NSSecureCoding> {
+    _MRAVOutputDeviceDescriptorProtobuf *_protobuf;
+    MRAVOutputDeviceSourceInfo *_sourceInfo;
+    NSDictionary *_modelSpecificInfo;
+    NSArray *_clusterComposition;
+    NSArray *_activatedClusterMemebers;
+    NSArray *_allClusterMembers;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *protobuf;
+@property (readonly, nonatomic) _MRAVOutputDeviceDescriptorProtobuf *generateDescriptor;
+
+- (unsigned int)deviceSubtype;
+- (BOOL)canAccessRemoteAssets;
+- (BOOL)hasBatteryLevel;
+- (id)firmwareVersion;
+- (BOOL)isAddedToHomeKit;
+- (BOOL)canAccessiCloudMusicLibrary;
+- (BOOL)isGroupLeader;
+- (BOOL)requiresAuthorization;
+- (BOOL)canRelayCommunicationChannel;
+- (BOOL)groupContainsGroupLeader;
+- (float)batteryLevel;
+- (BOOL)canFetchMediaDataFromSender;
+- (id)logicalDeviceID;
+- (unsigned int)clusterType;
+- (BOOL)isGroupable;
+- (id)clusterComposition;
+- (BOOL)supportsSharePlayHandoff;
+- (BOOL)isAirPlayReceiverSessionActive;
+- (BOOL)canPlayEncryptedProgressiveDownloadAssets;
+- (BOOL)presentsOptimizedUserInterfaceWhenPlayingFetchedAudioOnlyAssets;
+- (id)roomName;
+- (BOOL)isRemoteControllable;
+- (id)sourceInfo;
+- (id)clusterID;
+- (id)availableBluetoothListeningModes;
+- (BOOL)discoveredOnSameInfra;
+- (id)roomID;
+- (id)MACAddress;
+- (float)distance;
+- (id)allClusterMembers;
+- (id)parentGroupIdentifier;
+- (BOOL)supportsRapportRemoteControlTransport;
+- (BOOL)supportsEngageOnClusterActivation;
+- (BOOL)supportsMultiplayer;
+- (unsigned int)volumeCapabilities;
+- (BOOL)canAccessAppleMusic;
+- (BOOL)supportsBufferedAirPlay;
+- (id)bluetoothID;
+- (BOOL)supportsHAP;
+- (BOOL)producesLowFidelityAudio;
+- (unsigned long long)configuredClusterSize;
+- (BOOL)isAppleAccessory;
+- (BOOL)supportsExternalScreen;
+- (BOOL)parentGroupContainsDiscoverableLeader;
+- (id)airPlayGroupID;
+- (id)activatedClusterMembers;
+- (BOOL)isLocalDevice;
+- (id)currentBluetoothListeningMode;
+- (id)tightSyncID;
+- (long long)hostDeviceClass;
+- (BOOL)isVolumeControlAvailable;
+- (id)descriptor;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithDescriptor:(id)a0;
+- (BOOL)isProxyGroupPlayer;
+- (id)initWithCoder:(id)a0;
+- (id)uid;
+- (long long)transportType;
+- (id)modelSpecificInfo;
+- (BOOL)isUsingJSONProtocol;
+- (id)modelID;
+- (id)groupID;
+- (BOOL)isDeviceGroupable;
+- (id)primaryID;
+- (unsigned int)deviceType;
+- (BOOL)isPickable;
+- (id)initWithSkeleton:(id)a0;
+- (id)description;
+- (BOOL)isClusterLeader;
+- (float)volume;
+- (void).cxx_destruct;
+- (id)name;
+- (id)parentUID;
+
+@end

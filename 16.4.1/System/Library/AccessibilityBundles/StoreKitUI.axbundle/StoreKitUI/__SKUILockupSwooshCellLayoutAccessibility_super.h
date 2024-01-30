@@ -1,0 +1,3 @@
+@interface __SKUILockupSwooshCellLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,77 @@
+@class HKActivitySummaryQuery, NSSet, HKHealthStore, FIUIModel, ASFriendListQuery, NSObject, ASClient, FIUIClientToken, FIUIWorkoutDataProvider, NSCache;
+@protocol OS_dispatch_queue;
+
+@interface ASFriendListSectionManager : NSObject {
+    HKHealthStore *_healthStore;
+    ASClient *_client;
+    FIUIModel *_model;
+    NSObject<OS_dispatch_queue> *_readWriteQueue;
+    NSCache *_displayContextToSortedSectionsCache;
+    NSSet *_allFriends;
+    ASFriendListQuery *_friendListQuery;
+    HKActivitySummaryQuery *_meQuery;
+    FIUIWorkoutDataProvider *_workoutDataProvider;
+    long long _meQueryRetries;
+    long long _friendQueryRetries;
+    FIUIClientToken *_modelQueryToken;
+    BOOL _shouldGenerateDemoData;
+    BOOL _hasReceivedFriendListQueryResult;
+    BOOL _hasReceivedMeQueryResult;
+}
+
+- (id)me;
+- (void)_applicationWillEnterForegroundNotification:(id)a0;
+- (void)dealloc;
+- (void)_startQueries;
+- (id)init;
+- (id)allFriends;
+- (id)friendWithUUID:(id)a0;
+- (void).cxx_destruct;
+- (void)_stopQueries;
+- (void)_calendarDayChangedNotification:(id)a0;
+- (id)_copyFriends;
+- (void)_createFakeFriends;
+- (id)_createSectionsForFriends:(id)a0 withDisplayContext:(id)a1;
+- (id)_datesToShowSnapshotsForFriend:(id)a0 startingFromCurrentDateComponents:(id)a1;
+- (void)_enumerateVisibleDaysForFriends:(id)a0 usingBlock:(id /* block */)a1;
+- (id)_filterFriends:(id)a0 withActiveFriendshipAtEndOfDay:(id)a1;
+- (id)_filterFriends:(id)a0 withSnapshotDataAtCacheIndex:(id)a1;
+- (id)_filterFriends:(id)a0 withWheelchairUseAtCacheIndex:(id)a1;
+- (id)_friendWithUUID:(id)a0 fromFriends:(id)a1;
+- (BOOL)_isWheelchairUserDisplayModeValidForFriends:(id)a0 filter:(long long)a1;
+- (void)_postFriendsListChangedNotification;
+- (void)_queue_handleActivitySummaryUpdate:(id)a0;
+- (void)_queue_handleMyWorkoutsUpdate;
+- (id)_queue_me;
+- (void)_queue_restartQueryAfterErrorCount:(long long)a0 withBlock:(id /* block */)a1;
+- (void)_queue_startFriendsQuery;
+- (void)_queue_startMeQuery;
+- (void)_queue_stopQueries;
+- (void)_queue_updateWithNewData;
+- (id)_sectionForDataVisibilityConditionalUsingBlock:(id /* block */)a0;
+- (id)_sectionForDataVisibilityConditionalUsingBlock:(id /* block */)a0 comparator:(id /* block */)a1;
+- (id)_sortFriends:(id)a0 forDisplayMode:(long long)a1 cacheIndex:(id)a2;
+- (void)_startQueriesIfRequired;
+- (id)allActiveFriendsAsRecipients;
+- (id)allDestinationsForActiveOrPendingFriends;
+- (void)enumerateValidDisplayModesForFilter:(long long)a0 usingBlock:(id /* block */)a1;
+- (void)fetchActivitySharingDataIfTimeSinceLastFetchIsGreaterThan:(unsigned long long)a0 completion:(id /* block */)a1;
+- (BOOL)hasAnyFriendsSetup;
+- (BOOL)hasInitializedFriendData;
+- (BOOL)hasReachedMaxNumberOfFriends;
+- (id)initWithModel:(id)a0 andWorkoutDataProvider:(id)a1;
+- (unsigned long long)numberOfFriendsWithCompetitionRequestsAwaitingResponseFromMe;
+- (unsigned long long)numberOfFriendsWithInvitesAwaitingResponseFromMe;
+- (long long)numberOfNewFriendsAllowed;
+- (id)sectionForFriendsCompetingWithMe;
+- (id)sectionForFriendsHidingDataFromMe;
+- (id)sectionForFriendsInvitedByMe;
+- (id)sectionForFriendsInvitingMe;
+- (id)sectionForFriendsMyDataIsHiddenFrom;
+- (id)sectionForFriendsRequestedToCompeteByMe;
+- (id)sectionForFriendsRequestingMeToCompete;
+- (id)sectionForFriendsWithNoHiding;
+- (id)sectionsForDisplayContext:(id)a0;
+- (unsigned long long)totalNumberOfPendingRequests;
+
+@end

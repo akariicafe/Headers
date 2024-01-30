@@ -1,0 +1,3 @@
+@interface BLSHDidSetPresentation : BLSHEnvironmentOperation
+
+@end

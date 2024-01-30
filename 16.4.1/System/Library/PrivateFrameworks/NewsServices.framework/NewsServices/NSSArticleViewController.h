@@ -1,0 +1,3 @@
+@interface NSSArticleViewController : NSSArticleViewControllerInternal
+
+@end

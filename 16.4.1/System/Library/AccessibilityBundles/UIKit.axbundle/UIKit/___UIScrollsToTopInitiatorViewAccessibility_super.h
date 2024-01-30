@@ -1,0 +1,3 @@
+@interface ___UIScrollsToTopInitiatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

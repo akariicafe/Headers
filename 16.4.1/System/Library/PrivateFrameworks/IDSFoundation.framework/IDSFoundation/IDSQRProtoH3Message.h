@@ -1,0 +1,80 @@
+@class IDSQRProtoParticipantUpdateIndication, IDSQRProtoStatsRequest, IDSQRProtoPluginControlRequest, IDSQRProtoSessionInfoResponse, IDSQRProtoPutMaterialIndication, IDSQRProtoParticipantUpdateRequest, IDSQRProtoUnAllocBindResponse, IDSQRProtoParticipantUpdateResponse, IDSQRProtoSessionInfoRequest, IDSQRProtoStatsResponse, IDSQRProtoReallocateIndication, IDSQRProtoInfoRequest, IDSQRProtoTestResponse, IDSQRProtoGetMaterialRequest, IDSQRProtoDiagnosticIndication, IDSQRProtoTestRequest, IDSQRProtoAllocBindRequest, IDSQRProtoUnAllocBindRequest, IDSQRProtoPutMaterialRequest, IDSQRProtoGoAwayIndication, IDSQRProtoPluginControlIndication, IDSQRProtoPutMaterialResponse, IDSQRProtoAllocBindResponse, IDSQRProtoErrorIndication, IDSQRProtoSessionInfoIndication, IDSQRProtoGetMaterialResponse, IDSQRProtoPluginControlResponse, IDSQRProtoInfoResponse;
+
+@interface IDSQRProtoH3Message : PBCodable <NSCopying> {
+    struct { unsigned char innerMessage : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasAllocbindRequest;
+@property (retain, nonatomic) IDSQRProtoAllocBindRequest *allocbindRequest;
+@property (readonly, nonatomic) BOOL hasAllocbindResponse;
+@property (retain, nonatomic) IDSQRProtoAllocBindResponse *allocbindResponse;
+@property (readonly, nonatomic) BOOL hasDiagnosticIndication;
+@property (retain, nonatomic) IDSQRProtoDiagnosticIndication *diagnosticIndication;
+@property (readonly, nonatomic) BOOL hasGoawayIndication;
+@property (retain, nonatomic) IDSQRProtoGoAwayIndication *goawayIndication;
+@property (readonly, nonatomic) BOOL hasInfoRequest;
+@property (retain, nonatomic) IDSQRProtoInfoRequest *infoRequest;
+@property (readonly, nonatomic) BOOL hasInfoResponse;
+@property (retain, nonatomic) IDSQRProtoInfoResponse *infoResponse;
+@property (readonly, nonatomic) BOOL hasParticipantupdateRequest;
+@property (retain, nonatomic) IDSQRProtoParticipantUpdateRequest *participantupdateRequest;
+@property (readonly, nonatomic) BOOL hasParticipantupdateResponse;
+@property (retain, nonatomic) IDSQRProtoParticipantUpdateResponse *participantupdateResponse;
+@property (readonly, nonatomic) BOOL hasParticipantupdateIndication;
+@property (retain, nonatomic) IDSQRProtoParticipantUpdateIndication *participantupdateIndication;
+@property (readonly, nonatomic) BOOL hasPlugincontrolRequest;
+@property (retain, nonatomic) IDSQRProtoPluginControlRequest *plugincontrolRequest;
+@property (readonly, nonatomic) BOOL hasPlugincontrolResponse;
+@property (retain, nonatomic) IDSQRProtoPluginControlResponse *plugincontrolResponse;
+@property (readonly, nonatomic) BOOL hasPlugincontrolIndication;
+@property (retain, nonatomic) IDSQRProtoPluginControlIndication *plugincontrolIndication;
+@property (readonly, nonatomic) BOOL hasErrorIndication;
+@property (retain, nonatomic) IDSQRProtoErrorIndication *errorIndication;
+@property (readonly, nonatomic) BOOL hasReallocateIndication;
+@property (retain, nonatomic) IDSQRProtoReallocateIndication *reallocateIndication;
+@property (readonly, nonatomic) BOOL hasSessioninfoRequest;
+@property (retain, nonatomic) IDSQRProtoSessionInfoRequest *sessioninfoRequest;
+@property (readonly, nonatomic) BOOL hasSessioninfoResponse;
+@property (retain, nonatomic) IDSQRProtoSessionInfoResponse *sessioninfoResponse;
+@property (readonly, nonatomic) BOOL hasSessioninfoIndication;
+@property (retain, nonatomic) IDSQRProtoSessionInfoIndication *sessioninfoIndication;
+@property (readonly, nonatomic) BOOL hasStatsRequest;
+@property (retain, nonatomic) IDSQRProtoStatsRequest *statsRequest;
+@property (readonly, nonatomic) BOOL hasStatsResponse;
+@property (retain, nonatomic) IDSQRProtoStatsResponse *statsResponse;
+@property (readonly, nonatomic) BOOL hasTestRequest;
+@property (retain, nonatomic) IDSQRProtoTestRequest *testRequest;
+@property (readonly, nonatomic) BOOL hasTestResponse;
+@property (retain, nonatomic) IDSQRProtoTestResponse *testResponse;
+@property (readonly, nonatomic) BOOL hasUnallocbindRequest;
+@property (retain, nonatomic) IDSQRProtoUnAllocBindRequest *unallocbindRequest;
+@property (readonly, nonatomic) BOOL hasUnallocbindResponse;
+@property (retain, nonatomic) IDSQRProtoUnAllocBindResponse *unallocbindResponse;
+@property (readonly, nonatomic) BOOL hasPutmaterialRequest;
+@property (retain, nonatomic) IDSQRProtoPutMaterialRequest *putmaterialRequest;
+@property (readonly, nonatomic) BOOL hasPutmaterialResponse;
+@property (retain, nonatomic) IDSQRProtoPutMaterialResponse *putmaterialResponse;
+@property (readonly, nonatomic) BOOL hasPutmaterialIndication;
+@property (retain, nonatomic) IDSQRProtoPutMaterialIndication *putmaterialIndication;
+@property (readonly, nonatomic) BOOL hasGetmaterialRequest;
+@property (retain, nonatomic) IDSQRProtoGetMaterialRequest *getmaterialRequest;
+@property (readonly, nonatomic) BOOL hasGetmaterialResponse;
+@property (retain, nonatomic) IDSQRProtoGetMaterialResponse *getmaterialResponse;
+@property (nonatomic) BOOL hasInnerMessage;
+@property (nonatomic) int innerMessage;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (int)StringAsInnerMessage:(id)a0;
+- (void)clearOneofValuesForInnerMessage;
+- (id)innerMessageAsString:(int)a0;
+
+@end

@@ -1,0 +1,72 @@
+@class TDreamFramebufferManager, NSMutableDictionary, NSArray, EAGLContext;
+
+@interface TDreamManager : NSObject {
+    EAGLContext *glContext;
+    TDreamFramebufferManager *framebufferManager;
+    NSMutableDictionary *_contextProgramMap;
+    int oldFilterMode;
+    int filterMode;
+    float BRIGHTNESSPARAM;
+    float LOOSEPARAM;
+    float SMOOTHPARAM;
+    float AUX1INPUT;
+    float AUX2INPUT;
+    float AUX3INPUT;
+    int QUANTIZE_LEVELS;
+    float inputAspectRatio;
+    struct IPImage { struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } fullRect; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } imageRect; float xScale; float yScale; unsigned int textureID; unsigned int textureTarget; unsigned int textureInternalFormat; unsigned int textureFormat; unsigned int textureType; unsigned int textureUnit; unsigned int drawFBO; } outputImage;
+    struct IPImage { struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } fullRect; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } imageRect; float xScale; float yScale; unsigned int textureID; unsigned int textureTarget; unsigned int textureInternalFormat; unsigned int textureFormat; unsigned int textureType; unsigned int textureUnit; unsigned int drawFBO; } inputImage;
+    struct IPImage { struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } fullRect; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } imageRect; float xScale; float yScale; unsigned int textureID; unsigned int textureTarget; unsigned int textureInternalFormat; unsigned int textureFormat; unsigned int textureType; unsigned int textureUnit; unsigned int drawFBO; } maskImage;
+    struct CGSize { double width; double height; } inputTextureSize;
+    struct CGSize { double width; double height; } smallUseSize;
+    struct CGSize { double width; double height; } smallUseSizeNoSmooth;
+    struct CGSize { double width; double height; } largeUseSize;
+    float vigneteR;
+    float vigneteG;
+    float vigneteB;
+    float vigneteGaux;
+    float vigneteBaux;
+    float false1R;
+    float false1G;
+    float false1B;
+    float false2R;
+    float false2G;
+    float false2B;
+    NSArray *lookupsEE;
+    NSArray *lookupsBN;
+    NSArray *lookups;
+    float coloresVignetteLookUpsBN[8][3];
+    float coloresVignetteLookUpsNORMALES[8][3];
+    float coloresVignetteLookUpsEspeciales[8][3];
+    float coloresDobles[8][6];
+    float coloresVignette[10][3];
+    BOOL lookUpTextureNeedUpdate;
+    int modeLookUps;
+    int lookUpIndex;
+}
+
+- (BOOL)updateParameters:(struct imageProcessingParams { long long x0; long long x1; long long x2; long long x3; long long x4; long long x5; long long x6; long long x7; long long x8; })a0;
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)renderPipeline;
+- (void)addImageBufferToPool:(int)a0 ipImage:(struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; })a1;
+- (void)allocatePrograms:(id)a0;
+- (unsigned int)bufferFromCacheNumber:(int)a0;
+- (BOOL)checkIPImage:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a0;
+- (BOOL)checkMaskIPImage:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a0;
+- (void)deleteAllFilters;
+- (void)fillConstants;
+- (unsigned int)getOutputBufferName;
+- (id)glContext;
+- (int)largeBufferCount;
+- (void)newLookUpFilterMode;
+- (long long)processTextureOnTexture:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a0 andOutput:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a1 andParams:(struct imageProcessingParams { long long x0; long long x1; long long x2; long long x3; long long x4; long long x5; long long x6; long long x7; long long x8; })a2;
+- (long long)processTextureOnTexture:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a0 andOutput:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a1 andParams:(struct imageProcessingParams { long long x0; long long x1; long long x2; long long x3; long long x4; long long x5; long long x6; long long x7; long long x8; })a2 withMask:(const struct IPImage { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; float x2; float x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; } *)a3;
+- (id)programsForCurrentContext;
+- (void)setBlackFillBasedOnSlider;
+- (void)setUniformsAndParameters;
+- (int)smallBufferCount;
+- (unsigned int)textureFromCacheNumber:(int)a0;
+
+@end

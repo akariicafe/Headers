@@ -1,0 +1,90 @@
+@class NSNumber, NSMutableDictionary, NSPersistentHistoryToken, NSMutableSet, NSString, NSObject, NSManagedObjectContext;
+@protocol OS_dispatch_queue, BLJaliscoDAAPClientDelegate, BLImageManager;
+
+@interface BLJaliscoDAAPClient : NSObject <BLPurchaseDAAPServerDelegate, BUAccountsObserving> {
+    NSNumber *_currentAccountNumber;
+    NSMutableSet *_completionHandlers;
+    NSMutableSet *_familyCompletionHandlers;
+    BOOL _skipLoadingCheck;
+    NSObject<OS_dispatch_queue> *_serverWorkerQueue;
+    unsigned long long _timebombRetries;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _authenticationLock;
+    BOOL _storeAuthenticationRequired;
+}
+
+@property (nonatomic) unsigned long long currentServerGeneration;
+@property (nonatomic) unsigned long long pendingUpdateGeneration;
+@property (copy, nonatomic) id /* block */ resetJaliscoStatusHandler;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dsidQueue;
+@property (retain, nonatomic) NSMutableDictionary *swqDSIDToDAAPServer;
+@property (retain, nonatomic) NSMutableSet *purchaseDAAPSyncsInFlight;
+@property (retain, nonatomic) NSManagedObjectContext *moc;
+@property (nonatomic) BOOL storeAuthenticationRequired;
+@property (readonly, nonatomic, getter=isInitiallyLoadingJalisco) BOOL initiallyLoadingJalisco;
+@property (weak, nonatomic) id<BLJaliscoDAAPClientDelegate> delegate;
+@property (weak, nonatomic) id<BLImageManager> imageManagerDelegate;
+@property (readonly, nonatomic) NSPersistentHistoryToken *currentJaliscoHistoryToken;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)sharedClient;
++ (BOOL)isSupported;
++ (void)preWarmSync;
++ (BOOL)workaround_18397698;
+
+- (void)dealloc;
+- (id)newManagedObjectContext;
+- (id)init;
+- (void)account:(unsigned long long)a0 didChangeWithReason:(unsigned long long)a1;
+- (void).cxx_destruct;
+- (id)persistentStoreCoordinator;
+- (void)_stopObservingNotifications;
+- (void)_addPurchaseServerForCurrentUser;
+- (id)_allPurchaseDAAPServers;
+- (id)_currentPurchaseDAAPServers;
+- (id)_dsids;
+- (id)_familyPurchaseDAAPServers;
+- (id)_fetchItemsForNeedsImport:(BOOL)a0;
+- (id)_fetchRequestForNotInStoreAccountIDs:(id)a0;
+- (void)_processFamilyCircleAdded:(id)a0 removed:(id)a1 unchanged:(id)a2 completion:(id /* block */)a3;
+- (void)_resetPurchaseDAAPServersWithQueue:(id)a0;
+- (void)_sendCompletionHandlersWithSuccess:(BOOL)a0 generation:(unsigned long long)a1;
+- (void)_startObservingNotifications;
+- (void)deleteItemsWithStoreIDs:(id)a0 completion:(id /* block */)a1;
+- (id)fetchAllBookletIDsWithParentStoreIDs:(id)a0;
+- (void)fetchItemsForBuyParameters:(id)a0 completion:(id /* block */)a1;
+- (id)fetchItemsForStoreIDs:(id)a0;
+- (void)fetchItemsForStoreIDs:(id)a0 completion:(id /* block */)a1;
+- (id)fetchRequestForAllStoreIDs:(id)a0;
+- (id)fetchRequestForAllStoreIDsWithNonEmptyPurchasedToken:(id)a0;
+- (id)fetchRequestForBookletItems:(id)a0;
+- (id)fetchRequestForBuyParameters:(id)a0;
+- (id)fetchRequestForStoreID:(id)a0;
+- (id)fetchRequestForStoreIDIncludingHidden:(id)a0;
+- (id)fetchRequestForStoreIDs:(id)a0;
+- (void)forceJaliscoArtworkUpdateWithCompletion:(id /* block */)a0;
+- (void)hideItemsWithStoreIDs:(id)a0 completion:(id /* block */)a1;
+- (void)jaliscoArtworkTimebombed;
+- (id)newManagedObjectContextWithPrivateQueueConcurrency;
+- (id)predicateForBookletItems:(BOOL)a0;
+- (id)predicateForItems:(BOOL)a0;
+- (void)purchaseServerHandleClientExpired;
+- (void)purchaseServerRequestITunesAuthentication;
+- (void)refreshSignInStatus;
+- (void)refreshStoreWithCompletion:(id /* block */)a0;
+- (BOOL)resetPoliteTimers;
+- (void)resetPurchasedTokenForStoreIDs:(id)a0 completion:(id /* block */)a1;
+- (void)resetStaleJaliscoDatabaseWithCompletion:(id /* block */)a0;
+- (void)setItemHidden:(BOOL)a0 forStoreID:(id)a1 completion:(id /* block */)a2;
+- (void)storeIDsWithNonEmptyPurchasedToken:(id)a0 completion:(id /* block */)a1;
+- (void)updateFamilyPolitely:(BOOL)a0 reason:(long long)a1 completion:(id /* block */)a2;
+- (void)updateFamilyPolitely:(BOOL)a0 reason:(long long)a1 completionWithError:(id /* block */)a2;
+- (void)updatePolitely:(BOOL)a0 reason:(long long)a1 completion:(id /* block */)a2;
+- (void)updatePolitely:(BOOL)a0 reason:(long long)a1 completionWithError:(id /* block */)a2;
+- (void)updatePolitelyAfterSignIn:(BOOL)a0 reason:(long long)a1 completion:(id /* block */)a2;
+- (void)updatePolitelyAfterSignOut:(BOOL)a0 reason:(long long)a1 completion:(id /* block */)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface CHUISWidgetRequestLaunchAction : BSAction
+
+@end

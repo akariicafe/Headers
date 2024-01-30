@@ -1,0 +1,72 @@
+@class NSDictionary, PGManager;
+
+@interface PGGuessWhoNamingInternalMetricEvent : PGAbstractMetricEvent {
+    PGManager *_manager;
+    NSDictionary *_payload;
+}
+
+@property (nonatomic) unsigned long long truePositiveAddressSignal;
+@property (nonatomic) unsigned long long falsePositiveAddressSignal;
+@property (nonatomic) unsigned long long truePositiveBirthdaySignal;
+@property (nonatomic) unsigned long long falsePositiveBirthdaySignal;
+@property (nonatomic) unsigned long long truePositivePotentialBirthdaySignal;
+@property (nonatomic) unsigned long long falsePositivePotentialBirthdaySignal;
+@property (nonatomic) unsigned long long truePositiveMentionedAddressSignal;
+@property (nonatomic) unsigned long long falsePositiveMentionedAddressSignal;
+@property (nonatomic) unsigned long long truePositiveSharedAssetSignal;
+@property (nonatomic) unsigned long long falsePositiveSharedAssetSignal;
+@property (nonatomic) unsigned long long truePositiveCMMSignal;
+@property (nonatomic) unsigned long long falsePositiveCMMSignal;
+@property (nonatomic) unsigned long long truePositiveCalendarSignal;
+@property (nonatomic) unsigned long long falsePositiveCalendarSignal;
+@property (nonatomic) unsigned long long truePositiveFaceTimeSignal;
+@property (nonatomic) unsigned long long falsePositiveFaceTimeSignal;
+@property (nonatomic) unsigned long long truePositiveContactFaceprintSignal;
+@property (nonatomic) unsigned long long falsePositiveContactFaceprintSignal;
+@property (nonatomic) unsigned long long truePositiveBiologicalSexSignal;
+@property (nonatomic) unsigned long long falsePositiveBiologicalSexSignal;
+@property (nonatomic) unsigned long long truePositiveSocialGroupSignal;
+@property (nonatomic) unsigned long long falsePositiveSocialGroupSignal;
+@property (nonatomic) unsigned long long truePositiveRelationshipSignal;
+@property (nonatomic) unsigned long long falsePositiveRelationshipSignal;
+@property (nonatomic) double precisionContactSuggestionTop1;
+@property (nonatomic) double precisionContactSuggestionTop2;
+@property (nonatomic) double precisionContactSuggestionTop3;
+@property (nonatomic) double precisionContactSuggestionTop10;
+@property (nonatomic) double precisionHighConfidenceContactSuggestion;
+@property (nonatomic) unsigned long long numberOfAddressSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfBirthdaySignalRegistrations;
+@property (nonatomic) unsigned long long numberOfPotentialBirthdaySignalRegistrations;
+@property (nonatomic) unsigned long long numberOfMentionedAddressSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfSharedAssetSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfCMMSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfCalendarSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfFaceTimeSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfContactFaceprintSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfBiologicalSexSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfSocialGroupSignalRegistrations;
+@property (nonatomic) unsigned long long numberOfRelationshipSignalRegistrations;
+@property (nonatomic) double precisionAddressSignal;
+@property (nonatomic) double precisionBirthdaySignal;
+@property (nonatomic) double precisionPotentialBirthdaySignal;
+@property (nonatomic) double precisionMentionedAddressSignal;
+@property (nonatomic) double precisionSharedAssetSignal;
+@property (nonatomic) double precisionCMMSignal;
+@property (nonatomic) double precisionCalendarSignal;
+@property (nonatomic) double precisionFaceTimeSignal;
+@property (nonatomic) double precisionContactFaceprintSignal;
+@property (nonatomic) double precisionBiologicalSexSignal;
+@property (nonatomic) double precisionSocialGroupSignal;
+@property (nonatomic) double precisionRelationshipSignal;
+
+- (id)payload;
+- (id)initWithGraphManager:(id)a0;
+- (id)identifier;
+- (void).cxx_destruct;
+- (void)gatherMetricsWithProgressBlock:(id /* block */)a0;
+- (void)_incrementSignalEvaluationForSignal:(unsigned long long)a0 suggestionEdge:(id)a1 isCorrect:(BOOL)a2;
+- (void)_incrementSignalRegistrationForSignal:(unsigned long long)a0 suggestionEdge:(id)a1;
+- (id)_peopleIdentitiesSignals;
+- (double)_precisionFromTruePositivesCount:(unsigned long long)a0 falsePositivesCount:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface MPStoreModelTVShowCreatorBuilder : MPStoreModelObjectBuilder
+
+@end

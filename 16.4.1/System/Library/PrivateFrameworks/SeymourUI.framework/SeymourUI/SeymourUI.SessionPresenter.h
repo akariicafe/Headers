@@ -1,0 +1,54 @@
+@interface SeymourUI.SessionPresenter : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ display;
+    void /* unknown type, empty encoding */ backgroundPresenter;
+    void /* unknown type, empty encoding */ bufferPresenter;
+    void /* unknown type, empty encoding */ castingPresenter;
+    void /* unknown type, empty encoding */ displayPreferencesPresenter;
+    void /* unknown type, empty encoding */ instructionsPresenter;
+    void /* unknown type, empty encoding */ introSequencePresenter;
+    void /* unknown type, empty encoding */ overlayPresenter;
+    void /* unknown type, empty encoding */ mediaPlayerPresenter;
+    void /* unknown type, empty encoding */ audioHintPresenter;
+    void /* unknown type, empty encoding */ routePickerPresenter;
+    void /* unknown type, empty encoding */ summaryPresenter;
+    void /* unknown type, empty encoding */ watchDiscoveryPresenter;
+    void /* unknown type, empty encoding */ continueOnWatchPresenter;
+    void /* unknown type, empty encoding */ ongoingWorkoutDetectedPresenter;
+    void /* unknown type, empty encoding */ activityTypeBehavior;
+    void /* unknown type, empty encoding */ assetClient;
+    void /* unknown type, empty encoding */ catalogWorkout;
+    void /* unknown type, empty encoding */ eventHub;
+    void /* unknown type, empty encoding */ multiUserClient;
+    void /* unknown type, empty encoding */ catalogClient;
+    void /* unknown type, empty encoding */ mediaTagStringBuilder;
+    void /* unknown type, empty encoding */ contentAvailabilityClient;
+    void /* unknown type, empty encoding */ sessionEventPublisher;
+    void /* unknown type, empty encoding */ privacyPreferenceClient;
+    void /* unknown type, empty encoding */ orientationObserver;
+    void /* unknown type, empty encoding */ platform;
+    void /* unknown type, empty encoding */ presentationCoordinator;
+    void /* unknown type, empty encoding */ remoteBrowsingSource;
+    void /* unknown type, empty encoding */ sessionClient;
+    void /* unknown type, empty encoding */ healthStore;
+    void /* unknown type, empty encoding */ sessionOrigin;
+    void /* unknown type, empty encoding */ sessionPowerLog;
+    void /* unknown type, empty encoding */ startTime;
+    void /* unknown type, empty encoding */ subscriptionToken;
+    void /* unknown type, empty encoding */ timeline;
+    void /* unknown type, empty encoding */ timerProvider;
+    void /* unknown type, empty encoding */ unitPreferencesProvider;
+    void /* unknown type, empty encoding */ standaloneWorkoutTimeProvider;
+    void /* unknown type, empty encoding */ playback;
+    void /* unknown type, empty encoding */ startDate;
+    void /* unknown type, empty encoding */ workoutDeviceConnection;
+    void /* unknown type, empty encoding */ countdown;
+    void /* unknown type, empty encoding */ initiatedGroupActivity;
+    void /* unknown type, empty encoding */ gymKitConnection;
+    void /* unknown type, empty encoding */ termination;
+    void /* unknown type, empty encoding */ workout;
+    void /* unknown type, empty encoding */ estimatedMetricsPromptVisible;
+    void /* unknown type, empty encoding */ state;
+    void /* unknown type, empty encoding */ _showEstimatedCaloriePrompt;
+}
+
+@end

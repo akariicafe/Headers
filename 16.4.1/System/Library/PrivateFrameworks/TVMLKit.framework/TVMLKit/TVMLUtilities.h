@@ -1,0 +1,52 @@
+@interface TVMLUtilities : NSObject
+
++ (BOOL)canHandleDecodingOnRenderThread;
++ (id)TVUIKitBundle;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })centerRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
++ (double)focusedSizeIncreaseForSize:(struct CGSize { double x0; double x1; })a0 upscaleFactor:(double)a1;
++ (BOOL)isAXLargeEnabled:(id)a0;
++ (BOOL)isAXSmallEnabled:(id)a0;
++ (id)randomColor;
++ (struct CGPath { } *)shadowPathWithCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a0 andScaledSize:(struct CGSize { double x0; double x1; })a1;
++ (id)placeholderImageForViewElement:(id)a0;
++ (id)rowSpacingMetricsForRowMetrics:(id)a0;
++ (id)TVKitBundle;
++ (id)TVMLKitBundle;
++ (id)_bgImageElementForProductTemplate:(id)a0;
++ (BOOL)_cornerRadiiFromElement:(id)a0 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; } *)a1 circle:(BOOL *)a2;
++ (BOOL)_cornerRadiiFromImageLayout:(id)a0 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; } *)a1 circle:(BOOL *)a2;
++ (BOOL)_cornerRadiiFromImgTreatmentValue:(id)a0 width:(double)a1 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; } *)a2 circle:(BOOL *)a3;
++ (BOOL)_cornerRadiiWithBorderRadius:(id)a0 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; } *)a1 imageWidth:(double)a2 imageTreatmentValue:(id)a3 circle:(BOOL *)a4;
++ (id)_defaultPlaceholderImageForUserInterfaceStyle:(long long)a0;
++ (id)_defaultPlaceholderImageForUserInterfaceStyle:(long long)a0 withCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a1 andSize:(struct CGSize { double x0; double x1; })a2;
++ (double)_headerFadeForShowcaseFactor:(double)a0;
++ (long long)_interfaceStyleForElement:(id)a0;
++ (id)_mobileGestaltStringForKey:(struct __CFString { } *)a0;
++ (long long)_overrideInterfaceStyleForElement:(id)a0;
++ (id)_placeholderImageForValue:(id)a0 userInterfaceStyle:(long long)a1;
++ (id)_placeholderImageForValue:(id)a0 userInterfaceStyle:(long long)a1 withCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a2 andScaledSize:(struct CGSize { double x0; double x1; })a3;
++ (id)_placeholderImageForViewElement:(id)a0;
++ (id)_placeholderImageForViewElement:(id)a0 imageLayout:(id)a1;
++ (id)_placeholderImageForViewElement:(id)a0 withCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a1 andScaledSize:(struct CGSize { double x0; double x1; })a2;
++ (id)_placeholderImageForViewElement:(id)a0 withImageLayout:(id)a1 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a2 andScaledSize:(struct CGSize { double x0; double x1; })a3;
++ (long long)contentModeForPosition:(long long)a0 defaultMode:(long long)a1;
++ (BOOL)cornerRadiiFromElement:(id)a0 cornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; } *)a1 circle:(BOOL *)a2;
++ (void)disassociateIKViewElementsRecursivelyFromView:(id)a0;
++ (double)focusedSizeIncreaseForSize:(struct CGSize { double x0; double x1; })a0 upscaleFactor:(double)a1 useInSearchPartial:(BOOL)a2;
++ (id)fontFromStyle:(id)a0;
++ (id)fontFromTextStyle:(id)a0 fontWeight:(id)a1 fontSize:(double)a2 symbolicTraits:(unsigned int)a3;
++ (void)getValuesFromTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0 translation:(struct CGPoint { double x0; double x1; } *)a1 rotation:(struct CGPoint { double x0; double x1; } *)a2;
++ (id)imageWithRadialGradientOverlayFromImage:(id)a0;
++ (id)indexPathForFirstItemAttributeValue:(id)a0;
++ (long long)interfaceStyleForTemplateElement:(id)a0;
++ (BOOL)isFlowcaseAtTopOfStackFromElement:(id)a0;
++ (long long)overrideInterfaceStyleForTemplateElement:(id)a0;
++ (id)placeholderImageForViewElement:(id)a0 withCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a1 andScaledSize:(struct CGSize { double x0; double x1; })a2;
++ (id)rowSpacingMetricsForRowMetrics:(id)a0 forShowcase:(BOOL)a1;
++ (long long)semanticAlignmentForAlignment:(long long)a0 semanticContentAttribute:(long long)a1;
++ (long long)semanticContentAttributeForTemplateElement:(id)a0;
++ (long long)semanticPositionForPosition:(long long)a0 semanticContentAttribute:(long long)a1;
++ (struct CGPath { } *)shadowPathForViewElement:(id)a0 withCornerRadii:(struct TVCornerRadii { double x0; double x1; double x2; double x3; })a1 andScaledSize:(struct CGSize { double x0; double x1; })a2;
++ (double)uiFontWeightFromCSSFontWeight:(id)a0;
+
+@end

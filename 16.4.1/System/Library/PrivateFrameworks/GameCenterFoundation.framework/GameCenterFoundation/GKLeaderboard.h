@@ -1,0 +1,81 @@
+@class NSArray, NSString, GKLeaderboardInternal, GKScore, NSDate;
+@protocol GKLeaderboardDelegate;
+
+@interface GKLeaderboard : NSObject
+
+@property (retain, nonatomic) NSArray *players;
+@property (nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } lock;
+@property (copy, nonatomic) NSString *category;
+@property (retain, nonatomic) NSArray *scores;
+@property (nonatomic) long long timeScope;
+@property (nonatomic) long long playerScope;
+@property (copy, nonatomic) NSString *identifier;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } range;
+@property (readonly, nonatomic) unsigned long long maxRange;
+@property (readonly, getter=isLoading) BOOL loading;
+@property (retain) GKLeaderboardInternal *internal;
+@property (weak, nonatomic) id<GKLeaderboardDelegate> delegate;
+@property (retain, nonatomic) GKScore *localPlayerScore;
+@property (nonatomic) int loadingCount;
+@property (readonly, nonatomic) NSString *localizedTitle;
+@property (readonly, nonatomic) long long overallRank;
+@property (readonly, nonatomic) long long overallRankCount;
+@property (readonly, nonatomic) long long friendRank;
+@property (readonly, nonatomic) long long friendRankCount;
+@property (readonly, copy, nonatomic) NSString *title;
+@property (readonly, nonatomic) NSString *groupIdentifier;
+@property (readonly, nonatomic) NSString *baseLeaderboardID;
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) NSDate *startDate;
+@property (readonly, nonatomic) NSDate *nextStartDate;
+@property (readonly, nonatomic) double duration;
+
++ (BOOL)instancesRespondToSelector:(SEL)a0;
++ (id)instanceMethodSignatureForSelector:(SEL)a0;
++ (void)loadHighlightsWithPlayerScope:(long long)a0 timeScope:(long long)a1 game:(id)a2 handler:(id /* block */)a3;
++ (void)loadHighlightsWithPlayerScope:(long long)a0 timeScope:(long long)a1 handler:(id /* block */)a2;
++ (void)loadLeaderboardsForGame:(id)a0 forSet:(id)a1 withPlayer:(id)a2 withCompletionHandler:(id /* block */)a3;
++ (void)loadLeaderboardsForGame:(id)a0 withCompletionHandler:(id /* block */)a1;
++ (void)loadLeaderboardsWithIDs:(id)a0 completionHandler:(id /* block */)a1;
++ (void)loadLeaderboardsWithIDs:(id)a0 setIdentifier:(id)a1 game:(id)a2 completionHandler:(id /* block */)a3;
++ (void)loadCategoriesWithCompletionHandler:(id /* block */)a0;
++ (void)loadLeaderboardWithIdentifier:(id)a0 forGame:(id)a1 withPlayer:(id)a2 withCompletionHandler:(id /* block */)a3;
++ (void)loadLeaderboardsForGame:(id)a0 withPlayer:(id)a1 withCompletionHandler:(id /* block */)a2;
++ (void)loadLeaderboardsWithCompletionHandler:(id /* block */)a0;
++ (void)loadLeaderboardsWithIDs:(id)a0 game:(id)a1 completionHandler:(id /* block */)a2;
++ (void)loadLeaderboardsWithIDs:(id)a0 setIdentifier:(id)a1 completionHandler:(id /* block */)a2;
++ (void)setDefaultLeaderboard:(id)a0 withCompletionHandler:(id /* block */)a1;
++ (void)submitScore:(long long)a0 context:(unsigned long long)a1 player:(id)a2 leaderboardIDs:(id)a3 completionHandler:(id /* block */)a4;
+
+- (void)setValue:(id)a0 forUndefinedKey:(id)a1;
+- (id)forwardingTargetForSelector:(SEL)a0;
+- (void)startWithHandler:(id /* block */)a0;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (id)valueForUndefinedKey:(id)a0;
+- (id)methodSignatureForSelector:(SEL)a0;
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+- (id)creator;
+- (id)initWithInternalRepresentation:(id)a0;
+- (id)initWithPlayers:(id)a0;
+- (void)loadEntriesForPlayers:(id)a0 timeScope:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)loadEntriesWithGameDescriptor:(id)a0 fetchOptions:(unsigned long long)a1 playerScope:(long long)a2 timeScope:(long long)a3 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a4 completionHandler:(id /* block */)a5;
+- (void)loadEntriesWithGameDescriptor:(id)a0 playerScope:(long long)a1 timeScope:(long long)a2 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3 completionHandler:(id /* block */)a4;
+- (void)loadPreviousOccurrenceWithCompletionHandler:(id /* block */)a0;
+- (void)loadScoresForGame:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)endWithHandler:(id /* block */)a0;
+- (void)incrementLoadingCountAtomically;
+- (void)decrementLoadingCountAtomically;
+- (void)deleteWithHandler:(id /* block */)a0;
+- (id)initWithPlayerIDs:(id)a0;
+- (void)loadEntriesForPlayerScope:(long long)a0 timeScope:(long long)a1 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 completionHandler:(id /* block */)a3;
+- (void)loadScoresForRequest:(id)a0 handler:(id /* block */)a1;
+- (void)loadScoresWithCompletionHandler:(id /* block */)a0;
+- (void)loadSummaryWithTimeScope:(long long)a0 completionHandler:(id /* block */)a1;
+- (id)scoreRequestForGame:(id)a0;
+- (void)submitScore:(long long)a0 context:(unsigned long long)a1 player:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

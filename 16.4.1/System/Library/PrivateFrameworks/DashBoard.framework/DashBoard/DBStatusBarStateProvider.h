@@ -1,0 +1,81 @@
+@class STTelephonyStatusDomain, CRSSiriPreferences, STCallingStatusDomain, DBStatusBarSensorIndicatorView, DNDStateService, STWifiStatusDomain, STBatteryStatusDomain, STWifiStatusDomainData, NSString, STMediaStatusDomainData, NSHashTable, NSTimer, STBatteryStatusDomainData, STTelephonyStatusDomainData, NSNumber, STCallingStatusDomainData, STMediaStatusDomain;
+@protocol DBEnvironment;
+
+@interface DBStatusBarStateProvider : NSObject <CRSSiriPreferencesObserver, DNDStateUpdateListener, UNNotificationSettingsCenterDelegate, BSInvalidatable, DBWorkspaceObserver, UIStatusBarStateProvider, UIStatusBarStyleDelegate_SpringBoardOnly>
+
+@property (retain, nonatomic) NSTimer *timeUpdateTimer;
+@property (retain, nonatomic) NSHashTable *stateObservers;
+@property (weak, nonatomic) id<DBEnvironment> environment;
+@property (retain, nonatomic) NSNumber *etcStatus;
+@property (copy, nonatomic) NSString *activeBundleIdentifier;
+@property (copy, nonatomic) NSString *nowRecordingBundleIdentifier;
+@property (retain, nonatomic) STTelephonyStatusDomain *telephonyDomain;
+@property (copy, nonatomic) STTelephonyStatusDomainData *telephonyData;
+@property (retain, nonatomic) STBatteryStatusDomain *batteryDomain;
+@property (retain, nonatomic) STBatteryStatusDomainData *batteryData;
+@property (retain, nonatomic) STWifiStatusDomain *wifiDomain;
+@property (retain, nonatomic) STWifiStatusDomainData *wifiData;
+@property (retain, nonatomic) STMediaStatusDomain *mediaDomain;
+@property (retain, nonatomic) STMediaStatusDomainData *mediaData;
+@property (retain, nonatomic) STCallingStatusDomain *callingDomain;
+@property (retain, nonatomic) STCallingStatusDomainData *callingData;
+@property (retain, nonatomic) DNDStateService *dndStateService;
+@property (copy, nonatomic) NSString *activeModeSymbolName;
+@property (copy, nonatomic) NSString *cachedTimeString;
+@property (retain, nonatomic) CRSSiriPreferences *siriPreferences;
+@property (nonatomic) long long cachedCarPlayAnnounceSetting;
+@property (readonly, nonatomic) BOOL inCallServiceActive;
+@property (retain, nonatomic) DBStatusBarSensorIndicatorView *sensorIndicatorView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)_sensorIndicatorTypeForData:(id)a0;
++ (BOOL)_showIndicatorForData:(id)a0;
+
+- (void)stateService:(id)a0 didReceiveDoNotDisturbStateUpdate:(id)a1;
+- (void)_timeZoneChanged:(id)a0;
+- (void)_registerForNotifications;
+- (id)initWithEnvironment:(id)a0;
+- (void)_localeChanged:(id)a0;
+- (long long)statusBar:(id)a0 styleForRequestedStyle:(long long)a1 overrides:(unsigned long long)a2;
+- (void)statusBar:(id)a0 willAnimateFromHeight:(double)a1 toHeight:(double)a2 duration:(double)a3 animation:(int)a4;
+- (long long)overriddenRequestedStyleFromStyle:(long long)a0;
+- (void)statusBar:(id)a0 didAnimateFromHeight:(double)a1 toHeight:(double)a2 animation:(int)a3;
+- (void)invalidate;
+- (unsigned long long)statusBar:(id)a0 effectiveStyleOverridesForRequestedStyle:(long long)a1 overrides:(unsigned long long)a2;
+- (void).cxx_destruct;
+- (BOOL)_radarItemEnabled;
+- (void)addStatusBarStateObserver:(id)a0;
+- (void)getStatusBarData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)removeStatusBarStateObserver:(id)a0;
+- (void)userNotificationSettingsCenter:(id)a0 didUpdateNotificationSystemSettings:(id)a1;
+- (void)preferences:(id)a0 announceNotificationsInCarPlayTemporarilyDisabledChanged:(BOOL)a1;
+- (void)_batteryDataUpdatedWithData:(id)a0;
+- (void)_callingDataUpdatedWithData:(id)a0;
+- (void)_etcChanged:(id)a0;
+- (void)_fetchAnnounceNotificationsSetting;
+- (void)_focusStatusUpdated:(id)a0;
+- (struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; })_generateData;
+- (void)_getAnnounceNotificationsData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getBatteryData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getETCData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getFocusData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getMediaData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getTTRData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getTelephonyData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (void)_getTimeData:(struct { BOOL x0[46]; char x1[64]; char x2[64]; char x3[256]; int x4; int x5; int x6; int x7; char x8[100]; char x9[100]; char x10[100]; char x11[100]; char x12[2][100]; char x13[1024]; unsigned int x14; unsigned int x15; unsigned char x16 : 1; unsigned char x17 : 1; int x18; int x19; unsigned char x20 : 1; unsigned int x21; unsigned int x22; int x23; unsigned int x24; char x25[150]; int x26; int x27; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; char x31[256]; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 2; unsigned char x36 : 2; unsigned char x37 : 1; unsigned int x38; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; char x42[256]; char x43[256]; char x44[100]; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; double x50; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; char x54[100]; char x55[100]; char x56[256]; char x57[256]; } *)a0;
+- (BOOL)_isAnnounceNotificationsEnabledForSystemSettings;
+- (void)_mediaDataUpdatedWithData:(id)a0;
+- (BOOL)_radarItemVisible;
+- (void)_resetTimeUpdateTimer;
+- (void)_setupSystemStatusDomains;
+- (int)_statusBarNetworkTypeForSystemStatusNetworkType:(unsigned long long)a0;
+- (void)_telephonyDataUpdatedWithData:(id)a0;
+- (void)_updateETCStateWithSession:(id)a0;
+- (void)_wifiDataUpdatedWithData:(id)a0;
+- (void)updateStatusBarData;
+- (void)workspace:(id)a0 stateDidChangeFromState:(id)a1 toState:(id)a2;
+
+@end

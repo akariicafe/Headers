@@ -1,0 +1,98 @@
+@class NSHashTable, NSString, CoreTelephonyClient, CTServiceDescriptor, WRM_iRATInterface, NSObject, SiriCoreWiFiManagerClient, SiriCoreLinkRecommendationInfo, NSNumber;
+@protocol OS_dispatch_queue, OS_nw_path_evaluator;
+
+@interface SiriCoreNetworkManager : NSObject <CoreTelephonyClientCarrierBundleDelegate, CoreTelephonyClientDataDelegate, CoreTelephonyClientSubscriberDelegate> {
+    NSObject<OS_dispatch_queue> *_queue;
+    NSHashTable *_observers;
+    NSObject<OS_nw_path_evaluator> *_pathEvaluator;
+    int _pathStatus;
+    BOOL _pathUsesCellular;
+    SiriCoreWiFiManagerClient *_wiFiManagerClient;
+    BOOL _hasSymptomsBasedInstantCellQuality;
+    BOOL _symptomsBasedInstantCellQualityIsGood;
+    BOOL _hasSymptomsBasedInstantWiFiQuality;
+    BOOL _symptomsBasedInstantWiFiQualityIsGood;
+    BOOL _hasSymptomsBasedHistoricalCellQuality;
+    BOOL _symptomsBasedHistoricalCellQualityIsGood;
+    BOOL _hasSymptomsBasedHistoricalWiFiQuality;
+    BOOL _symptomsBasedHistoricalWiFiQualityIsGood;
+    BOOL _lastFetchInProgress;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _ctLock;
+    CoreTelephonyClient *_coreTelephonyClient;
+    long long _lastDataSubscriptionSlot;
+    CTServiceDescriptor *_dataServiceDescriptor;
+    NSString *_subscriptionSlotOneStatus;
+    NSString *_subscriptionSlotTwoStatus;
+    double _lastSuccessfulSymptomsFetch;
+    NSNumber *_lastSignalStrength;
+    unsigned long long _subscriptionCount;
+    NSString *_carrierName;
+    WRM_iRATInterface *_interface;
+    BOOL _iRATCallInProgress;
+    unsigned long long _iRATCallNumber;
+    double _lastiRATFetch;
+    SiriCoreLinkRecommendationInfo *_linkRecommendationInfo;
+    SiriCoreLinkRecommendationInfo *_linkMetricsInfo;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)_ifnameTypeForName:(char *)a0 isWiFi:(BOOL *)a1 isCellular:(BOOL *)a2;
++ (void)acquireDormancySuspendAssertion:(const void **)a0;
++ (long long)connectionSubTypeForCellularInterface;
++ (long long)connectionTypeForInterface:(id)a0;
++ (id)connectionTypeForInterfaceName:(id)a0 isCellular:(BOOL)a1;
++ (void)getCarrierName:(id *)a0 signalStrength:(id *)a1 subscriptionCount:(id *)a2;
++ (void)releaseDormancySuspendAssertion:(void *)a0;
+
+- (void)carrierBundleChange:(id)a0;
+- (void)simStatusDidChange:(id)a0 status:(id)a1;
+- (void)preferredDataSimChanged:(id)a0;
+- (void)addObserver:(id)a0;
+- (id)_init;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)signalStrengthChanged:(id)a0 info:(id)a1;
+- (void).cxx_destruct;
+- (void)_dataSubscriptionContextChange:(id)a0;
+- (void)registerWithWirelessCoexManager;
+- (void)_dataServiceDescriptorUpdate;
+- (BOOL)_defaultBTLinkRecommendation;
+- (BOOL)_defaultWiFiLinkRecommendation;
+- (void)_getCarrierName:(id *)a0;
+- (BOOL)_getConnectionSuccessRate:(id)a0 hasMetric:(BOOL *)a1;
+- (long long)_getConnectionTechnologyForCellularInterface;
+- (void)_getLinkRecommendationSafe:(BOOL)a0 recommendation:(id /* block */)a1;
+- (void)_getNetworkPerformanceFeed;
+- (void)_pathUpdated:(id)a0;
+- (long long)_reportCellularHistoricalQuality;
+- (long long)_reportCellularInstantQuality;
+- (long long)_reportWiFiHistoricalQuality;
+- (long long)_reportWiFiInstantQuality;
+- (void)_serviceSubscriptionInfoUpdate;
+- (void)_signalStrengthChange:(id)a0;
+- (void)_signalStrengthUpdate;
+- (void)_stopMonitoringNetwork;
+- (void)_subscribeToLinkRecommendations:(id)a0;
+- (id)_wiFiManagerClient;
+- (void)acquireWiFiAssertion:(long long)a0;
+- (long long)anyNetworkQuality;
+- (long long)cellularNetworkQuality;
+- (void)deRegisterWithWirelessCoexManager;
+- (void)forceFastDormancy;
+- (void)getLinkRecommendation:(BOOL)a0 recommendation:(id /* block */)a1;
+- (void)getNetworkPerformanceFeed;
+- (void)getQualityReport:(id /* block */)a0;
+- (void)getSignalStrength:(id *)a0 subscriptionCount:(unsigned long long *)a1;
+- (void)proximityRecomendationWithCompletion:(id /* block */)a0;
+- (void)releaseWiFiAssertion;
+- (void)resetLinkMetrics;
+- (void)startMonitoringNetworkForHost:(id)a0;
+- (void)stopMonitoringNetwork;
+- (long long)wifiNetworkQuality;
+
+@end

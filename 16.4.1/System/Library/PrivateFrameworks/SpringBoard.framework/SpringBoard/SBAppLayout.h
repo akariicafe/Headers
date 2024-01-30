@@ -1,0 +1,95 @@
+@class SBDisplayItem, NSString, NSDictionary, SBChamoisOverlappingModel, NSArray, SBAppLayoutOverlappingModelCacheKey;
+
+@interface SBAppLayout : NSObject <NSCopying, BSDescriptionProviding, SBSwitcherLayoutElementProviding> {
+    long long _cachedAppLayoutType;
+    unsigned long long _cachedHash;
+    long long _configuration;
+    NSDictionary *_itemsToLayoutAttributesMap;
+    NSArray *_items;
+    NSArray *_itemsWithoutCenterOrFloatingItems;
+}
+
+@property (readonly, nonatomic) long long configuration;
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) long long environment;
+@property (readonly, nonatomic, getter=isInsetForHomeAffordance) BOOL insetForHomeAffordance;
+@property (readonly, nonatomic, getter=isHidden) BOOL hidden;
+@property (readonly, nonatomic) long long centerConfiguration;
+@property (readonly, nonatomic) SBDisplayItem *centerItem;
+@property (readonly, nonatomic) SBDisplayItem *floatingItem;
+@property (readonly, nonatomic) long long preferredDisplayOrdinal;
+@property (readonly, copy, nonatomic) NSString *continuousExposeIdentifier;
+@property (readonly, nonatomic) NSDictionary *itemsToLayoutAttributesMap;
+@property (retain, nonatomic) SBChamoisOverlappingModel *cachedLastOverlappingModel;
+@property (retain, nonatomic) SBAppLayoutOverlappingModelCacheKey *cachedLastOverlappingModelKey;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)homeScreenAppLayout;
++ (id)appLayoutWithProtobufRepresentation:(id)a0;
+
+- (BOOL)isFullScreen;
+- (id)allItems;
+- (BOOL)containsItem:(id)a0;
+- (id)_preferredWindowScene;
+- (id)plistRepresentation;
+- (id)initWithPlistRepresentation:(id)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)appLayoutsBySplittingMedusaIncompatibleItemsWithApplicationController:(id)a0;
+- (id)layoutAttributesForItemInRole:(long long)a0;
+- (id)succinctDescriptionBuilder;
+- (id)appLayoutByAdjustingFloatingItemsForChamois;
+- (BOOL)isSplitConfiguration;
+- (id)protobufRepresentation;
+- (id)appLayoutByAdjustingCenterWindowItemsForChamois;
+- (id)appLayoutByRemovingItemInLayoutRole:(long long)a0;
+- (id)appLayoutByModifyingLayoutAttributes:(id)a0 forItemInRole:(long long)a1;
+- (id)zOrderedItems;
+- (void)enumerate:(id /* block */)a0;
+- (id)appLayoutByInsertingLeafAppLayout:(id)a0 inRole:(long long)a1;
+- (BOOL)containsAnyItemFromAppLayout:(id)a0;
+- (id)appLayoutByModifyingPreferredDisplayOrdinal:(long long)a0;
+- (id)appLayoutByModifyingHiddenState:(BOOL)a0;
+- (id)appLayoutByModifyingLayoutAttributes:(id)a0 forItem:(id)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)preferredDisplayIdentity;
+- (id)initWithItemsForLayoutRoles:(id)a0 configuration:(long long)a1 centerConfiguration:(long long)a2 environment:(long long)a3 hidden:(BOOL)a4 preferredDisplayOrdinal:(long long)a5;
+- (id)appLayoutByModifyingConfiguration:(long long)a0;
+- (BOOL)containsItemWithUniqueIdentifier:(id)a0;
+- (BOOL)containsAnyItemFromSet:(id)a0;
+- (id)leafAppLayoutForRole:(long long)a0;
+- (id)initWithItemsForLayoutRoles:(id)a0 configuration:(long long)a1 environment:(long long)a2 hidden:(BOOL)a3 preferredDisplayOrdinal:(long long)a4;
+- (id)appLayoutByInsertingItem:(id)a0 withLayoutAttributes:(id)a1 inLayoutRole:(long long)a2;
+- (BOOL)containsAllItemsFromSet:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)containsAllItemsFromAppLayout:(id)a0;
+- (id)_leafAppLayoutForItem:(id)a0 role:(long long)a1;
+- (BOOL)isCenterOverSplit;
+- (id)layoutAttributesForItem:(id)a0;
+- (long long)compare:(id)a0;
+- (id)initWithItems:(id)a0 centerItem:(id)a1 floatingItem:(id)a2 configuration:(long long)a3 itemsToLayoutAttributes:(id)a4 centerConfiguration:(long long)a5 environment:(long long)a6 hidden:(BOOL)a7 preferredDisplayOrdinal:(long long)a8;
+- (id)leafAppLayoutForItem:(id)a0;
+- (id)appLayoutByModifyingEnvironment:(long long)a0;
+- (id)initWithItemsForLayoutRoles:(id)a0 configuration:(long long)a1 environment:(long long)a2 preferredDisplayOrdinal:(long long)a3;
+- (id)succinctDescription;
+- (id)appLayoutByModifyingLayoutAttributesForItems:(id)a0;
+- (id)flippedAppLayout;
+- (id)init;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)itemForLayoutRole:(long long)a0;
+- (BOOL)isCenterOverFull;
+- (BOOL)hasSameItemsInLayoutRoles:(unsigned long long)a0 asAppLayout:(id)a1;
+- (unsigned long long)switcherLayoutElementType;
+- (id)anyLeafAppLayout;
+- (id)appLayoutWithItemsPassingTest:(id /* block */)a0;
+- (long long)layoutRoleForItem:(id)a0;
+- (id)leafAppLayouts;
+- (id)initWithItemsForLayoutRoles:(id)a0 configuration:(long long)a1 itemsToLayoutAttributes:(id)a2 centerConfiguration:(long long)a3 environment:(long long)a4 hidden:(BOOL)a5 preferredDisplayOrdinal:(long long)a6;
+- (BOOL)containsItemWithBundleIdentifier:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isOrContainsAppLayout:(id)a0;
+- (id)zOrderedLeafAppLayouts;
+
+@end

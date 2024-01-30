@@ -1,0 +1,3 @@
+@interface __UIKBTutorialModalDisplayAccessibility_super : UIAccessibilitySafeCategory
+
+@end

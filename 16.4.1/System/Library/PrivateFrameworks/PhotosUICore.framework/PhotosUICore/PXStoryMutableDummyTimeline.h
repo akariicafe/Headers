@@ -1,0 +1,8 @@
+@interface PXStoryMutableDummyTimeline : PXStoryDummyTimeline
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (long long)addClipWithTimeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 resource:(id)a2 playbackStyle:(long long)a3 transitionInfo:(struct { char x0; unsigned char x1; struct { long long x0; int x1; unsigned int x2; long long x3; } x2; char x3; union { char x0; char x1; char x2; char x3; } x4; union { double x0; double x1; char x2; } x5; })a4;
+- (long long)addSegmentWithResources:(id)a0 preferredDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 compositionInfo:(struct { long long x0; BOOL x1; long long x2; double x3; long long x4; })a2 transitionInfo:(struct { char x0; unsigned char x1; struct { long long x0; int x1; unsigned int x2; long long x3; } x2; char x3; union { char x0; char x1; char x2; char x3; } x4; union { double x0; double x1; char x2; } x5; })a3;
+- (long long)addSegmentWithTimeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 compositionInfo:(struct { long long x0; BOOL x1; long long x2; double x3; long long x4; })a1 transitionInfo:(struct { char x0; unsigned char x1; struct { long long x0; int x1; unsigned int x2; long long x3; } x2; char x3; union { char x0; char x1; char x2; char x3; } x4; union { double x0; double x1; char x2; } x5; })a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterTestFabricScoped : MTRUnitTestingClusterTestFabricScoped
+
+@end

@@ -1,0 +1,3 @@
+@interface WFSiriSpeakTextResponse : WFSiriActionResponse
+
+@end

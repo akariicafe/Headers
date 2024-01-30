@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterNestedStruct : MTRUnitTestingClusterNestedStruct
+
+@end

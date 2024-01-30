@@ -1,0 +1,97 @@
+@class NSString, NSArray, NSMutableSet, NSObject;
+@protocol OS_dispatch_source, TSKMediaPlayerControllerDelegate;
+
+@interface TSKAnimatedGIFController : NSObject <TSKLayerMediaPlayerController> {
+    id<TSKMediaPlayerControllerDelegate> _delegate;
+    struct CGImageSource { } *_imageSource;
+    NSArray *_frames;
+    NSMutableSet *_layers;
+    float _rateBeforeScrubbing;
+    unsigned long long _scrubbingCount;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _timebaseLock;
+    struct OpaqueCMTimebase { } *_timebase;
+    NSObject<OS_dispatch_source> *_timebaseTimerSource;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _timebaseStartTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _timebaseEndTime;
+    long long _timebaseRepeatMode;
+    NSMutableSet *_observationTokens;
+    BOOL _playing;
+    BOOL _fastForwarding;
+    BOOL _fastReversing;
+    float _volume;
+    double _startTime;
+    double _endTime;
+    long long _repeatMode;
+}
+
+@property (readonly, nonatomic) struct CGImage { } *imageForCurrentTime;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)canInitWithDataType:(id)a0;
+
+- (void)setEndTime:(double)a0;
+- (double)endTime;
+- (id)delegate;
+- (void)setPlaying:(BOOL)a0;
+- (void)setStartTime:(double)a0;
+- (void)setRate:(float)a0;
+- (float)rate;
+- (double)startTime;
+- (BOOL)canPlay;
+- (long long)repeatMode;
+- (double)duration;
+- (double)currentTime;
+- (BOOL)isScrubbing;
+- (void)setVolume:(float)a0;
+- (double)remainingTime;
+- (void)dealloc;
+- (BOOL)isPlaying;
+- (void)beginScrubbing;
+- (void)teardown;
+- (void)setRepeatMode:(long long)a0;
+- (float)volume;
+- (void)endScrubbing;
+- (void).cxx_destruct;
+- (BOOL)hasCurrentTime;
+- (void)cancelPendingSeeks;
+- (void)addLayer:(id)a0;
+- (void)seekToBeginning;
+- (void)seekToEnd;
+- (void)stopSynchronously;
+- (BOOL)isFastReversing;
+- (double)absoluteCurrentTime;
+- (double)absoluteDuration;
+- (BOOL)isFastForwarding;
+- (void)scrubToTime:(double)a0 withTolerance:(double)a1;
+- (void)scrubToTime:(double)a0 withTolerance:(double)a1 completionHandler:(id /* block */)a2;
+- (void)seekBackwardByOneFrame;
+- (void)seekForwardByOneFrame;
+- (void)setFastForwarding:(BOOL)a0;
+- (void)setFastReversing:(BOOL)a0;
+- (void)p_prepareFrames;
+- (void)addObservationToken:(id)a0;
+- (id)addPeriodicTimeObserverForInterval:(double)a0 block:(id /* block */)a1;
+- (BOOL)canFastForward;
+- (BOOL)canFastReverse;
+- (BOOL)hasNewImageForTime:(double)a0 sinceTime:(double)a1;
+- (struct CGImage { } *)imageForTime:(double)a0;
+- (id)initWithData:(id)a0 delegate:(id)a1;
+- (id)initWithImageSource:(struct CGImageSource { } *)a0 delegate:(id)a1;
+- (id)newLayer;
+- (id)p_frameAtTime:(double)a0 fromIndex:(unsigned long long)a1 frameIndex:(out unsigned long long *)a2;
+- (void)p_setAbsoluteCurrentTime:(double)a0;
+- (void)p_setRate:(float)a0;
+- (void)p_timebaseTimeDidChangeToStartOrEndTime;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })p_timebaseTimeForHostTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 rate:(double)a1 updatedRate:(out double *)a2 anchorTime:(out struct { long long x0; int x1; unsigned int x2; long long x3; } *)a3;
+- (void)p_updateLayers;
+- (void)p_updateTimebaseTimerSourceNextFireTime;
+- (void)removeLayer:(id)a0;
+- (void)removeObservationToken:(id)a0;
+- (void)removePeriodicTimeObserver:(id)a0;
+- (void)setVolume:(float)a0 rampDuration:(double)a1;
+- (double)timeForHostTime:(double)a0;
+
+@end

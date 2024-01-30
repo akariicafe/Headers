@@ -1,0 +1,96 @@
+@class NSTimer, NSString, UIImage, BubbleTextLayer, TopoProgressBar, NSMutableArray, TopoNumberBadge;
+
+@interface NetTopoObjectLayer : CALayer {
+    int _topoStyle;
+    struct CGSize { double width; double height; } _boundsSizeConstraint;
+    UIImage *_statusBadgeImage;
+    struct CGColor { } *_selectionColor;
+    struct CGColor { } *_labelUnselectedFillColor;
+    struct CGColor { } *_labelSelectedFillColor;
+    struct CGColor { } *_labelSelectedFillColor2;
+    struct CGColor { } *_labelUnselectedTextColor;
+    struct CGColor { } *_labelSelectedTextColor;
+    struct CGColor { } *_secondaryLabelUnselectedTextColor;
+    struct CGColor { } *_secondaryLabelSelectedTextColor;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _imageFrame;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _imageCoreFrame;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _imageSelectionFrame;
+    double _selectionCornerRadius;
+    double _selectionRectOutset;
+    NSString *_labelString;
+    BubbleTextLayer *_labelLayer;
+    double _labelPinnedHeight;
+    NSString *_secondaryLabelString;
+    BubbleTextLayer *_secondaryLabelLayer;
+    UIImage *_statusLights[4];
+    NSTimer *_statusLightTimer;
+    float _statusLightInterval;
+    unsigned int _statusLightState;
+    unsigned int _statusLightMode;
+    TopoNumberBadge *_topoNumberBadge;
+    TopoProgressBar *_topoProgressBar;
+    float _topoProgressValue;
+    NSString *_saveLable;
+}
+
+@property (nonatomic) double layoutScale;
+@property (nonatomic) BOOL smallSize;
+@property (nonatomic) struct CGSize { double x0; double x1; } boundsSizeConstraint;
+@property (nonatomic) unsigned long long row;
+@property (nonatomic) unsigned long long column;
+@property (nonatomic) struct CGPoint { double x; double y; } layoutOrigin;
+@property (nonatomic) double prelim;
+@property (nonatomic) double mod;
+@property (nonatomic) double change;
+@property (nonatomic) double shift;
+@property (nonatomic) unsigned long long number;
+@property (nonatomic, getter=isExpanded) BOOL expanded;
+@property (nonatomic) NetTopoObjectLayer *contourThread;
+@property (nonatomic) NetTopoObjectLayer *ancestor;
+@property (retain, nonatomic) id associatedNode;
+@property (nonatomic) id owningView;
+@property (retain, nonatomic) NSString *label;
+@property (nonatomic) double labelPinnedHeight;
+@property (retain, nonatomic) NSString *secondaryLabel;
+@property (retain, nonatomic) NetTopoObjectLayer *parent;
+@property (readonly, nonatomic) NetTopoObjectLayer *parentDevice;
+@property (retain, nonatomic) NSMutableArray *children;
+@property (readonly, nonatomic) unsigned long long numberOfChildren;
+@property (retain, nonatomic) struct CGImage { } *objectImage;
+@property (retain, nonatomic) UIImage *statusBadgeImage;
+@property (nonatomic) unsigned int statusLightMode;
+@property (nonatomic) unsigned long long topoBadgeNumber;
+@property (nonatomic) float topoProgressValue;
+@property (retain, nonatomic) id userObject;
+@property (retain, nonatomic) NSString *saveLabel;
+@property (nonatomic, getter=isSelectable) BOOL selectable;
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic, getter=isGhosted) BOOL ghosted;
+
++ (BOOL)needsDisplayForKey:(id)a0;
+
+- (void)drawInContext:(struct CGContext { } *)a0;
+- (id)debugDescription;
+- (void)dealloc;
+- (void)addChild:(id)a0;
+- (id)init;
+- (void)layoutSublayers;
+- (id)firstChild;
+- (id)lastChild;
+- (void)removeChild:(id)a0;
+- (id)childAtIndex:(unsigned long long)a0;
+- (void)insertChild:(id)a0 atIndex:(unsigned long long)a1;
+- (void)deallocStatusImages;
+- (id)describeOne:(id)a0 uiLayer:(id)a1 indent:(unsigned long long)a2;
+- (struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; struct CGPoint { double x0; double x1; } x2; struct CGPoint { double x0; double x1; } x3; })getConnectionAttachmentLocations;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getFrameContainingAllSublayers;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getUserInteractionBounds;
+- (void)initNetTopoObjectLayerCommonWithStyle:(int)a0 andOwningView:(id)a1;
+- (id)initWithUIStyle:(int)a0 andOwningView:(id)a1;
+- (void)loadStatusImagesForScale:(double)a0;
+- (void)pickCorrectImagesForContentsScale:(double)a0;
+- (void)setStatusBadgeImagePriv:(id)a0;
+- (void)setStatusLightStateFromMode;
+- (void)statusLightUpdateTimer:(id)a0;
+
+@end

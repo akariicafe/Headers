@@ -1,0 +1,3 @@
+@interface MKImageDecoder : MKFileDecoder
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC12PhotosUIAppsP33_35C19A38449979CC6E60E4C150A229A911__PUXObject : _TtCs12_SwiftObject
+
+@end

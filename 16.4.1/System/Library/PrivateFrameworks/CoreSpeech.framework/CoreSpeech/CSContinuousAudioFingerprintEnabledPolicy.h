@@ -1,0 +1,7 @@
+@interface CSContinuousAudioFingerprintEnabledPolicy : CSPolicy
+
+- (void)_subscribeEventMonitors;
+- (id)init;
+- (void)_addContinousAudioFingerprintEnabledConditions;
+
+@end

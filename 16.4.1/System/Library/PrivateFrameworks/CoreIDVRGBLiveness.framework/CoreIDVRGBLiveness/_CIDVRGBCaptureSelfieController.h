@@ -1,0 +1,83 @@
+@class PADFrame, NSMutableArray, NSTimer, NSURL, CIDVRGBCameraPreview, NSObject, CIDVRGBCaptureUIConfig;
+@protocol PADClassifier, PADFrameQualityMonitor, CIDVRGBImageQualityAnalyzer, PADAuditDataRepository, CIDVRGBAVSessionManager, OS_dispatch_queue, CIDVRGBCaptureSelfieControllerDelegate;
+
+@interface _CIDVRGBCaptureSelfieController : NSObject <CIDVRGBCaptureSelfieController, CIDVRGBAVSessionManagerDelegate> {
+    NSObject<OS_dispatch_queue> *_queue;
+    CIDVRGBCaptureUIConfig *_config;
+    id<CIDVRGBAVSessionManager> _avSession;
+    id<PADFrameQualityMonitor> _quality;
+    id<CIDVRGBImageQualityAnalyzer> _lightweightQuality;
+    id<PADClassifier> _classifier;
+    id<PADAuditDataRepository> _audit;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _regionOfInterest;
+    PADFrame *_selfie;
+    NSURL *_videoURL;
+    double _selfieStart;
+    NSTimer *_livenessTimer;
+    unsigned long long _stitchFramesToIgnore;
+    unsigned long long _analyticStitchFramesToIgnore;
+    unsigned long long _sequence;
+    long long _taOptions;
+    long long _state;
+    BOOL _canceling;
+    BOOL _isWaitingToFinish;
+    NSMutableArray *_luxValues;
+    NSMutableArray *_buttonPressTimestamps;
+}
+
+@property (nonatomic) long long state;
+@property (nonatomic) long long analyticsState;
+@property (retain, nonatomic) CIDVRGBCameraPreview *preview;
+@property (weak, nonatomic) id<CIDVRGBCaptureSelfieControllerDelegate> delegate;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) struct PADClassifierFrameOptions { BOOL runTA; BOOL runFAC; BOOL runPRD; } frameOptions;
+
+- (id)_viewController;
+- (void)dealloc;
+- (void)bootstrap;
+- (id)initWithConfig:(id)a0;
+- (void).cxx_destruct;
+- (void)finishRecording;
+- (void)cancelWithCompletion:(id /* block */)a0;
+- (void)_finishLiveness;
+- (void)_recordLuxLevel;
+- (id)_reorientImage:(id)a0;
+- (void)beginNewGesture;
+- (void)restartLiveness;
+- (id)_compressSelfie:(id)a0 skipCompression:(BOOL)a1;
+- (void)_invalidateLivenessTimer;
+- (void)_performDebugAnalysisForFrame:(id)a0;
+- (void)_performImageQualityAnalysisForFrame:(id)a0 ofType:(long long)a1;
+- (void)_performImageQualityAnalysisForFrame:(id)a0 ofType:(long long)a1 withOptions:(id)a2;
+- (void)_performLivenessAnalysisForFrame:(id)a0;
+- (void)_performVideoQualityAnalysisForFrame:(id)a0 ofType:(long long)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_reorientRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inContainerOfSize:(struct CGSize { double x0; double x1; })a1 fromOrientation:(unsigned int)a2;
+- (void)_reorientSelfieFrame:(id)a0;
+- (id)_selfieBufferToImage:(id)a0;
+- (BOOL)_shouldPresentErrorAlertForError:(id)a0;
+- (void)_startLiveness;
+- (void)_startLivenessTimer;
+- (void)_stopRecordingLivenessVideo;
+- (void)_updateRegionOfInterestForFrame:(id)a0;
+- (BOOL)_videoIsRequired;
+- (void)beginIgnoreStitchCounter;
+- (void)cancelWithError:(id)a0 andCompletion:(id /* block */)a1;
+- (void)captureSelfieUsingFlashMode:(long long)a0;
+- (void)didCaptureFrame:(id)a0;
+- (void)didCapturePhoto:(id)a0 error:(id)a1;
+- (void)didCaptureVideoAtURL:(id)a0 error:(id)a1;
+- (void)disableFrameOptions;
+- (void)enableAccessibilityOptions;
+- (void)enableFrameOptions;
+- (void)fetchNewLivenessConfigWithCompletion:(id /* block */)a0;
+- (void)gestureCompleted;
+- (BOOL)isLowDiskSpaceError:(id)a0;
+- (void)pauseLivenessGesture;
+- (void)prepareToResumeLivenessGesture;
+- (void)restartSelfieCapture;
+- (void)resumeLivenessGesture;
+- (void)skipLivenessGesture;
+- (void)startLiveness;
+- (void)submitSelfie;
+
+@end

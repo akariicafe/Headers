@@ -1,0 +1,88 @@
+@class NRFProgressiveBracketingParameters, GlobalDistortionCorrectionByPortType, NSMutableDictionary, NSDictionary, NRFPlist, FigWiredMemory, FigMetalContext, NSString, RegWarpPP, FigMetalAllocatorBackend, CMIExternalMemoryResource, GlobalDistortionCorrectionPlist, LSCGainsPlist, NRFConfig, NRFOutput;
+@protocol IBPSemanticStyleProperties, NRFSubProcessor, MTLTexture, MTLCommandQueue, NRFProcessorDelegate;
+
+@interface NRFProcessorV3 : NSObject <SidecarWriter, NRFProcessor> {
+    id<NRFSubProcessor> _subProcessors[2];
+    id<NRFSubProcessor> _currentProcessor;
+    FigMetalAllocatorBackend *_allocatorBackend;
+    BOOL _allocatorSetupComplete;
+    BOOL _regwarpSetupComplete;
+    struct { unsigned long long sharedMetalBufferSizeRequested; unsigned long long sharedRegWarpBufferSizeRequested; unsigned long long width; unsigned long long height; unsigned int pixelFormat; unsigned long long regwarpInputWidth; unsigned long long regwarpInputHeight; } _memoryRequirements;
+    BOOL _regwarpHasBeenSetup;
+    int _aggregateErr;
+    FigWiredMemory *_sharedRegWarpBuffer;
+    BOOL _usingExternalSharedRegWarpBuffer;
+    BOOL _requestTuningParams;
+    NRFPlist *_nrfPlist;
+    struct __CVBuffer { } *_regWarpInput;
+    struct { unsigned int numThreads; unsigned int numHorizontalBlocks; unsigned int numVerticalBlocks; unsigned int nccSearchRadius; unsigned int nccPatchRadius; unsigned int maxSearchRadius; unsigned int internalBorderSize; float ransacAdaptiveThresholdFactor; float ransacMinMatchingScoreAccepted; unsigned int maxNumberOfPyramidLevels; BOOL skipInitialDownsample; BOOL performHistEq; } _registrationPipelineRWPPConfig;
+    RegWarpPP *_registrationPipelineRWPP;
+    FigMetalContext *_metal;
+    unsigned int _fusionOptions;
+    LSCGainsPlist *_lscGainsPlist;
+    GlobalDistortionCorrectionByPortType *_globalDistortionCorrectionByPortType;
+    GlobalDistortionCorrectionPlist *_globalDistortionCorrectionPlist;
+    BOOL _saveInputFramesToDisk;
+    NSMutableDictionary *_sidecar;
+    NRFConfig *_nrfConfig;
+    id<MTLTexture> _lscGainsTex;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *tuningParams;
+@property (retain, nonatomic) NSMutableDictionary *tuningParamsPlist;
+@property (retain, nonatomic) NSMutableDictionary *defringingTuningByPortType;
+@property (nonatomic) unsigned int processingType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) int referenceFrameIndex;
+@property (nonatomic) BOOL doRedFaceFix;
+@property (nonatomic) BOOL enableGreenGhostMitigation;
+@property (nonatomic) BOOL referenceFrameHasEVMinus;
+@property (nonatomic) BOOL srlEnabled;
+@property (nonatomic) BOOL skipDenoising;
+@property (retain, nonatomic) id<IBPSemanticStyleProperties> semanticStyleProperties;
+@property (retain, nonatomic) NRFOutput *output;
+@property (weak, nonatomic) id<NRFProcessorDelegate> delegate;
+@property (readonly, nonatomic) int cntBracketSampleBuffers;
+@property (readonly, nonatomic) int batchCount;
+@property (nonatomic) BOOL learnedNREnabled;
+@property (nonatomic) BOOL stfAllowed;
+@property (nonatomic) int fusionMode;
+@property (retain, nonatomic) NRFProgressiveBracketingParameters *progressiveBracketingParameters;
+@property (nonatomic) int progressiveBatchSize;
+@property (nonatomic) int deepFusionProcessingMode;
+@property (retain, nonatomic) id<MTLCommandQueue> metalCommandQueue;
+@property (readonly, nonatomic) BOOL supportsExternalMemoryResource;
+@property (retain, nonatomic) CMIExternalMemoryResource *externalMemoryResource;
+@property (retain, nonatomic) NSDictionary *tuningParameters;
+@property (retain, nonatomic) NSDictionary *cameraInfoByPortType;
+
+- (int)prewarm;
+- (void)applyOverrides;
+- (int)allocateResources:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned int x4; unsigned long long x5; unsigned long long x6; } *)a0;
+- (int)prewarmWithTuningParameters:(id)a0;
+- (int)resetState;
+- (void)finishScheduling;
+- (int)setup;
+- (int)finishProcessing;
+- (int)prepareToProcess:(unsigned int)a0;
+- (void)dealloc;
+- (int)purgeResources;
+- (int)getOptions:(id)a0;
+- (int)process;
+- (id)init;
+- (id)initWithCommandQueue:(id)a0;
+- (void)addToSidecar:(id)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (int)addFrame:(struct opaqueCMSampleBuffer { } *)a0;
+- (id)externalMemoryDescriptorForConfiguration:(id)a0;
+- (int)prepareToProcess:(unsigned int)a0 prepareDescriptor:(id)a1;
+- (int)setupWithOptions:(id)a0;
+- (int)determineWorkingBufferRequirementsWithPrepareDescriptorByProcessingType:(id)a0 nrfConfig:(id)a1 memoryAllocationInfo:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned int x4; unsigned long long x5; unsigned long long x6; } *)a2;
+- (id)initForSubProcessorType:(int)a0;
+- (id)initWithCommandQueue:(id)a0 subProcessorType:(int)a1;
+- (int)processingTypeToSubProcessorType:(unsigned int)a0;
+
+@end

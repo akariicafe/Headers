@@ -1,0 +1,3 @@
+@interface VRXInstrumentationEvent : NSObject
+
+@end

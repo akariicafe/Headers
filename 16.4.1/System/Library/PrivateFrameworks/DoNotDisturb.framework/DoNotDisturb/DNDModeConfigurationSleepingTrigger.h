@@ -1,0 +1,3 @@
+@interface DNDModeConfigurationSleepingTrigger : DNDModeConfigurationTrigger
+
+@end

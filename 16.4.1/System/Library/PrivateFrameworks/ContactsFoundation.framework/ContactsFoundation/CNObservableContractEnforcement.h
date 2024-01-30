@@ -1,0 +1,17 @@
+@class NSString, CNObservableContractTerminationContext;
+
+@interface CNObservableContractEnforcement : NSObject <CNObserver> {
+    unsigned long long _state;
+    CNObservableContractTerminationContext *_terminationContext;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)os_log;
++ (BOOL)shouldEnforceRxProtocols;
++ (BOOL)shouldSwizzleNilResults;
+
+@end

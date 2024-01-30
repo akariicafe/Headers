@@ -1,0 +1,3 @@
+@interface NSNetworkStorageUtilities : NSObject
+
+@end

@@ -1,0 +1,12 @@
+@interface NewsUI2.MagazineSectionsInteractor : NSObject <FCBundleSubscriptionChangeObserver> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ dataManager;
+    void /* unknown type, empty encoding */ magazinesBadgingCoordinator;
+}
+
+- (void)bundleSubscriptionDidSubscribe:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)bundleSubscriptionDidExpire:(id)a0;
+
+@end

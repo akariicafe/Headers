@@ -1,0 +1,3 @@
+@interface __UIStatusBarAdornmentWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

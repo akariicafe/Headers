@@ -1,0 +1,3 @@
+@interface __SKUIScrollingSegmentedControllerCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

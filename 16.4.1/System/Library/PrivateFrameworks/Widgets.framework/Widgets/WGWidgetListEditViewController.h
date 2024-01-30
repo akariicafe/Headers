@@ -1,0 +1,82 @@
+@class UINavigationController, NSString, NSArray, UITableViewController, NSMutableArray;
+@protocol WGWidgetListEditViewControllerDataSource, WGWidgetListEditViewControllerDelegate;
+
+@interface WGWidgetListEditViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    UINavigationController *_navigationController;
+    UITableViewController *_tableViewController;
+    NSMutableArray *_enabledTodayItemIDs;
+    NSMutableArray *_favoriteItemIDs;
+    NSMutableArray *_disabledItemIDs;
+    NSArray *_groupIDs;
+    double _contentMinY;
+    NSArray *_originalFavoriteItemIDs;
+}
+
+@property (nonatomic, getter=_isDismissingDueToInterfaceAction, setter=_setDismissingDueToInterfaceAction:) BOOL dismissingDueToInterfaceAction;
+@property (retain, nonatomic, getter=_statusBarColorAssertion, setter=_setStatusBarColorAssertion:) id statusBarColorAssertion;
+@property (nonatomic) BOOL showsPinSection;
+@property (nonatomic) BOOL showsFavorites;
+@property (nonatomic, getter=wereWidgetsPinnedOriginally) BOOL widgetsPinnedOriginally;
+@property (nonatomic, getter=areWidgetsPinned) BOOL widgetsPinned;
+@property (weak, nonatomic) id<WGWidgetListEditViewControllerDataSource> dataSource;
+@property (weak, nonatomic) id<WGWidgetListEditViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)viewDidLoad;
+- (id)tableView:(id)a0 titleForHeaderInSection:(long long)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewWillLayoutSubviews;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (BOOL)tableView:(id)a0 canMoveRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 commitEditingStyle:(long long)a1 forRowAtIndexPath:(id)a2;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 moveRowAtIndexPath:(id)a1 toIndexPath:(id)a2;
+- (BOOL)tableView:(id)a0 shouldIndentWhileEditingRowAtIndexPath:(id)a1;
+- (id)tableView:(id)a0 targetIndexPathForMoveFromRowAtIndexPath:(id)a1 toProposedIndexPath:(id)a2;
+- (id)tableView:(id)a0 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)a1;
+- (id)tableView:(id)a0 titleForFooterInSection:(long long)a1;
+- (void)_loadItems;
+- (long long)_layoutMode;
+- (void)_dismissDueToInterfaceActionAndAcknowledgeItemsSavingItemState:(BOOL)a0;
+- (void)_acknowledgeItemsAndResetNewWidgetsCount;
+- (void)_acknowledgeItemsSavingItemState:(BOOL)a0;
+- (void)_cancelWidgetListEditView;
+- (long long)_compareItemWithIdentifier:(id)a0 andItemWithIdentifierConsideringIsNew:(id)a1;
+- (void)_disableItemAtIndexPath:(id)a0 inTableView:(id)a1;
+- (void)_dismissWidgetListEditView;
+- (void)_enableItemAtIndexPath:(id)a0 inTableView:(id)a1;
+- (id)_enabledItemIdentifiersForGroupID:(id)a0;
+- (id)_groupKeyForSectionAtIndex:(unsigned long long)a0;
+- (unsigned long long)_indexForInsertingItemWithIdentifier:(id)a0 intoArray:(id)a1;
+- (long long)_indexOfFirstEnabledWidgetInSection:(unsigned long long)a0;
+- (long long)_indexOfLastEnabledWidgetInSection:(unsigned long long)a0;
+- (id)_indexPathForItemWithIdentifier:(id)a0;
+- (BOOL)_isNewItem:(id)a0;
+- (id)_itemIdentifierForIndexPath:(id)a0;
+- (id)_itemIdentifiersInSection:(unsigned long long)a0;
+- (void)_saveItemArrangement;
+- (void)_saveItemState;
+- (unsigned long long)_sectionIndexForGroupKey:(id)a0;
+- (id)_widgetListEditViewTableHeaderView;
+- (long long)disabledWidgetsSection;
+- (long long)favoritesSection;
+- (long long)pinSection;
+- (void)pinSwitchChanaged:(id)a0;
+- (BOOL)showsFavoritesSection;
+- (long long)todaySection;
+
+@end

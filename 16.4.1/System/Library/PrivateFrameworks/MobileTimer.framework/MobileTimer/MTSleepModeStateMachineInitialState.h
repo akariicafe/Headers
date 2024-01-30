@@ -1,0 +1,3 @@
+@interface MTSleepModeStateMachineInitialState : MTSleepModeStateMachineState
+
+@end

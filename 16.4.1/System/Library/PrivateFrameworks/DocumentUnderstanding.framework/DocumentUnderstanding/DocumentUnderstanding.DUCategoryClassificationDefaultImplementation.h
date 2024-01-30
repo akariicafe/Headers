@@ -1,0 +1,3 @@
+@interface DocumentUnderstanding.DUCategoryClassificationDefaultImplementation : _TtCs12_SwiftObject
+
+@end

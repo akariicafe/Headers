@@ -1,0 +1,55 @@
+@interface TSCHStyleUtilities : NSObject
+
++ (id)defaultShadow;
++ (id)nullFill;
++ (BOOL)allSeriesInList:(id)a0 haveExplosionValue:(double)a1;
++ (id)availableStrokes;
++ (double)bendedCalloutLineLabelExplosionValueFromPre2_4ExplosionValue:(double)a0 chartModel:(id)a1 bodySize:(struct CGSize { double x0; double x1; })a2;
++ (struct CGSize { double x0; double x1; })bodySizeWithMinimumWedgeExplosionWithChartModel:(id)a0 bodySize:(struct CGSize { double x0; double x1; })a1;
++ (void)breakUpFontName:(id)a0 isBold:(BOOL *)a1 isItalic:(BOOL *)a2;
++ (float)centeredDonutLabelExplosionPercentageWithInnerRadius:(double)a0;
++ (id)chartsNullShadowToDefaultDisabledShadow:(id)a0;
++ (void)convertToSimpleTSDFillsInProperties:(id)a0 inMap:(id)a1 context:(id)a2;
++ (float)defaultCalloutLineThickness;
++ (float)defaultDonutLabelExplosionPercentage;
++ (float)defaultInnerRadiusPercentage;
++ (float)defaultInnerRadiusPercentageForIconRendering;
++ (float)defaultPieLabelExplosionPercentage;
++ (id)fillForSeries:(id)a0 chartType:(id)a1;
++ (id)fullyPopulatedStyleFromStyle:(id)a0 context:(id)a1;
++ (id)fullyPopulatedStylesFromArray:(id)a0 context:(id)a1 styleClass:(Class)a2;
++ (BOOL)groupedShadowsForChartModel:(id)a0;
++ (BOOL)hasNoFill:(id)a0;
++ (BOOL)hasShadow:(id)a0;
++ (BOOL)isNullFill:(id)a0;
++ (BOOL)labelExplosionIsCenteredInWedgeWithInnerRadius:(double)a0 labelExplosion:(double)a1;
++ (id)lineEndForSegmentIndex:(long long)a0;
++ (id)nullShadow;
++ (void)p_adjustTrendlineSaturation:(double *)a0 brightness:(double *)a1;
++ (double)p_bendedCalloutLineLabelExplosionValueFromPre2_4ExplosionValue:(double)a0 chartRadius:(double)a1;
++ (BOOL)p_hasShadow:(id)a0;
++ (double)p_pre2_4BendedCalloutLineLabelExplosionValueFromExplosionValue:(double)a0 chartRadius:(double)a1;
++ (id)p_referenceColorForObject:(id)a0;
++ (double)pieFamilyLabelExplosionMaximumPercentage;
++ (double)pieFamilyLabelExplosionMinimumPercentage;
++ (double)pre2_4BendedCalloutLineLabelExplosionValueFromExplosionValue:(double)a0 chartModel:(id)a1 bodySize:(struct CGSize { double x0; double x1; })a2;
++ (float)pre2_4DefaultPieLabelExplosionPercentageForCalloutLineCalculation;
++ (unsigned long long)segmentIndexForLineEnd:(id)a0;
++ (id)shadowToChartsNullShadow:(id)a0;
++ (BOOL)shouldAnchorLabelsForSeries:(id)a0 innerRadius:(double)a1 calloutLineType:(long long)a2 defaultLabelExplosion:(double)a3;
++ (id)stylesheetOfStyles:(id)a0 nilAllowed:(BOOL)a1;
++ (id)swapTuplesForParagraphStyleMutations:(id)a0 forReferencingProperty:(int)a1 forStyleOwner:(id)a2;
++ (id)trendlineColorFromCGColor:(struct CGColor { } *)a0;
++ (id)tupleToUpdate2_3ExplosionFromValue:(id)a0 chartInfo:(id)a1 forStyleOwner:(id)a2;
++ (id)uiStringForLabelFormatType:(int)a0;
++ (id)uiStringForLabelFormatType:(int)a0 useShortString:(BOOL)a1;
++ (void)updateParagraphStylePropertyMapsForMutationLookup:(id)a0 mutationDictionary:(id)a1 styleOwner:(id)a2 indexProperty:(int)a3 paragraphStyleProperty:(int)a4 value:(id)a5;
++ (void)updateStyleState:(id)a0 forMutationsPerStyleOwner:(id)a1;
++ (void)updateStyleState:(id)a0 forPropertyMutationTuples:(id)a1;
++ (void)upgradeAlignmentInParagraphStyles:(id)a0 willModifyBlock:(id /* block */)a1;
++ (BOOL)upgradeShadowProperties:(id)a0 inMap:(id)a1;
++ (id)upgradedShadowPropertyForParagraphStyle:(id)a0;
++ (BOOL)upgradedShadowPropertyFromShadow:(id)a0 outUpgraded:(id *)a1;
++ (BOOL)useOutsideParagraphStyleIndexForSeries:(id)a0 chartType:(id)a1 layout:(id)a2;
+
+@end

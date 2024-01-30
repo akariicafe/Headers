@@ -1,0 +1,3 @@
+@interface MKFHomeNetworkRouterSettingDatabaseID : MKFHomeSettingDatabaseID
+
+@end

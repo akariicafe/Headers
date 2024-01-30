@@ -1,0 +1,3 @@
+@interface MKFCharacteristicWriteActionDatabaseID : MKFActionDatabaseID
+
+@end

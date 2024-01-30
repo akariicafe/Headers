@@ -1,0 +1,91 @@
+@class UIInputViewController, UIKeyboard, UIView, UIResponder, UIKBRenderConfig;
+
+@interface UIInputViewSet : NSObject {
+    BOOL _restoreUsingBecomeFirstResponder;
+}
+
+@property (retain, nonatomic) UIView *inputView;
+@property (retain, nonatomic) UIView *hostedCustomInputView;
+@property (retain, nonatomic) UIView *inputAssistantView;
+@property (retain, nonatomic) UIView *inputAccessoryView;
+@property (retain, nonatomic) UIInputViewController *inputViewController;
+@property (retain, nonatomic) UIInputViewController *assistantViewController;
+@property (retain, nonatomic) UIInputViewController *accessoryViewController;
+@property (readonly, nonatomic) UIView *layeringView;
+@property (readonly, nonatomic) BOOL visible;
+@property (readonly, nonatomic) BOOL usesKeyClicks;
+@property (readonly, nonatomic) UIKeyboard *keyboard;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } inputAccessoryViewBounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } inputAssistantViewBounds;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } inputViewBounds;
+@property (readonly, nonatomic, getter=isEmpty) BOOL empty;
+@property (readonly, nonatomic) BOOL hasNonPlaceholderViews;
+@property (readonly, nonatomic) BOOL supportsSplit;
+@property (readonly, nonatomic) BOOL isSplit;
+@property (readonly, nonatomic) BOOL inputViewKeyboardCanSplit;
+@property (weak, nonatomic) UIResponder *restorableResponder;
+@property (retain, nonatomic) UIKBRenderConfig *restorableRenderConfig;
+@property (weak, nonatomic) UIResponder *accessoryViewNextResponder;
+@property (readonly, nonatomic) BOOL isInputViewPlaceholder;
+@property (readonly, nonatomic) BOOL isInputAssistantViewPlaceholder;
+@property (readonly, nonatomic) BOOL isInputAccessoryViewPlaceholder;
+@property (readonly, nonatomic) BOOL _inputViewIsSplit;
+@property (nonatomic) double splitHeightDelta;
+@property (readonly, nonatomic) UIView *splitExemptSubview;
+@property (nonatomic) BOOL restoreUsingBecomeFirstResponder;
+@property (nonatomic) BOOL isCustomInputView;
+@property (nonatomic) BOOL isRemoteKeyboard;
+@property (readonly, nonatomic) BOOL isNullInputView;
+@property (readonly, nonatomic) BOOL isLocalMinimumHeightInputView;
+
++ (id)inputSetWithKeyboardAndAccessoryView:(id)a0 assistantView:(id)a1;
++ (id)inputSetWithPlaceholderAndAccessoryView:(id)a0;
++ (id)inputSetWithKeyboardAndAccessoryView:(id)a0;
++ (id)inputSetWithPlaceholderAndCustomInputView:(id)a0 accessoryView:(id)a1 assistantView:(id)a2;
++ (id)emptyInputSet;
++ (id)inputSetWithPlaceholderAndAccessoryView:(id)a0 assistantView:(id)a1;
++ (id)inputSetWithOriginalInputSet:(id)a0 duplicateInputView:(BOOL)a1 duplicateInputAccessoryView:(BOOL)a2 duplicateInputAssistantView:(BOOL)a3;
++ (id)inputSetWithInputView:(id)a0 accessoryView:(id)a1 assistantView:(id)a2;
++ (id)inputSetWithInputView:(id)a0 accessoryView:(id)a1;
+
+- (BOOL)_isFullscreen;
+- (BOOL)_inputViewIsVisible;
+- (BOOL)canAnimateToInputViewSet:(id)a0;
+- (void)refreshPresentation;
+- (void)_setRenderConfig:(id)a0;
+- (BOOL)_inputAccessoryViewSupportsSplit;
+- (void)setKeyboardAssistantBar:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_leftInputViewSetFrame;
+- (BOOL)_accessorySuppressesShadow;
+- (void)inheritNullState:(id)a0;
+- (BOOL)setAccessoryViewVisible:(BOOL)a0 delay:(double)a1;
+- (BOOL)_actLikeInputAccessoryViewSupportsSplit;
+- (id)_themableInputAccessoryView;
+- (BOOL)containsView:(id)a0;
+- (void)_forceRestoreUsingBecomeFirstResponder:(BOOL)a0;
+- (long long)keyboardOrientation:(id)a0;
+- (id)initWithInputView:(id)a0 accessoryView:(id)a1 assistantView:(id)a2 isKeyboard:(BOOL)a3;
+- (BOOL)isStrictSupersetOfViewSet:(id)a0;
+- (void)_endSplitTransitionIfNeeded;
+- (BOOL)containsResponder:(id)a0;
+- (void)_setSplitProgress:(double)a0;
+- (id)inputSetWithInputAccessoryViewOnly;
+- (void)dealloc;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_rightInputViewSetFrame;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)_isKeyboard;
+- (BOOL)__isCKAccessoryView;
+- (id)inputSetWithInputAccessoryViewFromInputSet:(id)a0;
+- (BOOL)_inputViewSetSupportsSplit;
+- (BOOL)_inputViewSupportsSplit;
+- (id)initWithInputView:(id)a0 customInputView:(id)a1 accessoryView:(id)a2 assistantView:(id)a3 isKeyboard:(BOOL)a4;
+- (id)description;
+- (id)normalizePlaceholders;
+- (BOOL)hierarchyContainsView:(id)a0;
+- (double)inputViewSplitHeight;
+- (void)_beginSplitTransitionIfNeeded;
+- (void).cxx_destruct;
+- (BOOL)inSyncWithOrientation:(long long)a0 forKeyboard:(id)a1;
+- (id)_splittableInputAccessoryView;
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UIFloatingContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,11 @@
+@interface AppStoreKitInternal.JSStorageObject : NSObject <_TtP19AppStoreKitInternalP33_1D5876E193CEC0E579F9659BBA75643922JSStorageObjectExports_> {
+    void /* unknown type, empty encoding */ path;
+    void /* unknown type, empty encoding */ storage;
+}
+
+- (id)retrieveString:(id)a0;
+- (void)storeString:(id)a0 :(id)a1;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

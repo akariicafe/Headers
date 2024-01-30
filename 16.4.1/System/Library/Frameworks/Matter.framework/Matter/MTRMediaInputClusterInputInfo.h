@@ -1,0 +1,3 @@
+@interface MTRMediaInputClusterInputInfo : MTRMediaInputClusterInputInfoStruct
+
+@end

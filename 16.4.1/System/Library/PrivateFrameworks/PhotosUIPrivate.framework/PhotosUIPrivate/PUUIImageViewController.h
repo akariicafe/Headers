@@ -1,0 +1,87 @@
+@class NSString, NSURL, PHAsset, PHLivePhotoView, PUVideoPlayerView, PUPhotoPickerResizeTaskDescriptorViewModel, ISAnimatedImageView, PUBrowsingIrisPlayer;
+@protocol PUUIImageViewControllerFileResizingDelegate, PUPhotoPicker, PUUIImageViewControllerCancellationDelegate;
+
+@interface PUUIImageViewController : PLUIImageViewController <UIGestureRecognizerDelegate, PUVideoPlayerViewDelegate, PXChangeObserver, PUPhotoPickerSelectionHandler> {
+    BOOL _isIris;
+    BOOL _isAutoloop;
+    BOOL _isAnimatedImage;
+    BOOL _wantsLivePhotoResult;
+    BOOL _wantsVideoURLResult;
+    BOOL _showFileResizingOption;
+    PHAsset *_asset;
+}
+
+@property (retain, nonatomic) PUBrowsingIrisPlayer *_irisPlayer;
+@property (retain, nonatomic, setter=_setLivePhotoView:) PHLivePhotoView *_livePhotoView;
+@property (retain, nonatomic, setter=_setAutoloopView:) PUVideoPlayerView *_autoloopView;
+@property (retain, nonatomic, setter=_setAnimatedImageView:) ISAnimatedImageView *_animatedImageView;
+@property (retain, nonatomic, setter=_setVideoAssetURL:) NSURL *_videoAssetURL;
+@property (retain, nonatomic, setter=_setAssetURL:) NSURL *_assetURL;
+@property (setter=_setImageManagerVideoRequestID:) int _imageManagerVideoRequestID;
+@property (setter=_setAnimatedImageRequestID:) int _animatedImageRequestID;
+@property (weak, nonatomic) id<PUUIImageViewControllerCancellationDelegate> cancellationDelegate;
+@property (weak, nonatomic) id<PUUIImageViewControllerFileResizingDelegate> fileResizingDelegate;
+@property (weak, nonatomic) PUPhotoPickerResizeTaskDescriptorViewModel *resizeTaskDescriptorViewModel;
+@property (weak, nonatomic) id<PUPhotoPicker> photoPicker;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)videoQuality;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (id)customBackgroundColor;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (id)videoMaximumDuration;
+- (id)exportPreset;
+- (id)cancelButtonTitle;
+- (int)cropOverlayMode;
+- (void)handleMediaSelectionUsingTile:(id)a0 managedAsset:(id)a1 args:(id)a2 includeEditing:(BOOL)a3;
+- (id)cropOverlayFileSizeMenuActions:(id)a0;
+- (BOOL)wantsAutoloopUI;
+- (void)_fetchAnimatedImageWithCompletion:(id /* block */)a0;
+- (void)_fetchLivePhotoWithCompletion:(id /* block */)a0;
+- (void)_fetchPreviewImageWithCompletion:(id /* block */)a0;
+- (void)_fetchVideoWithCompletion:(id /* block */)a0;
+- (void)_finishAutoloopDeliveryWithVideoURL:(id)a0 gifURL:(id)a1;
+- (void)_generateGIFFromVideoURL:(id)a0 progressHandler:(id /* block */)a1 completionHandler:(id /* block */)a2;
+- (void)_handleAnimatedImagePreviewResult:(id)a0;
+- (void)_handleAnimatedImageResult:(id)a0;
+- (void)_handleAutoloopPreviewImageResult:(id)a0;
+- (void)_handleAutoloopVideoResult:(id)a0;
+- (void)_handleLivePhotoRequestResult:(id)a0 info:(id)a1;
+- (BOOL)_isPhotosPickerExtensionAvailable;
+- (void)_loadAnimatedImage;
+- (void)_loadAutoloopVideo;
+- (void)_loadLivePhoto;
+- (id)chooseButtonTitle;
+- (void)cropOverlayWasCancelled:(id)a0;
+- (void)cropOverlayWasOKed:(id)a0;
+- (BOOL)disableVideoTrimMessage;
+- (BOOL)doNotTranscode;
+- (BOOL)force1XCroppedImage;
+- (BOOL)forceNativeScreenScale;
+- (void)handleAutoloopSelected;
+- (void)handleVideoSelectionWithURL:(id)a0 args:(id)a1;
+- (BOOL)imagePickerAllowsEditing;
+- (unsigned long long)imagePickerSavingOptions;
+- (id)initWithPhoto:(id)a0 imagePickerProperties:(id)a1 expectsLivePhoto:(BOOL)a2;
+- (id)irisPlayerView:(id)a0 delegateForGestureRecognizer:(id)a1;
+- (id)irisPlayerViewViewHostingGestureRecognizers:(id)a0;
+- (BOOL)isDisplayedInPhotoPicker;
+- (id)maxZoomScaleOverride;
+- (void)performPhotoPickerSelection;
+- (BOOL)pu_wantsNavigationBarVisible;
+- (void)setIrisPlayer:(id)a0;
+- (BOOL)uiipc_useTelephonyUI;
+- (void)videoPlayerView:(id)a0 isReadyForDisplayDidChange:(BOOL)a1;
+- (BOOL)viewImageBeforeSelecting;
+- (BOOL)wantsLegacyImageUI;
+
+@end

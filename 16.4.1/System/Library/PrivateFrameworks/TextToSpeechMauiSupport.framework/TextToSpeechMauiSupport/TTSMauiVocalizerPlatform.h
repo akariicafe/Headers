@@ -1,0 +1,3 @@
+@interface TTSMauiVocalizerPlatform : NSObject
+
+@end

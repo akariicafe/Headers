@@ -1,0 +1,3 @@
+@interface NSPPrivacyProxyObliviousHopsFallbackNetworkRegistration : NSPPrivacyProxyNetworkRegistration
+
+@end

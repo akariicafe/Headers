@@ -1,0 +1,108 @@
+@class NSURL, NSMutableDictionary, NSMapTable, DNDStateService, DNDModeAssertion, CARAutomaticDNDStatus, NSString, ATXActivitySuggestionClient, NSHashTable, NSArray, DNDModeSelectionService, DNDLifetimeDetailsProvider, DNDStateUpdate;
+@protocol FCActivityDescribing, FCActivityLifetimeDescribing;
+
+@interface FCActivityManager : NSObject <DNDModeSelectionServiceListener, DNDLifetimeDetailsProviderDelegate, ATXActivitySuggestionClientObserver, FCActivitySuggestionFeedbackAccepting> {
+    DNDModeSelectionService *_modeSelectionService;
+    DNDLifetimeDetailsProvider *_lifetimeDetailsProvider;
+    DNDStateService *_stateService;
+    NSHashTable *_observers;
+    DNDModeAssertion *_activeModeAssertion;
+    DNDStateUpdate *_activeStateUpdate;
+    NSMutableDictionary *_allActivitiesByIdentifier;
+    NSArray *_activeLifetimeDetailsCollection;
+    id<FCActivityLifetimeDescribing> _lifetimeOfActiveActivity;
+    ATXActivitySuggestionClient *_activitySuggestionClient;
+    NSMapTable *_locationsToSuggestedActivitiesOrNull;
+    CARAutomaticDNDStatus *_carDNDStatus;
+    BOOL _activeModeAssertionIsValid;
+}
+
+@property (class, readonly, copy, nonatomic) NSURL *activitiesSettingsURL;
+
+@property (copy, nonatomic, setter=_setDefaultActivity:) id<FCActivityDescribing> defaultActivity;
+@property (readonly, copy, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) unsigned long long maximumActivityCountForUserInterface;
+@property (readonly, copy, nonatomic) NSArray *availableActivities;
+@property (readonly, copy, nonatomic) id<FCActivityDescribing> activeActivity;
+@property (readonly, nonatomic, getter=isDefaultConfiguration) BOOL defaultConfiguration;
+@property (readonly, copy, nonatomic) NSString *localizedTerminationDescriptionForActiveActivity;
+@property (nonatomic, getter=isLifetimeDescriptionsUpdatingEnabled) BOOL lifetimeDescriptionsUpdatingEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)sharedActivityManager;
++ (id)newActivityManagerWithIdentifier:(id)a0;
++ (id)newActivityManager;
+
+- (void)setActiveActivity:(id)a0 reason:(id)a1;
+- (void)_enumerateObserversRespondingToSelector:(SEL)a0 usingBlock:(id /* block */)a1;
+- (void)_setLifetimeForActiveActivity:(id)a0;
+- (void)_updateCreationDateOfActivity:(id)a0;
+- (id)promotedPlaceholderActivity:(id)a0;
+- (void)_updateLifetimesAlternativeDescription:(id)a0 forActivity:(id)a1;
+- (id)_availableActivities;
+- (id)suggestedActivityFeedbackReceiver;
+- (id)_lifetimeForActiveActivity;
+- (void)_updateActivity:(id)a0 withLifetimeDescriptions:(id)a1;
+- (id)_modeSelectionService;
+- (void)setActivity:(id)a0 active:(BOOL)a1 withLifetime:(id)a2 reason:(id)a3;
+- (BOOL)_doesActivity:(id)a0 identifySameModeAsActivity:(id)a1;
+- (void)addObserver:(id)a0;
+- (void)modeSelectionService:(id)a0 didReceiveModesUpdate:(id)a1;
+- (void)didShowSuggestedActivity:(id)a0 location:(long long)a1;
+- (void)userDidRejectSuggestedActivity:(id)a0 location:(long long)a1;
+- (void)_updateActiveActivity:(id)a0;
+- (id)_lifetimeForLifetimeDetailsIdentifier:(id)a0 ofActivity:(id)a1;
+- (id)_localizedAutomaticDrivingTriggerDescriptionForPreference:(unsigned long long)a0;
+- (void)_updateLifetimeForActiveActivityIfNecessary;
+- (id)_carDNDStatus;
+- (id)lifetimeOfActivity:(id)a0;
+- (id)activityWithIdentifier:(id)a0;
+- (void)_setAvailableActivities:(id)a0;
+- (void)_updateSuggestedActivity:(id)a0 forLocations:(unsigned long long)a1;
+- (id)_activeActivity;
+- (void)_updateActivity:(id)a0 withLifetimeDetails:(id)a1;
+- (id)_stateService;
+- (void)_notifyObserversOfLifetimeChangeForActivity:(id)a0;
+- (BOOL)isActivityLocalUserInitiated:(id)a0;
+- (void)_invalidateActiveModeAssertion;
+- (void)_updateLifetimesAlternativeDescriptionForActivity:(id)a0;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)promotePlaceholderActivity:(id)a0;
+- (void)_updateLifetimesAlternativeDescriptionsForAvailableActivities;
+- (id)_initWithIdentifier:(id)a0;
+- (id)_activityForATXActivityOrSuggestion:(id)a0;
+- (void)lifetimeDetailsProvider:(id)a0 didUpdateAvailableLifetimeDetails:(id)a1;
+- (void)_setActiveActivity:(id)a0 withLifetime:(id)a1 reason:(id)a2;
+- (void)setActiveActivity:(id)a0 withLifetime:(id)a1 reason:(id)a2;
+- (void)userDidSeeSuggestedActivity:(id)a0 location:(long long)a1;
+- (id)_activitySuggestionClient;
+- (void)_updateActivitiesWithModes:(id)a0;
+- (void)_updateSuggestedActivity:(id)a0 forLocation:(long long)a1;
+- (BOOL)shouldActivityShowStatusPill:(id)a0;
+- (void)activitySuggestionClient:(id)a0 didSuggestConfiguredActivity:(id)a1;
+- (void)modeSelectionService:(id)a0 didReceiveAvailableModesUpdate:(id)a1;
+- (void)_notifyObserversOfAvailableActivitiesChange;
+- (id)_lifetimeDetailsProvider;
+- (void)userDidAcceptSuggestedActivity:(id)a0 location:(long long)a1;
+- (void)_updateWithActiveModeAssertionIfNecessary:(id)a0 stateUpdate:(id)a1;
+- (id)_activityForModeIdentifier:(id)a0;
+- (void)_updateActiveModeAssertionIfNecessary;
+- (BOOL)_isSyncedAssertion:(id)a0;
+- (void)_updateActivitySuggestion:(id)a0;
+- (void)_drivingTriggerDidChange;
+- (void)setActivity:(id)a0 active:(BOOL)a1 reason:(id)a2;
+- (void)setActiveActivity:(id)a0;
+- (id)suggestedActivityForLocation:(long long)a0;
+- (id)_activityForUniqueIdentifier:(id)a0;
+- (void)modeSelectionService:(id)a0 didReceiveUpdatedActiveModeAssertion:(id)a1 stateUpdate:(id)a2;
+- (void).cxx_destruct;
+- (void)_deactivateActivity:(id)a0 reason:(id)a1;
+- (void)_updateLifetimeForActiveActivity;
+- (void)_updateActivity:(id)a0 withLifetimeDetailsCollection:(id)a1;
+
+@end

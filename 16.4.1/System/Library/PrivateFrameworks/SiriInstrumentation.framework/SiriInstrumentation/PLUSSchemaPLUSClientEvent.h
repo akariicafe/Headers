@@ -1,0 +1,81 @@
+@class PLUSSchemaPLUSContactSuggesterSuggestionMetadataReported, PLUSSchemaPLUSTMDCGroundTruthGenerated, PLUSSchemaPLUSContactSuggesterQueryContext, PLUSSchemaPLUSContactSuggesterRequestMetadataReported, SISchemaInstrumentationMessage, PLUSSchemaPLUSInferencePluginInvocationContext, PLUSSchemaPLUSContactSuggestionHeartbeatReported, PLUSSchemaPLUSContactSuggestionAccuracySignalReported, PLUSSchemaPLUSContactSuggestionRemoved, PLUSSchemaPLUSUSOGraphTier1, PLUSSchemaPLUSMediaEvaluationSummaryReported, PLUSSchemaPLUSPhoneCallMetadataExtracted, PLUSSchemaPLUSContactSuggestionOutcomeReported, PLUSSchemaPLUSSendMessageMetadataExtracted, PLUSSchemaPLUSMediaGroundTruthGenerated, PLUSSchemaPLUSContactGroundTruthGenerated, PLUSSchemaPLUSContactSuggestionGenerated, NSData, PLUSSchemaPLUSRECTIFIPatternSequenceGenerated, PLUSSchemaPLUSClientEventMetadata;
+
+@interface PLUSSchemaPLUSClientEvent : SISchemaTopLevelUnionType <SISchemaInnerEventContainer>
+
+@property (readonly, nonatomic) SISchemaInstrumentationMessage *innerEvent;
+@property (retain, nonatomic) PLUSSchemaPLUSClientEventMetadata *eventMetadata;
+@property (nonatomic) BOOL hasEventMetadata;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggesterQueryContext *contactSuggesterQueryContext;
+@property (nonatomic) BOOL hasContactSuggesterQueryContext;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggestionOutcomeReported *contactSuggestionOutcomeReported;
+@property (nonatomic) BOOL hasContactSuggestionOutcomeReported;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggesterRequestMetadataReported *contactSuggesterRequestMetadataReported;
+@property (nonatomic) BOOL hasContactSuggesterRequestMetadataReported;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggesterSuggestionMetadataReported *contactSuggesterSuggestionMetadataReported;
+@property (nonatomic) BOOL hasContactSuggesterSuggestionMetadataReported;
+@property (retain, nonatomic) PLUSSchemaPLUSUSOGraphTier1 *usoGraphTier1;
+@property (nonatomic) BOOL hasUsoGraphTier1;
+@property (retain, nonatomic) PLUSSchemaPLUSInferencePluginInvocationContext *inferencePluginInvocationContext;
+@property (nonatomic) BOOL hasInferencePluginInvocationContext;
+@property (retain, nonatomic) PLUSSchemaPLUSContactGroundTruthGenerated *contactGroundTruthGenerated;
+@property (nonatomic) BOOL hasContactGroundTruthGenerated;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggestionGenerated *contactSuggestionGenerated;
+@property (nonatomic) BOOL hasContactSuggestionGenerated;
+@property (retain, nonatomic) PLUSSchemaPLUSPhoneCallMetadataExtracted *phoneCallMetadataExtracted;
+@property (nonatomic) BOOL hasPhoneCallMetadataExtracted;
+@property (retain, nonatomic) PLUSSchemaPLUSTMDCGroundTruthGenerated *tmdcGroundTruthGenerated;
+@property (nonatomic) BOOL hasTmdcGroundTruthGenerated;
+@property (retain, nonatomic) PLUSSchemaPLUSRECTIFIPatternSequenceGenerated *patternSequenceGenerated;
+@property (nonatomic) BOOL hasPatternSequenceGenerated;
+@property (retain, nonatomic) PLUSSchemaPLUSSendMessageMetadataExtracted *sendMessageMetadataExtracted;
+@property (nonatomic) BOOL hasSendMessageMetadataExtracted;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggestionHeartbeatReported *contactSuggestionHeartbeatReported;
+@property (nonatomic) BOOL hasContactSuggestionHeartbeatReported;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggestionRemoved *contactSuggestionRemoved;
+@property (nonatomic) BOOL hasContactSuggestionRemoved;
+@property (retain, nonatomic) PLUSSchemaPLUSContactSuggestionAccuracySignalReported *contactSuggestionAccuracySignalReported;
+@property (nonatomic) BOOL hasContactSuggestionAccuracySignalReported;
+@property (retain, nonatomic) PLUSSchemaPLUSMediaGroundTruthGenerated *mediaGroundTruthGenerated;
+@property (nonatomic) BOOL hasMediaGroundTruthGenerated;
+@property (retain, nonatomic) PLUSSchemaPLUSMediaEvaluationSummaryReported *mediaEvaluationSummaryReported;
+@property (nonatomic) BOOL hasMediaEvaluationSummaryReported;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichEvent_Type;
+
++ (int)joinability;
+
+- (int)componentName;
+- (int)getAnyEventType;
+- (id)suppressMessageUnderConditions;
+- (id)qualifiedMessageName;
+- (id)dictionaryRepresentation;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void).cxx_destruct;
+- (int)clockIsolationLevel;
+- (void)deleteMediaGroundTruthGenerated;
+- (void)deleteContactGroundTruthGenerated;
+- (void)deleteContactSuggesterQueryContext;
+- (void)deleteContactSuggesterRequestMetadataReported;
+- (void)deleteContactSuggesterSuggestionMetadataReported;
+- (void)deleteContactSuggestionAccuracySignalReported;
+- (void)deleteContactSuggestionGenerated;
+- (void)deleteContactSuggestionHeartbeatReported;
+- (void)deleteContactSuggestionOutcomeReported;
+- (void)deleteContactSuggestionRemoved;
+- (void)deleteEventMetadata;
+- (void)deleteInferencePluginInvocationContext;
+- (void)deleteMediaEvaluationSummaryReported;
+- (void)deletePatternSequenceGenerated;
+- (void)deletePhoneCallMetadataExtracted;
+- (void)deleteSendMessageMetadataExtracted;
+- (void)deleteTmdcGroundTruthGenerated;
+- (void)deleteUsoGraphTier1;
+- (id)getComponentId;
+
+@end

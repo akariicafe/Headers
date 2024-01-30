@@ -1,0 +1,3 @@
+@interface CAMBufferObservanceChange : NSObject
+
+@end

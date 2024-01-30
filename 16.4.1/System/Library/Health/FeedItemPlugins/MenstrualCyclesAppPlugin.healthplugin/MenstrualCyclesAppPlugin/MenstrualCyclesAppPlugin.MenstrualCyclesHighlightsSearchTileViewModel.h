@@ -1,0 +1,3 @@
+@interface MenstrualCyclesAppPlugin.MenstrualCyclesHighlightsSearchTileViewModel : _TtCs12_SwiftObject
+
+@end

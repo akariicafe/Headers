@@ -1,0 +1,3 @@
+@interface __PXSearchZeroKeywordCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

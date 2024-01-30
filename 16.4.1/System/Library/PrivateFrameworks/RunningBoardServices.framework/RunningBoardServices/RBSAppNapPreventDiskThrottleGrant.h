@@ -1,0 +1,3 @@
+@interface RBSAppNapPreventDiskThrottleGrant : RBSAppNapGrant
+
+@end

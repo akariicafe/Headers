@@ -1,0 +1,88 @@
+@class UIView, NSString, UITapGestureRecognizer, IKAppDocument, _TVPagePerformanceController, NSArray, TVMediaQueryEvaluator, UIViewController;
+@protocol UIFocusEnvironment, _TVAppDocumentControllerDelegate, UIFocusItemContainer;
+
+@interface _TVAppDocumentController : TVDocumentViewController <UIGestureRecognizerDelegate, _TVModalPresenterFocusing, _TVPagePerformanceDelegate, _TVApplicationInspectorDocumentProvider, _TVIKAppDocumentDelegate, IKAppDocumentDelegate> {
+    struct { BOOL hasMediaQueryEvaluator; BOOL hasWillHostTemplateViewController; BOOL hasDidHostTemplateViewController; } _delegateFlags;
+    BOOL _shouldMarkStylesDirtyBeforeLayout;
+}
+
+@property (retain, nonatomic) IKAppDocument *appDocument;
+@property (retain, nonatomic) TVMediaQueryEvaluator *mediaQueryEvaluator;
+@property (retain, nonatomic) UIViewController *templateViewController;
+@property (nonatomic, getter=isTransitioning) BOOL transitioning;
+@property (weak, nonatomic) UITapGestureRecognizer *menuGestureRecognizer;
+@property (nonatomic, getter=isVisualEffectDisablementNeeded) BOOL visualEffectDisablementNeeded;
+@property (retain, nonatomic) _TVPagePerformanceController *pagePerformance;
+@property (retain, nonatomic) UIView *pagePerformanceView;
+@property (nonatomic, getter=isPresentedModal) BOOL presentedModal;
+@property (nonatomic) BOOL adoptsContext;
+@property (weak, nonatomic) id<_TVAppDocumentControllerDelegate> appDelegate;
+@property (nonatomic) BOOL opaque;
+@property (copy, nonatomic) id /* block */ menuGestureHandler;
+@property (nonatomic) BOOL dismissAppOnMenu;
+@property (readonly, nonatomic) BOOL applicationDeactivatedOnMenu;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
+@property (readonly, weak, nonatomic) id<UIFocusEnvironment> parentFocusEnvironment;
+@property (readonly, nonatomic) id<UIFocusItemContainer> focusItemContainer;
+@property (readonly, weak, nonatomic) UIView *preferredFocusedView;
+@property (readonly, copy, nonatomic) NSString *focusGroupIdentifier;
+
+- (id)childViewControllerForHomeIndicatorAutoHidden;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)childViewControllerForStatusBarHidden;
+- (void)scrollToTop;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (id)activeDocument;
+- (void)reload;
+- (long long)preferredStatusBarStyle;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)overrideTraitCollectionForChildViewController:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)_tvTabBarShouldOverlap;
+- (void)_updateIdleModeStatus;
+- (BOOL)automaticallyAdjustsScrollViewInsets;
+- (id)_mediaQueryEvaluator;
+- (BOOL)document:(id)a0 evaluateStyleMediaQuery:(id)a1;
+- (void)documentDidUpdate:(id)a0;
+- (void)documentNeedsUpdate:(id)a0;
+- (id)impressionableViewElementsForDocument:(id)a0;
+- (void)updatePreferredFocusedViewStateForFocus:(BOOL)a0;
+- (void)documentDidUpdateImplicitly:(id)a0;
+- (void)snapshotImpressions;
+- (id)customAnimatorForNavigationControllerOperation:(long long)a0 fromViewController:(id)a1;
+- (id)customAnimatorForNavigationControllerOperation:(long long)a0 toViewController:(id)a1;
+- (void)replaceAppDocumentWithAppDocument:(id)a0;
+- (BOOL)tv_isPresentedModalForDocument:(id)a0;
+- (id)_alertControllerWithError:(id)a0;
+- (void)_boldTextStatusChanged:(id)a0;
+- (void)_darkerSystemColorStatusChanged:(id)a0;
+- (void)_didHostTemplateViewController:(id)a0 usedTransitions:(BOOL)a1;
+- (BOOL)_isFlowcaseStack;
+- (void)_markAndNotifyStylesDirty;
+- (void)_menuGestureHandler:(id)a0;
+- (void)_updateModalPresentationStateWithTemplateView:(id)a0;
+- (void)_updateTemplateViewController;
+- (void)_willHostTemplateViewController:(id)a0 usesTransitions:(BOOL *)a1;
+- (id)currentImpressionableElements;
+- (void)didHostTemplateViewController:(id)a0 usedTransitions:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })formSize;
+- (id)initWithAppDocument:(id)a0;
+- (void)pagePerformanceController:(id)a0 didUpdateMetrics:(id)a1;
+- (BOOL)ppt_isLoading;
+- (struct CGSize { double x0; double x1; })tv_adjustedWindowSizeForDocument:(id)a0;
+- (void)willHostTemplateViewController:(id)a0 usesTransitions:(BOOL *)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface NTKFaceViewRenderingContext : CLKRenderingContext
+
+@end

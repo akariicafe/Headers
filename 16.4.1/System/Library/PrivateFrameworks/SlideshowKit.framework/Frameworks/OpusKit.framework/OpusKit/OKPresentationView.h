@@ -1,0 +1,3 @@
+@interface OKPresentationView : OKPresentationViewProxy
+
+@end

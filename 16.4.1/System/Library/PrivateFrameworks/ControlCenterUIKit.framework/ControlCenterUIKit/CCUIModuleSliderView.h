@@ -1,0 +1,3 @@
+@interface CCUIModuleSliderView : CCUISteppedSliderView
+
+@end

@@ -1,0 +1,3 @@
+@interface NCManagerLocationServiceToken : NCManagerToken
+
+@end

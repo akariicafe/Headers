@@ -1,0 +1,3 @@
+@interface STUIStatusBar : UIStatusBar
+
+@end

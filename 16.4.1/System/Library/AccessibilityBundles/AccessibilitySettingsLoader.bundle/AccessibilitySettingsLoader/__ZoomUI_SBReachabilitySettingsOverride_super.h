@@ -1,0 +1,3 @@
+@interface __ZoomUI_SBReachabilitySettingsOverride_super : UIAccessibilitySafeCategory
+
+@end

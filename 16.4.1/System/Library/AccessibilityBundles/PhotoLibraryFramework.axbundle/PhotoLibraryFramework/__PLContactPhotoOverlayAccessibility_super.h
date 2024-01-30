@@ -1,0 +1,3 @@
+@interface __PLContactPhotoOverlayAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,84 @@
+@class NSURL, NSMutableDictionary, BSAction, PKExpressBannerLeadingView, NSObject, PKExpressBannerLabelView, UIView, UIColor, NSString, PKExpressTransactionState, CLInUseAssertion, PKExpressBannerTrailingView, PKPaymentService, PKPass, PKTransitBalanceModel;
+@protocol PKBannerViewControllerPresentable, OS_dispatch_source, SBUISystemApertureAccessoryView;
+
+@interface PKExpressTransactionBannerViewController : UIViewController <PKPaymentServiceDelegate, PKExpressBannerLeadingViewDelegate, PKExpressBannerTrailingViewDelegate, PKExpressBannerLabelViewDelegate, PKBannerViewController> {
+    PKPass *_pass;
+    PKTransitBalanceModel *_transitBalanceModel;
+    BOOL _transitioning;
+    UIView *_containerView;
+    PKExpressBannerLeadingView *_leadingView;
+    PKExpressBannerLabelView *_trailingLabel;
+    double _trailingLabelBlur;
+    PKExpressBannerTrailingView *_trailingView;
+    double _trailingBlur;
+    NSObject<OS_dispatch_source> *_transitionTimer;
+    int _state;
+    BOOL _revoked;
+    BOOL _successPlayed;
+    BOOL _leadingFinishedShrinking;
+    BOOL _transitionsFinished;
+    BOOL _expanding;
+    CLInUseAssertion *_inUseAssertion;
+    struct CGSize { double width; double height; } _psuedoShrunkSize;
+    double _shrinkCommitStartTime;
+    double _shrinkCommitEndTime;
+    BOOL _showingResolution;
+    BOOL _showingSuccessResolution;
+    unsigned int _animationCount;
+    NSObject<OS_dispatch_source> *_revokeTimer;
+    PKExpressTransactionState *_expressState;
+    BOOL _receivedTransaction;
+    BOOL _receivedExit;
+    PKPaymentService *_paymentService;
+    NSMutableDictionary *_registeredExpressObservers;
+    BOOL _updatingPreferredContentSize;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PKBannerViewControllerPresentable> presentable;
+@property (nonatomic) long long activeLayoutMode;
+@property (readonly, nonatomic) long long contentRole;
+@property (readonly, nonatomic) long long preferredLayoutMode;
+@property (readonly, nonatomic) long long maximumLayoutMode;
+@property (readonly, nonatomic) double preferredHeightForBottomSafeArea;
+@property (readonly, copy, nonatomic) NSString *elementIdentifier;
+@property (readonly, copy, nonatomic) NSString *associatedAppBundleIdentifier;
+@property (readonly, copy, nonatomic) NSString *associatedScenePersistenceIdentifier;
+@property (readonly, copy, nonatomic) NSURL *launchURL;
+@property (readonly, nonatomic) BSAction *launchAction;
+@property (readonly, nonatomic) BOOL preventsInteractiveDismissal;
+@property (readonly, nonatomic) BOOL preventsAutomaticDismissal;
+@property (readonly, nonatomic) long long minimumLayoutMode;
+@property (readonly, nonatomic) UIView<SBUISystemApertureAccessoryView> *leadingView;
+@property (readonly, nonatomic) UIView<SBUISystemApertureAccessoryView> *trailingView;
+@property (readonly, nonatomic) UIView<SBUISystemApertureAccessoryView> *minimalView;
+@property (readonly, nonatomic) unsigned long long statusBarStyleOverridesToSuppress;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } preferredCustomAspectRatio;
+@property (readonly, nonatomic) long long preferredCustomLayout;
+@property (readonly, nonatomic) unsigned long long presentationBehaviors;
+@property (readonly, copy, nonatomic) UIColor *keyColor;
+@property (nonatomic) unsigned long long minimalViewLayoutAxis;
+@property (readonly, nonatomic) UIView<SBUISystemApertureAccessoryView> *detachedMinimalView;
+@property (nonatomic) BOOL canRequestAlertingAssertion;
+@property (readonly, nonatomic) BOOL attachedMinimalViewRequiresZeroPadding;
+
+- (void)revoked;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)dealloc;
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didReceiveBalanceUpdate:(id)a1;
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didUpdateWithTransitPassProperties:(id)a1;
+- (id)init;
+- (void)viewWillLayoutSubviews;
+- (void)presentableWillAppearAsBanner:(id)a0;
+- (void).cxx_destruct;
+- (void)loadView;
+- (void)expressLabelViewDidChangeSize:(id)a0;
+- (void)expressTrailingView:(id)a0 revealingCheckmarkAnimated:(BOOL)a1;
+- (void)viewWillLayoutSubviewsWithTransitionCoordinator:(id)a0;
+
+@end

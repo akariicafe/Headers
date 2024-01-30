@@ -1,0 +1,15 @@
+@class SBKRequest;
+
+@interface SBKTransactionURLOperation : ISStoreURLOperation
+
+@property (nonatomic) BOOL shouldAuthenticate;
+@property (retain, nonatomic) SBKRequest *SBKRequest;
+
++ (id)operationWithRequest:(id)a0 delegate:(id)a1;
+
+- (id)_init;
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

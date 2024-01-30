@@ -1,0 +1,3 @@
+@interface COTimersAddedNotification : COTimerNotification
+
+@end

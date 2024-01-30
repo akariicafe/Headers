@@ -1,0 +1,3 @@
+@interface IMLoadMoreRecentChatItem : IMLoadMoreChatItem
+
+@end

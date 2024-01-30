@@ -1,0 +1,3 @@
+@interface __UITextViewAccessibility__MessageUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

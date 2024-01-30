@@ -1,0 +1,94 @@
+@class NSOperationQueue, NSMutableDictionary, NSMutableSet, _QLCacheThread, NSObject, NSURL;
+@protocol OS_dispatch_queue;
+
+@interface QLServerThread : NSObject {
+    NSOperationQueue *_downloadsOperationQueue;
+    NSObject<OS_dispatch_queue> *_pendingDownloadsQueue;
+    BOOL _drainScheduled;
+    _Atomic int _thumbnailDownloadsInFlight;
+    NSObject<OS_dispatch_queue> *_downloadResponseProcessingQueue;
+    NSOperationQueue *_uncachedThumbnailRetrievalQueue;
+    NSOperationQueue *_downscaledThumbnailGenerationQueue;
+    NSObject<OS_dispatch_queue> *_previewThumbnailGeneratorQueue;
+}
+
+@property (retain) NSMutableDictionary *pendingRequests;
+@property (retain) NSObject<OS_dispatch_queue> *completionBlocksQueue;
+@property (retain) _QLCacheThread *cacheThread;
+@property (retain) NSMutableDictionary *domainsToCaches;
+@property (retain) NSMutableDictionary *volumesToCaches;
+@property (retain) NSMutableDictionary *fsidsToCaches;
+@property (retain) NSMutableDictionary *externalThumbnailCaches;
+@property (retain) NSMutableDictionary *externalThumbnailCacheInboxURLs;
+@property (retain) NSMutableDictionary *externalThumbnailCacheThumbnailURLs;
+@property (retain) NSMutableDictionary *externalThumbnailCacheAvailablePendingBlocks;
+@property (retain) NSMutableSet *knownDomainsWithoutExternalThumbnailCaches;
+@property (retain) NSObject<OS_dispatch_queue> *externalThumbnailCacheQueue;
+@property (retain) NSMutableDictionary *queuedDownloadRequests;
+@property (retain) NSObject<OS_dispatch_queue> *queue;
+@property (copy) NSURL *overrideBasePersonaVolumesURLForTesting;
+
++ (id)sharedInstance;
++ (void)updateThumbnailRequestThumbnailVersionWithThirdPartyGeneratorInformationIfNeeded:(id)a0;
+
+- (void)setLastHitDateOfAllCachedThumbnailsToDate:(id)a0;
+- (void)cancelThumbnailRequests:(id)a0;
+- (id)allKnownDataSeparatedVolumes;
+- (void)addImageData:(id)a0 toCacheForRequest:(id)a1 withBitmapFormat:(id)a2 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 flavor:(int)a4 metadata:(id)a5;
+- (void)findUncachedThumbnailInGenStoreForRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (void)addImageData:(id)a0 withBitmapFormat:(id)a1 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 hasIconModeApplied:(BOOL)a3 flavor:(int)a4 extensionBadge:(id)a5 metadata:(id)a6 toCacheAndCompleteRequest:(id)a7;
+- (void)_saveLargeThumbnailForDocumentAtURL:(id)a0 toGenstoreWithImage:(struct CGImage { } *)a1 automaticallyGenerated:(BOOL)a2;
+- (void)_updateInformationForProviderAndCallPendingBlocksForProviderDomainID:(id)a0 withConnection:(id)a1 inboxURL:(id)a2 thumbnailsURL:(id)a3;
+- (void)thumbnailRequestWasCancelled:(id)a0;
+- (void)generateThumbnailForThumbnailRequest:(id)a0 shouldUpdateGenstore:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)_saveLargeThumbnailToGenstoreWithData:(id)a0 url:(id)a1;
+- (id)cacheThreadForFileIdentifier:(id)a0 atURL:(id)a1;
+- (void)perform:(id /* block */)a0 afterDelay:(long long)a1;
+- (void)removeCachedThumbnailsFromUninstalledFileProvidersWithRemainingFileProviderIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (void)generateSuccessiveThumbnailRepresentationsForRequests:(id)a0 generationHandler:(id)a1 completionHandler:(id /* block */)a2;
+- (id)uncachedCacheThreadForProviderDomainID:(id)a0;
+- (void)perform:(id /* block */)a0;
+- (void)downloadThumbnailForRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)downloadThumbnails:(id)a0 forProvider:(id)a1;
+- (void)removeCachedThumbnailsFromUninstalledFileProvidersWithIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (void)completeThumbnailRequest:(id)a0 bitmapData:(id)a1 metadata:(id)a2 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 thumbnailRepresentation:(long long)a4 iconFlavor:(int)a5 format:(id)a6 clientShouldTakeOwnership:(BOOL)a7;
+- (void)drainDownloadsQueueIfNeeded;
+- (void)queueThumbnailRequest:(id)a0 tryCache:(BOOL)a1 tryAdditionsFirst:(BOOL)a2;
+- (void)_downloadThumbnailForRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (id)processedPNGAppIconDataForData:(id)a0 ofType:(id)a1 size:(struct CGSize { double x0; double x1; })a2 scale:(double)a3;
+- (void)failedToCompleteThumbnailRequest:(id)a0 error:(id)a1;
+- (id)genStoreThumbnailForRequest:(id)a0 error:(id *)a1;
+- (void)findThumbnailInAddition:(id)a0 request:(id)a1 completionHandler:(id /* block */)a2;
+- (id)failedDownloadErrorForRequest:(id)a0 underlyingError:(id)a1;
+- (void)processLargeThumbnailData:(id)a0 withContentType:(id)a1 precacheThumbnails:(BOOL)a2 forRequest:(id)a3 completionHandler:(id /* block */)a4;
+- (id)initWithCacheSize:(long long)a0 location:(id)a1;
+- (void)findUncachedThumbnailInGenStoreOrDownload:(id)a0 completionHandler:(id /* block */)a1;
+- (void)storeImage:(struct CGImage { } *)a0 inExternalThumbnailCacheForItem:(id)a1 atURL:(id)a2;
+- (struct CGImage { } *)_createUndecoratedAppIconForData:(id)a0 ofSize:(struct CGSize { double x0; double x1; })a1 scale:(double)a2;
+- (id)uncachedCacheThreadForFileAtURL:(id)a0;
+- (void)getExternalThumbnailCacheConnectionForItem:(id)a0 atURL:(id)a1 completionHandler:(id /* block */)a2;
+- (id)cacheThreadForRequest:(id)a0;
+- (void)forEachCacheThread:(id /* block */)a0;
+- (void)findUncachedThumbnailInExternalThumbnailCacheForRequest:(id)a0 item:(id)a1 URL:(id)a2 completionHandler:(id /* block */)a3;
+- (void)_notifyGenerationHandlerOfThumbnailGenerationForRequest:(id)a0 bitmapData:(id)a1 format:(id)a2 metadata:(id)a3 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 iconFlavor:(int)a5 thumbnailRepresentation:(long long)a6 clientShouldTakeOwnership:(BOOL)a7 error:(id)a8;
+- (id)imageDataForImage:(struct CGImage { } *)a0;
+- (BOOL)_canUseAdditionToProvideThumbnail:(id)a0 forThumbnailRequest:(id)a1 taggedLogicalURL:(id)a2;
+- (id)init;
+- (id)cacheThreadForVolume:(id)a0;
+- (void)receivedExternalCacheConnection:(id)a0 error:(id)a1 forProviderDomainID:(id)a2;
+- (void)didNotFindLowQualityEntryInCachedForThumbnailRequest:(id)a0 error:(id)a1;
+- (void)sendResultForThumbnailRequest:(id)a0 bitmapData:(id)a1 format:(id)a2 metadata:(id)a3 contentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 iconFlavor:(int)a5 thumbnailRepresentation:(long long)a6 clientShouldTakeOwnership:(BOOL)a7 reenqueueRequest:(BOOL)a8 error:(id)a9;
+- (BOOL)_saveResultForThumbnailRequest:(id)a0 withBitmapData:(id)a1 format:(id)a2 error:(id *)a3;
+- (void)completeThumbnailRequest:(id)a0 thumbnailData:(id)a1 updatedMetadata:(id)a2;
+- (void)_addAllThumbnailsSizesToCacheForRequest:(id)a0 withImageSource:(struct CGImageSource { } *)a1 imageSize:(struct CGSize { double x0; double x1; })a2 alreadyCachedSize:(struct CGSize { double x0; double x1; })a3 completionHandler:(id /* block */)a4;
+- (id)cacheThreadForProviderDomainID:(id)a0;
+- (void)_callCompletionHandler:(id /* block */)a0 ofThumbnailRequestBatch:(id)a1;
+- (id)makeCacheThreadForPersonaString:(id)a0 containerURL:(id *)a1;
+- (void).cxx_destruct;
+- (id)uncachedCacheThreadForItem:(id)a0;
+- (void)_addThumbnailRequestBatchToQueue:(id)a0 generationHandler:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_completeHandledThumbnailRequest:(id)a0;
+- (void)reset;
+- (void)_removeRequestFromPendingRequests:(id)a0;
+
+@end

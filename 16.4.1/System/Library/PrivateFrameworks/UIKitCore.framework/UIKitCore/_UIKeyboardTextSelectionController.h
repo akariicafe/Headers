@@ -1,0 +1,81 @@
+@class UIView, UITextPosition, UIResponder, UITextRange, UITextInteractionAssistant;
+@protocol UISelectionInteractionAssistant, UITextInput;
+
+@interface _UIKeyboardTextSelectionController : NSObject {
+    BOOL _hasInteractionAssistant;
+    BOOL _hasSelectionInteractionAssistant;
+    BOOL _hasTextInputView;
+    UITextPosition *_cursorPosition;
+}
+
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } caretRectForCursorPosition;
+@property (retain, nonatomic) UITextRange *initialSelection;
+@property (retain, nonatomic) UITextRange *selectionBase;
+@property (readonly, weak, nonatomic) UIResponder<UITextInput> *inputDelegate;
+@property (readonly, nonatomic) UITextInteractionAssistant *interactionAssistant;
+@property (readonly, nonatomic) id<UISelectionInteractionAssistant> selectionInteractionAssistant;
+@property (nonatomic) long long selectionGranularity;
+@property (retain, nonatomic) UITextPosition *cursorPosition;
+@property (readonly, nonatomic) UIView *textInputView;
+@property (readonly, nonatomic) BOOL hasCaretSelection;
+@property (readonly, nonatomic) BOOL hasRangedSelection;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } caretRectForFirstSelectedPosition;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } caretRectForLastSelectedPosition;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } caretRectForLeftmostSelectedPosition;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } caretRectForRightmostSelectedPosition;
+
+- (void)beginFloatingCursorAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateGestureRecognizers;
+- (void)showSelectionCommands;
+- (void)selectTextWithGranularity:(long long)a0 atPoint:(struct CGPoint { double x0; double x1; })a1 completionHandler:(id /* block */)a2;
+- (void)resetCursorPosition;
+- (void)endSelectionChange;
+- (void)endRangedMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)endLoupeMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateSelectionWithExtentPosition:(id)a0 executionContext:(id)a1;
+- (void)beginSelectionWithBasePositionAtBoundary:(long long)a0 inDirection:(long long)a1 withInitialExtentPoint:(struct CGPoint { double x0; double x1; })a2 executionContext:(id)a3;
+- (void)beginSelectionChange;
+- (id)initWithInputDelegate:(id)a0;
+- (void)willHandoffLoupeMagnifier;
+- (void)endSelection;
+- (void)updateFloatingCursorAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)selectPositionAtPoint:(struct CGPoint { double x0; double x1; })a0 executionContext:(id)a1;
+- (void)selectTextWithGranularity:(long long)a0 atPoint:(struct CGPoint { double x0; double x1; })a1 executionContext:(id)a2;
+- (void)selectImmediatePositionAtBoundary:(long long)a0 inDirection:(long long)a1 executionContext:(id)a2;
+- (void)setRangedSelectionShouldShowGrabbers:(BOOL)a0;
+- (void)endFloatingCursor;
+- (void)setSelectedTextRange:(id)a0;
+- (void)beginLoupeMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateSelectionWithExtentAtBoundary:(long long)a0 inDirection:(long long)a1 executionContext:(id)a2;
+- (void)willBeginHighlighterGesture;
+- (void)selectionDidChange;
+- (void)selectPositionAtPoint:(struct CGPoint { double x0; double x1; })a0 granularity:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)modifySelectionWithExtentPoint:(struct CGPoint { double x0; double x1; })a0 executionContext:(id)a1;
+- (void)selectPositionAtBoundary:(long long)a0 inDirection:(long long)a1 relativeToSelection:(id)a2 executionContext:(id)a3;
+- (void)updateLoupeMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateSelectionRects;
+- (void)restartSelection;
+- (void)endLoupeGestureAtPoint:(struct CGPoint { double x0; double x1; })a0 translation:(struct CGPoint { double x0; double x1; })a1;
+- (void)willBeginFloatingCursor:(BOOL)a0;
+- (void)beginSelection;
+- (void)textDidChange;
+- (void)updateSelectionWithExtentPoint:(struct CGPoint { double x0; double x1; })a0 executionContext:(id)a1;
+- (void)updateImmediateSelectionWithExtentAtBoundary:(long long)a0 inDirection:(long long)a1 executionContext:(id)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })selectedRectInLineWithPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)beginRangedMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)scrollSelectionToVisible;
+- (void)updateSelectionWithExtentPoint:(struct CGPoint { double x0; double x1; })a0 andExtentPosition:(id)a1 executionContext:(id)a2;
+- (void)switchToRangedSelection;
+- (void)updateSelectionWithExtentAtBoundary:(long long)a0 inDirection:(long long)a1 relativeToSelection:(id)a2 executionContext:(id)a3;
+- (void)updateLoupeGestureAtPoint:(struct CGPoint { double x0; double x1; })a0 translation:(struct CGPoint { double x0; double x1; })a1 velocity:(struct CGPoint { double x0; double x1; })a2;
+- (void)beginSelectionWithBaseAtSelectionBoundaryInDirection:(long long)a0 initialExtentPoint:(struct CGPoint { double x0; double x1; })a1 executionContext:(id)a2;
+- (BOOL)cursorPositionIsContainedByRange:(id)a0;
+- (void)selectPositionAtBoundary:(long long)a0 inDirection:(long long)a1 executionContext:(id)a2;
+- (void)updateRangedMagnifierAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateSelectionWithExtentPoint:(struct CGPoint { double x0; double x1; })a0 withBoundary:(long long)a1 executionContext:(id)a2;
+- (BOOL)beginLoupeGestureAtPoint:(struct CGPoint { double x0; double x1; })a0 translation:(struct CGPoint { double x0; double x1; })a1;
+- (struct CGPoint { double x0; double x1; })boundedDeltaForTranslation:(struct CGPoint { double x0; double x1; })a0 cursorLocationBase:(struct CGPoint { double x0; double x1; })a1;
+- (void)selectPositionAtPoint:(struct CGPoint { double x0; double x1; })a0 granularity:(long long)a1 executionContext:(id)a2;
+- (void).cxx_destruct;
+
+@end

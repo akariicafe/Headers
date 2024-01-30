@@ -1,0 +1,3 @@
+@interface _TtCV10AppIntents22ConfirmationActionNameP33_3661A537490747EB6ECF52AFDE892C0B2__ : _TtCs12_SwiftObject
+
+@end

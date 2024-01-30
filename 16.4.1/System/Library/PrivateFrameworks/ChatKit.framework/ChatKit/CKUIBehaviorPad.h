@@ -1,0 +1,49 @@
+@interface CKUIBehaviorPad : CKUIBehavior
+
+- (unsigned long long)supportedInterfaceOrientations;
+- (double)previewMaxWidth;
+- (struct CGSize { double x0; double x1; })attachmentBrowserDefaultSizeForSquare;
+- (double)attachmentBrowserGridInterItemSpacing;
+- (BOOL)canPresentOverKeyboard;
+- (BOOL)canShowContactPhotosInConversationList;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contactPhotoTranscriptInsets;
+- (double)conversationListMinimumWidthForHiddenContactImage;
+- (double)conversationListWidthForInterfaceOrientation:(long long)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })defaultAVPlayerViewContorllerControlsInsets;
+- (unsigned long long)defaultConversationViewingMessageCount;
+- (struct CGSize { double x0; double x1; })detonatedItemBalloonViewSize;
+- (struct CGSize { double x0; double x1; })detonatedItemDocumentIconSize;
+- (struct CGSize { double x0; double x1; })documentIconSize;
+- (double)entryViewMaxHandWritingPluginShelfHeight;
+- (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)a0;
+- (long long)groupRecipientSelectionPresentationStyle;
+- (BOOL)isAppStripInKeyboard;
+- (BOOL)lowClearanceInLandscape;
+- (double)maxNavigationBarNoContactPhotoCollapsedHeightValue;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })minTranscriptMarginInsets;
+- (double)navigationBarMaxHeight;
+- (unsigned long long)numberOfButtonsInPhotoPicker;
+- (double)photoPickerMaxPopoverPhotoHeight;
+- (double)photoPickerPopoverWidth;
+- (BOOL)photoPickerShouldZoomOnSelection;
+- (BOOL)presentForwardingUIModally;
+- (BOOL)presentsAutocompleteInAPopover;
+- (BOOL)presentsQuickLookController;
+- (double)searchLinksThumbnailWidth;
+- (double)searchPhotosThumbnailWidth;
+- (BOOL)shouldAlignRecipientGlyphsWithMargins;
+- (BOOL)shouldPopoverSuggestionsBanner;
+- (BOOL)shouldRefreshAlternateAddressesSheet;
+- (BOOL)shouldShowDisclosureChevronInRecipientAtoms;
+- (BOOL)shouldSuppressRotationInNewCompose;
+- (BOOL)showMMSSetup;
+- (BOOL)showPendingInConversationList;
+- (BOOL)showsConversationListCellChevronImage;
+- (unsigned long long)suggestedAppStripLimit;
+- (double)transcriptContactImageDiameter;
+- (double)transcriptHeaderViewMaxRows;
+- (BOOL)usesPopovers;
+- (BOOL)usesUncollapsedSplitview;
+- (double)welcomeViewContentViewTopAnchorLayoutConstraintConstant;
+
+@end

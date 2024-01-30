@@ -1,0 +1,82 @@
+@class BLSHPendingUpdateDisplayMode, BLSHBacklightInactiveEnvironmentSession, BLSHBacklightDisplayStateMachine, BLSBacklightChangeEvent, BLSHPendingEnvironmentUpdateOperation, BLSHAlwaysOnPresentationEngine, BLSHEnsureFlipbookCurrentOperation, BLSHPresentationDateSpecifier, NSString, BLSAssertion, NSHashTable, BLSHBacklightAggregateState, BLSHPendingUpdateToSpecifier, BLSHBacklightMutableTargetState, BLSHPendingUpdatePresentation, BLSHBacklightEnvironmentStateMachine;
+@protocol BLSHOSInterfaceProviding, BLSHSystemActivityAsserting, BLSHInactiveBudgetPolicing_Private, BLSHBacklightPlatformProvider, BSInvalidatable, BLSHBacklightStateMachineEventPerformerDelegate;
+
+@interface BLSHBacklightTransitionStateMachine : NSObject <BLSHBacklightInactiveEnvironmentSessionUpdating, BLSHBacklightDisplayStateMachineDelegate, BLSHBacklightEnvironmentStateMachineDelegate, BLSHDisableFlipbookProvider, BLSHBacklightSceneHostEnvironmentObserver, BLSHHostEnvironmentAmendSceneSettingsDelegate, BLSHAlwaysOnPresentationEngineDelegate, BLSHBacklightStateMachineEventPerforming, BLSHWatchdogDelegate, BLSFlipbookDiagnosticsProviding> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSHashTable *_observers;
+    id<BLSHInactiveBudgetPolicing_Private> _inactiveBudgetPolicy;
+    id<BLSHOSInterfaceProviding> _osInterfaceProvider;
+    BLSHBacklightEnvironmentStateMachine *_environmentStateMachine;
+    BLSHAlwaysOnPresentationEngine *_alwaysOnPresentationEngine;
+    id<BSInvalidatable> _onMain_watchdogTimer;
+    BLSAssertion *_touchLockAssertion;
+    id<BLSHBacklightStateMachineEventPerformerDelegate> _performerDelegate;
+    long long _backlightState;
+    unsigned long long _backlightStateChangeTimestamp;
+    id<BLSHSystemActivityAsserting> _transitionAPAwakeAssertion;
+    BLSHPresentationDateSpecifier *_lock_stopEngineOnScreenSpecifier;
+    BLSHPendingEnvironmentUpdateOperation *_lock_pendingEnvironmentUpdate;
+    BLSHPendingUpdatePresentation *_lock_pendingUpdatePresentation;
+    BLSHPendingUpdateToSpecifier *_lock_pendingUpdateToSpecifier;
+    BLSHPendingUpdateDisplayMode *_lock_pendingUpdateDisplayMode;
+    BLSHEnsureFlipbookCurrentOperation *_lock_ensureFlipbookCurrentOperation;
+    BLSHBacklightAggregateState *_currentState;
+    BLSHBacklightMutableTargetState *_lock_targetState;
+    BLSBacklightChangeEvent *_pendingPrewarmedEvent;
+    BLSBacklightChangeEvent *_queuedEventToPerform;
+    BLSBacklightChangeEvent *_willUpdateDisplayNotifiedTriggerEvent;
+    long long _lastSteadyStateFlipbookState;
+    BOOL _lock_forcedUnanimated;
+    BOOL _lock_animating;
+    unsigned long long _stateHandler;
+    BOOL _flipbookDisabled;
+    BOOL _lock_safeToUnblank;
+}
+
+@property (readonly, nonatomic) long long backlightState;
+@property (readonly, nonatomic, getter=isTransitioning) BOOL transitioning;
+@property (readonly, nonatomic) BLSHBacklightInactiveEnvironmentSession *session;
+@property (readonly, nonatomic) id<BLSHBacklightPlatformProvider> platformProvider;
+@property (readonly, nonatomic) BLSHBacklightDisplayStateMachine *displayStateMachine;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, getter=isFlipbookDisabled) BOOL flipbookDisabled;
+@property (readonly, nonatomic) unsigned long long backlightStateChangeTimestamp;
+@property (readonly, copy, nonatomic) NSString *backlightStateDescription;
+@property (weak, nonatomic) id<BLSHBacklightStateMachineEventPerformerDelegate> performerDelegate;
+@property (nonatomic) BOOL safeToUnblank;
+@property (readonly, nonatomic) long long flipbookState;
+@property (readonly, nonatomic, getter=isAlwaysOnEnabled) BOOL alwaysOnEnabled;
+
+- (id)allFlipbookFrames;
+- (void)hostEnvironment:(id)a0 hostDidSetUnrestrictedFramerateUpdates:(BOOL)a1;
+- (void)environmentStateMachine:(id)a0 didCompleteUpdateToState:(long long)a1;
+- (id)initWithPlatformProvider:(id)a0 osInterfaceProvider:(id)a1 inactiveBudgetPolicy:(id)a2;
+- (void)registerHandlersForService:(id)a0;
+- (id)frameWithUUID:(id)a0;
+- (void)addObserver:(id)a0;
+- (id)frameOnGlassNow;
+- (void)displayState:(id)a0 didUpdateToMode:(long long)a1;
+- (id)osInterfaceProvider;
+- (void)hostEnvironment:(id)a0 hostDidSetLiveUpdating:(BOOL)a1;
+- (id)identifier;
+- (void)environmentStateMachine:(id)a0 didUpdateToPresentation:(id)a1;
+- (void)presentationEngine:(id)a0 didUpdateToCurrentWithSpecifier:(id)a1;
+- (void)environmentStateMachine:(id)a0 didUpdateToSpecifier:(id)a1;
+- (void)inactiveEnvironmentSession:(id)a0 updateToPresentation:(id)a1;
+- (id)frameOnGlassWhenFlipbookLastCancelled;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)performEvent:(id)a0;
+- (id)abortContext;
+- (BOOL)hasEnsureFlipbookCurrent;
+- (BOOL)hostEnvironment:(id)a0 didAmendSceneSettings:(id)a1;
+- (void)prewarmEvent:(id)a0;
+- (void).cxx_destruct;
+- (void)displayState:(id)a0 didUpdateToBrightnessCurve:(long long)a1;
+- (void)hostEnvironment:(id)a0 hostDidSetAlwaysOnEnabledForEnvironment:(BOOL)a1;
+- (void)environmentStateMachine:(id)a0 didBeginUpdateToState:(long long)a1;
+
+@end

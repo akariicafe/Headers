@@ -1,0 +1,96 @@
+@class GEORPRapUserResponseFeedback, GEORPTileFeedback, GEORPGroundViewFeedback, PBUnknownFields, GEORPStreetFeedback, GEORPLocalityFeedback, GEORPDirectionsFeedback, GEORPMerchantLookupFeedback, GEORPPoiFeedback, GEORPThirdPartyPhotoSharingPreferenceUpdate, GEORPPhotoAttributionPreferencesUpdate, GEORPRunningTrackFeedback, GEORPSearchFeedback, GEORPAddToMapFeedback, PBDataReader, GEORPPoiImageFeedback, GEORPPoiEnrichmentUpdate, GEORPIncidentFeedback, GEORPCuratedCollectionFeedback, GEORPTransitPoiFeedback, GEORPAddressFeedback, GEORPPoiActivityFeedback;
+
+@interface GEORPFeedbackDetails : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    GEORPAddToMapFeedback *_addMapFeedback;
+    GEORPAddressFeedback *_addressPointFeedback;
+    GEORPCuratedCollectionFeedback *_curatedCollectionFeedback;
+    GEORPDirectionsFeedback *_directionsFeedback;
+    GEORPGroundViewFeedback *_groundViewFeedback;
+    GEORPIncidentFeedback *_incidentFeedback;
+    GEORPLocalityFeedback *_localityFeedback;
+    GEORPMerchantLookupFeedback *_merchantLookupFeedback;
+    GEORPPhotoAttributionPreferencesUpdate *_photoAttributionPreferencesUpdate;
+    GEORPPoiActivityFeedback *_poiActivityFeedback;
+    GEORPPoiEnrichmentUpdate *_poiEnrichmentUpdate;
+    GEORPPoiFeedback *_poiFeedback;
+    GEORPPoiImageFeedback *_poiImageFeedback;
+    GEORPRapUserResponseFeedback *_rapUserResponseFeedback;
+    GEORPRunningTrackFeedback *_runningTrackFeedback;
+    GEORPSearchFeedback *_searchFeedback;
+    GEORPStreetFeedback *_streetFeedback;
+    GEORPThirdPartyPhotoSharingPreferenceUpdate *_thirdPartyPhotoSharingPreferenceUpdate;
+    GEORPTileFeedback *_tileFeedback;
+    GEORPTransitPoiFeedback *_transitPoiFeedback;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    struct { unsigned char read_unknownFields : 1; unsigned char read_addMapFeedback : 1; unsigned char read_addressPointFeedback : 1; unsigned char read_curatedCollectionFeedback : 1; unsigned char read_directionsFeedback : 1; unsigned char read_groundViewFeedback : 1; unsigned char read_incidentFeedback : 1; unsigned char read_localityFeedback : 1; unsigned char read_merchantLookupFeedback : 1; unsigned char read_photoAttributionPreferencesUpdate : 1; unsigned char read_poiActivityFeedback : 1; unsigned char read_poiEnrichmentUpdate : 1; unsigned char read_poiFeedback : 1; unsigned char read_poiImageFeedback : 1; unsigned char read_rapUserResponseFeedback : 1; unsigned char read_runningTrackFeedback : 1; unsigned char read_searchFeedback : 1; unsigned char read_streetFeedback : 1; unsigned char read_thirdPartyPhotoSharingPreferenceUpdate : 1; unsigned char read_tileFeedback : 1; unsigned char read_transitPoiFeedback : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) BOOL hasPoiFeedback;
+@property (retain, nonatomic) GEORPPoiFeedback *poiFeedback;
+@property (readonly, nonatomic) BOOL hasTransitPoiFeedback;
+@property (retain, nonatomic) GEORPTransitPoiFeedback *transitPoiFeedback;
+@property (readonly, nonatomic) BOOL hasSearchFeedback;
+@property (retain, nonatomic) GEORPSearchFeedback *searchFeedback;
+@property (readonly, nonatomic) BOOL hasMerchantLookupFeedback;
+@property (retain, nonatomic) GEORPMerchantLookupFeedback *merchantLookupFeedback;
+@property (readonly, nonatomic) BOOL hasDirectionsFeedback;
+@property (retain, nonatomic) GEORPDirectionsFeedback *directionsFeedback;
+@property (readonly, nonatomic) BOOL hasAddressPointFeedback;
+@property (retain, nonatomic) GEORPAddressFeedback *addressPointFeedback;
+@property (readonly, nonatomic) BOOL hasTileFeedback;
+@property (retain, nonatomic) GEORPTileFeedback *tileFeedback;
+@property (readonly, nonatomic) BOOL hasGroundViewFeedback;
+@property (retain, nonatomic) GEORPGroundViewFeedback *groundViewFeedback;
+@property (readonly, nonatomic) BOOL hasPoiEnrichmentUpdate;
+@property (retain, nonatomic) GEORPPoiEnrichmentUpdate *poiEnrichmentUpdate;
+@property (readonly, nonatomic) BOOL hasIncidentFeedback;
+@property (retain, nonatomic) GEORPIncidentFeedback *incidentFeedback;
+@property (readonly, nonatomic) BOOL hasPoiImageFeedback;
+@property (retain, nonatomic) GEORPPoiImageFeedback *poiImageFeedback;
+@property (readonly, nonatomic) BOOL hasCuratedCollectionFeedback;
+@property (retain, nonatomic) GEORPCuratedCollectionFeedback *curatedCollectionFeedback;
+@property (readonly, nonatomic) BOOL hasPoiActivityFeedback;
+@property (retain, nonatomic) GEORPPoiActivityFeedback *poiActivityFeedback;
+@property (readonly, nonatomic) BOOL hasAddMapFeedback;
+@property (retain, nonatomic) GEORPAddToMapFeedback *addMapFeedback;
+@property (readonly, nonatomic) BOOL hasLocalityFeedback;
+@property (retain, nonatomic) GEORPLocalityFeedback *localityFeedback;
+@property (readonly, nonatomic) BOOL hasStreetFeedback;
+@property (retain, nonatomic) GEORPStreetFeedback *streetFeedback;
+@property (readonly, nonatomic) BOOL hasThirdPartyPhotoSharingPreferenceUpdate;
+@property (retain, nonatomic) GEORPThirdPartyPhotoSharingPreferenceUpdate *thirdPartyPhotoSharingPreferenceUpdate;
+@property (readonly, nonatomic) BOOL hasPhotoAttributionPreferencesUpdate;
+@property (retain, nonatomic) GEORPPhotoAttributionPreferencesUpdate *photoAttributionPreferencesUpdate;
+@property (readonly, nonatomic) BOOL hasRunningTrackFeedback;
+@property (retain, nonatomic) GEORPRunningTrackFeedback *runningTrackFeedback;
+@property (readonly, nonatomic) BOOL hasRapUserResponseFeedback;
+@property (retain, nonatomic) GEORPRapUserResponseFeedback *rapUserResponseFeedback;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
+
+- (id)initWithData:(id)a0;
+- (void)clearSensitiveFields:(unsigned long long)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (id)jsonRepresentation;
+- (void)readAll:(BOOL)a0;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)init;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,90 @@
+@class CKDPRecordType, CKDPIdentifier, CKDPRecordStableUrl, NSMutableArray, CKDPStorageExpiration, CKDPProtectionInfo, CKDPShareIdentifier, NSString, CKDPRecordChainParent, CKDPShare, CKDPDate, NSData, CKDPRecordIdentifier, CKDPDateStatistics;
+
+@interface CKDPRecord : PBCodable <NSCopying> {
+    struct { unsigned char permission : 1; unsigned char expired : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasEtag;
+@property (retain, nonatomic) NSString *etag;
+@property (readonly, nonatomic) BOOL hasRecordIdentifier;
+@property (retain, nonatomic) CKDPRecordIdentifier *recordIdentifier;
+@property (readonly, nonatomic) BOOL hasType;
+@property (retain, nonatomic) CKDPRecordType *type;
+@property (readonly, nonatomic) BOOL hasCreatedBy;
+@property (retain, nonatomic) CKDPIdentifier *createdBy;
+@property (readonly, nonatomic) BOOL hasTimeStatistics;
+@property (retain, nonatomic) CKDPDateStatistics *timeStatistics;
+@property (retain, nonatomic) NSMutableArray *fields;
+@property (readonly, nonatomic) BOOL hasShareId;
+@property (retain, nonatomic) CKDPShareIdentifier *shareId;
+@property (readonly, nonatomic) BOOL hasModifiedBy;
+@property (retain, nonatomic) CKDPIdentifier *modifiedBy;
+@property (retain, nonatomic) NSMutableArray *conflictLoserEtags;
+@property (readonly, nonatomic) BOOL hasModifiedByDevice;
+@property (retain, nonatomic) NSString *modifiedByDevice;
+@property (retain, nonatomic) NSMutableArray *pluginFields;
+@property (readonly, nonatomic) BOOL hasProtectionInfo;
+@property (retain, nonatomic) CKDPProtectionInfo *protectionInfo;
+@property (nonatomic) BOOL hasPermission;
+@property (nonatomic) int permission;
+@property (readonly, nonatomic) BOOL hasShareInfo;
+@property (retain, nonatomic) CKDPShare *shareInfo;
+@property (readonly, nonatomic) BOOL hasChainPrivateKey;
+@property (retain, nonatomic) NSData *chainPrivateKey;
+@property (readonly, nonatomic) BOOL hasChainProtectionInfo;
+@property (retain, nonatomic) CKDPProtectionInfo *chainProtectionInfo;
+@property (readonly, nonatomic) BOOL hasChainParent;
+@property (retain, nonatomic) CKDPRecordChainParent *chainParent;
+@property (readonly, nonatomic) BOOL hasStableUrl;
+@property (retain, nonatomic) CKDPRecordStableUrl *stableUrl;
+@property (retain, nonatomic) NSMutableArray *tombstonedPublicKeyIDs;
+@property (readonly, nonatomic) BOOL hasZoneishPrimaryKeyId;
+@property (retain, nonatomic) NSData *zoneishPrimaryKeyId;
+@property (readonly, nonatomic) BOOL hasStorageExpiration;
+@property (retain, nonatomic) CKDPStorageExpiration *storageExpiration;
+@property (nonatomic) BOOL hasExpired;
+@property (nonatomic) BOOL expired;
+@property (readonly, nonatomic) BOOL hasExpirationTime;
+@property (retain, nonatomic) CKDPDate *expirationTime;
+
++ (id)recordFromData:(id)a0;
++ (Class)conflictLoserEtagsType;
++ (Class)fieldsType;
++ (Class)pluginFieldsType;
++ (Class)tombstonedPublicKeyIDsType;
+
+- (void)clearTombstonedPublicKeyIDs;
+- (void)addTombstonedPublicKeyIDs:(id)a0;
+- (id)fieldsAtIndex:(unsigned long long)a0;
+- (void)clearPluginFields;
+- (unsigned long long)conflictLoserEtagsCount;
+- (void)addFields:(id)a0;
+- (id)dataRepresentation;
+- (unsigned long long)fieldsCount;
+- (void)clearFields;
+- (id)pluginFieldsAtIndex:(unsigned long long)a0;
+- (id)conflictLoserEtagsAtIndex:(unsigned long long)a0;
+- (void)addConflictLoserEtags:(id)a0;
+- (unsigned long long)tombstonedPublicKeyIDsCount;
+- (void)clearConflictLoserEtags;
+- (id)fieldData;
+- (void)addPluginFields:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (id)_permissionAsString;
+- (void)copyTo:(id)a0;
+- (void)_inflateFieldsFromData:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)tombstonedPublicKeyIDsAtIndex:(unsigned long long)a0;
+- (id)fieldForKey:(id)a0;
+- (unsigned long long)pluginFieldsCount;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)permissionAsString:(int)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (int)StringAsPermission:(id)a0;
+
+@end

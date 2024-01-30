@@ -1,0 +1,3 @@
+@interface ___SKUIModalSheetNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

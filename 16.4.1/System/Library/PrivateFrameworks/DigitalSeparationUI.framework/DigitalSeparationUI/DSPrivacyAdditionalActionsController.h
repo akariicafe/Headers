@@ -1,0 +1,20 @@
+@class OBBoldTrayButton, NSString;
+@protocol DSNavigationDelegate;
+
+@interface DSPrivacyAdditionalActionsController : DSOBWelcomeController <DSController>
+
+@property (retain, nonatomic) OBBoldTrayButton *boldButton;
+@property (weak, nonatomic) id<DSNavigationDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewDidLoad;
+- (id)init;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)back;
+- (void)pushNextPane;
+
+@end

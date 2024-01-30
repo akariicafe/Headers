@@ -1,0 +1,3 @@
+@interface TDThemeDirection : TDThemeConstant
+
+@end

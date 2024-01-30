@@ -1,0 +1,92 @@
+@class NSUUID, NSData, GEOAdditionalEnabledMarkets, NSArray, GEOClientCapabilities, GEORouteAttributes, GEOPDABClientDatasetMetadata, NSString, NSMutableArray, GEOPrivacyMetadata, PBUnknownFields, PBDataReader;
+
+@interface GEOTransitRouteUpdateRequest : PBRequest <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _sessionId;
+    GEOPDABClientDatasetMetadata *_abClientMetadata;
+    NSData *_directionsResponseId;
+    GEOAdditionalEnabledMarkets *_originalAdditionalEnabledMarkets;
+    GEOClientCapabilities *_originalClientCapabilities;
+    GEORouteAttributes *_originalRouteAttributes;
+    NSMutableArray *_originalWaypoints;
+    GEOPrivacyMetadata *_privacyMetadata;
+    NSString *_requestingAppId;
+    NSMutableArray *_routeIdentifiers;
+    NSMutableArray *_serviceTags;
+    double _sessionRelativeTimestamp;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    struct { unsigned char has_sessionId : 1; unsigned char has_sessionRelativeTimestamp : 1; unsigned char read_unknownFields : 1; unsigned char read_abClientMetadata : 1; unsigned char read_directionsResponseId : 1; unsigned char read_originalAdditionalEnabledMarkets : 1; unsigned char read_originalClientCapabilities : 1; unsigned char read_originalRouteAttributes : 1; unsigned char read_originalWaypoints : 1; unsigned char read_privacyMetadata : 1; unsigned char read_requestingAppId : 1; unsigned char read_routeIdentifiers : 1; unsigned char read_serviceTags : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) NSUUID *clientRouteID;
+@property (readonly, nonatomic) NSArray *allClientRouteIDs;
+@property (retain, nonatomic) NSMutableArray *routeIdentifiers;
+@property (readonly, nonatomic) BOOL hasOriginalClientCapabilities;
+@property (retain, nonatomic) GEOClientCapabilities *originalClientCapabilities;
+@property (readonly, nonatomic) BOOL hasAbClientMetadata;
+@property (retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata;
+@property (retain, nonatomic) NSMutableArray *originalWaypoints;
+@property (readonly, nonatomic) BOOL hasOriginalRouteAttributes;
+@property (retain, nonatomic) GEORouteAttributes *originalRouteAttributes;
+@property (readonly, nonatomic) BOOL hasOriginalAdditionalEnabledMarkets;
+@property (retain, nonatomic) GEOAdditionalEnabledMarkets *originalAdditionalEnabledMarkets;
+@property (readonly, nonatomic) BOOL hasDirectionsResponseId;
+@property (retain, nonatomic) NSData *directionsResponseId;
+@property (readonly, nonatomic) BOOL hasRequestingAppId;
+@property (retain, nonatomic) NSString *requestingAppId;
+@property (readonly, nonatomic) BOOL hasPrivacyMetadata;
+@property (retain, nonatomic) GEOPrivacyMetadata *privacyMetadata;
+@property (nonatomic) BOOL hasSessionId;
+@property (nonatomic) struct GEOSessionID { unsigned long long x0; unsigned long long x1; } sessionId;
+@property (nonatomic) BOOL hasSessionRelativeTimestamp;
+@property (nonatomic) double sessionRelativeTimestamp;
+@property (retain, nonatomic) NSMutableArray *serviceTags;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
++ (id)mergedTransitRouteUpdateRequests:(id)a0;
++ (Class)originalWaypointType;
++ (Class)routeIdentifierType;
++ (Class)serviceTagType;
++ (id)splitTransitRouteUpdateRequests:(id)a0;
++ (id)transitRouteUpdateRequestWithDirectionsRequest:(id)a0 directionsResponse:(id)a1;
++ (id)transitRouteUpdateRequestWithDirectionsRequest:(id)a0 directionsResponse:(id)a1 composedRoutes:(id)a2;
+
+- (id)initWithData:(id)a0;
+- (void)clearServiceTags;
+- (unsigned int)requestTypeCode;
+- (void)clearSensitiveFields:(unsigned long long)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (unsigned long long)serviceTagsCount;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (id)serviceTagAtIndex:(unsigned long long)a0;
+- (Class)responseClass;
+- (id)jsonRepresentation;
+- (void)readAll:(BOOL)a0;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (unsigned long long)hash;
+- (void)addServiceTag:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)init;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)addOriginalWaypoint:(id)a0;
+- (void)addRouteIdentifier:(id)a0;
+- (void)clearOriginalWaypoints;
+- (void)clearRouteIdentifiers;
+- (id)originalWaypointAtIndex:(unsigned long long)a0;
+- (unsigned long long)originalWaypointsCount;
+- (id)routeIdentifierAtIndex:(unsigned long long)a0;
+- (unsigned long long)routeIdentifiersCount;
+
+@end

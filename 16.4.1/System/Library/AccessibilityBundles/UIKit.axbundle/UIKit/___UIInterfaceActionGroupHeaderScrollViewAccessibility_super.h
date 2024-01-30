@@ -1,0 +1,3 @@
+@interface ___UIInterfaceActionGroupHeaderScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

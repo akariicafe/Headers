@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface _SBUISimulatedLockoutAssertion : BSSimpleAssertion <BSDescriptionProviding>
+
+@property (readonly, nonatomic) unsigned long long lockoutState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithIdentifier:(id)a0 forReason:(id)a1 queue:(id)a2 invalidationBlock:(id /* block */)a3;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (id)succinctDescription;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)initWithLockoutState:(unsigned long long)a0 reason:(id)a1 invalidationBlock:(id /* block */)a2;
+
+@end

@@ -1,0 +1,52 @@
+@interface ASVUserDefaults : NSObject
+
++ (void)setPreferencesValue:(id)a0 forKey:(struct __CFString { } *)a1;
++ (BOOL)wantsStatusBarHidden;
++ (BOOL)allowCheckoutNonSecureHTML;
++ (long long)artificialLoadingDelay;
++ (id)checkoutFragment;
++ (id)defaultPlanePosition;
++ (BOOL)forceDisableArKitVerticalRejection;
++ (BOOL)forceDisableRayTracedAmbientOcclusion;
++ (BOOL)forceDisableRealWorldOcclusion;
++ (BOOL)forceDisableRealWorldPhysics;
++ (BOOL)forceDisableShadowMaps;
++ (BOOL)forceShowAnimationScrubber;
++ (BOOL)forceUseLegacyHitTestAPI;
++ (BOOL)forceUseLegacySceneImportPipeline;
++ (BOOL)forceUseSceneReconstructionMeshForOrientation;
++ (id)inlineFramePreferenceString;
++ (int)inlinePreviewMemoryReserve;
++ (int)maxInlinePreviewCount;
++ (float)objectFitToScreenPercentage;
++ (id)overrideCameraStateSerializedString;
++ (double)overrideIBLCutoffDateInSeconds;
++ (int)overrideMaxTextureSize;
++ (long long)overridePreferredIblVersionKey;
++ (id)overrideURLForSafariInline;
++ (id)preferencesValueforKey:(struct __CFString { } *)a0;
++ (id)preferencesValueforKey:(struct __CFString { } *)a0 domain:(struct __CFString { } *)a1;
++ (float)sceneIBLARIntensity;
++ (void)setPreferencesValueForKey:(struct __CFString { } *)a0 value:(const struct __CFString { } *)a1;
++ (BOOL)shouldRevertToOldHapticsBehavior;
++ (BOOL)triggerAffordanceShouldReshowAfterArReset;
++ (double)triggerAffordanceShowDuration;
++ (BOOL)wants2DOverlayControlsHidden;
++ (BOOL)wantsAnimationDisabled;
++ (BOOL)wantsDebugActionsButton;
++ (BOOL)wantsDebugPhysicsEnabled;
++ (BOOL)wantsDebugSceneUnderstandingEnabled;
++ (BOOL)wantsDebugVisualizationEnabled;
++ (BOOL)wantsObjectFitToScreen;
++ (BOOL)wantsObjectPlacedWithoutPlane;
++ (BOOL)wantsOpenInObjectMode;
++ (BOOL)wantsParentToCameraInARAndEnableProbes;
++ (BOOL)wantsPeopleOcclusionDisabled;
++ (BOOL)wantsRayTracedAmbientOcclusionEnabled;
++ (BOOL)wantsShowLastPlacementResultTypeStatus;
++ (BOOL)wantsStatisticsShown;
++ (BOOL)wantsStatusPillHidden;
++ (BOOL)wantsTTRButton;
++ (BOOL)wantsTrackedRaycastStatus;
+
+@end

@@ -1,0 +1,94 @@
+@class TSDInfoGeometry, NSArray, TSPObject, NSString, NSSet, NSObject, NSMutableArray;
+@protocol TSDInfo, TSDOwningAttachment;
+
+@interface TSDGroupInfo : TSDDrawableInfo <TSDMutableContainerInfo, TSDMixing, TSKDocumentObject, TSDModelContainer, TSDAttachmentAwareContainerInfo> {
+    NSMutableArray *mChildInfos;
+    BOOL mIsInDocument;
+}
+
+@property (copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfos;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfosForWrap;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfosIncludingGroups;
+@property (readonly, nonatomic) BOOL canAspectRatioLockBeChangedByUser;
+@property (readonly, nonatomic) BOOL isFreehandDrawing;
+@property (readonly, nonatomic) BOOL isEffectivelyEmpty;
+@property (readonly, nonatomic) BOOL isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) BOOL inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) NSArray *containedModels;
+@property (readonly, nonatomic) NSSet *infosToObserveForAttachedInfo;
+
++ (id)groupGeometryFromChildrenInfos:(id)a0;
++ (Class)classForUnarchiver:(id)a0;
++ (id)drawablesToInsertForGroup:(id)a0 filteredWithBlock:(id /* block */)a1;
++ (id)groupGeometryFromChildrenInfos:(id)a0 currentlyLaidOutWithLayoutController:(id)a1;
++ (id)p_drawablesToInsertForGroup:(id)a0 outDidUngroup:(BOOL *)a1 filteredWithBlock:(id /* block */)a2;
+
+- (void)acceptVisitor:(id)a0;
+- (id)typeName;
+- (void)dealloc;
+- (Class)layoutClass;
+- (void).cxx_destruct;
+- (void)didCopy;
+- (BOOL)needsDownload;
+- (id)childEnumerator;
+- (id)copyWithContext:(id)a0;
+- (id)initWithContext:(id)a0 geometry:(id)a1;
+- (Class)repClass;
+- (void)addChildInfo:(id)a0;
+- (void)adoptStylesheet:(id)a0 withMapper:(id)a1;
+- (BOOL)canAnchor;
+- (void)ensureGeometryFitsChildren;
+- (id)groupedGeometryForChildInfo:(id)a0;
+- (void)insertChildInfo:(id)a0 above:(id)a1;
+- (void)insertChildInfo:(id)a0 atIndex:(unsigned long long)a1;
+- (void)insertChildInfo:(id)a0 below:(id)a1;
+- (void)makeChildGeometriesRelativeAndComputeOwnAbsoluteGeometry;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (void)moveChildren:(id)a0 toIndexes:(id)a1;
+- (void)removeAllChildrenInDocument:(BOOL)a0;
+- (void)removeChildInfo:(id)a0;
+- (void)replaceChildInfo:(id)a0 with:(id)a1;
+- (BOOL)supportsParentRotation;
+- (id)ungroupedGeometryForChildInfo:(id)a0;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)willCopyWithOtherDrawables:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (BOOL)allowsCaption;
+- (BOOL)allowsTitle;
+- (id)childEnumeratorForUserSearch;
+- (id)infoForSelectionPath:(id)a0;
+- (void)insertContainedModel:(id)a0 atIndex:(unsigned long long)a1;
+- (BOOL)isNonGroupedChild:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (void)moveModel:(id)a0 toIndex:(unsigned long long)a1;
+- (void)removeContainedModel:(id)a0;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (BOOL)shouldShowInPrint;
+- (BOOL)canCopyData;
+- (BOOL)wantsCounterRotationWhenNotSupportingParentRotationInRotatedParent;
+- (void)adjustModelInPreparationForBecomingInline;
+- (BOOL)allowsParentGroupToBeResizedWithoutAspectRatioLock;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1 upgradeDOLC:(BOOL)a2;
+- (void)p_didUpdateChildInfos;
+- (id)p_ungroupedGeometryForInfo:(id)a0;
+- (BOOL)shouldBeIgnoredWhenCopying;
+
+@end

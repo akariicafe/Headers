@@ -1,0 +1,18 @@
+@class EMMailboxRepository;
+
+@interface EMMailboxCollection : EMCollection <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) EMMailboxRepository *repository;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithMailbox:(id)a0;
+- (id)initWithMailbox:(id)a0 repository:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)setRepository:(id)a0;
+- (id)initWithAccount:(id)a0 topLevelOnly:(BOOL)a1 repository:(id)a2;
+- (id)initWithAccount:(id)a0 topLevelOnly:(BOOL)a1;
+- (id)initWithObjectID:(id)a0 query:(id)a1;
+
+@end

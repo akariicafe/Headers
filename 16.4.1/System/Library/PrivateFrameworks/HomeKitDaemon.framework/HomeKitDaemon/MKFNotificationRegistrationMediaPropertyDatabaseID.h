@@ -1,0 +1,3 @@
+@interface MKFNotificationRegistrationMediaPropertyDatabaseID : MKFNotificationRegistrationDatabaseID
+
+@end

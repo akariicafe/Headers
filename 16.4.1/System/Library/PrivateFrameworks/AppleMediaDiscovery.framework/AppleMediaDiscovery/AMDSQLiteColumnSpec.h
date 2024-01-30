@@ -1,0 +1,28 @@
+@class NSString, NSObject;
+
+@interface AMDSQLiteColumnSpec : NSObject
+
+@property (retain, nonatomic) NSString *alias;
+@property (nonatomic) char dataType;
+@property (retain, nonatomic) NSObject *defaultValue;
+@property (retain, nonatomic) NSString *derivationExpression;
+@property (retain, nonatomic) NSString *name;
+@property (nonatomic) BOOL notNull;
+@property (retain, nonatomic) NSString *typeString;
+@property (nonatomic) BOOL unique;
+
++ (char)getTypeEnumFor:(id)a0;
+
+- (id)getName;
+- (id)getDefaultValue;
+- (id)getCreateStatementPart;
+- (id)getSelectColumnName;
+- (id)getSelectColumnExpression;
+- (BOOL)isNotNull;
+- (char)getType;
+- (id)initWithDict:(id)a0 withName:(id)a1 error:(id *)a2;
+- (id)getTypeString;
+- (void).cxx_destruct;
+- (BOOL)isRequired;
+
+@end

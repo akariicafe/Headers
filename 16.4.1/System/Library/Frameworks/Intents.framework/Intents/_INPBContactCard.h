@@ -1,0 +1,108 @@
+@class _INPBDateTimeRangeValue, NSString, NSArray, _INPBImageValue;
+
+@interface _INPBContactCard : PBCodable <_INPBContactCard, NSSecureCoding, NSCopying> {
+    struct { unsigned char isMe : 1; } _has;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) _INPBDateTimeRangeValue *birthday;
+@property (readonly, nonatomic) BOOL hasBirthday;
+@property (copy, nonatomic) NSString *contactIdentifier;
+@property (readonly, nonatomic) BOOL hasContactIdentifier;
+@property (copy, nonatomic) NSArray *contactRelations;
+@property (readonly, nonatomic) unsigned long long contactRelationsCount;
+@property (copy, nonatomic) NSArray *dates;
+@property (readonly, nonatomic) unsigned long long datesCount;
+@property (copy, nonatomic) NSString *departmentName;
+@property (readonly, nonatomic) BOOL hasDepartmentName;
+@property (copy, nonatomic) NSArray *emailAddresses;
+@property (readonly, nonatomic) unsigned long long emailAddressesCount;
+@property (copy, nonatomic) NSString *firstName;
+@property (readonly, nonatomic) BOOL hasFirstName;
+@property (copy, nonatomic) NSString *fullName;
+@property (readonly, nonatomic) BOOL hasFullName;
+@property (retain, nonatomic) _INPBImageValue *image;
+@property (readonly, nonatomic) BOOL hasImage;
+@property (copy, nonatomic) NSArray *instantMessageAddresses;
+@property (readonly, nonatomic) unsigned long long instantMessageAddressesCount;
+@property (nonatomic) BOOL isMe;
+@property (nonatomic) BOOL hasIsMe;
+@property (copy, nonatomic) NSString *jobTitle;
+@property (readonly, nonatomic) BOOL hasJobTitle;
+@property (copy, nonatomic) NSString *lastName;
+@property (readonly, nonatomic) BOOL hasLastName;
+@property (copy, nonatomic) NSString *middleName;
+@property (readonly, nonatomic) BOOL hasMiddleName;
+@property (copy, nonatomic) NSString *namePrefix;
+@property (readonly, nonatomic) BOOL hasNamePrefix;
+@property (copy, nonatomic) NSString *nameSuffix;
+@property (readonly, nonatomic) BOOL hasNameSuffix;
+@property (copy, nonatomic) NSString *nickName;
+@property (readonly, nonatomic) BOOL hasNickName;
+@property (retain, nonatomic) _INPBDateTimeRangeValue *nonGregorianBirthday;
+@property (readonly, nonatomic) BOOL hasNonGregorianBirthday;
+@property (copy, nonatomic) NSString *organizationName;
+@property (readonly, nonatomic) BOOL hasOrganizationName;
+@property (copy, nonatomic) NSArray *phoneNumbers;
+@property (readonly, nonatomic) unsigned long long phoneNumbersCount;
+@property (copy, nonatomic) NSString *phoneticFirstName;
+@property (readonly, nonatomic) BOOL hasPhoneticFirstName;
+@property (copy, nonatomic) NSString *phoneticLastName;
+@property (readonly, nonatomic) BOOL hasPhoneticLastName;
+@property (copy, nonatomic) NSString *phoneticMiddleName;
+@property (readonly, nonatomic) BOOL hasPhoneticMiddleName;
+@property (copy, nonatomic) NSString *phoneticNamePrefix;
+@property (readonly, nonatomic) BOOL hasPhoneticNamePrefix;
+@property (copy, nonatomic) NSString *phoneticNameSuffix;
+@property (readonly, nonatomic) BOOL hasPhoneticNameSuffix;
+@property (copy, nonatomic) NSString *phoneticNickName;
+@property (readonly, nonatomic) BOOL hasPhoneticNickName;
+@property (copy, nonatomic) NSArray *postalAddresses;
+@property (readonly, nonatomic) unsigned long long postalAddressesCount;
+@property (copy, nonatomic) NSArray *urlAddresses;
+@property (readonly, nonatomic) unsigned long long urlAddressesCount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)contactRelationsType;
++ (Class)datesType;
++ (Class)emailAddressesType;
++ (Class)instantMessageAddressesType;
++ (Class)phoneNumbersType;
++ (Class)postalAddressesType;
++ (Class)urlAddressesType;
+
+- (void)clearEmailAddresses;
+- (void)encodeWithCoder:(id)a0;
+- (void)addPostalAddresses:(id)a0;
+- (id)phoneNumbersAtIndex:(unsigned long long)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)isEqual:(id)a0;
+- (void)addPhoneNumbers:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearPostalAddresses;
+- (BOOL)readFrom:(id)a0;
+- (id)postalAddressesAtIndex:(unsigned long long)a0;
+- (id)emailAddressesAtIndex:(unsigned long long)a0;
+- (void)addEmailAddresses:(id)a0;
+- (void)clearPhoneNumbers;
+- (void).cxx_destruct;
+- (id)instantMessageAddressesAtIndex:(unsigned long long)a0;
+- (void)addContactRelations:(id)a0;
+- (void)addDates:(id)a0;
+- (void)addInstantMessageAddresses:(id)a0;
+- (void)addUrlAddresses:(id)a0;
+- (void)clearContactRelations;
+- (void)clearDates;
+- (void)clearInstantMessageAddresses;
+- (void)clearUrlAddresses;
+- (id)contactRelationsAtIndex:(unsigned long long)a0;
+- (id)datesAtIndex:(unsigned long long)a0;
+- (id)urlAddressesAtIndex:(unsigned long long)a0;
+
+@end

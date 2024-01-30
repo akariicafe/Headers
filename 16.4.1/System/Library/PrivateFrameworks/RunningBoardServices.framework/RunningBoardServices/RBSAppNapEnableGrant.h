@@ -1,0 +1,3 @@
+@interface RBSAppNapEnableGrant : RBSAppNapGrant
+
+@end

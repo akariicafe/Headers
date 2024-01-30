@@ -1,0 +1,84 @@
+@class NSString, NSMutableDictionary, NSXPCConnection, NSObject, COClusterRoleMonitor;
+@protocol COClusterRoleMonitorConnectionProvider, COMessageChannelConnectionProvider, OS_dispatch_queue;
+
+@interface COMessageChannel : NSObject <COMessageChannelClientInterface> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    BOOL _activated;
+    unsigned int _baseRequestID;
+}
+
+@property (readonly, copy, nonatomic) NSString *clusterLabel;
+@property (weak, nonatomic) NSXPCConnection *lastConnection;
+@property (nonatomic) unsigned long long sendLimit;
+@property (nonatomic) unsigned long long receiveLimit;
+@property (retain, nonatomic) NSMutableDictionary *sessionProducers;
+@property (retain, nonatomic) NSMutableDictionary *sessionConsumers;
+@property (retain, nonatomic) NSMutableDictionary *sessionsInflight;
+@property (copy, nonatomic) COClusterRoleMonitor *clusterRoleMonitor;
+@property (retain, nonatomic) NSMutableDictionary *roleSnapshotsCache;
+@property (retain, nonatomic) NSMutableDictionary *outstandingRequests;
+@property (copy, nonatomic) id /* block */ recorder;
+@property (retain, nonatomic) NSMutableDictionary *requestHandlers;
+@property (readonly, nonatomic) id<COMessageChannelConnectionProvider> provider;
+@property (readonly, nonatomic) id<COClusterRoleMonitorConnectionProvider> roleMonitorConnectionProvider;
+@property (readonly, copy, nonatomic) NSString *topic;
+@property (readonly, copy, nonatomic) id cluster;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)_activateWithCompletion:(id /* block */)a0;
+- (void)_withLock:(id /* block */)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)_remoteInterfaceWithErrorHandler:(id /* block */)a0;
+- (void)_lostConnectionToService;
+- (void).cxx_destruct;
+- (void)registerHandler:(id /* block */)a0 forRequestClass:(Class)a1;
+- (void)_broadcastRequest:(id)a0 type:(id)a1 recipientsCallback:(id /* block */)a2 responseCompletionHandler:(id /* block */)a3;
+- (void)_callbackProducersAndConsumersAfterActivationWithError:(id)a0;
+- (void)_deliverDidEndDelegateForSession:(id)a0 notice:(id)a1 initiator:(id)a2 error:(id)a3;
+- (void)_deliverDidFailToStartSessionWithMember:(id)a0 producer:(id)a1 error:(id)a2;
+- (void)_deliverFailedToStartSessionWithMember:(id)a0 consumer:(id)a1 error:(id)a2;
+- (void)_deliverSuccessfullyStartedSession:(id)a0 withMember:(id)a1 consumer:(id)a2;
+- (void)_deliverSuccessfullyStartedSession:(id)a0 withResponse:(id)a1 withMember:(id)a2 producer:(id)a3;
+- (unsigned int)_generateRequestID;
+- (void)_handleAddedMembers:(id)a0;
+- (void)_handleCapableCommand:(id)a0 fromMember:(id)a1 callback:(id /* block */)a2;
+- (void)_handleRemovedMembers:(id)a0;
+- (void)_handleStartCommand:(id)a0 withMember:(id)a1 callback:(id /* block */)a2;
+- (void)_handleStopCommand:(id)a0 fromMember:(id)a1 callback:(id /* block */)a2;
+- (Class)_payloadClassFromType:(id)a0;
+- (id)_payloadTypeFromClass:(Class)a0;
+- (void)_sendRequest:(id)a0 type:(id)a1 members:(id)a2 withCompletionHandler:(id /* block */)a3;
+- (void)_setupClusterMonitor;
+- (void)_startSessionWithProducer:(id)a0 member:(id)a1;
+- (void)_startSessionWithProducer:(id)a0 member:(id)a1 request:(id)a2;
+- (void)_submitMetricsForActivationCompletionWithError:(id)a0;
+- (void)_submitMetricsForRequest:(id)a0 withRequestInfo:(id)a1 withError:(id)a2;
+- (void)_submitMetricsForResponse:(id)a0 size:(unsigned long long)a1 withError:(id)a2;
+- (void)_submitMetricsForSession:(id)a0 withError:(id)a1;
+- (void)addSessionConsumerWithSubTopic:(id)a0 delegate:(id)a1 dispatchQueue:(id)a2;
+- (void)addSessionProducerWithSubTopic:(id)a0 delegate:(id)a1 dispatchQueue:(id)a2;
+- (void)broadcastRequest:(id)a0 recipientsCallback:(id /* block */)a1 responseCompletionHandler:(id /* block */)a2;
+- (void)broadcastRequest:(id)a0 type:(id)a1 recipientsCallback:(id /* block */)a2 responseCompletionHandler:(id /* block */)a3;
+- (void)failedToSendRequestWithID:(unsigned int)a0 withError:(id)a1;
+- (id)initWithConnectionProvider:(id)a0 roleMonitorConnectionProvider:(id)a1 topic:(id)a2 cluster:(id)a3;
+- (id)initWithTopic:(id)a0 cluster:(id)a1;
+- (void)receivedRecipientListForRequestID:(unsigned int)a0 recipients:(id)a1;
+- (void)receivedRequestWithPayload:(id)a0 payloadType:(id)a1 requestID:(unsigned int)a2 fromMember:(id)a3 withCallback:(id /* block */)a4;
+- (void)receivedResponseForRequestID:(unsigned int)a0 responsePayload:(id)a1 responseType:(id)a2 responseError:(id)a3 fromMember:(id)a4;
+- (void)registerHandler:(id /* block */)a0 forRequestClassType:(id)a1;
+- (void)sendRequest:(id)a0 members:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)sendRequest:(id)a0 type:(id)a1 members:(id)a2 withCompletionHandler:(id /* block */)a3;
+- (void)sendRequest:(id)a0 type:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)sendRequest:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)startSessionWithProducer:(id)a0 members:(id)a1;
+- (void)stopMessageSession:(id)a0 withNotice:(id)a1;
+- (void)unregisterHandlerForRequestClass:(Class)a0;
+- (void)unregisterHandlerForRequestClassType:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __NSLineFragmentRenderingContextAccessibility__UIKit__UIFoundation_super : UIAccessibilitySafeCategory
+
+@end

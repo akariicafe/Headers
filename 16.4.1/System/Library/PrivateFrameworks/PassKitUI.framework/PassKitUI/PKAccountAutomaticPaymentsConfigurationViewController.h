@@ -1,0 +1,88 @@
+@class PKTableHeaderView, PKAccountAutomaticPaymentsController, NSNumberFormatter, NSDate, NSDictionary, NSTimeZone, NSDateFormatter, NSCalendar, NSString, PKAccount, PKAccountAutomaticPaymentsDateFooterView, NSNumber, NSArray, PKMonthDayCollectionViewController, UIPickerView, PKFixedAmountWrapperView;
+
+@interface PKAccountAutomaticPaymentsConfigurationViewController : PKSectionTableViewController <PKAddBankAccountInformationViewControllerDelegate, PKMonthDayCollectionViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
+    PKAccountAutomaticPaymentsController *_controller;
+    PKAccount *_account;
+    NSTimeZone *_productTimeZone;
+    unsigned long long _featureIdentifier;
+    PKTableHeaderView *_tableHeaderView;
+    NSNumberFormatter *_currencyFormatter;
+    NSNumberFormatter *_ordinalDayNumberFormatter;
+    NSDateFormatter *_modelDateFormatter;
+    NSDateFormatter *_pickerDateFormatter;
+    NSDateFormatter *_cellDateFormatter;
+    NSDateFormatter *_dayNameFormatter;
+    NSDateFormatter *_cardinalDayDateFormatter;
+    BOOL _useOrdinalDay;
+    NSArray *_amounts;
+    NSArray *_frequencies;
+    NSDictionary *_frequenciesMap;
+    NSArray *_dates;
+    NSNumber *_selectedAmount;
+    NSNumber *_selectedFrequency;
+    NSDate *_selectedDate;
+    long long _scheduledDay;
+    long long _selectedRowType;
+    NSCalendar *_productCalendar;
+    PKMonthDayCollectionViewController *_monthDayCollectionViewController;
+    BOOL _shouldShowCollectionView;
+    UIPickerView *_amountPicker;
+    UIPickerView *_frequencyPicker;
+    UIPickerView *_datePicker;
+    PKFixedAmountWrapperView *_wrapperView;
+    PKAccountAutomaticPaymentsDateFooterView *_footerView;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (id)tableView;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (id)initWithController:(id)a0;
+- (void)setSelectedDate:(id)a0;
+- (id)tableHeaderView;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewWillLayoutSubviews;
+- (void).cxx_destruct;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (long long)numberOfComponentsInPickerView:(id)a0;
+- (long long)_frequency;
+- (void)pickerView:(id)a0 didSelectRow:(long long)a1 inComponent:(long long)a2;
+- (long long)pickerView:(id)a0 numberOfRowsInComponent:(long long)a1;
+- (id)pickerView:(id)a0 titleForRow:(long long)a1 forComponent:(long long)a2;
+- (double)tableView:(id)a0 heightForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (id)_amount;
+- (id)_dates;
+- (long long)_preset;
+- (id)_amounts;
+- (id)_footerText;
+- (void)_configureCell:(id)a0 forIndexPath:(id)a1;
+- (id)_textForAmount:(id)a0;
+- (id)_addBankAccountInformationViewController;
+- (id)_datesForFrequency:(long long)a0;
+- (id)_detailTextForPaymentRowType:(long long)a0;
+- (id)_displayStringForSelectedDate;
+- (id)_frequencies;
+- (id)_frequencyTitleForFrequency:(long long)a0;
+- (long long)_paymentRowTypeForIndexPath:(id)a0;
+- (void)_performNextButtonTapped;
+- (id)_textForPaymentRowType:(long long)a0;
+- (void)_updateDates;
+- (void)_updateNextButtonEnabledIfNecessary;
+- (void)addBankAccountInformationViewController:(id)a0 didAddFundingSource:(id)a1;
+- (void)addBankAccountInformationViewController:(id)a0 didFailWithError:(id)a1;
+- (void)addBankAccountInformationViewControllerDidFinish:(id)a0;
+- (void)bankAccountInformationViewControllerChangedBankAccountInformation:(id)a0;
+- (void)handleNextButtonTapped:(id)a0;
+- (void)monthDaySelectionViewController:(id)a0 didSelectDate:(id)a1 day:(long long)a2;
+- (void)setSelectedAmount:(id)a0;
+- (void)setSelectedFrequency:(id)a0;
+- (BOOL)shouldMapSection:(unsigned long long)a0;
+
+@end

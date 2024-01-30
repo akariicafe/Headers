@@ -1,0 +1,3 @@
+@interface TNQuicklookCompatibilityDelegate : TNBaseCompatibilityDelegate
+
+@end

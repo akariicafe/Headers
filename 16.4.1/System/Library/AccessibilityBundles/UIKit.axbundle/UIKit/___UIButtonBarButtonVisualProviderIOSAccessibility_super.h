@@ -1,0 +1,3 @@
+@interface ___UIButtonBarButtonVisualProviderIOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

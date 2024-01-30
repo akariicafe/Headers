@@ -1,0 +1,3 @@
+@interface ___UITableCellAccessoryButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

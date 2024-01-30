@@ -1,0 +1,95 @@
+@class HMDLogEventHAPMetricsEventAnalyzer, HMDLogEventUserActivityAnalyzer, HMDAppleAccountManager, HMDDiagnosticReporterLogObserver, HMDConfigurationLogEvent, NSMutableArray, HMDLogEventReachabilityEventsAnalyzer, HMDEventCountersManager, HMDLogEventAccessoryFirmwareUpdateEventAnalyzer, HMDLogEventDailyScheduler, HMDNetworkObserver, HMDLogEventProcessLaunchAnalyzer, HMDMetricsAccessoryDetailsManager, HMDDevice, HMDThreadNetworkObserver, HMDHouseholdMetricsManager, HMDLogEventErrorEventsAnalyzer, HMDCoreAnalyticsLogObserver, HMDLogEventProcessMemoryEventsAnalyzer, HMDLogEventBulletinNotificationsAnalyzer, HMDLogEventMessageEventsAnalyzer, HMDHomeManager, HMDLogEventElectionEventsAnalyzer, HMDTimeBasedFlagsManager, NSArray, HMDMetricsTTRManager, HMDPowerLogObserver, NSString, HMDMessageDispatcher, NSObject, HMDMetricsDeviceStateManager, HMDHH2AutoMigrationEligibilityLogEventSubmitter, NSUUID, HMDCloudSyncLogEventsAnalyzer;
+@protocol HMDEWSLogging, OS_dispatch_queue, HMDMetricsDeviceStateProvider, HMMLogEventSubmitting, HMMLogEventDispatching;
+
+@interface HMDMetricsManager : NSObject <HMFMessageReceiver, HMDLogEventDailyTaskRunner, HMMLogEventDispatchingDataSource, HMDCoreAnalyticsLogObserverDataSource, HMDHouseholdMetricsDataSource, HMDCurrentResidentDeviceDataSource> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly, copy) NSUUID *namespaceUUID;
+
+@property BOOL metricsCollectionStarted;
+@property (readonly, nonatomic) HMDMessageDispatcher *messageDispatcher;
+@property (readonly, nonatomic) HMDAppleAccountManager *accountManager;
+@property (readonly, nonatomic) HMDEventCountersManager *countersManager;
+@property (readonly, nonatomic) HMDTimeBasedFlagsManager *flagsManager;
+@property (readonly, nonatomic) HMDHH2AutoMigrationEligibilityLogEventSubmitter *hh2AutoMigrationEligibilitySubmitter;
+@property (readonly, nonatomic) HMDMetricsAccessoryDetailsManager *accessoryDetailsManager;
+@property (readonly, nonatomic) HMDHouseholdMetricsManager *householdMetricsManager;
+@property (readonly, nonatomic) HMDMetricsTTRManager *ttrManager;
+@property (readonly, nonatomic) HMDCoreAnalyticsLogObserver *coreAnalyticsLogObserver;
+@property (readonly, nonatomic) HMDDiagnosticReporterLogObserver *diagnosticReporterLogObserver;
+@property (readonly, nonatomic) HMDPowerLogObserver *powerLogObserver;
+@property (readonly, nonatomic) HMDLogEventBulletinNotificationsAnalyzer *bulletinNotificationsAnalyzer;
+@property (readonly, nonatomic) HMDCloudSyncLogEventsAnalyzer *cloudSyncLogEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventElectionEventsAnalyzer *electionEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventErrorEventsAnalyzer *errorEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventHAPMetricsEventAnalyzer *hapEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventMessageEventsAnalyzer *messagingEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventProcessLaunchAnalyzer *processLaunchEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventProcessMemoryEventsAnalyzer *processMemoryEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventReachabilityEventsAnalyzer *reachabilityEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventUserActivityAnalyzer *userActivityEventsAnalyzer;
+@property (readonly, nonatomic) HMDLogEventAccessoryFirmwareUpdateEventAnalyzer *firmwareUpdateEventsAnalyzer;
+@property (readonly, nonatomic) NSMutableArray *aggregationAnalysisEventContributingAnalyzers;
+@property (weak) HMDHomeManager *homeManager;
+@property (readonly, nonatomic) BOOL isDemoModeConfigured;
+@property (readonly, nonatomic) id<HMMLogEventSubmitting> logEventSubmitter;
+@property (readonly, nonatomic) id<HMMLogEventDispatching> logEventDispatcher;
+@property (readonly, nonatomic) HMDLogEventDailyScheduler *dailyScheduler;
+@property (readonly, weak, nonatomic) id<HMDEWSLogging> ewsLogger;
+@property (readonly, nonatomic) HMDMetricsDeviceStateManager *deviceStateManager;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) BOOL isSubmissionEnabled;
+@property (readonly, nonatomic) HMDConfigurationLogEvent *cachedConfiguration;
+@property (readonly, nonatomic) id<HMDMetricsDeviceStateProvider> deviceStateProvider;
+@property (readonly, nonatomic) NSString *PRKitUUIDString;
+@property (readonly, nonatomic) NSString *PRKitDateString;
+@property (readonly, nonatomic) HMDDevice *currentDevice;
+@property (readonly, nonatomic) NSArray *devicesOnCurrentAccount;
+@property (readonly, nonatomic) NSArray *homeDataSources;
+@property (readonly, nonatomic) HMDNetworkObserver *networkObserver;
+@property (readonly, nonatomic) HMDThreadNetworkObserver *threadNetworkObserver;
+@property (readonly, nonatomic) NSUUID *homeUUIDForCurrentResidentDevice;
+
+- (id)homes;
+- (id)messageDestination;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_registerForMessages;
+- (void)registerTaggedLoggingProcessors;
+- (void)_handleFetchEventCounters:(id)a0;
+- (void)_handleLogEventDailySchedulerStatusRequest:(id)a0;
+- (void)_handleLogEventDailySchedulerSubmitRequest:(id)a0;
+- (void)_handleResetEventCounters:(id)a0;
+- (void)addAnalyzer:(id)a0 toListOfAggregationAnalysisEventContributing:(id)a1;
+- (void)addRateTrigger:(id)a0 forEventName:(id)a1 requestGroup:(id)a2 atThreshold:(unsigned long long)a3 windowSize:(unsigned long long)a4;
+- (void)addTTRThresholdTrigger:(id)a0 forEventName:(id)a1 requestGroup:(id)a2 atThreshold:(unsigned long long)a3;
+- (void)addThresholdTrigger:(id)a0 forEventName:(id)a1 requestGroup:(id)a2 atThreshold:(unsigned long long)a3;
+- (void)addThresholdTrigger:(id)a0 forEventName:(id)a1 requestGroup:(id)a2 atThreshold:(unsigned long long)a3 uploadImmediately:(BOOL)a4;
+- (id)cachedHomeConfigurationForHomeUUID:(id)a0;
+- (void)configureHAPMetricsDispatcher:(id)a0;
+- (id)homeKitAggregationAnalysisLogEvent;
+- (void)homeKitConfigurationChanged;
+- (id)initWithMessageDispatcher:(id)a0 accountManager:(id)a1 logEventDispatcher:(id)a2 dailyScheduler:(id)a3 countersManager:(id)a4 flagsManager:(id)a5 ewsLogger:(id)a6 deviceStateManager:(id)a7 hh2AutoMigrationEligibilitySubmitter:(id)a8;
+- (void)logHomeConfiguration;
+- (id)logHomeKitAggregationAnalysisSummary;
+- (id)logHomeKitErrorAggregationSummary;
+- (void)registerEWSTriggers;
+- (void)registerTTRTriggers;
+- (void)resetHomeKitAggregationAnalysisContext;
+- (void)runDailyTask;
+- (void)startAnalyzers;
+- (void)startCoreAnalyticsObserver:(id)a0;
+- (void)startMetricsCollection;
+- (void)startMetricsCollectionWithDailyScheduler:(id)a0;
+- (void)submitCurrentUserSettings;
+- (void)submitDailyAggregationAnalysisEvents;
+- (void)updateWidgetStatusInCachedConfiguration;
+- (void)waitToCompleteCurrentlyQueuedTasks;
+
+@end

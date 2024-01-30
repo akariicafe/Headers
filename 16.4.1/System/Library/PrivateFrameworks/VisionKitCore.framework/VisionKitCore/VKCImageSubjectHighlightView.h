@@ -1,0 +1,78 @@
+@class NSDate, UILongPressGestureRecognizer, UITapGestureRecognizer, NSString, CALayer, UIDragInteraction, UIImageView, UIPanGestureRecognizer, UISelectionFeedbackGenerator, VKCSubjectLiftView;
+@protocol VKCImageSubjectHighlightViewDelegate;
+
+@interface VKCImageSubjectHighlightView : VKCImageSubjectBaseView <UIDragInteractionDelegate, UIGestureRecognizerDelegate>
+
+@property (nonatomic) unsigned long long subjectHighlightState;
+@property (retain, nonatomic) UILongPressGestureRecognizer *livePhotoPlayGR;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGR;
+@property (retain, nonatomic) UIDragInteraction *dragInteraction;
+@property (retain, nonatomic) UIPanGestureRecognizer *coyotePanGR;
+@property (nonatomic) BOOL shouldShowCalloutOnDragCancel;
+@property (nonatomic) BOOL glowLayerWasActiveOnLift;
+@property (nonatomic) BOOL isHidingMenuController;
+@property (retain, nonatomic) CALayer *colorMaskLayer;
+@property (nonatomic) struct CGImage { } *colorMaskImage;
+@property (weak, nonatomic) VKCSubjectLiftView *currentLiftView;
+@property (weak, nonatomic) UIImageView *currentLiftImageView;
+@property (nonatomic) double dragInteractionStartTime;
+@property (nonatomic) struct CGPoint { double x; double y; } dragInteractionStartLocation;
+@property (retain, nonatomic) NSDate *livePhotoStartTime;
+@property (retain, nonatomic) NSDate *calloutStartTime;
+@property (nonatomic) BOOL isLiftingEmptyItemArray;
+@property (nonatomic) BOOL isLivePhoto;
+@property (nonatomic) BOOL isLivePhotoCheckCompleted;
+@property (nonatomic) BOOL subjectAnalysisCompleteWhenTouchesBegan;
+@property (nonatomic) BOOL analysisDelayTimerActive;
+@property (retain, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator;
+@property (weak, nonatomic) id<VKCImageSubjectHighlightViewDelegate> delegate;
+@property (readonly, nonatomic) BOOL subjectHighlightActive;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)dragInteraction:(id)a0 previewForLiftingItem:(id)a1 session:(id)a2;
+- (BOOL)dragInteraction:(id)a0 prefersFullSizePreviewsForSession:(id)a1;
+- (BOOL)dragInteraction:(id)a0 sessionAllowsMoveOperation:(id)a1;
+- (void)didTap:(id)a0;
+- (void)setRecognitionResult:(id)a0;
+- (void)dragInteraction:(id)a0 item:(id)a1 willAnimateCancelWithAnimator:(id)a2;
+- (void)didMoveToWindow;
+- (void)menuControllerWillHide:(id)a0;
+- (void)touchesBegan:(id)a0 withEvent:(id)a1;
+- (id)dragInteraction:(id)a0 itemsForBeginningSession:(id)a1;
+- (void)setSubjectHighlightState:(unsigned long long)a0 animated:(BOOL)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)handleCancelForUndraggedLiftForInteraction:(id)a0;
+- (void)dragInteraction:(id)a0 session:(id)a1 willEndWithOperation:(unsigned long long)a2;
+- (void)livePhotoCoyotePan:(id)a0;
+- (void)setHidden:(BOOL)a0;
+- (void)showCalloutMenuAtLocation:(struct CGPoint { double x0; double x1; })a0 showPulse:(BOOL)a1;
+- (void)setGlowLayerActive:(BOOL)a0;
+- (id)createItemProvider;
+- (id)dragInteraction:(id)a0 previewForCancellingItem:(id)a1 withDefault:(id)a2;
+- (void)dragInteraction:(id)a0 willAnimateLiftWithAnimator:(id)a1 session:(id)a2;
+- (void)dragInteraction:(id)a0 sessionWillBegin:(id)a1;
+- (id)animationWithDuration:(double)a0 fromValue:(id)a1 toValue:(id)a2 key:(id)a3;
+- (void)dealloc;
+- (BOOL)canBecomeFirstResponder;
+- (id)targetedPreviewForCurrentSubject;
+- (void)copy:(id)a0;
+- (void)_share:(id)a0;
+- (void)_dragInteractionDidCancelLiftWithoutDragging:(id)a0;
+- (void)setMaskRemoveBackgroundResult:(id)a0;
+- (void)_share;
+- (id)springAnimationWithFromValue:(id)a0 toValue:(id)a1 key:(id)a2;
+- (void)beginImageSubjectAnalysisWithDelayIfNecessary;
+- (void)livePhotoLongPress:(id)a0;
+- (void)hideCalloutAndGlowIfNecessary;
+- (id)stringForHighlightState:(unsigned long long)a0;
+- (void)dragInteraction:(id)a0 session:(id)a1 didEndWithOperation:(unsigned long long)a2;
+- (void)setNormalizedVisibleRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void).cxx_destruct;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (void)hideCalloutMenuIfNecessary;
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UICalendarHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

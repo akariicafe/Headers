@@ -1,0 +1,3 @@
+@interface SBCoverSheetPresentationGestureRecognizer : SBScreenEdgePanGestureRecognizer
+
+@end

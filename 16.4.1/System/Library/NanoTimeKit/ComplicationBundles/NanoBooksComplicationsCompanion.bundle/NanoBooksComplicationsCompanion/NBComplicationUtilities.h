@@ -1,0 +1,3 @@
+@interface NBComplicationUtilities : NSObject
+
+@end

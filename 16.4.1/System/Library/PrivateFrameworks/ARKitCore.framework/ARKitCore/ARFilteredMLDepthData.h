@@ -1,0 +1,3 @@
+@interface ARFilteredMLDepthData : ARMLDepthData
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIStatusBarSignalStrengthItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,72 @@
+@class UIStackView, AVTImageTransitioningContainerView, AVTToolBar, UITapGestureRecognizer, AVTViewSession, AVTAvatarInlineActionsController, UIImageView, AVTUIEnvironment, AVTViewSessionProvider, NSString, AVTAvatarEditorViewController;
+@protocol AVTAvatarActionsViewControllerLayout, AVTAvatarActionsViewControllerDelegate;
+
+@interface AVTAvatarActionsViewController : UIViewController <AVTAvatarActionsControllerDelegate, UINavigationControllerDelegate, AVTToolBarDelegate, AVTFaceTrackingManagerDelegate, AVTUIControllerPresentationDelegate>
+
+@property (retain, nonatomic) UIStackView *buttonsView;
+@property (retain, nonatomic) AVTImageTransitioningContainerView *avatarContainer;
+@property (retain, nonatomic) AVTToolBar *toolbar;
+@property (retain, nonatomic) AVTAvatarInlineActionsController *actionsController;
+@property (readonly, nonatomic) AVTViewSessionProvider *sessionProvider;
+@property (retain, nonatomic) AVTViewSession *avtViewSession;
+@property (retain, nonatomic) id<AVTAvatarActionsViewControllerLayout> currentLayout;
+@property (copy, nonatomic) id /* block */ postSessionDidBecomeActiveHandler;
+@property (retain, nonatomic) UIImageView *transitionImageView;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic) BOOL isAnimating;
+@property (nonatomic) BOOL allowFacetracking;
+@property (readonly, nonatomic) AVTUIEnvironment *environment;
+@property (weak, nonatomic) AVTAvatarEditorViewController *editorViewController;
+@property (weak, nonatomic) id<AVTAvatarActionsViewControllerDelegate> delegate;
+@property (nonatomic) BOOL shouldHideUserInfoView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)navigationController:(id)a0 animationControllerForOperation:(long long)a1 fromViewController:(id)a2 toViewController:(id)a3;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)contentSizeCategoryDidChange:(id)a0;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)viewWillAppear:(BOOL)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })additionalSafeAreaInsets;
+- (void)applyLayout:(id)a0;
+- (double)deleteMoveInDelay;
+- (double)deleteMoveInDuration;
+- (void)didTapAvatarView:(id)a0;
+- (double)duplicateScaleDelay;
+- (double)duplicateScaleDuration;
+- (void)didTapDone:(id)a0;
+- (void)actionsController:(id)a0 didAddRecord:(id)a1;
+- (void)actionsController:(id)a0 didCancelEditingRecord:(id)a1;
+- (void)actionsController:(id)a0 didDeleteRecord:(id)a1 withRecordUpdate:(id)a2 completionBlock:(id /* block */)a3;
+- (void)actionsController:(id)a0 didDuplicateToRecord:(id)a1 completionBlock:(id /* block */)a2;
+- (void)actionsController:(id)a0 didEditRecord:(id)a1;
+- (void)actionsController:(id)a0 presentAlertController:(id)a1;
+- (void)actionsControllerDidFinish:(id)a0;
+- (void)actionsControllerDidUpdateActions:(id)a0;
+- (id)actionsModel:(id)a0 recordUpdateForDeletingRecord:(id)a1;
+- (void)beginAVTViewSessionWithDidBeginBlock:(id /* block */)a0;
+- (void)beginUsingAVTViewFromSession:(id)a0;
+- (void)configureAVTViewSession:(id)a0 withAvatarRecord:(id)a1 completionBlock:(id /* block */)a2;
+- (void)configureNavigationItems;
+- (void)configureUserInfoLabel;
+- (void)controllerPresentationWillObstructView:(id)a0;
+- (void)createTransitionImageViewIfNeeded;
+- (void)dismissEditorViewController:(id)a0 forActionsController:(id)a1 wasCreate:(BOOL)a2 didEdit:(BOOL)a3 animated:(BOOL)a4 completion:(id /* block */)a5;
+- (id)initWithAVTViewSessionProvider:(id)a0 actionsController:(id)a1 environment:(id)a2;
+- (long long)interfaceOrientationForFaceTrackingManager:(id)a0;
+- (void)layoutViewForActionsController;
+- (void)performEdit;
+- (void)performTransitionAfterDeleteToRecord:(id)a0 fromLeft:(BOOL)a1 previousRecordImage:(id)a2 completionBlock:(id /* block */)a3;
+- (void)performTransitionAfterDuplicateToRecord:(id)a0 previousRecordImage:(id)a1 completionBlock:(id /* block */)a2;
+- (void)prepareForAnimatedTransitionWithLayout:(id)a0 completionBlock:(id /* block */)a1;
+- (void)presentEditorViewController:(id)a0 forActionsController:(id)a1 isCreate:(BOOL)a2;
+- (void)rebuildLayout;
+- (void)toolbar:(id)a0 didSelectButton:(id)a1 atIndex:(unsigned long long)a2;
+
+@end

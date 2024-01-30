@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.MobileAssetDownloadActivity : iCloudSubscriptionOptimizerDaemon.SystemActivity
+
+@end

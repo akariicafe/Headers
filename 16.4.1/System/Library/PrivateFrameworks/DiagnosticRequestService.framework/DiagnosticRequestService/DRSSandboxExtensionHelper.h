@@ -1,0 +1,13 @@
+@class NSString;
+
+@interface DRSSandboxExtensionHelper : NSObject
+
+@property (nonatomic) long long sandboxExtensionHandle;
+@property (readonly, nonatomic) BOOL didInit;
+@property (readonly, nonatomic) NSString *logPath;
+
+- (id)initWithSandboxExtensionToken:(id)a0 logPath:(id)a1 errorOut:(id *)a2;
+- (void)dealloc;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,3 @@
+@interface Summaries.AdditionalPublisherSummaryModelConfiguration : Summaries.SummaryModelConfiguration
+
+@end

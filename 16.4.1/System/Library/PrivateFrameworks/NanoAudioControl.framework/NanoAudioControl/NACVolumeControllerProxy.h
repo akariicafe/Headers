@@ -1,0 +1,86 @@
+@class NSNumber, NSOrderedSet, NSString, NACEventThrottler, NACXPCClient, NACProxyVolumeControlTarget, NSObject;
+@protocol OS_dispatch_source, NACVolumeControllerDelegate;
+
+@interface NACVolumeControllerProxy : NSObject <NACVolumeController> {
+    NACProxyVolumeControlTarget *_target;
+    NACEventThrottler *_volumeThrottler;
+    NACEventThrottler *_hapticThrottler;
+    NSObject<OS_dispatch_source> *_setVolumeTimer;
+    NSObject<OS_dispatch_source> *_setHapticTimer;
+    NSObject<OS_dispatch_source> *_setProminentHapticTimer;
+    NSObject<OS_dispatch_source> *_setHapticStateTimer;
+    NACXPCClient *_xpcClient;
+    BOOL _observingVolume;
+    float _lastRecievedHapticIntensity;
+    BOOL _lastReceivedProminentHapticEnabled;
+    long long _lastReceivedHapticState;
+    NSNumber *_volumeValue;
+    NSNumber *_hapticIntensity;
+    NSOrderedSet *_availableListeningModes;
+    NSString *_currentListeningMode;
+    BOOL _observingListeningModes;
+}
+
+@property (weak, nonatomic) id<NACVolumeControllerDelegate> delegate;
+@property (readonly, nonatomic, getter=isVolumeControlAvailable) BOOL volumeControlAvailable;
+@property (readonly, nonatomic, getter=isVolumeWarningEnabled) BOOL volumeWarningEnabled;
+@property (readonly, nonatomic) long long volumeWarningState;
+@property (readonly, nonatomic, getter=isMuted) BOOL muted;
+@property (readonly, nonatomic) float volumeValue;
+@property (readonly, nonatomic) float EUVolumeLimit;
+@property (nonatomic, getter=isSystemMuted) BOOL systemMuted;
+@property (nonatomic) long long hapticState;
+@property (readonly, nonatomic) NSOrderedSet *availableListeningModes;
+@property (retain, nonatomic) NSString *currentListeningMode;
+@property (nonatomic) float hapticIntensity;
+@property (nonatomic, getter=isProminentHapticEnabled) BOOL prominentHapticEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setVolumeValue:(float)a0;
+- (void)setMuted:(BOOL)a0;
+- (void)_applicationDidBecomeActiveNotification:(id)a0;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_applicationWillResignActiveNotification:(id)a0;
+- (void)allowUserToExceedEUVolumeLimit;
+- (void)_EUVolumeLimitDidChange;
+- (void)_availableListeningModesDidChange;
+- (void)_cancelSetHapticStateTimer;
+- (void)_cancelSetHapticTimer;
+- (void)_cancelSetProminentHapticTimer;
+- (void)_cancelSetVolumeTimer;
+- (void)_currentListeningModeDidChange;
+- (void)_handleFailedToSetCurrentListeningModeNotification:(id)a0;
+- (void)_hapticIntensityDidChange;
+- (void)_hapticStateDidChange;
+- (void)_hapticStateTimeout;
+- (void)_hapticTimeout;
+- (void)_mutedStateDidChange;
+- (void)_notifyDelegateHapticChanged;
+- (void)_notifyDelegateHapticStateChanged;
+- (void)_notifyDelegateProminentHapticStateChanged;
+- (void)_notifyDelegateSystemMutedStateChanged;
+- (void)_notifyDelegateVolumeChanged;
+- (void)_prominentHapticStateDidChange;
+- (void)_prominentHapticTimeout;
+- (id)_scheduleTimeoutWithBlock:(id /* block */)a0;
+- (void)_setHapticIntensity:(id)a0;
+- (void)_setVolumeValue:(id)a0;
+- (void)_systemMutedStateDidChange;
+- (void)_volumeControlAvailabilityDidChange;
+- (void)_volumeTimout;
+- (void)_volumeValueDidChange;
+- (void)_volumeWarningDidChange;
+- (void)beginObservingHaptics;
+- (void)beginObservingListeningModes;
+- (void)beginObservingVolume;
+- (void)endObservingHaptics;
+- (void)endObservingListeningModes;
+- (void)endObservingVolume;
+- (id)initWithVolumeControlTarget:(id)a0;
+- (void)setVolumeValue:(float)a0 muted:(BOOL)a1 overrideEULimit:(BOOL)a2;
+
+@end

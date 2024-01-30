@@ -1,0 +1,3 @@
+@interface SNOperatorUtils : NSObject
+
+@end

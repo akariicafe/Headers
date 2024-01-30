@@ -1,0 +1,85 @@
+@class ADJasperColorPipeline, NSString, ADNormalsBuffer, ADLKTOpticalFlow, ADJasperColorPipelineParameters, ADEspressoJasperColorInferenceDescriptor, ADLKTTexturesDescriptor, NSObject, NSMutableArray, ARImageRotationTechnique, ADCameraCalibration;
+@protocol OS_dispatch_queue, MTLDevice, MTLCommandQueue;
+
+@interface ARDepthTechnique : ARMLImageProcessingTechnique <ARTechniqueBusyState, ARMLDepthDataSourceProvider> {
+    struct CGSize { double width; double height; } _outputSize;
+    ADJasperColorPipeline *_pipeline;
+    ADEspressoJasperColorInferenceDescriptor *_inferenceDescriptor;
+    ADLKTOpticalFlow *_lkt;
+    ADLKTTexturesDescriptor *_lktDescriptor;
+    BOOL _alphamapAvailable;
+    unsigned long long _layout;
+    struct __CVPixelBufferPool { } *_outputDepthPixelBufferPool;
+    struct __CVPixelBufferPool { } *_outputConfidencePixelBufferPool;
+    struct __CVPixelBufferPool { } *_outputConfidenceMapPixelBufferPool;
+    struct __CVPixelBufferPool { } *_outputTemporalConsistentDepthPixelBufferPool;
+    struct __CVPixelBufferPool { } *_outputTemporalConsistentConfidencePixelBufferPool;
+    struct __CVPixelBufferPool { } *_outputAlphaPixelBufferPool;
+    struct __CVPixelBufferPool { } *_scaledDepthOutputPixelBufferPool;
+    struct __CVPixelBufferPool { } *_scaledConfidenceOutputPixelBufferPool;
+    struct __CVPixelBufferPool { } *_scaledConfidenceMapPixelBufferPool;
+    struct __CVPixelBufferPool { } *_scaledTemporallyConsistentDepthOutputPixelBufferPool;
+    struct __CVPixelBufferPool { } *_scaledTemporallyConsistentConfidenceOutputPixelBufferPool;
+    struct __CVPixelBufferPool { } *_opticalFlowPixelBufferPool;
+    struct __CVPixelBufferPool { } *_normalPixelBufferPool;
+    struct __CVBuffer { } *_jasperInputBuffer;
+    struct __CVBuffer { } *_previousDepthBuffer;
+    struct __CVBuffer { } *_previousConfidenceBuffer;
+    struct __CVBuffer { } *_previousWarpedDepthBuffer;
+    struct __CVBuffer { } *_previousWarpedConfidenceBuffer;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _previousPose;
+    ADCameraCalibration *_previousCameraCalibration;
+    ARImageRotationTechnique *_float32RotationTechnique;
+    ARImageRotationTechnique *_oneComponent8RotationTechnique;
+    NSObject<OS_dispatch_queue> *_lktProcessingQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _opticalFlowOutputBufferLock;
+    id<MTLDevice> _device;
+    id<MTLCommandQueue> _commandQueue;
+    long long _storedFramesCount;
+    long long _currentFrameIndex;
+    NSMutableArray *_pyramids;
+    NSMutableArray *_features;
+    NSMutableArray *_derivatives;
+    BOOL _computeNormals;
+    ADNormalsBuffer *_normalsHelperBuffer;
+    unsigned long long _temporalConsistencyMethod;
+}
+
+@property (nonatomic) struct __CVBuffer { } *opticalFlowOutputBuffer;
+@property (readonly, nonatomic) ADJasperColorPipelineParameters *pipelineParameters;
+@property (readonly, nonatomic) long long prioritization;
+@property (readonly, nonatomic) BOOL isBusy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) long long depthDataSource;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_allocateLKTBuffers;
+- (void)_captureMLRunNetworkInputImageData:(double)a0 cameraType:(long long)a1 imageWidth:(unsigned long long)a2 imageHeight:(unsigned long long)a3;
+- (void)_endLoadingMLModelSignpost;
+- (void)_endMLCreateResultSignpostWithTimestamp:(double)a0;
+- (void)_endMLProcessingSignpostWithTimestamp:(double)a0;
+- (void)_endMLRunNetworkSignpostWithTimestamp:(double)a0;
+- (struct __CVBuffer { } *)_executeLKTWithFrame:(struct __CVBuffer { } *)a0;
+- (void)_initLKT;
+- (id)_rotatedPixelBufferImageData:(struct __CVBuffer { } *)a0;
+- (void)_startLoadingMLModelSignpost;
+- (void)_startMLCreateResultSignpostWithTimestamp:(double)a0 orientation:(long long)a1 outputSize:(struct CGSize { double x0; double x1; })a2;
+- (void)_startMLProcessingSignpostWithTimestamp:(double)a0;
+- (void)_startMLRunNetworkSignpostWithTimestamp:(double)a0;
+- (void)_updateOpticalFlowOutputBufferInBackgroundFromImageData:(id)a0;
+- (int)bindInputBuffer:(unsigned long long)a0 withImage:(id)a1 andOriginalImageData:(id)a2 rotationOfResultTensor:(long long)a3;
+- (id)createResultDataFromTensors:(struct { void *x0; void *x1; unsigned long long x2[4]; unsigned long long x3[4]; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned long long x11; unsigned long long x12; unsigned long long x13; int x14; } *)a0 numberOfOutputTensors:(unsigned long long)a1 imageDataForNeuralNetwork:(id)a2 inputImageData:(id)a3 rotationNeeded:(long long)a4 regionOfInterest:(struct CGSize { double x0; double x1; })a5;
+- (id)initWithPrioritization:(long long)a0 temporalSmoothing:(BOOL)a1;
+- (void)networkModeDidChange:(id)a0 toMode:(id)a1;
+- (id)networkModesForOrientation:(long long)a0;
+- (int)prepareBindInputBuffer:(unsigned long long)a0 withName:(id)a1;
+- (double)requiredTimeInterval;
+- (id)resultDataClasses;
+
+@end

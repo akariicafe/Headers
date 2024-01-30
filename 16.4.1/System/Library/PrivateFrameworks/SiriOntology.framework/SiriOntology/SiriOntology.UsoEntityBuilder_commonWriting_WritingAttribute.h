@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonWriting_WritingAttribute : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

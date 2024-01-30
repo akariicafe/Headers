@@ -1,0 +1,3 @@
+@interface _TtCC33iCloudSubscriptionOptimizerDaemon14BiomeAppLaunch22MinsSinceLastAppLaunch : _TtCs12_SwiftObject
+
+@end

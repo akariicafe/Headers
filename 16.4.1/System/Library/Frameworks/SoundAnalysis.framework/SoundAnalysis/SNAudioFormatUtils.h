@@ -1,0 +1,3 @@
+@interface SNAudioFormatUtils : NSObject
+
+@end

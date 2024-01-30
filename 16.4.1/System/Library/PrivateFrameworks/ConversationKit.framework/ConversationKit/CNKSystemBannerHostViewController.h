@@ -1,0 +1,82 @@
+@class BSAnimationSettings, NSString, UIView, UIViewController;
+@protocol SBUISystemApertureElement, SBUISystemApertureAccessoryView;
+
+@interface CNKSystemBannerHostViewController : UIViewController <SBUISystemApertureElement, SBUISystemApertureElementProviding, BNPresentable> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ controlsManager;
+    void /* unknown type, empty encoding */ bannerIdentifier;
+    void /* unknown type, empty encoding */ sizeClass;
+    void /* unknown type, empty encoding */ controlsType;
+    void /* unknown type, empty encoding */ notice;
+    void /* unknown type, empty encoding */ captureGroupName;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_captureOnlyBackdropView;
+    void /* unknown type, empty encoding */ shadowView;
+    void /* unknown type, empty encoding */ overriddenSystemApertureContent;
+    void /* unknown type, empty encoding */ isTransitioningToEphemeralSystemApertureContent;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_systemApertureAlertingManager;
+    void /* unknown type, empty encoding */ conversationControlsViewController;
+    void /* unknown type, empty encoding */ expandedForMenuPresentation;
+    void /* unknown type, empty encoding */ requesterIdentifier;
+    void /* unknown type, empty encoding */ layoutDescription;
+    void /* unknown type, empty encoding */ destination;
+    void /* unknown type, empty encoding */ panGestureProxy;
+    void /* unknown type, empty encoding */ dismissalPreventionAssertion;
+    void /* unknown type, empty encoding */ gesturePriorityAssertion;
+    void /* unknown type, empty encoding */ isPresentationManagedBySpringBoard;
+    void /* unknown type, empty encoding */ defaults;
+    void /* unknown type, empty encoding */ features;
+    void /* unknown type, empty encoding */ leadingViewContainer;
+    void /* unknown type, empty encoding */ trailingViewContainer;
+    void /* unknown type, empty encoding */ minimalViewContainer;
+    void /* unknown type, empty encoding */ detachedMinimalViewContainer;
+    void /* unknown type, empty encoding */ elementIdentifier;
+}
+
+@property (nonatomic, copy) NSString *requesterIdentifier;
+@property (nonatomic, weak) void /* unknown type, empty encoding */ presentableContext;
+@property (nonatomic, readonly) UIViewController *viewController;
+@property (nonatomic, readonly) NSString *requestIdentifier;
+@property (nonatomic, readonly) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } bannerContentOutsets;
+@property (nonatomic, readonly) BOOL touchOutsideDismissalEnabled;
+@property (nonatomic, readonly) BOOL draggingDismissalEnabled;
+@property (nonatomic, readonly) BOOL draggingInteractionEnabled;
+@property (nonatomic, readonly) BSAnimationSettings *bannerSizeTransitionAnimationSettings;
+@property (nonatomic, readonly) UIViewController<SBUISystemApertureElement> *systemApertureElementViewController;
+@property (nonatomic) void /* unknown type, empty encoding */ activeLayoutMode;
+@property (nonatomic) void /* unknown type, empty encoding */ canRequestAlertingAssertion;
+@property (nonatomic, readonly) void /* unknown type, empty encoding */ contentRole;
+@property (nonatomic, readonly) long long preferredLayoutMode;
+@property (nonatomic, readonly) long long maximumLayoutMode;
+@property (nonatomic, readonly) UIView<SBUISystemApertureAccessoryView> *leadingView;
+@property (nonatomic, readonly) UIView<SBUISystemApertureAccessoryView> *trailingView;
+@property (nonatomic, readonly) UIView<SBUISystemApertureAccessoryView> *minimalView;
+@property (nonatomic, readonly) UIView<SBUISystemApertureAccessoryView> *detachedMinimalView;
+@property (nonatomic, readonly) NSString *elementIdentifier;
+@property (nonatomic, readonly) NSString *associatedAppBundleIdentifier;
+@property (nonatomic, readonly) unsigned long long statusBarStyleOverridesToSuppress;
+@property (nonatomic, readonly) unsigned long long presentationBehaviors;
+@property (nonatomic, readonly) void /* unknown type, empty encoding */ keyColor;
+
+- (void)presentableDidDisappearAsBanner:(id)a0 withReason:(id)a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)didMoveToParentViewController:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)userInteractionDidEndForBannerForPresentable:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)userInteractionWillBeginForBannerForPresentable:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (void)presentableWillAppearAsBanner:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isDraggingDismissalEnabled;
+- (BOOL)isDraggingInteractionEnabled;
+- (BOOL)isTouchOutsideDismissalEnabled;
+- (struct CGSize { double x0; double x1; })preferredContentSizeWithPresentationSize:(struct CGSize { double x0; double x1; })a0 containerSize:(struct CGSize { double x0; double x1; })a1;
+- (void)viewWillLayoutSubviewsWithTransitionCoordinator:(id)a0;
+- (void)contextMenuDidDismiss:(id)a0;
+- (void)contextMenuWillPresent:(id)a0;
+- (void)handleSceneStateChangeNotification:(id)a0;
+
+@end

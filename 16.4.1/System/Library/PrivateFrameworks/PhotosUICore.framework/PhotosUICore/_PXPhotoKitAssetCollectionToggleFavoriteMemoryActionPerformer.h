@@ -1,0 +1,5 @@
+@interface _PXPhotoKitAssetCollectionToggleFavoriteMemoryActionPerformer : _PXPhotoKitAssetCollectionAbstractFavoriteMemoryActionPerformer
+
++ (BOOL)_targetFavoriteStateForAssetCollectionReference:(id)a0;
+
+@end

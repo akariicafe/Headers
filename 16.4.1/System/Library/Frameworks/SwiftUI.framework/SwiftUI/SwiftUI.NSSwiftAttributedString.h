@@ -1,0 +1,32 @@
+@class NSString;
+
+@interface SwiftUI.NSSwiftAttributedString : NSAttributedString {
+    void /* unknown type, empty encoding */ _storage;
+}
+
+@property (nonatomic, readonly) NSString *string;
+
+- (id)initWithString:(id)a0 attributes:(id)a1;
+- (id)initWithAttributedString:(id)a0;
+- (id)attributesAtIndex:(long long)a0 longestEffectiveRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a1 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (id)initWithCoder:(id)a0;
+- (id)initWithString:(id)a0;
+- (BOOL)isEqualToAttributedString:(id)a0;
+- (id)attribute:(id)a0 atIndex:(long long)a1 longestEffectiveRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a2 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3;
+- (id)init;
+- (id)attributedSubstringFromRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void).cxx_destruct;
+- (void)enumerateAttribute:(id)a0 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 options:(unsigned long long)a2 usingBlock:(id /* block */)a3;
+- (id)attributesAtIndex:(long long)a0 effectiveRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a1;
+- (id)attribute:(id)a0 atIndex:(long long)a1 effectiveRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a2;
+- (void)enumerateAttributesInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 options:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (id)initWithContentsOfMarkdownFileAtURL:(id)a0 options:(id)a1 baseURL:(id)a2 error:(id *)a3;
+- (id)initWithData:(id)a0 options:(id)a1 documentAttributes:(id *)a2 error:(id *)a3;
+- (id)initWithMarkdown:(id)a0 options:(id)a1 baseURL:(id)a2 error:(id *)a3;
+- (id)initWithMarkdownString:(id)a0 options:(id)a1 baseURL:(id)a2 error:(id *)a3;
+- (id)initWithItemProviderData:(id)a0 typeIdentifier:(id)a1 error:(id *)a2;
+- (id)initWithURL:(id)a0 options:(id)a1 documentAttributes:(id *)a2 error:(id *)a3;
+- (id)initWithFileURL:(id)a0 options:(id)a1 documentAttributes:(id *)a2 error:(id *)a3;
+- (id)initWithHTML:(id)a0 options:(id)a1 documentAttributes:(id *)a2;
+
+@end

@@ -1,0 +1,94 @@
+@class NSUUID, NSSet, NSMutableOrderedSet, NSMutableSet, NSObject;
+@protocol UITextInputSessionActionAnalyticsDelegateSource, OS_dispatch_queue;
+
+@interface UITextInputSessionActionAnalytics : NSObject {
+    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableOrderedSet *_recentActions;
+    NSMutableSet *_accumulators;
+    NSMutableSet *_efficacyAccumulators;
+    NSMutableSet *_dynamicAccumulators;
+    NSSet *_separateCycleAccumulatorNames;
+    unsigned long long _maxDepth;
+    BOOL _trackingDuration;
+    unsigned long long _beginTimestamp;
+}
+
+@property (weak, nonatomic) id<UITextInputSessionActionAnalyticsDelegateSource> delegateSource;
+@property (copy, nonatomic) NSUUID *sessionIdentifier;
+@property (readonly, nonatomic) unsigned long long allowCursorMovementCounter;
+
++ (void)populateActionInputMode:(id)a0;
++ (id)allowedValuesForTextInputSource;
++ (void)addObserver:(id)a0;
++ (id)stringValueForSource:(long long)a0;
++ (void)removeObserver:(id)a0;
++ (void)populateActionInputMode:(id)a0 withLanguage:(id)a1;
++ (void)removeEndingObserver:(id)a0;
++ (void)addEndingObserver:(id)a0;
++ (void)q_notifyEndingObserversWithSessionAnalytics:(id)a0;
++ (void)q_notifyStartingObservers;
++ (id)sharedPunctuationCharacterSet;
+
+- (void)q_addAccumulator:(id)a0;
+- (void)writeAnalytics;
+- (void)_didInsertTextAction:(id)a0 numCharsDeleted:(unsigned long long)a1 withLanguage:(id)a2;
+- (void)q_setupDefaultAnalytics;
+- (void)_didDeleteBackwardText:(id)a0 shouldOverrideInputActionCountToZero:(BOOL)a1 withLanguage:(id)a2;
+- (void)didRedo;
+- (void)enumerateTextInputActionAnalytics:(id /* block */)a0;
+- (void)didInsertText:(id)a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 withNumAlternatives:(long long)a2;
+- (void)didOther;
+- (id)_textInsertionActionForText:(id)a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 withLanguage:(id)a2;
+- (void)q_setSeparateCycleAccumulatorNames:(id)a0;
+- (void)didKeyPress:(id)a0;
+- (void)enumerateSeparateCycleAnalytics:(id /* block */)a0;
+- (void)decrementAllowCursorMovementCount;
+- (void)didDictationItemButtonPress:(unsigned long long)a0;
+- (void)didInsertText:(id)a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 selectedTextBefore:(id)a2 withLanguage:(id)a3;
+- (void)didDeleteBackwardCount:(unsigned long long)a0;
+- (unsigned long long)_optionsForText:(id)a0;
+- (void)didDeleteKeyPressWithInputSource:(long long)a0;
+- (void)q_flushRecentActions;
+- (id)_instanceOfActionClass:(Class)a0;
+- (id)allAccumulatorNames;
+- (void)didDictationEnd;
+- (void)enumerateAnalytics:(id /* block */)a0;
+- (void)q_updateAnalyticsFromAccumulators;
+- (void)didAutocorrectReplacementForText:(id)a0 withText:(id)a1;
+- (void)addEfficacyAccumulator:(id)a0;
+- (id)q_copyAccumulatorWithName:(id)a0;
+- (void)didUndo;
+- (void)didCalloutBarReplacementForText:(id)a0 withText:(id)a1;
+- (void)didSessionEnd;
+- (void)enumerateEfficacyAnalytics:(id /* block */)a0;
+- (void)didDeleteBackwardText:(id)a0;
+- (id)getDynamicAccumulatorWithName:(id)a0;
+- (void)q_addDynamicAccumulator:(id)a0;
+- (id)allEfficacyAccumulatorNames;
+- (void)didReplacementForText:(id)a0 withText:(id)a1 withSource:(long long)a2 withType:(long long)a3;
+- (void)didCut;
+- (void)didInsertText:(id)a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 withLanguage:(id)a2;
+- (unsigned long long)_punctuationCountForText:(id)a0;
+- (void)addAccumulator:(id)a0;
+- (void)didCandidateBarReplacementForText:(id)a0 withText:(id)a1;
+- (void)didChangeToSelection:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)didInsertText:(id)a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)didPaste;
+- (unsigned long long)_normalizedTextLength:(id)a0;
+- (void)didInsertKeyPressWithInputSource:(long long)a0;
+- (void)didReplaceWithCandidate:(long long)a0;
+- (unsigned long long)_emojiCountForText:(id)a0;
+- (id)init;
+- (void)didDictationBegin:(BOOL)a0 usesMultiModalDictation:(BOOL)a1;
+- (void)_didDeleteBackwardAction:(id)a0;
+- (void)incrementAllowCursorMovementCount;
+- (void)addDynamicAccumulator:(id)a0;
+- (void)didBegin;
+- (void)beginTrackingSessionDurationIfNecessary;
+- (void)q_addActionAndUpdate:(id)a0;
+- (void).cxx_destruct;
+- (void)q_addEfficacyAccumulator:(id)a0;
+- (void)_didDeleteBackwardCount:(unsigned long long)a0 shouldOverrideInputActionCountToZero:(BOOL)a1 withLanguage:(id)a2;
+- (void)didCopy;
+
+@end

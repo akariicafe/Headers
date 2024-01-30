@@ -1,0 +1,3 @@
+@interface __CAMProResStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

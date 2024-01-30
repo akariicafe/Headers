@@ -1,0 +1,3 @@
+@interface __PXFocusTimelineEventAccessibility_super : UIAccessibilitySafeCategory
+
+@end

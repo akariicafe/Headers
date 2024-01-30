@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.IncompleteSyncDataResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

@@ -1,0 +1,3 @@
+@interface __PMEditorRootViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

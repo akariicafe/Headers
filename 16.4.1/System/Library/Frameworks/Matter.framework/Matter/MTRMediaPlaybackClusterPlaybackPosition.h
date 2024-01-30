@@ -1,0 +1,3 @@
+@interface MTRMediaPlaybackClusterPlaybackPosition : MTRMediaPlaybackClusterPlaybackPositionStruct
+
+@end

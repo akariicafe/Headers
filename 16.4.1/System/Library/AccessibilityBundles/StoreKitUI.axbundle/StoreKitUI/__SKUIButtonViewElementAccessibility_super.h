@@ -1,0 +1,3 @@
+@interface __SKUIButtonViewElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

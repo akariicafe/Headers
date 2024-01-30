@@ -1,0 +1,3 @@
+@interface ISVariantIconSpecification : IFIconSpecification
+
+@end

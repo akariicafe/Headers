@@ -1,0 +1,14 @@
+@interface Heart.TachycardiaAdvertisableFeatureSource : NSObject <HKHeartRhythmAvailabilityObserver> {
+    void /* unknown type, empty encoding */ healthStore;
+    void /* unknown type, empty encoding */ queue;
+    void /* unknown type, empty encoding */ heartSettingsUtilityProvider;
+    void /* unknown type, empty encoding */ identifier;
+    void /* unknown type, empty encoding */ delegate;
+}
+
+- (void)heartRhythmAvailabilityDidUpdate;
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

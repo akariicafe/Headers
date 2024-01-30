@@ -1,0 +1,3 @@
+@interface SNFileUtils : NSObject
+
+@end

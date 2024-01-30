@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.CorrectedSpeechResultCandidateMessage : SiriRequestDispatcher.TextBasedResultCandidateMessage
+
+@end

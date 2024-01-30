@@ -1,0 +1,3 @@
+@interface __UIKeyboardFloatingTransitionControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

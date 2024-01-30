@@ -1,0 +1,81 @@
+@class NSMapTable, NSString, NSDate, NSObject;
+@protocol SKAPresenceManagingDelegate, SKADatabaseManaging, SKAAccountProviding, SKAMessagingProviding, SKAStatusSubscriptionManaging, OS_dispatch_queue, SKAChannelManaging;
+
+@interface SKAPresenceManager : NSObject <SKAPresenceManaging>
+
+@property (retain, nonatomic) NSMapTable *activePresenceAssertionsByClient;
+@property (retain, nonatomic) NSMapTable *activeParticipantsByChannel;
+@property (retain, nonatomic) id<SKADatabaseManaging> databaseManager;
+@property (retain, nonatomic) id<SKAChannelManaging> channelManager;
+@property (retain, nonatomic) id<SKAAccountProviding> accountProvider;
+@property (retain, nonatomic) id<SKAMessagingProviding> messagingProvider;
+@property (retain, nonatomic) id<SKAStatusSubscriptionManaging> subscriptionManager;
+@property (weak, nonatomic) id<SKAPresenceManagingDelegate> delegate;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *internalWorkQueue;
+@property (nonatomic) BOOL presenceEnabledByServer;
+@property (retain, nonatomic) NSDate *lastAssertionSendTime;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *channelFetchQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logger;
++ (id)_channelCreationTimeoutError;
++ (id)_keyGenerationError;
++ (id)_noExistingAssertionError;
++ (id)_noExistingChannelError;
++ (id)_payloadGenerationError;
++ (id)_payloadOversizeError;
++ (id)_presenceDisabledError;
+
+- (BOOL)_activePresenceAssertionsExist;
+- (id)_activePresenceAssertionsForClient:(id)a0;
+- (BOOL)_activePresenceAssertionExistsForPresenceIdentifier:(id)a0;
+- (BOOL)_shouldCryptoRoll;
+- (void)_sendPresenceAssertionMessageForChannel:(id)a0 withPayload:(id)a1 isRefresh:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_createPresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (void)_sendPollingMessageForChannel:(id)a0 completion:(id /* block */)a1;
+- (void)_presencePayloadForChannel:(id)a0 clientPayload:(id)a1 timestamp:(id)a2 completion:(id /* block */)a3;
+- (void)retainPresenceAssertionForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 withPresencePayload:(id)a2 client:(id)a3 completion:(id /* block */)a4;
+- (long long)_maxPayloadSizeBytes;
+- (void)_markReassert;
+- (void)_findPresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (id)_activePresentDevicesForChannel:(id)a0;
+- (long long)_reassertResetTimeSeconds;
+- (void)channelReceivedIncomingPayloadUpdate:(id)a0 channel:(id)a1;
+- (void)releaseAllPresenceAssertionsAssociatedWithClient:(id)a0 completion:(id /* block */)a1;
+- (id)_mostRecentAssertionTimeForTokenURI:(id)a0 onChannel:(id)a1;
+- (BOOL)_addPresentDeviceForChannel:(id)a0 presentDevice:(id)a1;
+- (long long)_cryptoRollResetTimeSeconds;
+- (BOOL)_removePresentDeviceForChannel:(id)a0 presentDevice:(id)a1;
+- (void)createPresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (void)_rollChannelForCryptoFailureIfAllowed:(id)a0;
+- (BOOL)_shouldReassert;
+- (void)_setCheckpointForChannel:(id)a0 checkpoint:(unsigned long long)a1;
+- (void)_handleBulkUpdateParticipantPayloads:(id)a0 forChannel:(id)a1;
+- (id)_deviceIdentifierForToken:(id)a0;
+- (void)findOrCreatePresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (BOOL)_addPresenceAssertionForClient:(id)a0 presenceIdentifier:(id)a1 isPersonal:(BOOL)a2 payload:(id)a3;
+- (BOOL)_shouldReauthForError:(id)a0;
+- (void)_findOrCreatePresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (BOOL)_presenceEnabledByServer;
+- (id)_currentPayloadForPresenceIdentifier:(id)a0;
+- (void)findPresenceChannelForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 databaseContext:(id)a2 completion:(id /* block */)a3;
+- (void)_handleIncomingPayloadUpdate:(id)a0 onChannel:(id)a1;
+- (id)initWithDatabaseManager:(id)a0 channelManager:(id)a1 subscriptionManager:(id)a2 accountProvider:(id)a3 messagingProvider:(id)a4 delegate:(id)a5;
+- (void)_sendPresenceDeactivationMessageForChannel:(id)a0 completion:(id /* block */)a1;
+- (void)presentDevicesForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_recalculateActivityTracking;
+- (void)_presentDevicesChangedForChannel:(id)a0;
+- (void)_markCryptoRoll;
+- (id)_sortAndDedupePresenceIdentifiers:(id)a0;
+- (void)_clearPresentDevicesForChannel:(id)a0;
+- (BOOL)_removePresenceAssertionForClient:(id)a0 presenceIdentifier:(id)a1;
+- (unsigned long long)_currentCheckpointForChannel:(id)a0;
+- (void).cxx_destruct;
+- (void)releasePresenceAssertionForPresenceIdentifier:(id)a0 isPersonal:(BOOL)a1 client:(id)a2 completion:(id /* block */)a3;
+- (id)_presentDeviceFromPayload:(id)a0 onChannel:(id)a1;
+- (BOOL)_clientPayload:(id)a0 isValidWithError:(id *)a1;
+
+@end

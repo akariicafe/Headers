@@ -1,0 +1,3 @@
+@interface REMBundleLookupObject : NSObject
+
+@end

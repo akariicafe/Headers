@@ -1,0 +1,6 @@
+@interface _TtCE22HomeAutomationInternalCSo35FLOWSchemaFLOWHomeAutomationContext7Builder : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ homeContext;
+    void /* unknown type, empty encoding */ command;
+}
+
+@end

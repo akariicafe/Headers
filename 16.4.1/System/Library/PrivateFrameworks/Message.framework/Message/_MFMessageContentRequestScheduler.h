@@ -1,0 +1,24 @@
+@class NSString, EDMessagePersistence;
+@protocol EFScheduler;
+
+@interface _MFMessageContentRequestScheduler : NSObject <EFScheduler> {
+    unsigned long long _requestID;
+    id<EFScheduler> _scheduler;
+    EDMessagePersistence *_messagePersistence;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)performSyncBlock:(id /* block */)a0;
+- (id)performCancelableBlock:(id /* block */)a0;
+- (id)afterDelay:(double)a0 performBlock:(id /* block */)a1;
+- (void)performBlock:(id /* block */)a0;
+- (id)performWithObject:(id)a0;
+- (void)performSyncBarrierBlock:(id /* block */)a0;
+- (void)performVoucherPreservingBlock:(id /* block */)a0;
+- (void).cxx_destruct;
+
+@end

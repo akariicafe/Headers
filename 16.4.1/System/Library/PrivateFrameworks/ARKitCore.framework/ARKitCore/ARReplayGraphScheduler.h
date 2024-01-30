@@ -1,0 +1,3 @@
+@interface ARReplayGraphScheduler : NSObject
+
+@end

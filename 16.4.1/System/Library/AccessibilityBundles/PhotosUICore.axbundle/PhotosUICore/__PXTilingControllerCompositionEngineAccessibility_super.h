@@ -1,0 +1,3 @@
+@interface __PXTilingControllerCompositionEngineAccessibility_super : UIAccessibilitySafeCategory
+
+@end

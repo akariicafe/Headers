@@ -1,0 +1,5 @@
+@interface SeymourUI.GuestPairingNotificationCoordinator : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ userNotificationCenter;
+}
+
+@end

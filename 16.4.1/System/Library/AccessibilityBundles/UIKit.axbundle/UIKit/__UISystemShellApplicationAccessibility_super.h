@@ -1,0 +1,3 @@
+@interface __UISystemShellApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

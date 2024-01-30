@@ -1,0 +1,3 @@
+@interface AXAuditCase : NSObject
+
+@end

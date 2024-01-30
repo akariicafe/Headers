@@ -1,0 +1,87 @@
+@class NSError, PXVideoSession, PUBrowsingVideoPlayerChange, AVPlayerItem, NSHashTable, ISWrappedAVPlayer, NSString, PXActivityCoordinator, NSMutableSet, PXUpdater, PUMediaProvider;
+@protocol PUDisplayAsset;
+
+@interface PUBrowsingVideoPlayer : PUViewModel <ISChangeObserver, PXChangeObserver, PXVideoSessionDelegate, PXActivityCoordinatorItem> {
+    PXUpdater *_updater;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _pendingSeekTime;
+    id /* block */ _pendingSeekCompletionHandler;
+    void *_videoSessionPresenter;
+}
+
+@property (readonly, nonatomic) PUBrowsingVideoPlayerChange *currentChange;
+@property (retain, nonatomic) PXVideoSession *videoSession;
+@property (retain, nonatomic, setter=_setPlayerItem:) AVPlayerItem *playerItem;
+@property (retain, nonatomic, setter=_setError:) NSError *error;
+@property (nonatomic, setter=_setPlayerLoadingAllowed:) BOOL isPlayerLoadingAllowed;
+@property (retain, nonatomic, setter=_setPlayerLoadingDisablingReasons:) NSMutableSet *_playerLoadingDisablingReasons;
+@property (nonatomic, setter=_setPlayingAllowed:) BOOL isPlayingAllowed;
+@property (retain, nonatomic, setter=_setPlayingDisablingReasons:) NSMutableSet *_playingDisablingReasons;
+@property (nonatomic, setter=_setUpdatingAudioSession:) BOOL _isUpdatingAudioSession;
+@property (nonatomic, setter=_setAudioStatus:) long long audioStatus;
+@property (nonatomic, setter=_setTargetSize:) struct CGSize { double width; double height; } targetSize;
+@property (nonatomic) unsigned long long nextPlayerLoadingEnabledUpdateID;
+@property (nonatomic) BOOL shouldLoadVideoSession;
+@property (readonly, nonatomic) NSHashTable *timeObservers;
+@property (readonly, nonatomic) NSHashTable *videoOutputs;
+@property (readonly, nonatomic) PXActivityCoordinator *playbackCoordinator;
+@property (nonatomic) BOOL shouldRegisterForPlayback;
+@property (nonatomic) BOOL shouldFadeNextVolumeChange;
+@property (nonatomic) BOOL shouldRequestNewRender;
+@property (retain, nonatomic) id<PUDisplayAsset> asset;
+@property (readonly, nonatomic) PUMediaProvider *mediaProvider;
+@property (nonatomic) long long desiredPlayState;
+@property (readonly, nonatomic) BOOL isPlaybackDesired;
+@property (readonly, nonatomic) long long playState;
+@property (readonly, nonatomic) BOOL isStalled;
+@property (readonly, nonatomic) BOOL isPlayable;
+@property (nonatomic) float volume;
+@property (nonatomic, setter=setMuted:) BOOL isMuted;
+@property (readonly, nonatomic) ISWrappedAVPlayer *avPlayer;
+@property (readonly, nonatomic) BOOL isAtBeginning;
+@property (readonly, nonatomic) BOOL isAtEnd;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } currentTime;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } duration;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } desiredSeekTime;
+@property (nonatomic, setter=setActivated:) BOOL isActivated;
+@property (nonatomic) BOOL shouldPreloadVideoContent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) unsigned long long activityCoordinatorQueuePosition;
+
+- (void)registerChangeObserver:(id)a0;
+- (id)newViewModelChange;
+- (void)unregisterChangeObserver:(id)a0;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)didPerformChanges;
+- (void)_handleShouldReloadAssetMediaNotification:(id)a0;
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)seekToTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 toleranceBefore:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 toleranceAfter:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 completionHandler:(id /* block */)a3;
+- (void)seekToTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 completionHandler:(id /* block */)a1;
+- (void)_performPendingSeekIfNeeded;
+- (void)_updatePlayerVolume;
+- (void)_updateVideoSession;
+- (void)videoSessionAudioSessionOutputVolumeDidChange:(id)a0 fromVolume:(float)a1 toVolume:(float)a2;
+- (void)videoSessionDidPlayToEnd:(id)a0;
+- (void)_requestNewRenderIfNeeded;
+- (void)_setVideoSessionVolume:(id)a0;
+- (void)_updatePlayerLoadingAllowedWithUpdateID:(unsigned long long)a0;
+- (void)_updateShouldRegisterForPlayback;
+- (void)_updateVideoSessionDesiredPlayState;
+- (long long)_videoSessionDesiredPlayState;
+- (void)assetContentDidChange;
+- (id)initWithAsset:(id)a0 mediaProvider:(id)a1;
+- (void)invalidateExistingPlayer;
+- (void)registerTimeObserver:(id)a0;
+- (void)registerVideoOutput:(id)a0;
+- (void)rewindExistingPlayer;
+- (void)setDesiredTargetSize:(struct CGSize { double x0; double x1; })a0;
+- (void)setPlayerLoadingDisabled:(BOOL)a0 forReason:(id)a1;
+- (void)setPlayingDisabled:(BOOL)a0 forReason:(id)a1;
+- (void)unregisterTimeObserver:(id)a0;
+- (void)unregisterVideoOutput:(id)a0;
+
+@end

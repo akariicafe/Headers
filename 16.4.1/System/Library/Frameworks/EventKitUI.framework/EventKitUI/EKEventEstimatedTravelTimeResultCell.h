@@ -1,0 +1,3 @@
+@interface EKEventEstimatedTravelTimeResultCell : EKEventStandardTravelTimeCell
+
+@end

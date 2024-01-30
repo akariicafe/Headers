@@ -1,0 +1,3 @@
+@interface BLBundleClass : NSObject
+
+@end

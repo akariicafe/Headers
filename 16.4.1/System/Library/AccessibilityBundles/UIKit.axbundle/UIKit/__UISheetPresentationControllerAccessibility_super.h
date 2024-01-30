@@ -1,0 +1,3 @@
+@interface __UISheetPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

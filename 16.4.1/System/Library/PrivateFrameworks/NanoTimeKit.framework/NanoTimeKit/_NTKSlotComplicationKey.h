@@ -1,0 +1,16 @@
+@class NSString, NSUUID, NTKComplication;
+
+@interface _NTKSlotComplicationKey : NSObject <NSCopying>
+
+@property (readonly) NTKComplication *complication;
+@property (readonly, copy) NSString *slot;
+@property (readonly) NSUUID *deviceUUID;
+
++ (id)keyWithSlot:(id)a0 complication:(id)a1 forDevice:(id)a2;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void).cxx_destruct;
+
+@end

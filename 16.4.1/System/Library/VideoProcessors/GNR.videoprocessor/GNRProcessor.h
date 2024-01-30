@@ -1,0 +1,83 @@
+@class FigMetalContext, NSString, NSMutableDictionary, NSDictionary, DenoiseFusePipeline, RegWarp, DeviceParameters;
+
+@interface GNRProcessor : NSObject <SidecarWriter, SampleBufferProcessor> {
+    NSMutableDictionary *_tuningParams;
+    NSMutableDictionary *_tuningParamsPlist;
+    id /* block */ _callback;
+    int _isAsynchronous;
+    int _ctxCreateSynchronization;
+    int _gpuPriority;
+    NSDictionary *_debugConfigurationOptions;
+    BOOL _disableispDGainFactorFix;
+    BOOL _hasBeenSetup;
+    BOOL _isMultiFrameProcessing;
+    int _fusionAlgo;
+    int _aggregateErr;
+    struct { struct opaqueCMSampleBuffer *buffer; struct frameProperties_t { BOOL isPreBracketedFrame; int bracketedCaptureSequenceNumber; long long averageFocusScore; struct exposureParameters { float gain; float red_gain; float blue_gain; float digital_gain; float exposure_time; float average_focus_score; float normalized_snr; float original_exposure_bias; float exposure_bias; BOOL is_long; } exposureParams; BOOL metadataHasROI; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } ROI; BOOL registrationComplete; BOOL hasValidRegistration; struct { void /* unknown type, empty encoding */ columns[3]; } regHomography; BOOL metadataHasLtmCurves; struct ltmCurves { unsigned short ltmLut[1584]; unsigned short globalLtmLut[257]; unsigned short gtcLut[257]; } ltmCurves; BOOL hasFaces; } info; } _errorRecoveryData;
+    DenoiseFusePipeline *_denoiseFusePipeline;
+    struct __CVBuffer { } *_outputPixelBuffer;
+    struct opaqueCMSampleBuffer { } *_prebracketedEV0SampleBuffer;
+    struct frameProperties_t { BOOL isPreBracketedFrame; int bracketedCaptureSequenceNumber; long long averageFocusScore; struct exposureParameters { float gain; float red_gain; float blue_gain; float digital_gain; float exposure_time; float average_focus_score; float normalized_snr; float original_exposure_bias; float exposure_bias; BOOL is_long; } exposureParams; BOOL metadataHasROI; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } ROI; BOOL registrationComplete; BOOL hasValidRegistration; struct { void /* unknown type, empty encoding */ columns[3]; } regHomography; BOOL metadataHasLtmCurves; struct ltmCurves { unsigned short ltmLut[1584]; unsigned short globalLtmLut[257]; unsigned short gtcLut[257]; } ltmCurves; BOOL hasFaces; } _prebracketedProperties;
+    struct opaqueCMSampleBuffer { } *_evmSampleBuffer;
+    struct frameProperties_t { BOOL isPreBracketedFrame; int bracketedCaptureSequenceNumber; long long averageFocusScore; struct exposureParameters { float gain; float red_gain; float blue_gain; float digital_gain; float exposure_time; float average_focus_score; float normalized_snr; float original_exposure_bias; float exposure_bias; BOOL is_long; } exposureParams; BOOL metadataHasROI; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } ROI; BOOL registrationComplete; BOOL hasValidRegistration; struct { void /* unknown type, empty encoding */ columns[3]; } regHomography; BOOL metadataHasLtmCurves; struct ltmCurves { unsigned short ltmLut[1584]; unsigned short globalLtmLut[257]; unsigned short gtcLut[257]; } ltmCurves; BOOL hasFaces; } _evmProperties;
+    struct opaqueCMSampleBuffer { } *_ev0SampleBuffer;
+    struct frameProperties_t { BOOL isPreBracketedFrame; int bracketedCaptureSequenceNumber; long long averageFocusScore; struct exposureParameters { float gain; float red_gain; float blue_gain; float digital_gain; float exposure_time; float average_focus_score; float normalized_snr; float original_exposure_bias; float exposure_bias; BOOL is_long; } exposureParams; BOOL metadataHasROI; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } ROI; BOOL registrationComplete; BOOL hasValidRegistration; struct { void /* unknown type, empty encoding */ columns[3]; } regHomography; BOOL metadataHasLtmCurves; struct ltmCurves { unsigned short ltmLut[1584]; unsigned short globalLtmLut[257]; unsigned short gtcLut[257]; } ltmCurves; BOOL hasFaces; } _ev0Properties;
+    struct opaqueCMSampleBuffer *_bracketSampleBuffers[4];
+    struct frameProperties_t { BOOL isPreBracketedFrame; int bracketedCaptureSequenceNumber; long long averageFocusScore; struct exposureParameters { float gain; float red_gain; float blue_gain; float digital_gain; float exposure_time; float average_focus_score; float normalized_snr; float original_exposure_bias; float exposure_bias; BOOL is_long; } exposureParams; BOOL metadataHasROI; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } ROI; BOOL registrationComplete; BOOL hasValidRegistration; struct { void /* unknown type, empty encoding */ columns[3]; } regHomography; BOOL metadataHasLtmCurves; struct ltmCurves { unsigned short ltmLut[1584]; unsigned short globalLtmLut[257]; unsigned short gtcLut[257]; } ltmCurves; BOOL hasFaces; } _bracketProperties[4];
+    int _cntBracketSampleBuffers;
+    struct FusionConfiguration { int fusionAlgo; struct { void /* unknown type, empty encoding */ columns[3]; } xforms3x3[4]; int frameCount; BOOL fixPyramidAlignment; int registrationReference; int longest; int evm; int ev0; int evp; } _fusionConf;
+    BOOL _requestTuningParams;
+    DeviceParameters *_deviceTuningParams;
+    RegWarp *_registrationPipelineRW;
+    FigMetalContext *_metal;
+    unsigned int _fusionOptions;
+    struct __CVPixelBufferPool { } *_outputPixelBufferPool;
+    NSMutableDictionary *_sidecar;
+    int _registrationReferenceFrameIndex;
+}
+
+@property (nonatomic) int processingType;
+@property (nonatomic) BOOL allowModifyingInputBuffers;
+@property (nonatomic) int referenceFrameIndex;
+@property (nonatomic) BOOL enforceReferenceFrameIndex;
+@property (copy, nonatomic) id /* block */ referenceFrameSelectionHandlerBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (int)_perFrameProcessing:(id)a0 input:(struct opaqueCMSampleBuffer { } *)a1 cfp:(struct frameProperties_t { BOOL x0; int x1; long long x2; struct exposureParameters { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; BOOL x9; } x3; BOOL x4; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x5; BOOL x6; BOOL x7; struct { void /* unknown type, empty encoding */ x0[3]; } x8; BOOL x9; struct ltmCurves { unsigned short x0[1584]; unsigned short x1[257]; unsigned short x2[257]; } x10; BOOL x11; } *)a2;
+- (int)_shortFramesDelivered;
+- (int)_getSharpestFrame;
+- (void)resetState;
+- (void)prepareForProcessingPixelBuffersWithAttributes:(id)a0;
+- (int)setValue:(id)a0 forProperty:(id)a1;
+- (void)onOutput:(id /* block */)a0;
+- (void)finishScheduling;
+- (int)_registerImages:(BOOL)a0;
+- (int)_fuseImages:(struct __CVBuffer { } *)a0;
+- (BOOL)isTele;
+- (int)_prepareOutput:(struct opaqueCMSampleBuffer { } *)a0 params:(id)a1;
+- (int)_multiFrameProcessing;
+- (int)_appendFrames:(struct opaqueCMSampleBuffer { } *)a0 cfp:(struct frameProperties_t { BOOL x0; int x1; long long x2; struct exposureParameters { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; BOOL x9; } x3; BOOL x4; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x5; BOOL x6; BOOL x7; struct { void /* unknown type, empty encoding */ x0[3]; } x8; BOOL x9; struct ltmCurves { unsigned short x0[1584]; unsigned short x1[257]; unsigned short x2[257]; } x10; BOOL x11; } *)a1;
+- (int)processSequence;
+- (float)_computeFusionEffectiveness:(unsigned int)a0;
+- (void)loadBracketMetadata:(id)a0 cfp:(struct frameProperties_t { BOOL x0; int x1; long long x2; struct exposureParameters { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; BOOL x9; } x3; BOOL x4; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x5; BOOL x6; BOOL x7; struct { void /* unknown type, empty encoding */ x0[3]; } x8; BOOL x9; struct ltmCurves { unsigned short x0[1584]; unsigned short x1[257]; unsigned short x2[257]; } x10; BOOL x11; } *)a1 width:(unsigned long long)a2 height:(unsigned long long)a3;
+- (void)_createResourcesUsingAttributes:(id)a0 pixelBuffer:(struct __CVBuffer { } *)a1;
+- (int)processSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0;
+- (void)_selectErrorRecoveryFrame;
+- (void)dealloc;
+- (void)purgeResources;
+- (int)getOptions:(id)a0;
+- (int)_computeRegistrationOrder;
+- (int)setPropertyForReferenceFrameIndex:(int)a0;
+- (int)copyValue:(void *)a0 forProperty:(id)a1;
+- (void)_oneTimeSetupUsingAttributes:(id)a0 fallbackPixelBuffer:(struct __CVBuffer { } *)a1;
+- (int)StartKTraceEventForBracketFrame:(id)a0;
+- (void)EndKTraceEventForBracketFrame:(id)a0 ktraceCode:(int)a1;
+- (id)initWithOptions:(id)a0;
+- (void)addToSidecar:(id)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (void)finishPendingProcessing;
+
+@end

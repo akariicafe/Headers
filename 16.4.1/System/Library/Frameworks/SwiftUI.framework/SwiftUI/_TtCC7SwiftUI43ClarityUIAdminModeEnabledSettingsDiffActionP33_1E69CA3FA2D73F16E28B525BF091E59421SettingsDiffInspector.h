@@ -1,0 +1,5 @@
+@interface _TtCC7SwiftUI43ClarityUIAdminModeEnabledSettingsDiffActionP33_1E69CA3FA2D73F16E28B525BF091E59421SettingsDiffInspector : UIApplicationSceneSettingsDiffInspector
+
+- (id)init;
+
+@end

@@ -1,0 +1,3 @@
+@interface _UIPreviewInteractionTouchObservingGestureRecognizer : _UITouchesObservingGestureRecognizer
+
+@end

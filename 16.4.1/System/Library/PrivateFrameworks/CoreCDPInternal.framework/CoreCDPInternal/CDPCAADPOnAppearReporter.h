@@ -1,0 +1,3 @@
+@interface CDPCAADPOnAppearReporter : CDPCAReporter
+
+@end

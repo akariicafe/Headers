@@ -1,0 +1,3 @@
+@interface AVFragmentedAssetTrackInternal : NSObject
+
+@end

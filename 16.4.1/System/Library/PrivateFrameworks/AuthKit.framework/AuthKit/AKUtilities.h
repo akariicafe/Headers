@@ -1,0 +1,3 @@
+@interface AKUtilities : AFUtilities
+
+@end

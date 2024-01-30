@@ -1,0 +1,3 @@
+@interface __ZoomUI_SBFluidSwitcherScreenEdgePanGestureRecognizer_super : UIAccessibilitySafeCategory
+
+@end

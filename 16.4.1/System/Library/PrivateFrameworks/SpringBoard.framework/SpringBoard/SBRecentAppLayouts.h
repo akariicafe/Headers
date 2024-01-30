@@ -1,0 +1,80 @@
+@class NSString, SBAppSwitcherDefaults, NSMutableDictionary, NSDictionary, SBApplicationController, SBIconController, NSMutableArray, SBApplicationPlaceholderController, SBMainDisplaySceneManager, SBRecentAppLayoutsPersister;
+@protocol SBRecentAppLayoutsDelegate, BSInvalidatable;
+
+@interface SBRecentAppLayouts : NSObject <SBApplicationRestrictionObserver> {
+    NSMutableArray *_allRecents;
+    NSMutableArray *_unhiddenRecents;
+    NSDictionary *_allRecentsForBundleIdentifiers;
+    NSDictionary *_unhiddenRecentsForBundleIdentifiers;
+    NSDictionary *_allRecentDisplayItemsForBundleIdentifiers;
+    NSDictionary *_unhiddenRecentDisplayItemsForBundleIdentifiers;
+    NSMutableDictionary *_allowHiddenAppAssertions;
+    SBAppSwitcherDefaults *_defaults;
+    SBIconController *_iconController;
+    SBApplicationController *_applicationController;
+    SBApplicationPlaceholderController *_placeholderController;
+    SBMainDisplaySceneManager *_sceneManager;
+    SBRecentAppLayoutsPersister *_persister;
+    id<BSInvalidatable> _stateCaptureInvalidatable;
+}
+
+@property (weak, nonatomic) id<SBRecentAppLayoutsDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)_stashModelToPath:(id)a0;
+- (id)mostRecentAppLayoutIncludingHiddenAppLayouts:(BOOL)a0 passingTest:(id /* block */)a1;
+- (void)replaceAppLayout:(id)a0 withAppLayout:(id)a1;
+- (id)_migrateDisplayItemIfNeeded:(id)a0;
+- (id)_displayItemLayoutRolesFromLegacyPrefsForLoadedDisplayItems:(id)a0;
+- (long long)_lastInteractionTime;
+- (id)_ppt_loadStashedModel;
+- (void)addAppLayout:(id)a0 afterAppLayout:(id)a1;
+- (long long)_nextInteractionTime;
+- (void)_persistSynchronously;
+- (void)_ppt_setModel:(id)a0;
+- (void)addToFront:(id)a0;
+- (void)applicationRestrictionController:(id)a0 didUpdateVisibleTags:(id)a1 hiddenTags:(id)a2;
+- (void)remove:(id)a0;
+- (BOOL)_isApplicationSupported:(id)a0;
+- (void)_saveRecents;
+- (void)_persistSoon;
+- (id)_acquireAllowHiddenAppAssertionForBundleIdentifier:(id)a0 reason:(id)a1;
+- (void)_filterRestrictedOrUnsupportedAppsFromRecents;
+- (void)_addAllowHiddenAppAssertionForBundleIdentifier:(id)a0 requestIdentifier:(id)a1;
+- (void)_iconVisibilityDidChange:(id)a0;
+- (void)hide:(id)a0;
+- (void)removeAppLayouts:(id)a0;
+- (id)_recentsFromPrefs;
+- (id)_recentDisplayItemsFromLegacyPrefs;
+- (void)addAppLayout:(id)a0 atIndex:(unsigned long long)a1;
+- (BOOL)_ignoresAppHiddenForDisplayItem:(id)a0;
+- (id)_changeDescriptionForFilteringRestrictedUnsupportedAndInvalidAppsFromAppLayouts:(id)a0;
+- (id)recentsForBundleIdentifier:(id)a0 includingHiddenAppLayouts:(BOOL)a1;
+- (id)_changeDescriptionForFilteringRestrictedOrUnsupportedAppsFromAppLayouts:(id)a0;
+- (void)_validateAndUpdateRecents:(id)a0;
+- (BOOL)_transitionContextRepresentsAmbiguousLaunch:(id)a0 forApplicationSceneEntity:(id)a1;
+- (void)dealloc;
+- (id)initWithUserDefaults:(id)a0 persister:(id)a1 iconController:(id)a2 applicationController:(id)a3 placeholderController:(id)a4 sceneManager:(id)a5;
+- (id)_changeDescriptionForFilteringAppLayouts:(id)a0 withDisplayItemTest:(id /* block */)a1;
+- (id)recentsIncludingHiddenAppLayouts:(BOOL)a0;
+- (void)_installedApplicationsDidChange:(id)a0;
+- (id)_legacyAppLayoutsForDisplayItems:(id)a0 layoutRolesMapping:(id)a1;
+- (void)_removeAllowHiddenAppAssertionForBundleIdentifier:(id)a0 requestIdentifier:(id)a1;
+- (id)recentDisplayItemsForBundleIdentifier:(id)a0 includingHiddenAppLayouts:(BOOL)a1;
+- (id)init;
+- (void)_addAllAppsToModel;
+- (id)_legacyAppLayoutForItem:(id)a0 layoutRole:(long long)a1;
+- (void)_setRecents:(id)a0 notifyForChangeDescription:(id)a1;
+- (BOOL)_loadStashedModelAtPath:(id)a0;
+- (BOOL)_isDisplayItemRestrictedOrUnsupported:(id)a0;
+- (void).cxx_destruct;
+- (id)_ppt_currentModel;
+- (void)_setUpStashedModelSettingsOutlets;
+- (void)_initializeRecents;
+- (void)_filterRestrictedUnsupportedAndInvalidAppsFromRecents;
+- (BOOL)_isExistingSceneIdentifierValidForClaimedMultiwindowSupportInDisplayItem:(id)a0;
+
+@end

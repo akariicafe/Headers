@@ -1,0 +1,3 @@
+@interface __PXPeopleStripCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PUPhotoCommentEntryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

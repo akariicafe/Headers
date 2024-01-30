@@ -1,0 +1,3 @@
+@interface ICNANoteCharCountHistogram : ICNAHistogramBase
+
+@end

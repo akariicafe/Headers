@@ -1,0 +1,3 @@
+@interface RBSAppNapPreventBackgroundSocketsGrant : RBSAppNapGrant
+
+@end

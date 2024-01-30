@@ -1,0 +1,83 @@
+@class NSString, NSIndexSet, NSMutableIndexSet, UIImageView, UIView, NSMutableArray, CAMTouchingGestureRecognizer;
+@protocol CAMExpandableMenuButtonDelegate;
+
+@interface CAMExpandableMenuButton : UIControl <CAMAccessibilityHUDItemProvider>
+
+@property (readonly, nonatomic) NSMutableArray *_menuItems;
+@property (readonly, nonatomic) UIView *_headerView;
+@property (readonly, copy, nonatomic) NSIndexSet *_shownIndexesWhileCollapsed;
+@property (readonly, copy, nonatomic) NSMutableIndexSet *_highlightedIndexesWhileCollapsed;
+@property (readonly, nonatomic) UIImageView *_padBackgroundView;
+@property (retain, nonatomic, setter=_setTrackingView:) UIView *_trackingView;
+@property (nonatomic, getter=_isTrackingViewHighlighted, setter=_setTrackingViewHighlighted:) BOOL _trackingViewHighlighted;
+@property (weak, nonatomic) id<CAMExpandableMenuButtonDelegate> expandableMenuDelegate;
+@property (readonly, nonatomic) CAMTouchingGestureRecognizer *touchingGestureRecognizer;
+@property (nonatomic) long long layoutStyle;
+@property (nonatomic) long long selectedIndex;
+@property (readonly, nonatomic, getter=isExpanded) BOOL expanded;
+@property (nonatomic) long long orientation;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } tappableEdgeInsets;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)expansionDuration;
+
+- (void)setOrientation:(long long)a0 animated:(BOOL)a1;
+- (BOOL)wantsSelectedItemToBeVisible;
+- (id)hudItemForAccessibilityHUDManager:(id)a0;
+- (double)collapsedSelectedLabelHorizontalMargin;
+- (id)initWithLayoutStyle:(long long)a0;
+- (void)selectedByAccessibilityHUDManager:(id)a0;
+- (void)prepareHeaderViewForExpanding:(BOOL)a0;
+- (id)shownIndexesWhileCollapsed;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (id)initWithCoder:(id)a0;
+- (id)titleForMenuItemAtIndex:(long long)a0;
+- (void)reloadData;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (long long)numberOfMenuItems;
+- (id)headerView;
+- (void)layoutSubviews;
+- (BOOL)shouldIgnoreMenuInteraction;
+- (void)finishExpansionAnimated:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (double)padHeaderViewContentInsetLeft;
+- (void).cxx_destruct;
+- (void)_handleTouchGesture:(id)a0;
+- (id)_viewToTrackForTouchAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })alignmentRectForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 expanded:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForAlignmentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 expanded:(BOOL)a1;
+- (void)_applyHeaderViewForCurrentExpansionState;
+- (void)_applyMenuItemAlphaForCurrentExpansionState;
+- (void)_applyMenuItemColorsForCurrentState;
+- (void)_applyMenuItemTextAlignmentAndShadowForCurrentOrientation;
+- (void)_convertAllSubviewsToProposedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_createPadBackgroundView;
+- (struct CGSize { double x0; double x1; })_layoutForPadCollapsedPortraitButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPadExpandedPortraitButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPadStyle:(BOOL)a0 expanded:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })_layoutForPhoneCollapsedLandscapeButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPhoneCollapsedPortraitButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPhoneExpandedLandscapeButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPhoneExpandedPortraitButton:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })_layoutForPhoneStyle:(BOOL)a0 expanded:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })_layoutMenuButton:(BOOL)a0 expanded:(BOOL)a1;
+- (id)_selectedLabel;
+- (void)_updateFromExpansionChangeAnimated:(BOOL)a0;
+- (void)_updateFromOrientationChangeAnimated:(BOOL)a0;
+- (void)_updateFromSelectedIndexChange;
+- (BOOL)_wantsHeaderViewToBeVisible;
+- (void)collapseMenuAnimated:(BOOL)a0;
+- (void)completeExpansionToProposedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)expandMenuAnimated:(BOOL)a0;
+- (void)finishCollapsingAnimated:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSizeForExpansion:(BOOL)a0;
+- (void)setHighlighted:(BOOL)a0 forIndex:(long long)a1;
+- (BOOL)shouldAllowExpansion;
+- (void)startCollapsingWithProposedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)startExpansionWithProposedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+
+@end

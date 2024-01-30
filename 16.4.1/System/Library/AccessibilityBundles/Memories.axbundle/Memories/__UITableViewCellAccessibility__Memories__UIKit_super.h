@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__Memories__UIKit_super : UIAccessibilitySafeCategory
+
+@end

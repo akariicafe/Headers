@@ -1,0 +1,3 @@
+@interface HMDLaunchTimingEvent : HMMLogEvent
+
+@end

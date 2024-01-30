@@ -1,0 +1,19 @@
+@class NSArray;
+
+@interface CTXPCServiceSubscriptionInfo : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSArray *subscriptions;
+@property (retain, nonatomic) NSArray *subscriptionsInUse;
+@property (retain, nonatomic) NSArray *subscriptionsValid;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)redactedDescription;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

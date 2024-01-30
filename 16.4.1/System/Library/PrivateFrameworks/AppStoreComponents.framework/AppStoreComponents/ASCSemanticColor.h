@@ -1,0 +1,3 @@
+@interface ASCSemanticColor : NSObject
+
+@end

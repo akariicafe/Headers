@@ -1,0 +1,3 @@
+@interface __CAMCaptureControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,17 @@
+@class NSDictionary, NSMutableDictionary;
+
+@interface SXTextStyleAttributes : NSObject <NSCopying>
+
+@property (readonly, nonatomic) NSMutableDictionary *mutableAttributes;
+@property (readonly, nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } range;
+@property (readonly, nonatomic) NSDictionary *attributes;
+
++ (id)attributesWithRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+
+- (id)initWithRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (void)addAttribute:(id)a0 value:(id)a1;
+
+@end

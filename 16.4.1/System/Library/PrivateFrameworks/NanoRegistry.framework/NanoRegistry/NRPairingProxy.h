@@ -1,0 +1,63 @@
+@interface NRPairingProxy : NRRegistryProxy <NRPairedDeviceRegistryXPCDaemonDelegate>
+
++ (id)serverExportedInterface;
++ (id)serverRemoteObjectInterface;
++ (id)machServiceName;
++ (id)clientRemoteObjectInterface;
++ (id)clientExportedInterface;
+
+- (void)xpcGizmoOOBAdvertiseAndPairWithName:(id)a0 operationHasBegun:(id /* block */)a1;
+- (void)xpcSuspendPairingClientCrashMonitoring:(id /* block */)a0;
+- (void)xpcStopWatchSetupPushWithBlock:(id /* block */)a0;
+- (void)xpcActiveDeviceAssertions:(id /* block */)a0;
+- (void)xpcResumePairingClientCrashMonitoring:(id /* block */)a0;
+- (void)xpcKeepPhoneUnlockedInternalTestSPI:(id /* block */)a0;
+- (void)xpcAbortPairingReason:(id)a0 withBlock:(id /* block */)a1;
+- (void)xpcEndDiscoveryWithBlock:(id /* block */)a0;
+- (void)xpcPairingClientDidEnterPhase:(id)a0 withBlock:(id /* block */)a1;
+- (void)xpcClearWatchNeedsGraduation:(id /* block */)a0;
+- (void)xpcTriggerVersion4Workaround;
+- (void)xpcGetMigrationCountForPairingID:(id)a0 completion:(id /* block */)a1;
+- (void)xpcBeginMigrationWithDeviceID:(id)a0 passcode:(id)a1 withBlock:(id /* block */)a2;
+- (void)xpcWatchBuddyCompletedSetupSteps:(id /* block */)a0;
+- (void)xpcWatchNeedsGraduation:(id /* block */)a0;
+- (void)xpcRetriggerUnpairInfoDialogWithBlock:(id /* block */)a0;
+- (void)xpcPairingClientSetPairingParentName:(id)a0 pairingParentAltDSID:(id)a1 forPairingID:(id)a2 completion:(id /* block */)a3;
+- (void)xpcStartWatchSetupPushWithBlock:(id /* block */)a0;
+- (void)xpcCompanionPasscodePairWithDeviceID:(id)a0 withOptions:(id)a1 operationHasBegun:(id /* block */)a2;
+- (void)xpcNotifyActivationCompleted:(id)a0 withSuccess:(BOOL)a1;
+- (void)xpcSubmitRTCPairingMetricForMetricID:(id)a0 withSuccess:(id /* block */)a1;
+- (void)xpcInvalidateSwitchAssertionWithIdentifier:(id)a0 block:(id /* block */)a1;
+- (void)xpcSubmitServerRequestReportWithRequestType:(id)a0 duration:(double)a1 errorCode:(unsigned int)a2 block:(id /* block */)a3;
+- (void)xpcIsPhoneReadyToMigrateDevice:(id)a0 withCompletion:(id /* block */)a1;
+- (void)xpcPairingClientSetAltAccountName:(id)a0 altDSID:(id)a1 forPairingID:(id)a2 completion:(id /* block */)a3;
+- (void)xpcSwitchToSimulator:(id)a0 withCompletion:(id /* block */)a1;
+- (void)xpcSwitchActiveDeviceWithDeviceID:(id)a0 withAssertionHandler:(id /* block */)a1;
+- (void)xpcPutMigrationChallengeCharacteristicWriteData:(id)a0 completion:(id /* block */)a1;
+- (void)xpcUnpairWithSimulator:(id)a0 withCompletion:(id /* block */)a1;
+- (void)xpcSetWatchNeedsGraduation:(id /* block */)a0;
+- (void)xpcPairingShouldContinue;
+- (void)xpcSubmitAlbertPairingReport:(id /* block */)a0;
+- (void)xpcNotifyPasscode:(id)a0 withDeviceID:(id)a1;
+- (void)xpcBeginMigrationWithCompletion:(id /* block */)a0;
+- (void)xpcGetLastMigrationRequestPhoneNameWithCompletion:(id /* block */)a0;
+- (void)xpcWaitForWatchPairingExtendedMetadataForAdvertisedName:(id)a0 completion:(id /* block */)a1;
+- (void)xpcBeginDiscoveryWithBlock:(id /* block */)a0;
+- (void)xpcPingActiveGizmoWithPriority:(int)a0 withMessageSize:(unsigned long long)a1 withBlock:(id /* block */)a2;
+- (void)xpcEnterCompatibilityState:(unsigned short)a0 withDeviceID:(id)a1;
+- (void)xpcUnpairWithDeviceID:(id)a0 withOptions:(id)a1 operationHasBegun:(id /* block */)a2;
+- (void)xpcBeginMigrationWithDeviceID:(id)a0 completion:(id /* block */)a1;
+- (void)xpcCompanionOOBDiscoverAndPairWithName:(id)a0 withOutOfBandPairingKey:(id)a1 withOptions:(id)a2 operationHasBegun:(id /* block */)a3;
+- (void)xpcIsAssertionActive:(id)a0 withCompletion:(id /* block */)a1;
+- (void)xpcGetMigrationPairingCharacteristicReadDataWithCompletion:(id /* block */)a0;
+- (void)xpcFakePairedSyncIsCompleteWithCompletion:(id /* block */)a0;
+- (void)xpcScanForMigratableWatchesWithBlock:(id /* block */)a0;
+- (void)xpcGetLastSwitchIndex:(id /* block */)a0;
+- (void)xpcClearRecoveryFlagWithCompletion:(id /* block */)a0;
+- (void)xpcSwitchActiveDeviceWithDeviceID:(id)a0 isMagicSwitch:(BOOL)a1 operationHasCompleted:(id /* block */)a2;
+- (void)xpcGetInitialSyncCompletedForPairingID:(id)a0 completion:(id /* block */)a1;
+- (void)xpcGizmoPasscodeAdvertiseAndPairWithName:(id)a0 operationHasBegun:(id /* block */)a1;
+- (void)xpcCheckIfFlaggedForRecoveryWithCompletion:(id /* block */)a0;
+- (void)xpcPairWithSimulator:(id)a0 withCompletion:(id /* block */)a1;
+
+@end

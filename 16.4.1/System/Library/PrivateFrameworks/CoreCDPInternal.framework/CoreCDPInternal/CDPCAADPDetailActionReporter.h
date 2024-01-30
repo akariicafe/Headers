@@ -1,0 +1,3 @@
+@interface CDPCAADPDetailActionReporter : CDPCAReporter
+
+@end

@@ -1,0 +1,20 @@
+@class NSMutableSet;
+@protocol RBClientInheritanceManagerDelegate;
+
+@interface RBClientInheritanceManager : NSObject {
+    NSMutableSet *_inheritances;
+    NSMutableSet *_queuedGainedInheritances;
+    NSMutableSet *_queuedLostInheritances;
+    BOOL _awaitingAck;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (readonly, weak, nonatomic) id<RBClientInheritanceManagerDelegate> delegate;
+
+- (id)initWithInheritances:(id)a0 delegate:(id)a1;
+- (id)init;
+- (void)setInheritances:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+
+@end

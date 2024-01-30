@@ -1,0 +1,83 @@
+@class NSString, NSMutableArray;
+
+@interface CIBurstImageStat : NSObject {
+    float normalizedFocusScore;
+    float normalizedSigma;
+    float colorHistogram[1024];
+    int numEntries;
+    unsigned short aeMatrix[256];
+    int dissimilarity;
+    void *projectionMemoryBlock;
+    struct FastRegistration_Signatures { float *piRow; unsigned long long nPiRow; struct Projections_meanStdTable { float *sumTable; float *sumSqTable; } piRowTable; float *piCol; unsigned long long nPiCol; struct Projections_meanStdTable { float *sumTable; float *sumSqTable; } piColTable; } projectionSignature;
+    struct SharpnessGridElement_t { unsigned char x0; unsigned char x1; float x2; } *sharpnessGrid;
+    int gridWidth;
+    int gridHeight;
+    struct GridROI_t { int startX; int startY; int endX; int endY; } gridROI;
+    struct GridROI_t { int startX; int startY; int endX; int endY; } smoothedROI;
+}
+
+@property NSString *imageId;
+@property int orientation;
+@property NSMutableArray *faceStatArray;
+@property BOOL exclude;
+@property BOOL AEStable;
+@property int AEAverage;
+@property int AETarget;
+@property BOOL AFStable;
+@property int temporalOrder;
+@property float avgHorzDiffY;
+@property float blurExtent;
+@property float imageScore;
+@property float actionScore;
+@property double timeReceived;
+@property double timestamp;
+@property float maxSkewness;
+@property float registrationErrorX;
+@property float registrationErrorY;
+@property float registrationErrorIntegral;
+@property float actionClusteringScore;
+@property BOOL hasRegistrationData;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } facesRoiRect;
+@property int numHWFaces;
+@property BOOL emotionallyRejected;
+@property BOOL doLimitedSharpnessAndBlur;
+@property float tx;
+@property float ty;
+@property BOOL isGarbage;
+@property float roiSize;
+@property int AEDelta;
+@property struct __IOSurface { } *fullsizeJpegData;
+@property int fullsizeJpegSize;
+@property int version;
+
+- (id)initWithIdentifier:(id)a0;
+- (void)dealloc;
+- (unsigned short *)aeMatrix;
+- (void)allocateMeanStdPingPongBuffers:(float **)a0 :(float **)a1 :(float **)a2 :(float **)a3;
+- (void)assignMeanStdBuffers:(float *)a0;
+- (int)canRegister;
+- (void)collapseSharpnessGrid;
+- (float *)colorHistogram;
+- (long long)compareImageOrder:(id)a0;
+- (long long)compareImageStats:(id)a0;
+- (void)computeAEMatrix:(id)a0;
+- (float)computeAEMatrixDifference:(id)a0;
+- (void)computeBlurStatsOnGrid:(id)a0;
+- (float)computeFacialFocusScoreSum;
+- (void)computeImageColorHistogram:(id)a0;
+- (void)computeImageData:(id)a0 faceIDCounts:(id)a1;
+- (float)computeImageDistance:(id)a0;
+- (void)computeImageProjections:(id)a0;
+- (void)computeImageSharpnessOnGrid:(id)a0;
+- (float)computeRuleOfThreeDistance;
+- (float)computeScore:(float)a0;
+- (float)computeSmilePercentage;
+- (float)computeSmoothedGridROI:(id)a0 nextStat:(id)a1;
+- (void)flagAsGarbage;
+- (struct GridROI_t { int x0; int x1; int x2; int x3; })getSharpnessAndBlurLimits;
+- (void)performRegistration:(id)a0 deltaCol:(float *)a1 deltaRow:(float *)a2;
+- (int)setAEMatrix:(id)a0;
+- (void)updateROI:(struct GridROI_t { int x0; int x1; int x2; int x3; })a0;
+- (void)writeGridROI:(id)a0;
+
+@end

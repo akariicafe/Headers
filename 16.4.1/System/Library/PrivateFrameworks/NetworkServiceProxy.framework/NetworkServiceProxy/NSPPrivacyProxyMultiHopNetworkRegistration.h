@@ -1,0 +1,3 @@
+@interface NSPPrivacyProxyMultiHopNetworkRegistration : NSPPrivacyProxyNetworkRegistration
+
+@end

@@ -1,0 +1,3 @@
+@interface ANSTUtility : NSObject
+
+@end

@@ -1,0 +1,74 @@
+@class NSString, MediaControlsEndpointsManager, UIViewPropertyAnimator, NSMutableDictionary, MRUControlCenterView, UICollectionViewDiffableDataSource, UIViewController, MRUNowPlayingViewController;
+
+@interface MRUControlCenterViewController : UIViewController <MediaControlsEndpointsManagerDelegate, MRUNowPlayingViewControllerDelegate, MRUNowPlayingControllerObserver, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate, CCUIContentModuleContentViewController>
+
+@property (retain, nonatomic) MRUControlCenterView *view;
+@property (retain, nonatomic) MRUControlCenterView *viewIfLoaded;
+@property (retain, nonatomic) MediaControlsEndpointsManager *endpointsManager;
+@property (retain, nonatomic) UICollectionViewDiffableDataSource *dataSource;
+@property (retain, nonatomic) NSMutableDictionary *nowPlayingControllers;
+@property (retain, nonatomic) MRUNowPlayingViewController *nowPlayingViewController;
+@property (copy, nonatomic) id /* block */ replaceRoutes;
+@property (retain, nonatomic) UIViewController *alertViewController;
+@property (nonatomic, getter=isOnScreen) BOOL onScreen;
+@property (nonatomic) long long pendingNowPlayingExpandedLayout;
+@property (copy, nonatomic) id /* block */ dismissalBlock;
+@property (copy, nonatomic) id /* block */ routingCornerViewTappedBlock;
+@property (copy, nonatomic) id /* block */ homeGestureDismissalAllowedBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) double preferredExpandedContentHeight;
+@property (readonly, nonatomic) double preferredExpandedContentWidth;
+@property (readonly, nonatomic) double preferredExpandedContinuousCornerRadius;
+@property (readonly, nonatomic) BOOL providesOwnPlatter;
+@property (readonly, nonatomic) UIViewPropertyAnimator *customAnimator;
+@property (readonly, nonatomic) BOOL shouldPerformHoverInteraction;
+@property (readonly, nonatomic) BOOL shouldPerformClickInteraction;
+
+- (void)dismissPresentedContentAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)didSelectRoutingButton:(id)a0;
+- (BOOL)canDismissPresentedContent;
+- (void)dismiss;
+- (void)didSelectListState:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)updateDiscoveryMode;
+- (void)updateCellForIdentifier:(id)a0;
+- (BOOL)nowPlayingControllerShouldAutomaticallyUpdateResponse:(id)a0;
+- (void)didTransitionToExpandedContentMode:(BOOL)a0;
+- (void)nowPlayingViewController:(id)a0 didChangeSizeWithAnimations:(id /* block */)a1 completion:(id /* block */)a2;
+- (void)updateRoutingDataControllers;
+- (BOOL)_canShowWhileLocked;
+- (void)createNowPlayingViewController;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)updateSelectedViewController;
+- (void)nowPlayingViewController:(id)a0 applyLayout:(long long)a1;
+- (void)updateVisibilityForActiveCell:(BOOL)a0 inActiveCells:(BOOL)a1;
+- (void)nowPlayingController:(id)a0 metadataController:(id)a1 didChangeNowPlayingInfo:(id)a2;
+- (void)viewDidLoad;
+- (void)nowPlayingController:(id)a0 endpointController:(id)a1 didChangeRoute:(id)a2;
+- (void)endpointsManager:(id)a0 activeSystemRouteDidChange:(id)a1;
+- (void)updateCell:(id)a0 forIdentifier:(id)a1;
+- (void)transitionToState:(long long)a0 completion:(id /* block */)a1;
+- (void)updateNowPlayingViewControllerLayout;
+- (id)selectedIdentifier;
+- (void)nowPlayingController:(id)a0 didChangeQuickControlItem:(id)a1;
+- (void)updateNowPlayingControllers;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)init;
+- (void)updateMoreButtonVisibility;
+- (void)nowPlayingViewController:(id)a0 showViewController:(id)a1;
+- (void)dismissWithCompletion:(id /* block */)a0;
+- (BOOL)shouldExpandModuleOnTouch:(id)a0;
+- (void)endpointsManager:(id)a0 defersRoutesReplacement:(id /* block */)a1;
+- (void)viewWillLayoutSubviews;
+- (void).cxx_destruct;
+- (void)setState:(long long)a0;
+- (void)didSelectQuickControl:(id)a0;
+- (void)loadView;
+- (void)nowPlayingController:(id)a0 metadataController:(id)a1 didChangeArtwork:(id)a2;
+- (void)viewWillAppear:(BOOL)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UIAlertControllerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

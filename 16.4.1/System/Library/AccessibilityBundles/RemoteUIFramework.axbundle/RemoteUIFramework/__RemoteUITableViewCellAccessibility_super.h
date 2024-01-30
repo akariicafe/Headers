@@ -1,0 +1,3 @@
+@interface __RemoteUITableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

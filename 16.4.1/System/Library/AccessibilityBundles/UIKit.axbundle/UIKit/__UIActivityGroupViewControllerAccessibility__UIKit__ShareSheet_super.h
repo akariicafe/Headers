@@ -1,0 +1,3 @@
+@interface __UIActivityGroupViewControllerAccessibility__UIKit__ShareSheet_super : UIAccessibilitySafeCategory
+
+@end

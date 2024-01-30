@@ -1,0 +1,21 @@
+@class PXCMMInvitationsDataSource;
+
+@interface PXContentSyndicationMockCMMDataSource : PXContentSyndicationDataSource
+
+@property (readonly, nonatomic) PXCMMInvitationsDataSource *cmmDataSource;
+
+- (long long)numberOfItemsInSection:(long long)a0;
+- (long long)countForCollection:(id)a0;
+- (long long)numberOfSections;
+- (long long)identifier;
+- (id)objectAtIndexPath:(struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })a0;
+- (id)collectionAtIndexPath:(id)a0;
+- (id)collectionListForSection:(long long)a0;
+- (long long)numberOfSubitemsInItem:(long long)a0 section:(long long)a1;
+- (void).cxx_destruct;
+- (id)assetCollectionAtItemIndexPath:(struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })a0;
+- (id)contentSyndicationItemAtItemIndexPath:(struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })a0;
+- (id)initWithCMMDataSource:(id)a0;
+- (id)mostRecentlyAddedDate;
+
+@end

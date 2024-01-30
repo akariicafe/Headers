@@ -1,0 +1,94 @@
+@class _UIRelationshipGestureRecognizer, NSString, NSArray, UIView, _UIGravityWellEffectKey, UIDragInteraction, _UIClickPresentationFeedbackGenerator, _UIClickPresentation, UITargetedPreview, UIGestureRecognizer;
+@protocol _UIClickInteractionDriving, _UIClickPresentationInteractionDelegate, _UIClickPresentationAssisting;
+
+@interface _UIClickPresentationInteraction : NSObject <_UIClickInteractionDriverDelegate, UIInteraction_Internal, UIGestureRecognizerDelegate, _UIDragInteractionPresentationDelegate, UIInteraction> {
+    unsigned long long _currentState;
+    struct { BOOL shouldBegin; BOOL previewForHighlightingAtLocation; BOOL shouldPresent; BOOL ended; BOOL activationStyle; BOOL asyncShouldBegin; BOOL shouldAllowRapidRestart; BOOL shouldAssociateWithDrag; BOOL shouldAllowDragAfterDismiss; BOOL liveDragPreviewForPresentation; BOOL previewForCancellingDragItem; BOOL willAnimateDragCancelWithAnimator; BOOL dragSessionDidEndForItems; BOOL interactionEffectForTargetedPreview; BOOL endedForPresentation; BOOL shouldPlayFeedback; BOOL shouldPresentWithCompletion; BOOL shouldBeDelayedByGestureRecognizer; BOOL secondaryPreviews; } _delegateImplements;
+    long long _statsPresentation;
+    BOOL _activatedFeedbackGeneratorForClick;
+    BOOL _unableToClick;
+    _UIRelationshipGestureRecognizer *_gestureRecognizerForBeginningDragRelationships;
+    _UIGravityWellEffectKey *_activeEffectKey;
+}
+
+@property (retain, nonatomic) id<_UIClickInteractionDriving> activeDriver;
+@property (retain, nonatomic) NSArray *allDrivers;
+@property (retain, nonatomic) _UIRelationshipGestureRecognizer *exclusionRelationshipGestureRecognizer;
+@property (retain, nonatomic) _UIRelationshipGestureRecognizer *failureRelationshipGestureRecognizer;
+@property (retain, nonatomic) id<_UIClickPresentationAssisting> presentationAssistant;
+@property (retain, nonatomic) _UIClickPresentation *pendingPresentation;
+@property (nonatomic) struct CGPoint { double x; double y; } initialLocation;
+@property (retain, nonatomic) _UIClickPresentationFeedbackGenerator *feedbackGenerator;
+@property (retain, nonatomic) UIDragInteraction *latentAssociatedDragInteraction;
+@property (weak, nonatomic) UIDragInteraction *associatedDragInteraction;
+@property (readonly, nonatomic) UIGestureRecognizer *gestureRecognizerForFailureRelationship;
+@property (readonly, nonatomic) UIGestureRecognizer *gestureRecognizerForBeginningDragRelationships;
+@property (copy, nonatomic) NSString *debugIdentifier;
+@property (copy, nonatomic) NSString *presentationTypeDebugString;
+@property (readonly, nonatomic) unsigned long long activatedDriverStyle;
+@property (readonly, nonatomic) unsigned long long inputPrecision;
+@property (retain, nonatomic) NSArray *overrideDrivers;
+@property (readonly, nonatomic) UITargetedPreview *primaryEffectPreview;
+@property (readonly, nonatomic) NSArray *secondaryEffectPreviews;
+@property (readonly, nonatomic, getter=_reachedForceThreshold) BOOL reachedForceThreshold;
+@property (readonly, weak, nonatomic) id<_UIClickPresentationInteractionDelegate> delegate;
+@property (readonly, nonatomic) UIGestureRecognizer *gestureRecognizerForExclusionRelationship;
+@property (nonatomic) BOOL allowSimultaneousRecognition;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, weak, nonatomic) UIView *view;
+
++ (void)_setDefaultDriverClasses:(id)a0 forIdiom:(long long)a1;
+
+- (void)_setDelegate:(id)a0;
+- (void)clickDriver:(id)a0 didPerformEvent:(unsigned long long)a1;
+- (void)_gestureRecognizerFailed:(id)a0;
+- (void)_endInteractionEffectIfNeeded;
+- (void)_performPreviewPresentation;
+- (BOOL)clickDriver:(id)a0 shouldBeDelayedByGestureRecognizer:(id)a1;
+- (void)clickDriver:(id)a0 didUpdateHighlightProgress:(double)a1;
+- (void)_viewTraitCollectionDidChange:(id)a0;
+- (BOOL)_isActive;
+- (void)clickDriver:(id)a0 shouldBegin:(id /* block */)a1;
+- (void)_associateWithActiveDragInteraction;
+- (void)cancelInteraction;
+- (void)_driverEnded;
+- (void)_cancelAllDrivers;
+- (void)_refreshAllDrivers;
+- (void)present;
+- (void)beginPanInteraction;
+- (id)_clickDriverTouch;
+- (BOOL)_supportsRapidRestart;
+- (BOOL)clickDriver:(id)a0 shouldDelayGestureRecognizer:(id)a1;
+- (void)_driverClickedDown;
+- (id)_clickDragDriver;
+- (BOOL)gestureRecognizer:(id)a0 shouldBeRequiredToFailByGestureRecognizer:(id)a1;
+- (void)_dragInteractionPresentation:(id)a0 item:(id)a1 willAnimateCancelWithAnimator:(id)a2;
+- (BOOL)_delegate_shouldAllowDragAfterDismiss;
+- (id)_candidateInteractionsForAssociation;
+- (void)_delegate_interactionEndedWithContext:(const struct InteractionEndingContext { struct InteractionContext { id x0; } x0; BOOL x1; unsigned long long x2; id x3; id /* block */ x4; id /* block */ x5; } *)a0;
+- (void)_attemptDragLiftAtLocation:(struct CGPoint { double x0; double x1; })a0 useDefaultLiftAnimation:(BOOL)a1;
+- (void)dealloc;
+- (void)willMoveToView:(id)a0;
+- (id)_activeEffect;
+- (id)initWithDelegate:(id)a0;
+- (void)_transitionedFromState:(unsigned long long)a0 toState:(unsigned long long)a1;
+- (void)_dragInteractionPresentation:(id)a0 sessionDidEnd:(id)a1 withoutBeginning:(BOOL)a2;
+- (id)_dragInteractionPresentation:(id)a0 previewForCancellingItem:(id)a1 defaultPreview:(id)a2 proposedPreview:(id)a3;
+- (struct CGPoint { double x0; double x1; })locationInView:(id)a0;
+- (void)_prepareInteractionEffect;
+- (void)_endInteractionWithContext:(const struct InteractionEndingContext { struct InteractionContext { id x0; } x0; BOOL x1; unsigned long long x2; id x3; id /* block */ x4; id /* block */ x5; } *)a0;
+- (void)endPanInteraction;
+- (BOOL)_canPerformPresentation;
+- (void)_performPresentation;
+- (void)_cancelWithReason:(unsigned long long)a0 alongsideActions:(id /* block */)a1 completion:(id /* block */)a2;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (BOOL)_isControlledByCC;
+- (void).cxx_destruct;
+- (void)_driverClickedUp;
+- (void)didMoveToView:(id)a0;
+- (BOOL)beginDragIfPossibleWithTouch:(id)a0;
+
+@end

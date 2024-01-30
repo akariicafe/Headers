@@ -1,0 +1,88 @@
+@class NSString, IDSServiceProperties, NSMutableDictionary, NSDictionary, IDSDevice, IDSDeviceConnection, NSMutableArray, NSObject, IMPowerAssertion;
+@protocol OS_dispatch_source, IDSDirectMessageConnectionDelegate, OS_dispatch_queue, OS_nw_connection;
+
+@interface IDSDirectMessageConnection : NSObject
+
+@property (nonatomic) unsigned long long identifier;
+@property (nonatomic) char *shortServiceNameCString;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *connectionQueue;
+@property (retain, nonatomic) NSObject<OS_nw_connection> *connection;
+@property (nonatomic) int connectionState;
+@property (nonatomic) BOOL connectionSetupInProgress;
+@property (retain, nonatomic) NSMutableArray *connectionMessageSendQueue;
+@property (weak, nonatomic) id<IDSDirectMessageConnectionDelegate> delegate;
+@property (nonatomic) BOOL upgradedTrafficClass;
+@property (retain, nonatomic) NSString *peerID;
+@property (nonatomic) BOOL connectionIsIncoming;
+@property (nonatomic) BOOL pendingAckTimerSuspended;
+@property (nonatomic) BOOL directMessagingAllowed;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *pendingAckTimer;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *reporterTimer;
+@property (retain, nonatomic) NSMutableDictionary *queueOneToMessageIDDictionary;
+@property (retain, nonatomic) NSMutableDictionary *messageIDToMessageDictionary;
+@property (nonatomic) int notifyToken;
+@property (nonatomic) BOOL directMessagingSupported;
+@property (nonatomic) unsigned int trafficClassToUse;
+@property (nonatomic) long long idsPriorityToUse;
+@property (nonatomic) BOOL trafficClassInitialized;
+@property (nonatomic) long long trafficClassApplied;
+@property (nonatomic) BOOL trafficClassTLVProcessed;
+@property (nonatomic) BOOL peerIsConnected;
+@property (nonatomic) BOOL peerIsNearby;
+@property (retain, nonatomic) IDSDevice *device;
+@property (retain, nonatomic) IDSDeviceConnection *deviceConnection;
+@property (retain, nonatomic) NSString *currentStreamName;
+@property (nonatomic) BOOL peerSupportsDeviceConnection;
+@property (nonatomic) BOOL conciseACKSupported;
+@property (nonatomic) unsigned long long directMessagingState;
+@property (nonatomic) int directMessagingTimeOutMSEC;
+@property (nonatomic) int directMessagingRetryMSEC;
+@property (nonatomic) int directMessagingReportStatsMSEC;
+@property (nonatomic) unsigned int dataProtectionClass;
+@property (retain, nonatomic) IDSServiceProperties *serviceProperties;
+@property (retain, nonatomic) IMPowerAssertion *assertion;
+@property (retain, nonatomic) NSDictionary *powerAssertionOptions;
+@property (nonatomic) unsigned long long outgoingMessageBytes;
+@property (nonatomic) unsigned long long outgoingMessageCount;
+@property (nonatomic) unsigned long long incomingMessageBytes;
+@property (nonatomic) unsigned long long incomingMessageCount;
+@property (retain, nonatomic) NSString *serviceName;
+
++ (BOOL)isDirectMessagingRequested:(id)a0;
+
+- (void)updateMetadata:(id)a0;
+- (id)initWithServiceName:(id)a0 queue:(id)a1 delegate:(id)a2;
+- (void)resetConnection;
+- (void)cancel;
+- (void)dealloc;
+- (id)description;
+- (void)invalidate;
+- (void).cxx_destruct;
+- (void)updateConnection:(id)a0;
+- (void)setDestinationDevice:(id)a0;
+- (void)dequeueMessages;
+- (void)receiveMessages;
+- (BOOL)canUseDirectMessaging;
+- (void)cancelPendingAckTimer;
+- (void)clearPowerAssertion;
+- (id)createDispatchDataForMessageSend:(id)a0 isAck:(BOOL)a1 ackMessageId:(unsigned int)a2;
+- (void)failedToSendMessage:(id)a0 responseCode:(long long)a1;
+- (unsigned char)getMessageTypeForFirstMessage;
+- (void)getPowerAssertion;
+- (BOOL)isMessageEligible:(id)a0 options:(id)a1 destinationDevice:(id)a2;
+- (void)logConnectionStatisticsInPowerDictionary;
+- (void)parseDirectMessagingState;
+- (void)processIncomingMessage:(id)a0 messageType:(unsigned char)a1 messageIdentifier:(unsigned int)a2;
+- (void)receivedDirectMessagingSocketWithContext:(id)a0;
+- (void)resumePendingAckTimer;
+- (void)sendAckForMessageID:(unsigned int)a0 guidToAck:(id)a1;
+- (void)sendAppAckWithGUID:(id)a0;
+- (void)sendMessageWithParameters:(id)a0 options:(id)a1;
+- (void)setupConnectionIfApplicable;
+- (void)setupIDSDeviceConnection;
+- (void)startPowerLogReportTimer;
+- (void)suspendPendingAckTimer;
+- (void)updateConnectedDevices:(id)a0;
+- (void)updateTrafficClass:(unsigned short)a0;
+
+@end

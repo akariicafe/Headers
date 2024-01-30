@@ -1,0 +1,84 @@
+@class TPSTimeframeRecordUtilities, NSString, NSSet;
+
+@interface TPSNotificationRecord : TPSRecord <MLFeatureProvider>
+
+@property (retain, nonatomic) TPSTimeframeRecordUtilities *timeframe;
+@property (nonatomic) long long internalLockscreenEmpty;
+@property (nonatomic) long long internalPreviousNotificationSentMoreThan24HoursAgo;
+@property (nonatomic) long long internalPreviousNotificationSentMoreThanOneWeekAgo;
+@property (nonatomic) long long internalPreviousNotificationSentMoreThanOneMonthAgo;
+@property (nonatomic) long long internalContentAvailableInUsersPreferredLanguage;
+@property (nonatomic) long long internalWelcomeTipAvailableMatchingUsersHardware;
+@property (nonatomic) long long internalUserHasLaunchedTipsApp;
+@property (nonatomic) long long internalHasNetworkConnection;
+@property (nonatomic) long long internalUserHasLaunchedTipsAppWithinLastWeek;
+@property (nonatomic) long long internalUserHasLaunchedTipsAppWithinLastMonth;
+@property (nonatomic) long long internalUserIsNewToThisHardware;
+@property (nonatomic) long long internalUserHasAlreadySeenWelcomeTipMatchingHardware;
+@property (nonatomic) long long internalWelcomeTipAvailableMatchingSoftware;
+@property (nonatomic) long long internalUserIsNewToThisSoftware;
+@property (nonatomic) long long internalUserHasAlreadySeenWelcomeTipMatchingSoftware;
+@property (nonatomic) long long internalUserHasPairedNewHardware;
+@property (nonatomic) long long internalInstructionalContentIsAvailableForNewPairedHardware;
+@property (nonatomic) long long internalUserHasAlreadyViewedContentForThisPairedHardware;
+@property (nonatomic) long long internalUserHasRespondedToAtLeast1ofPast3Notifications;
+@property (nonatomic) long long internalHighPriorityContentThatOverridesSoftOptOutIsAvailable;
+@property (nonatomic) long long internalCollectionWithNotificationTextIsAvailable;
+@property (nonatomic) long long internalUserHasAlreadySeenNotificationForCollectionWithNotificationText;
+@property (nonatomic) long long internalUnviewedTipsAvailable;
+@property (nonatomic) long long internalShouldNotify;
+@property (readonly, copy, nonatomic) NSString *origin;
+@property (readonly, nonatomic) BOOL lockscreenLikelyEmpty;
+@property (readonly, nonatomic) BOOL previousNotificationSentMoreThan24HoursAgo;
+@property (readonly, nonatomic) BOOL contentAvailableInUsersPreferredLanguage;
+@property (readonly, nonatomic) BOOL welcomeTipAvailableMatchingUsersHardware;
+@property (readonly, nonatomic) BOOL userHasLaunchedTipsApp;
+@property (readonly, nonatomic) BOOL hasNetworkConnection;
+@property (readonly, nonatomic) BOOL userIsNewToThisHardware;
+@property (readonly, nonatomic) BOOL userHasAlreadySeenWelcomeTipMatchingHardware;
+@property (readonly, nonatomic) BOOL welcomeTipAvailableMatchingSoftware;
+@property (readonly, nonatomic) BOOL userIsNewToThisSoftware;
+@property (readonly, nonatomic) BOOL userHasAlreadySeenWelcomeTipMatchingSoftware;
+@property (readonly, nonatomic) BOOL userHasPairedNewHardware;
+@property (readonly, nonatomic) BOOL instructionalContentIsAvailableForNewPairedHardware;
+@property (readonly, nonatomic) BOOL userHasAlreadyViewedContentForThisPairedHardware;
+@property (readonly, nonatomic) BOOL userHasRespondedToAtLeast1ofPast3Notifications;
+@property (readonly, nonatomic) BOOL highPriorityContentThatOverridesSoftOptOutIsAvailable;
+@property (readonly, nonatomic) BOOL collectionWithNotificationTextIsAvailable;
+@property (readonly, nonatomic) BOOL userHasAlreadySeenNotificationForCollectionWithNotificationText;
+@property (readonly, nonatomic) BOOL unviewedTipsAvailable;
+@property (readonly, nonatomic) BOOL shouldNotify;
+@property (readonly, nonatomic) BOOL userHasLaunchedTipsAppWithinLastWeek;
+@property (readonly, nonatomic) BOOL userHasLaunchedTipsAppWithinLastMonth;
+@property (readonly, nonatomic) BOOL previousNotificationSentMoreThanOneWeekAgo;
+@property (readonly, nonatomic) BOOL previousNotificationSentMoreThanOneMonthAgo;
+@property (readonly, nonatomic) long long classification;
+@property (readonly, nonatomic) NSSet *featureNames;
+
++ (BOOL)supportsSecureCoding;
++ (id)lastPairedHardwareDate;
++ (void)pairedHardware:(id)a0 paired:(BOOL)a1;
++ (BOOL)shouldLogNegativeSample;
++ (id)recordWithOrigin:(id)a0 andClassification:(long long)a1;
++ (id)recordWithOrigin:(id)a0;
++ (void)persistRecordWithOrigin:(id)a0 andClassification:(long long)a1;
++ (id)keyOrder;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)featureValueForName:(id)a0;
+- (id)recordData;
+- (id)initWithCoder:(id)a0;
+- (id)initWithOrigin:(id)a0;
+- (id)task;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)boolFromUncertainBool:(long long)a0;
+- (BOOL)checkInternalValue:(long long *)a0 otherwiseUse:(BOOL)a1;
+- (id)dataDictionary;
+- (BOOL)date:(id)a0 isWithinTheLast:(double)a1;
+- (id)initWithOrigin:(id)a0 andClassification:(long long)a1;
+- (id)recordDescription;
+- (id)recordInfo;
+- (long long)uncertainBoolFromBool:(BOOL)a0;
+
+@end

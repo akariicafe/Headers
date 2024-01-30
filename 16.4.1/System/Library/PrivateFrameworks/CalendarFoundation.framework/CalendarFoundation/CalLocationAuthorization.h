@@ -1,0 +1,46 @@
+@class NSString, CalLocationAuthorizationStatus, CLLocationManager, NSObject;
+@protocol OS_dispatch_group;
+
+@interface CalLocationAuthorization : NSObject <CLLocationManagerDelegate> {
+    id _bundleOrBundleIdentifier;
+    NSObject<OS_dispatch_group> *_initializationGroup;
+    CLLocationManager *_locationManager;
+    CalLocationAuthorizationStatus *_status;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logHandle;
++ (BOOL)preciseLocationAuthorizedForBundleIdentifier:(id)a0 bundle:(id)a1;
++ (BOOL)preciseLocationAuthorizedForBundleIdentifier:(id)a0;
++ (void)preciseLocationAuthorizedForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
++ (unsigned long long)ttlLocationStatus;
++ (int)authorizationStatusForBundleIdentifier:(id)a0;
++ (id)_cachedInstanceForBundleID:(id)a0 bundle:(id)a1;
++ (int)authorizationStatusForBundle:(id)a0;
++ (void)ttlLocationStatusWithCompletion:(id /* block */)a0;
++ (id)authorizationForBundleIdentifier:(id)a0 bundle:(id)a1 createIfNecessary:(BOOL)a2;
++ (int)authorizationStatusForBundleIdentifier:(id)a0 bundle:(id)a1;
++ (void)authorizationStatusForBundle:(id)a0 completion:(id /* block */)a1;
++ (BOOL)preciseLocationAuthorizedForBundle:(id)a0;
++ (id)_keyForBundleID:(id)a0 bundle:(id)a1;
++ (void)preciseLocationAuthorizedForBundleIdentifier:(id)a0 bundle:(id)a1 completion:(id /* block */)a2;
++ (unsigned long long)locationPrecisionForBundleIdentifier:(id)a0;
++ (unsigned long long)locationPrecisionForBundleIdentifier:(id)a0 bundle:(id)a1;
++ (void)authorizationStatusForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
++ (void)preciseLocationAuthorizedForBundle:(id)a0 completion:(id /* block */)a1;
++ (void)authorizationStatusForBundleIdentifier:(id)a0 bundle:(id)a1 completion:(id /* block */)a2;
++ (void)initializeQueueAndInstancesIfNeeded;
++ (id)locationAuthorizationAsyncCallersQueue;
+
+- (void)locationManager:(id)a0 didChangeAuthorizationStatus:(int)a1;
+- (id)authorizationStatus;
+- (id)initWithBundleID:(id)a0 bundle:(id)a1 queue:(id)a2;
+- (unsigned long long)waitForPrecision;
+- (void).cxx_destruct;
+
+@end

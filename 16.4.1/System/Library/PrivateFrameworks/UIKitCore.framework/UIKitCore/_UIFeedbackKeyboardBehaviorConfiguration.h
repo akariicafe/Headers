@@ -1,0 +1,3 @@
+@interface _UIFeedbackKeyboardBehaviorConfiguration : _UIKeyboardFeedbackGeneratorConfiguration
+
+@end

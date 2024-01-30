@@ -1,0 +1,34 @@
+@class PXSettingsConfigurationsSource, UITextField, UIAlertAction, PXSettings;
+
+@interface PXSettingsConfigurationsViewController : UITableViewController <PXSettingsConfigurationsSourceObserver>
+
+@property (readonly, nonatomic) PXSettingsConfigurationsSource *source;
+@property (nonatomic) BOOL areAllActionsAvailable;
+@property (retain, nonatomic) UITextField *promptTextField;
+@property (retain, nonatomic) UIAlertAction *promptConfirmAction;
+@property (readonly, nonatomic) PXSettings *settings;
+
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (id)initWithStyle:(long long)a0;
+- (void)viewDidLoad;
+- (void)_handleDone:(id)a0;
+- (id)initWithSettings:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (void)tableView:(id)a0 accessoryButtonTappedForRowWithIndexPath:(id)a1;
+- (void)tableView:(id)a0 commitEditingStyle:(long long)a1 forRowAtIndexPath:(id)a2;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (void)_promptNameWithAlertTitle:(id)a0 message:(id)a1 proposedNamed:(id)a2 confirmationButtonTitle:(id)a3 completionHandler:(id /* block */)a4;
+- (void)_promptedNameDidChange:(id)a0;
+- (void)_shareConfigurations:(id)a0;
+- (id)_titleForSettings:(id)a0;
+- (id)_untitledName;
+- (void)_updateAvailableActions;
+- (void)settingsConfigurationSource:(id)a0 didChange:(id)a1;
+- (void)settingsConfigurationSource:(id)a0 performChanges:(id /* block */)a1;
+
+@end

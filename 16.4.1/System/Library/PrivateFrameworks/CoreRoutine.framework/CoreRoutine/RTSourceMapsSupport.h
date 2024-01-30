@@ -1,0 +1,3 @@
+@interface RTSourceMapsSupport : RTSource
+
+@end

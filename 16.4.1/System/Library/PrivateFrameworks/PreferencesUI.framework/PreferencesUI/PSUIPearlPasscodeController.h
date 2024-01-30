@@ -1,0 +1,75 @@
+@class PSUIFaceIDEnrollmentCoordinator, PSUIPearlAttentionGroupController, PSSpecifier, LAContext, OBPrivacyPresenter, NSString;
+
+@interface PSUIPearlPasscodeController : PSUIBiometricController <LAUIDelegate, BFFPasscodeViewControllerDelegate, PSUIFaceIDEnrollmentCoordinatorDelegate>
+
+@property (retain, nonatomic) PSUIFaceIDEnrollmentCoordinator *faceIDEnrollmentCoordinator;
+@property (retain, nonatomic) PSSpecifier *enrollFaceSpecifier;
+@property (retain, nonatomic) PSUIPearlAttentionGroupController *attentionGroupController;
+@property (retain, nonatomic) LAContext *authContext;
+@property (retain, nonatomic) OBPrivacyPresenter *presenter;
+@property (retain) PSSpecifier *currentlyPresentingPearlEnrollSpecifier;
+@property (nonatomic) BOOL isEnrollingInPeriocular;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)backgrounded:(id)a0;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)specifiers;
+- (id)init;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (void)event:(long long)a0 params:(id)a1 reply:(id /* block */)a2;
+- (void)passcodeViewController:(id)a0 didFinishWithPasscodeCreation:(id)a1;
+- (BOOL)passcodeViewControllerAllowSkip:(id)a0;
+- (id)passcodeViewControllerCustomFirstEntryInstructions:(id)a0;
+- (BOOL)isEnrolled;
+- (void)configurePeriocularEnabled:(BOOL)a0;
+- (void)deleteAllIdentities;
+- (void)cancelModalFlow;
+- (void)enroll:(id)a0;
+- (id)isPeriocularFaceIDMatchEnabled:(id)a0;
+- (void)enrollBiometric;
+- (id)addGlassesSpecifier;
+- (id)biometricLogo;
+- (id)biometricNameDescription;
+- (id)biometricTableViewHeader;
+- (unsigned long long)currentPeriocularEnrollmentState;
+- (void)deleteFaceIDIdentitiesCheckWithSpecifier:(id)a0;
+- (void)enrollGlassesForExistingAppearance:(id)a0;
+- (id)enrollPeriocularAlternateAppearanceSpecifier;
+- (void)enrollPeriocularForExistingAppearance:(id)a0;
+- (void)faceIDEnrollmentCoordinator:(id)a0 finishedEnrollmentWithError:(id)a1;
+- (void)faceIDEnrollmentCoordinatorDidDismiss:(id)a0;
+- (BOOL)faceIDEnrollmentCoordinatorShouldPresentInModalSheet:(id)a0;
+- (void)faceIDEnrollmentCoordinatorWillDismiss:(id)a0;
+- (id)faceIDSpecifiers;
+- (id)faceIDSpecifiersWithPeriocular;
+- (BOOL)hasMatchingBiometricTemplate;
+- (BOOL)hasReachedMaximumBiometricEnrollmentCount;
+- (id)headerForUseBiometricSection;
+- (BOOL)isEnrollmentAvailable;
+- (BOOL)isPeriocularEnabled;
+- (unsigned long long)numberOfAppsUsingPearl;
+- (id)numberOfAppsUsingPearlDescription:(id)a0;
+- (id)passcodeController;
+- (id)pearlEnrollSpecifiers;
+- (void)pearlLearnMoreTapped:(id)a0;
+- (void)popPearlEnrollmentController;
+- (void)presentAlertForAlternateAppearanceIfNecessary:(id)a0;
+- (void)presentAlertForDeletingPearlIdentities;
+- (void)presentSecondAlertForDeletingMatchedBiometricTemplate;
+- (void)pushPasscodePane;
+- (void)refetchBiometricTemplateWithSpecifier:(id)a0 action:(id /* block */)a1;
+- (id)resetFaceIDSpecifier;
+- (void)setBiometricUnlockEnabled:(id)a0 specifier:(id)a1;
+- (void)setPeriocularFaceIDMatchEnabled:(id)a0 specifier:(id)a1;
+- (id)setupAlternateAppearanceSpecifier;
+- (id)setupFaceIDSpecifier;
+- (id)unlockWithFaceMaskSpecifier;
+- (void)validateBiometricTemplateUUIDAndEnroll:(id)a0;
+- (void)validateBiometricTemplateUUIDWithSpecifier:(id)a0 action:(id /* block */)a1;
+
+@end

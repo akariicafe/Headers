@@ -1,0 +1,3 @@
+@interface MTRBasicClusterShutDownEvent : MTRBasicInformationClusterShutDownEvent
+
+@end

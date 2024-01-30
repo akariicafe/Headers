@@ -1,0 +1,3 @@
+@interface __PXForYouSuggestionGadgetContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,10 @@
+@interface SAWeatherShowWeatherLocations : SADomainCommand
+
++ (id)showWeatherLocations;
++ (id)showWeatherLocationsWithDictionary:(id)a0 context:(id)a1;
+
+- (BOOL)requiresResponse;
+- (id)groupIdentifier;
+- (id)encodedClassName;
+
+@end

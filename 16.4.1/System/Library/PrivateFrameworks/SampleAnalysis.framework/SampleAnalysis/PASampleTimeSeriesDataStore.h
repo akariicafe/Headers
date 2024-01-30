@@ -1,0 +1,14 @@
+@class SASampleStore;
+
+@interface PASampleTimeSeriesDataStore : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) SASampleStore *sampleStore;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithSampleStore:(id)a0;
+- (void).cxx_destruct;
+
+@end

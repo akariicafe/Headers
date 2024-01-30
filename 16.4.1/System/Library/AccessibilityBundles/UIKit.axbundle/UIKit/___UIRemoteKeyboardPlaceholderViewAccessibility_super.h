@@ -1,0 +1,3 @@
+@interface ___UIRemoteKeyboardPlaceholderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,73 @@
+@class TVRUIDeviceHardwareInfo, NSString, TPKContentPopoverViewController, TPKContent, UIViewPropertyAnimator, TPKContentController, TVRUIHintsVolumeButtonsView, TVRUIHintsUserIntentButtonView, TVRUIHintsGlyphView;
+@protocol TVRUIHintsStyleProvider;
+
+@interface TVRUIHintsViewController : UIViewController <TPKContentControllerDelegate, TVRUIRemoteViewControllerDelegate, TVRUIContentPresenter>
+
+@property (retain, nonatomic) TVRUIHintsUserIntentButtonView *userIntentButtonHint;
+@property (retain, nonatomic) TVRUIHintsVolumeButtonsView *volumeButtonsHint;
+@property (retain, nonatomic) TVRUIHintsGlyphView *siriGlyphView;
+@property (retain, nonatomic) TVRUIHintsGlyphView *volumeGlyphView;
+@property (retain, nonatomic) TVRUIDeviceHardwareInfo *hardwareInfo;
+@property (nonatomic) BOOL supportsSiri;
+@property (nonatomic) BOOL supportsVolume;
+@property (copy, nonatomic) NSString *lastSeenDeviceName;
+@property (nonatomic, getter=isPresentingTip) BOOL presentingTip;
+@property (retain, nonatomic) id<TVRUIHintsStyleProvider> styleProvider;
+@property (retain, nonatomic) UIViewPropertyAnimator *presentationAnimator;
+@property (retain, nonatomic) UIViewPropertyAnimator *dismissalAnimator;
+@property (retain, nonatomic) TPKContentController *tipContentController;
+@property (retain, nonatomic) TPKContentPopoverViewController *tipContentViewController;
+@property (retain, nonatomic) TPKContent *tipContent;
+@property (nonatomic) BOOL allowSiriHint;
+@property (nonatomic) BOOL allowVolumeHint;
+@property (nonatomic) BOOL allowTips;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dismissPresentedContentAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)contentController:(id)a0 didFinishWithContent:(id)a1 animated:(BOOL)a2;
+- (void)contentController:(id)a0 contentDidBecomeAvailable:(id)a1 animated:(BOOL)a2;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (BOOL)_canShowWhileLocked;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (id)init;
+- (void)viewDidAppear:(BOOL)a0;
+- (long long)currentInterfaceOrientation;
+- (id)contentController:(id)a0 contentView:(id)a1 iconForCustomizationID:(long long)a2;
+- (void).cxx_destruct;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_largeTextEnabledStatusChanged:(id)a0;
+- (void)_siriActivated:(id)a0;
+- (void)_applyTransformForOrientation:(long long)a0;
+- (void)_cleanupHints;
+- (void)_dismissHintsWithCompletion:(id /* block */)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForUserIntentButtonPresented:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForVolumeButtonsPresented:(BOOL)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })_gylphTransformForOrientation:(long long)a0;
+- (unsigned long long)_permittedArrowDirectionsForDevice:(id)a0;
+- (void)_presentTipContentViewControllerAnimated:(BOOL)a0;
+- (void)_presentVolumeButtonPressWithPresentation:(unsigned long long)a0;
+- (void)_setupDebugUIIfEnabled;
+- (void)_setupTipsControllerIfNeeded;
+- (void)_setupUserIntentButtonHintWithPresentation:(unsigned long long)a0;
+- (void)_setupVolumeButtonsHintWithPresentation:(unsigned long long)a0;
+- (BOOL)_shouldAllowHintsToPresent;
+- (void)_siriDeactivated:(id)a0;
+- (BOOL)_siriHintEnabled;
+- (void)_updateUserIntentButtonHintFrameForPresentation:(unsigned long long)a0;
+- (void)_updateVolumeButtonsHintFrameWithPresentation:(unsigned long long)a0;
+- (void)_volumeDownButtonPressed:(id)a0;
+- (BOOL)_volumeHintEnabled;
+- (void)_volumeUpButtonPressed:(id)a0;
+- (void)device:(id)a0 supportsSiri:(BOOL)a1 volume:(BOOL)a2;
+- (void)devicePickerWillExpand;
+- (void)dismissHints;
+- (BOOL)hasPresentedContent;
+- (void)remoteWillBeDismissed;
+- (void)replayHints;
+- (void)requestHintsForSiri:(BOOL)a0 volume:(BOOL)a1;
+
+@end

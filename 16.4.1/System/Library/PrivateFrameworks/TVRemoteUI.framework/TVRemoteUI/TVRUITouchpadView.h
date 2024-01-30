@@ -1,0 +1,3 @@
+@interface TVRUITouchpadView : UIView
+
+@end

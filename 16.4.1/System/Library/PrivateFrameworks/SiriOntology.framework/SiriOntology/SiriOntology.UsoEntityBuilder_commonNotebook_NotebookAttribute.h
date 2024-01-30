@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonNotebook_NotebookAttribute : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

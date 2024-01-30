@@ -1,0 +1,28 @@
+@class UIColor, NSString, NSTimer, MKMapView, NSDateFormatter;
+
+@interface MKDebugLocationConsole : UILabel {
+    MKMapView *_parentMapView;
+    NSTimer *_updateTimer;
+    NSString *_customText;
+    UIColor *_customTextColor;
+    NSDateFormatter *_timeStampFormatter;
+}
+
+@property (nonatomic) unsigned long long pageIndex;
+@property (nonatomic) BOOL customTextEnabled;
+
+- (void)setText:(id)a0;
+- (void)update;
+- (void).cxx_destruct;
+- (void)_consoleTapped:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_debugViewFrameWithMapView:(id)a0;
+- (void)_showNextPage;
+- (void)_updateCustomText;
+- (void)_updateGPSInfo;
+- (void)_updateVehicleInfo;
+- (id)initWithMapView:(id)a0;
+- (id)timeStampFormatter;
+- (void)updateCustomText:(id)a0 textColor:(id)a1;
+- (void)updateFrameWithEdgeInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+
+@end

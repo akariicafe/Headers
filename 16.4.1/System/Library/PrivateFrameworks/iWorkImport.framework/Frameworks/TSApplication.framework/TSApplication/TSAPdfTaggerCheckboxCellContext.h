@@ -1,0 +1,3 @@
+@interface TSAPdfTaggerCheckboxCellContext : TSAPdfTaggerContext
+
+@end

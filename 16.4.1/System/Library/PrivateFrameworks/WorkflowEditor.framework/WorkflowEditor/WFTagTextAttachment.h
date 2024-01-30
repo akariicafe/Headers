@@ -1,0 +1,3 @@
+@interface WFTagTextAttachment : WFValueTextAttachment
+
+@end

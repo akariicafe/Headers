@@ -1,0 +1,84 @@
+@class NSDate, NSString, NSTimer, MNLocation, GEONavigationMapMatcher, GEODirectionsServiceRequest, NSMutableArray, GEOPathMatcher, MNArrivalUpdater;
+
+@interface MNTurnByTurnLocationTracker : MNLocationTracker <GEOPListStateCapturing, MNArrivalUpdaterDelegate> {
+    GEONavigationMapMatcher *_mapMatcher;
+    MNArrivalUpdater *_arrivalUpdater;
+    unsigned long long _lastArrivalLegIndex;
+    NSDate *_startDate;
+    struct { double latitude; double longitude; } _originCoordinate;
+    GEODirectionsServiceRequest *_pendingRequest;
+    unsigned long long _rerouteReason;
+    unsigned long long _responseErrorCount;
+    unsigned long long _recalculationNetworkUnreachableCount;
+    NSTimer *_recalculationRetryTimer;
+    MNLocation *_previousRerouteLocation;
+    NSMutableArray *_rerouteDates;
+    unsigned long long _consecutiveOffRouteCount;
+    MNLocation *_lastKnownGoodLocationOnRoute;
+    BOOL _isNavigatingInLowGuidance;
+    GEOPathMatcher *_pathMatcher;
+    unsigned long long _stateCaptureHandle;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)updateLocation:(id)a0;
+- (id)captureStatePlistWithHints:(struct os_state_hints_s { unsigned int x0; char *x1; unsigned int x2; unsigned int x3; } *)a0;
+- (void)advanceToNextLeg;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)updateDestination:(id)a0 completionHandler:(id /* block */)a1;
+- (void)stopTracking;
+- (void)reroute:(id)a0 reason:(unsigned long long)a1;
+- (int)_routeHintTypeForTransportType:(int)a0;
+- (BOOL)_allowRerouteForLocation:(id)a0 outError:(out id *)a1;
+- (BOOL)_allowSwitchToTransportType:(int)a0 forLocation:(id)a1;
+- (int)_detectedMotionForLocation:(id)a0;
+- (void)_failedToRecalculateRouteWithError:(id)a0;
+- (void)_handleOffRouteForLocation:(id)a0;
+- (void)_handleSuccessfulRerouteRequest:(id)a0 response:(id)a1 waypoints:(id)a2;
+- (void)_handleWaypointRerouteForLocation:(id)a0;
+- (BOOL)_isRoadFeatureInOppositeDirection:(id)a0 ofCoordinate:(struct { double x0; double x1; })a1 course:(double)a2;
+- (id)_matchedLocationForLocation:(id)a0;
+- (id)_matchedLocationForMatchResult:(id)a0 originalLocation:(id)a1;
+- (unsigned long long)_modifiedStepIndexForMatchResult:(id)a0 matchType:(unsigned long long)a1;
+- (id)_newMapMatcherForRoute:(id)a0;
+- (id)_overrideLocationForLocation:(id)a0;
+- (void)_recalculationRetryTimerFired:(id)a0;
+- (void)_requestRerouteWithReason:(unsigned long long)a0 requestHandler:(id /* block */)a1 completionHandler:(id /* block */)a2 errorHandler:(id /* block */)a3;
+- (id)_rerouteRequestParametersForLocation:(id)a0 transportType:(int)a1;
+- (void)_retryLastRouteRecalculation;
+- (id)_routeAttributesFromRouteCoordinate:(struct PolylineCoordinate { unsigned int x0; float x1; })a0;
+- (void)_sendRouteHintForLocation:(id)a0;
+- (void)_setIsNavigatingInLowGuidance:(BOOL)a0;
+- (void)_setTargetLegIndex:(unsigned long long)a0;
+- (BOOL)_shouldAdvanceGuidanceToRouteMatch:(id)a0;
+- (void)_updateForArrivalAtLegIndex:(unsigned long long)a0;
+- (void)_updateForDepartureFromLegIndex:(unsigned long long)a0 withReason:(unsigned long long)a1;
+- (void)_updateForLocation:(id)a0;
+- (void)_updateForNewRoute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (void)_updateForReroute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (void)_updateStateForLocation:(id)a0;
+- (void)_updateSwitchTransportTypeForLocation:(id)a0;
+- (void)arrivalUpdater:(id)a0 didArriveAtEndOfLegIndex:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 didDepartFromLegIndex:(unsigned long long)a1 withReason:(unsigned long long)a2;
+- (void)arrivalUpdater:(id)a0 didEnterPreArrivalStateForLegIndex:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 didTimeoutAtLegIndex:(unsigned long long)a1 withReason:(unsigned long long)a2;
+- (void)arrivalUpdater:(id)a0 isApproachingEndOfLeg:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 shouldShowChargingInfoForWaypoint:(id)a1;
+- (void)forceOnRoute:(id)a0 atLocation:(id)a1;
+- (void)forceRerouteWithReason:(unsigned long long)a0;
+- (BOOL)hasArrivedAtFinalDestination;
+- (id)initForTestingWithRoute:(id)a0;
+- (id)initWithNavigationSession:(id)a0;
+- (void)insertWaypoint:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)isRerouting;
+- (void)removeWaypointAtIndex:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)rerouteWithWaypoints:(id)a0 completionHandler:(id /* block */)a1;
+- (void)startTrackingWithInitialLocation:(id)a0 targetLegIndex:(unsigned long long)a1;
+- (void)traceJumpedInTime;
+
+@end

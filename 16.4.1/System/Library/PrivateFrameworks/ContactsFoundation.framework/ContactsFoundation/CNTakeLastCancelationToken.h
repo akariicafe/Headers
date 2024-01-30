@@ -1,0 +1,3 @@
+@interface CNTakeLastCancelationToken : CNCancelationToken
+
+@end

@@ -1,0 +1,20 @@
+@class NSCloudKitMirroringDelegateResetRequest, NSCloudKitMirroringExportRequest, NSCloudKitMirroringImportRequest, NSCloudKitMirroringDelegateSerializationRequest, NSCloudKitMirroringExportProgressRequest, NSCloudKitMirroringAcceptShareInvitationsRequest, NSCloudKitMirroringInitializeSchemaRequest, NSCloudKitMirroringFetchRecordsRequest, NSCloudKitMirroringResetZoneRequest, NSCloudKitMirroringRequest, NSCloudKitMirroringDelegateSetupRequest, NSCloudKitMirroringResetMetadataRequest;
+
+@interface NSCloudKitMirroringRequestManager : NSObject {
+    NSCloudKitMirroringImportRequest *_pendingImportRequest;
+    NSCloudKitMirroringExportRequest *_pendingExportRequest;
+    NSCloudKitMirroringDelegateSetupRequest *_pendingSetupRequest;
+    NSCloudKitMirroringDelegateResetRequest *_pendingDelegateResetRequest;
+    NSCloudKitMirroringResetZoneRequest *_pendingResetRequest;
+    NSCloudKitMirroringFetchRecordsRequest *_pendingFetchRecordsRequest;
+    NSCloudKitMirroringResetMetadataRequest *_pendingResetMetadataRequest;
+    NSCloudKitMirroringDelegateSerializationRequest *_pendingSerializationRequest;
+    NSCloudKitMirroringInitializeSchemaRequest *_pendingInitializeSchemaRequest;
+    NSCloudKitMirroringExportProgressRequest *_pendingExportProgressRequest;
+    NSCloudKitMirroringAcceptShareInvitationsRequest *_pendingAcceptShareInvitationRequest;
+    NSCloudKitMirroringRequest *_activeRequest;
+}
+
+- (void)dealloc;
+
+@end

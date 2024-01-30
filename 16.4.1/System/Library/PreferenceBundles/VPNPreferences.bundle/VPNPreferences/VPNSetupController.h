@@ -1,0 +1,3 @@
+@interface VPNSetupController : PSSetupController
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXContentSyndicationItemAssetPreviewViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

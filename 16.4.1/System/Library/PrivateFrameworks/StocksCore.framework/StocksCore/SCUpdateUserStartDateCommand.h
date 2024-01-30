@@ -1,0 +1,14 @@
+@interface SCUpdateUserStartDateCommand : NSObject <SCWZoneCommand> {
+    void /* unknown type, empty encoding */ startDate;
+    void /* unknown type, empty encoding */ mergePolicy;
+}
+
+@property (class, nonatomic, readonly) BOOL supportsSecureCoding;
+
+- (void)executeWithZone:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+
+@end

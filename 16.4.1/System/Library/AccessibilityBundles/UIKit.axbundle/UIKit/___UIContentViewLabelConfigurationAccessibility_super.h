@@ -1,0 +1,3 @@
+@interface ___UIContentViewLabelConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

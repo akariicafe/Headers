@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.ReformulationSpecializationClassifier : _TtCs12_SwiftObject
+
+@end

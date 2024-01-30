@@ -1,0 +1,21 @@
+@class NSString, NFCNDEFMessage;
+
+@interface BCSNFCCodePayload : NSObject <BCSCodePayload> {
+    NFCNDEFMessage *_nfcPayload;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) long long codeType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithNFCPayload:(id)a0;
+- (void)savePayloadInUserActivity:(id)a0;
+
+@end

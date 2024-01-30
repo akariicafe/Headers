@@ -1,0 +1,80 @@
+@class UIFont, NSString, _NSLineBreakerNodePool, NSMutableSet, _NSLineMetrics, NSAttributedString, NSParagraphStyle;
+
+@interface _NSOptimalLineBreaker : NSObject {
+    BOOL _lineBreaksValid;
+    BOOL _wrappingValid;
+    BOOL _linesValid;
+    double _tolerance;
+    struct { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; double x1; double x2; double x3; double x4; double x5; unsigned short x6; double x7; } *_lineBreaks;
+    unsigned long long _lineBreakCount;
+    unsigned long long _lineBreakCapacity;
+    struct __CFArray { } *_lines;
+    struct { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; double x2; double x3; } *_lineInfos;
+    struct __CFStringTokenizer { } *_wordTokenizer;
+    struct __CFStringTokenizer { } *_wordBoundaryTokenizer;
+    UIFont *_cachedHyphenFont;
+    struct _NSRange { unsigned long long location; unsigned long long length; } _cachedHyphenFontRange;
+    double _cachedHyphenWidth;
+    struct __CFLocale { } *_locale;
+    NSParagraphStyle *_paragraphStyle;
+    long long _alignment;
+    double _firstLineMaxWidth;
+    double _nonFirstLineMaxWidth;
+    NSMutableSet *_consumedNBSPRanges;
+    _NSLineBreakerNodePool *_nodePool;
+    struct { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; double x1; double x2; double x3; double x4; double x5; unsigned short x6; double x7; } *_chosenLineBreaks;
+    unsigned long long _chosenLineBreakCount;
+    double _justifiedHyphenPenalty;
+    double _nonJustifiedHyphenPenalty;
+    double _hyphenationFactorHyphenPenalty;
+    double _twoHyphenPenalty;
+    double _stretchClassMismatchPenalty;
+    double _riverPenalty;
+    unsigned long long _minNonRuntLength;
+    double _runtPenalty;
+    double _expansionPower;
+    double _expansionWeight;
+    double _maxContract;
+    double _maxExpand;
+    double _nonJustifiedStretchFactor;
+    double _maxGlyphContract;
+    double _maxGlyphExpand;
+    unsigned long long _minPreHyphenLength;
+    unsigned long long _minPostHyphenLength;
+    _NSLineMetrics *_lineMetrics;
+    BOOL _lineMetricsValid;
+}
+
+@property (copy, nonatomic) NSAttributedString *attributedString;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } paragraphRange;
+@property (nonatomic) const struct __CTLine { } *paragraphLine;
+@property (nonatomic) double textContainerWidth;
+@property (nonatomic) const struct __CFLocale { } *locale;
+@property (nonatomic) BOOL allowsHyphenation;
+@property (nonatomic) double hyphenationFactor;
+@property (nonatomic) BOOL shouldFillLastLine;
+@property (nonatomic) double minimumLastLineLength;
+@property (nonatomic) long long lineCountAdjustment;
+@property (copy, nonatomic) NSString *lineBreakAlgorithm;
+@property (nonatomic) BOOL usesHangingPunctuation;
+@property (nonatomic) BOOL usesStretchClasses;
+@property (nonatomic) BOOL avoidsRivers;
+@property (nonatomic) BOOL compressesLeftAlignedText;
+@property (nonatomic) BOOL expandsGlyphs;
+@property (nonatomic) unsigned long long lineBreakStrategy;
+@property (readonly, nonatomic) NSString *debugString;
+
+- (struct { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; double x2; double x3; })lineInfoAtIndex:(unsigned long long)a0;
+- (void)layout;
+- (void)invalidateWrapping;
+- (void)enumerateLineBreaksInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 withBlock:(id /* block */)a1;
+- (void)setAttributedString:(id)a0 paragraphRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (unsigned long long)lineCount;
+- (void)dealloc;
+- (struct { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; double x1; double x2; double x3; double x4; double x5; unsigned short x6; double x7; })lineBreakAtIndex:(unsigned long long)a0;
+- (id)init;
+- (void)setOptions:(id)a0;
+- (const struct __CTLine { } *)lineAtIndex:(unsigned long long)a0 lineInfo:(out struct { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; double x2; double x3; } *)a1;
+- (void).cxx_destruct;
+
+@end

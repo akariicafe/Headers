@@ -1,0 +1,82 @@
+@class ATXSuggestionModeFilter, ATXBlendingLayerHyperParameters, NSDictionary, ATXWidgetSuggestionDismissManager, ATXStackStateTracker, _ATXHomeScreenTimelineRelevanceFilter, _ATXHomeScreenState, NSString, CHSProactiveService, ATXEngagementRecordManager, ATXWidgetSuggestionsDenyList, NSUserDefaults, NSSet, NSArray, ATXInformationStore;
+@protocol ATXSuggestionDeduplicatorProtocol;
+
+@interface ATXHomeScreenLayoutSelector2 : NSObject <ATXLayoutSelectorProtocol> {
+    NSArray *_homeScreenPageConfigs;
+    ATXBlendingLayerHyperParameters *_hyperParameters;
+    id<ATXSuggestionDeduplicatorProtocol> _suggestionDeduplicator;
+    ATXEngagementRecordManager *_engagementRecordManager;
+    ATXWidgetSuggestionDismissManager *_widgetDismissManager;
+    ATXStackStateTracker *_stackStateTracker;
+    ATXInformationStore *_store;
+    NSUserDefaults *_defaults;
+    ATXSuggestionModeFilter *_modeFilter;
+    CHSProactiveService *_chronoService;
+    BOOL _isiPad;
+    _ATXHomeScreenState *_homeScreen;
+    _ATXHomeScreenTimelineRelevanceFilter *_timelineRelevanceFilter;
+    ATXWidgetSuggestionsDenyList *_widgetSuggestionDenyList;
+    NSSet *_dismissedSuggestionsForSuggestionsWidget;
+    NSSet *_dismissedSuggestionsForAppPredictionPanels;
+    long long _thresholdConfidenceForSuggestedSG;
+    BOOL _shouldLimitWidgetSuggestionPowerCost;
+    unsigned long long _numSuggestedWidgetInPastDay;
+    unsigned long long _numWidgetReloadForSuggestionInPastDay;
+}
+
+@property (retain) NSDictionary *widgetSuggestionReloadBudgetByStackId;
+@property BOOL hasAskedChronoAboutReloadBudget;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_updateSuggestionsWidgetLayoutIfNecessaryWithRankedShortcutSuggestions:(id)a0 suggestionToRankingIndex:(id)a1;
+- (void)_preservePreviousAppSuggestionPositions;
+- (void)_assignWidgetForTopOfStack:(id)a0 suggestions:(id)a1;
+- (id)_processedSuggestionLayoutFromWidgetSuggestion:(id)a0 stack:(id)a1 blendingUpdateUUID:(id)a2;
+- (void)_fillSuggestedSGWidgetIfLayoutNotComplete:(id)a0 withSuggestions:(id)a1 updatingUsedSuggestionIndexSet:(id)a2;
+- (void)_assignSuggestion:(id)a0 toTopOfStack:(id)a1;
+- (BOOL)_widgetBundleIdRequiresWidgetLocationUpdates:(id)a0;
+- (void)_assignExistingSuggestedSGWidgetsOnPages:(id)a0 withSuggestions:(id)a1 suggestionToRankingIndex:(id)a2;
+- (void)_performSuggestionAllocationWithRankedSuggestions:(id)a0;
+- (BOOL)_hasEligibleWidgetSuggestionsStacksForSuggestion:(id)a0 onPages:(id)a1 ignoreDuplicatesInSGWidget:(BOOL)a2 ignoreDuplicatesInPanels:(BOOL)a3;
+- (id)_appPredictionPanelPreviewFromRankedSuggestions:(id)a0;
+- (void)_assignUnfilledSGWidgetForPage:(id)a0 suggestions:(id)a1;
+- (BOOL)_stackHasRemainingReloadBudgetForWidgetSuggestion:(id)a0;
+- (void)_rotateStackToUpdatedSGSuggestionIfNecessary:(id)a0 suggestionToRankingIndex:(id)a1;
+- (void)_assignSuggestionsForExistingSuggestedWidgets:(id)a0;
+- (BOOL)_shouldConsiderSuggestionForAppPredictionPanel:(id)a0;
+- (void)_rotateAwayFromPreviousSystemInitiatedRotationIfNecessary:(id)a0;
+- (void)_assignPinnedAPPWidgetForPage:(id)a0 suggestions:(id)a1;
+- (BOOL)_isSuggestionACandidate:(id)a0 forStack:(id)a1 dedupeAppSuggestionsByWidgets:(BOOL)a2 ignoreDuplicatesInSGWidget:(BOOL)a3 ignoreDuplicatesInPanels:(BOOL)a4;
+- (BOOL)_shouldLimitWidgetSuggestionPowerCost;
+- (double)_computeScoreForLayout:(id)a0;
+- (void)_removeSuggestedWidgetWhereNecessary;
+- (BOOL)_isStackStale:(id)a0;
+- (id)_filterRankedSuggestions:(id)a0;
+- (BOOL)_shouldConsiderSuggestionForSuggestionsWidget:(id)a0;
+- (void)_logStackDetail:(id)a0;
+- (BOOL)_isStack:(id)a0 eligibleToShowSuggestionViaWidgetSuggestion:(id)a1;
+- (long long)_thresholdConfidenceForSuggestedSG;
+- (id)_homeScreenCachedSuggestionsFromHomeScreenState:(id)a0 sortedFallbackSuggestions:(id)a1 suggestionsWidgetPreviews:(id)a2 appPredictionPanelPreview:(id)a3 withUUID:(id)a4;
+- (id)_fallbackSuggestions:(id)a0;
+- (BOOL)_hasEligiblePinnedWidgetStacksForAPPWidget:(id)a0 forCandidateStack:(id)a1;
+- (id)_suggestionsEligibleForSuggestedSGWidgetOnPages:(id)a0 amongSuggestions:(id)a1;
+- (double)_weightForConfidenceCategory:(long long)a0;
+- (BOOL)_isStackEligibleForSmartRotate:(id)a0 stack:(id)a1;
+- (id)_suggestionsWidgetSuggestionsByPriorityOnPage:(id)a0;
+- (id)_shortcutConversionOriginalActionSuggestionIndices:(id)a0;
+- (id)_suggestionsWidgetPreviewsFromRankedSuggestions:(id)a0;
+- (BOOL)_hasEligiblePinnedWidgetStacksForSuggestionsWidget:(id)a0 forCandidateStack:(id)a1;
+- (void)_assignNewSuggestedWidgetsForPages:(id)a0 rankedSuggestions:(id)a1 suggestionToRankingIndex:(id)a2;
+- (BOOL)_isSuggestionStillNeededForTopOfStack:(id)a0;
+- (BOOL)_isBackgroundAppRefreshAllowedForAppBundleId:(id)a0;
+- (id)selectedLayoutForConsumerSubType:(unsigned char)a0 rankedSuggestions:(id)a1;
+- (id)_sortedPagesByMostRecentUserVisit:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithHomeScreenPageConfigurations:(id)a0 blendingLayerHyperParameters:(id)a1 suggestionDeduplicator:(id)a2 engagementRecordManager:(id)a3 widgetDismissManager:(id)a4 stackStateTracker:(id)a5 store:(id)a6 defaults:(id)a7 modeFilter:(id)a8 chronoService:(id)a9 isiPad:(BOOL)a10;
+- (void)_assignPinnedSuggestionsWidgetForPage:(id)a0 suggestions:(id)a1;
+- (id)_loadHomeScreenState:(id)a0;
+
+@end

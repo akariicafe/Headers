@@ -1,0 +1,8 @@
+@interface CKUIBehaviorClarityUIPad : CKUIBehaviorPad
+
+- (id)theme;
+- (BOOL)areBannersSupported;
+- (BOOL)forcesUnknownFiltering;
+- (BOOL)shouldUseSimpleTimestampsInTranscript;
+
+@end

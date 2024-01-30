@@ -1,0 +1,24 @@
+@protocol MTLComputePipelineState, MTLRenderPipelineState;
+
+@interface RegPyrFusionShaders : NSObject {
+    id<MTLRenderPipelineState> _initialDownScalePipelineState;
+    id<MTLRenderPipelineState> _initialDownScaleRGBPipelineState;
+    id<MTLRenderPipelineState> _bilinearScalePipelineState;
+    id<MTLComputePipelineState> _derivPipelineState;
+    id<MTLRenderPipelineState> _derivSobelPipelineState;
+    id<MTLRenderPipelineState> _basicSearchLumaPipelineState;
+    id<MTLRenderPipelineState> _fusionXLumaPipelineState;
+    id<MTLRenderPipelineState> _fusionYLumaPipelineState;
+    id<MTLRenderPipelineState> _smoothPipelineState;
+    id<MTLRenderPipelineState> _selectionLumaPipelineState;
+    id<MTLRenderPipelineState> _confidenceStageOne;
+    id<MTLRenderPipelineState> _confidenceErode;
+    id<MTLRenderPipelineState> _confidenceDilate;
+}
+
+- (id)initWithMetal:(id)a0;
+- (void).cxx_destruct;
+- (id)createPipelineStateWithMetal:(id)a0 vFunction:(id)a1 fShaderName:(id)a2 outputColorMetalFormat:(id)a3;
+- (id)createPipelineStateWithMetal:(id)a0 vFunction:(id)a1 fShaderName:(id)a2 outputColorMetalFormat:(id)a3 constantValues:(id)a4;
+
+@end

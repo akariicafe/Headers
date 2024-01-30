@@ -1,0 +1,3 @@
+@interface __PUFeedCollectionViewLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

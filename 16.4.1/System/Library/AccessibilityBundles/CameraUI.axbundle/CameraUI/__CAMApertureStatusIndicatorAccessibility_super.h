@@ -1,0 +1,3 @@
+@interface __CAMApertureStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,9 @@
+@interface NewsFeed.FormatEventHandler : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ pluginEventDelegate;
+    void /* unknown type, empty encoding */ interactor;
+    void /* unknown type, empty encoding */ router;
+    void /* unknown type, empty encoding */ tracker;
+}
+
+@end

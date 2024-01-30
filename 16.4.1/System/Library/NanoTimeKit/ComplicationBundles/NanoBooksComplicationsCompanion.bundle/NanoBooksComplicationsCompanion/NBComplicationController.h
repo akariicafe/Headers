@@ -1,0 +1,22 @@
+@class NSString, MPRequestResponseController;
+@protocol NBComplicationControllerDelegate;
+
+@interface NBComplicationController : NSObject <MPRequestResponseControllerDelegate> {
+    MPRequestResponseController *_requestResponseController;
+}
+
+@property (weak, nonatomic) id<NBComplicationControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)pause;
+- (void)controller:(id)a0 defersResponseReplacement:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)resume;
+- (void)_handleRoutingControllerActiveSystemRouteDidChange:(id)a0;
+- (void)_updateActiveRoute;
+- (id)launchURLWithScheme:(id)a0;
+
+@end

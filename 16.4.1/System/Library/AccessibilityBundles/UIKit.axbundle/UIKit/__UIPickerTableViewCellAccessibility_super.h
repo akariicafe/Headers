@@ -1,0 +1,3 @@
+@interface __UIPickerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

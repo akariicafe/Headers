@@ -1,0 +1,6 @@
+@interface OADNullBulletProperties : OADBulletProperties
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+
+@end

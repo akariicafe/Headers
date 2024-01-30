@@ -1,0 +1,87 @@
+@class NSMutableDictionary, SBHApplicationWidgetCollection, UIPageControl, NSMutableArray, UIButton, UIView, SBHAddWidgetDetailSheetTitleView, NSLayoutConstraint, SBHAddWidgetButton, SBHAddWidgetDetailsSheetPageViewController, MTMaterialView, UIStackView, SBFFluidBehaviorSettings, BSUIScrollView, NSString, SBHWidgetSearchController;
+@protocol SBHWidgetSheetViewControllerPresenter, SBHWidgetDragHandling;
+
+@interface SBHAddWidgetDetailSheetViewController : SBHAddWidgetSheetViewControllerBase <BSUIScrollViewDelegate, SBHAddWidgetDetailsSheetPageViewControllerDelegate, SBHWidgetSheetViewControlling> {
+    NSMutableDictionary *_userInfo;
+    unsigned long long _initialSelectionIndex;
+    BOOL _performedInitialSelection;
+}
+
+@property (retain, nonatomic) MTMaterialView *backgroundView;
+@property (retain, nonatomic) MTMaterialView *magicPocketBackgroundView;
+@property (retain, nonatomic) UIButton *closeButton;
+@property (retain, nonatomic) SBHAddWidgetDetailSheetTitleView *titleView;
+@property (retain, nonatomic) UIStackView *widgetInfoStackView;
+@property (retain, nonatomic) BSUIScrollView *widgetInfoScrollView;
+@property (retain, nonatomic) BSUIScrollView *widgetGalleryScrollView;
+@property (retain, nonatomic) UIStackView *widgetGalleryStackView;
+@property (retain, nonatomic) SBHAddWidgetButton *addButton;
+@property (retain, nonatomic) UIPageControl *pageControl;
+@property (retain, nonatomic) SBFFluidBehaviorSettings *widgetInfoScrollViewAnimationSettings;
+@property (retain, nonatomic) UIView *containerView;
+@property (retain, nonatomic) BSUIScrollView *contentScrollView;
+@property (retain, nonatomic) UIStackView *contentStackView;
+@property (retain, nonatomic) UIView *headerView;
+@property (retain, nonatomic) UIView *addButtonContainerView;
+@property (retain, nonatomic) UIView *addButtonStackSpacerView;
+@property (retain, nonatomic) NSLayoutConstraint *topSpacingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *pageControlTopConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *addButtonTopConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *addButtonBottomConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *widgetGalleryHeightConstraint;
+@property (retain, nonatomic) NSMutableArray *pages;
+@property (nonatomic) BOOL scrollingInitiatedByInfoScrollView;
+@property (weak, nonatomic) id<SBHWidgetSheetViewControllerPresenter> presenter;
+@property (retain, nonatomic) SBHApplicationWidgetCollection *applicationWidgetCollection;
+@property (retain, nonatomic) SBHWidgetSearchController *externalSearchController;
+@property (readonly, nonatomic) SBHAddWidgetDetailsSheetPageViewController *currentPage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, weak, nonatomic) id<SBHWidgetDragHandling> widgetDragHandler;
+@property (readonly, nonatomic) NSMutableDictionary *userInfo;
+
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)updateViewConstraints;
+- (void)_contentSizeCategoryDidChange:(id)a0;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)dealloc;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)_updateLayoutMargins;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_createConstraints;
+- (void)_updateConstraintConstants;
+- (void)_createViews;
+- (unsigned long long)_pageIndexAtContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (void)_scrollToPageIndex:(unsigned long long)a0 animated:(BOOL)a1;
+- (void)_updatePageViewControllerAppearanceForNormalScroll;
+- (void)_updatePageViewControllerAppearanceWithAppearedBlock:(id /* block */)a0;
+- (void)closeButtonTapped:(id)a0;
+- (void)pageControlChanged:(id)a0;
+- (void)addButtonTapped:(id)a0;
+- (void)_updateStackViewForSizeCategory;
+- (id)widgetInfoViews;
+- (void)_addPage:(id)a0;
+- (unsigned long long)_closestPageWithGalleryItem:(id)a0;
+- (id)_currentGalleryItem;
+- (id)_materialViewForVisualStyling;
+- (double)_minumumWidgetGalleryScrollViewHeight;
+- (id)_newBackgroundView;
+- (void)_scrollMainScrollViewToMatchInfoScrollViewIfNeeded;
+- (void)_updateBackgroundRecipe;
+- (void)_updateControlsForContentOffset:(struct CGPoint { double x0; double x1; })a0 animated:(BOOL)a1;
+- (void)_updateMaterialRecipeForBackgroundView:(id)a0;
+- (void)_updatePageViewControllerAppearanceForFastScrollToTargetIndex:(unsigned long long)a0;
+- (void)_updateParallaxEffect;
+- (id)backgroundViewMatchingMaterialBeneathPageViewController:(id)a0;
+- (void)configureBackgroundView:(id)a0 matchingMaterialBeneathPageViewController:(id)a1;
+- (void)configureForGalleryItem:(id)a0 selectedSizeClass:(long long)a1;
+
+@end

@@ -1,0 +1,87 @@
+@class NSString, CEKBadgeTextView, CIContext, NSMutableDictionary, CEKWheelScrubberView, CIImage, NSMutableArray, CEKSlider, NSLayoutConstraint, NSNumberFormatter;
+
+@interface PUFilterToolController : PUPhotoEditToolController <CEKWheelScrubberViewDelegate, CEKSliderDelegate> {
+    CEKBadgeTextView *_filterBadgeView;
+    CEKWheelScrubberView *_scrubberView;
+    CEKSlider *_slider;
+    BOOL _isSliderTouchDown;
+    BOOL _isScrubbing;
+    BOOL _isInteractingWithWheelScrubber;
+    CIImage *_inputImage;
+    BOOL _monitorAdjustmentsForCache;
+    NSMutableDictionary *_filterThumbnailCache;
+    NSMutableDictionary *_filterIntensityCache;
+    NSMutableArray *_toolConstraints;
+    NSMutableArray *_scrubberViewConstraints;
+    NSMutableArray *_filterBadgeViewConstraints;
+    NSLayoutConstraint *_filterBadgeWidthConstraint;
+    NSLayoutConstraint *_filterBadgeHeightConstraint;
+    NSNumberFormatter *_formatter;
+    CIContext *_context;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _thumbnailTime;
+}
+
+@property (copy, nonatomic) id /* block */ willLoadFilterThumbnails;
+@property (copy, nonatomic) id /* block */ didFinishLoadingFilterThumbnails;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)wheelScrubberViewDidChangeSelectedIndex:(id)a0;
+- (void)wheelScrubberView:(id)a0 updateCell:(id)a1 forItemAtIndex:(unsigned long long)a2;
+- (id)localizedName;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)updateViewConstraints;
+- (void)viewDidLoad;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)_updateBadgeConstraints;
+- (void)_prepareThumbnailImagesIfNeeded;
+- (long long)_adjustedFilterIndex;
+- (double)_adjustedFilterIntensity;
+- (id)_adjustedFilterName;
+- (id)_effectAdjustment;
+- (id)_effectForIndex:(long long)a0;
+- (long long)_indexForFilterId:(id)a0;
+- (void)_setShowSlider:(BOOL)a0 animate:(BOOL)a1;
+- (void)_setThumbnail:(id)a0 forKey:(id)a1;
+- (void)_setupFilters;
+- (void)_setupScrubber;
+- (void)_setupSlider;
+- (void)_sliderDidEndScrolling;
+- (void)_updateBadgeAndSliderWithEffect:(id)a0;
+- (void)_updateCacheWithCIImage:(id)a0;
+- (void)_updateCompositionControllerWithEffect:(id)a0;
+- (void)_updateFilterIntensityCache;
+- (void)_updateScrubberLayout;
+- (void)_updateSelectionTextAnimate:(BOOL)a0;
+- (void)_updateToolConstraints;
+- (void)_updateWithCompositionController:(id)a0;
+- (id)centerToolbarView;
+- (void)compositionControllerDidChangeForAdjustments:(id)a0;
+- (void)decreaseScrubberValue:(BOOL)a0;
+- (void)decreaseSliderValue:(BOOL)a0;
+- (void)didResignActiveTool;
+- (void)increaseScrubberValue:(BOOL)a0;
+- (void)increaseSliderValue:(BOOL)a0;
+- (BOOL)installLivePhotoPlaybackGestureRecognizer:(id)a0;
+- (BOOL)installTogglePreviewGestureRecognizer:(id)a0;
+- (void)setLayoutOrientation:(long long)a0 withTransitionCoordinator:(id)a1;
+- (void)sliderDidEndScrolling:(id)a0;
+- (void)sliderDidScroll:(id)a0;
+- (void)sliderWillBeginScrolling:(id)a0;
+- (void)sliderWillEndScrolling:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (long long)toolControllerTag;
+- (id)toolbarIcon;
+- (BOOL)wantsScrubberKeyControl;
+- (BOOL)wantsSliderKeyControl;
+- (BOOL)wantsZoomAndPanEnabled;
+- (void)wheelScrubberViewDidEndScrolling:(id)a0;
+- (void)wheelScrubberViewWillBeginScrolling:(id)a0;
+- (void)willBecomeActiveTool;
+
+@end

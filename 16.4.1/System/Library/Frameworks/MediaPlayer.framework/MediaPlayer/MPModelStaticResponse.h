@@ -1,0 +1,3 @@
+@interface MPModelStaticResponse : MPModelResponse
+
+@end
