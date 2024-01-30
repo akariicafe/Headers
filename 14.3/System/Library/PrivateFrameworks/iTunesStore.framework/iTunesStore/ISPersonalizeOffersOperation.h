@@ -1,0 +1,18 @@
+@class ISPersonalizeOffersRequest, SSPersonalizeOffersResponse;
+
+@interface ISPersonalizeOffersOperation : ISOperation {
+    ISPersonalizeOffersRequest *_request;
+    SSPersonalizeOffersResponse *_response;
+}
+
+@property (readonly) ISPersonalizeOffersRequest *personalizeOffersReqeust;
+@property (readonly) SSPersonalizeOffersResponse *response;
+
+- (void)run;
+- (void)dealloc;
+- (id)initWithPersonalizeOffersRequest:(id)a0;
+- (BOOL)_runWithURLDictionary:(id)a0 error:(id *)a1;
+- (id)_copyResponseForURL:(id)a0 requestString:(id)a1 error:(id *)a2;
+- (void)_addDictionaryToResponse:(id)a0;
+
+@end

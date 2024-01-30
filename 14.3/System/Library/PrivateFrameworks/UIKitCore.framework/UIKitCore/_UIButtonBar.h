@@ -1,0 +1,95 @@
+@class _UIBarButtonItemData, UIBarButtonItem, NSMapTable, _UIButtonBarLayoutMetrics, NSMutableArray, _UIButtonBarButtonVisualProvider, UIView, _UIPointerInteractionAssistant, NSString, NSLayoutDimension, NSLayoutConstraint, NSArray, _UIButtonBarStackView;
+@protocol _UIButtonBarAppearanceDelegate, UIPointerInteractionDelegate, _UIButtonBarDelegate;
+
+@interface _UIButtonBar : NSObject <UIPointerInteractionDelegate, _UIBarButtonItemViewOwner, _UIBarButtonItemGroupOwner, NSCoding> {
+    _UIButtonBarStackView *_stackView;
+    NSLayoutDimension *_flexibleSpaceEqualSizeAnchor;
+    NSLayoutDimension *_minimumInterItemSpaceAnchor;
+    NSLayoutConstraint *_minimumInterItemSpaceConstraint;
+    NSLayoutDimension *_minimumInterGroupSpaceAnchor;
+    NSLayoutConstraint *_minimumInterGroupSpaceConstraint;
+    UIView *_centeredView;
+    NSLayoutConstraint *_centeringConstraint;
+    _UIButtonBarLayoutMetrics *_layoutMetrics;
+    NSMutableArray *_groupLayouts;
+    NSMutableArray *_effectiveLayout;
+    NSMapTable *_groupLayoutMap;
+    NSMutableArray *_layoutViews;
+    NSMutableArray *_layoutGuides;
+    NSMutableArray *_layoutActiveConstraints;
+    NSMapTable *_senderActionMap;
+    struct { unsigned char isInLayoutReentrancyGuard : 1; unsigned char needsAppearanceUpdate : 1; unsigned char plainAppearanceChanged : 1; unsigned char doneAppearanceChanged : 1; unsigned char denyPointerInteractions : 1; } _buttonBarFlags;
+}
+
+@property (nonatomic, getter=_itemsInGroupUseSameSize, setter=_setItemsInGroupUseSameSize:) BOOL itemsInGroupUseSameSize;
+@property (nonatomic, getter=_minimumInterGroupSpace, setter=_setMinimumInterGroupSpace:) double minimumInterGroupSpace;
+@property (copy, nonatomic) id /* block */ defaultActionFilter;
+@property (readonly, nonatomic) UIBarButtonItem *ultimateFallbackItem;
+@property (weak, nonatomic) id<_UIButtonBarAppearanceDelegate> _appearanceDelegate;
+@property (retain, nonatomic) _UIBarButtonItemData *plainItemAppearance;
+@property (retain, nonatomic) _UIBarButtonItemData *doneItemAppearance;
+@property (readonly, nonatomic) UIView<UIPointerInteractionDelegate> *assistantView;
+@property (weak, nonatomic) _UIPointerInteractionAssistant *assistant;
+@property (readonly, nonatomic, getter=_layoutWidth) double layoutWidth;
+@property (nonatomic, getter=_compact, setter=_setCompact:) BOOL compact;
+@property (copy, nonatomic) _UIButtonBarButtonVisualProvider *visualProvider;
+@property (readonly, nonatomic) UIView *view;
+@property (copy, nonatomic) NSArray *barButtonGroups;
+@property (nonatomic) double minimumInterItemSpace;
+@property (weak, nonatomic) id<_UIButtonBarDelegate> delegate;
+@property (nonatomic) BOOL createsPopoverLayoutGuides;
+@property (nonatomic) BOOL allowsViewWrappers;
+@property (nonatomic) long long itemDistribution;
+@property (nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } hitTestInsets;
+@property (nonatomic) struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; } hitTestDirectionalInsets;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (float)optionalConstraintsPriority;
+
+- (void)_itemDidChangeHiddenState:(id)a0;
+- (void)_appearanceChanged;
+- (void)pointerInteraction:(id)a0 willExitRegion:(id)a1 animator:(id)a2;
+- (void)_itemDidChangeEnabledState:(id)a0;
+- (void)_itemDidChangeWidth:(id)a0;
+- (id)_newGroupLayout:(id)a0;
+- (void)_groupDidUpdateVisibility:(id)a0;
+- (void)_setVisualProvider:(id)a0;
+- (id)init;
+- (id)pointerInteraction:(id)a0 styleForRegion:(id)a1;
+- (void)_enablePointerInteractions;
+- (void).cxx_destruct;
+- (void)doneItemAppearanceChanged;
+- (id)_layoutForGroup:(id)a0;
+- (void)pointerInteraction:(id)a0 willEnterRegion:(id)a1 animator:(id)a2;
+- (void)setNeedsHitTestUpdate;
+- (void)dealloc;
+- (id)pointerInteraction:(id)a0 regionForRequest:(id)a1 defaultRegion:(id)a2;
+- (void)plainItemAppearanceChanged;
+- (void)_groupDidChangePriority:(id)a0;
+- (void)_itemCustomViewDidChange:(id)a0 fromView:(id)a1;
+- (void)_updateHitRects;
+- (void)_groupDidUpdateItems:(id)a0 removedItems:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)_updateToFitInWidth:(double)a0;
+- (BOOL)_itemDidUpdateMenu:(id)a0 fromMenu:(id)a1;
+- (void)_groupDidUpdateRepresentative:(id)a0 fromRepresentative:(id)a1;
+- (void)_invalidateAssistant:(id)a0;
+- (void)_itemDidChangeSelectionState:(id)a0;
+- (void)_setNeedsVisualUpdate;
+- (void)_reloadBarButtonGroups;
+- (void)_itemStandardViewNeedsUpdate:(id)a0;
+- (id)_updatedViewForBarButtonItem:(id)a0 withView:(id)a1;
+- (void)_groupDidChangeGeometry:(id)a0;
+- (void)_validateAllItems;
+- (void)_layoutBar;
+- (void)_disablePointerInteractions;
+- (void)_updateForTraitCollectionChange:(id)a0;
+- (void)_setNeedsVisualUpdateAndNotify:(BOOL)a0;
+- (id)_targetActionForBarButtonItem:(id)a0;
+- (double)_estimatedWidth;
+- (void)encodeWithCoder:(id)a0;
+
+@end

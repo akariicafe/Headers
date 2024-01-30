@@ -1,0 +1,3 @@
+@interface HMBModelFieldDeprecatedField : HMFObject
+
+@end

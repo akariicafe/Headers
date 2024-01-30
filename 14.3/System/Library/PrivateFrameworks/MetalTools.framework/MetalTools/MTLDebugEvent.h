@@ -1,0 +1,3 @@
+@interface MTLDebugEvent : MTLToolsEvent
+
+@end

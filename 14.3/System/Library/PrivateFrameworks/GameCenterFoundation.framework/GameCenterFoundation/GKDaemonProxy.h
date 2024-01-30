@@ -1,0 +1,85 @@
+@class NSString, NSDictionary, NSXPCConnection, NSObject, NSHashTable;
+@protocol GKDaemonProxyDataUpdateDelegate, OS_dispatch_semaphore, OS_dispatch_queue, GKDaemonProxyNetworkActivityIndicatorDelegate;
+
+@interface GKDaemonProxy : GKServiceProxy <NSXPCConnectionDelegate, GKClientProtocol>
+
+@property (class, readonly, nonatomic) GKDaemonProxy *daemonProxy;
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *invocationQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_semaphore> *concurrentRequestSemaphore;
+@property (retain, nonatomic) NSDictionary *interfaceLookup;
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (nonatomic) int hostPID;
+@property (retain, nonatomic) NSHashTable *dataUpdateDelegates;
+@property (weak, nonatomic) id<GKDaemonProxyDataUpdateDelegate> dataUpdateDelegate;
+@property (weak, nonatomic) id<GKDaemonProxyNetworkActivityIndicatorDelegate> networkActivityIndicatorDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)proxyForPlayer:(id)a0;
++ (id)proxiesForPlayer;
++ (id)daemonProxy;
++ (void)removeProxyForPlayer:(id)a0;
+
+- (id)getGamedFiredUp;
+- (oneway void)setLogBits:(int)a0;
+- (oneway void)scoreSelected:(id)a0;
+- (oneway void)completedChallengeSelected:(id)a0;
+- (oneway void)setBadgeCount:(unsigned long long)a0 forType:(unsigned long long)a1;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_resetServiceLookup;
+- (oneway void)fetchTurnBasedData;
+- (oneway void)setTestGame:(id)a0;
+- (oneway void)session:(id)a0 didReceiveMessage:(id)a1 withData:(id)a2 fromPlayer:(id)a3;
+- (oneway void)didConnectToParticipantWithID:(id)a0;
+- (id)localizedMessageFromDictionary:(id)a0 forBundleID:(id)a1;
+- (void)resetServiceLookup;
+- (oneway void)session:(id)a0 removedPlayer:(id)a1;
+- (void)buildInterfaceLookup;
+- (void)addDataUpdateDelegate:(id)a0;
+- (oneway void)acceptInviteWithNotification:(id)a0;
+- (void)removeDataUpdateDelegate:(id)a0;
+- (oneway void)setCurrentGame:(id)a0 serverEnvironment:(long long)a1 reply:(id /* block */)a2;
+- (oneway void)session:(id)a0 player:(id)a1 didSaveData:(id)a2;
+- (void)connection:(id)a0 handleInvocation:(id)a1 isReply:(BOOL)a2;
+- (oneway void)receivedChallengeSelected:(id)a0;
+- (oneway void)endNetworkActivity;
+- (oneway void)session:(id)a0 didReceiveData:(id)a1 fromPlayer:(id)a2;
+- (oneway void)authenticatedPlayersDidChange:(id)a0 reply:(id /* block */)a1;
+- (oneway void)acceptMultiplayerGameInvite;
+- (BOOL)hasAuthenticatedAccount;
+- (oneway void)completedOptimisticAuthenticationWithResponse:(id)a0 error:(id)a1;
+- (void)addInterface:(id)a0 toLookup:(id)a1;
+- (id)authenticatedPlayerID;
+- (id)authenticatedPlayerInfo;
+- (oneway void)session:(id)a0 player:(id)a1 didChangeConnectionState:(long long)a2;
+- (id)accountName;
+- (oneway void)localPlayerAcceptedCustomTournamentInvite;
+- (oneway void)resetNetworkActivity;
+- (oneway void)didReceiveData:(id)a0 reliably:(BOOL)a1 forRecipients:(id)a2 fromSender:(id)a3;
+- (oneway void)respondedToNearbyInvite:(id)a0;
+- (oneway void)relayPushNotification:(id)a0;
+- (oneway void)challengeCompleted:(id)a0;
+- (void)dispatchCompletedChallenge:(id)a0;
+- (id)replyQueueForRequestSelector:(SEL)a0;
+- (oneway void)refreshContentsForDataType:(unsigned int)a0 userInfo:(id)a1;
+- (oneway void)challengeReceived:(id)a0;
+- (oneway void)setPreferencesValues:(id)a0;
+- (oneway void)achievementSelected:(id)a0;
+- (oneway void)declineInviteWithNotification:(id)a0;
+- (oneway void)getAuthenticatedPlayerIDWithHandler:(id /* block */)a0;
+- (oneway void)beginNetworkActivity;
+- (void)loadRemoteImageDataForClientForURL:(id)a0 reply:(id /* block */)a1;
+- (oneway void)didDisconnectFromParticipantWithID:(id)a0;
+- (oneway void)getAccountNameWithHandler:(id /* block */)a0;
+- (oneway void)friendRequestSelected:(id)a0;
+- (void)resetLoginCancelCount;
+- (oneway void)session:(id)a0 addedPlayer:(id)a1;
+- (oneway void)requestSandboxExtension:(id /* block */)a0;
+- (id)authenticatedLocalPlayersWithStatus:(unsigned long long)a0;
+- (oneway void)cancelGameInvite:(id)a0;
+
+@end

@@ -1,0 +1,72 @@
+@class NSError, VSAppDocumentController, VSIdentityProvider, NSURL, NSString, NSOperationQueue, VSPreferences, VSStateMachine, VSApplication, VSApplicationControllerResponseHandler, JSValue, VSAuditToken;
+@protocol VSApplicationControllerDelegate;
+
+@interface VSApplicationController : NSObject <VSAppDocumentControllerDelegate, VSApplicationDelegate, VSStateMachineDelegate>
+
+@property (retain, nonatomic) VSStateMachine *stateMachine;
+@property (retain) NSError *delegateError;
+@property (retain) NSError *onLaunchError;
+@property (retain, nonatomic) VSIdentityProvider *identityProvider;
+@property (retain, nonatomic) NSURL *fetchedURL;
+@property (retain, nonatomic) NSOperationQueue *privateQueue;
+@property (retain) VSApplication *application;
+@property (retain, nonatomic) VSApplicationControllerResponseHandler *responseHandler;
+@property (retain, nonatomic) VSAppDocumentController *appDocumentController;
+@property (retain, nonatomic) JSValue *applicationReadyCallback;
+@property (nonatomic) BOOL applicationMustSelfValidate;
+@property (nonatomic) BOOL allowUI;
+@property (retain, nonatomic) VSPreferences *preferences;
+@property (weak, nonatomic) id<VSApplicationControllerDelegate> delegate;
+@property (retain, nonatomic) NSString *accountProviderAuthenticationToken;
+@property (copy, nonatomic) VSAuditToken *auditToken;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (oneway void)release;
+- (void)dealloc;
+- (void)stop;
+- (void)submitRequest:(id)a0;
+- (void)start;
+- (void)_presentAlert:(id)a0;
+- (void)_notifyDelegateWithBlock:(id /* block */)a0;
+- (id)initWithIdentityProvider:(id)a0;
+- (id)_bootURL;
+- (void)_notifyDidStart;
+- (void)_notifyStartDidFailWithError:(id)a0;
+- (void)_submitJavascriptRequest:(id)a0 forApplicationControllerRequest:(id)a1;
+- (void)_completeRequest:(id)a0 withResult:(id)a1;
+- (void)_makeJavascriptRequestForRequest:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_presentDocument:(id)a0;
+- (void)_beginAuthentication;
+- (void)_cancelValidation;
+- (void)_applicationReadyWithSuccess:(BOOL)a0 javascriptErrorValue:(id)a1;
+- (id)_applicationLaunchParams;
+- (void)_notifyDidReceiveViewModel:(id)a0;
+- (void)_notifyDidReceiveViewModelError:(id)a0;
+- (id)_applicationControllerAlertForJavascriptAlert:(id)a0;
+- (void)_completeRequest:(id)a0 withJavascriptResponse:(id)a1 javascriptErrorValue:(id)a2;
+- (id)_errorForJavascriptErrorValueValue:(id)a0 withRequest:(id)a1;
+- (void)_notifyRequest:(id)a0 didCompleteWithResponse:(id)a1;
+- (void)_notifyRequest:(id)a0 didFailWithError:(id)a1;
+- (id)_javascriptRequestForRequest:(id)a0 withVerificationData:(id)a1;
+- (id)_makeJavaScriptRequest;
+- (void)appDocumentController:(id)a0 didUpdateViewModel:(id)a1;
+- (void)appDocumentController:(id)a0 didFailToUpdateViewModelWithError:(id)a1;
+- (void)applicationDidStart:(id)a0;
+- (void)application:(id)a0 startDidFailWithError:(id)a1;
+- (void)application:(id)a0 evaluateAppJavascriptInContext:(id)a1;
+- (id)launchParamsForApplication:(id)a0;
+- (id)activeAppDocumentForApplication:(id)a0;
+- (void)transitionToWaitingForBootUrlState;
+- (void)transitionToWaitingForBothLaunchCallbacksState;
+- (void)transitionToReadyState;
+- (void)transitionToNotifyingOfLaunchFailureState;
+- (void)transitionToInvalidState;
+- (void)showAuthenticationUserInterfaceWithAuthenticationToken:(id)a0;
+- (void)applicationStartSelfValidationWithAuthenticationToken:(id)a0;
+
+@end

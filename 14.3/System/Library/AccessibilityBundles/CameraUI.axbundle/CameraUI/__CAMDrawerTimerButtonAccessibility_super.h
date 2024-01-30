@@ -1,0 +1,3 @@
+@interface __CAMDrawerTimerButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

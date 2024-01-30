@@ -1,0 +1,3 @@
+@interface CNSwitchWithSchedulerProviderCancelationToken : CNCancelationToken
+
+@end

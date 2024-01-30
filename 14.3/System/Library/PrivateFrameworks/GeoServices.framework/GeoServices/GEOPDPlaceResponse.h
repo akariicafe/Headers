@@ -1,0 +1,95 @@
+@class PBDataReader, NSString, GEOPDPlaceGlobalResult, GEOClientMetrics, GEOPDDatasetABStatus, NSMutableArray, PBUnknownFields;
+
+@interface GEOPDPlaceResponse : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    GEOClientMetrics *_clientMetrics;
+    GEOPDDatasetABStatus *_datasetAbStatus;
+    NSString *_debugApiKey;
+    unsigned long long _debugLatencyMs;
+    NSMutableArray *_displayLanguages;
+    NSString *_displayRegion;
+    GEOPDPlaceGlobalResult *_globalResult;
+    NSMutableArray *_mapsResults;
+    NSMutableArray *_legacyPlaceResults;
+    NSMutableArray *_spokenLanguages;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _requestType;
+    int _status;
+    struct { unsigned char has_debugLatencyMs : 1; unsigned char has_requestType : 1; unsigned char has_status : 1; unsigned char read_unknownFields : 1; unsigned char read_clientMetrics : 1; unsigned char read_datasetAbStatus : 1; unsigned char read_debugApiKey : 1; unsigned char read_displayLanguages : 1; unsigned char read_displayRegion : 1; unsigned char read_globalResult : 1; unsigned char read_mapsResults : 1; unsigned char read_legacyPlaceResults : 1; unsigned char read_spokenLanguages : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasDebugLatencyMs;
+@property (nonatomic) unsigned long long debugLatencyMs;
+@property (readonly, nonatomic) BOOL hasClientMetrics;
+@property (retain, nonatomic) GEOClientMetrics *clientMetrics;
+@property (nonatomic) BOOL hasStatus;
+@property (nonatomic) int status;
+@property (nonatomic) BOOL hasRequestType;
+@property (nonatomic) int requestType;
+@property (readonly, nonatomic) BOOL hasGlobalResult;
+@property (retain, nonatomic) GEOPDPlaceGlobalResult *globalResult;
+@property (retain, nonatomic) NSMutableArray *legacyPlaceResults;
+@property (retain, nonatomic) NSMutableArray *displayLanguages;
+@property (readonly, nonatomic) BOOL hasDisplayRegion;
+@property (retain, nonatomic) NSString *displayRegion;
+@property (retain, nonatomic) NSMutableArray *spokenLanguages;
+@property (readonly, nonatomic) BOOL hasDebugApiKey;
+@property (retain, nonatomic) NSString *debugApiKey;
+@property (readonly, nonatomic) BOOL hasDatasetAbStatus;
+@property (retain, nonatomic) GEOPDDatasetABStatus *datasetAbStatus;
+@property (retain, nonatomic) NSMutableArray *mapsResults;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (Class)mapsResultType;
++ (Class)legacyPlaceResultType;
++ (Class)spokenLanguageType;
++ (Class)displayLanguageType;
++ (BOOL)isValid:(id)a0;
+
+- (unsigned long long)displayLanguagesCount;
+- (void)clearDisplayLanguages;
+- (void)addSpokenLanguage:(id)a0;
+- (id)spokenLanguageAtIndex:(unsigned long long)a0;
+- (id)displayLanguageAtIndex:(unsigned long long)a0;
+- (unsigned long long)mapsResultsCount;
+- (void)clearSensitiveFields;
+- (id)initWithJSON:(id)a0;
+- (id)requestTypeAsString:(int)a0;
+- (unsigned long long)legacyPlaceResultsCount;
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (int)StringAsStatus:(id)a0;
+- (id)initWithData:(id)a0;
+- (int)StringAsRequestType:(id)a0;
+- (id)resultsWithResultType:(int)a0;
+- (id)jsonRepresentation;
+- (void)addMapsResult:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)statusAsString:(int)a0;
+- (void)readAll:(BOOL)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)clearMapsResults;
+- (id)mapsResultAtIndex:(unsigned long long)a0;
+- (void)clearSpokenLanguages;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (unsigned long long)spokenLanguagesCount;
+- (void)clearUnknownFields:(BOOL)a0;
+- (id)_disambiguationLabels;
+- (id)legacyPlaceResultAtIndex:(unsigned long long)a0;
+- (void)addDisplayLanguage:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)initWithPlace:(id)a0 forRequestType:(int)a1;
+- (unsigned long long)resultsCountWithResultType:(int)a0;
+- (void)addLegacyPlaceResult:(id)a0;
+- (void)clearLegacyPlaceResults;
+
+@end

@@ -1,0 +1,3 @@
+@interface NewsUI2.MagazineCatalogBlueprintViewSupplementaryViewProvider : _TtCs12_SwiftObject
+
+@end

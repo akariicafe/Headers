@@ -1,0 +1,89 @@
+@class NSIndexPath, IKViewElement, NSArray, _TVCollectionWrappingView, NSString, _TVNeedsMoreContentEvaluator, IKCollectionElement, NSDictionary, UICollectionView, UIViewController, _TVShadowViewElement;
+@protocol TVPreviewInteractionController;
+
+@interface _TVMLCollectionViewController : UIViewController <TVAppTemplateImpressionable, _TVCollectionViewing, _TVCollectionViewDelegate, UICollectionViewDataSource> {
+    BOOL _didAppear;
+    BOOL _didUpdateFocus;
+    double _impressionThreshold;
+    _TVNeedsMoreContentEvaluator *_needsMoreContentEvaluator;
+    id<TVPreviewInteractionController> _previewInteractionController;
+}
+
+@property (retain, nonatomic) UIViewController *headerViewController;
+@property (retain, nonatomic) UIViewController *footerViewController;
+@property (retain, nonatomic) _TVShadowViewElement *shadowViewElement;
+@property (nonatomic) struct TVShowcaseConfig { long long flavor; long long transition; double inset; } showcaseConfig;
+@property (copy, nonatomic) NSDictionary *indexPathsByIndexTitle;
+@property (copy, nonatomic) NSArray *sortedIndexTitles;
+@property (readonly, retain, nonatomic) _TVCollectionWrappingView *collectionWrappingView;
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (readonly, retain, nonatomic) IKCollectionElement *collectionElement;
+@property (readonly, retain, nonatomic) IKViewElement *headerElement;
+@property (readonly, nonatomic) struct TVCellMetrics { struct CGSize { double width; double height; } cellSize; struct UIEdgeInsets { double top; double left; double bottom; double right; } cellPadding; struct UIEdgeInsets { double top; double left; double bottom; double right; } cellInset; struct UIEdgeInsets { double top; double left; double bottom; double right; } cellInsetAlt; struct UIEdgeInsets { double top; double left; double bottom; double right; } cellMargin; } cellMetrics;
+@property (readonly, retain, nonatomic) IKViewElement *footerElement;
+@property (copy, nonatomic) NSIndexPath *lastFocusedIndexPath;
+@property (nonatomic, getter=isIndexDisplayEnabled) BOOL indexDisplayEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)headerElementFromCollectionElement:(id)a0;
++ (id)_shadowViewElementForCollectionElement:(id)a0;
++ (id)footerElementFromCollectionElement:(id)a0;
+
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)collectionView:(id)a0 indexPathForIndexTitle:(id)a1 atIndex:(long long)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didEndDisplayingCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)indexPathForPreferredFocusedViewInCollectionView:(id)a0;
+- (id)indexTitlesForCollectionView:(id)a0;
+- (void)collectionView:(id)a0 didUpdateFocusInContext:(id)a1 withAnimationCoordinator:(id)a2;
+- (id)preferredFocusEnvironments;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)_applicationWillResignActive:(id)a0;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)_applicationDidBecomeActive:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)loadView;
+- (void)_updateFooterView;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)_closestIndexPathToIndexPath:(id)a0;
+- (void)_updateHeaderView;
+- (void)viewDidLoad;
+- (id)impressionableElementsContainedInDocument:(id)a0;
+- (BOOL)collectionView:(id)a0 shouldHandleLongPressForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didReceivePhysicalPlayForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didReceiveLongPressForItemAtIndexPath:(id)a1;
+- (void)tv_updateViewLayout;
+- (void)_cancelImpressionsUpdate;
+- (void)tv_setShowcaseConfig:(struct TVShowcaseConfig { long long x0; long long x1; double x2; })a0;
+- (void)updateWithViewElement:(id)a0 cellMetrics:(struct TVCellMetrics { struct CGSize { double x0; double x1; } x0; struct UIEdgeInsets { double x0; double x1; double x2; double x3; } x1; struct UIEdgeInsets { double x0; double x1; double x2; double x3; } x2; struct UIEdgeInsets { double x0; double x1; double x2; double x3; } x3; struct UIEdgeInsets { double x0; double x1; double x2; double x3; } x4; })a1;
+- (void)preloadCellsInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)resetLastFocusedIndexPath;
+- (void)dispatchEvent:(id)a0 forItemAtIndexPath:(id)a1 completionBlock:(id /* block */)a2;
+- (struct CGSize { double x0; double x1; })expectedCellSizeForElement:(id)a0 atIndexPath:(id)a1;
+- (void)updateFocusInContext:(id)a0 withAnimationCoordinator:(id)a1;
+- (unsigned long long)preferredScrollPosition;
+- (void)_updateImpressions;
+- (void)_recordImpressionsForVisibleView;
+- (BOOL)shouldHeaderFloatByDefault;
+- (void)updateVisibleCell:(id)a0 atIndexPath:(id)a1 withElement:(id)a2;
+- (Class)cellClassForElement:(id)a0;
+- (void)updateSupplementaryViewsForSectionAtOldIndex:(long long)a0 oldElement:(id)a1 withNewIndex:(long long)a2 newElement:(id)a3 requiresReload:(BOOL *)a4 requiresRelayout:(BOOL *)a5;
+- (void)didUpdateCollectionViewByNeedingReload:(BOOL)a0 focusUpdate:(BOOL)a1;
+- (void)adjustContentOffsetToDisplayIndexPath:(id)a0;
+- (void)_registerCellClassesInCollectionView:(id)a0;
+- (void)_doUpdateViewLayoutAnimated:(BOOL)a0 relayout:(BOOL)a1;
+- (void)_registerPreviewInteractionController;
+
+@end

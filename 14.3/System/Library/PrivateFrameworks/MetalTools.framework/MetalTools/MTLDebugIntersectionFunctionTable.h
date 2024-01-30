@@ -1,0 +1,24 @@
+@class MTLDebugComputePipelineState;
+
+@interface MTLDebugIntersectionFunctionTable : MTLToolsIntersectionFunctionTable <MTLDebugResourcePurgeable> {
+    struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int __a_value; } __a_; } _purgeableStateToken;
+    BOOL _purgeableStateHasBeenSet;
+    MTLDebugComputePipelineState *_pipelineState;
+}
+
+@property (readonly) unsigned long long functionCount;
+
+- (void)setFunction:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setFunctions:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)dealloc;
+- (id)initWithBaseObject:(id)a0 parent:(id)a1;
+- (void)setOpaqueTriangleIntersectionFunctionWithSignature:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setOpaqueTriangleIntersectionFunctionWithSignature:(unsigned long long)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (unsigned long long)setPurgeableState:(unsigned long long)a0;
+- (void)lockPurgeableState;
+- (void)unlockPurgeableState;
+- (BOOL)purgeableStateValidForRendering;
+- (id)initWithIntersectionFunctionTable:(id)a0 parent:(id)a1 descriptor:(id)a2;
+- (id)initWithIntersectionFunctionTable:(id)a0 parent:(id)a1 descriptor:(id)a2 pipelineState:(id)a3;
+
+@end

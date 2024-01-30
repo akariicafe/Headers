@@ -1,0 +1,10 @@
+@interface SALocalSearchVehicleEventSearch : SADomainCommand
+
++ (id)vehicleEventSearch;
++ (id)vehicleEventSearchWithDictionary:(id)a0 context:(id)a1;
+
+- (id)groupIdentifier;
+- (id)encodedClassName;
+- (BOOL)requiresResponse;
+
+@end

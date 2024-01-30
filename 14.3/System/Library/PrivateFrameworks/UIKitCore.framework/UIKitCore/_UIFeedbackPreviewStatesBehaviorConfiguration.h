@@ -1,0 +1,3 @@
+@interface _UIFeedbackPreviewStatesBehaviorConfiguration : _UIStatesFeedbackGeneratorPreviewConfiguration
+
+@end

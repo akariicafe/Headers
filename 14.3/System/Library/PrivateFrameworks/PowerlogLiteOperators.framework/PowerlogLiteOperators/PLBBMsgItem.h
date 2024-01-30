@@ -1,0 +1,3 @@
+@interface PLBBMsgItem : NSObject
+
+@end

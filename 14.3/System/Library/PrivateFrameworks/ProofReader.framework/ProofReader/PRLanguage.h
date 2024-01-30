@@ -1,0 +1,84 @@
+@class NSString;
+
+@interface PRLanguage : NSObject {
+    NSString *_identifier;
+    NSString *_localization;
+    NSString *_fallbackLocalization;
+    unsigned long long _orthoIndex;
+    unsigned int _encoding;
+    unsigned char _languageCode;
+    unsigned char _languageDialect;
+    unsigned char _languageMode;
+}
+
++ (id)supportedLanguages;
++ (id)localizationsForLanguage:(id)a0;
++ (id)supportedCyrillicLanguages;
++ (id)supportedNonLatinLanguages;
++ (id)transliterationLocalizationForLanguage:(id)a0;
++ (id)languageModelFallbackLocalizationForLanguage:(id)a0;
++ (id)supportedAssetLexiconLanguages;
++ (id)dataBundle;
++ (id)fallbackLocalizationForLanguage:(id)a0;
++ (id)supportedTransliterationLanguages;
++ (id)supportedEnglishLocalizationAdditions;
++ (unsigned long long)orthographyIndexForLanguageCode:(unsigned char)a0;
++ (unsigned long long)orthographyIndexForForOtherLanguage:(id)a0;
++ (id)localizationForLanguage:(id)a0;
++ (id)supportedAssetLanguages;
++ (id)languageModelLocalizationForLanguage:(id)a0;
++ (id)englishLocalizationAdditionForLanguage:(id)a0;
++ (id)supportedLocalizations;
++ (unsigned int)encodingForOrthographyIndex:(unsigned long long)a0;
++ (id)languageWithIdentifier:(id)a0;
++ (void)getCodesForLanguage:(id)a0 languageCode:(char *)a1 languageDialect:(char *)a2 languageMode:(char *)a3 orthographyIndex:(unsigned long long *)a4 encoding:(unsigned int *)a5;
++ (id)supportedLatinLanguages;
++ (id)textInputModeForLanguage:(id)a0;
+
+- (BOOL)isHungarian;
+- (BOOL)isGerman;
+- (BOOL)isNynorsk;
+- (BOOL)isRomanian;
+- (BOOL)isGreek;
+- (BOOL)isIndonesian;
+- (BOOL)isPolish;
+- (BOOL)isSpanish;
+- (BOOL)isItalian;
+- (BOOL)isDutch;
+- (unsigned int)encoding;
+- (void)dealloc;
+- (unsigned char)languageDialect;
+- (BOOL)isRussian;
+- (BOOL)isEnglish;
+- (BOOL)isPunjabi;
+- (id)initWithIdentifier:(id)a0;
+- (BOOL)isFrench;
+- (BOOL)isHebrew;
+- (BOOL)isKorean;
+- (unsigned char)languageCode;
+- (id)localization;
+- (BOOL)isFinnish;
+- (BOOL)isSwedish;
+- (const char *)oneLetterWords;
+- (BOOL)isHindi;
+- (const char *)accents;
+- (unsigned long long)orthographyIndex;
+- (BOOL)isVietnamese;
+- (BOOL)isDanish;
+- (BOOL)isUkrainian;
+- (unsigned char)languageMode;
+- (BOOL)isPortuguese;
+- (BOOL)isBicameral;
+- (BOOL)isNorwegian;
+- (BOOL)isIrishGaelic;
+- (BOOL)isTurkish;
+- (const char *)twoLetterWords;
+- (BOOL)isBulgarian;
+- (BOOL)isArabic;
+- (BOOL)isCzech;
+- (BOOL)isThai;
+- (BOOL)isTelugu;
+- (id)identifier;
+- (id)fallbackLocalization;
+
+@end

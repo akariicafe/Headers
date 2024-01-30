@@ -1,0 +1,66 @@
+@interface MKBKeyStoreDevice : NSObject
+
++ (id)sharedService;
+
+- (id)retriveUserSessionSecureBlobWithreturnedError:(id *)a0;
+- (id)getBackupkeyForInodeOrCryptoID:(unsigned long long)a0 withreturnValue:(int *)a1;
+- (BOOL)unloadUserSession:(id)a0 withreturnedError:(id *)a1;
+- (int)stopBackupSession;
+- (int)currentSyncBubbledIDWithReturnedError:(id *)a0;
+- (int)ChangeSystemSecretWithEscrow:(id)a0 FromOldPasscode:(id)a1 ToNew:(id)a2 withOpaqueDats:(id)a3 withKeepState:(int)a4;
+- (int)stashDestroy;
+- (int)limitNumberOfUserSessionsTo:(int)a0 WithReturnedError:(id *)a1;
+- (BOOL)deleteUserSessionBlobWithReturnedError:(id *)a0;
+- (id)loadUserSession:(id)a0 withSecret:(id)a1 withreturnedError:(id *)a2;
+- (int)SeshatDebug:(int)a0;
+- (id)getFileHandleForData:(id)a0;
+- (id)foregroundUserSessionAtrributesWithReturnedError:(id *)a0;
+- (int)changeClassKeysGenerationWithSecret:(id)a0 withGenerationOption:(int)a1;
+- (BOOL)isDeviceInLoginSessionWithReturnedError:(id *)a0;
+- (int)changeSystemSecretFromOldPasscode:(id)a0 ToNew:(id)a1 withOpaqueData:(id)a2;
+- (BOOL)unmountUserSessionVolumeforID:(int)a0 WithReturnedError:(id *)a1;
+- (BOOL)mountUserSessionVolumeforID:(int)a0 WithReturnedError:(id *)a1;
+- (BOOL)startUserSyncBubbleToSession:(int)a0 WithReturnedError:(id *)a1;
+- (id)migrateUserSession:(id)a0 fromPath:(id)a1 withSecret:(id)a2 withOpaqueData:(id)a3 withreturnedError:(id *)a4;
+- (id)userSessionLRUInfoWithReturnedError:(id *)a0;
+- (BOOL)removeUserSession:(id)a0 withreturnedError:(id *)a1;
+- (id)listAllUserSyncBubbleIDsWithReturnedError:(id *)a0;
+- (BOOL)getDeviceLockStateForUser:(int)a0 extendedState:(BOOL)a1 withLockStateInfo:(int *)a2;
+- (BOOL)removeSyncServiceSource:(id)a0 ToUserSessionWithID:(int)a1 WithReturnedError:(id *)a2;
+- (BOOL)deleteUserSessionSecureBlobWithReturnedError:(id *)a0;
+- (int)migrateFS;
+- (BOOL)stopUserSyncBubbleToSession:(int)a0 WithReturnedError:(id *)a1;
+- (int)isKeyRollingWithKeyStatus:(int *)a0;
+- (id)getLockStateForUser:(int)a0;
+- (int)passcodeUnlockSuccess;
+- (int)passcodeUnlockFailed;
+- (id)switchBlockTasksInfoWithReturnedError:(id *)a0;
+- (id)_CreateMKBServerConnection;
+- (id)setuserSessionAttributes:(id)a0 WithReturnedError:(id *)a1;
+- (BOOL)setUserSessionDeviceConfigurations:(int)a0 WithReturnedError:(id *)a1;
+- (int)SeshatRecover:(id)a0;
+- (int)passcodeUnlockStart;
+- (BOOL)addSyncServiceSource:(id)a0 ToUserSessionWithID:(int)a1 WithReturnedError:(id *)a2;
+- (BOOL)removeAllUserSyncBubbleIDsWithReturnedError:(id *)a0;
+- (id)createUserSession:(id)a0 withSecret:(id)a1 withOpaqueData:(id)a2 withreturnedError:(id *)a3;
+- (id)listSyncServiceSourcesForUserSession:(id)a0 WithReturnedError:(id *)a1;
+- (int)stashVerifywithValidity:(int *)a0 WithUID:(unsigned int)a1 WithFlags:(unsigned int)a2;
+- (int)stashCommit:(unsigned int)a0 WithFlags:(unsigned int)a1;
+- (int)stashCreateWithSecret:(id)a0 withMode:(int)a1 withUID:(unsigned int)a2 WithFlags:(unsigned int)a3;
+- (int)SeshatUnlock:(id)a0;
+- (id)retriveUserSessionBlobWithreturnedError:(id *)a0;
+- (BOOL)fetchReplacementVoucherPort:(unsigned int)a0 foraccountID:(id)a1 withTargetPort:(unsigned int *)a2 generationSet:(BOOL)a3 withreturnedError:(id *)a4;
+- (BOOL)switchUserSession:(id)a0 withOpaqueData:(id)a1 withreturnedError:(id *)a2;
+- (BOOL)setUserSessionSecureBackupBlob:(id)a0 WithReturnedError:(id *)a1;
+- (id)listAllUserSessionIDSWithReturnedError:(id *)a0;
+- (id)copySytemSecretBlob;
+- (id)configureLoginUI:(int)a0 WithReturnedError:(id *)a1;
+- (int)registerOTABackup:(id)a0 withSecret:(id)a1;
+- (id)userSessionAttributesForSession:(id)a0 WithReturnedError:(id *)a1;
+- (int)Event:(int)a0;
+- (BOOL)switchToLoginUIWithReturnedError:(id *)a0;
+- (BOOL)MKBUserSessionSetInternalTest:(BOOL)a0 WithReturnedError:(id *)a1;
+- (int)startBackupSession;
+- (int)SeshatEnroll:(id)a0;
+
+@end

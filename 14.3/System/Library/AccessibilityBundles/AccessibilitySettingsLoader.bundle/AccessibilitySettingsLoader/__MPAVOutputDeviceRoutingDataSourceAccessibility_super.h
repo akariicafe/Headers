@@ -1,0 +1,3 @@
+@interface __MPAVOutputDeviceRoutingDataSourceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

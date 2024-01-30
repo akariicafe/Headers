@@ -1,0 +1,72 @@
+@class PXSearchResultsOneUpViewModel, NSString, UISearchController, PXSearchIndexManager, PXSearchQuery, UICollectionView, PXSearchQueryController, PXSearchComposableDataSource, UIScrollView;
+
+@interface PXUISearchResultsViewController : UIViewController <PXOneUpPresentationDelegate, PXSearchTapToRadarSectionProviderDelegate, UICollectionViewDelegate, UIScrollViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+
+@property (readonly, nonatomic) UIScrollView *ppt_scrollView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (retain, nonatomic) PXSearchComposableDataSource *dataSource;
+@property (retain, nonatomic) PXSearchQueryController *queryController;
+@property (retain, nonatomic) PXSearchIndexManager *searchIndexManager;
+@property (copy, nonatomic) PXSearchQuery *currentSearchQuery;
+@property (retain, nonatomic) PXSearchResultsOneUpViewModel *oneUpViewModel;
+@property (readonly, nonatomic) UISearchController *searchController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (id)_radarRoutes;
+- (id)_radarRoutesDescription;
+- (id)_radarInfoForRadarRoute:(id)a0 searchQuery:(id)a1;
+- (id)_titleForRadarRoute:(id)a0 searchQuery:(id)a1;
+- (id)_templateForRadarRoute:(id)a0;
+- (id)_keywordForRadarRoute:(id)a0;
+- (void)_didSelectTapToRadar:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)ppt_expandAllSections;
+- (void)showOneUpForAssetSearchResult:(id)a0;
+- (id)_searchResultsSectionProvider;
+- (void)didSelectTapToRadar;
+- (void)_configureDataSourceForCollectionView:(id)a0 sectionProviders:(id)a1;
+- (void)_configureQueryControllerWithResultsSectionProvider:(id)a0 suggestionsSectionProvider:(id)a1 queryStatusSectionProvider:(id)a2 tapToRadarSectionProvider:(id)a3;
+- (void)_configureCollectionViewWithSectionProviders:(id)a0;
+- (id)_collectionViewLayoutWithProviders:(id)a0;
+- (long long)_contentInsetsReferenceForTraitCollection:(id)a0;
+- (void)_didSelectAssetsSeeAllButtonForSection:(id)a0 allAssetResultUUIDs:(id)a1 title:(id)a2;
+- (void)_didSelectCollectionsSeeAllButtonForSection:(id)a0 sectionProvider:(id)a1 searchResultsHeaderView:(id)a2;
+- (id)oneUpPresentationInitialAssetReference:(id)a0;
+- (void)_didSelectItemIdentifier:(id)a0 inSuggestionsSectionProvider:(id)a1;
+- (void)_didSelectItemIdentifier:(id)a0 inResultsSectionProvider:(id)a1;
+- (id)oneUpPresentation:(id)a0 regionOfInterestForAssetReference:(id)a1;
+- (void)oneUpPresentation:(id)a0 scrollAssetReferenceToVisible:(id)a1;
+- (void)oneUpPresentation:(id)a0 setHiddenAssetReferences:(id)a1;
+- (long long)oneUpPresentationActionContext:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)_ppt_resultsSectionProvider;
+- (id)oneUpPresentationDataSourceManager:(id)a0;
+- (id)oneUpPresentationMediaProvider:(id)a0;
+- (void)searchBar:(id)a0 textDidChange:(id)a1;
+- (long long)oneUpPresentationOrigin:(id)a0;
+- (void)updateSearchResultsForSearchController:(id)a0;
+- (void)_didSelectAlbumSearchResult:(id)a0;
+- (void)didSelectAssetSearchResult:(id)a0;
+- (void)_didSelectDetailCollectionSearchResult:(id)a0;
+- (id)_emptyPhotosViewControllerForSearchResult:(id)a0;
+- (void)didSelectSeeAllForAssetUUIDs:(id)a0 title:(id)a1;
+- (void)didSelectAssetAggregationSearchResult:(id)a0;
+- (void)didSelectCollectionSearchResult:(id)a0;
+- (void)didSelectPersonSearchResult:(id)a0;
+- (unsigned long long)_searchSuggestionLimit;
+- (void)searchBarSearchButtonClicked:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidLoad;
+
+@end

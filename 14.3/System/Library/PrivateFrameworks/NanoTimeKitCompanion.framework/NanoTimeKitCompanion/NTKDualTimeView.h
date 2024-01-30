@@ -1,0 +1,84 @@
+@class NTKDigitalTimeLabel, NSDate, CAReplicatorLayer, CALayer, UIView, NSCalendar, NSString, CLKClockTimerToken, NSArray, CLKDevice, NTKDigitalTimeLabelStyle, CLKFont, NTKAnalogHandsView;
+
+@interface NTKDualTimeView : UIView <NTKTimeView> {
+    NSDate *_overrideDate;
+    NSCalendar *_calendar;
+    CLKClockTimerToken *_clockTimerToken;
+    CAReplicatorLayer *_hourTickReplicatorLayer;
+    CAReplicatorLayer *_minuteTickReplicatorLayer;
+    CALayer *_digitalTicksContainer;
+    NSArray *_digitalTicks;
+    NTKDigitalTimeLabelStyle *_digitalStyle;
+    CLKFont *_digitalLabelFont;
+}
+
+@property (retain, nonatomic) UIView *dialContainerView;
+@property (retain, nonatomic) UIView *dialBackgroundView;
+@property (retain, nonatomic) UIView *analogContainerView;
+@property (retain, nonatomic) UIView *analogTickContainerView;
+@property (retain, nonatomic) NTKAnalogHandsView *analogHandsView;
+@property (retain, nonatomic) CLKDevice *device;
+@property (nonatomic, getter=isFrozen) BOOL frozen;
+@property (nonatomic) BOOL editing;
+@property (nonatomic) BOOL hideActiveTicks;
+@property (nonatomic) BOOL useMonospacedDigitalNumbers;
+@property (nonatomic) unsigned long long style;
+@property (nonatomic) unsigned long long color;
+@property (readonly, nonatomic) NTKDigitalTimeLabel *digitalTimeLabel;
+@property (readonly, nonatomic) UIView *digitalContainerView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)setTimeOffset:(double)a0;
+- (void)dealloc;
+- (void)layoutSubviews;
+- (void)applyTransitionFraction:(double)a0 fromStyle:(unsigned long long)a1 toStyle:(unsigned long long)a2;
+- (void)applyTransitionFraction:(double)a0 fromColor:(unsigned long long)a1 toColor:(unsigned long long)a2;
+- (void)setOverrideDate:(id)a0 duration:(double)a1;
+- (void)_setupDigitalTimeViews;
+- (id)_secondTickActiveColorForColor:(unsigned long long)a0;
+- (void)_setupAnalogHandsView;
+- (void)_didFinishTimeViewSetup;
+- (BOOL)shouldUseCustomDialBackground;
+- (id)_customDialBackgroundView;
+- (double)_analogTickInset;
+- (struct CGSize { double x0; double x1; })_hourTickSize;
+- (struct CGSize { double x0; double x1; })_minuteTickSize;
+- (unsigned long long)_hourTickCount;
+- (unsigned long long)_minuteTickCount;
+- (id)_hourTickColorForColor:(unsigned long long)a0;
+- (id)_minuteTickColorForColor:(unsigned long long)a0;
+- (id)_hourMinuteHandFillColorForColor:(unsigned long long)a0;
+- (id)_hourMinuteHandStrokeColorForColor:(unsigned long long)a0;
+- (struct CGSize { double x0; double x1; })_secondTickSize;
+- (double)_digitalTimeLabelFontSize;
+- (id)_digitalTimeLabelColorForColor:(unsigned long long)a0;
+- (id)_secondTickInactiveColorForColor:(unsigned long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 style:(unsigned long long)a1 andDevice:(id)a2;
+- (id)_secondHandColorForColor:(unsigned long long)a0;
+- (void)setSecondsHidden:(BOOL)a0 animated:(BOOL)a1;
+- (void)_setupDial;
+- (void)setupTimeViews;
+- (void)_endDigitalTicksTimer;
+- (void)_tearDownAnalogContainerView;
+- (void)_tearDownDigitalContainerView;
+- (void)_setupAnalogTimeViews;
+- (void)_setupAnalogTicks;
+- (id)_digitalLabelFont;
+- (void)_setupDigitalTicks;
+- (void)_startDigitalTicksTimer;
+- (double)_digitalTickInset;
+- (void)_refreshDigitalTicksWithNow:(id)a0 secondFraction:(double)a1;
+- (void)_refreshDigitalTicks;
+- (void)_colorizeDigitalTicksWithActiveColor:(id)a0 inactiveColor:(id)a1 now:(id)a2 secondFraction:(double)a3;
+- (void)_updateDigitalLabelFont;
+- (id)_dialColorForColor:(unsigned long long)a0;
+- (void)_applyColorToAnalogHands;
+- (void)_colorizeAnalogTicksWithHourColor:(id)a0 minuteColor:(id)a1;
+- (void)applyTransitionFraction:(double)a0 fromColor:(unsigned long long)a1 toColor:(unsigned long long)a2 ignoreTimeView:(BOOL)a3;
+- (id)_activeTimeView;
+
+@end

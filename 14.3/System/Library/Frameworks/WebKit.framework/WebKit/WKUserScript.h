@@ -1,0 +1,29 @@
+@class NSString, _WKUserContentWorld, WKContentWorld;
+
+@interface WKUserScript : NSObject <WKObject, NSCopying> {
+    struct ObjectStorage<API::UserScript> { struct type { unsigned char __lx[120]; } data; } _userScript;
+}
+
+@property (readonly, nonatomic) _WKUserContentWorld *_userContentWorld;
+@property (readonly, nonatomic) WKContentWorld *_contentWorld;
+@property (readonly, copy, nonatomic) NSString *source;
+@property (readonly, nonatomic) long long injectionTime;
+@property (readonly, nonatomic, getter=isForMainFrameOnly) BOOL forMainFrameOnly;
+@property (readonly) struct Object { void /* function */ **x0; id x1; } *_apiObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 legacyWhitelist:(id)a3 legacyBlacklist:(id)a4 userContentWorld:(id)a5;
+- (void)dealloc;
+- (id)initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 inContentWorld:(id)a3;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 legacyWhitelist:(id)a3 legacyBlacklist:(id)a4 associatedURL:(id)a5 contentWorld:(id)a6;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 legacyWhitelist:(id)a3 legacyBlacklist:(id)a4 associatedURL:(id)a5 userContentWorld:(id)a6;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 includeMatchPatternStrings:(id)a3 excludeMatchPatternStrings:(id)a4 associatedURL:(id)a5 contentWorld:(id)a6 deferRunningUntilNotification:(BOOL)a7;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 legacyWhitelist:(id)a3 legacyBlacklist:(id)a4 associatedURL:(id)a5 contentWorld:(id)a6 deferRunningUntilNotification:(BOOL)a7;
+- (id)_initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2 legacyWhitelist:(id)a3 legacyBlacklist:(id)a4 contentWorld:(id)a5;
+- (id)initWithSource:(id)a0 injectionTime:(long long)a1 forMainFrameOnly:(BOOL)a2;
+
+@end

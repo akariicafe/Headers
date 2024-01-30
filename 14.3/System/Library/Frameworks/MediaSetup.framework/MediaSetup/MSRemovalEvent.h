@@ -1,0 +1,3 @@
+@interface MSRemovalEvent : MSServiceEvent
+
+@end

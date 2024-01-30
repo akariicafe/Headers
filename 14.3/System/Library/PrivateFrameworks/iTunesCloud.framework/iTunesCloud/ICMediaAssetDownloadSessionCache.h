@@ -1,0 +1,3 @@
+@interface ICMediaAssetDownloadSessionCache : NSObject
+
+@end

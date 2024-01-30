@@ -1,0 +1,84 @@
+@class NSString, CLKComplicationTemplate, UIView, NSDate;
+@protocol NTKComplicationDisplayWrapperViewAnimationDelegate, CLKMonochromeFilterProvider, NTKComplicationDisplay;
+
+@interface NTKComplicationDisplayWrapperView : UIControl <NTKComplicationDisplayObserver, CLKSensitiveUIStateObserver, NTKControl, NTKTimeTravel> {
+    UIView<NTKComplicationDisplay> *_currentComplicationView;
+    UIView<NTKComplicationDisplay> *_nextComplicationView;
+    UIView<NTKComplicationDisplay> *_deferredComplicationView;
+    UIView *_clipView;
+    UIView *_earlierContainerView;
+    UIView *_laterContainerView;
+    CLKComplicationTemplate *_prevTemplate;
+    CLKComplicationTemplate *_template;
+    NSDate *_timeTravelDate;
+    BOOL _didChangeLayoutOverride;
+    BOOL _isAnimating;
+    BOOL _isDetachedDisplay;
+}
+
+@property (readonly, nonatomic) long long family;
+@property (retain, nonatomic) NSString *complicationSlotIdentifier;
+@property (nonatomic) BOOL supportsCurvedText;
+@property (readonly, nonatomic) UIView<NTKComplicationDisplay> *display;
+@property (copy, nonatomic) id /* block */ displayConfigurationHandler;
+@property (nonatomic) BOOL paused;
+@property (nonatomic) BOOL editing;
+@property (nonatomic) BOOL tapEnabled;
+@property (copy, nonatomic) id /* block */ touchDownHandler;
+@property (copy, nonatomic) id /* block */ touchUpInsideHandler;
+@property (weak, nonatomic) id<NTKComplicationDisplayWrapperViewAnimationDelegate> animationDelegate;
+@property (nonatomic) struct CGSize { double width; double height; } maxSize;
+@property (copy, nonatomic) id /* block */ needsResizeHandler;
+@property (readonly, nonatomic) CLKComplicationTemplate *complicationTemplate;
+@property (nonatomic, getter=isDimmed) BOOL dimmed;
+@property (nonatomic) double alphaForDimmedState;
+@property (readonly, nonatomic) BOOL hasLegacyDisplay;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } preferredSize;
+@property (readonly, nonatomic) long long layoutOverride;
+@property (weak, nonatomic) id<CLKMonochromeFilterProvider> filterProvider;
+@property (copy, nonatomic) id /* block */ renderStatsHandler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (BOOL)performTap;
+- (void).cxx_destruct;
+- (void)sensitiveUIStateChanged;
+- (void)dealloc;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)layoutSubviews;
+- (void)setHighlighted:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)needsResize;
+- (void)setDimmed:(BOOL)a0 animated:(BOOL)a1;
+- (id)initWithFamily:(long long)a0;
+- (void)setTimeTravelDate:(id)a0 animated:(BOOL)a1;
+- (id)initWithCustomTemplateDisplay:(id)a0 isDetachedDisplay:(BOOL)a1 family:(long long)a2;
+- (id)initWithLegacyDisplay:(id)a0 layoutOverride:(long long)a1;
+- (void)complicationDisplay:(id)a0 renderStatsWithTime:(double)a1 cost:(double)a2;
+- (void)complicationDisplayNeedsResize:(id)a0;
+- (void)setComplicationTemplate:(id)a0 reason:(long long)a1 animation:(unsigned long long)a2;
+- (BOOL)shouldCancelTouchesInScrollview;
+- (BOOL)_invokeTouchUpInsideHandler;
+- (void)_invokeTouchDownHandler;
+- (id)initWithLegacyDisplay:(id)a0;
+- (void)_setDisplay:(id)a0 withComplicationAnimation:(unsigned long long)a1 animationType:(unsigned long long)a2 animationFraction:(float)a3;
+- (void)_setComplicationTemplate:(id)a0 reason:(long long)a1 animation:(unsigned long long)a2 animationType:(unsigned long long)a3 animationFraction:(float)a4;
+- (void)_replaceDisplayWithDisplayClass:(Class)a0 template:(id)a1 reason:(long long)a2 animation:(unsigned long long)a3 animationType:(unsigned long long)a4 animationFraction:(float)a5;
+- (void)_updateVisibilityForSensitivity:(long long)a0;
+- (void)_prepareToSetDisplay:(id)a0 withComplicationAnimation:(inout unsigned long long *)a1;
+- (void)_didSetDisplayFromDisplay:(id)a0 withComplicationAnimation:(unsigned long long)a1;
+- (void)_invokeNeedsResizeHandler;
+- (void)_setDisplayEditing:(BOOL)a0;
+- (void)_setDisplayMaxSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_setDimmed:(BOOL)a0 animated:(BOOL)a1;
+- (void)_tryToSetDisplayHighlighted:(BOOL)a0;
+- (BOOL)_displayIsTappable;
+- (void)_removeDisplay:(id)a0;
+- (void)setComplicationView:(id)a0 withComplicationAnimation:(unsigned long long)a1 animationType:(unsigned long long)a2 animationFraction:(float)a3;
+- (void)_timelineAnimationDidFinish;
+- (void)_resetComplicationViews;
+
+@end

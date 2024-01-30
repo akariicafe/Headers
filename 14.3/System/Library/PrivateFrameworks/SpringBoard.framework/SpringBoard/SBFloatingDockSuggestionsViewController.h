@@ -1,0 +1,76 @@
+@class SBDockIconListView, SBApplicationController, SBAppSuggestionManager, SBRecentDisplayItemsDataStore, SBIconController, NSMutableArray, SBIconListModel, SBRecentDisplayItemsDefaults, NSString, NSSet, SBFloatingDockSuggestionsModel, SBLayoutStateTransitionCoordinator, SBFloatingDockViewController;
+@protocol SBIconViewProviding, SBFloatingDockSuggestionsViewControllerDelegate;
+
+@interface SBFloatingDockSuggestionsViewController : UIViewController <SBFloatingDockSuggestionsModelDelegate, SBLayoutStateTransitionObserver, SBIconViewProviding, SBFloatingDockSuggestionsViewProviding, SBIconViewQuerying>
+
+@property (readonly, nonatomic) SBIconController *iconController;
+@property (readonly, nonatomic) SBApplicationController *applicationController;
+@property (readonly, nonatomic) SBRecentDisplayItemsDataStore *recentsDataStore;
+@property (readonly, nonatomic) SBRecentDisplayItemsDefaults *recentsDefaults;
+@property (readonly, nonatomic) SBAppSuggestionManager *appSuggestionManager;
+@property (readonly, nonatomic) SBIconListModel *suggestionsIconListModel;
+@property (readonly, nonatomic) SBFloatingDockSuggestionsModel *suggestionsModel;
+@property (retain, nonatomic) NSMutableArray *deferredIconUpdates;
+@property (retain, nonatomic) SBLayoutStateTransitionCoordinator *layoutStateTransitionCoordinator;
+@property (nonatomic) long long effectiveEnvironmentMode;
+@property (nonatomic, getter=isVisible) BOOL visible;
+@property (readonly, nonatomic) id<SBIconViewProviding> iconViewProvider;
+@property (retain, nonatomic) SBDockIconListView *listView;
+@property (weak, nonatomic) id<SBFloatingDockSuggestionsViewControllerDelegate> delegate;
+@property (readonly, nonatomic) unsigned long long numberOfRecents;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) SBFloatingDockViewController *floatingDockViewController;
+@property (readonly, copy, nonatomic) NSSet *presentedIconLocations;
+
+- (BOOL)isPresentingIconLocation:(id)a0;
+- (BOOL)isIconViewRecycled:(id)a0;
+- (void)configureIconView:(id)a0 forIcon:(id)a1;
+- (void)enumerateDisplayedIconViewsForIcon:(id)a0 usingBlock:(id /* block */)a1;
+- (void)layoutStateTransitionCoordinator:(id)a0 transitionDidEndWithTransitionContext:(id)a1;
+- (id)dequeueReusableIconViewOfClass:(Class)a0;
+- (id)firstIconViewForIcon:(id)a0 excludingLocations:(id)a1;
+- (BOOL)isDisplayingIconView:(id)a0 inLocation:(id)a1;
+- (void)layoutStateTransitionCoordinator:(id)a0 transitionDidBeginWithTransitionContext:(id)a1;
+- (BOOL)isDisplayingIcon:(id)a0;
+- (id)iconViewForIcon:(id)a0 location:(id)a1;
+- (id)firstIconViewForIcon:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isDisplayingIcon:(id)a0 inLocation:(id)a1;
+- (id)firstIconViewForIcon:(id)a0 inLocations:(id)a1;
+- (BOOL)isDisplayingIconView:(id)a0;
+- (BOOL)isDisplayingIcon:(id)a0 inLocations:(id)a1;
+- (void)dealloc;
+- (void)enumerateDisplayedIconViewsUsingBlock:(id /* block */)a0;
+- (void)loadView;
+- (void)dockViewWillBecomeVisible;
+- (void)dockViewWillResignVisible;
+- (void)dockViewDidResignVisible;
+- (void)dockViewDidBecomeVisible;
+- (void)dockFolderWillBeginTransitioning;
+- (void)dockFolderDidEndTransitioning;
+- (id)_iconForDisplayItem:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)recycleIconView:(id)a0;
+- (void)_placeholdersDidChange:(id)a0;
+- (void)_iconModelDidChange:(id)a0;
+- (void)_listLayoutDidChange:(id)a0;
+- (id)initWithNumberOfRecents:(unsigned long long)a0 iconController:(id)a1 applicationController:(id)a2 layoutStateTransitionCoordinator:(id)a3 suggestionsModel:(id)a4 iconViewProvider:(id)a5;
+- (void)_loadAndPlaceIconsInViewForDisplayItems:(id)a0;
+- (void)_performDeferredIconUpdates;
+- (BOOL)_onHomescreen;
+- (BOOL)_shouldDeferUpdateInvolvingContinuity:(BOOL)a0;
+- (void)_emitPresentedEventInvolvingContinuity:(BOOL)a0 fromModel:(id)a1 atIndex:(unsigned long long)a2;
+- (void)_fadeInIcon:(id)a0 isReplacing:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_didChangeNumberOfIcons;
+- (void)_performOrDefer:(BOOL)a0 iconUpdate:(id /* block */)a1;
+- (void)_fadeOutIcon:(id)a0 atIndex:(unsigned long long)a1 isReplacing:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_swapIcon:(BOOL)a0 forPlaceholders:(id)a1;
+- (void)dockSuggestionsModel:(id)a0 didInsertItem:(id)a1 atIndex:(unsigned long long)a2 involvesContinuity:(BOOL)a3;
+- (void)dockSuggestionsModel:(id)a0 didRemoveItem:(id)a1 atIndex:(unsigned long long)a2 involvesContinuity:(BOOL)a3;
+- (void)dockSuggestionsModel:(id)a0 didReplaceItem:(id)a1 atIndex:(unsigned long long)a2 withItem:(id)a3 atIndex:(unsigned long long)a4 involvesContinuity:(BOOL)a5;
+- (void)dockSuggestionsModel:(id)a0 didReloadItems:(id)a1 withItems:(id)a2;
+
+@end

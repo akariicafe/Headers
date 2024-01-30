@@ -1,0 +1,56 @@
+@interface PPMaintenance : NSObject
+
++ (void)processPendingFeedbackWithShouldContinueBlock:(id /* block */)a0;
++ (void)_registerContactsImport;
++ (void)_registerEventKitImport;
++ (id)_quantizeTopics:(id)a0;
++ (BOOL)_logDifferentiallyPrivateSourcesForLocationsWithError:(id *)a0;
++ (void)_registerLogTopicPerplexity;
++ (id)runPortraitMusicDataCollectionWithTopicStore:(id)a0 namedEntityStore:(id)a1 collectIntents:(BOOL)a2 error:(id *)a3 shouldContinueBlock:(id /* block */)a4;
++ (id)_generateTopicExtractionsWithSamplingRate:(double)a0 fromDate:(id)a1 toDate:(id)a2 error:(id *)a3;
++ (BOOL)_logDailyLocationStatisticsWithError:(id *)a0 shouldContinue:(id /* block */)a1;
++ (void)_registerTopicImport;
++ (void)_addMediaItem:(id)a0 ofType:(int)a1 withBundleId:(id)a2 dateInterval:(id)a3 to:(id)a4;
++ (void)_registerMapsImport;
++ (BOOL)_runPortraitMusicDataCollectionWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
++ (unsigned int)_kValue;
++ (void)_registerProcessPendingFeedback;
++ (BOOL)_logDailyDatabaseStatisticsWithError:(id *)a0 shouldContinue:(id /* block */)a1;
++ (void)_registerDecayedFeedbackCountsDecay;
++ (void)_registerOptimizeDatabase;
++ (BOOL)_logEngagementMetricsForDomain:(int)a0 feedback:(id)a1 count:(unsigned int)a2 shouldContinue:(id /* block */)a3;
++ (void)_registerHealthKitImport;
++ (void)_registerDataCollection;
++ (void)_registerNamedEntityFiltering;
++ (void)_registerDailyMetricsLogging;
++ (void)_registerLogNamedEntityPerplexity;
++ (BOOL)_logDifferentiallyPrivateSourcesForTopicsWithError:(id *)a0;
++ (BOOL)_logDailyMetricsWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
++ (void)_registerNowPlayingMPRequestResponseController;
++ (id)_quantizeAndFilterEntities:(id)a0 withLimit:(unsigned int)a1;
++ (void)_registerDecayedFeedbackCountsCleanup;
++ (void)_registerRTCSendLogs;
++ (id)singletonWarmupQueue;
++ (void)_logDonationIntervalStatsForSource:(id)a0 domain:(unsigned char)a1 lastDonationTimes:(id)a2 lastBatchDonationTimes:(id)a3;
++ (id)_objectToJsonString:(id)a0;
++ (void)_registerNamedEntityImport;
++ (void)_registerPendingFeedbackTTLCleanup;
++ (void)_registerRemotelyDonatedRecordCleanup;
++ (void)_registerEntityBackfilling;
++ (void)_registerLogLocationPerplexity;
++ (void)_logEngagementMetricsWithDomain:(int)a0 feedback:(id)a1 bucket:(unsigned int)a2 count:(unsigned int)a3;
++ (void)_registerTTLBasedDonationCleanup;
++ (void)_registerCoreRoutineImport;
++ (BOOL)_logNamedEntityEngagementMetricsWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
++ (void)_registerTopicRepairAndExport;
++ (BOOL)_logDailyTopicStatisticsWithError:(id *)a0 shouldContinue:(id /* block */)a1;
++ (BOOL)_logDailyNamedEntityStatisticsWithError:(id *)a0 shouldContinue:(id /* block */)a1;
++ (void)_registerNamedEntityRepairAndExport;
++ (void)registerMaintenanceTasksInternal;
++ (BOOL)_logDifferentiallyPrivateSourcesForNamedEntitiesWithError:(id *)a0;
++ (void)_registerTTLBasedDecayedFeedbackCountsCleanup;
++ (BOOL)_runPortraitAnalyticsDataCollectionWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
++ (BOOL)_logLocationEngagementMetricsWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
++ (BOOL)_logTopicEngagementMetricsWithError:(id *)a0 shouldContinueBlock:(id /* block */)a1;
+
+@end

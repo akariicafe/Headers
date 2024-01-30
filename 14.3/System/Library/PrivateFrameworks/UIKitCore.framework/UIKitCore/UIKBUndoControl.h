@@ -1,0 +1,30 @@
+@class UIKBUndoStyling, UIImageView, UILabel, UIView, NSLayoutConstraint;
+
+@interface UIKBUndoControl : UIControl
+
+@property (nonatomic) long long type;
+@property (retain, nonatomic) UIKBUndoStyling *style;
+@property (retain, nonatomic) UIView *springCoverView;
+@property (retain, nonatomic) UILabel *label;
+@property (retain, nonatomic) UIImageView *icon;
+@property (retain, nonatomic) NSLayoutConstraint *coverConstraintLeftAnchor;
+@property (retain, nonatomic) NSLayoutConstraint *coverConstraintRightAnchor;
+@property (retain, nonatomic) NSLayoutConstraint *coverConstraintTopAnchor;
+@property (retain, nonatomic) NSLayoutConstraint *coverConstraintBottomAnchor;
+
++ (id)controlLableTextByType:(long long)a0 style:(id)a1 available:(BOOL)a2;
+
+- (id)viewForFirstBaselineLayout;
+- (id)viewForLastBaselineLayout;
+- (void).cxx_destruct;
+- (id)imageSymbolConfiguration;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)layoutControlForType:(long long)a0 andStyling:(id)a1;
+- (id)controlImageByType:(long long)a0;
+- (id)initWithType:(long long)a0 andStyling:(id)a1;
+- (void)updateUndoControlStyleForState:(unsigned long long)a0;
+- (void)updateCoverWithTavelProcess:(double)a0 isRTL:(BOOL)a1;
+- (id)controlLabelImageNameByType:(long long)a0 isRTL:(BOOL)a1;
+- (void)traitCollectionDidChange:(id)a0;
+
+@end

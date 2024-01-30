@@ -1,0 +1,3 @@
+@interface __SKUIBadgeTextAttachmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

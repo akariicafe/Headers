@@ -1,0 +1,26 @@
+@class NSString;
+@protocol PKSetupAssistantPeerPaymentAddAssociatedAccountDelegate;
+
+@interface PKSetupAssistantPeerPaymentAddAssociatedAccountViewController : PKPeerPaymentAddAssociatedAccountViewController <PKPeerPaymentAssociatedAccountSetupDelegate, PKSetupAssistantStep> {
+    id<PKSetupAssistantPeerPaymentAddAssociatedAccountDelegate> _setupAssistantDelegate;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)setupAssistantNeedsToRunReturningRequirements:(unsigned long long *)a0;
++ (BOOL)bridgeSetupAssistantNeedsToRunWithContext:(id)a0 returningRequirements:(unsigned long long *)a1;
++ (id)defaultWebServiceForContext:(long long)a0;
++ (BOOL)bridgeSetupAssistantNeedsToRunReturningRequirements:(unsigned long long *)a0;
++ (BOOL)setupAssistantNeedsToRun;
+
+- (void).cxx_destruct;
+- (id)initWithPairingFamilyMember:(id)a0 parentFamilyMember:(id)a1 webService:(id)a2 delegate:(id)a3 context:(long long)a4;
+- (void)preflightWithCompletion:(id /* block */)a0;
+- (id)initWithPairingFamilyMember:(id)a0 parentFamilyMember:(id)a1 webService:(id)a2 passLibraryDataProvider:(id)a3 delegate:(id)a4 context:(long long)a5;
+- (void)addPeerPaymentAssociatedAccountSetupCompletedWithSucess:(BOOL)a0 updatedAccount:(id)a1 forFamilyMember:(id)a2;
+- (void)addPeerPaymentAssociatedAccountDidSkipSetupForFamilyMember:(id)a0;
+
+@end

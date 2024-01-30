@@ -1,0 +1,81 @@
+@class MTLGPUDebugRenderPipelineState, NSString, MTLToolsDepthStencilState, MTLGPUDebugCommandBuffer, MTLGPUDebugBuffer;
+@protocol MTLBuffer;
+
+@interface MTLGPUDebugRenderCommandEncoder : MTLToolsRenderCommandEncoder <MTLGPUDebugCommandEncoder> {
+    unsigned int useResourceIteration;
+    BOOL _tileStageActive;
+    BOOL _tileStageUsed;
+    BOOL _fragmentStageActive;
+    struct MTLGPUDebugStageBufferHandles { unsigned long long handles[31]; MTLGPUDebugBuffer *buffers[31]; unsigned long long offsets[31]; BOOL needsFlush; } _vertexHandles;
+    struct MTLGPUDebugStageBufferHandles { unsigned long long handles[31]; MTLGPUDebugBuffer *buffers[31]; unsigned long long offsets[31]; BOOL needsFlush; } _fragmentHandles;
+    struct MTLGPUDebugStageBufferHandles { unsigned long long handles[31]; MTLGPUDebugBuffer *buffers[31]; unsigned long long offsets[31]; BOOL needsFlush; } _tileHandles;
+    struct MTLGPUDebugBufferArgumentData { BOOL needsFlush; BOOL argumentBufferBacking; BOOL useLengths; id<MTLBuffer> buffers[31]; unsigned long long offsets[31]; unsigned int lengths[31]; unsigned long long gpu_address[31][2]; } _vertexBuffers;
+    struct MTLGPUDebugBufferArgumentData { BOOL needsFlush; BOOL argumentBufferBacking; BOOL useLengths; id<MTLBuffer> buffers[31]; unsigned long long offsets[31]; unsigned int lengths[31]; unsigned long long gpu_address[31][2]; } _fragmentBuffers;
+    struct MTLGPUDebugBufferArgumentData { BOOL needsFlush; BOOL argumentBufferBacking; BOOL useLengths; id<MTLBuffer> buffers[31]; unsigned long long offsets[31]; unsigned int lengths[31]; unsigned long long gpu_address[31][2]; } _tileBuffers;
+    struct MTLGPUDebugTileThreadgroup { struct GPUDebugThreadgroupTableEntry { unsigned int offset; unsigned int length; } entries[32]; BOOL needsFlush; } _threadgroup;
+    struct Options { unsigned int x0; int x1; int x2; int x3; int x4; struct { unsigned char x0 : 1; unsigned char x1 : 1; unsigned char x2 : 1; unsigned char x3 : 1; unsigned char x4 : 1; unsigned char x5 : 1; unsigned char x6 : 1; unsigned char x7 : 1; unsigned char x8 : 1; unsigned char x9 : 1; unsigned char x10 : 1; unsigned char x11 : 1; unsigned char x12 : 1; unsigned char x13 : 1; unsigned char x14 : 1; unsigned char x15 : 1; unsigned char x16 : 1; unsigned char x17 : 1; unsigned char x18 : 1; unsigned char x19 : 1; unsigned char x20 : 1; unsigned char x21 : 1; unsigned char x22 : 1; unsigned char x23 : 1; unsigned char x24 : 1; unsigned char x25 : 1; unsigned char x26 : 1; unsigned char x27 : 1; unsigned char x28 : 1; } x5; } *_options;
+    struct GPUDebugEventUUIDPacket { unsigned long long pipelineStateID; unsigned int encoderID; unsigned int eventID; } _drawID;
+    unsigned long long _encoderType;
+    MTLGPUDebugRenderPipelineState *_currentPipeline;
+    MTLToolsDepthStencilState *_currentDepthStencil;
+    struct GPUBufferSubAlloc { id<MTLBuffer> buffer; unsigned long long offset; } _vertexReportBuffer;
+    struct GPUBufferSubAlloc { id<MTLBuffer> buffer; unsigned long long offset; } _fragmentReportBuffer;
+    struct GPUBufferSubAlloc { id<MTLBuffer> buffer; unsigned long long offset; } _tileReportBuffer;
+    struct { unsigned char count; BOOL mappingsValid; struct { unsigned int viewportArrayIndexOffset; unsigned int renderTargetArrayIndexOffset; } mappings[2]; } _vertexAmpState;
+}
+
+@property (readonly) MTLGPUDebugCommandBuffer *commandBuffer;
+@property (readonly) unsigned int encoderID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)useResource:(id)a0 usage:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void)setTileBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)dispatchThreadsPerTile:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; })a0;
+- (void)drawIndexedPatches:(unsigned long long)a0 patchIndexBuffer:(id)a1 patchIndexBufferOffset:(unsigned long long)a2 controlPointIndexBuffer:(id)a3 controlPointIndexBufferOffset:(unsigned long long)a4 indirectBuffer:(id)a5 indirectBufferOffset:(unsigned long long)a6;
+- (void)setTileBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)executeCommandsInBuffer:(id)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setThreadgroupMemoryLength:(unsigned long long)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (id).cxx_construct;
+- (void)setFragmentBytes:(const void *)a0 length:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setVertexBytes:(const void *)a0 length:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setFragmentBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5;
+- (void)drawPrimitives:(unsigned long long)a0 indirectBuffer:(id)a1 indirectBufferOffset:(unsigned long long)a2;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexType:(unsigned long long)a1 indexBuffer:(id)a2 indexBufferOffset:(unsigned long long)a3 indirectBuffer:(id)a4 indirectBufferOffset:(unsigned long long)a5;
+- (void)executeCommandsInBuffer:(id)a0 indirectBuffer:(id)a1 indirectBufferOffset:(unsigned long long)a2;
+- (void)setVertexBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2 instanceCount:(unsigned long long)a3 baseInstance:(unsigned long long)a4;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5 baseVertex:(long long)a6 baseInstance:(unsigned long long)a7;
+- (void)setDepthStencilState:(id)a0;
+- (void)drawIndexedPrimitives:(unsigned long long)a0 indexCount:(unsigned long long)a1 indexType:(unsigned long long)a2 indexBuffer:(id)a3 indexBufferOffset:(unsigned long long)a4;
+- (void)setFragmentBufferOffset:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setVertexBufferOffset:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setFragmentBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setVertexBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2 stages:(unsigned long long)a3;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2;
+- (void)drawPrimitives:(unsigned long long)a0 vertexStart:(unsigned long long)a1 vertexCount:(unsigned long long)a2 instanceCount:(unsigned long long)a3;
+- (void)setRenderPipelineState:(id)a0;
+- (void)drawPatches:(unsigned long long)a0 patchStart:(unsigned long long)a1 patchCount:(unsigned long long)a2 patchIndexBuffer:(id)a3 patchIndexBufferOffset:(unsigned long long)a4 instanceCount:(unsigned long long)a5 baseInstance:(unsigned long long)a6;
+- (void)drawPatches:(unsigned long long)a0 patchIndexBuffer:(id)a1 patchIndexBufferOffset:(unsigned long long)a2 indirectBuffer:(id)a3 indirectBufferOffset:(unsigned long long)a4;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2;
+- (void)setVertexAmplificationCount:(unsigned long long)a0 viewMappings:(const struct { unsigned int x0; unsigned int x1; } *)a1;
+- (void)drawIndexedPatches:(unsigned long long)a0 patchStart:(unsigned long long)a1 patchCount:(unsigned long long)a2 patchIndexBuffer:(id)a3 patchIndexBufferOffset:(unsigned long long)a4 controlPointIndexBuffer:(id)a5 controlPointIndexBufferOffset:(unsigned long long)a6 instanceCount:(unsigned long long)a7 baseInstance:(unsigned long long)a8;
+- (void)setTileBytes:(const void *)a0 length:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setTileBufferOffset:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)endEncoding;
+- (void)_initBufferArgumentData:(id)a0;
+- (void)flushBindings;
+- (void)setTessellationControlPointIndexBuffer:(id)a0 offset:(unsigned long long)a1;
+- (void)setRenderPipelineStateBuffers:(id)a0;
+- (id)initWithRenderCommandEncoder:(id)a0 commandBuffer:(id)a1 descriptor:(id)a2 encoderID:(unsigned int)a3;
+- (id)initWithRenderCommandEncoder:(id)a0 parallelEncoder:(id)a1 descriptor:(id)a2 encoderID:(unsigned int)a3;
+- (void)setVertexReportBuffer:(id)a0 offset:(unsigned long long)a1;
+- (void)setFragmentReportBuffer:(id)a0 offset:(unsigned long long)a1;
+- (void)setTileReportBuffer:(id)a0 offset:(unsigned long long)a1;
+
+@end

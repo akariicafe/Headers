@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.CarbonOxideResponses : HomeAutomationInternal.NumericEntityResponses
+
+@end

@@ -1,0 +1,3 @@
+@interface SSRingtonePurchase : SSTonePurchase
+
+@end

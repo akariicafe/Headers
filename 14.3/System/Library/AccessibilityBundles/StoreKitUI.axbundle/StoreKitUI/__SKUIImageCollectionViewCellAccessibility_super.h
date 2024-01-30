@@ -1,0 +1,3 @@
+@interface __SKUIImageCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType12SleepChanges : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,16 @@
+@class TAInterVisitMetricPerDevice;
+
+@interface TASingleVisitDetectionMetrics : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) TAInterVisitMetricPerDevice *interVisitMetrics;
+@property (readonly, nonatomic) unsigned long long loiType;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithInterVisitMetrics:(id)a0 loiType:(unsigned long long)a1;
+
+@end

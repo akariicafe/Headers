@@ -1,0 +1,78 @@
+@class NSTimer, NSString, MCNearbyServiceBrowser, MCNearbyServiceAdvertiser, IDSService, NSMutableDictionary, NSArray, MCPeerID, MCSession, NSMutableArray, AXSSInterDeviceSecurityHelper;
+@protocol AXSSInterDeviceSearchObserver, AXSSInterDeviceConnectionListener, AXSSInterDeviceActionReceiver;
+
+@interface AXSSInterDeviceCommunicator : NSObject <IDSServiceDelegate, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate>
+
+@property (readonly, nonatomic) IDSService *service;
+@property (nonatomic) long long state;
+@property (readonly, nonatomic) MCPeerID *localPeerID;
+@property (retain, nonatomic) MCSession *session;
+@property (retain, nonatomic) MCNearbyServiceBrowser *browser;
+@property (retain, nonatomic) MCNearbyServiceAdvertiser *advertiser;
+@property (retain, nonatomic) NSMutableArray *availableDevices;
+@property (retain, nonatomic) NSMutableDictionary *deviceTypesByPeerID;
+@property (retain, nonatomic) MCPeerID *slave;
+@property (retain, nonatomic) MCPeerID *master;
+@property (nonatomic) unsigned long long switchEventIndex;
+@property (retain, nonatomic) NSTimer *dummyPacketTimer;
+@property (nonatomic) unsigned long long numberOfBurstPacketsRemaining;
+@property (retain, nonatomic) AXSSInterDeviceSecurityHelper *securityHelper;
+@property (weak, nonatomic) id<AXSSInterDeviceConnectionListener> connectionListener;
+@property (weak, nonatomic) id<AXSSInterDeviceActionReceiver> actionReceiver;
+@property (weak, nonatomic) id<AXSSInterDeviceSearchObserver> searchObserver;
+@property (readonly, nonatomic) BOOL isReceivingSwitchEvents;
+@property (readonly, nonatomic) BOOL isForwardingSwitchEvents;
+@property (readonly, nonatomic) BOOL isSearching;
+@property (readonly, nonatomic) BOOL isIdle;
+@property (readonly, nonatomic) BOOL canSearch;
+@property (readonly, nonatomic) NSArray *searchResults;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)search;
+- (void)service:(id)a0 account:(id)a1 incomingMessage:(id)a2 fromID:(id)a3 context:(id)a4;
+- (id)init;
+- (void)service:(id)a0 account:(id)a1 identifier:(id)a2 didSendWithSuccess:(BOOL)a3 error:(id)a4;
+- (void).cxx_destruct;
+- (void)service:(id)a0 devicesChanged:(id)a1;
+- (void)dealloc;
+- (void)stop;
+- (id)_stateDescription;
+- (id)_stringForState:(long long)a0;
+- (void)browser:(id)a0 didNotStartBrowsingForPeers:(id)a1;
+- (void)browser:(id)a0 foundPeer:(id)a1 withDiscoveryInfo:(id)a2;
+- (void)browser:(id)a0 lostPeer:(id)a1;
+- (void)session:(id)a0 peer:(id)a1 didChangeState:(long long)a2;
+- (void)session:(id)a0 didReceiveData:(id)a1 fromPeer:(id)a2;
+- (void)session:(id)a0 didReceiveStream:(id)a1 withName:(id)a2 fromPeer:(id)a3;
+- (void)session:(id)a0 didStartReceivingResourceWithName:(id)a1 fromPeer:(id)a2 withProgress:(id)a3;
+- (void)session:(id)a0 didFinishReceivingResourceWithName:(id)a1 fromPeer:(id)a2 atURL:(id)a3 withError:(id)a4;
+- (void)session:(id)a0 didReceiveCertificate:(id)a1 fromPeer:(id)a2 certificateHandler:(id /* block */)a3;
+- (void)advertiser:(id)a0 didReceiveInvitationFromPeer:(id)a1 withContext:(id)a2 invitationHandler:(id /* block */)a3;
+- (void)advertiser:(id)a0 didNotStartAdvertisingPeer:(id)a1;
+- (void)_tearDownConnectivity;
+- (void)_sendDummyPacket;
+- (void)_tearDownBrowser;
+- (void)_tearDownSession;
+- (void)_tearDownAdvertiser;
+- (void)_broadcastICloudMessage:(id)a0;
+- (void)_cancelAdvertising;
+- (id)_messageForSelection:(BOOL)a0 settings:(id)a1;
+- (id)_messageForSwitchEvent:(id)a0 index:(unsigned long long)a1;
+- (void)_sendDataToSlave:(id)a0;
+- (void)_advertise;
+- (void)_handleSwitchEventMessageWithPayload:(id)a0 fromPeer:(id)a1;
+- (void)_handleSelectionMessageWithPayload:(id)a0;
+- (void)_handleHighlightMessage;
+- (void)_handlePerformSysdiagnoseMessage;
+- (void)_removePeerFromAvailableDevices:(id)a0;
+- (void)_handleTimeoutAsPotentialSlave;
+- (BOOL)_setUpSessionIfNecessary;
+- (void)highlightSearchResult:(id)a0;
+- (void)selectSearchResult:(id)a0 settings:(id)a1;
+- (void)forwardSwitchEvent:(id)a0;
+- (void)performSysdiagnoseOnSlave;
+
+@end

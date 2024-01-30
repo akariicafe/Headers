@@ -1,0 +1,83 @@
+@class NSData;
+
+@interface AWDNFCHCIEndOfTransactionV2Event : PBCodable <NSCopying> {
+    struct { unsigned char timeDeltaFromReference : 1; unsigned char timestamp : 1; unsigned char accessUniversityCode : 1; unsigned char avgRSSIValue : 1; unsigned char command : 1; unsigned char commandParam1 : 1; unsigned char commandResult : 1; unsigned char currencyCode : 1; unsigned char endEventInterface : 1; unsigned char expressType : 1; unsigned char informative : 1; unsigned char issuerCityCode : 1; unsigned char localValidation : 1; unsigned char maxRSSIValue : 1; unsigned char minRSSIValue : 1; unsigned char sfiRead : 1; unsigned char sfiUpdated : 1; unsigned char spid : 1; unsigned char totalRSSISamples : 1; unsigned char transactionCategory : 1; unsigned char transactionExtension : 1; unsigned char transactionInProgress : 1; unsigned char transactionStatus : 1; unsigned char transactionType : 1; unsigned char version : 1; unsigned char hasExpiryDate : 1; unsigned char isBlacklisted : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasVersion;
+@property (nonatomic) unsigned int version;
+@property (readonly, nonatomic) BOOL hasAid;
+@property (retain, nonatomic) NSData *aid;
+@property (nonatomic) BOOL hasCommand;
+@property (nonatomic) unsigned int command;
+@property (nonatomic) BOOL hasCommandParam1;
+@property (nonatomic) unsigned int commandParam1;
+@property (nonatomic) BOOL hasCommandResult;
+@property (nonatomic) unsigned int commandResult;
+@property (nonatomic) BOOL hasCurrencyCode;
+@property (nonatomic) unsigned int currencyCode;
+@property (nonatomic) BOOL hasExpressType;
+@property (nonatomic) unsigned int expressType;
+@property (nonatomic) BOOL hasHasExpiryDate;
+@property (nonatomic) BOOL hasExpiryDate;
+@property (nonatomic) BOOL hasInformative;
+@property (nonatomic) unsigned int informative;
+@property (nonatomic) BOOL hasIsBlacklisted;
+@property (nonatomic) BOOL isBlacklisted;
+@property (nonatomic) BOOL hasSpid;
+@property (nonatomic) unsigned int spid;
+@property (readonly, nonatomic) BOOL hasStationID;
+@property (retain, nonatomic) NSData *stationID;
+@property (nonatomic) BOOL hasTransactionStatus;
+@property (nonatomic) unsigned int transactionStatus;
+@property (nonatomic) BOOL hasTransactionCategory;
+@property (nonatomic) unsigned int transactionCategory;
+@property (nonatomic) BOOL hasTransactionType;
+@property (nonatomic) unsigned int transactionType;
+@property (nonatomic) BOOL hasTransactionExtension;
+@property (nonatomic) unsigned int transactionExtension;
+@property (nonatomic) BOOL hasTransactionInProgress;
+@property (nonatomic) unsigned int transactionInProgress;
+@property (readonly, nonatomic) BOOL hasTerminalIdentifier;
+@property (retain, nonatomic) NSData *terminalIdentifier;
+@property (nonatomic) BOOL hasTimeDeltaFromReference;
+@property (nonatomic) unsigned long long timeDeltaFromReference;
+@property (readonly, nonatomic) BOOL hasUuidReference;
+@property (retain, nonatomic) NSData *uuidReference;
+@property (nonatomic) BOOL hasTotalRSSISamples;
+@property (nonatomic) unsigned int totalRSSISamples;
+@property (nonatomic) BOOL hasAvgRSSIValue;
+@property (nonatomic) unsigned int avgRSSIValue;
+@property (nonatomic) BOOL hasMaxRSSIValue;
+@property (nonatomic) unsigned int maxRSSIValue;
+@property (nonatomic) BOOL hasMinRSSIValue;
+@property (nonatomic) unsigned int minRSSIValue;
+@property (nonatomic) BOOL hasLocalValidation;
+@property (nonatomic) unsigned int localValidation;
+@property (nonatomic) BOOL hasAccessUniversityCode;
+@property (nonatomic) unsigned int accessUniversityCode;
+@property (nonatomic) BOOL hasIssuerCityCode;
+@property (nonatomic) unsigned int issuerCityCode;
+@property (nonatomic) BOOL hasEndEventInterface;
+@property (nonatomic) unsigned int endEventInterface;
+@property (nonatomic) BOOL hasSfiRead;
+@property (nonatomic) unsigned int sfiRead;
+@property (nonatomic) BOOL hasSfiUpdated;
+@property (nonatomic) unsigned int sfiUpdated;
+@property (readonly, nonatomic) BOOL hasTransactionId;
+@property (retain, nonatomic) NSData *transactionId;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+
+@end

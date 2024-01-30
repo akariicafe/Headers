@@ -1,0 +1,3 @@
+@interface __MFComposeRecipientViewAccessibility__PhotoLibrary__MessageUI_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,27 @@
+@class NSMutableArray, IOHIDDeviceClass;
+
+@interface IOHIDTransactionClass : IOHIDIUnknown2 {
+    struct IOHIDDeviceTransactionInterface { void *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; void /* function */ *x5; void /* function */ *x6; void /* function */ *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; void /* function */ *x12; void /* function */ *x13; } *_interface;
+    unsigned int _direction;
+    NSMutableArray *_elements;
+    IOHIDDeviceClass *_device;
+}
+
+- (int)commit;
+- (int)clear;
+- (void)setDevice:(id)a0;
+- (id)initWithDevice:(id)a0;
+- (int)setDirection:(unsigned int)a0;
+- (void).cxx_destruct;
+- (int)addElement:(struct __IOHIDElement { } *)a0;
+- (void)dealloc;
+- (id)device;
+- (int)removeElement:(struct __IOHIDElement { } *)a0;
+- (int)queryInterface:(struct { unsigned char x0; unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned char x7; unsigned char x8; unsigned char x9; unsigned char x10; unsigned char x11; unsigned char x12; unsigned char x13; unsigned char x14; unsigned char x15; })a0 outInterface:(void **)a1;
+- (int)getAsyncEventSource:(const void **)a0;
+- (int)getDirection:(unsigned int *)a0;
+- (int)containsElement:(struct __IOHIDElement { } *)a0 value:(char *)a1;
+- (int)setValue:(struct __IOHIDElement { } *)a0 value:(struct __IOHIDValue { } *)a1 options:(unsigned int)a2;
+- (int)getValue:(struct __IOHIDElement { } *)a0 value:(struct __IOHIDValue **)a1 options:(unsigned int)a2;
+
+@end

@@ -1,0 +1,25 @@
+@class SBHIDInterface, NSString;
+
+@interface SBHIDUILockAssertion : NSObject <BSInvalidatable>
+
+@property (nonatomic) BOOL suspendProximitySensor;
+@property (nonatomic) BOOL suspendMultitouch;
+@property (nonatomic) BOOL pocketTouchesExpected;
+@property (nonatomic) BOOL disableTapToWake;
+@property (nonatomic) long long source;
+@property (weak, nonatomic) SBHIDInterface *HIDInterface;
+@property (copy, nonatomic) NSString *reason;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)invalidateForSource:(long long)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescription;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (void)invalidate;
+
+@end

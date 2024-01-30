@@ -1,0 +1,3 @@
+@interface __SKUISearchFieldTableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

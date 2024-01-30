@@ -1,0 +1,8 @@
+@interface WorkflowUICore.StaticSidebarSection : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ name;
+    void /* unknown type, empty encoding */ destinations;
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ observeChanges;
+}
+
+@end

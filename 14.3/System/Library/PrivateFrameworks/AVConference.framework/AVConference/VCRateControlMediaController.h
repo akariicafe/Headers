@@ -1,0 +1,87 @@
+@class AVCStatisticsCollector, VCRateControlServerBag, SenderLargeFrameInfo;
+
+@interface VCRateControlMediaController : NSObject {
+    id _mediaControllerDelegate;
+    struct tagHANDLE { int x0; } *_hMediaQueue;
+    BOOL _isVideoStoppedByBaseband;
+    BOOL _isVideoPausedByUser;
+    BOOL _isBasebandFlushing;
+    BOOL _isAudioStall;
+    double _lastAudioFractionChangeTime;
+    double _lastAudioEnoughRateTime;
+    unsigned char _videoPayloadType;
+    unsigned int _videoRefreshFrameTimestamp;
+    unsigned int _videoRefreshFramePacketCount;
+    SenderLargeFrameInfo *_senderLargeFrameInfo;
+    unsigned int _probingLargeFrameSizeCap;
+    double _minProbingSpacingAggressive;
+    double _lastBasebandFlushAudioTime;
+    double _lastBasebandFlushVideoTime;
+    unsigned short _videoFlushTransactionID;
+    unsigned int _audioStallBitrate;
+    double _lastAudioStallFlushTime;
+    unsigned int _basebandAverageBitrate;
+    unsigned int _basebandTotalQueueDepth;
+    unsigned int _basebandFlushableQueueDepth;
+    double _basebandExpectedQueuingDelay;
+    double _basebandNBDCD;
+    double _lastBasebandHighNBDCDTime;
+    BOOL _isBasebandQueuingDelayHigh;
+    void *_logBasebandDump;
+    void *_logBWEDump;
+}
+
+@property (retain, nonatomic) AVCStatisticsCollector *statisticsCollector;
+@property (nonatomic) unsigned int videoSendingBitrate;
+@property (nonatomic) unsigned int audioSendingBitrate;
+@property (nonatomic) unsigned int minTargetBitrate;
+@property (nonatomic) unsigned int targetBitrate;
+@property (nonatomic) int basebandFlushCount;
+@property (nonatomic) double lastBasebandFlushCountChangeTime;
+@property (readonly, nonatomic) int basebandFlushedVideoCount;
+@property (readonly, nonatomic) int basebandFlushedAudioCount;
+@property (readonly, nonatomic) BOOL isVideoStoppedByVCRateControl;
+@property (readonly, nonatomic) BOOL isVideoStopped;
+@property (readonly, nonatomic) BOOL isInThrottlingMode;
+@property (nonatomic) BOOL allowVideoStop;
+@property (nonatomic) BOOL isSenderProbingEnabled;
+@property (nonatomic) BOOL isAudioOnly;
+@property (nonatomic) BOOL isRateLimitedMaxTimeExceeded;
+@property (nonatomic) BOOL shouldDisableLargeFrameRequestsWhenInitialRampUp;
+@property (readonly, nonatomic) unsigned int probingLargeFrameSize;
+@property (readonly, nonatomic) unsigned int probingSequencePacketCount;
+@property (readonly, nonatomic) unsigned int probingSequencePacketSize;
+@property (nonatomic) unsigned int afrcRemoteEstimatedBandwidth;
+@property (nonatomic) BOOL isRTPFlushBasebandFromVCRateControl;
+@property (nonatomic) int audioFractionTier;
+@property (readonly, nonatomic) double lastVideoKeyFrameTime;
+@property (nonatomic) BOOL enableAggressiveProbingSequence;
+@property (retain, nonatomic) VCRateControlServerBag *serverBag;
+
+- (void)dealloc;
+- (void)enableBasebandLogDump:(void *)a0;
+- (void)enableBWELogDump:(void *)a0;
+- (void)resumeVideoByVCRateControl;
+- (void)updateBasebandSuggestionWithStatistics:(struct { int x0; double x1; BOOL x2; BOOL x3; BOOL x4; union { struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; double x5; double x6; double x7; double x8; double x9; char x10[64]; int x11; } x0; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; double x11; double x12; unsigned int x13; unsigned int x14; double x15; unsigned int x16; BOOL x17; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x18; } x1; struct { double x0; double x1; double x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; unsigned int x9; } x2; struct { unsigned int x0; BOOL x1; BOOL x2; BOOL x3; unsigned int x4; unsigned int x5; double x6; unsigned int x7; BOOL x8; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x9; } x3; struct { unsigned char x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; double x10; double x11; double x12; unsigned int x13; unsigned int x14; unsigned int x15; } x4; struct { unsigned int x0; unsigned int x1; unsigned int x2; double x3; } x5; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x6; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x7; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; } x8; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; BOOL x4; unsigned int x5; unsigned int x6; unsigned int x7; } x9; struct { unsigned char x0; unsigned char x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; int x9; unsigned int x10; } x10; } x5; })a0;
+- (void)decreaseFlushCount:(int)a0;
+- (BOOL)increaseFlushCountForVideoRefresh:(int)a0 transactionID:(unsigned short)a1;
+- (BOOL)increaseFlushCountForAudioStall:(int)a0 audioStallBitrate:(unsigned int)a1;
+- (void)recordVideoRefreshFrameWithTimestamp:(unsigned int)a0 payloadType:(unsigned char)a1 packetCount:(unsigned int)a2 isKeyFrame:(BOOL)a3;
+- (void)increaseBasebandFlushCountInternallyWithSuggestion:(struct VCRateControlMediaSuggestion { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; } *)a0;
+- (BOOL)isProbingLargeFrameRequiredAtTime:(double)a0;
+- (void)updateLargeFrameSizeWithBandwidth:(unsigned int)a0;
+- (void)scheduleProbingSequenceAtTime:(double)a0;
+- (void)printLargeFrameStatsAtTime:(double)a0 timestamp:(unsigned int)a1 timeSinceLastProbingSequence:(double)a2 frameSize:(unsigned int)a3 wastedBytes:(unsigned int)a4 fecRatio:(double)a5 isFrameRequested:(BOOL)a6;
+- (void)updateProbingLargeFrameSizeCap;
+- (id)initWithMediaQueue:(struct tagHANDLE { int x0; } *)a0 delegate:(id)a1;
+- (void)getMediaQueueInVideoBitrate:(double *)a0 outVideoBitrate:(double *)a1 inAudioBitrate:(double *)a2 outAudioBitrate:(double *)a3;
+- (void)getMediaQueueRateChangeCounter:(unsigned int *)a0 rateChangeTime:(double *)a1;
+- (void)computePacketLossWithRemoteInfo:(struct VCRCMediaPLPFromRemoteInfo { unsigned short x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int *x4; double *x5; double *x6; double *x7; } *)a0;
+- (void)pauseVideoByUser:(BOOL)a0;
+- (void)stopVideoByVCRateControl;
+- (BOOL)didMediaGetFlushedWithPayloadType:(unsigned char)a0 transactionID:(unsigned short)a1 packetDropped:(unsigned short)a2 sequenceNumberArray:(unsigned short *)a3;
+- (BOOL)rampDownAudioFraction;
+- (BOOL)rampUpAudioFraction;
+- (void)scheduleProbingSequenceWithFrameSize:(unsigned int)a0 paddingBytes:(unsigned int)a1 timestamp:(unsigned int)a2 fecRatio:(double)a3 isProbingSequenceScheduled:(BOOL *)a4;
+
+@end

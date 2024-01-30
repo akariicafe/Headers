@@ -1,0 +1,106 @@
+@class SSDownloadPolicy, NSData, NSArray, NSString, SSItem, NSMutableDictionary, NSDictionary, SSNetworkConstraints, NSObject, SSURLRequestProperties, SSItemOffer, NSNumber;
+@protocol OS_dispatch_queue;
+
+@interface SSPurchase : NSObject <SSXPCCoding, NSSecureCoding, NSCopying> {
+    NSNumber *_accountIdentifier;
+    NSString *_affiliateIdentifier;
+    BOOL _backgroundPurchase;
+    long long _batchIdentifier;
+    NSString *_buyParameters;
+    NSNumber *_buyParamsCreatesDownloads;
+    NSNumber *_buyParamsCreatesInstallJobs;
+    NSNumber *_buyParamsCreatesJobs;
+    BOOL _createsDownloads;
+    BOOL _createsJobs;
+    BOOL _createsInstallJobs;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _displaysOnLockScreen;
+    SSDownloadPolicy *_downloadPolicy;
+    NSMutableDictionary *_downloadProperties;
+    NSNumber *_enabledServiceType;
+    long long _expectedDownloadFileSize;
+    NSArray *_filteredAssetTypes;
+    NSArray *_gratisIdentifiers;
+    BOOL _ignoresForcedPasswordRestriction;
+    SSItem *_item;
+    SSItemOffer *_itemOffer;
+    SSNetworkConstraints *_networkConstraints;
+    NSNumber *_ownerAccountDSID;
+    long long _placeholderDownloadIdentifier;
+    BOOL _playbackRequest;
+    BOOL _preauthenticated;
+    SSURLRequestProperties *_requestProperties;
+    id _requiredDeviceCapabilities;
+    NSDictionary *_tidHeaders;
+    long long _uniqueIdentifier;
+    BOOL _usesLocalRedownloadParametersIfPossible;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long batchIdentifier;
+@property (copy) NSNumber *enabledServiceType;
+@property long long expectedDownloadFileSize;
+@property (copy) NSArray *gratisIdentifiers;
+@property (readonly, getter=isGratisSoftwareClaim) BOOL gratisSoftwareClaim;
+@property long long placeholderDownloadIdentifier;
+@property (getter=isPlaybackRequest) BOOL playbackRequest;
+@property (copy) id requiredDeviceCapabilities;
+@property (copy) NSDictionary *tidHeaders;
+@property long long uniqueIdentifier;
+@property BOOL usesLocalRedownloadParametersIfPossible;
+@property (getter=isPreauthenticated) BOOL preauthenticated;
+@property (readonly) NSData *databaseEncoding;
+@property (retain) NSNumber *accountIdentifier;
+@property (copy) NSString *affiliateIdentifier;
+@property (copy) NSString *buyParameters;
+@property (nonatomic) BOOL createsDownloads;
+@property (copy) NSArray *filteredAssetTypes;
+@property (getter=isBackgroundPurchase) BOOL backgroundPurchase;
+@property (copy) SSURLRequestProperties *requestProperties;
+@property (copy) NSDictionary *downloadProperties;
+@property BOOL displaysOnLockScreen;
+@property (copy) SSDownloadPolicy *downloadPolicy;
+@property BOOL ignoresForcedPasswordRestriction;
+@property (copy) SSNetworkConstraints *networkConstraints;
+@property (nonatomic) BOOL createsJobs;
+@property (nonatomic) BOOL createsInstallJobs;
+@property (retain) NSNumber *ownerAccountDSID;
+@property (nonatomic) BOOL skipSoftwareAccountPreflight;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)purchaseWithBuyParameters:(id)a0;
++ (id)newPurchaseWithDatabaseEncoding:(id)a0;
++ (id)newPurchaseWithXPCEncoding:(id)a0;
+
+- (id)initWithXPCEncoding:(id)a0;
+- (id)copyXPCEncoding;
+- (id)item;
+- (id)initWithItem:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithDatabaseEncoding:(id)a0;
+- (id)itemOffer;
+- (id)_initSSPurchase;
+- (id)_buyParametersValueForKey:(id)a0 fromBuyParams:(id)a1;
+- (void)_setValuesUsingDatabaseEncoding:(id)a0;
+- (void)_addEntriesToDatabaseEncoding:(id)a0;
+- (BOOL)_createsDownloadsWithOverride;
+- (BOOL)_createsJobsWithOverride;
+- (BOOL)_createsInstallJobsWithOverride;
+- (id)buyParametersValueForKey:(id)a0;
+- (void)setDefaultUserAgent:(id)a0;
+- (id)downloadMetadata;
+- (void)setDownloadMetadata:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)valueForDownloadProperty:(id)a0;
+- (void)setValue:(id)a0 forDownloadProperty:(id)a1;
+- (id)initWithItem:(id)a0 offer:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+
+@end

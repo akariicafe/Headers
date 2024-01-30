@@ -1,0 +1,77 @@
+@class NSMapTable, CLLocation, NSDate, RTMotionActivityManager, RTLocationAwarenessManagerConfig, RTInvocationDispatcher, RTLocationAwarenessMetrics, RTTimerManager, RTMetricManager, RTWiFiManager, RTPowerAssertion, RTXPCActivityManager, NSNumber, RTTimer, RTAuthorizationManager, RTLocationManager;
+
+@interface RTLocationAwarenessManager : RTService
+
+@property (retain, nonatomic) RTLocationAwarenessMetrics *metrics;
+@property (retain, nonatomic) RTMetricManager *metricManager;
+@property (retain, nonatomic) RTAuthorizationManager *authorizationManager;
+@property (retain, nonatomic) RTWiFiManager *wifiManager;
+@property (retain, nonatomic) CLLocation *lastLocationAnyPositive;
+@property (retain, nonatomic) CLLocation *lastLocationLessThan200m;
+@property (retain, nonatomic) CLLocation *lastLocationLessThan55m;
+@property (retain, nonatomic) CLLocation *lastLocationLessThan20m;
+@property (retain, nonatomic) CLLocation *lastLocationLessThan10m;
+@property (retain, nonatomic) NSDate *scheduledHeartbeatFiringTime;
+@property (retain, nonatomic) NSDate *scheduledRestTimerFiringTime;
+@property (nonatomic) BOOL activeRequestInterrupted;
+@property (nonatomic) BOOL activeRequestFulfilled;
+@property (nonatomic) BOOL activeRequestCoarseLocationReceived;
+@property (nonatomic) BOOL activeRequestLocationServiceOn;
+@property (nonatomic) BOOL activeRequestRoutineOn;
+@property (nonatomic) BOOL activeRequestWifiOn;
+@property (readonly, nonatomic) RTLocationAwarenessManagerConfig *config;
+@property (retain, nonatomic) NSMapTable *requesterToHeartbeatBucket;
+@property (retain, nonatomic) NSMapTable *heartbeatBucketToRequesters;
+@property (retain, nonatomic) RTLocationManager *locationManager;
+@property (retain, nonatomic) RTTimer *heartbeatTimer;
+@property (retain, nonatomic) RTTimer *restTimer;
+@property (retain, nonatomic) RTTimerManager *timerManager;
+@property (copy, nonatomic) NSDate *activeOnset;
+@property (retain, nonatomic) NSNumber *minHeartbeatBucket;
+@property (retain, nonatomic) CLLocation *lastValidLocation;
+@property (retain, nonatomic) RTMotionActivityManager *motionActivityManager;
+@property (retain, nonatomic) RTPowerAssertion *xpcActivityPowerAssertion;
+@property (retain, nonatomic) RTXPCActivityManager *xpcActivityManager;
+@property (copy, nonatomic) NSDate *stationaryStartTimestamp;
+@property (copy, nonatomic) RTInvocationDispatcher *heartbeatBuffer;
+
++ (id)powerAssertion;
++ (long long)localHourFromTimestamp:(id)a0;
+
+- (void)_shutdown;
+- (void)onMotionActivityManagerNotificationActivityNotification:(id)a0;
+- (double)intervalForHeartbeatBucket:(id)a0;
+- (void)_setup;
+- (BOOL)addLocationHeartbeatRequester:(id)a0 interval:(double)a1 error:(id *)a2;
+- (id)init;
+- (BOOL)validLocation:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)coarseLocation:(id)a0;
+- (void)considerUpdateActiveRequestMetrics;
+- (void)resetActiveRequestSummaryVariables;
+- (BOOL)validInterval:(double)a0;
+- (void)incrementBasicHistogram:(id)a0 forTimestamp:(id)a1;
+- (void)heartbeatTasks;
+- (void)updateLocationAwarenessHistogramsWithLocations:(id)a0;
+- (id)initWithLocationManager:(id)a0 config:(id)a1 metricManager:(id)a2 motionActivityManager:(id)a3 authorizationManager:(id)a4 wifiManager:(id)a5 xpcActivityManager:(id)a6 timerManager:(id)a7;
+- (void)onHeartbeat;
+- (void)hourlySingleShotWithHandler:(id /* block */)a0;
+- (void)considerRequestingForLocation;
+- (double)starvingDurationTillNow;
+- (void)onNoOpLocationNotification:(id)a0;
+- (id)updateWithLocation:(id)a0 oneIntervalHistogram:(id)a1 lastLocation:(id)a2;
+- (void)adjustHeartbeatTimer;
+- (double)metricAge;
+- (void)considerUpdatingHeartbeatDelayMetrics;
+- (void)removeLocationHeartbeatRequester:(id)a0;
+- (BOOL)activeRequestInterruptedCheck;
+- (void)_updateXPCActivityForObserverCount:(unsigned long long)a0;
+- (void)updateHeartbeatTimerDelayForTimestamp:(id)a0 withDelay:(double)a1;
+- (id)heartbeatBucketForInterval:(double)a0;
+- (double)nextFiringDelayWithHeartbeatInterval:(double)a0 starvingDuration:(double)a1;
+- (void)onRest;
+- (void)onLeechedLocationNotification:(id)a0;
+- (void)updateMinHeartbeatBucket;
+- (void)considerSubmittingCurrentMetrics;
+
+@end

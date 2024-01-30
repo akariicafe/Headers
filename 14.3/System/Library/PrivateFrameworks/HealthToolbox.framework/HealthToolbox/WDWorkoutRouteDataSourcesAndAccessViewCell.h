@@ -1,0 +1,3 @@
+@interface WDWorkoutRouteDataSourcesAndAccessViewCell : WDAccessTableViewCell
+
+@end

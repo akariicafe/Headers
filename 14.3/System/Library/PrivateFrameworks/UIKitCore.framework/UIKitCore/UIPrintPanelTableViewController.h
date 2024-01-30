@@ -1,0 +1,83 @@
+@class UIPrinterBrowserViewController, NSString, UIPrinterAttributesService, _UIPrintMessageAndSpinnerView, UIPrintPreviewViewController, UIPrintPanelViewController;
+
+@interface UIPrintPanelTableViewController : UITableViewController <UITextFieldDelegate> {
+    UIPrintPanelViewController *_printPanelViewController;
+    long long _settingsRow;
+    long long _rangeRow;
+    long long _copiesRow;
+    long long _duplexRow;
+    long long _grayscaleRow;
+    long long _stapleRow;
+    long long _punchRow;
+    long long _paperRow;
+    long long _jobAccountIDRow;
+    long long _annotationsRow;
+    long long _settingsSection;
+    BOOL _contactingPrinter;
+    NSString *_printerWarning;
+    UIPrinterAttributesService *_printerAttributesService;
+    BOOL _settingsExpanded;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _savedViewFrame;
+    UIPrintPreviewViewController *_printPreviewViewController;
+    UIPrinterBrowserViewController *_browserController;
+    _UIPrintMessageAndSpinnerView *_messageAndSpinner;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (id)keyCommands;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void).cxx_destruct;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)tableView:(id)a0 titleForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)accessibilityPerformMagicTap;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)pdfFileURL;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)stopPrinterWarningPolling;
+- (void)updatePunch:(id)a0;
+- (void)updateStaple:(id)a0;
+- (id)initWithPrintPanelViewController:(id)a0;
+- (void)showCancelButton;
+- (void)showContacting;
+- (void)_updatePrintTableView;
+- (void)cancelButtonPressed:(id)a0;
+- (BOOL)shouldEnablePrintButton;
+- (void)startPrinterWarningPoll;
+- (void)traitCollectionDidChange:(id)a0;
+- (double)heightOfPreviewView;
+- (void)showPreviewGenerating;
+- (void)setShowPreviewGenerating:(BOOL)a0;
+- (void)_updateTableFooterViewSize;
+- (void)printButtonPressed:(id)a0;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)updateCopies:(id)a0;
+- (void)updateDuplex:(id)a0;
+- (void)updateGrayscale:(id)a0;
+- (void)updateAnnotations:(id)a0;
+- (void)updateJobAccountID:(id)a0;
+- (id)textForSettings;
+- (void)updateSettingsSummaryText;
+- (id)jobAccountTextField;
+- (void)selectJobAccountID;
+- (void)dismissKeyboardIfNeccessary;
+- (void)promptForJobAccountID;
+- (void)moreButtonPushed:(id)a0;
+- (void)setShowContactingPrinter:(BOOL)a0;
+- (void)updatePageRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)setPdfFileURL:(id)a0 destinationPaper:(id)a1 pdfPassword:(id)a2;
+- (void)updatePageRangeText;
+- (void)clearPrintPanelViewController;
+- (void)viewDidLoad;
+
+@end

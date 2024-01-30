@@ -1,0 +1,94 @@
+@class NSHashTable, NSString, NSArray, PKTool, PKPaletteViewInteraction, PKDrawingPaletteView, UIViewController, PKPaletteHostView;
+@protocol PKPaletteViewAnnotationDelegate, PKToolPickerPrivateDelegate, PKPaletteViewDelegate;
+
+@interface PKToolPicker : NSObject <PKPaletteViewDelegate, PKPaletteViewInteractionDelegate>
+
+@property (class, readonly, nonatomic) BOOL _canShowHandwritingTool;
+
+@property (retain, nonatomic) NSHashTable *_observers;
+@property (retain, nonatomic) NSHashTable *_firstRespondersForVisibleUI;
+@property (retain, nonatomic, setter=_setInteraction:) PKPaletteViewInteraction *_interaction;
+@property (nonatomic) BOOL _paletteWasCompact;
+@property (retain, nonatomic) NSArray *_toolIdentifiers;
+@property (retain, nonatomic) NSArray *_toolProperties;
+@property (nonatomic, getter=_isPencilInteractionEnabledWhenNotVisible) BOOL _pencilInteractionEnabledWhenNotVisible;
+@property (nonatomic, getter=_isInputViewVisible, setter=_setInputViewVisible:) BOOL _inputViewVisible;
+@property (nonatomic) BOOL _wasVisibleBeforeResponderChanges;
+@property (nonatomic) BOOL _didCalculateVisibleBeforeResponderChanges;
+@property (readonly, nonatomic) NSString *_paletteViewStateRestorationDefaultsKey;
+@property (weak, nonatomic, setter=_setPresentationController:) UIViewController *_presentationController;
+@property (weak, nonatomic, setter=_setAnnotationDelegate:) id<PKPaletteViewAnnotationDelegate> _annotationDelegate;
+@property (weak, nonatomic, setter=_setAdditionalPaletteViewDelegate:) id<PKPaletteViewDelegate> _additionalPaletteViewDelegate;
+@property (nonatomic, setter=_setWantsClearBackgroundColorInCompactSize:) BOOL _wantsClearBackgroundColorInCompactSize;
+@property (weak, nonatomic) id<PKToolPickerPrivateDelegate> _delegate;
+@property (readonly, nonatomic) BOOL _interactionIsValid;
+@property (readonly, nonatomic) PKPaletteHostView *_paletteHostView;
+@property (readonly, nonatomic) PKDrawingPaletteView *_paletteView;
+@property (nonatomic, getter=_isBackgroundMaterialUpdatingPaused, setter=_setBackgroundMaterialUpdatingPaused:) BOOL _backgroundMaterialUpdatingPaused;
+@property (nonatomic, setter=_setShowsHandwritingTool:) BOOL _showsHandwritingTool;
+@property (readonly, nonatomic, getter=_isHandwritingToolSelected) BOOL _handwritingToolSelected;
+@property (readonly, nonatomic, getter=_isAnimatingToVisible) BOOL _animatingToVisible;
+@property (retain, nonatomic) PKTool *selectedTool;
+@property (nonatomic, getter=isRulerActive) BOOL rulerActive;
+@property (readonly, nonatomic) BOOL isVisible;
+@property (copy, nonatomic) NSString *stateAutosaveName;
+@property (nonatomic) long long overrideUserInterfaceStyle;
+@property (nonatomic) long long colorUserInterfaceStyle;
+@property (nonatomic) BOOL showsDrawingPolicyControls;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)activeToolPickerForWindow:(id)a0;
++ (BOOL)isActiveToolPickerVisibleForWindow:(id)a0;
++ (BOOL)_internalClassWantsToolPicker:(id)a0 visibleForResponder:(id)a1;
++ (BOOL)_textInputWantsToolPickerVisible:(id)a0 forFirstResponder:(id)a1;
++ (id)_toolPickerForWindow:(id)a0;
++ (id)_windowForToolPicker:(id)a0;
++ (id)_windowSceneForToolPicker:(id)a0;
++ (id)sharedToolPickerForWindow:(id)a0;
++ (void)_setPrefersPencilOnlyDrawingForiWork:(BOOL)a0;
+
+- (void)inputResponderController:(id)a0 inputViewSetVisibilityDidChange:(BOOL)a1 includedReset:(BOOL)a2;
+- (id)init;
+- (void).cxx_destruct;
+- (void)removeObserver:(id)a0;
+- (void)dealloc;
+- (void)addObserver:(id)a0;
+- (void)_updateUI;
+- (void)_saveStateIfNecessary;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })paletteViewColorPickerPopoverPresentationSourceRect:(id)a0;
+- (id)paletteViewColorPickerPopoverPresentationSourceView:(id)a0;
+- (void)setIsEditingStrokeSelection:(BOOL)a0;
+- (void)paletteViewInteractionDidActivate:(id)a0;
+- (void)paletteViewInteractionWillEnterForeground:(id)a0;
+- (void)_updatePaletteTraitCollection:(id)a0;
+- (void)_updatePaletteUserInterfaceStyle:(long long)a0;
+- (void)calculateIsVisibleBeforeResponderChangesForCurrentRunLoopIfNecessary;
+- (void)_updateToolPickerVisibility;
+- (id)_currentFirstResponder;
+- (void)_setVisibleInWindow:(id)a0;
+- (void)_setSelectedTool:(id)a0 saveOptions:(BOOL)a1 updateUI:(BOOL)a2;
+- (void)_savePaletteViewState;
+- (id)_configuredPaletteViewInteractionForWindow:(id)a0;
+- (void)_restoreToolPickerState;
+- (void)_updateVisibilityForFirstResponder:(id)a0;
+- (void)_recognitionLocaleIdentifierDidChange:(id)a0;
+- (void)_hasSeenPencilPairingUIDidChange:(id)a0;
+- (id)paletteViewUndoManager:(id)a0;
+- (BOOL)paletteView:(id)a0 shouldSetSelectedToolColor:(id)a1;
+- (void)paletteViewSelectedToolInkDidChange:(id)a0;
+- (void)paletteViewDidToggleRuler:(id)a0;
+- (id)_internalClassesAcceptingFirstResponder;
+- (void)paletteViewDidChangePosition:(id)a0;
+- (id)paletteViewCurrentFirstResponder:(id)a0;
+- (void)paletteViewFirstResponderDidUpdate:(id)a0;
+- (BOOL)shouldHandlePencilInteractionWhenNotVisible:(id)a0;
+- (void)setVisible:(BOOL)a0 forFirstResponder:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameObscuredInView:(id)a0;
+- (void)_enableTapInteractionForWindow:(id)a0;
+- (void)paletteView:(id)a0 didChangeColor:(id)a1;
+- (void)_tellDelegateToHideToolPicker;
+
+@end

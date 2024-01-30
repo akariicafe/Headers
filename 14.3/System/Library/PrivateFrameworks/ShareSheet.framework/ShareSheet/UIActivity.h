@@ -1,0 +1,101 @@
+@class UIViewController, NSString, NSArray, _UIActivityResourceLoader, NSUUID, NSExtension, UIImage;
+
+@interface UIActivity : NSObject <UIActivityExtensionItemDataProviding, UIActivityExtensionItemDataReceiving> {
+    long long _defaultPriority;
+    _UIActivityResourceLoader *_activityImageLoader;
+    _UIActivityResourceLoader *_activitySettingsImageLoader;
+}
+
+@property (class, readonly, nonatomic) long long _activityStyle;
+@property (class, readonly, nonatomic) long long activityCategory;
+
+@property (readonly, nonatomic) NSExtension *applicationExtension;
+@property (copy, nonatomic) id /* block */ activityCompletionWithItemsHandler;
+@property (copy, nonatomic) id /* block */ didFinishPerformingActivityHandler;
+@property (nonatomic) long long maxPreviews;
+@property (retain, nonatomic) NSString *contentSizeCategory;
+@property (retain, nonatomic) NSArray *preferredLocalizations;
+@property (nonatomic) unsigned long long indexInApplicationDefinedActivities;
+@property (readonly, nonatomic) _UIActivityResourceLoader *_activityImageLoader;
+@property (readonly, nonatomic) _UIActivityResourceLoader *_activitySettingsImageLoader;
+@property (readonly, nonatomic) id /* block */ _backgroundPreheatBlock;
+@property (readonly, nonatomic) NSUUID *activityUUID;
+@property (readonly, nonatomic) NSString *activityType;
+@property (readonly, nonatomic) NSString *activityTitle;
+@property (readonly, nonatomic) UIImage *activityImage;
+@property (readonly, nonatomic) UIViewController *activityViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (unsigned long long)_xpcAttributes;
++ (unsigned long long)_xpcAttributes;
++ (void)_loadItemProvidersFromActivityItems:(id)a0 completion:(id /* block */)a1;
++ (id)_defaultFallbackActivityType;
++ (id)_actionImageForBundleImageConfiguration:(id)a0;
++ (double)imageWidthForContentSizeCategory:(id)a0;
++ (id)_actionImageForActionRepresentationImage:(id)a0 contentSizeCategory:(id)a1;
++ (id)_activityExtensionItemsForActivityItemValues:(id)a0 extensionItemDataRequest:(id)a1;
++ (BOOL)_isCapabilityBasedActivity;
++ (void)_performAfterActivityImageLoadingCompletes:(id /* block */)a0;
++ (id)_stringFromActivityCategory:(long long)a0;
++ (id)preparedActivityExtensionItemDataForActivityItemValues:(id)a0 extensionItemDataRequest:(id)a1;
++ (Class)classForPreparingExtensionItemData;
++ (id)_imageByApplyingDefaultEffectsToImage:(id)a0 activityCategory:(long long)a1 iconFormat:(int)a2;
++ (id)_activityImageForActionRepresentationImage:(id)a0;
++ (id)_activityImageForApplicationBundleIdentifier:(id)a0;
++ (id)_activitySettingsImageForApplicationBundleIdentifier:(id)a0;
++ (id)_activityImageForBundleImageConfiguration:(id)a0;
++ (id)_activitySettingsImageForBundleImageConfiguration:(id)a0;
+
+- (id)init;
+- (id)_activityImage;
+- (void).cxx_destruct;
+- (id)_subjectForActivityItem:(id)a0;
+- (id)_attachmentNameForActivityItem:(id)a0;
+- (id)_dataTypeIdentifierForActivityItem:(id)a0;
+- (void)activityDidFinish:(BOOL)a0;
+- (id)_bundleIdentifierForActivityImageCreation;
+- (void)_prepareWithActivityItems:(id)a0 completion:(id /* block */)a1;
+- (void)activityDidFinish:(BOOL)a0 items:(id)a1 error:(id)a2;
+- (id)_activityBundleImageConfiguration;
+- (void)_cleanup;
+- (void)prepareWithActivityExtensionItemData:(id)a0;
+- (void)_willBePerformedOrPresented;
+- (id)_activityTypeUsingFallbackActivityTypeIfNecessary;
+- (BOOL)_appIsDocumentTypeOwner;
+- (id)_actionImage;
+- (BOOL)_supportsOpenInPlace;
+- (id)_thumbnailImageForActivityItem:(id)a0;
+- (void)_setActivityCompletionWithItemsHandler:(id /* block */)a0;
+- (BOOL)_canBeExcludeWhenMatchingWithContext:(id)a0;
+- (void)_willPresentAsFormSheet;
+- (BOOL)_wantsThumbnailItemData;
+- (BOOL)_wantsAttachmentURLItemData;
+- (BOOL)_wantsInitialSocialText;
+- (id)_actionBundleImageConfiguration;
+- (BOOL)ss_shouldExecuteInShareSheet;
+- (id)_activitySettingsBundleImageConfiguration;
+- (id)_beforeActivity;
+- (id)_embeddedActivityViewController;
+- (BOOL)_managesOwnPresentation;
+- (BOOL)_presentActivityOnViewController:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (BOOL)_dismissActivityFromViewController:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (BOOL)_needsResolvedActivityItems;
+- (void)prepareWithActivityItems:(id)a0;
+- (struct CGSize { double x0; double x1; })_thumbnailSize;
+- (BOOL)_activitySupportsPromiseURLs;
+- (id)_activitySettingsImage;
+- (id)applicationProxy;
+- (long long)_defaultSortGroup;
+- (BOOL)canPerformWithActivityItems:(id)a0;
+- (id)_systemImageName;
+- (id)ss_activitySpecificExtensionItemDataRequestInfo;
+- (id)ss_activityTypeToReportToHost;
+- (void)_injectedJavaScriptResult:(id)a0;
+- (BOOL)_isExecutedInProcess;
+- (BOOL)ss_shouldDismissHostsPresentationBeforePerforming;
+- (void)performActivity;
+
+@end

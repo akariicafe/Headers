@@ -1,0 +1,3 @@
+@interface SKUISpacerViewElement : SKUIViewElement
+
+@end

@@ -1,0 +1,3 @@
+@interface PHPhotoMaster : PHObject
+
+@end

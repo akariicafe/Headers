@@ -1,0 +1,3 @@
+@interface TRITricloudKitRoot : TRIPBRootObject
+
+@end

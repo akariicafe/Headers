@@ -1,0 +1,3 @@
+@interface CNAbsoluteTimestamped : CNTimestamped
+
+@end

@@ -1,0 +1,3 @@
+@interface ASDProgressMonitor : NSObject
+
+@end

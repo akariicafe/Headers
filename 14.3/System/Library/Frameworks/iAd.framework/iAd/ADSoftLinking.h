@@ -1,0 +1,81 @@
+@class NSString, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface ADSoftLinking : NSObject
+
+@property (readonly, nonatomic) NSMutableDictionary *loadedFrameworks;
+@property (readonly, nonatomic) NSMutableDictionary *boundSymbols;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *loadQueue;
+@property (readonly, nonatomic) Class ABNewPersonViewController;
+@property (readonly, nonatomic) Class ABPeoplePickerNavigationController;
+@property (readonly, nonatomic) void /* function */ *AudioFileOpenWithCallbacks;
+@property (readonly, nonatomic) void /* function */ *AudioFileGetProperty;
+@property (readonly, nonatomic) Class AVPlayer;
+@property (readonly, nonatomic) Class AVPlayerItem;
+@property (readonly, nonatomic) Class AVPlayerLayer;
+@property (readonly, nonatomic) Class AVURLAsset;
+@property (readonly, nonatomic) NSString *AVPlayerItemDidPlayToEndTimeNotification;
+@property (readonly, nonatomic) NSString *AVPlayerItemFailedToPlayToEndTimeNotification;
+@property (readonly, nonatomic) NSString *AVPlayerItemFailedToPlayToEndTimeErrorKey;
+@property (readonly, nonatomic) NSString *AVPlayerItemPlaybackStalledNotification;
+@property (readonly, nonatomic) NSString *AVLayerVideoGravityResizeAspectFill;
+@property (readonly, nonatomic) NSString *AVLayerVideoGravityResizeAspect;
+@property (readonly, nonatomic) Class EKReminderViewController;
+@property (readonly, nonatomic) Class EKEventEditViewController;
+@property (readonly, nonatomic) Class MPMoviePlayerController;
+@property (readonly, nonatomic) Class MPMoviePlayerViewController;
+@property (readonly, nonatomic) Class MPNetworkPlayabilityMonitor;
+@property (readonly, nonatomic) NSString *MPMoviePlayerWillEnterFullscreenNotification;
+@property (readonly, nonatomic) NSString *MPMoviePlayerDidEnterFullscreenNotification;
+@property (readonly, nonatomic) NSString *MPMoviePlayerWillExitFullscreenNotification;
+@property (readonly, nonatomic) NSString *MPMoviePlayerDidExitFullscreenNotification;
+@property (readonly, nonatomic) NSString *MPMoviePlayerIsAirPlayVideoActiveDidChangeNotification;
+@property (readonly, nonatomic) Class MFMailComposeViewController;
+@property (readonly, nonatomic) Class MFMessageComposeViewController;
+@property (readonly, nonatomic) Class PKPass;
+@property (readonly, nonatomic) Class PKPassLibrary;
+@property (readonly, nonatomic) Class PKAddPassesViewController;
+@property (readonly, nonatomic) Class PLStaticWallpaperImageViewController;
+@property (readonly, nonatomic) Class SKStoreProductViewController;
+@property (readonly, nonatomic) NSString *SKStoreProductParameterITunesItemIdentifier;
+@property (readonly, nonatomic) Class TLToneManager;
+@property (readonly, nonatomic) NSString *kToneTitleKey;
+@property (readonly, nonatomic) NSString *kToneGenreKey;
+@property (readonly, nonatomic) NSString *kToneDurationKey;
+@property (readonly, nonatomic) NSString *kToneArtistKey;
+@property (readonly, nonatomic) void /* function */ *CVPixelBufferCreateWithIOSurface;
+@property (readonly, nonatomic) void /* function */ *CVPixelBufferRelease;
+@property (readonly, nonatomic) void /* function */ *VTImageRotationSessionCreate;
+@property (readonly, nonatomic) void /* function */ *VTImageRotationSessionInvalidate;
+@property (readonly, nonatomic) void /* function */ *VTImageRotationSessionRelease;
+@property (readonly, nonatomic) void /* function */ *VTImageRotationSessionTransferImage;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceWidth;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfacePixelFormat;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceIsGlobal;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceBytesPerRow;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceHeight;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceAllocSize;
+@property (readonly, nonatomic) struct __CFString { } *kIOSurfaceBytesPerElement;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceGetWidth;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceGetHeight;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceGetBytesPerRow;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceGetBaseAddress;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceGetAllocSize;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceCreate;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceLock;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceUnlock;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceCreateXPCObject;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceLookupFromXPCObject;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceIncrementUseCount;
+@property (readonly, nonatomic) void /* function */ *IOSurfaceDecrementUseCount;
+
++ (id)sharedManager;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)_loadFrameworkIfNeeded:(id)a0;
+- (void *)_pointerToSymbolWithName:(id)a0 inFrameworkAtPath:(id)a1;
+- (Class)_classWithName:(id)a0 inFrameworkAtPath:(id)a1;
+- (id)_stringWithName:(id)a0 inFrameworkAtPath:(id)a1;
+
+@end

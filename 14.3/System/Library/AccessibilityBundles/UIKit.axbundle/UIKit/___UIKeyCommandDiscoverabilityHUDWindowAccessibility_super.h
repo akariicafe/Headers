@@ -1,0 +1,3 @@
+@interface ___UIKeyCommandDiscoverabilityHUDWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

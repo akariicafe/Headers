@@ -1,0 +1,3 @@
+@interface __NSUndoManagerAccessibility__UIKit__Foundation_super : UIAccessibilitySafeCategory
+
+@end

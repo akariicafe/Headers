@@ -1,0 +1,60 @@
+@class NSURLSession, NSString, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface ICURLSession : NSObject <NSURLSessionDelegate, NSURLSessionDownloadDelegate, NSURLSessionDataDelegate> {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_operationQueue;
+    NSMutableOrderedSet *_pendingRequests;
+    NSMutableSet *_activeRequests;
+    NSMutableDictionary *_completionHandlers;
+    BOOL _paused;
+    NSObject<OS_dispatch_source> *_requestTimeoutTimer;
+    NSURLSession *_urlSession;
+}
+
+@property (class, readonly) unsigned long long defaultMaximumConcurrentRequests;
+
+@property (readonly, nonatomic) unsigned long long maxConcurrentRequests;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)cancelRequest:(id)a0;
+- (void)URLSession:(id)a0 task:(id)a1 didReceiveChallenge:(id)a2 completionHandler:(id /* block */)a3;
+- (void)URLSession:(id)a0 dataTask:(id)a1 didReceiveResponse:(id)a2 completionHandler:(id /* block */)a3;
+- (void)URLSession:(id)a0 task:(id)a1 didFinishCollectingMetrics:(id)a2;
+- (void)enqueueDownloadRequest:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (id)_newResponseForRequest:(id)a0;
+- (void)cancelRequest:(id)a0 withError:(id)a1;
+- (id)init;
+- (void)URLSession:(id)a0 downloadTask:(id)a1 didFinishDownloadingToURL:(id)a2;
+- (void).cxx_destruct;
+- (void)URLSession:(id)a0 task:(id)a1 willPerformHTTPRedirection:(id)a2 newRequest:(id)a3 completionHandler:(id /* block */)a4;
+- (void)_finishRequest:(id)a0;
+- (void)dealloc;
+- (id)_requestForTask:(id)a0;
+- (void)_processPendingRequests;
+- (void)_updateProgressForRequest:(id)a0 withTotalBytesWritten:(long long)a1 totalBytesExpectedToWrite:(long long)a2;
+- (id)initWithConfiguration:(id)a0 maxConcurrentRequests:(unsigned long long)a1;
+- (void)enqueueAVDownloadRequest:(id)a0 withOptions:(id)a1 completionHandler:(id /* block */)a2;
+- (void)URLSession:(id)a0 avAssetDownloadTask:(id)a1 didWriteData:(long long)a2 totalBytesWritten:(long long)a3 totalBytesExpectedToWrite:(long long)a4;
+- (void)enqueueUploadRequest:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)URLSession:(id)a0 downloadTask:(id)a1 didWriteData:(long long)a2 totalBytesWritten:(long long)a3 totalBytesExpectedToWrite:(long long)a4;
+- (id)initWithConfiguration:(id)a0;
+- (void)_enqueueRequest:(id)a0;
+- (void)URLSession:(id)a0 dataTask:(id)a1 didReceiveData:(id)a2;
+- (void)_scheduleNextRequestTimeoutCheck;
+- (void)pause;
+- (void)URLSession:(id)a0 task:(id)a1 didCompleteWithError:(id)a2;
+- (void)_checkRequestTimeouts;
+- (double)_timeoutForRequest:(id)a0;
+- (void)enqueueDownloadRequest:(id)a0 toDestination:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)resume;
+- (void)URLSession:(id)a0 avAssetDownloadTask:(id)a1 didReceiveAVAssetDownloadToken:(unsigned long long)a2;
+- (void)enqueueAVDownloadRequest:(id)a0 toDestination:(id)a1 withOptions:(id)a2 completionHandler:(id /* block */)a3;
+- (void)enqueueDataRequest:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_processRequest:(id)a0;
+- (id)initWithConfiguration:(id)a0 maxConcurrentRequests:(unsigned long long)a1 qualityOfService:(long long)a2;
+
+@end

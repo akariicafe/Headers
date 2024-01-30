@@ -1,0 +1,90 @@
+@class SFSystemAlert, NSString, WKProcessPool, SFBrowserPersonaAnalyticsHelper, NSDate, _SFWebViewUsageMonitor, NSTimer;
+
+@interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, _SFLinkPreviewHeaderDelegate, SFServiceViewControllerProtocol> {
+    id /* block */ _activityViewControllerInfoFetchCompletionHandler;
+    _SFWebViewUsageMonitor *_usageMonitor;
+    NSDate *_lastHostApplicationSuspendDate;
+    WKProcessPool *_processPool;
+    BOOL _usingSharedProcessPool;
+    BOOL _canNotifyHostApplicationOfRedirects;
+    BOOL _touchEventsShouldStopRedirectNotifications;
+    BOOL _isExpectingClientRedirect;
+    BOOL _hasBegunFirstNavigation;
+    BOOL _hasConnectedToHostApplication;
+    SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
+    NSTimer *_redirectNotificationTimer;
+    BOOL _hostApplicationIsForeground;
+}
+
+@property (retain, nonatomic) SFSystemAlert *webAuthenticationDataSharingConfirmation;
+@property (copy, nonatomic) NSString *hostApplicationCallbackURLScheme;
+@property (nonatomic) BOOL _isUsedForAuthentication;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_exportedInterface;
++ (id)_remoteViewControllerInterface;
+
+- (void)setDisplayMode:(long long)a0;
+- (void).cxx_destruct;
+- (void)_updateRemoteSwipeGestureState;
+- (id)processPoolConfiguration;
+- (id)_websiteDataStoreURLForHSTSStorage:(BOOL)a0;
+- (void)loadURL:(id)a0;
+- (void)dealloc;
+- (void)_openCurrentURLInSafari;
+- (id)_webDataStoreRootURLForHSTSStorage:(BOOL)a0;
+- (BOOL)_ensureWebsiteDataStoreURL:(id)a0 cookieStoreURL:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_redirectToHostAppWithExpectedCallbackSchemeIfPossible:(id)a0;
+- (id)_applicationPayloadForOpeningInSafari;
+- (void)webViewController:(id)a0 didReceiveServerRedirectForProvisionalNavigation:(id)a1;
+- (void)webViewControllerDidCancelClientRedirect:(id)a0;
+- (void)webViewController:(id)a0 willPerformClientRedirectToURL:(id)a1 withDelay:(double)a2;
+- (void)webViewController:(id)a0 didStartProvisionalNavigation:(id)a1;
+- (void)webViewController:(id)a0 didFinishDocumentLoadForNavigation:(id)a1;
+- (void)webViewController:(id)a0 didChangeFullScreen:(BOOL)a1;
+- (void)webViewControllerWebProcessDidCrash:(id)a0;
+- (void)_updateMaxVisibleHeightPercentageUserDriven:(BOOL)a0;
+- (void)safariActivity:(id)a0 didFinish:(BOOL)a1;
+- (void)_didResolveDestinationURL:(id)a0 pendingAppLinkCheck:(BOOL)a1;
+- (void)_getSafariDataSharingModeWithCompletion:(id /* block */)a0;
+- (void)_fetchActivityViewControllerInfoForURL:(id)a0 title:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_notifyInitialLoadDidFinish:(BOOL)a0;
+- (BOOL)_redirectToHostAppWithNavigationResult:(id)a0 options:(id)a1;
+- (void)setPreferredBarTintColor:(id)a0 controlTintColor:(id)a1;
+- (void)repostNotificationInViewService:(id)a0;
+- (void)didFetchCustomActivities:(id)a0 excludedActivityTypes:(id)a1;
+- (void)setIsRunningTransitionAnimation:(BOOL)a0;
+- (void)didDetectRemoteViewControllerViewIsHidden;
+- (void)didDetectUserInteractionFromHostApp;
+- (void)openCurrentURLInSafariFromPreviewAction;
+- (void)updateScrollViewIndicatorVerticalInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0 horizontalInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (void)didRequestShowLinkPreviews:(BOOL)a0;
+- (id)websiteDataStoreConfiguration;
+- (void)decideCookieSharingForURL:(id)a0 callbackURLScheme:(id)a1;
+- (void)_willAppearInRemoteViewController;
+- (void)_hostApplicationDidEnterBackground;
+- (void)_hostApplicationWillEnterForeground;
+- (void)_didLoadWebView;
+- (void)_recordHostAppIdAndURLForTapToRadar:(id)a0;
+- (id)bundleIdentifierForProfileInstallation;
+- (id)_hostAppBundleId;
+- (BOOL)_shouldReloadImmediatelyAfterPageLoadError;
+- (void)browserViewDidReceiveTouchEvent:(id)a0;
+- (void)prepareForDisplayWithCompletionHandler:(id /* block */)a0;
+- (void)setDismissButtonStyle:(long long)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (unsigned long long)_persona;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)linkPreviewHeader:(id)a0 didEnableLinkPreview:(BOOL)a1;
+- (void)_dismiss;
+- (void)startResolveRedirectionForURL:(id)a0;
+- (id)processPool;
+- (void)_closeDatabasesOnBackgroundingOrDismissal;
+- (id)_analyticsHelper;
+
+@end

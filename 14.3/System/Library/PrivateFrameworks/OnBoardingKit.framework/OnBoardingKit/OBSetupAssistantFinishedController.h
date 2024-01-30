@@ -1,0 +1,25 @@
+@class UILabel, OBButtonTray, OBBoldTrayButton;
+
+@interface OBSetupAssistantFinishedController : OBBaseWelcomeController
+
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *detailLabel;
+@property (retain, nonatomic) OBButtonTray *buttonTray;
+@property (retain, nonatomic) OBBoldTrayButton *boldButton;
+@property (copy, nonatomic) id /* block */ boldButtonBlock;
+@property (retain, nonatomic) UILabel *instructionalLabel;
+
+- (id)initWithTitle:(id)a0;
+- (void).cxx_destruct;
+- (id)_headerFont;
+- (void)buttonTapped:(id)a0;
+- (id)_detailFont;
+- (id)initWithTitle:(id)a0 detailText:(id)a1;
+- (id)_instructionFont;
+- (void)setButtonTitle:(id)a0 action:(id /* block */)a1;
+- (void)setInstructionalText:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidLoad;
+- (struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; })directionalLayoutMargins;
+
+@end

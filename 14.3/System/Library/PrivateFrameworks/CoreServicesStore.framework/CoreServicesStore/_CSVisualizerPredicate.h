@@ -1,0 +1,28 @@
+@class NSString, NSPredicate;
+
+@interface _CSVisualizerPredicate : NSPredicate {
+    NSString *_title;
+    NSString *_searchString;
+    unsigned long long _operator;
+    NSPredicate *_numericPredicate;
+}
+
++ (BOOL)operatorIsNumeric:(unsigned long long)a0;
++ (id)constantValueForExpression:(id)a0;
++ (id)translateNSPredicate:(id)a0 error:(id *)a1;
++ (id)predicateWithFormatString:(id)a0 error:(id *)a1;
++ (void)getRanges:(struct vector<_NSRange, std::__1::allocator<_NSRange> > { struct _NSRange *x0; struct _NSRange *x1; struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange> > { struct _NSRange *x0; } x2; } *)a0 matchingPredicate:(id)a1 inDescription:(id)a2;
+
+- (id)predicateFormat;
+- (void).cxx_destruct;
+- (id)initWithExpression:(id)a0;
+- (id)description;
+- (BOOL)evaluateWithObject:(id)a0;
+- (BOOL)evaluateWithObject:(id)a0 substitutionVariables:(id)a1;
+- (id)debugDescription;
+- (id)initWithSearchString:(id)a0 operator:(unsigned long long)a1 error:(id *)a2;
+- (id)initWithSearchString:(id)a0 forTitle:(id)a1 operator:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)evaluateNumerically:(id)a0;
+- (BOOL)getRanges:(struct vector<_NSRange, std::__1::allocator<_NSRange> > { struct _NSRange *x0; struct _NSRange *x1; struct __compressed_pair<_NSRange *, std::__1::allocator<_NSRange> > { struct _NSRange *x0; } x2; } *)a0 inDescription:(id)a1 options:(unsigned long long)a2 limit:(unsigned long long)a3 searchedInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a4;
+
+@end

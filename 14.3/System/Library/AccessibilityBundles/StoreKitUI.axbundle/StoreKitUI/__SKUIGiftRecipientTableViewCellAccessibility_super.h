@@ -1,0 +1,3 @@
+@interface __SKUIGiftRecipientTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

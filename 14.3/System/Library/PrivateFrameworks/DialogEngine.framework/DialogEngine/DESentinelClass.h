@@ -1,0 +1,3 @@
+@interface DESentinelClass : NSObject
+
+@end

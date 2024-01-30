@@ -1,0 +1,90 @@
+@class NSString, PDFHostViewControllerPrivate;
+
+@interface PDFHostViewController : _UIRemoteViewController <UIGestureRecognizerDelegate, UIDocumentPasswordViewDelegate> {
+    PDFHostViewControllerPrivate *_private;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)backgroundColor;
++ (id)exportedInterface;
++ (id)serviceViewControllerInterface;
++ (void)createHostView:(id /* block */)a0 forExtensionIdentifier:(id)a1;
++ (id)loadExtension:(id)a0;
+
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (void)selectAll:(id)a0;
+- (void)setup;
+- (void)copy:(id)a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (id)pointerInteraction:(id)a0 styleForRegion:(id)a1;
+- (double)maximumZoomScale;
+- (void).cxx_destruct;
+- (long long)currentPageIndex;
+- (void)handleGesture:(id)a0;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)userDidEnterPassword:(id)a0 forPasswordView:(id)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (long long)pageCount;
+- (void)killExtensionProcess;
+- (double)minimumZoomScale;
+- (void)_pointerInteraction:(id)a0 regionForRequest:(id)a1 defaultRegion:(id)a2 completion:(id /* block */)a3;
+- (void)goToPageIndex:(long long)a0;
+- (void)updatePDFViewLayout;
+- (void)cancelFindString;
+- (void)findString:(id)a0 withOptions:(unsigned long long)a1;
+- (void)focusOnSearchResultAtIndex:(unsigned long long)a0;
+- (void)beginPDFViewRotation;
+- (void)endPDFViewRotation;
+- (void)snapshotViewRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 snapshotWidth:(id)a1 afterScreenUpdates:(BOOL)a2 withResult:(id /* block */)a3;
+- (void)cancelFindStringWithHighlightsCleared:(BOOL)a0;
+- (void)setDelegate:(id)a0;
+- (void)setHasSelection:(BOOL)a0;
+- (id)pageNumberIndicator;
+- (void)setDocumentData:(id)a0 withScrollView:(id)a1;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)clearSearchHighlights;
+- (void)_gestureInit;
+- (void)_setupExtensionInterruptionBlock;
+- (void)_resetPDFHostViewControllerViews;
+- (void)findStringUpdate:(unsigned long long)a0 done:(BOOL)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_pdfViewSafeAreaInsets;
+- (double)_hostScrollViewZoomScale;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_insetBoundsInDocument;
+- (void)_endPDFViewRotationAnimated:(BOOL)a0 withUpdate:(BOOL)a1;
+- (void)updateDocumentViewSize;
+- (void)updateAutoScaleFactor;
+- (struct CGSize { double x0; double x1; })_documentViewSize;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_pdfViewInsets;
+- (void)_setMinimumZoomScale:(double)a0;
+- (void)_setMaximumZoomScale:(double)a0;
+- (void)_appendPasswordUI;
+- (BOOL)_isTouchingLollipopAtLocationOfFirstTouch:(struct CGPoint { double x0; double x1; })a0;
+- (unsigned long long)_typeForGestureRecognizer:(id)a0;
+- (void)goToPageIndex:(long long)a0 withViewFrustum:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)recievedSnapshotViewRect:(id)a0;
+- (void)setupDocumentViewSize:(struct CGSize { double x0; double x1; })a0;
+- (void)documentIsLocked:(BOOL)a0;
+- (void)updateCurrentPageIndex:(long long)a0;
+- (void)updatePageCount:(long long)a0;
+- (void)showSelectionRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setTextSelectionPoints:(struct CGPoint { double x0; double x1; })a0 right:(struct CGPoint { double x0; double x1; })a1;
+- (void)showTextSelectionMenu:(BOOL)a0 selectionRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)zoomToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)goToURL:(id)a0 atLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void)goToPageIndex:(long long)a0 pageFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)goToDestination:(long long)a0 point:(struct CGPoint { double x0; double x1; })a1;
+- (void)didCopyString:(id)a0;
+- (void)didCopyData:(id)a0;
+- (void)updateDocumentIsLocked:(BOOL)a0;
+- (void)didLongPressURL:(id)a0 atLocation:(struct CGPoint { double x0; double x1; })a1 withAnnotationRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)didLongPressPageIndex:(long long)a0 atLocation:(struct CGPoint { double x0; double x1; })a1 withAnnotationRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)completePointerInteractionRegionForRequest:(id)a0;
+- (void)endPDFViewRotationWithContentInset:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+
+@end

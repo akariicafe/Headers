@@ -1,0 +1,3 @@
+@interface WFAQIScaleCategoryDAQI : WFAQIScaleCategory
+
+@end

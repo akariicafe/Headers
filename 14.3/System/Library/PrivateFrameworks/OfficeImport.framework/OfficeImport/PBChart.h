@@ -1,0 +1,3 @@
+@interface PBChart : NSObject
+
+@end

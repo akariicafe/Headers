@@ -1,0 +1,3 @@
+@interface __MPInlineVideoControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

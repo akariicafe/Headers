@@ -1,0 +1,70 @@
+@class NSString, NSDictionary, NSArray, NSNumber;
+
+@interface MCWiFiPayload : MCPayload
+
+@property (retain, nonatomic) NSNumber *isHiddenNum;
+@property (retain, nonatomic) NSNumber *autoJoinNum;
+@property (retain, nonatomic) NSNumber *captiveBypassNum;
+@property (retain, nonatomic) NSNumber *proxyPACFallbackAllowedNum;
+@property (retain, nonatomic) NSNumber *isHotspotNum;
+@property (retain, nonatomic) NSNumber *serviceProviderRoamingEnabledNum;
+@property (retain, nonatomic) NSNumber *disableAssociationMACRandomizationNum;
+@property (retain, nonatomic) NSString *ssid;
+@property (nonatomic) BOOL isHidden;
+@property (nonatomic) BOOL captiveBypass;
+@property (retain, nonatomic) NSString *encryptionType;
+@property (nonatomic) BOOL isWEP;
+@property (nonatomic) BOOL isWPA;
+@property (retain, nonatomic) NSDictionary *eapClientConfig;
+@property (retain, nonatomic) NSDictionary *qosMarkingConfig;
+@property (nonatomic) BOOL disableAssociationMACRandomization;
+@property (nonatomic) BOOL passwordRequired;
+@property (retain, nonatomic) NSString *password;
+@property (nonatomic) BOOL usernameRequired;
+@property (retain, nonatomic) NSString *username;
+@property (nonatomic) BOOL autoJoin;
+@property (nonatomic) NSNumber *isFirstAutoJoinRestricted;
+@property (retain, nonatomic) NSString *certificateUUID;
+@property (retain, nonatomic) NSArray *payloadCertificateAnchorUUID;
+@property (nonatomic) int proxyType;
+@property (retain, nonatomic) NSString *proxyServer;
+@property (retain, nonatomic) NSNumber *proxyServerPort;
+@property (retain, nonatomic) NSString *proxyUsername;
+@property (retain, nonatomic) NSString *proxyPassword;
+@property (retain, nonatomic) NSString *proxyPACURLString;
+@property (nonatomic) BOOL proxyPACFallbackAllowed;
+@property (retain, nonatomic) NSString *credentialUUID;
+@property (nonatomic) BOOL isHotspot;
+@property (retain, nonatomic) NSNumber *priority;
+@property (retain, nonatomic) NSString *domainName;
+@property (retain, nonatomic) NSString *HESSID;
+@property (nonatomic, getter=isServiceProviderRoamingEnabled) BOOL serviceProviderRoamingEnabled;
+@property (retain, nonatomic) NSArray *roamingConsortiumOIs;
+@property (retain, nonatomic) NSArray *NAIRealmNames;
+@property (retain, nonatomic) NSArray *MCCAndMNCs;
+@property (retain, nonatomic) NSString *displayedOperatorName;
+
++ (id)typeStrings;
++ (id)localizedPluralForm;
++ (id)localizedSingularForm;
+
+- (id)verboseDescription;
+- (id)stubDictionary;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0 profile:(id)a1 outError:(id *)a2;
+- (id)payloadDescriptionKeyValueSections;
+- (id)subtitle1Label;
+- (id)subtitle1Description;
+- (id)installationWarnings;
+- (id)filterForUserEnrollmentOutError:(id *)a0;
+- (id)subtitle2Label;
+- (id)subtitle2Description;
+- (BOOL)_eapConfigIsValid:(id)a0 error:(id *)a1;
+- (id)_eapUsernameFromConfig:(id)a0 isRequired:(BOOL *)a1;
+- (id)_eapPasswordFromConfig:(id)a0 isRequired:(BOOL *)a1;
+- (BOOL)_qosMarkingConfigIsValid:(id)a0 error:(id *)a1;
+- (id)_localizedEncryptionTypeString;
+- (id)userInputFields;
+- (BOOL)_isEAPSIMConfig:(id)a0;
+
+@end

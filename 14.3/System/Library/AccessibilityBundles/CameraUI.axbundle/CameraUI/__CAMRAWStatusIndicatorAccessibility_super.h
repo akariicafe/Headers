@@ -1,0 +1,3 @@
+@interface __CAMRAWStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

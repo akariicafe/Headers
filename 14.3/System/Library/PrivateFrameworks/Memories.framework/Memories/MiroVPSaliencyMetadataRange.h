@@ -1,0 +1,3 @@
+@interface MiroVPSaliencyMetadataRange : MiroVPMetadataRange
+
+@end

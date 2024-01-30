@@ -1,0 +1,54 @@
+@class NSUUID, HMDHome, NSString, NSSet, NSMutableDictionary, NSObject, NSNotificationCenter, HMFUnfairLock;
+@protocol OS_dispatch_queue;
+
+@interface HMDAccessoryNetworkProtectionGroupRegistry : NSObject <HMFMessageReceiver, HMFLogging> {
+    HMFUnfairLock *_lock;
+    NSMutableDictionary *_groupRecords;
+}
+
+@property (readonly, weak, nonatomic) HMDHome *home;
+@property (readonly, nonatomic) NSNotificationCenter *notificationCenter;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly, copy) NSSet *activeGroups;
+@property (readonly, copy) NSSet *persistedGroups;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void)configure;
+- (void).cxx_destruct;
+- (void)_registerForMessages;
+- (id)logIdentifier;
+- (void)handleAddOrUpdateAccessoryNetworkProtectionGroupModel:(id)a0 message:(id)a1;
+- (void)handleRemoveAccessoryNetworkProtectionGroupModel:(id)a0 message:(id)a1;
+- (id)initWithHome:(id)a0 notificationCenter:(id)a1;
+- (void)handleAddedAccessory:(id)a0;
+- (void)handleRemovedAccessory:(id)a0;
+- (id)initWithHome:(id)a0 notificationCenter:(id)a1 persistedGroups:(id)a2;
+- (long long)targetProtectionModeForGroupWithUUID:(id)a0;
+- (id)groupRecordWithUUID:(id)a0;
+- (void)handleUpdateAccessoryNetworkProtectionGroupProtectionMode:(id)a0;
+- (BOOL)updateTargetProtectionModeForGroupWithUUID:(id)a0 protectionMode:(long long)a1 error:(id *)a2 requestMessage:(id)a3;
+- (void)addActiveSurrogateGroupForAccessory:(id)a0 shouldNotifyChange:(BOOL)a1;
+- (BOOL)_evaluateActiveStatusForGroupWithUUID:(id)a0;
+- (void)_setupProtectionGroupForAccessory:(id)a0 shouldNotifyChange:(BOOL)a1;
+- (void)handleUpdatedAccessoryInitialManufacturerOrCategory:(id)a0;
+- (void)handleUpdatedAccessoryConfiguredNetworkProtectionGroup:(id)a0;
+- (void)_registerForAccessoryChanges:(id)a0;
+- (BOOL)_updateGroupWithUUID:(id)a0 active:(BOOL)a1;
+- (id)groupWithUUID:(id)a0;
+- (id)markGroupWithUUID:(id)a0 active:(BOOL)a1;
+- (void)notifyClientsOfAddedGroup:(id)a0;
+- (void)notifyClientsOfRemovedGroup:(id)a0;
+- (BOOL)addActiveSurrogateGroup:(id)a0;
+- (void)_setupActiveGroupsForHome;
+- (id)removeGroupWithUUID:(id)a0;
+- (BOOL)updateTargetProtectionModeForGroupWithUUID:(id)a0 protectionMode:(long long)a1 error:(id *)a2;
+- (id)accessoriesForGroupWithUUID:(id)a0;
+
+@end

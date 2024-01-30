@@ -1,0 +1,20 @@
+@class NSString, NSArray, NSUUID, BSMachPortSendRight, UITraitCollection;
+
+@interface _UIViewServiceViewControllerOperatorCreateOptions : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *viewControllerClassName;
+@property (copy, nonatomic) NSArray *serializedAppearanceRepresentations;
+@property (retain, nonatomic) NSUUID *contextToken;
+@property (copy, nonatomic) NSArray *displayConfigurations;
+@property (retain, nonatomic) UITraitCollection *traitCollection;
+@property (retain, nonatomic) BSMachPortSendRight *hostAccessibilityServerPort;
+@property (nonatomic) long long availableTextServices;
+@property (nonatomic) long long initialInterfaceOrientation;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

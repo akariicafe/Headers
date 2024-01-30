@@ -1,0 +1,50 @@
+@class HMFTimer, NSString, NSMapTable, HMDDataStreamControlProtocol, NSMutableSet, HAPSecuritySessionEncryption, NSObject;
+@protocol OS_dispatch_queue, HMDDataStreamDelegate, HMDDataStreamTransport;
+
+@interface HMDDataStream : NSObject <HMFLogging, HMFTimerDelegate>
+
+@property (readonly, copy) NSString *logIdentifier;
+@property (nonatomic, getter=isActive) BOOL active;
+@property (retain, nonatomic) id<HMDDataStreamTransport> transport;
+@property (retain, nonatomic) HAPSecuritySessionEncryption *sessionEncryption;
+@property (retain, nonatomic) NSMapTable *protocols;
+@property (retain, nonatomic) HMDDataStreamControlProtocol *controlProtocol;
+@property (nonatomic) BOOL firstMessageReceived;
+@property (retain, nonatomic) HMFTimer *helloMessageResponseTimer;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic) unsigned long long nextRequestIdentifier;
+@property (readonly, nonatomic) NSMutableSet *pendingRequests;
+@property (weak, nonatomic) id<HMDDataStreamDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void)connect;
+- (void)close;
+- (void).cxx_destruct;
+- (void)timerDidFire:(id)a0;
+- (void)_evaluateActiveStatusChange;
+- (void)_sendMessageWithHeader:(id)a0 payload:(id)a1 completion:(id /* block */)a2;
+- (id)createRequestIdentifier;
+- (void)sendRequestForProtocol:(id)a0 topic:(id)a1 payload:(id)a2 completion:(id /* block */)a3;
+- (BOOL)handleFirstMessageReceivedOnDataStream:(id)a0 payload:(id)a1;
+- (void)handlePendingRequests;
+- (void)fulfillPendingRequestWithResponseHeader:(id)a0 payload:(id)a1;
+- (void)startHelloMessageResponseTimer;
+- (id)initWithTransport:(id)a0 sessionEncryption:(id)a1 workQueue:(id)a2 logIdentifier:(id)a3;
+- (void)addProtocol:(id)a0 name:(id)a1;
+- (id)protocolWithName:(id)a0;
+- (id)protocolDelegateHandle;
+- (void)sendEventForProtocol:(id)a0 topic:(id)a1 payload:(id)a2 completion:(id /* block */)a3;
+- (void)sendResponseForRequestHeader:(id)a0 payload:(id)a1 status:(unsigned short)a2 completion:(id /* block */)a3;
+- (void)sendRequestForProtocol:(id)a0 topic:(id)a1 identifier:(unsigned long long)a2 payload:(id)a3 completion:(id /* block */)a4;
+- (void)protocolDidUpdateActiveStatus:(id)a0;
+- (void)transport:(id)a0 didFailWithError:(id)a1;
+- (void)transport:(id)a0 didReceiveRawFrame:(id)a1;
+- (void)transportDidClose:(id)a0;
+- (void)transportDidOpen:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType14SexualActivity : _TtCs12_SwiftObject
+
+@end

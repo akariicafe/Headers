@@ -1,0 +1,106 @@
+@class HMDRoom, HMFMessageDispatcher, NSObject, HMFActivity, HMDMediaDestinationsManager, HMDAppleMediaAccessory, HMDMediaSystemSymptomHandler, HMDApplicationData, HMDMediaSession, NSString, HMDAccessorySettingsController, HMMediaDestination, HMDBackingStore, NSSet, NSArray, HMDHome, NSNotificationCenter, NSUUID;
+@protocol OS_dispatch_queue, HMFLocking, HMDMediaDestinationManager;
+
+@interface HMDMediaSystem : HMFObject <HMDMediaDestinationsManagerDataSource, HMDMediaDestinationsManagerDelegate, HMDAccessorySettingsControllerDataSource, HMDAccessorySettingsControllerDelegate, NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol, HMDHomeMessageReceiver> {
+    id<HMFLocking> _lock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+@property (class, readonly) BOOL hasMessageReceiverChildren;
+
+@property (retain, nonatomic) NSString *configuredName;
+@property (retain) HMDMediaDestinationsManager *audioDestinationsManager;
+@property (retain) NSNotificationCenter *notificationCenter;
+@property (copy) id /* block */ audioDestinationsManagerFactory;
+@property (readonly, nonatomic) NSUUID *uuid;
+@property (copy, nonatomic) NSString *name;
+@property (readonly, weak, nonatomic) HMDHome *home;
+@property (readonly) HMDRoom *room;
+@property (copy, nonatomic) NSArray *components;
+@property (readonly, nonatomic) NSArray *accessories;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (retain, nonatomic) HMFMessageDispatcher *msgDispatcher;
+@property (retain, nonatomic) HMDMediaSession *mediaSession;
+@property (retain, nonatomic) HMDApplicationData *appData;
+@property (readonly, nonatomic) HMDAppleMediaAccessory *targetAccessory;
+@property (readonly) HMDMediaSystemSymptomHandler *symptomsHandler;
+@property (readonly) HMDAccessorySettingsController *settingsController;
+@property (readonly) HMMediaDestination *audioDestination;
+@property (readonly) id<HMDMediaDestinationManager> audioDestinationManager;
+@property (readonly, copy) NSArray *associatedAudioDestinationManagers;
+@property (readonly) HMDBackingStore *backingStore;
+@property (retain) HMFActivity *setupActivity;
+@property double setupStartTimestamp;
+@property double homepodSetupLatency;
+@property double homepodSettingsCreationTimestamp;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSSet *messageReceiverChildren;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+
++ (id)logCategory;
++ (void)_configureMediaSystemComponents:(id)a0 mediaSystem:(id)a1;
++ (id)sortMediaComponents:(id)a0;
+
+- (id)serialize;
+- (id)urlString;
+- (void)_registerForNotifications;
+- (void).cxx_destruct;
+- (id)audioDestinationIdentifier;
+- (void)_updateAppData:(id)a0;
+- (void)dealloc;
+- (id)attributeDescriptions;
+- (BOOL)isValid;
+- (id)initWithCoder:(id)a0;
+- (id)dumpState;
+- (id)privateDescription;
+- (void)_registerForMessages;
+- (id)messageDestination;
+- (id)logIdentifier;
+- (void)encodeWithCoder:(id)a0;
+- (void)transactionObjectUpdated:(id)a0 newValues:(id)a1 message:(id)a2;
+- (void)transactionObjectRemoved:(id)a0 message:(id)a1;
+- (id)modelObjectWithChangeType:(unsigned long long)a0;
+- (id)modelForMediaSystem;
+- (void)configureWithMessageDispatcher:(id)a0;
+- (void)mediaDestinationsManager:(id)a0 didUpdateDestination:(id)a1;
+- (id)associatedDestinationManagersForMediaDestinationsManager:(id)a0;
+- (id)targetAccessoryForMediaDestinationManager:(id)a0;
+- (id)mediaDestinationsManager:(id)a0 destinationControllerWithIdentifier:(id)a1;
+- (void)handleRemovedAccessory:(id)a0;
+- (id)backingStoreObjectsForVersion:(long long)a0;
+- (id)assistantObject;
+- (id)initWithMediaSystemModel:(id)a0 home:(id)a1;
+- (void)unconfigureMediaSystemComponents;
+- (void)handleHomeCloudZoneReadyNotification:(id)a0;
+- (id)modelsToMakeSettingsForController:(id)a0 parentUUID:(id)a1;
+- (id)modelsToMigrateSettingsForController:(id)a0;
+- (void)accessorySettingsController:(id)a0 saveWithReason:(id)a1;
+- (void)accessorySettingsController:(id)a0 saveWithReason:(id)a1 model:(id)a2;
+- (id)remoteMessageDestinationForAccessorySettingsController:(id)a0 target:(id)a1;
+- (id)supportedMultiUserLanguageCodesForAccessorySettingsController:(id)a0;
+- (BOOL)isMultiUserEnabledForAccessorySettingsController:(id)a0;
+- (id)assistantAccessControlModelWithRemovedAccessoriesForAccessorySettingsController:(id)a0;
+- (id)initWithUUID:(id)a0 configuredName:(id)a1 home:(id)a2 components:(id)a3 settingsControllerCreator:(id /* block */)a4;
+- (id)initWithUUID:(id)a0 configuredName:(id)a1 home:(id)a2 components:(id)a3;
+- (id)targetAccessoryBySerial;
+- (void)configureAudioDestinationsManager;
+- (id)createNewAudioDestination;
+- (void)repairAnyPreExistingAudioGroups;
+- (BOOL)isCurrentComponent;
+- (id)destinationControllerGroupedWithAssociatedDestination;
+- (void)auditMediaComponents;
+- (void)_handleUpdateMediaSystem:(id)a0;
+- (void)_handleAppData:(id)a0;
+- (void)handleAccessorySoftwareUpdated:(id)a0;
+- (void)unconfigureMediaSystemComponents:(id)a0;
+- (void)configureMediaSystemComponents:(id)a0;
+- (void)_transactionMediaSystemUpdated:(id)a0 message:(id)a1;
+- (void)_appDataUpdated:(id)a0 message:(id)a1;
+- (void)_appDataRemoved:(id)a0 message:(id)a1;
+- (void)relayMessage:(id)a0;
+
+@end

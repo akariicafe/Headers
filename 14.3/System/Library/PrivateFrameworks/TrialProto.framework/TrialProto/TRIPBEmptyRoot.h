@@ -1,0 +1,3 @@
+@interface TRIPBEmptyRoot : TRIPBRootObject
+
+@end

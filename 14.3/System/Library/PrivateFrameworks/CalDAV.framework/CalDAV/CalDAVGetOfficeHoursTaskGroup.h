@@ -1,0 +1,21 @@
+@class CoreDAVPropFindTask, ICSDocument, NSURL, NSString;
+@protocol CoreDAVTaskGroupDelegate;
+
+@interface CalDAVGetOfficeHoursTaskGroup : CoreDAVTaskGroup <CoreDAVPropFindTaskDelegate>
+
+@property (retain, nonatomic) NSURL *inboxURL;
+@property (retain, nonatomic) CoreDAVPropFindTask *fetchTask;
+@property (retain, nonatomic) ICSDocument *calendarAvailability;
+@property (nonatomic) id<CoreDAVTaskGroupDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)_finishWithError:(id)a0;
+- (void)startTaskGroup;
+- (void)propFindTask:(id)a0 parsedResponses:(id)a1 error:(id)a2;
+- (id)initWithAccountInfoProvider:(id)a0 inboxURL:(id)a1 taskManager:(id)a2;
+
+@end

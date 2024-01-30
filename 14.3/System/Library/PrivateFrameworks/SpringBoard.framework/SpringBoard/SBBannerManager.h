@@ -1,0 +1,93 @@
+@class NSHashTable, NSString, BNBannerSourceListener, UIWindow, BNContentViewController, BNBannerController, NSMutableArray, UIPanGestureRecognizer, SBBannerAuthority, NSMapTable, NSMutableSet;
+@protocol BNLayoutManaging, BSInvalidatable;
+
+@interface SBBannerManager : NSObject <BNPostingPrivate, BNPresentingDelegate, BNBannerSourceListenerDelegate, SBAssistantObserver, SBBannerManagerHomeGestureContextDelegate, BNPosting, SBButtonEventsHandler> {
+    SBBannerAuthority *_bannerAuthority;
+    BNBannerController *_bannerController;
+    BNContentViewController *_contentViewController;
+    BNBannerSourceListener *_bannerSourceListener;
+    NSMutableArray *_windowLevelAssertions;
+    UIPanGestureRecognizer *_panGesture;
+    BOOL _installedAsSystemGesture;
+    NSMutableArray *_gesturePriorityAssertions;
+    NSMapTable *_presentablesToGesturePriorityAssertions;
+    id<BSInvalidatable> _presenterVisibilityGestureRecognizerPriorityAssertion;
+    NSHashTable *_suppressionAssertions;
+    NSMutableSet *_clientSuppressionAssertions;
+    id<BSInvalidatable> _systemStatusBarAssertion;
+    id<BSInvalidatable> _appsStatusBarAssertion;
+    NSMutableSet *_statusBarAssertionReasons;
+    NSMapTable *_presentablesToHomeGestureContexts;
+}
+
+@property (readonly, nonatomic) UIWindow *bannerWindow;
+@property (readonly, nonatomic) id<BNLayoutManaging> layoutManager;
+@property (readonly, nonatomic, getter=isPresentingBanner) BOOL presentingBanner;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_defaultAuthorizedBundleIDs;
+
+- (BOOL)handleHomeButtonLongPress;
+- (BOOL)handleHomeButtonDoublePress;
+- (BOOL)handleHomeButtonPress;
+- (BOOL)handleVolumeDownButtonPress;
+- (BOOL)handleVolumeUpButtonPress;
+- (BOOL)handleVoiceCommandButtonPress;
+- (BOOL)handleHeadsetButtonPress:(BOOL)a0;
+- (BOOL)handleLockButtonPress;
+- (BOOL)bannerSourceListener:(id)a0 recommendsSuspending:(BOOL)a1 forReason:(id)a2 revokingCurrent:(BOOL)a3 error:(id *)a4;
+- (id)_homeGestureContextForPresentable:(id)a0 creatingIfNecessary:(BOOL)a1;
+- (BOOL)bannerSourceListener:(id)a0 requestsPostingPresentable:(id)a1 options:(unsigned long long)a2 userInfo:(id)a3 error:(id *)a4;
+- (id)_newBannerWindow;
+- (id)init;
+- (id)acquireWindowLevelAssertionWithPriority:(long long)a0 windowLevel:(double)a1 reason:(id)a2;
+- (void).cxx_destruct;
+- (BOOL)_isPresentableBannerHomeGestureParticipant:(id)a0;
+- (id)bannerSourceListener:(id)a0 requestsRevokingPresentablesWithIdentification:(id)a1 reason:(id)a2 animated:(BOOL)a3 userInfo:(id)a4 error:(id *)a5;
+- (id)acquireGestureRecognizerPriorityAssertionForPresentable:(id)a0 priority:(long long)a1 reason:(id)a2;
+- (id)keyboardHomeAffordanceAssertionForBannerManagerHomeGestureContext:(id)a0;
+- (BOOL)postPresentable:(id)a0 withOptions:(unsigned long long)a1 userInfo:(id)a2 error:(out id *)a3;
+- (struct CGPoint { double x0; double x1; })presenter:(id)a0 gestureRecognizer:(id)a1 locationForEvent:(id)a2 inView:(id)a3;
+- (void)_revealStatusIfNecessaryForPresentable:(id)a0;
+- (id)_presentableForHomeGestureContext:(id)a0;
+- (id)_bannerSuspensionReasonForSuppressionAssertionReason:(id)a0;
+- (void)setSuspended:(BOOL)a0 forReason:(id)a1;
+- (id)bannerSourceListener:(id)a0 layoutDescriptionWithError:(id *)a1;
+- (void)bannerSourceListener:(id)a0 didUpdateInitialSceneSettingsWithParameters:(id)a1;
+- (void)wantsHomeGestureDidChangeForBannerManagerHomeGestureContext:(id)a0;
+- (id)bannerSourceListener:(id)a0 newBannerSourceListenerPresentableForBannerSpecification:(id)a1 scene:(id)a2 readyCompletion:(id /* block */)a3;
+- (void)_updateGesturePriority;
+- (void)presenter:(id)a0 willPresentPresentable:(id)a1 withTransitionCoordinator:(id)a2 userInfo:(id)a3;
+- (BOOL)_isPresentableHUD:(id)a0;
+- (struct CGPoint { double x0; double x1; })presenter:(id)a0 gestureRecognizer:(id)a1 locationForTouch:(id)a2 inView:(id)a3;
+- (BOOL)_handleButtonEventWithTest:(id /* block */)a0 handler:(id /* block */)a1;
+- (void)bannerSourceListener:(id)a0 presentationSize:(out struct CGSize { double x0; double x1; } *)a1 containerSize:(out struct CGSize { double x0; double x1; } *)a2 error:(id *)a3;
+- (void)presenter:(id)a0 willDismissPresentable:(id)a1 withTransitionCoordinator:(id)a2 userInfo:(id)a3;
+- (void)presenterRelinquishesVisibility:(id)a0;
+- (void)presenterRequestsVisibility:(id)a0;
+- (id)_statusBarAssertionReasonForPresentable:(id)a0;
+- (void)assistantWillAppear:(id)a0;
+- (id)_layoutDescriptionWithBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)panGestureRecognizerForPresenter:(id)a0;
+- (id)userInterfaceStyleTransitionAnimationSettingsForPresentable:(id)a0 forTransitionToStyle:(long long)a1;
+- (id)acquireBannerSuppressionAssertionForReason:(id)a0;
+- (id)_acquireGestureRecognizerPriorityAssertionWithPriority:(long long)a0 reason:(id)a1;
+- (struct CGPoint { double x0; double x1; })presenter:(id)a0 gestureRecognizer:(id)a1 translationInView:(id)a2;
+- (void)registerAuthority:(id)a0 forRequesterIdentifier:(id)a1;
+- (id)revokePresentablesWithIdentification:(id)a0 reason:(id)a1 options:(unsigned long long)a2 animated:(BOOL)a3 userInfo:(id)a4 error:(out id *)a5;
+- (void)dismissAllBannersAnimated:(BOOL)a0 reason:(id)a1;
+- (void)_updateWindowLevel;
+- (void)_invalidatePresenterVisibilityGestureRecognizerPriorityAssertion;
+- (void)_acquirePresenterVisibilityGestureRecognizerPriorityAssertion;
+- (struct CGPoint { double x0; double x1; })presenter:(id)a0 gestureRecognizer:(id)a1 velocityInView:(id)a2;
+- (void)_hideStatusIfNecessaryForPresentable:(id)a0;
+- (id)gestureRecognizerPriorityAssertionForBannerManagerHomeGestureContext:(id)a0 priority:(long long)a1 reason:(id)a2;
+- (id)revokePresentablesWithIdentification:(id)a0 reason:(id)a1 options:(unsigned long long)a2 userInfo:(id)a3 error:(out id *)a4;
+- (void)_removeHomeGestureContextForPresentable:(id)a0;
+- (BOOL)_shouldHideStatusBarForPresentable:(id)a0;
+- (void)presenter:(id)a0 willTransitionToSize:(struct CGSize { double x0; double x1; })a1 withTransitionCoordinator:(id)a2;
+
+@end

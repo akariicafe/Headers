@@ -1,0 +1,3 @@
+@interface _UIDiffableDataSourceOutlineSectionController : _UIDiffableDataSourceSectionController
+
+@end

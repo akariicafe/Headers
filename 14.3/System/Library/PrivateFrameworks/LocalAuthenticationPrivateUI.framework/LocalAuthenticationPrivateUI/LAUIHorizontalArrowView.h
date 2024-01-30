@@ -1,0 +1,46 @@
+@class UIColor, NSString, UIImageView, NSObject, UIView, UILabel, CALayer;
+@protocol OS_dispatch_source;
+
+@interface LAUIHorizontalArrowView : UIView {
+    UIColor *_color;
+    BOOL _effective_animating;
+    unsigned short _dismissal_animation_count;
+    BOOL _animated;
+    double _resting_height;
+    UIView *_container;
+    UIView *_arrow_container;
+    UIImageView *_head;
+    UIView *_tail_container;
+    UIImageView *_tail;
+    UILabel *_label;
+    BOOL _pulsing;
+    struct periodic_animation_state { BOOL enabled; NSString *_key; CALayer *_layer; NSObject<OS_dispatch_source> *_removal_timer; } _head_pulse;
+    struct periodic_animation_state { BOOL enabled; NSString *_key; CALayer *_layer; NSObject<OS_dispatch_source> *_removal_timer; } _tail_container_pulse;
+    struct periodic_animation_state { BOOL enabled; NSString *_key; CALayer *_layer; NSObject<OS_dispatch_source> *_removal_timer; } _tail_counter_pulse;
+}
+
+@property (nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) long long direction;
+@property (nonatomic) double displacement;
+@property (copy, nonatomic) NSString *text;
+@property (nonatomic) struct CGSize { double width; double height; } maximumLineSize;
+
+- (void)tintColorDidChange;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)didMoveToWindow;
+- (void)layoutSubviews;
+- (id).cxx_construct;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)contentSizeCategoryDidChange:(id)a0;
+- (void)_updateFont;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)boldTextStatusDidChange:(id)a0;
+- (void)_updateViewsWithColor;
+- (void)_updateAnimatingAnimated:(BOOL)a0;
+- (void)_updateDirectionTransform;
+- (void)_updatePulsingWithDelay:(double)a0;
+- (void)_layoutIfNeededAnimated:(BOOL)a0;
+- (void)_updateLabelSize;
+
+@end

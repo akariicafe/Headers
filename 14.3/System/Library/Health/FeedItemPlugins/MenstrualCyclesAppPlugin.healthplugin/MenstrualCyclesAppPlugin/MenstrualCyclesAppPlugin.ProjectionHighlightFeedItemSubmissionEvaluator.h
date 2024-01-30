@@ -1,0 +1,3 @@
+@interface MenstrualCyclesAppPlugin.ProjectionHighlightFeedItemSubmissionEvaluator : MenstrualCyclesAppPlugin.LastMenstrualPeriodFeedItemSubmissionEvaluator
+
+@end

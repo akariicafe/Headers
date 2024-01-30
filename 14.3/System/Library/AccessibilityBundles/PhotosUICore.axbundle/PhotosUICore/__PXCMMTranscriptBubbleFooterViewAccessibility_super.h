@@ -1,0 +1,3 @@
+@interface __PXCMMTranscriptBubbleFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

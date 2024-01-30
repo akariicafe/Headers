@@ -1,0 +1,96 @@
+@class NSDate, UINavigationController, TVApplicationControllerContext, NSDictionary, UIViewController, _TVMLKitApplication, UIView, IKAppDataStorage, NSString, IKAppContext, NSXPCListener, _TVApplicationInspector, UIWindow;
+@protocol UITraitEnvironment, TVApplicationControllerDelegate, TVAppRootViewController;
+
+@interface TVApplicationController : NSObject <IKAppContextInspectorDelegate, IKAppDeviceConfig, IKAppContextDelegatePrivate, AMSUIDynamicViewControllerDelegate, _TVAppNavigationControllerDelegate, IKAppContextDelegate> {
+    IKAppContext *_appContext;
+    _TVMLKitApplication *_application;
+    IKAppDataStorage *_appLocalStorage;
+    NSXPCListener *_serviceListener;
+    NSDictionary *_openURLResumeOptions;
+    NSDictionary *_openURLReloadOptions;
+    BOOL _suspended;
+    BOOL _reloadInProgress;
+    BOOL _reloadOnResume;
+    double _reloadOnResumeMinInterval;
+    NSDate *_reloadOnResumeBackgroundedDate;
+    BOOL _doLaunchOpenURLHandling;
+    NSDictionary *_launchOpenURLOptions;
+    BOOL _popViewControllerOnBackground;
+    UIViewController<TVAppRootViewController> *_appRootViewController;
+    long long _interfaceOrientation;
+}
+
+@property (copy, nonatomic) id /* block */ dynamicUICompletion;
+@property (readonly, nonatomic) UINavigationController *_currentNavigationController;
+@property (readonly, nonatomic) _TVApplicationInspector *applicationInspector;
+@property (readonly, nonatomic) IKAppContext *appContext;
+@property (readonly, nonatomic) UIViewController *rootViewController;
+@property (weak, nonatomic) UIView *viewServiceKeyView;
+@property (weak, nonatomic) id<UITraitEnvironment> keyTraitEnvironment;
+@property (readonly, nonatomic) UIWindow *window;
+@property (readonly, nonatomic) TVApplicationControllerContext *context;
+@property (readonly, weak, nonatomic) id<TVApplicationControllerDelegate> delegate;
+@property (readonly, nonatomic) UINavigationController *navigationController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)_jsLaunchOptionsWithApplicationOptions:(id)a0;
+
+- (struct CGSize { double x0; double x1; })screenSize;
+- (void)reload;
+- (id)init;
+- (void).cxx_destruct;
+- (id)activeDocument;
+- (void)dealloc;
+- (void)stop;
+- (void)_statusBarOrientationDidChange:(id)a0;
+- (void)applicationWillSuspend:(id)a0;
+- (id)timeZone;
+- (void)_applicationDidEnterBackgroundNotification:(id)a0;
+- (id)systemLanguage;
+- (void)_applicationDidBecomeActiveNotification:(id)a0;
+- (id)_rootViewController;
+- (unsigned long long)preferredVideoFormat;
+- (void)_applicationWillResignActiveNotification:(id)a0;
+- (id)_appContext;
+- (void)dynamicViewController:(id)a0 didFinishWithPurchaseResult:(id)a1 error:(id)a2;
+- (id)initWithContext:(id)a0 window:(id)a1 delegate:(id)a2;
+- (id)deviceConfigForContext:(id)a0;
+- (id)navigationControllerForContext:(id)a0;
+- (id)tabBarForContext:(id)a0;
+- (id)modalControllerForContext:(id)a0;
+- (void)appContext:(id)a0 evaluateAppJavaScriptInContext:(id)a1;
+- (BOOL)appContext:(id)a0 validateDOMDocument:(id)a1 inContext:(id)a2 error:(id *)a3;
+- (void)appContext:(id)a0 didStartWithOptions:(id)a1;
+- (void)appContext:(id)a0 didFailWithError:(id)a1;
+- (void)appContext:(id)a0 didStopWithOptions:(id)a1;
+- (void)appContext:(id)a0 needsReloadWithUrgency:(unsigned long long)a1 options:(id)a2;
+- (unsigned long long)preferredVideoPreviewFormat;
+- (BOOL)isTimeZoneSet;
+- (id)storeFrontCountryCode;
+- (void)appContext:(id)a0 openDynamicUIURL:(id)a1 metricsOverlay:(id)a2 completion:(id /* block */)a3;
+- (void)appContext:(id)a0 openMarketingItem:(id)a1 metricsOverlay:(id)a2 completion:(id /* block */)a3;
+- (void)_applicationWillTerminateNotification:(id)a0;
+- (void)_launchApp;
+- (BOOL)appContext:(id)a0 highlightViewForElement:(id)a1 contentColor:(id)a2 paddingColor:(id)a3 borderColor:(id)a4 marginColor:(id)a5;
+- (BOOL)appContext:(id)a0 highlightViewsForElements:(id)a1 contentColor:(id)a2 paddingColor:(id)a3 borderColor:(id)a4 marginColor:(id)a5;
+- (BOOL)cancelHighlightViewForAppContext:(id)a0;
+- (void)appContext:(id)a0 didChangeInspectElementMode:(BOOL)a1;
+- (void)_openURLControllerDidDisplay:(id)a0;
+- (void)applicationDidResume:(id)a0;
+- (BOOL)_hasReloadOnResumeMinIntervalPassed;
+- (void)_reloadControllerDidDisplay:(id)a0;
+- (BOOL)_shouldReloadOnResume;
+- (void)_openURLControllerHandler:(BOOL)a0;
+- (BOOL)appNavigationController:(id)a0 shouldOverrideModalBehaviorForDocument:(id)a1 andExistingDocument:(id)a2;
+- (BOOL)appNavigationController:(id)a0 shouldIgnoreDismissalForViewController:(id)a1;
+- (BOOL)appNavigationController:(id)a0 shouldDismissShroudForDocument:(id)a1;
+- (BOOL)openURL:(id)a0 options:(id)a1;
+- (BOOL)jsOpenURL:(id)a0 options:(id)a1;
+- (void)evaluateInJavaScriptContext:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)_openURLOnAppLaunchControllerDidDisplay:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface ATXDisplayCacheSpotlightFilter : NSObject
+
+@end

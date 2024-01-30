@@ -1,0 +1,97 @@
+@class SUCorePolicyPreflightDownloadSU, SUCorePolicySoftwareUpdateScan, SUCorePolicyResume, SUCorePolicyPreflightWakeup, NSDictionary, NSData, SUCorePolicyApply, SUCorePolicyLoadBrain, SUCorePolicyDocumentationDownload, SUCorePolicyPrepare, NSNumber, NSString, SUCorePolicyDocumentationScan, SUCorePolicySuspend, NSArray, SUCorePolicyPreflightFDRRecovery, SUCorePolicyPreflightPrerequisiteCheck, SUCorePolicySoftwareUpdateDownload, SUCorePolicyPreflightPersonalize;
+
+@interface SUCorePolicy : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSString *softwareUpdateAssetType;
+@property (retain, nonatomic) NSString *documentationAssetType;
+@property (retain, nonatomic) NSDictionary *updateMetricEventFields;
+@property (retain, nonatomic) NSArray *policyExtensions;
+@property long long specifiedUsedPolicies;
+@property (retain, nonatomic) SUCorePolicySoftwareUpdateScan *softwareUpdateScanPolicy;
+@property (retain, nonatomic) SUCorePolicyDocumentationScan *documentationScanPolicy;
+@property (retain, nonatomic) SUCorePolicyDocumentationDownload *documentationDownloadPolicy;
+@property (retain, nonatomic) SUCorePolicyLoadBrain *loadBrainPolicy;
+@property (retain, nonatomic) SUCorePolicyPreflightDownloadSU *downloadPreflightPolicy;
+@property (retain, nonatomic) SUCorePolicySoftwareUpdateDownload *softwareUpdateDownloadPolicy;
+@property (retain, nonatomic) SUCorePolicyPrepare *preparePolicy;
+@property (retain, nonatomic) SUCorePolicySuspend *suspendPolicy;
+@property (retain, nonatomic) SUCorePolicyResume *resumePolicy;
+@property (retain, nonatomic) SUCorePolicyApply *applyPolicy;
+@property (retain, nonatomic) SUCorePolicyPreflightWakeup *wakeupPreflightPolicy;
+@property (retain, nonatomic) SUCorePolicyPreflightPrerequisiteCheck *prerequisiteCheckPreflightPolicy;
+@property (retain, nonatomic) SUCorePolicyPreflightPersonalize *personalizePreflightPolicy;
+@property (retain, nonatomic) SUCorePolicyPreflightFDRRecovery *fdrRecoveryPreflightPolicy;
+@property (retain, nonatomic) NSString *targetVolumeUUID;
+@property (retain, nonatomic) NSString *prerequisiteBuildVersion;
+@property (retain, nonatomic) NSString *prerequisiteProductVersion;
+@property (retain, nonatomic) NSString *prerequisiteRestoreVersion;
+@property (retain, nonatomic) NSString *targetRestoreVersion;
+@property (retain, nonatomic) NSString *installedSFRVersion;
+@property (retain, nonatomic) NSString *deviceClass;
+@property (retain, nonatomic) NSString *hwModelStr;
+@property (retain, nonatomic) NSString *productType;
+@property (retain, nonatomic) NSString *releaseType;
+@property (nonatomic) BOOL isInternal;
+@property (nonatomic) BOOL restrictToFull;
+@property (nonatomic) BOOL allowSameVersion;
+@property (nonatomic) BOOL background;
+@property (nonatomic) BOOL allowsCellular;
+@property (nonatomic) BOOL checkAvailableSpace;
+@property (retain, nonatomic) NSString *userAgentString;
+@property (nonatomic) BOOL performPreflightEncryptedCheck;
+@property (nonatomic) BOOL performPreflightSnapshotCheck;
+@property (retain, nonatomic) NSString *updateVolumePath;
+@property (retain, nonatomic) NSData *ssoToken;
+@property (nonatomic) int cacheDeleteUrgency;
+@property (retain, nonatomic) NSString *personalizedManifestRootsPath;
+@property (retain, nonatomic) NSData *localAuthenticationContext;
+@property (retain, nonatomic) NSNumber *localAuthenticationUserID;
+@property (retain, nonatomic) NSString *downloadAuthorizationHeader;
+@property (retain, nonatomic) NSString *updateBrainLocationOverride;
+@property (retain, nonatomic) NSString *personalizationServerURL;
+@property (retain, nonatomic) NSString *proxyHostName;
+@property (retain, nonatomic) NSNumber *proxyPortNumber;
+@property (nonatomic) BOOL bridgeOSIgnoreMinimumVersionCheck;
+@property (retain, nonatomic) NSString *bridgeOSDownloadDirectory;
+@property (nonatomic) BOOL enableEmbeddedOSInstall;
+@property (nonatomic) BOOL enableBridgeOSInstall;
+@property (nonatomic) BOOL enableOSPersonalization;
+@property (nonatomic) BOOL userInitiated;
+@property (nonatomic) BOOL skipVolumeSealing;
+@property (nonatomic) int qualityOfService;
+@property (retain, nonatomic) NSString *updateMetricContext;
+@property (retain, nonatomic) NSDictionary *defaultDescriptorValues;
+
++ (BOOL)getAllowSameProductVersionPredicateResultWithAssetOSVersion:(id)a0 assetBuildVersion:(id)a1 prerequisiteProductVersion:(id)a2 prerequisiteBuildVersion:(id)a3;
++ (BOOL)getNoAllowSameProductVersionPredicateResultWithAssetOSVersion:(id)a0 assetBuildVersion:(id)a1 prerequisiteProductVersion:(id)a2 prerequisiteBuildVersion:(id)a3;
++ (id)_cleanProductVersion:(id)a0;
+
+- (id)summary;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)constructSoftwareUpdateMAAssetQuery;
+- (id)constructDocumentationMAAssetQueryWithDocID:(id)a0;
+- (id)constructMASoftwareUpdateCatalogDownloadOptionsWithUUID:(id)a0;
+- (id)constructMADocumentationCatalogDownloadOptionsWithUUID:(id)a0 usingDescriptor:(id)a1;
+- (void)selectSoftwareUpdatePrimaryAsset:(id *)a0 secondaryAsset:(id *)a1 fromAssetQuery:(id)a2;
+- (void)selectSoftwareUpdateMajorPrimaryAsset:(id *)a0 majorSecondaryAsset:(id *)a1 minorPrimaryAsset:(id *)a2 minorSecondaryAsset:(id *)a3 fromAssetQuery:(id)a4;
+- (void)selectDocumentationAsset:(id *)a0 fromAssetQuery:(id)a1;
+- (BOOL)isSupervisedPolicy;
+- (id)initWithSoftwareUpdateAssetType:(id)a0 documentationAssetType:(id)a1 usingPolicies:(long long)a2 usingExtensions:(id)a3;
+- (id)initWithSoftwareUpdateAssetType:(id)a0 documentationAssetType:(id)a1 usingExtensions:(id)a2;
+- (id)_copyGestaltValueForKey:(struct __CFString { } *)a0;
+- (id)assetTypeSummary;
+- (id)constructMASoftwareUpdateAssetDownloadOptionsWithUUID:(id)a0;
+- (id)constructMADocumentationAssetDownloadOptionsWithUUID:(id)a0;
+- (id)stringForQoS:(int)a0;
+- (id)initWithSoftwareUpdateAssetType:(id)a0 documentationAssetType:(id)a1 updateBrainAssetType:(id)a2 usingExtensions:(id)a3;
+- (id)setUpdateMetricEventFieldsFromDictionary:(id)a0;
+- (void)updateApplyOptionsWithExtensions:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __SKUIGiftThemePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

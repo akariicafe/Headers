@@ -1,0 +1,76 @@
+@class CDDebug;
+
+@interface CDDServerResponder : NSObject
+
+@property (readonly) CDDebug *debug;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)makeStashWithId:(unsigned long long)a0;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 nameKey:(id)a4 name:(id)a5 error:(id *)a6;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 error:(id *)a4;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 valueKey:(id)a4 value:(unsigned long long)a5 error:(id *)a6;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 dictionaryKey:(id)a4 dictionary:(id)a5 error:(id *)a6;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 nameKey:(id)a4 name:(id)a5 valueKey:(id)a6 value:(long long)a7 error:(id *)a8;
+- (BOOL)sendMessageOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 type:(long long)a3 nameKey:(id)a4 name:(id)a5 dictionaryKey:(id)a6 dictionary:(id)a7 error:(id *)a8;
+- (BOOL)respondIndicatingProtocolErrorOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 protocolErrorNumber:(long long)a3 error:(id *)a4;
+- (BOOL)respondToDebugBitmapOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToVersionOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToForecastAttributeIdOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 resultDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToRegisterPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 initialValue:(long long)a3 integerId:(unsigned long long)a4 error:(id *)a5;
+- (BOOL)respondToRegisterChildPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 initialValue:(long long)a3 integerId:(unsigned long long)a4 error:(id *)a5;
+- (BOOL)respondToIdForPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 integerId:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)respondToDeletePoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToReadPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 readValue:(long long)a3 error:(id *)a4;
+- (BOOL)respondToCompareAndSwapPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 finalValue:(long long)a3 error:(id *)a4;
+- (BOOL)respondToIncrementPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 incrementedValue:(long long)a3 error:(id *)a4;
+- (BOOL)respondToDecrementPoolOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 decrementedValue:(long long)a3 error:(id *)a4;
+- (BOOL)respondToTrendingAppsOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToLiveAppsOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToRegisterTrendableAppOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToDeregisterTrendableAppOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToBundleIdEntriesOlderThanDateOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 status:(BOOL)a3 error:(id *)a4;
+- (BOOL)respondToDeleteBundleIdOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToDeleteAttributeIdOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToDeleteAllDatabaseEntriesOlderThanDateOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToAppsLaunchedButNotPrewarmedSinceDateOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToRegisterAttributeOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 registeredAttributeId:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)respondToIdForAttributeOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 attributeId:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)respondToBackgroundLaunchOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToAttributeOccurredOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToAttributeNamesOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 resultDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToPoolNamesOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 resultDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToDeleteDataForClientIdOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToAdmissionCheckOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 admissionGranted:(BOOL)a3 grantValiditySeconds:(unsigned long long)a4 admissionCondition:(unsigned long long)a5 error:(id *)a6;
+- (BOOL)respondToAssociateToBudgetOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToSetCategoryOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToSetCtlOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToGetCtlOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 mitigationDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToAttributeStatisticOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 statisticsDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToAttributeRepeatedStatisticOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 statisticsArray:(id)a3 error:(id *)a4;
+- (BOOL)respondToMeteringForAttributeOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 meterToken:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)respondToRegisterForSignoff:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToSignoffConditionsChangedOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToHistoryQueryOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 resultDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToBudgetsForAttributeIdOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToRemoteFocalAppsOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToGetDevicesOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToGetDeviceFromDescriptionOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToReadSystemDataFromDeviceOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToBroadcastSystemDataOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToAttributeReset:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToSetAdmissionMask:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToResetAdmissionMask:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToRequestSystemDataFromDeviceOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToRequestDeviceForecastDataOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToRequestDeviceStatisticDataOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToReadRemoteRequestResultOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseKey:(const char *)a3 responseDictionary:(id)a4 error:(id *)a5;
+- (BOOL)respondToTriggerSystemDataExchange:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToGetRemoteSystemDataOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToAdmissionCheckAndStartedOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 admissionGranted:(BOOL)a3 grantValiditySeconds:(unsigned long long)a4 admissionCondition:(unsigned long long)a5 error:(id *)a6;
+- (BOOL)respondToBundleIdChangeOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+- (BOOL)respondToSetNonAppFocalOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToRequestAdmissionLogFromDeviceOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 error:(id *)a3;
+- (BOOL)respondToLocalFocalAppsOnConnection:(id)a0 usingMessage:(id)a1 withSequenceNumber:(unsigned long long)a2 responseDictionary:(id)a3 error:(id *)a4;
+
+@end

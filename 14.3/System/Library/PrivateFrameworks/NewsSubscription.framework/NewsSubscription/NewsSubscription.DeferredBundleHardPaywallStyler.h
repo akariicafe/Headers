@@ -1,0 +1,3 @@
+@interface NewsSubscription.DeferredBundleHardPaywallStyler : NewsSubscription.BundlePaywallBaseStyler
+
+@end

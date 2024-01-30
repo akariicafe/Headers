@@ -1,0 +1,41 @@
+@class AVCaptureDeviceInput, AVCaptureSession, NSString, NSObject, OKWidgetCameraPreviewView;
+@protocol OS_dispatch_queue;
+
+@interface OKWidgetCameraView : OKWidgetView {
+    NSObject<OS_dispatch_queue> *_sessionQueue;
+    AVCaptureSession *_session;
+    AVCaptureDeviceInput *_videoDeviceInput;
+    AVCaptureDeviceInput *_audioDeviceInput;
+    id _runtimeErrorHandlingObserver;
+    OKWidgetCameraPreviewView *_previewView;
+    long long _inputType;
+    NSString *_inputDeviceName;
+    float _volume;
+}
+
+@property (nonatomic, getter=isDeviceAuthorized) BOOL deviceAuthorized;
+@property (readonly, nonatomic, getter=isSessionRunningAndDeviceAuthorized) BOOL sessionRunningAndDeviceAuthorized;
+@property (nonatomic) id deviceConnectedObserver;
+@property (nonatomic) id deviceDisconnectedObserver;
+
++ (id)supportedSettings;
++ (void)setupJavascriptContext:(id)a0;
++ (id)deviceWithInputType:(long long)a0 inputDeviceName:(id)a1;
++ (id)keyPathsForValuesAffectingSessionRunningAndDeviceAuthorized;
+
+- (BOOL)prepareForDisplay:(BOOL)a0;
+- (void)dealloc;
+- (id)initWithWidget:(id)a0;
+- (void)layoutSubviews;
+- (void)_startRunning;
+- (BOOL)prepareForWarmup:(BOOL)a0;
+- (BOOL)prepareForUnload:(BOOL)a0;
+- (void)_prepareSessionIfNeeded;
+- (void)__stopRunning;
+- (void)checkDeviceAuthorizationStatus;
+- (void)setSettingInput:(long long)a0;
+- (void)setSettingInputDeviceName:(id)a0;
+- (void)setSettingVolume:(float)a0;
+- (void)_stopRunning;
+
+@end

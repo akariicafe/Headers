@@ -1,0 +1,3 @@
+@interface GPBDurationRoot : GPBRootObject
+
+@end

@@ -1,0 +1,3 @@
+@interface AMSUIPaymentSessionTask : AMSTask
+
+@end

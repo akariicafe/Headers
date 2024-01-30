@@ -1,0 +1,51 @@
+@interface MetadataWrapper : NSObject
+
++ (id)version;
++ (id)encodeAccelerometerData:(id)a0 andAdditionalData:(id)a1;
++ (id)decodeAccel:(id)a0;
++ (id)encodeCoreLocationData:(id)a0 timestamp:(double)a1 andAdditionalData:(id)a2;
++ (id)decodeCLLocation:(id)a0 timestamp:(double *)a1;
++ (id)encodeDeviceMotionData:(id)a0 andAdditionalData:(id)a1;
++ (id)decodeCMDeviceMotion:(id)a0;
++ (id)encodeGyroscopeData:(id)a0 andAdditionalData:(id)a1;
++ (id)decodeGyro:(id)a0;
++ (id)encodeDictionary:(id)a0;
++ (id)decodeNSCoderObject:(id)a0 classes:(id)a1;
++ (id)encodeNSCoderObject:(id)a0;
++ (id)decodeCVACalibration:(id)a0;
++ (id)accelerometerTrackName:(long long *)a0;
++ (id)gyroTrackName:(long long *)a0;
++ (id)compassTrackName:(long long *)a0;
++ (id)decodeCompass:(id)a0;
++ (id)alsTrackName:(long long *)a0;
++ (id)decodeALS:(id)a0;
++ (id)decodeMotion:(id)a0;
++ (id)decodeCLLocation:(id)a0;
++ (id)decodeCMData:(id)a0;
++ (id)decodeCVAUserEvent:(id)a0;
++ (id)decodePRDevice:(id)a0;
++ (id)decodeCVAFeatureBuffer:(id)a0;
++ (id)decodeCVADepthTOF:(id)a0;
++ (id)decodeCVACameraCalibrationData:(id)a0;
++ (id)decodeDictionary:(id)a0;
++ (id)decodeClass:(id)a0 class:(Class)a1;
++ (id)encodeCVACalibration:(id)a0;
++ (id)encodeALSData:(id)a0;
++ (id)encodeCompassData:(id)a0;
++ (id)encodeCMData:(id)a0;
++ (id)encodeCVAUserEvent:(id)a0;
++ (id)encodePRDevice:(id)a0;
++ (id)encodeCVAFeatureBuffer:(id)a0;
++ (id)encodeCVADepthTOF:(id)a0;
++ (id)encodeCVACameraCalibrationData:(id)a0;
++ (id)encodeClass:(id)a0 andAdditionalData:(id)a1;
++ (id)decodeClass:(id)a0 class:(Class)a1 error:(id *)a2;
++ (id)decodeCommon:(id)a0;
++ (id)decodeNSCoderObject:(id)a0 class:(Class)a1;
++ (id)decodeNSCoderObject:(id)a0 class:(Class)a1 error:(id *)a2;
++ (id)decodeNSCoderObject:(id)a0 classes:(id)a1 error:(id *)a2;
++ (BOOL)locationFromTrackName:(id)a0 location:(long long *)a1;
++ (id)encodeMotionData:(id)a0 andAdditionalData:(id)a1;
++ (id)decodeLocationDict:(id)a0;
+
+@end

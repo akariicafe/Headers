@@ -1,0 +1,3 @@
+@interface _TtC13WeatherChartsP33_0AE800BC61E3AEAAE08809AB7FB581EA9Localized : _TtCs12_SwiftObject
+
+@end

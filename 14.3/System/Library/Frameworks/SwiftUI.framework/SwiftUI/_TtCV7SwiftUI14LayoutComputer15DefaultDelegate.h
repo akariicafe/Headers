@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI14LayoutComputer15DefaultDelegate : _TtCV7SwiftUI14LayoutComputer8Delegate
+
+@end

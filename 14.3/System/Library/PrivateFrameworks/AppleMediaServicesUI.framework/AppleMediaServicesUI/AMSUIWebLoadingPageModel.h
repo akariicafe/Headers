@@ -1,0 +1,17 @@
+@class NSString, AMSUIWebNavigationBarModel, AMSUIWebClientContext;
+
+@interface AMSUIWebLoadingPageModel : NSObject <AMSUIWebPageProvider>
+
+@property (retain, nonatomic) AMSUIWebClientContext *context;
+@property (nonatomic) BOOL disableDelay;
+@property (retain, nonatomic) NSString *message;
+@property (readonly, nonatomic) AMSUIWebNavigationBarModel *navigationBar;
+@property (readonly, nonatomic) NSString *backgroundColor;
+@property (readonly, nonatomic) BOOL disableReappearPlaceholder;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } windowSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+@end

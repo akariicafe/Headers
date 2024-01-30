@@ -1,0 +1,23 @@
+@class NSString, NSData;
+
+@interface _PARSilhouette_Topic : PBCodable <_PARSilhouette_Topic, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+
+- (id)initWithJSON:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (id)initWithDictionary:(id)a0;
+
+@end

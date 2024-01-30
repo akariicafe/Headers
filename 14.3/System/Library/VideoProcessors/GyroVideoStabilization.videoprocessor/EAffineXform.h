@@ -1,0 +1,67 @@
+@interface EAffineXform : AFilter {
+    int _renderMethod;
+    unsigned int _TexMatCount;
+    float *_TexMats;
+    unsigned int _transformRowStride;
+    BOOL _renderFromTopLeft;
+    int _overscanWidth;
+    int _overscanHeight;
+    struct CGSize { double width; double height; } _overscanForBlur;
+    BOOL _blurEnabled;
+    BOOL _blurMixEnabled;
+    struct __CVBuffer *_blurTempBuffer[2];
+    struct __CVBuffer *_previousBlurBuffers[3];
+    int _blurNoiseRadius;
+    int _blurPasses;
+    int _frameCount;
+    int _previousBufferIndex;
+    unsigned int _unsharpTexture;
+    int _unsharpWidth;
+    int _unsharpHeight;
+    int _lastUnsharpWidth;
+    int _lastUnsharpHeight;
+    float _usmBlurRadius;
+    float _usmBaseAmount;
+    float _usmAdaptiveAmount;
+    unsigned int _USMv10LumaDownSampleProgram;
+    unsigned int _USMv10LumaSharpProgram;
+    unsigned int _USMv15LumaSharpProgram;
+    unsigned int _USMv20LumaSharpProgram;
+    unsigned int _AUSMLumaSharpProgram;
+    unsigned int _AUSMSharpLutWidth;
+    unsigned int _AUSMSharpLutHeight;
+    float _ausmBlurRadius;
+    float _ausmLowLumaDelta;
+    float _ausmLowLumaDeltaBlurAmount;
+    float _ausmHighLumaDelta;
+    float _ausmHighLumaDeltaBlurAmount;
+    unsigned int _AUSMSharpLutTexture;
+    unsigned int _USMChromaProgram;
+}
+
+- (id)initWithContext:(id)a0;
+- (void)setRenderMethodInternal:(int)a0 pixelFormat:(unsigned int)a1;
+- (void)setTransform:(float[6])a0;
+- (void)setTransformArray:(unsigned int)a0 transforms3x3:(float[9] *)a1 transformRowStride:(unsigned int)a2;
+- (void)setupRenderingProgram:(unsigned int)a0;
+- (void)setAdaptiveUnsharpMaskParameters:(float)a0 lowLumaDelta:(float)a1 lowLumaDeltaBlurAmount:(float)a2 highLumaDelta:(float)a3 highLumaDeltaBlurAmount:(float)a4;
+- (int)getBlurBuffersDecimationFactor;
+- (void)setRenderFromTopLeft:(BOOL)a0;
+- (void)dealloc;
+- (void)compileBlurPrograms;
+- (void)blurDealloc;
+- (BOOL)renderFromTopLeft;
+- (void)processYUVImage:(struct __CVBuffer { } *)a0 forContext:(id)a1 pixelBufferValidRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a2 outputPixelBuffer:(struct __CVBuffer { } *)a3;
+- (void)configureBlurWith:(struct { unsigned char x0; BOOL x1; int x2; int x3; int x4; int x5; int x6; int x7; int x8; struct __CVBuffer *x9[4]; } *)a0;
+- (void)configureP3ToBT2020conversion:(BOOL)a0;
+- (void)blurDuplicatedPixelsForLuma:(BOOL)a0 andChroma:(BOOL)a1 forYUVImage:(struct __CVBuffer { } *)a2 usingVertices:(float *)a3 andMatrices:(float *)a4 inputSize:(struct CGSize { double x0; double x1; })a5 forContext:(id)a6;
+- (void)resetFirstFrameParameters;
+- (int)renderMethod;
+- (void)processUnsharpMask:(struct __CVBuffer { } *)a0 forContext:(id)a1 outputPixelBuffer:(struct __CVBuffer { } *)a2;
+- (void)setUnsharpMaskParameters:(float)a0 baseAmount:(float)a1 adaptiveAmount:(float)a2;
+- (struct { float x0; float x1; float x2; float x3; })computePositionOfSwathVerticesInStabilizedImageFrom:(float *)a0 to:(float *)a1 usingMatrices:(float *)a2 swathCount:(unsigned int)a3 inputSize:(struct CGSize { double x0; double x1; })a4 outputSize:(struct CGSize { double x0; double x1; })a5 insetMargin:(struct CGSize { double x0; double x1; })a6;
+- (void)setRenderMethod:(int)a0;
+- (void)setOverscan:(int)a0 height:(int)a1;
+- (void)processBGRAImage:(struct __CVBuffer { } *)a0 forContext:(id)a1 outputBGRAPixelBuffer:(struct __CVBuffer { } *)a2;
+
+@end

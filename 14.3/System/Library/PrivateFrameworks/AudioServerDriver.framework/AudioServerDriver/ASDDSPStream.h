@@ -1,0 +1,81 @@
+@class NSObject, NSArray, ASDDSPGraph, NSString, NSUserDefaults, ASDStreamDSPConfiguration, ASDAudioDevice;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface ASDDSPStream : ASDStream {
+    ASDAudioDevice *_owningDevice;
+    struct unique_ptr<ASDDSPStreamHelper, std::__1::default_delete<ASDDSPStreamHelper> > { struct __compressed_pair<ASDDSPStreamHelper *, std::__1::default_delete<ASDDSPStreamHelper> > { struct ASDDSPStreamHelper *__value_; } __ptr_; } _streamHelper;
+    struct list<ASDDSPGraphHelper, std::__1::allocator<ASDDSPGraphHelper> > { struct __list_node_base<ASDDSPGraphHelper, void *> { struct __list_node_base<ASDDSPGraphHelper, void *> *__prev_; struct __list_node_base<ASDDSPGraphHelper, void *> *__next_; } __end_; struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<ASDDSPGraphHelper, void *> > > { unsigned long long __value_; } __size_alloc_; } _graphHelpers;
+    struct unique_ptr<caulk::concurrent::guarded_lookup_hash_table<unsigned long long, ASDDSPGraphHelper *, caulk::concurrent::guarded_lookup_hash_table_must_count_dereferences>, std::__1::default_delete<caulk::concurrent::guarded_lookup_hash_table<unsigned long long, ASDDSPGraphHelper *, caulk::concurrent::guarded_lookup_hash_table_must_count_dereferences> > > { struct __compressed_pair<caulk::concurrent::guarded_lookup_hash_table<unsigned long long, ASDDSPGraphHelper *, caulk::concurrent::guarded_lookup_hash_table_must_count_dereferences> *, std::__1::default_delete<caulk::concurrent::guarded_lookup_hash_table<unsigned long long, ASDDSPGraphHelper *, caulk::concurrent::guarded_lookup_hash_table_must_count_dereferences> > > { struct guarded_lookup_hash_table<unsigned long long, ASDDSPGraphHelper *, caulk::concurrent::guarded_lookup_hash_table_must_count_dereferences> *__value_; } __ptr_; } _clientToGraphMap;
+    NSObject<OS_dispatch_queue> *_dspQueue;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
+    long long _DSPCaptureType;
+    NSString *_DSPCaptureDirectory;
+    long long _maximumFramesPerIOCycle;
+    NSUserDefaults *_defaults;
+    NSArray *_underlyingStreams;
+    long long _graphAudioValidationMode;
+    long long _ioReferenceCount;
+    NSObject<OS_dispatch_source> *mHUPSource;
+    struct AudioServerPlugInIOCycleInfo { unsigned long long mIOCycleCounter; unsigned int mNominalIOBufferFrameSize; struct AudioTimeStamp { double mSampleTime; unsigned long long mHostTime; double mRateScalar; unsigned long long mWordClockTime; struct SMPTETime { short mSubframes; short mSubframeDivisor; unsigned int mCounter; unsigned int mType; unsigned int mFlags; short mHours; short mMinutes; short mSeconds; short mFrames; } mSMPTETime; unsigned int mFlags; unsigned int mReserved; } mCurrentTime; struct AudioTimeStamp { double mSampleTime; unsigned long long mHostTime; double mRateScalar; unsigned long long mWordClockTime; struct SMPTETime { short mSubframes; short mSubframeDivisor; unsigned int mCounter; unsigned int mType; unsigned int mFlags; short mHours; short mMinutes; short mSeconds; short mFrames; } mSMPTETime; unsigned int mFlags; unsigned int mReserved; } mInputTime; struct AudioTimeStamp { double mSampleTime; unsigned long long mHostTime; double mRateScalar; unsigned long long mWordClockTime; struct SMPTETime { short mSubframes; short mSubframeDivisor; unsigned int mCounter; unsigned int mType; unsigned int mFlags; short mHours; short mMinutes; short mSeconds; short mFrames; } mSMPTETime; unsigned int mFlags; unsigned int mReserved; } mOutputTime; double mMasterHostTicksPerFrame; double mDeviceHostTicksPerFrame; } _lastIoCycleInfo;
+    unsigned int _lastIoBufferFrameSizeSamples;
+    unsigned long long _lastIoBufferWriteTime;
+    void *_bufferOfZeroes;
+    unsigned int _bufferOfZeroesSizeSamples;
+    unsigned int _bufferOfZeroesSizeBytes;
+    unsigned int _tailProcessingLengthInMs;
+    unsigned int _tailMuteAUGraphParamID;
+}
+
+@property (retain, nonatomic) ASDStreamDSPConfiguration *currentDSPConfiguration;
+@property (copy, nonatomic) NSArray *underlyingStreams;
+@property (readonly, nonatomic) long long maximumFramesPerIOCycle;
+@property (nonatomic) BOOL keepGraphInitialized;
+@property (nonatomic) BOOL processGraphOutputTailOnStop;
+@property (readonly, nonatomic) BOOL isRunning;
+@property (nonatomic) long long graphAudioValidationMode;
+@property (readonly, nonatomic) ASDDSPGraph *hardwareDSP;
+
+- (void).cxx_destruct;
+- (void)stopStream;
+- (void)dealloc;
+- (void)startStream;
+- (id).cxx_construct;
+- (id)diagnosticDescriptionWithIndent:(id)a0 walkTree:(BOOL)a1;
+- (id)driverClassName;
+- (id /* block */)readInputBlock;
+- (id /* block */)writeMixBlock;
+- (long long)getDSPCaptureTypeFromDefault;
+- (void)enableDSPCaptureByType:(long long)a0 withGraph:(id)a1;
+- (id)initWithDirection:(unsigned int)a0 withPlugin:(id)a1;
+- (void)_updateMaximumFramesPerIOCycle;
+- (id)getASDAudioDefaultsPath;
+- (id)getDSPCaptureDirectory;
+- (void)enableDSPCaptureInAction;
+- (id)_hardwareDSP;
+- (BOOL)_allocateStreamingResources;
+- (void)sleepForNumberOfSamples:(unsigned long long)a0;
+- (void)_deallocateStreamingResources;
+- (void)_allocateStreamingResourcesForGraphHelper:(struct ASDDSPGraphHelper { struct shared_ptr<DSPGraph::Graph> { struct Graph *x0; struct __shared_weak_count *x1; } x0; struct unique_ptr<DSPGraph::Graph, std::__1::default_delete<DSPGraph::Graph> > { struct __compressed_pair<DSPGraph::Graph *, std::__1::default_delete<DSPGraph::Graph> > { struct Graph *x0; } x0; } x1; struct unique_ptr<AUProcessingBlock_DSPGraph, std::__1::default_delete<AUProcessingBlock_DSPGraph> > { struct __compressed_pair<AUProcessingBlock_DSPGraph *, std::__1::default_delete<AUProcessingBlock_DSPGraph> > { struct AUProcessingBlock_DSPGraph *x0; } x0; } x2; unsigned long long x3; } *)a0;
+- (long long)getAudioDebugTypeWithDict:(id)a0;
+- (BOOL)enableBasicDSPCaptureOnGraph:(id)a0 withLevel:(id)a1 andDebugType:(long long)a2;
+- (BOOL)graphStructureIsValid:(id)a0 clientID:(unsigned long long)a1;
+- (void)_updateLatency;
+- (void)_suspendProcessing;
+- (void)_resumeProcessing;
+- (BOOL)addClientDSP:(id)a0 withKey:(unsigned long long)a1;
+- (BOOL)removeClientDSPwithKey:(unsigned long long)a0;
+- (id)initWithOwningDevice:(id)a0 underlyingStreams:(id)a1 direction:(unsigned int)a2 plugin:(id)a3;
+- (BOOL)changePhysicalFormat:(id)a0;
+- (void)suspendProcessing;
+- (void)resumeProcessing;
+- (void)updateLatency;
+- (BOOL)addHardwareDSP:(id)a0;
+- (BOOL)removeHardwareDSP;
+- (BOOL)addClientDSP:(id)a0 forClient:(unsigned int)a1;
+- (BOOL)removeClientDSPForClient:(unsigned int)a0;
+- (id)clientDSPForClient:(unsigned int)a0;
+- (id /* block */)processOutputBlock;
+- (void)enableMuteOnStopUsingParam:(unsigned int)a0 duration:(unsigned int)a1;
+- (void)disableMuteOnStop;
+
+@end

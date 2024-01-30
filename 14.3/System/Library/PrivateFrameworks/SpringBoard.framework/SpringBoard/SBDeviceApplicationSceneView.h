@@ -1,0 +1,82 @@
+@class NSMutableDictionary, SBDeviceApplicationSceneClassicAccessoryView, SBHomeGrabberRotationView, SBApplicationSceneViewStatusBarDescriptor, SBHomeGrabberView, SBFHomeGrabberSettings, UIView, SBDeviceApplicationSceneHandle, NSString, UIApplicationSceneClientSettingsDiffInspector, NSMutableArray, _UIDirectionalRotationView, SBSceneHandleBlockObserver, UIApplicationSceneSettingsDiffInspector;
+@protocol UISceneLayerTarget, UIScenePresentation, SBApplicationSceneBackgroundView;
+
+@interface SBDeviceApplicationSceneView : SBApplicationSceneView <SBDeviceApplicationSceneClassicAccessoryViewDelegate, PTSettingsKeyObserver, SBAppSwitcherPageContentView> {
+    id<UISceneLayerTarget> _statusBarLayerTarget;
+    SBSceneHandleBlockObserver *_sceneHandleObserver;
+    UIApplicationSceneClientSettingsDiffInspector *_clientSettingsInspector;
+    UIApplicationSceneSettingsDiffInspector *_sceneSettingsInspector;
+    _UIDirectionalRotationView *_hostCounterRotationView;
+    SBHomeGrabberRotationView *_grabberRotationView;
+    SBFHomeGrabberSettings *_grabberSettings;
+    BOOL _grabberLivesInCounterRotationView;
+    NSMutableDictionary *_overlayViewsByPriority;
+    long long _lastStableOverlayOrientation;
+    BOOL _waitingForBoundsUpdateDuringRotation;
+    long long _overlayOrientationAtStartOfRotation;
+    SBDeviceApplicationSceneClassicAccessoryView *_classicAccessoryView;
+    UIView *_classicWrapperView;
+    UIView *_classicPositioningView;
+    UIView<UIScenePresentation> *_wrappedHostView;
+    NSMutableArray *_multitaskingExclusionRectDebugViews;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL counterRotationViewTransformUpdatesPaused;
+@property (readonly, nonatomic) SBDeviceApplicationSceneHandle *sceneHandle;
+@property (retain, nonatomic) UIView<SBApplicationSceneBackgroundView> *backgroundView;
+@property (nonatomic) BOOL forcesStatusBarHidden;
+@property (retain, nonatomic) SBApplicationSceneViewStatusBarDescriptor *statusBarDescriptor;
+@property (nonatomic) double statusBarAlpha;
+@property (readonly, nonatomic) SBHomeGrabberView *homeGrabberView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) double cornerRadius;
+@property (nonatomic) long long orientation;
+@property (readonly, nonatomic) BOOL contentRequiresGroupOpacity;
+@property (nonatomic, getter=isActive) BOOL active;
+@property (nonatomic, getter=isVisible) BOOL visible;
+
+- (void)_refresh;
+- (void)removeOverlayView:(id)a0 withPriority:(long long)a1;
+- (void)setBackgroundView:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_effectiveSceneBounds;
+- (id)initWithSceneHandle:(id)a0 referenceSize:(struct CGSize { double x0; double x1; })a1 orientation:(long long)a2 hostRequester:(id)a3;
+- (void)_tearDownHostCounterRotationViewIfNecessary;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)_sceneHandleDidUpdateSettingsWithDiff:(id)a0 previousSettings:(id)a1;
+- (void)_configureSceneSnapshotContext:(id)a0;
+- (void)dealloc;
+- (void)createClassicAccesoryViewIfNecessary;
+- (void)tearDownHomeGrabberView;
+- (void)_createHostCounterRotationViewIfNecessary;
+- (void)_updateReferenceSize:(struct CGSize { double x0; double x1; })a0 andOrientation:(long long)a1;
+- (long long)_wallpaperStyle;
+- (void)teardownClassicAccesoryViewIfNecessary;
+- (void)_createClassicWrapperViewIfNecessaryForHostView:(id)a0;
+- (id)_transitionViewForHostView;
+- (void)_sceneHandleDidUpdateClientSettingsWithDiff:(id)a0 transitionContext:(id)a1;
+- (BOOL)_representsTranslucentContent;
+- (void)_maybeStartTrackingRotationForOverlay;
+- (id)deviceApplicationSceneView;
+- (void)_updateDragAndDropExclusionDebugViewsIfNecessary;
+- (void)layoutSubviews;
+- (void)addOverlayView:(id)a0 withPriority:(long long)a1;
+- (void)_layoutLiveHostView:(id)a0;
+- (void)_invalidateSceneLiveHostView:(id)a0;
+- (void)createHomeGrabberViewIfNecessaryWithSettings:(id)a0;
+- (void)_configureSceneLiveHostView:(id)a0;
+- (void)_updateStatusBarVisibilityForHostView;
+- (void)settings:(id)a0 changedValueForKey:(id)a1;
+- (void)applicationSceneCompatibilityModeAnimatingChangeTo:(long long)a0;
+- (void)_updateEdgeProtectAndAutoHideOnHomeGrabberView;
+- (void)invalidate;
+- (BOOL)_sceneDrivesOwnRotation;
+
+@end

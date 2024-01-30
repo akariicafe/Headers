@@ -1,0 +1,82 @@
+@class BBSectionIcon, UNSNotificationRepository, UNSNotificationSourceDescription, UNSLocalizationService, UNSApplicationLauncher, BBDataProviderProxy, NSObject, NSMutableDictionary, UNSNotificationCategoryRepository, NSString, BSCFBundle, BBSectionInfo, UNSAttachmentsService, UNSNotificationTopicRepository, UNSDaemonLauncher;
+@protocol OS_dispatch_queue;
+
+@interface UNSDefaultDataProvider : NSObject <UNSNotificationRepositoryObserver, UNSNotificationCategoryRepositoryObserver, UNSNotificationTopicRepositoryObserver, BBRemoteDataProvider> {
+    BBSectionIcon *_sectionIcon;
+    BBSectionInfo *_effectiveSectionInfo;
+    BSCFBundle *_bundle;
+    BOOL _suppressUserAuthorizationPrompt;
+    UNSNotificationSourceDescription *_notificationSourceDescription;
+    UNSApplicationLauncher *_appLauncher;
+    UNSDaemonLauncher *_daemonLauncher;
+    UNSNotificationRepository *_notificationRepository;
+    UNSNotificationCategoryRepository *_categoryRepository;
+    UNSNotificationTopicRepository *_topicRepository;
+    UNSAttachmentsService *_attachmentsService;
+    UNSLocalizationService *_localizationService;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary *_categoryToParamSubType;
+}
+
+@property (retain, nonatomic) BBDataProviderProxy *proxy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_actionsFromActionRecords:(id)a0;
+- (id)_allBulletinsWithMaxCount:(unsigned long long)a0 sinceDate:(id)a1;
+- (id)defaultSubsectionInfos;
+- (id)sectionIdentifier;
+- (void)dataProviderDidLoad;
+- (void)_addAttachments:(id)a0 toBulletinRequest:(id)a1;
+- (void).cxx_destruct;
+- (id)_categoryForIdentifier:(id)a0;
+- (void)handleBulletinActionResponse:(id)a0 withCompletion:(id /* block */)a1;
+- (void)dealloc;
+- (id)_pathForSoundName:(id)a0;
+- (id)_supplementaryActionsForForCategoryRecord:(id)a0;
+- (void)_queue_addBulletinForNotification:(id)a0;
+- (id)_sectionIconForNotificationSourceDescription:(id)a0;
+- (id)sortDescriptors;
+- (BOOL)_queue_supportsCriticalAlertsForSubsectionIDs:(id)a0;
+- (id)initWithNotificationSourceDescription:(id)a0 applicationLauncher:(id)a1 daemonLauncher:(id)a2 categoryRepository:(id)a3 notificationRepository:(id)a4 topicRepository:(id)a5 attachmentsService:(id)a6 localizationService:(id)a7 queue:(id)a8;
+- (void)_queue_notificationRepositoryDidPerformUpdates:(id)a0;
+- (id)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(unsigned long long)a0 lastClearedInfo:(id)a1;
+- (void)notificationRepository:(id)a0 didDiscoverContentOnFirstUnlockForBundleIdentifier:(id)a1;
+- (BOOL)_isResourceValidForPath:(id)a0 withContainerPath:(id)a1;
+- (id)_unarchiveNotificationFromData:(id)a0;
+- (void)setNotificationSourceDescription:(id)a0;
+- (id)_dismissActionForCategory:(id)a0;
+- (id)displayNameForSubsectionID:(id)a0;
+- (id)_defaultActionWithNotification:(id)a0;
+- (id)defaultSectionInfo;
+- (id)_sectionIconVariantForImageName:(id)a0 bundlePath:(id)a1 format:(long long)a2 precomposed:(BOOL)a3;
+- (id)_silenceActionForCategory:(id)a0;
+- (id)clearedInfoForBulletins:(id)a0 lastClearedInfo:(id)a1;
+- (id)_actionFromActionRecord:(id)a0;
+- (BOOL)syncsBulletinDismissal;
+- (id)universalSectionIdentifier;
+- (id)sectionIcon;
+- (void)_queue_withdrawBulletinForNotification:(id)a0;
+- (id)sectionParameters;
+- (id)_topicForIdentifier:(id)a0;
+- (id)notificationRecords;
+- (id)_allCategories;
+- (void)categoryRepository:(id)a0 didChangeCategoriesForBundleIdentifier:(id)a1;
+- (void)_handleBulletinActionResponse:(id)a0 withCompletion:(id /* block */)a1;
+- (void)notificationRepository:(id)a0 didPerformUpdates:(id)a1 forBundleIdentifier:(id)a2;
+- (void)_setNotificationSourceDescription:(id)a0;
+- (void)_queue_modifyBulletinForNotification:(id)a0;
+- (id)_queue_applicableSectionInfosForSubsectionIDs:(id)a0;
+- (void)setEffectiveSectionInfo:(id)a0;
+- (id)_localizeClientString:(id)a0 inBundle:(id)a1;
+- (id)_soundsDirectoryPathForContainerBasePath:(id)a0;
+- (void)topicRepository:(id)a0 didChangeTopicsForBundleIdentifier:(id)a1;
+- (id)bulletinsWithRequestParameters:(id)a0 lastCleared:(id)a1;
+- (id)_queue_bulletinForNotification:(id)a0;
+- (void)uninstall;
+- (void)invalidate;
+- (id)sectionDisplayName;
+
+@end

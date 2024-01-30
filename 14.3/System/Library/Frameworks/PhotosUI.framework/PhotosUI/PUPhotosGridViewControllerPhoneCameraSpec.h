@@ -1,0 +1,3 @@
+@interface PUPhotosGridViewControllerPhoneCameraSpec : PUPhotosGridViewControllerPhoneSpec
+
+@end

@@ -1,0 +1,98 @@
+@class NSString, CTXPCServiceSubscriptionContext, CoreTelephonyClient, AnalyticsWorkspace, NSMutableDictionary, NSArray, ImpoExpoService, NSMutableArray, NSMutableSet, NSObject, NSNumber;
+@protocol OS_dispatch_queue;
+
+@interface CoreTelephonyShim : NSObject <CoreTelephonyClientRegistrationDelegate, CoreTelephonyClientDataDelegate> {
+    CoreTelephonyClient *coreTelephonyClient;
+    CTXPCServiceSubscriptionContext *coreTelephonyClientContext;
+    long long currentSubscriberSlotID;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } coreTelephonyClientContextLock;
+    ImpoExpoService *ieService;
+    AnalyticsWorkspace *workspace;
+    id engineReadyObserver;
+    BOOL initializationComplete;
+    NSArray *lastCellInfo;
+    struct timeval { long long tv_sec; int tv_usec; } lastCellInfoTime;
+    NSMutableArray *cellInfoCompletionHandlers;
+    BOOL cellInfoInflight;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } cellInfoLock;
+    NSMutableDictionary *_carrierNameForSlot;
+    unsigned int ctClientInitReadyFlag;
+    unsigned long long _pendingCTNotificationRegistrationFlags;
+    unsigned long long _currentCTNotificationRegistrationFlags;
+    NSMutableSet *_ctRnfChangedDelegates;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } rnfChangedLock;
+    NSMutableSet *_ctSignalStrengthChangedDelegates;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } signalStrengthChangedLock;
+    NSMutableSet *delegates;
+    NSObject<OS_dispatch_queue> *elevatedQueue;
+}
+
+@property (readonly, nonatomic) NSMutableDictionary *subscriptions;
+@property (readonly, nonatomic) struct __CTServerConnection { } *ctServerConnection;
+@property (readonly, nonatomic) NSMutableDictionary *subscribers;
+@property (readonly, nonatomic) NSNumber *currentSubscriberTag;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)elevatedQueue;
+
+- (void)currentDataSimChanged:(id)a0;
+- (void)subscriptionInfoDidChange;
+- (void)simLessSubscriptionsDidChange;
+- (void)removeDelegate:(id)a0;
+- (id)getCurrentDataSubscriptionContext;
+- (void)dataStatus:(id)a0 dataStatusInfo:(id)a1;
+- (void)operatorNameChanged:(id)a0 name:(id)a1;
+- (void)cellMonitorUpdate:(id)a0 info:(id)a1;
+- (void)smartDataModeChanged:(id)a0 userEnabled:(BOOL)a1;
+- (void)signalStrengthChanged:(id)a0 info:(id)a1;
+- (void)_completeInitialization;
+- (void)addDelegate:(id)a0;
+- (id)dictionaryForSubscriptionContext:(id)a0;
+- (id)initWithQueue:(id)a0;
+- (id)init;
+- (void)updateSubscribers;
+- (void).cxx_destruct;
+- (void)ratSelectionChanged:(id)a0 selection:(id)a1;
+- (BOOL)findSubscriberBestMatchForICCID:(id)a0 MDN:(id)a1 slotID:(long long)a2 update:(BOOL)a3;
+- (void)commonInit;
+- (void)_deliverRNFSettingAvailable:(BOOL)a0 enabled:(BOOL)a1;
+- (void)dealloc;
+- (void)registerRNFChangedWithDelegate:(id)a0;
+- (void)handleCTServerNotification:(struct __CFString { } *)a0 notificationInfo:(struct __CFDictionary { } *)a1;
+- (void)activeSubscriptionsDidChange;
+- (void)carrierSettingsDidChange;
+- (void)_deliverSmartDataModeSettingChanged:(BOOL)a0;
+- (void)registerSignalStrengthChangedWithDelegate:(id)a0;
+- (BOOL)findSubscriberExactMatchForICCID:(id)a0 MDN:(id)a1 slotID:(long long)a2;
+- (void)_setInitializationComplete:(BOOL)a0;
+- (id)_coreTelephonyClient;
+- (void)_updateSubscribers;
+- (id)getSortedSubscriberKeys;
+- (void)initializeCoreTelephonyClientAsNecessary;
+- (void)_dispatchCellInfoResult:(id)a0 error:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (void)_unregisterFromCoreTelephonyNotifications:(unsigned long long)a0;
+- (void)addNewSubscriberForICCID:(id)a0 MDN:(id)a1 slotID:(long long)a2;
+- (void)processDataStatus:(id)a0 forContext:(id)a1;
+- (void)unregisterSignalStrengthChangedWithDelegate:(id)a0;
+- (void)enhancedDataLinkQualityChanged:(id)a0 metric:(id)a1;
+- (void)_registerForCoreTelephonyNotifications:(unsigned long long)a0;
+- (id)elevatedQueue;
+- (void)_processEngineReadyNotification:(id)a0;
+- (void)_deliverSignalStrengthChanged:(id)a0;
+- (void)copyCellInfoOnQueue:(id)a0 completion:(id /* block */)a1;
+- (id)extractCellInfo:(id)a0;
+- (void)unregisterRNFChangedWithDelegate:(id)a0;
+- (id)cellCarrierNameForContext:(id)a0 refresh:(BOOL)a1;
+- (void)_setCurrentSubscriberSlotID:(long long)a0;
+- (BOOL)getSmartDataModeSetting;
+- (void)updateCurrentSubscriberTag:(id)a0;
+- (id)internalVariables;
+- (void)_processPendingCoreTelephonyNotificationRegistrations;
+- (void)reliableNetworkFallbackChanged:(BOOL)a0 userEnabled:(BOOL)a1;
+- (BOOL)subscriptionContextIsCurrentDataSubscription:(id)a0;
+
+@end

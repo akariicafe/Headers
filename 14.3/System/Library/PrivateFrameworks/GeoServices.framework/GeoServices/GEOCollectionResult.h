@@ -1,0 +1,16 @@
+@class NSArray, GEOPlaceCollection, GEOPDCollectionResult, GEOPDComponent;
+
+@interface GEOCollectionResult : NSObject {
+    GEOPDCollectionResult *_collectionResult;
+    GEOPDComponent *_collectionComponent;
+}
+
+@property (readonly, nonatomic) GEOPlaceCollection *collection;
+@property (readonly, nonatomic) NSArray *placeCollectionItems;
+
++ (id)collectionResultsFromResponse:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithCollectionResult:(id)a0;
+
+@end

@@ -1,0 +1,84 @@
+@class NPSDomainAccessorFilePresenter, NSUUID, NSString, NSURL, NSMutableSet, NSObject, NSMutableDictionary;
+@protocol OS_dispatch_queue;
+
+@interface NPSDomainAccessorInternal : NSObject <NPSDomainAccessorFilePresenterDelegate>
+
+@property (retain, nonatomic) NSUUID *pairingID;
+@property (retain, nonatomic) NSString *pairingStorePath;
+@property (retain, nonatomic) NSString *domain;
+@property (retain, nonatomic) NSURL *domainURL;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *internalQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *externalQueue;
+@property (nonatomic) unsigned long long referenceCounter;
+@property (nonatomic) BOOL nanoSettingsDirectoryExists;
+@property (nonatomic) BOOL hasReadFromDisk;
+@property (retain, nonatomic) NSMutableSet *dirtyKeysForWriting;
+@property (retain, nonatomic) NSMutableDictionary *map;
+@property (retain, nonatomic) NPSDomainAccessorFilePresenter *filePresenter;
+
++ (void)initialize;
++ (void)applicationDidEnterBackground;
++ (void)applicationDidResume;
++ (BOOL)domainIsValid:(id)a0;
++ (id)internalAccessorForPairingID:(id)a0 pairingDataStore:(id)a1 domain:(id)a2;
++ (void)decrementInternalAccessorReferenceCount:(id)a0;
++ (id)copyDomainListForPairingDataStore:(id)a0;
++ (void)extensionDidBecomeActive;
++ (void)extensionWillResignActive;
++ (void)invalidateAndReleaseUnreferencedAccessors;
++ (id)urlForDomain:(id)a0 pairingDataStore:(id)a1;
++ (id)cfTypeNameForCFPropertyListRef:(void *)a0;
++ (BOOL)valueIsValid:(id)a0;
++ (id)readDomainURL:(id)a0 withError:(id *)a1;
++ (void)mergeDirtyKeys:(id)a0 fromDictionary:(id)a1 toDictionary:(id)a2;
++ (id)writeDomain:(id)a0 toURL:(id)a1;
+
+- (void)_setObject:(id)a0 forKey:(id)a1;
+- (void)setDouble:(double)a0 forKey:(id)a1;
+- (id)objectForKey:(id)a0;
+- (void)setBool:(BOOL)a0 forKey:(id)a1;
+- (void)setFloat:(float)a0 forKey:(id)a1;
+- (void)synchronizeWithCompletionHandler:(id /* block */)a0;
+- (BOOL)boolForKey:(id)a0 keyExistsAndHasValidFormat:(BOOL *)a1;
+- (void)setInteger:(long long)a0 forKey:(id)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)stringForKey:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (id)dataForKey:(id)a0;
+- (void)setURL:(id)a0 forKey:(id)a1;
+- (BOOL)boolForKey:(id)a0;
+- (void)setLong:(long long)a0 forKey:(id)a1;
+- (id)synchronize;
+- (long long)integerForKey:(id)a0;
+- (id)dictionaryRepresentation;
+- (unsigned long long)domainSize;
+- (id)dictionaryForKey:(id)a0;
+- (void)invalidatePresenter;
+- (void)objectForKey:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setObject:(id)a0 forKey:(id)a1 completionHandler:(id /* block */)a2;
+- (long long)integerForKey:(id)a0 keyExistsAndHasValidFormat:(BOOL *)a1;
+- (long long)longForKey:(id)a0 keyExistsAndHasValidFormat:(BOOL *)a1;
+- (float)floatForKey:(id)a0 keyExistsAndHasValidFormat:(BOOL *)a1;
+- (double)doubleForKey:(id)a0 keyExistsAndHasValidFormat:(BOOL *)a1;
+- (BOOL)requiresDeviceUnlockedSinceBoot;
+- (id)stringArrayForKey:(id)a0;
+- (id)URLForKey:(id)a0;
+- (void)filePresenterDidBecomeNonCurrent:(id)a0;
+- (id)initWithPairingID:(id)a0 pairingDataStore:(id)a1 domain:(id)a2;
+- (long long)longForKey:(id)a0;
+- (id)createNanoSettingsDirectory;
+- (void)_invalidatePresenter;
+- (id)_copyKeyList;
+- (id)_synchronizeReadOnly:(BOOL)a0;
+- (id)canSynchronizeForWritingURL:(id)a0 readFirst:(BOOL)a1;
+- (id)canSynchronizeForReadingURL:(id)a0;
+- (id)_objectForKey:(id)a0 error:(id *)a1;
+- (id)arrayForKey:(id)a0;
+- (float)floatForKey:(id)a0;
+- (void)removeObjectForKey:(id)a0;
+- (id)copyKeyList;
+- (double)doubleForKey:(id)a0;
+- (id)_dictionaryRepresentation;
+
+@end

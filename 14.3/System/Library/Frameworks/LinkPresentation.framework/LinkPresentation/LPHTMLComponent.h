@@ -1,0 +1,21 @@
+@class NSString, LPLinkHTMLGenerator, DOMElement, NSMutableArray;
+
+@interface LPHTMLComponent : NSObject {
+    NSMutableArray *_children;
+}
+
+@property (readonly, weak, nonatomic) LPLinkHTMLGenerator *generator;
+@property (readonly, nonatomic) DOMElement *element;
+@property (readonly, nonatomic) NSString *themePath;
+
++ (id)styleSet;
++ (id)ruleDictionaryForStyle:(id)a0;
++ (id)ruleDictionaryForStyleWithDarkInterface:(id)a0;
++ (id)additionalGlobalOutOfLineStyleDeclarations;
+
+- (void)addChild:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithTagName:(id)a0 themePath:(id)a1 generator:(id)a2;
+- (id)childThemePathWithName:(id)a0;
+
+@end

@@ -1,0 +1,66 @@
+@interface TSCH3DChartType : TSCH2DChartType
+
++ (struct tvec3<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; })adjustedScaleForInfoChartScale:(const struct tvec3<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; } *)a0 chartType:(id)a1 barShape:(int)a2;
++ (id)allAnimationFilters;
+
+- (Class)repClass;
+- (Class)layoutClass;
+- (id)renderers;
+- (id)animationFilters;
+- (id)valueLabelPositioner;
+- (id)categoryLabelPositioner;
+- (struct tvec3<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; })adjustedScaleForInfoChartScale:(const struct tvec3<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; } *)a0 barShape:(int)a1;
+- (BOOL)supportsReferenceLines;
+- (double)maxDepthRatio;
+- (double)sageMaxDepthRatio;
+- (double)spiceMaxDepthRatio;
+- (unsigned long long)depthRatioDimension;
+- (id)sceneWithChartInfo:(id)a0 layoutSettings:(struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; })a1;
+- (Class)stageClass;
+- (BOOL)isHomogeneous;
+- (BOOL)supportsCalloutLines;
+- (BOOL)supportsSeriesFill;
+- (BOOL)supportsSeriesStroke;
+- (BOOL)supportsShadowOffset;
+- (Class)presetImagerClass;
+- (struct CGSize { double x0; double x1; })minimumChartBodySize;
+- (BOOL)supportsBorderFrame;
+- (BOOL)supportsGroupedShadows;
+- (BOOL)supportsBackgroundFill;
+- (BOOL)supportsTrendLines;
+- (BOOL)supportsErrorBars;
+- (BOOL)supportsCategoryAxisMinorTickmarks;
+- (BOOL)supportsConnectingLines;
+- (BOOL)supportsBubbleOptions;
+- (BOOL)supportsValueLabelSpacing;
+- (id)animationFiltersWithDefaultFilters:(id)a0;
+- (Class)chartLayoutItemClass;
+- (Class)chartLayoutClass;
+- (Class)sageGeometeryHelperClass;
+- (BOOL)supportsMinorGridlines;
+- (BOOL)supportsAxisLine;
+- (int)labelOrientation;
+- (BOOL)supportsBevels;
+- (BOOL)supportsColumnShape;
+- (id)columnShapeUIName;
+- (id)animationDeliveryStylesForFilter:(id)a0;
+- (unsigned long long)presentationDimension;
+- (int)chartBodyBoundsDefinition;
+- (struct CGSize { double x0; double x1; })minimumChartBodySizeForTransformingGeometry;
+- (BOOL)approximatesTitleAccommodationUsingLegendSize;
+- (BOOL)supportsSeriesShadow;
+- (BOOL)supportsValueAxisLabelsPosition;
+- (BOOL)supportsAxisLabelsOrientation;
+- (BOOL)supportsTickmarks;
+- (BOOL)supportsAxisLabelAngle;
+- (BOOL)supportsIncrementalResize;
+- (id)specificSeriesFillProperties;
+- (id)specificSeriesStrokeProperties;
+- (BOOL)supportsInterSetDepthGap;
+- (double)minDepthRatio;
+- (BOOL)needsRefinementForInwardLayout;
+- (BOOL)layoutFrameShouldEncloseInfoGeometry;
+- (int)deprecated3DBevelEdgesSpecificProperty;
+- (int)deprecated3DShadowSpecificProperty;
+
+@end

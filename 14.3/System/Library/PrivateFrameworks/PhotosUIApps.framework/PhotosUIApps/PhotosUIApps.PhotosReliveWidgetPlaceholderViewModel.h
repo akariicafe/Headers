@@ -1,0 +1,3 @@
+@interface PhotosUIApps.PhotosReliveWidgetPlaceholderViewModel : PhotosUIApps.PhotosReliveWidgetViewModel
+
+@end

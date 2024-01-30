@@ -1,0 +1,76 @@
+@class VSRecognitionAction, NSString, NSArray, VSSpeechSynthesizer, VSKeepAlive;
+@protocol VSRecognitionSessionDelegate;
+
+@interface VSRecognitionSession : NSObject {
+    NSString *_modelIdentifier;
+    VSKeepAlive *_keepAlive;
+    id<VSRecognitionSessionDelegate> _delegate;
+    VSRecognitionAction *_currentAction;
+    NSArray *_topLevelKeywords;
+    id _handlingThread;
+    VSSpeechSynthesizer *_synthesizer;
+    NSString *_languageID;
+    NSString *_debugDumpPath;
+    NSString *_audioInputPath;
+    double _levelInterval;
+    unsigned long long _keywordPhase;
+    struct { unsigned char delegateWillBegin : 1; unsigned char delegateBegin : 1; unsigned char delegateOpenURL : 1; unsigned char delegateFinishedSpeaking : 1; unsigned char delegateComplete : 1; unsigned char debugDumpEnabled : 1; unsigned char preferredEngine : 2; unsigned char performHandlerActions : 1; unsigned char allowSensitiveActions : 1; unsigned char bluetoothAllowed : 1; unsigned char resetNextAction : 1; unsigned char isSpeaking : 1; unsigned char actionBegan : 1; unsigned char actionBeginning : 1; unsigned char actionBeginDeferred : 1; unsigned char invalid : 1; unsigned char observeKeywordChange : 1; } _sessionFlags;
+}
+
+- (id)cancel;
+- (BOOL)isBusy;
+- (id)init;
+- (id)reset;
+- (void)dealloc;
+- (void)_setAction:(id)a0;
+- (BOOL)isFinished;
+- (BOOL)isValid;
+- (void)speechSynthesizer:(id)a0 didFinishSpeaking:(BOOL)a1 withError:(id)a2;
+- (void)_init;
+- (float)inputLevel;
+- (void)setDelegate:(id)a0;
+- (void)_notifyDelegateActionStarted;
+- (id)_currentRecognizeAction;
+- (id)initWithModelIdentifier:(id)a0;
+- (id)cancelMaintainingKeepAlive:(BOOL)a0;
+- (id)spokenFeedbackString;
+- (id)spokenFeedbackAttributedString;
+- (struct __CFDictionary { } *)_createKeywordIndex;
+- (id)_createPhaseSortedKeywordsFromArray:(id)a0;
+- (id)_topLevelKeywords;
+- (void)_keywordIndexChanged;
+- (id)_beginSpeakingAttributedString:(id)a0;
+- (id)beginSpeakingString:(id)a0;
+- (id)_beginSpeakingString:(id)a0 attributedString:(id)a1;
+- (void)_notifyDelegateFinishedSpeakingWithError:(id)a0;
+- (id)beginNextAction;
+- (BOOL)isRecognizing;
+- (BOOL)isActivelyRecognizing;
+- (BOOL)hasDeferredAction;
+- (BOOL)nextActionWillTerminateSession;
+- (BOOL)nextActionWillRecognize;
+- (void)setSensitiveActionsEnabled:(BOOL)a0;
+- (BOOL)sensitiveActionsEnabled;
+- (BOOL)setBluetoothInputAllowed:(BOOL)a0;
+- (BOOL)_actionStarted:(id)a0;
+- (float)inputLevelDB;
+- (void)_actionCompleted:(id)a0 nextAction:(id)a1 error:(id)a2;
+- (id)_notifyDelegateOpenURL:(id)a0;
+- (id)_recognitionResultHandlingThread;
+- (void)recognitionResultHandlingThread:(id)a0 didHandleResults:(id)a1 nextAction:(id)a2;
+- (id)displayResultString;
+- (id)displayStatusString;
+- (void)setInputLevelUpdateInterval:(double)a0;
+- (void)setKeywordPhase:(unsigned long long)a0;
+- (id)keywordAtIndex:(long long)a0;
+- (long long)keywordCount;
+- (id)_keywordsForModelIdentifier:(id)a0;
+- (id)beginSpeakingFeedbackString;
+- (BOOL)setDebugDumpEnabled:(BOOL)a0;
+- (id)debugDumpPath;
+- (BOOL)setNextRecognitionAudioInputPath:(id)a0;
+- (BOOL)setNextRecognitionRequiresReset:(BOOL)a0;
+- (BOOL)setPreferredEngine:(int)a0;
+- (void)setPerformRecognitionHandlerActions:(BOOL)a0;
+
+@end

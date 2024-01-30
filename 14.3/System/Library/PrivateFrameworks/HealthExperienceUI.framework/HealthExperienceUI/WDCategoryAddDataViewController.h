@@ -1,0 +1,30 @@
+@class NSString, WDAddDataManualEntryItem, HKValueRange;
+
+@interface WDCategoryAddDataViewController : WDAddDataViewController <WDAddDataManualEntryItemDelegate>
+
+@property (readonly, nonatomic) WDAddDataManualEntryItem *categoryValueEntryItem;
+@property (readonly, nonatomic) WDAddDataManualEntryItem *dateEntryItem;
+@property (readonly, nonatomic) HKValueRange *selectedDateRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)numberOfSections;
+- (id)defaultEditingItem;
+- (id)generateHKObjects;
+- (void).cxx_destruct;
+- (BOOL)useDuration;
+- (id)_orderedTitlesForCategoryValuePicker;
+- (long long)_defaultSelectedIndex;
+- (id)_categoryCells;
+- (id)initWithDisplayType:(id)a0 healthStore:(id)a1 unitController:(id)a2 initialStartDate:(id)a3 dateCache:(id)a4;
+- (id)manualEntryItemsForSection:(long long)a0;
+- (BOOL)useSingleStartAndEndDate;
+- (void)updateSavingEnabled;
+- (BOOL)_hasCategoryValueEntryItem;
+- (void)manualEntryItemDidUpdate:(id)a0;
+- (void)validateDataWithCompletion:(id /* block */)a0;
+- (void)viewDidLoad;
+
+@end

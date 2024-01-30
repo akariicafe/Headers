@@ -1,0 +1,88 @@
+@class NSData, NSString, NSArray, NSDate, CPLFaceAnalysisReference, CPLPlaceAnnotation, NSDictionary, CPLAdjustments, CLLocation, NSNumber;
+
+@interface CPLAssetChange : CPLItemChange {
+    NSDictionary *_resourcePerResourceType;
+}
+
+@property (copy, nonatomic) NSData *facesData;
+@property (copy, nonatomic) NSString *masterIdentifier;
+@property (copy, nonatomic) NSDate *lastSharedDate;
+@property (copy, nonatomic) NSDate *addedDate;
+@property (copy, nonatomic) NSDate *assetDate;
+@property (copy, nonatomic) NSArray *resources;
+@property (copy, nonatomic) NSString *caption;
+@property (copy, nonatomic) NSString *extendedDescription;
+@property (copy, nonatomic) NSString *accessibilityDescription;
+@property (nonatomic, getter=isFavorite) BOOL favorite;
+@property (nonatomic) long long orientation;
+@property (nonatomic) long long duration;
+@property (retain, nonatomic) CLLocation *location;
+@property (copy, nonatomic) NSArray *keywords;
+@property (copy, nonatomic) NSString *adjustedMediaMetaDataType;
+@property (retain, nonatomic) NSData *adjustedMediaMetaData;
+@property (nonatomic, getter=isHidden) BOOL hidden;
+@property (copy, nonatomic) NSString *timeZoneName;
+@property (copy, nonatomic) NSNumber *timeZoneOffset;
+@property (copy, nonatomic) NSString *momentIdentifier;
+@property (copy, nonatomic) NSString *momentName;
+@property (copy, nonatomic) NSString *collectionIdentifier;
+@property (copy, nonatomic) NSString *collectionName;
+@property (nonatomic) unsigned long long burstFlags;
+@property (copy, nonatomic) NSString *burstIdentifier;
+@property (copy, nonatomic) NSString *mediaGroupIdentifier;
+@property (nonatomic) long long videoComplementDurationValue;
+@property (nonatomic) long long videoComplementDurationTimescale;
+@property (nonatomic) long long videoComplementImageDisplayValue;
+@property (nonatomic) long long videoComplementImageDisplayTimescale;
+@property (nonatomic) unsigned long long videoComplementVisibilityState;
+@property (nonatomic) unsigned long long assetSubtype;
+@property (nonatomic) unsigned long long assetHDRType;
+@property (retain, nonatomic) CPLAdjustments *adjustments;
+@property (nonatomic) unsigned long long originalChoice;
+@property (nonatomic) long long customRenderedValue;
+@property (copy, nonatomic) NSArray *people;
+@property (copy, nonatomic) CPLFaceAnalysisReference *faces;
+@property (nonatomic) long long facesVersion;
+@property (copy, nonatomic) NSString *facesAdjustmentsFingerprint;
+@property (retain, nonatomic) CPLPlaceAnnotation *placeAnnotation;
+@property (nonatomic) long long playCount;
+@property (nonatomic) long long shareCount;
+@property (nonatomic) long long viewCount;
+
++ (BOOL)supportsSecureCoding;
++ (BOOL)serverSupportsVision;
++ (BOOL)cplShouldIgnorePropertyForCoding:(id)a0;
++ (BOOL)cplShouldIgnorePropertyForEquality:(id)a0;
++ (id /* block */)equalityBlockForDirection:(unsigned long long)a0;
++ (id /* block */)copyPropertyBlockForDirection:(unsigned long long)a0;
+
+- (id)masterScopedIdentifier;
+- (id)init;
+- (BOOL)supportsDeletion;
+- (void).cxx_destruct;
+- (BOOL)supportsResources;
+- (id)initWithCoder:(id)a0;
+- (id)propertiesDescription;
+- (id /* block */)checkDefaultValueBlockForPropertyWithSelector:(SEL)a0;
+- (long long)dequeueOrder;
+- (id)propertiesForChangeType:(unsigned long long)a0;
+- (id)resourceForType:(unsigned long long)a0;
+- (void)copyDerivativesFromRecordIfPossible:(id)a0;
+- (BOOL)supportsResourceType:(unsigned long long)a0;
+- (id)scopedIdentifiersForMapping;
+- (id)translateToCloudChangeUsingIDMapping:(id)a0 error:(id *)a1;
+- (id)translateToClientChangeUsingIDMapping:(id)a0 error:(id *)a1;
+- (id)compactedChangeWithRelatedChanges:(id)a0 isOnlyChange:(BOOL)a1 fullRecord:(id)a2 usingStorageView:(id)a3;
+- (id)relatedIdentifier;
+- (void)setRelatedIdentifier:(id)a0;
+- (BOOL)validateFullRecord;
+- (id)allRelatedScopedIdentifiers;
+- (BOOL)validateChangeWithError:(id *)a0;
+- (BOOL)_canLowerQuota;
+- (unsigned long long)fullChangeTypeForFullRecord;
+- (BOOL)isAssetChange;
+- (BOOL)validateRecordForTracker:(id)a0;
+- (void)setMasterScopedIdentifier:(id)a0;
+- (id)scopeIdentifiersForQuarantine;
+
+@end

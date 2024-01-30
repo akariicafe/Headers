@@ -1,0 +1,20 @@
+@class NSString, NSUUID, NSArray, NSNumber;
+
+@interface MXCallStackFrame : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSString *binaryName;
+@property (readonly) NSNumber *address;
+@property (readonly) NSUUID *binaryUUID;
+@property (readonly) NSNumber *offsetInBinary;
+@property (readonly) NSNumber *sampleCount;
+@property (retain) NSArray *subFrames;
+
+- (id)toDictionary;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)initWithBinaryName:(id)a0 binaryUUID:(id)a1 address:(id)a2 binaryOffset:(id)a3 sampleCount:(id)a4 withDepth:(unsigned long long)a5 subFrameArray:(id)a6;
+- (void)encodeWithCoder:(id)a0;
+
+@end

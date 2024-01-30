@@ -1,0 +1,98 @@
+@class NSTimer, _UIFocusFastScrollingIndexBarEntry, NSArray, CADisplayLink, _UIDynamicValueAnimation, _UIDynamicAnimationGroup, _UIFocusEngineJoystickGestureRecognizer, UIPanGestureRecognizer, _UIFocusFastScrollingIndexBarView, UIScrollView;
+
+@interface _UIFocusFastScrollingController : NSObject {
+    UIScrollView *_scrollView;
+    UIPanGestureRecognizer *_panGesture;
+    NSArray *_pressGestures;
+    _UIFocusEngineJoystickGestureRecognizer *_joystickGesture;
+    _UIDynamicValueAnimation *_animationX;
+    _UIDynamicValueAnimation *_animationY;
+    _UIDynamicAnimationGroup *_animationGroup;
+    long long _style;
+    struct CGPoint { double x; double y; } _offsetWhenPanStarted;
+    struct { double _x; double _y; } _previousPanVelocity;
+    unsigned long long _accelerationSwipeCount;
+    double _accelerationMultiplier;
+    double _accelerationStartMultiplier;
+    double _accelerationLastSwipeTime;
+    NSArray *_displayedEntries;
+    double _initialEdgeDigitizerLocation;
+    long long _initialIndexEntry;
+    long long _highlightedIndexEntry;
+    struct { double _x; double _y; } _initialVelocity;
+    unsigned long long _heading;
+    unsigned long long _allowedHeadings;
+    CADisplayLink *_pressAnimationDisplayLink;
+    struct { double _x; double _y; } _pressAnimationVelocity;
+    struct CGVector { double dx; double dy; } _pressForce;
+    double _scrollHighlight;
+    NSTimer *_cooldownTimer;
+    struct { unsigned char isDragging : 1; unsigned char isDecelerating : 1; unsigned char isInTrackingMode : 1; unsigned char isIndicatingDestination : 1; unsigned char isAttemptingToStop : 1; unsigned char isCancellingScrollAnimation : 1; } _flags;
+}
+
+@property (readonly, weak, nonatomic) UIScrollView *scrollView;
+@property (copy, nonatomic) NSArray *indexEntries;
+@property (readonly, nonatomic) _UIFocusFastScrollingIndexBarView *indexBarView;
+@property (readonly, nonatomic, getter=isDragging) BOOL dragging;
+@property (readonly, nonatomic, getter=isDecelerating) BOOL decelerating;
+@property (readonly, nonatomic, getter=isScrollingX) BOOL scrollingX;
+@property (readonly, nonatomic, getter=isScrollingY) BOOL scrollingY;
+@property (readonly, nonatomic) long long scrollingStyle;
+@property (readonly, nonatomic) _UIFocusFastScrollingIndexBarEntry *highlightedEntry;
+
++ (long long)indexOfEntryNearestToScrollViewBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inDisplayedEntries:(id)a1;
++ (id)indexBarViewForScrollView:(id)a0;
++ (id)controllerWithRequest:(id)a0;
+
+- (void)_start;
+- (id)initWithRequest:(id)a0;
+- (void)_handleAnimationGroupScrollingCompletionWithInitialVelocity:(struct CGPoint { double x0; double x1; })a0 bounces:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)_handlePressGesture:(id)a0;
+- (void)_handlePanBegin:(id)a0;
+- (void)_startEdgeGesture;
+- (void)_resetSwipeAcceleration;
+- (void)_configureWithRequest:(id)a0;
+- (BOOL)_shouldShowEntriesInIndexBar;
+- (void)_stopDueToExternalEvent;
+- (void)_handlePanChanged:(id)a0;
+- (void)_cancelCooldown;
+- (void)_startTrackingModeIfNecessary;
+- (void)_stopScrollingAnimation;
+- (void)_handleEdgePanBegin:(id)a0;
+- (void)_handleSwipePanBegin:(id)a0;
+- (void)_handleEdgePanChanged:(id)a0;
+- (void)_handleSwipePanChanged:(id)a0;
+- (void)_handleEdgePanEnd:(id)a0;
+- (void)_handleSwipePanEnd:(id)a0;
+- (void)_updateEdgeGesture;
+- (void)_beginCooldownWithDuration:(double)a0;
+- (void)_hideDestinationIndicators;
+- (void)_interpretDigitzerLocation:(struct CGPoint { double x0; double x1; })a0 toFindEntryIndex:(long long *)a1 deflection:(double *)a2;
+- (void)_updateIndexBarIndicator;
+- (void)_updateSoftFocusForVelocity:(struct { double x0; double x1; })a0;
+- (void)_endDraggingWithFinalVelocity:(struct { double x0; double x1; })a0;
+- (void)_showDestinationIndicators;
+- (void)_startPressDisplayLink;
+- (void)_pressAnimationHeartbeat:(id)a0;
+- (void)_startScrollingAnimationWithVelocity:(struct { double x0; double x1; })a0 friction:(struct CGPoint { double x0; double x1; })a1;
+- (struct { double x0; double x1; })_currentScrollViewDecelerationVelocity;
+- (void)_finishDecelerating;
+- (void)_beginDeceleratingAfterPressGesture;
+- (void)_resetAllPressGestures;
+- (void)_setContentOffset:(struct CGPoint { double x0; double x1; })a0 withVelocity:(struct { double x0; double x1; })a1;
+- (void)_stopPressDisplayLink;
+- (void)_handleAnimationGroupScrollingAnimations;
+- (void)_stopTrackingMode;
+- (void)_cooldownEnded;
+- (void)_beginInitialSwipeDeceleration;
+- (void)_startPressTrackingWithVelocity:(struct { double x0; double x1; })a0;
+- (void)_attemptToStopDueToExternalEvent:(BOOL)a0;
+- (void)stop;
+- (void)start;
+- (void)_handlePanGesture:(id)a0;
+- (void)_handleJoystickGesture:(id)a0;
+- (void)_handlePanEnd:(id)a0;
+- (void)_attemptToStop;
+
+@end

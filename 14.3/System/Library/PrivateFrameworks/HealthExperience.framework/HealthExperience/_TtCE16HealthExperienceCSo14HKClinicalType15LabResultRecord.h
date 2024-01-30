@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKClinicalType15LabResultRecord : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,105 @@
+@class NSString, NSMutableDictionary, BSAtomicSignal, XBSnapshotManifestIdentity, NSMutableArray, NSFileManager, XBSnapshotContainerIdentity, BSTimer;
+
+@interface XBApplicationSnapshotManifestImpl : XBApplicationSnapshotManifest <NSSecureCoding, BSDescriptionProviding> {
+    NSMutableDictionary *_snapshotGroupsByID;
+    NSFileManager *_imageAccessFileManger;
+    BSTimer *_reapingTimer;
+    BSAtomicSignal *_invalidatedSignal;
+    unsigned long long _clientCount;
+    unsigned long long _pendingOperations;
+    NSMutableArray *_archiveSchedulingQueue_synchronizeCompletions;
+    BOOL _archiveSchedulingQueue_dirty;
+    BOOL _archiveSchedulingQueue_scheduled;
+    BOOL _logContainerIdentifierDirty;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _accessLock;
+    NSString *_baseLogIdentifier;
+    NSString *_logIdentifier;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) XBSnapshotContainerIdentity *containerIdentity;
+@property (readonly, copy, nonatomic) XBSnapshotManifestIdentity *identity;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)_snapshotPredicateForRequest:(id)a0;
++ (long long)_outputFormatForSnapshot:(id)a0;
++ (void)relinquishManifest:(id)a0;
++ (void)_workloop_noteManifestInvalidated:(id)a0;
++ (id)acquireManifestForContainerIdentity:(id)a0 store:(id)a1 creatingIfNecessary:(BOOL)a2;
++ (void)_configureSnapshot:(id)a0 withCompatibilityInfo:(id)a1 forLaunchRequest:(id)a2;
++ (BOOL)isUnderMemoryPressure;
+
+- (id)containerPath;
+- (void)_setContainerIdentity:(id)a0;
+- (id)defaultGroupIdentifier;
+- (void)_commonInit;
+- (void)_noteDirtied;
+- (void)_scheduleArchivingIfNecessaryWithCompletion:(id /* block */)a0;
+- (void)_workloop_checkClientCount;
+- (id)init;
+- (id)_access_snapshotsForGroupIDs:(id)a0 matchingPredicate:(id)a1;
+- (id)_access_allSnapshotGroups;
+- (id)createVariantForSnapshot:(id)a0 withIdentifier:(id)a1;
+- (void).cxx_destruct;
+- (void)_access_workloop_reapExpiredAndInvalidSnapshots;
+- (void)deleteSnapshotsMatchingPredicate:(id)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (void)beginSnapshotAccessTransaction:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)dealloc;
+- (void)_workloop_reallyCheckClientCount;
+- (id)_access_snapshotsMatchingPredicate:(id)a0;
+- (id)succinctDescription;
+- (void)_workloop_incrementClientCount;
+- (id)snapshotsForGroupIDs:(id)a0;
+- (id)_allSnapshotGroups;
+- (id)snapshotsForGroupIDs:(id)a0 fetchRequest:(id)a1;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (void)_access_gatherPaths:(id)a0 forSnapshot:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (id)_snapshotGroupsByID;
+- (void)deleteSnapshotsForGroupID:(id)a0;
+- (void)_handleMemoryPressure;
+- (void)_access_accessSnapshotsWithBlock:(id /* block */)a0 completion:(id /* block */)a1;
+- (id)_access_snapshotsForGroupIDs:(id)a0;
+- (void)_workloop_decrementClientCount;
+- (void)_access_purgeSnapshotsWithProtectedContent;
+- (void)purgeSnapshotsWithProtectedContent;
+- (id)snapshotsForGroupIDs:(id)a0 matchingPredicate:(id)a1;
+- (void)_reapExpiredAndInvalidSnapshots;
+- (void)saveSnapshot:(id)a0 atPath:(id)a1 withContext:(id)a2;
+- (id)succinctDescriptionBuilder;
+- (void)_synchronizeDataStoreWithCompletion:(id /* block */)a0;
+- (BOOL)_access_validateWithContainerIdentity:(id)a0;
+- (id)bundleIdentifier;
+- (BOOL)_invalidate;
+- (BOOL)_validateWithContainerIdentity:(id)a0;
+- (void)deleteSnapshotsForGroupID:(id)a0 matchingPredicate:(id)a1;
+- (void)deleteAllSnapshots;
+- (id)createSnapshotWithGroupID:(id)a0;
+- (void)_addSnapshotToGroup:(id)a0;
+- (void)_access_doArchiveWithCompletions:(id)a0;
+- (BOOL)_imageAccessQueue_saveData:(id)a0 forSnapshot:(id)a1;
+- (id)snapshotsForGroupID:(id)a0 fetchRequest:(id)a1;
+- (id)_generatableSnapshotForGroupID:(id)a0 generationContext:(id)a1;
+- (void)generateImageForSnapshot:(id)a0 dataProvider:(id)a1 options:(unsigned long long)a2 imageGeneratedHandler:(id /* block */)a3 imageDataSavedHandler:(id /* block */)a4;
+- (void)deleteSnapshotsUsingPredicateBuilder:(id /* block */)a0;
+- (void)deleteSnapshot:(id)a0;
+- (void)deleteSnapshots:(id)a0;
+- (void)_access_addSnapshotToGroup:(id)a0;
+- (void)deleteSnapshotsForGroupID:(id)a0 predicateBuilder:(id /* block */)a1;
+- (id)snapshotsForGroupID:(id)a0;
+- (id)_descriptionForStateCaptureWithMultilinePrefix:(id)a0;
+- (id)_access_snapshotGroupForID:(id)a0 creatingIfNeeded:(BOOL)a1;
+- (void)_access_deletePaths:(id)a0;
+- (id)_initWithContainerIdentity:(id)a0;
+- (id)snapshotsForGroupID:(id)a0 matchingPredicate:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (void)_access_deleteSnapshots:(id)a0;
+- (id)_createSnapshotWithGroupID:(id)a0 generationContext:(id)a1;
+
+@end

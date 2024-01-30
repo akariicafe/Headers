@@ -1,0 +1,44 @@
+@interface MTLIOAccelRenderCommandEncoder : MTLIOAccelCommandEncoder
+
+- (BOOL)isMemorylessRender;
+- (void)setDepthCleared;
+- (void)useHeaps:(const id *)a0 count:(unsigned long long)a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void)bindEmulationArguments;
+- (void)setEmulationFragmentTextures:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (id)initWithCommandBuffer:(id)a0 descriptor:(id)a1;
+- (void)setStencilCleared;
+- (void *)getFragmentBufferContentsAtIndex:(unsigned long long)a0;
+- (void)useHeap:(id)a0 stages:(unsigned long long)a1;
+- (void)setStencilStoreActionOptions:(unsigned long long)a0;
+- (void)useHeap:(id)a0;
+- (void)setEmulationFragmentSamplerStates:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)executeCommandsInBuffer:(id)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setDepthStoreActionOptions:(unsigned long long)a0;
+- (void)setColorStoreAction:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setEmulationVertexTextures:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (id)getRenderPipelineState;
+- (void)useHeaps:(const id *)a0 count:(unsigned long long)a1 stages:(unsigned long long)a2;
+- (void)setEmulationVertexBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (unsigned long long)getType;
+- (void)textureBarrier;
+- (void)executeCommandsInBuffer:(id)a0 indirectBuffer:(id)a1 indirectBufferOffset:(unsigned long long)a2;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2 stages:(unsigned long long)a3;
+- (void)setFragmentTexture:(id)a0 atTextureIndex:(unsigned long long)a1 samplerState:(id)a2 atSamplerIndex:(unsigned long long)a3;
+- (void)setEmulationVertexSamplerStates:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)useResource:(id)a0 usage:(unsigned long long)a1;
+- (void)useResources:(const id *)a0 count:(unsigned long long)a1 usage:(unsigned long long)a2;
+- (void)setDepthClipModeSPI:(unsigned long long)a0;
+- (void)setVertexAmplificationCount:(unsigned long long)a0 viewMappings:(const struct { unsigned int x0; unsigned int x1; } *)a1;
+- (void)memoryBarrierWithResources:(const id *)a0 count:(unsigned long long)a1 afterStages:(unsigned long long)a2 beforeStages:(unsigned long long)a3;
+- (void)updateFence:(id)a0 afterStages:(unsigned long long)a1;
+- (void)setDepthStoreAction:(unsigned long long)a0;
+- (void)memoryBarrierWithScope:(unsigned long long)a0 afterStages:(unsigned long long)a1 beforeStages:(unsigned long long)a2;
+- (void)setColorStoreActionOptions:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)sampleCountersInBuffer:(id)a0 atSampleIndex:(unsigned long long)a1 withBarrier:(BOOL)a2;
+- (void)setStencilStoreAction:(unsigned long long)a0;
+- (void)setEmulationFragmentBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void *)getVertexBufferContentsAtIndex:(unsigned long long)a0;
+- (void)waitForFence:(id)a0 beforeStages:(unsigned long long)a1;
+
+@end

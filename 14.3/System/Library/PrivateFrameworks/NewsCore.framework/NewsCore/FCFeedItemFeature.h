@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface FCFeedItemFeature : NSObject <NSCopying>
+
+@property (readonly, nonatomic) NSString *key;
+@property (nonatomic) BOOL queryable;
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) NSString *topicID;
+
++ (id)featureForAllArticles;
++ (id)featureForTopicID:(id)a0;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)initWithType:(long long)a0 key:(id)a1;
+- (BOOL)isEqual:(id)a0;
+
+@end

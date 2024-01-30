@@ -1,0 +1,90 @@
+@class NSMetadataQuery, NSString, NSArray, NSPredicate, NSMutableDictionary, NSOperationQueue, NSMutableArray, BRNotificationReceiver;
+
+@interface BRQuery : NSObject <BRNotificationReceiverDelegate> {
+    NSMutableArray *_results;
+    NSMutableDictionary *_resultsByRowID;
+    NSPredicate *_predicate;
+    NSString *_bundleIdentifier;
+    NSMutableDictionary *_toBeRemovedByFileObjectID;
+    NSMutableDictionary *_toBeReplacedByFileObjectID;
+    NSMutableDictionary *_toBeInsertedByFileObjectID;
+    int _queryState;
+    BOOL _ubiquitousGatherComplete;
+    BOOL _needsCrashMarking;
+    BOOL _needsCrashEvicting;
+    BOOL _sendHasUpdateNotification;
+    NSArray *_values;
+    NSArray *_sortingAttributes;
+    struct { unsigned long long first_max_num; unsigned long long first_max_ms; unsigned long long progress_max_num; unsigned long long progress_max_ms; unsigned long long update_max_num; unsigned long long update_max_ms; } _batchingParameters;
+    void /* function */ *_create_result_fn;
+    void *_create_result_context;
+    void /* function */ *_create_result_callbacks_equal;
+    void /* function */ *_create_result_callbacks_release;
+    void /* function */ *_create_value_fn;
+    void *_create_value_context;
+    void /* function */ *_create_value_callbacks_equal;
+    void /* function */ *_create_value_callbacks_release;
+    NSArray *_searchScopes;
+    unsigned int _scopeOptions;
+    void /* function */ *_sort_fn;
+    void *_sort_context;
+    struct __CFRunLoop { } *_runLoop;
+    NSOperationQueue *_queryQueue;
+    _Atomic int _disableCount;
+    int _receiverDisableCount;
+}
+
+@property (weak) NSMetadataQuery *query;
+@property (retain) BRNotificationReceiver *receiver;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (void)didEndPossibleFileOperation:(id)a0;
++ (id)willBeginPossibleDeletionOfItemAtURL:(id)a0;
++ (id)willBeginPossibleCreationOfItemAtURL:(id)a0;
++ (id)willBeginPossibleMoveOfItemAtURL:(id)a0 toURL:(id)a1;
+
+- (void)_performBlockAsync:(id /* block */)a0;
+- (void)_setQueryState:(int)a0;
+- (void)_watchScopes;
+- (void)_runQuery;
+- (id)_replacementObjectForQueryItem:(id)a0;
+- (void)_postNote:(const struct __CFString { } *)a0;
+- (id)_replacementObjectsForArrayOfQueryItem:(id)a0;
+- (void)_postNote:(const struct __CFString { } *)a0 userInfo:(id)a1;
+- (BOOL)_collectUpdates:(id)a0;
+- (void)_processUpdates;
+- (void)_sendHasUpdateNotificationIfNeeded;
+- (void)_processChanges:(id)a0;
+- (id)initWithQuery:(id)a0 values:(id)a1 sortingAttributes:(id)a2 items:(id)a3;
+- (void)setCreateValueFunction:(void /* function */ *)a0 withContext:(void *)a1 callbacks:(const struct { long long x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *)a2;
+- (void)setCreateResultFunction:(void /* function */ *)a0 withContext:(void *)a1 callbacks:(const struct { long long x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *)a2;
+- (void).cxx_destruct;
+- (id)attributeValueForName:(id)a0 forResultAtIndex:(long long)a1;
+- (void)dealloc;
+- (void)stop;
+- (void)setExternalDocumentsBundleIdentifier:(id)a0;
+- (unsigned long long)countOfResultsForAttributeName:(id)a0 value:(id)a1;
+- (void)enableUpdates;
+- (void)setSortComparator:(void /* function */ *)a0 withContext:(void *)a1;
+- (void)disableUpdates;
+- (const void *)resultAtIndex:(long long)a0;
+- (void)setQueryQueue:(id)a0;
+- (void)processUpdates;
+- (void)setSearchScope:(id)a0 withOptions:(unsigned int)a1;
+- (void)setSendHasUpdateNotification:(BOOL)a0;
+- (unsigned long long)resultCount;
+- (void)setBatchingParameters:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; })a0;
+- (id)valuesOfAttribute:(id)a0;
+- (unsigned char)executeWithOptions:(unsigned long long)a0;
+- (id)queryQueue;
+- (long long)indexOfResult:(const void *)a0;
+- (void)notificationsReceiverDidReceiveNotificationsBatch:(id)a0;
+- (void)notificationsReceiverDidFinishGathering:(id)a0;
+- (void)notificationsReceiverDidInvalidate:(id)a0;
+- (void)notificationReceiverDidReceiveNotifications:(id)a0;
+
+@end

@@ -1,0 +1,17 @@
+@class SFSSOspreyTTSClient;
+
+@interface SFSSServerTTSTask : SFSpeechSynthesisTask
+
+@property (weak, nonatomic) SFSSOspreyTTSClient *ospreyTTSClient;
+
++ (id)createOspreyRequestFromReqeust:(id)a0;
++ (struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; })audioStreamBasicDescription:(id)a0;
++ (id)generateVoiceAssetFromVoiceMetaInfo:(id)a0;
++ (id)generateResourceAssetFromResourceMetaInfo:(id)a0;
+
+- (id)initWithRequest:(id)a0;
+- (void).cxx_destruct;
+- (void)startTask:(id /* block */)a0;
+- (void)cancelTask;
+
+@end

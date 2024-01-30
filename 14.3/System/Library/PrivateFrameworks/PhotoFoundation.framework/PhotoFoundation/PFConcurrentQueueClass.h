@@ -1,0 +1,3 @@
+@interface PFConcurrentQueueClass : PFDispatchQueueBaseClass
+
+@end

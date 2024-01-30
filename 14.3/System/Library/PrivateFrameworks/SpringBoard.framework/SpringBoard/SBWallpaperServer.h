@@ -1,0 +1,29 @@
+@class FBServiceClientAuthenticator;
+@protocol SBWallpaperServerDelegate;
+
+@interface SBWallpaperServer : FBSServiceFacility
+
+@property (weak, nonatomic) id<SBWallpaperServerDelegate> delegate;
+@property (retain, nonatomic) FBServiceClientAuthenticator *accessAuthenticator;
+
++ (id)sharedInstance;
+
+- (BOOL)_xpcObjectIsDictionary:(id)a0;
+- (void)_handleSetVideoMessageWithWallpaperMode:(id)a0 fromClient:(id)a1;
+- (BOOL)_clientPermittedToModifyWallpaper:(id)a0;
+- (void).cxx_destruct;
+- (void)_handleRestoreDefaultWallpaperMessage:(id)a0 fromClient:(id)a1;
+- (long long)_wallpaperModeFromXPCDictionary:(id)a0;
+- (void)_handleSetColorMessage:(id)a0 fromClient:(id)a1;
+- (id)_init;
+- (void)_handleSetColorNameMessage:(id)a0 fromClient:(id)a1;
+- (long long)_wallpaperVariantFromXPCDictionary:(id)a0;
+- (long long)_deviceOrientationFromXPCDictionary:(id)a0;
+- (void)_handleFetchOriginalImageMessage:(id)a0 fromClient:(id)a1;
+- (void)noteDidReceiveMessage:(id)a0 withType:(long long)a1 fromClient:(id)a2;
+- (void)_handleFetchOriginalVideoURLMessage:(id)a0 fromClient:(id)a1;
+- (void)_handleSetGradientMessage:(id)a0 fromClient:(id)a1;
+- (void)_handleFetchContentCutoutBoundsMessage:(id)a0 fromClient:(id)a1;
+- (void)_handleFetchThumbnailMessage:(id)a0 fromClient:(id)a1;
+
+@end

@@ -1,0 +1,107 @@
+@class NSString;
+
+@interface HKObjectType : NSObject <NSSecureCoding, NSCopying> {
+    short _code;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic, getter=_definition) struct { id x0; id x1; id x2; id x3; short x4; char x5; unsigned char x6; } *definition;
+@property (readonly, nonatomic) long long code;
+@property (retain, nonatomic) HKObjectType *parentType;
+@property (readonly, nonatomic) Class dataObjectClass;
+@property (readonly, nonatomic) BOOL isClinicalType;
+@property (readonly, nonatomic) BOOL supportsExport;
+@property (readonly) NSString *identifier;
+
++ (id)procedureRecordTypeForIdentifier:(id)a0;
++ (id)diagnosticTestResultTypeForIdentifier:(id)a0;
++ (id)medicationRecordTypeForIdentifier:(id)a0;
++ (id)activitySummaryType;
++ (id)conditionRecordTypeForIdentifier:(id)a0;
++ (id)electrocardiogramType;
++ (id)workoutType;
++ (id)medicationDispenseRecordTypeForIdentifier:(id)a0;
++ (id)diagnosticTestReportTypeForIdentifier:(id)a0;
++ (id)coverageRecordTypeForIdentifier:(id)a0;
++ (void)_enumerateDataTypeCodesWithHandler:(id /* block */)a0;
++ (id)_dataTypeWithCode:(long long)a0 expectedClass:(Class)a1;
++ (id)calorieGoal;
++ (void)_enumerateObjectTypesWithHandler:(id /* block */)a0;
++ (long long)_typeCodeForIdentifier:(id)a0;
++ (id)heartStudyEventType;
++ (id)_allDataTypeIdentifiers;
++ (id)_allTypesOfClass:(Class)a0;
++ (id)_allBinarySampleTypes;
++ (id)_typesIncludingParentTypes:(id)a0;
++ (id)dataTypeWithNumber:(id)a0;
++ (id)correlationTypeForIdentifier:(id)a0;
++ (id)seriesTypeForIdentifier:(id)a0;
++ (id)audiogramSampleType;
++ (id)moveMinuteGoal;
++ (id)_objectTypesFromIdentifierArray:(id)a0 error:(id *)a1;
++ (id)exerciseGoal;
++ (id)briskMinuteDataType;
++ (id)coachingEventType;
++ (id)watchActivationType;
++ (id)deepBreathingSessionType;
++ (id)heartRateType;
++ (id)tachycardiaType;
++ (id)bradycardiaType;
++ (id)irregularlyIrregularPulseType;
++ (id)atrialFibrillationEventType;
++ (id)fitnessFriendAchievementType;
++ (id)fitnessFriendWorkoutType;
++ (id)activityMoveModeChangeType;
++ (id)environmentalAudioExposureEventType;
++ (id)headphoneAudioExposureEventType;
++ (id)menstrualFlowType;
++ (id)contraceptiveType;
++ (id)lactationType;
++ (id)pregnancyType;
++ (id)sleepDurationGoalType;
++ (id)lowCardioFitnessEventType;
++ (id)handwashingEventType;
++ (id)_clinicalTypesFromTypes:(id)a0;
++ (id)_nonClinicalTypesFromTypes:(id)a0;
++ (BOOL)_allowAuthorizationForSharingWithTypes:(id)a0 entitlements:(id)a1 disallowedTypes:(id)a2;
++ (BOOL)_allowAuthorizationForReadingWithTypes:(id)a0 entitlements:(id)a1 disallowedTypes:(id)a2;
++ (id)characteristicTypeForIdentifier:(id)a0;
++ (id)_typeWithIdentifier:(id)a0 expectedClass:(Class)a1;
++ (id)unknownRecordTypeForIdentifier:(id)a0;
++ (id)medicalTypeForIdentifier:(id)a0;
++ (id)medicationOrderTypeForIdentifier:(id)a0;
++ (id)allergyRecordTypeForIdentifier:(id)a0;
++ (id)sleepScheduleType;
++ (id)activityCacheType;
++ (BOOL)_allowAuthorizationForSharing:(BOOL)a0 types:(id)a1 entitlements:(id)a2 disallowedTypes:(id)a3;
++ (id)_typeWithIdentifier:(id)a0;
++ (id)accountOwnerTypeForIdentifier:(id)a0;
++ (id)standGoal;
++ (id)quantityTypeForIdentifier:(id)a0;
++ (id)dataTypeWithCode:(long long)a0;
++ (id)objectTypeForWorkoutMetric:(unsigned long long)a0;
++ (id)documentTypeForIdentifier:(id)a0;
++ (id)fitnessFriendActivitySnapshotType;
++ (id)clinicalTypeForIdentifier:(id)a0;
++ (id)categoryTypeForIdentifier:(id)a0;
++ (id)vaccinationRecordTypeForIdentifier:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)_hk_localizedNameKey;
+- (id)hk_localizedName;
+- (id)hk_localizedNameForLocale:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)hk_localizedNameForAuthSheet;
+- (BOOL)isHealthRecordsType;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)_requiresAuthorization;
+- (id)_initWithCode:(long long)a0;
+- (id)_predicateForSDKVersion:(unsigned int)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

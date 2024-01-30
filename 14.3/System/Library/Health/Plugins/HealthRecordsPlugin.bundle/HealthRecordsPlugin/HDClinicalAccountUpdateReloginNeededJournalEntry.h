@@ -1,0 +1,3 @@
+@interface HDClinicalAccountUpdateReloginNeededJournalEntry : HDClinicalAccountUpdateCredentialStateJournalEntry
+
+@end

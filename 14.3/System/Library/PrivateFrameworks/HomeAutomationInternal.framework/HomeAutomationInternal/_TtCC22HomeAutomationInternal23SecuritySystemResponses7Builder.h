@@ -1,0 +1,3 @@
+@interface _TtCC22HomeAutomationInternal23SecuritySystemResponses7Builder : _TtCC22HomeAutomationInternal15EntityResponses7Builder
+
+@end

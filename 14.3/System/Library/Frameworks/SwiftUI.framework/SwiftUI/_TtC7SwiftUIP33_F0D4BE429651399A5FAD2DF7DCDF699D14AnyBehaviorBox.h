@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_F0D4BE429651399A5FAD2DF7DCDF699D14AnyBehaviorBox : _TtCs12_SwiftObject
+
+@end

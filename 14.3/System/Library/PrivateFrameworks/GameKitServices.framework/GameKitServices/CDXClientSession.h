@@ -1,0 +1,34 @@
+@class NSMutableIndexSet, NSData, CDXClient, NSObject;
+@protocol OS_dispatch_source, CDXClientSessionDelegate;
+
+@interface CDXClientSession : NSObject {
+    NSData *sessionKeyPrepped_;
+    long long retransmitAttempts_;
+    NSData *lastSent_;
+    unsigned short seq_;
+    unsigned char pid_;
+    unsigned short *ack_;
+    NSObject<OS_dispatch_source> *retransmitTimer_;
+}
+
+@property (readonly, retain, nonatomic) CDXClient *CDXClient;
+@property (nonatomic) id<CDXClientSessionDelegate> delegate;
+@property (copy, nonatomic) NSData *ticket;
+@property (readonly, copy, nonatomic) NSData *sessionKey;
+@property (readonly, copy, nonatomic) NSMutableIndexSet *participantsInFlight;
+@property (copy, nonatomic) id /* block */ inboundHandler;
+
+- (void)dealloc;
+- (BOOL)sendData:(id)a0;
+- (void)invalidate;
+- (id)encrypt:(id)a0;
+- (void)stopRetransmitTimer;
+- (BOOL)sendRaw:(id)a0 toParticipants:(id)a1;
+- (BOOL)retransmitEvent;
+- (BOOL)sendData:(id)a0 toParticipants:(id)a1;
+- (void)resetRetransmitTimer;
+- (id)decrypt:(id)a0 ticket:(id)a1;
+- (id)initWithCDXClient:(id)a0 ticket:(id)a1 sessionKey:(id)a2;
+- (void)recvRaw:(id)a0 ticket:(id)a1;
+
+@end

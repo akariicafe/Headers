@@ -1,0 +1,45 @@
+@interface UIKBRenderFactoryiPadFudge : UIKBRenderFactoryiPad
+
+- (struct CGPoint { double x0; double x1; })dictationKeyOffset;
+- (id)displayContentsForKey:(id)a0;
+- (struct CGPoint { double x0; double x1; })dualStringKeyTopTextOffset:(id)a0 keyplane:(id)a1;
+- (struct CGPoint { double x0; double x1; })dualStringKeyBottomTextOffset:(id)a0 keyplane:(id)a1;
+- (struct CGPoint { double x0; double x1; })internationalKeyOffset;
+- (id)_traitsForKey:(id)a0 onKeyplane:(id)a1;
+- (id)deleteKeyImageName;
+- (id)deleteOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)shiftLockImageName;
+- (id)shiftOnKeyImageName;
+- (id)messagesWriteboardKeyImageName;
+- (id)globalEmojiKeyImageName;
+- (id)globalKeyImageName;
+- (id)dismissKeyImageName;
+- (id)dictationKeyImageName;
+- (BOOL)supportsInputTraits:(id)a0 forKeyplane:(id)a1;
+- (double)deleteKeyFontSize;
+- (double)moreKeyFontSize;
+- (struct CGPoint { double x0; double x1; })dismissKeyOffset;
+- (struct CGPoint { double x0; double x1; })moreKeyOffset;
+- (BOOL)iPadFudgeLayout;
+- (void)_customizeGeometry:(id)a0 forKey:(id)a1 contents:(id)a2;
+- (double)_row4ControlSegmentWidthLeft;
+- (double)_row4ControlSegmentWidthRight;
+- (id)tabKeyImageName;
+- (id)returnKeyImageName;
+- (id)capslockKeyImageName;
+- (double)spaceKeyFontSize;
+- (struct CGSize { double x0; double x1; })defaultVariantGeometrySize;
+- (struct CGPoint { double x0; double x1; })stringKeyOffset:(unsigned long long)a0;
+- (unsigned long long)_isFullHeightKeyFor:(id)a0 onKeyplane:(id)a1;
+- (struct CGPoint { double x0; double x1; })dualStringKeyTopTextOffset:(unsigned long long)a0;
+- (struct CGPoint { double x0; double x1; })dualStringKeyBottomTextOffset:(unsigned long long)a0;
+- (double)stringKeyFontSize:(unsigned long long)a0;
+- (double)dualStringKeyBottomFontSize:(unsigned long long)a0;
+- (double)dualStringKeyTopFontSize:(unsigned long long)a0;
+- (struct CGPoint { double x0; double x1; })deleteKeyOffset:(unsigned long long)a0;
+- (double)controlKeyFontSize;
+- (struct CGPoint { double x0; double x1; })iPadFudgeControlKeyOffset;
+- (id)lightKeycapsFontName;
+
+@end

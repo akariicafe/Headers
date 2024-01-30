@@ -1,0 +1,3 @@
+@interface TDTexturePixelFormat : TDThemeConstant
+
+@end

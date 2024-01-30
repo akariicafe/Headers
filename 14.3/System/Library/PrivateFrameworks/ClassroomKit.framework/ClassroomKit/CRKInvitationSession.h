@@ -1,0 +1,3 @@
+@interface CRKInvitationSession : CRKSession
+
+@end

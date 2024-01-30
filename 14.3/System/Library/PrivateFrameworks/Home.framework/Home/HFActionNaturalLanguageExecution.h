@@ -1,0 +1,20 @@
+@class NSSet, HFActionNaturalLanguageOptions, NSMutableSet;
+@protocol HFUIRepresentableHomeObject;
+
+@interface HFActionNaturalLanguageExecution : NSObject
+
+@property (retain, nonatomic) HFActionNaturalLanguageOptions *options;
+@property (retain, nonatomic) NSSet *actions;
+@property (retain, nonatomic) NSSet *allInvolvedObjects;
+@property (retain, nonatomic) NSSet *involvedServices;
+@property (nonatomic) BOOL named;
+@property (readonly, nonatomic) NSMutableSet *indescribableActionTypes;
+@property (readonly, nonatomic) id<HFUIRepresentableHomeObject> singularInvolvedObject;
+
++ (id)executionWithActions:(id)a0 options:(id)a1;
+
+- (id)initWithOptions:(id)a0;
+- (void).cxx_destruct;
+- (void)updateInvolvedObjects;
+
+@end

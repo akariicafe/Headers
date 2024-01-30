@@ -1,0 +1,90 @@
+@class NSTimer, NSString, NSArray, TIRequestedInputModes, NSMutableDictionary, TIMobileAssetTimer, NSObject, NSMutableSet, NSMutableArray;
+@protocol OS_dispatch_queue, TIMobileAssetMediator, TIInputModePreferenceProvider;
+
+@interface TIAssetManager : NSObject <DDSAssetCenterDelegate, TIAssetManaging> {
+    NSMutableArray *_notificationTokens;
+    NSMutableSet *_languagesWithWarmedAssets;
+}
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (readonly, nonatomic) id<TIMobileAssetMediator> mobileAssetMediator;
+@property (readonly, nonatomic) NSMutableDictionary *assetsByInputMode;
+@property (readonly, nonatomic) NSMutableDictionary *assetsByInputModeLevel;
+@property (copy, nonatomic) NSArray *requestedInputModes_mainThreadCache;
+@property (readonly, nonatomic) id<TIInputModePreferenceProvider> inputModePreferenceProvider;
+@property (retain, nonatomic) TIMobileAssetTimer *timer;
+@property (readonly, nonatomic) BOOL assetDownloadingEnabled;
+@property (retain, nonatomic) NSArray *currentActiveRegions;
+@property (retain, nonatomic) NSArray *currentNormalizedActiveRegions;
+@property (readonly, nonatomic) double requestExpirationInterval;
+@property (retain, nonatomic) NSTimer *didUpdateAssetsTimer;
+@property (readonly, nonatomic) NSMutableSet *languagesWithWarmedAssets;
+@property (readonly, nonatomic) TIRequestedInputModes *requestedInputModes;
+@property (copy, nonatomic) id /* block */ enabledInputModeIdentifiersProviderBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_regionFromAddress:(id)a0;
++ (id)sharedAssetManager;
++ (id)singletonInstanceWithEnabledInputModesProvider:(id /* block */)a0;
++ (id)_addressFromRegion:(id)a0;
++ (id)sharedAssetManagerWithEnabledInputModesProvider:(id /* block */)a0;
++ (void)setSharedAssetManager:(id)a0;
+
+- (id)enabledInputModes;
+- (void)normalizedRegionsForGeoCodedAddresses:(id)a0 withCompletion:(id /* block */)a1;
+- (BOOL)inputModeHasRegions:(id)a0;
+- (void)registerForNotifications;
+- (void)addAssets:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)didUpdateAssets;
+- (void)updateAssertionsForInputModes:(id)a0;
+- (void)requestAssetDownloadForLanguage:(id)a0 completion:(id /* block */)a1;
+- (void)removeLinguisticAssetsAssertionWithIdentifier:(id)a0 forClientID:(id)a1 withHandler:(id /* block */)a2;
+- (id)_ddsContentItemsFromAssets:(id)a0 contentType:(id)a1 filteredWithRegion:(BOOL)a2;
+- (id)activeInputModes;
+- (id)ddsLanguageIdentifierFromInputMode:(id)a0;
+- (void)scheduleAssetsDidChangeNotificationWithDelay:(double)a0;
+- (void)ddsAssetContentItemsWithContentType:(id)a0 inputMode:(id)a1 filteredWithRegion:(BOOL)a2 completion:(id /* block */)a3;
+- (void)dealloc;
+- (id)defaultEnabledInputModes;
+- (id)levelsForInputMode:(id)a0;
+- (void)getActiveRegionsWithCompletion:(id /* block */)a0;
+- (void)updateInputModesAndLevels;
+- (void)submitStatistics:(id)a0;
+- (void)unregisterForNotifications;
+- (id)activeInputModeLevels;
+- (id)ddsAssertionIDFromInputMode:(id)a0 withPotentialRegions:(id)a1;
+- (void)appleKeyboardsPreferencesChanged:(id)a0;
+- (void)startDownloadingUninstalledAssetsForInputModeLevels:(id)a0 regions:(id)a1;
+- (id)initWithMobileAssetMediator:(id)a0 requestedInputModes:(id)a1 inputModePreferenceProvider:(id)a2 enabledInputModesProvider:(id /* block */)a3;
+- (void)addAssertionWithInputMode:(id)a0 assertionID:(id)a1 potentialRegions:(id)a2;
+- (void)newAssetInstalled:(id)a0;
+- (id)_ddsAssetsForLanguageIdentifier:(id)a0 cachedOnly:(BOOL)a1;
+- (id)topActiveRegions;
+- (id)recursiveDescription;
+- (void)updateAssetDownloadingEnabled;
+- (void)didUpdateAssetsWithType:(id)a0;
+- (id)ddsAssetContentItemsWithContentType:(id)a0 inputMode:(id)a1 filteredWithRegion:(BOOL)a2;
+- (void)performMaintenance;
+- (void)scheduleNextDownload;
+- (long long)amountOfPurgeableAssetsWithUrgency:(int)a0;
+- (id)updatedActiveRegions;
+- (void)registerCacheDeleteCallbacks;
+- (void)gatherStatistics:(id)a0;
+- (long long)tryToPurgeAssetAmount:(long long)a0 urgency:(int)a1;
+- (BOOL)purgeAsset:(id)a0;
+- (void)appleKeyboardsInternalSettingsChanged:(id)a0;
+- (void)updatedActiveRegionsWithCompletionWithCompletion:(id /* block */)a0;
+- (id)purgeableAssets;
+- (void)_warmAssetQueryForLanguage:(id)a0;
+- (void)addLinguisticAssetsAssertionForLanguage:(id)a0 assertionID:(id)a1 region:(id)a2 clientID:(id)a3 withHandler:(id /* block */)a4;
+- (id)initForTestingWithMobileAssetMediator:(id)a0 requestedInputModes:(id)a1 inputModePreferenceProvider:(id)a2 enabledInputModesProvider:(id /* block */)a3;
+- (void)_warmAssetQueriesForInputModes:(id)a0;
+- (void)updateInstalledAssets;
+- (id)assetContentItemsWithContentType:(id)a0 inputMode:(id)a1;
+
+@end

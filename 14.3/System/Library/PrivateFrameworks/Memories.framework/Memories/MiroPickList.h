@@ -1,0 +1,66 @@
+@class NSArray, NSSet, NSDictionary;
+
+@interface MiroPickList : NSObject <NSCopying> {
+    NSArray *_sourceAssets;
+}
+
+@property (retain, nonatomic) NSArray *sourceAssets;
+@property (retain, nonatomic) NSArray *sourceOrder;
+@property (retain, nonatomic) NSArray *pickOrder;
+@property (retain, nonatomic) NSArray *splitOrder;
+@property (retain, nonatomic) NSArray *scoreOrder;
+@property (retain, nonatomic) NSArray *dateOrder;
+@property (retain, nonatomic) NSArray *adjustedPickOrder;
+@property (retain, nonatomic) NSArray *frozenSourceAssets;
+@property (retain, nonatomic) NSArray *frozenSourceOrder;
+@property (retain, nonatomic) NSArray *frozenAdjustedPickOrder;
+@property (nonatomic) BOOL calculatingPickOrder;
+@property (retain, nonatomic) NSSet *requiredAssetIDs;
+@property (retain, nonatomic) NSSet *disallowedAssetIDs;
+@property (retain, nonatomic) NSSet *photosCuratedAssetIDs;
+@property (retain, nonatomic) NSDictionary *freezeRanges;
+@property (nonatomic) BOOL prioritizeCuratedSetAssets;
+@property (copy, nonatomic) NSDictionary *specialInfo;
+@property unsigned long long memoryCategory;
+@property unsigned long long memorySubcategory;
+@property (nonatomic) BOOL skipDistanceCalculation;
+@property (nonatomic) BOOL penalizeNonLocalAssets;
+@property (readonly, nonatomic) int freezeState;
+@property (readonly, nonatomic) BOOL isCompelling;
+@property (readonly, nonatomic) int idealCount;
+@property (readonly, nonatomic) int countAtOrAboveBadT;
+
+- (id)people;
+- (void)_reset;
+- (void).cxx_destruct;
+- (id)photoLibrary;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)classifications;
+- (id)description;
+- (BOOL)calculateFreezeFromFrozenSourceAssets;
+- (id)sourceOrderFromSourceAssets;
+- (id)pickOrderFromSourceOrder;
+- (void)calculatePickListFromVPFrameworkResults;
+- (id)expandVideoAssetsAndConvertToScenes:(id)a0;
+- (id)mediaAnalyzer;
+- (id)sourceOrderFromSourceAssetsViaNewAPI;
+- (id)sourceOrderFromSourceAssetsViaOldAPI;
+- (id)sourceOrderFromSourceAssetsViaNewAPIStoppingAtCompelling:(BOOL *)a0;
+- (id)rangesForAssets:(id)a0;
+- (void)updateAssetsWithSpecialInfo;
+- (id)highestScoringItemFromIndex:(long long)a0 lookingRight:(BOOL)a1;
+- (id)highestScoringItemToTheRightFromIndex:(long long)a0;
+- (id)highestScoringItemToTheLeftFromIndex:(long long)a0;
+- (id)_computeAdjustedPickOrder;
+- (void)_assignTrimRangesIntelligentlyToPickInfos:(id)a0;
+- (double)_fractionOfPickInfo:(id)a0 coveredByRanges:(id)a1;
+- (int)countAtTValue:(double)a0;
+- (id)_pickInfosForAssetID:(id)a0;
+- (id)initWithAssets:(id)a0 memoryCategory:(unsigned long long)a1 memorySubcategory:(unsigned long long)a2;
+- (void)calculateFullPickList;
+- (void)_assignTrimRangesChronologicallyToPickInfos:(id)a0;
+- (id)assetsUpToSceneCount:(long long)a0;
+- (id)scenesUpToCount:(long long)a0 localOnly:(BOOL)a1;
+- (id)splitDistancesForAssetID:(id)a0;
+
+@end

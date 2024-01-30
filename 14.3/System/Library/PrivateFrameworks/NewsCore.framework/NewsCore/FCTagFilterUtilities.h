@@ -1,0 +1,3 @@
+@interface FCTagFilterUtilities : NSObject
+
+@end

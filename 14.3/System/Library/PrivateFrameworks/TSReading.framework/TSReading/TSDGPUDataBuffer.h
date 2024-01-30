@@ -1,0 +1,93 @@
+@class NSString, NSArray, NSMutableDictionary, NSMutableArray;
+@protocol MTLBuffer, MTLDevice;
+
+@interface TSDGPUDataBuffer : NSObject <TSDMTLDataBuffer> {
+    unsigned long long _currentBufferIndex;
+    NSMutableArray *_arrayBuffers;
+    NSMutableDictionary *_attributeToArrayBuffersDictionary;
+    unsigned long long _elementArrayCount;
+    unsigned short *_gLElementData;
+    BOOL _gLElementDataBufferWasSetup;
+    unsigned int _gLElementDataBuffer;
+    id<MTLBuffer> _metalElementData;
+    struct CGSize { double width; double height; } _gLElementMeshSize;
+    unsigned long long _gLElementQuadParticleCount;
+    BOOL _conformsToMetalProtocol;
+    id<MTLDevice> _device;
+    unsigned int _gLVertexArrayObjects[2];
+    BOOL _isUpdatingRawDataBuffer;
+    BOOL _didTeardown;
+    BOOL _isEnabled;
+}
+
+@property (nonatomic) unsigned long long metalDrawMode;
+@property (readonly) unsigned long long positionAttributeIndex;
+@property (readonly) unsigned long long texCoordAttributeIndex;
+@property (readonly) unsigned long long centerAttributeIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) unsigned long long vertexCount;
+@property (readonly) NSArray *vertexAttributes;
+@property (nonatomic) unsigned int drawMode;
+@property (readonly) BOOL isDynamicallyBuffered;
+
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 device:(id)a2;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 textureFlipped:(BOOL)a2 device:(id)a3;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2;
++ (id)newDataBufferWithVertexAttributes:(id)a0 vertexCount:(unsigned long long)a1 indexElementCount:(unsigned long long)a2 device:(id)a3;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 device:(id)a3;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 device:(id)a4;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4 device:(id)a5;
++ (void)p_addTransparentBorderInsetToTextureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 vertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a1;
++ (id)newDataBufferWithVertexAttributes:(id)a0 vertexCount:(unsigned long long)a1 indexElementCount:(unsigned long long)a2;
++ (id)newDataBufferWithVertexAttributes:(id)a0 meshSize:(struct CGSize { double x0; double x1; })a1;
++ (id)newDataBufferWithVertexAttributes:(id)a0 quadParticleCount:(unsigned long long)a1;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4 addTransparentBorder:(BOOL)a5;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 textureFlipped:(BOOL)a2;
++ (id)newDataBufferWithVertexAttributes:(id)a0 meshSize:(struct CGSize { double x0; double x1; })a1 device:(id)a2;
++ (id)newDataBufferWithVertexAttributes:(id)a0 quadParticleCount:(unsigned long long)a1 device:(id)a2;
++ (id)newDataBufferWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4 addTransparentBorder:(BOOL)a5 device:(id)a6;
+
+- (void)teardown;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)drawWithEncoder:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setMetalFloat:(float)a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (float)metalFloatForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setCGFloat:(double)a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (struct { float x0; float x1; })metalPoint2DForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setMetalPoint2D:(struct { float x0; float x1; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (struct { float x0; float x1; float x2; })metalPoint3DForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setMetalPoint3D:(struct { float x0; float x1; float x2; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (struct { float x0; float x1; float x2; float x3; })metalPoint4DForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setMetalPoint4D:(struct { float x0; float x1; float x2; float x3; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (void)setGLushort:(unsigned short)a0 forIndexElement:(unsigned long long)a1;
+- (id)initWithVertexAttributes:(id)a0 vertexCount:(unsigned long long)a1 indexElementCount:(unsigned long long)a2 bufferCount:(unsigned long long)a3;
+- (id)initWithVertexAttributes:(id)a0 meshSize:(struct CGSize { double x0; double x1; })a1 bufferCount:(unsigned long long)a2;
+- (id)initWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4;
+- (id)initWithVertexRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 meshSize:(struct CGSize { double x0; double x1; })a2 textureFlipped:(BOOL)a3 includeCenterAttribute:(BOOL)a4 addTransparentBorder:(BOOL)a5;
+- (void)setGLPoint2D:(struct { float x0; float x1; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (void)p_setupElementArrayBufferIfNecessary;
+- (void)drawWithEncoder:(id)a0 atIndex:(unsigned long long)a1 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 advanceDynamicBuffer:(BOOL)a3;
+- (void)enableDataBuffer;
+- (void)encodeWithEncoder:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setGLPoint3D:(struct { float x0; float x1; float x2; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (void)setGLPoint4D:(struct { float x0; float x1; float x2; float x3; })a0 forAttribute:(id)a1 atIndex:(unsigned long long)a2;
+- (void)updateMetalDataBufferAttributes:(id)a0 withBlock:(id /* block */)a1;
+- (BOOL)p_setAttributeUpdateData:(struct { long long x0; unsigned long long x1; BOOL x2; char *x3; unsigned long long x4; unsigned long long x5; unsigned long long x6; BOOL x7; struct _NSRange { unsigned long long x0; unsigned long long x1; } x8; unsigned long long x9; } *)a0 fromAttribute:(id)a1;
+- (void)setDataForAttribute:(id)a0 atIndex:(unsigned long long)a1 fromAttribute:(id)a2 dataBuffer:(id)a3 index:(unsigned long long)a4;
+- (id)vertexAttributeNamed:(id)a0;
+- (void)updateDataBufferAttributes:(id)a0 withBlock:(id /* block */)a1;
+- (void)disableWithDevice:(id)a0;
+- (void)drawWithEncoder:(id)a0 atIndex:(unsigned long long)a1 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)drawWithEncoder:(id)a0 atIndex:(unsigned long long)a1 advanceDynamicBuffer:(BOOL)a2;
+- (void)updateDataBufferAttributesWithBlock:(id /* block */)a0;
+- (struct { float x0; float x1; float x2; })GLPoint3DForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+- (struct { float x0; float x1; float x2; float x3; })GLPoint4DForAttribute:(id)a0 atIndex:(unsigned long long)a1;
+
+@end

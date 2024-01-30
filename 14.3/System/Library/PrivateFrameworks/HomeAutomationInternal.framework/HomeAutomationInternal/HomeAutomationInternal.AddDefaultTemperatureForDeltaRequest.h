@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AddDefaultTemperatureForDeltaRequest : _TtCs12_SwiftObject
+
+@end

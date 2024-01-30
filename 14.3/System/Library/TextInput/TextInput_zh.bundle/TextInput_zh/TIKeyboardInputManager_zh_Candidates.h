@@ -1,0 +1,37 @@
+@class TIWordSearch, NSString, TIKeyboardCandidate, NSSet, TIWordSearchCandidateResultSet;
+
+@interface TIKeyboardInputManager_zh_Candidates : TIKeyboardInputManagerChinesePhonetic
+
+@property (copy, nonatomic) NSString *inputString;
+@property (copy, nonatomic) TIKeyboardCandidate *defaultCandidate;
+@property (readonly, nonatomic) TIWordSearch *kbws;
+@property (copy, nonatomic) NSString *autoCommitString;
+@property (retain, nonatomic) TIWordSearchCandidateResultSet *wholePhraseCandidateResultSet;
+@property (retain, nonatomic) TIWordSearchCandidateResultSet *lastCharacterCandidateResultSet;
+@property (nonatomic) BOOL skipLastCharacterCandidates;
+@property (copy, nonatomic) NSSet *autoSelectCandidates;
+@property (retain, nonatomic) NSString *syntheticCandidate;
+
+- (BOOL)supportsNumberKeySelection;
+- (void).cxx_destruct;
+- (BOOL)delayedCandidateList;
+- (id)keyboardConfiguration;
+- (BOOL)usesLiveConversion;
+- (BOOL)shouldClearInputOnMarkedTextOutOfSync;
+- (id)handleAcceptedCandidate:(id)a0 keyboardState:(id)a1;
+- (id)handleKeyboardInput:(id)a0;
+- (void *)mecabraCandidateRefFromCandidate:(id)a0;
+- (BOOL)supportsCandidateGeneration;
+- (id)candidateResultSetFromCandidates:(id)a0;
+- (BOOL)hasIdeographicCandidates;
+- (id)initWithConfig:(id)a0 keyboardState:(id)a1 wordSearch:(id)a2;
+- (BOOL)makeCandidatesWithInputString:(id)a0 autoCommitString:(id)a1 predictionEnabled:(BOOL)a2 reanalysisMode:(BOOL)a3 geometoryModelData:(id)a4;
+- (id)inputStringForLastCharacter:(id)a0;
+- (void)_notifyWholePhraseCandidate:(id)a0 forOperation:(id)a1;
+- (void)performWordSearch:(id)a0 action:(SEL)a1 waitUntilFinished:(BOOL)a2;
+- (void)_notifyLastCharacterCandidate:(id)a0 forOperation:(id)a1;
+- (void)_notifyUpdateCandidates;
+- (id)candidateResultSetFromCandidateResultSet:(id)a0 lastCharacterCandidateResultSet:(id)a1;
+- (id)punctuationCandiadtesFor:(id)a0 withAutoCommit:(id)a1;
+
+@end

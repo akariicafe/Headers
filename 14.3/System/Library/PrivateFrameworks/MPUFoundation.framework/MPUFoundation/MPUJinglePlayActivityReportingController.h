@@ -1,0 +1,3 @@
+@interface MPUJinglePlayActivityReportingController : MPCJinglePlayActivityReportingController
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXMemoriesUITileSourceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

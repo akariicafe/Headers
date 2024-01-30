@@ -1,0 +1,3 @@
+@interface NewsUI2.SearchMoreArticlesBlueprintViewSupplementaryViewProvider : _TtCs12_SwiftObject
+
+@end

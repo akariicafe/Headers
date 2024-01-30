@@ -1,0 +1,83 @@
+@class NSString, NSArray, NSData, NSDictionary, _MRDeviceInfoMessageProtobuf;
+
+@interface MRDeviceInfo : NSObject <NSCopying>
+
+@property (readonly, nonatomic) _MRDeviceInfoMessageProtobuf *protobuf;
+@property (readonly, nonatomic, getter=isCompanion) BOOL companion;
+@property (readonly, nonatomic, getter=isGizmo) BOOL gizmo;
+@property (nonatomic) long long deviceClass;
+@property (nonatomic) BOOL hasDeviceClass;
+@property (nonatomic) unsigned long long protocolVersion;
+@property (nonatomic) BOOL hasProtocolVersion;
+@property (nonatomic) unsigned long long groupedDeviceCount;
+@property (nonatomic) BOOL hasGroupedDeviceCount;
+@property (nonatomic) unsigned long long sharedQueueVersion;
+@property (nonatomic) BOOL hasSharedQueueVersion;
+@property (nonatomic) unsigned long long groupLogicalDeviceCount;
+@property (nonatomic) BOOL hasGroupLogicalDeviceCount;
+@property (nonatomic) BOOL supportsSystemPairing;
+@property (nonatomic) BOOL hasSupportsSystemPairing;
+@property (nonatomic) BOOL supportsACL;
+@property (nonatomic) BOOL hasSupportsACL;
+@property (nonatomic) BOOL supportsSharedQueue;
+@property (nonatomic) BOOL hasSupportsSharedQueue;
+@property (nonatomic) BOOL supportsExtendedMotion;
+@property (nonatomic) BOOL hasSupportsExtendedMotion;
+@property (nonatomic, getter=isTightSyncGroup) BOOL tightSyncGroup;
+@property (nonatomic) BOOL hasTightSyncGroup;
+@property (nonatomic, getter=isPairingAllowed) BOOL pairingAllowed;
+@property (nonatomic) BOOL hasPairingAllowed;
+@property (nonatomic, getter=isProxyGroupPlayer) BOOL proxyGroupPlayer;
+@property (nonatomic) BOOL hasProxyGroupPlayer;
+@property (nonatomic, getter=isConnected) BOOL connected;
+@property (nonatomic) BOOL hasConnected;
+@property (nonatomic, getter=isGroupLeader) BOOL groupLeader;
+@property (nonatomic) BOOL hasGroupLeader;
+@property (nonatomic, getter=isAirPlayActive) BOOL airPlayActive;
+@property (nonatomic) BOOL hasAirPlayActive;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) NSString *localizedModelName;
+@property (copy, nonatomic) NSString *buildVersion;
+@property (copy, nonatomic) NSString *bundleIdentifier;
+@property (copy, nonatomic) NSString *bundleVersion;
+@property (copy, nonatomic) NSString *systemMediaApplication;
+@property (copy, nonatomic) NSString *systemPodcastApplication;
+@property (copy, nonatomic) NSString *deviceUID;
+@property (copy, nonatomic) NSString *localReceiverPairingIdentity;
+@property (copy, nonatomic) NSString *managedConfigurationDeviceIdentifier;
+@property (copy, nonatomic) NSString *tightSyncUID;
+@property (copy, nonatomic) NSString *groupUID;
+@property (copy, nonatomic) NSString *groupName;
+@property (copy, nonatomic) NSString *senderDefaultGroupUID;
+@property (copy, nonatomic) NSData *bluetoothAddress;
+@property (copy, nonatomic) NSArray *groupedDevices;
+@property (copy, nonatomic) NSArray *airPlayReceivers;
+@property (copy, nonatomic) NSString *linkAgent;
+@property (copy, nonatomic) NSString *clusterID;
+@property (copy, nonatomic) NSString *clusterLeaderID;
+@property (nonatomic) unsigned int clusterType;
+@property (nonatomic, getter=isClusterAware) BOOL clusterAware;
+@property (copy, nonatomic) NSString *modelID;
+@property (readonly, copy, nonatomic) NSData *data;
+@property (readonly, copy, nonatomic) NSDictionary *dictionaryRepresentation;
+@property (readonly, copy, nonatomic) NSString *minimalDescription;
+@property (readonly, nonatomic) MRDeviceInfo *skeleton;
+
++ (long long)deviceClass;
++ (id)dataFromDeviceInfos:(id)a0;
++ (id)deviceInfosFromData:(id)a0;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)deltaDescriptionFromDeviceInfo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)initWithData:(id)a0;
+- (id)deltaDescriptionFromDeviceInfo:(id)a0 minimal:(BOOL)a1;
+- (id)description;
+- (id)minimalDeltaDescriptionFromDeviceInfo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithOutputDevice:(id)a0;
+- (id)initWithProtobuf:(id)a0;
+
+@end

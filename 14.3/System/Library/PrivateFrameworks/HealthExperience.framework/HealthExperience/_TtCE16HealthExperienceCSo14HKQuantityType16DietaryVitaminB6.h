@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType16DietaryVitaminB6 : _TtCs12_SwiftObject
+
+@end

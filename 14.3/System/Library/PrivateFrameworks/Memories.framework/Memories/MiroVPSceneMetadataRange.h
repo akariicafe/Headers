@@ -1,0 +1,3 @@
+@interface MiroVPSceneMetadataRange : MiroVPMetadataRange
+
+@end

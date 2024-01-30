@@ -1,0 +1,82 @@
+@class NSRecursiveLock, NSNumber, NSString, CTXPCServiceSubscriptionContext, NSMutableSet, RadiosPreferences, CoreTelephonyClient;
+
+@interface IMMobileNetworkManager : NSObject <RadiosPreferencesDelegate, CoreTelephonyClientDataDelegate>
+
+@property (retain, nonatomic) RadiosPreferences *_radiosPreferences;
+@property (nonatomic) void *_cellAssertion;
+@property (nonatomic) struct __CTServerConnection { } *_ctServerConnection;
+@property (retain, nonatomic) CoreTelephonyClient *_coreTelephonyClient;
+@property (readonly, nonatomic) CTXPCServiceSubscriptionContext *currentDataSubscriptionContextSync;
+@property (retain, nonatomic) NSRecursiveLock *lock;
+@property (retain, nonatomic) NSMutableSet *cellularAutoAssociationTokens;
+@property (nonatomic) BOOL registered;
+@property (nonatomic) BOOL shouldBringUpDataContext;
+@property (nonatomic) BOOL isDataPossible;
+@property (nonatomic) BOOL isDataContextActive;
+@property (nonatomic) BOOL isDataIndicatorNone;
+@property (nonatomic) BOOL isDataContextUsable;
+@property (readonly, nonatomic) BOOL isAirplaneModeEnabled;
+@property (readonly, nonatomic) BOOL isWiFiEnabled;
+@property (readonly, nonatomic) BOOL isWiFiUsable;
+@property (readonly, nonatomic) BOOL isWiFiAssociated;
+@property (readonly, nonatomic) BOOL isWiFiCaptive;
+@property (readonly, nonatomic) BOOL isHostingWiFiHotSpot;
+@property (readonly, nonatomic) BOOL autoAssociateWiFi;
+@property (readonly, nonatomic) BOOL autoAssociateCellular;
+@property (readonly, nonatomic) BOOL disableFastDormancy;
+@property (readonly, nonatomic) BOOL willTryToSearchForWiFiNetwork;
+@property (readonly, nonatomic) BOOL willTryToAutoAssociateWiFiNetwork;
+@property (readonly, retain, nonatomic) NSNumber *wiFiSignalStrength;
+@property (readonly, retain, nonatomic) NSNumber *wiFiScaledRSSI;
+@property (readonly, retain, nonatomic) NSNumber *wiFiScaledRate;
+@property (readonly, nonatomic) BOOL dataConnectionExists;
+@property (readonly, nonatomic) BOOL has2GDataConnection;
+@property (readonly, nonatomic) BOOL hasLTEDataConnection;
+@property (readonly, nonatomic) BOOL isDataSwitchEnabled;
+@property (readonly, nonatomic) BOOL isDataConnectionActive;
+@property (readonly, nonatomic) BOOL inValidSIMState;
+@property (readonly, nonatomic) BOOL requiresSIMInserted;
+@property (readonly, nonatomic) BOOL isSIMLocked;
+@property (readonly, nonatomic) BOOL isSIMRemoved;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void)currentDataSimChanged:(id)a0;
+- (void)_adjustCellularAutoAssociation;
+- (void)_makeDataConnectionAvailable:(BOOL)a0;
+- (void)_locked_recalculateDataContextUsableAndPostNotificationIfNeeded:(BOOL)a0;
+- (void)removeFastDormancyDisableToken:(id)a0;
+- (id)init;
+- (void)_releaseCTServerConnection;
+- (void).cxx_destruct;
+- (void)airplaneModeChanged;
+- (void)_createCTServerConnection;
+- (void)internetDataStatus:(id)a0;
+- (void)dealloc;
+- (void)showNetworkOptions;
+- (id)_dataCTXPCServiceSubscriptionContext;
+- (int)_getCurrentCTDataStatus;
+- (void)showSIMUnlock;
+- (void)removeCellularAutoAssociationClientToken:(id)a0;
+- (void)internetConnectionStateChanged:(id)a0;
+- (void)_locked_updateDataStateWithContext:(id)a0;
+- (id)_telephonyDataSIMStatus;
+- (void)_lockedAdjustCellularAutoAssociation;
+- (void)addFastDormancyDisableToken:(id)a0;
+- (BOOL)_isDataConnectionAvailable;
+- (void)removeWiFiAutoAssociationClientToken:(id)a0;
+- (void)setDataConnectionActive:(BOOL)a0;
+- (void)_locked_updateDataConnectionStateWithContext:(id)a0;
+- (void)addWiFiAutoAssociationClientToken:(id)a0;
+- (void)_locked_updateDataStateBasedOnDataStatus:(id)a0;
+- (BOOL)_legacy_inValidSIMState;
+- (void)_locked_updateDataStateBasedOnDataConnectionStatus:(id)a0;
+- (void)addCellularAutoAssociationClientToken:(id)a0;
+- (void)_initializeDataState;
+- (void)internetConnectionActivationError:(int)a0;
+
+@end

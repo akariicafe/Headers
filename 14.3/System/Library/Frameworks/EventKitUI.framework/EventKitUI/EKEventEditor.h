@@ -1,0 +1,96 @@
+@class EKCalendarItemCalendarEditItem, EKEventAttendeesEditItem, EKUIAutocompleteTracker, EKUIAutocompleteSearchResult, EKEventAttachmentsEditItem, UIColor, NSString, EKEvent, EKCalendarItemTitleInlineEditItem, NSTimer, EKEventURLAndNotesInlineEditItem, EKCalendarItemLocationInlineEditItem, EKCalendarItemAlarmEditItem, EKEventAutocompleteResultsEditItem, EKEventDateEditItem;
+@protocol EKUIAutocompletePendingSearchProtocol;
+
+@interface EKEventEditor : EKCalendarItemEditor <EKEventAutocompleteResultsEditItemDelegate> {
+    EKEventDateEditItem *_dateItem;
+    EKEventAttendeesEditItem *_attendeesEditItem;
+    EKEventAutocompleteResultsEditItem *_autocompleteEditItem;
+    EKCalendarItemTitleInlineEditItem *_titleInlineEditItem;
+    EKCalendarItemLocationInlineEditItem *_locationInlineEditItem;
+    EKCalendarItemCalendarEditItem *_calendarEditItem;
+    EKCalendarItemAlarmEditItem *_alarmEditItem;
+    EKEventURLAndNotesInlineEditItem *_notesEditItem;
+    EKEventAttachmentsEditItem *_attachmentsEditItem;
+    BOOL _shouldAutocomplete;
+    id<EKUIAutocompletePendingSearchProtocol> _pendingSearch;
+    NSTimer *_autocompleteTimer;
+    NSString *_autocompleteSearchString;
+    BOOL _isTransitioning;
+    BOOL _autocompleteResultsVisible;
+    unsigned long long _focusOnAppearanceTarget;
+    BOOL _selectOnFocus;
+    EKUIAutocompleteSearchResult *_selectedAutocompleteResult;
+    unsigned long long _selectedAutocompleteResultIndex;
+    EKUIAutocompleteSearchResult *_zeroKeywordResult;
+    EKUIAutocompleteSearchResult *_naturalLanguageResult;
+    BOOL _hasShownZeroKeywordResult;
+    BOOL _hasShownNaturalLanguageResult;
+    EKUIAutocompleteTracker *_autocompleteTracker;
+}
+
+@property (retain, nonatomic) NSString *suggestionKey;
+@property (retain, nonatomic) EKEvent *event;
+@property (nonatomic) BOOL showAttachments;
+@property (retain, nonatomic) UIColor *backgroundColor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_now;
++ (Class)_SGSuggestionsServiceClass;
++ (id)defaultTitleForCalendarItem;
++ (void)_modifyCurrentEvent:(id)a0 withAutocompleteResult:(id)a1;
++ (void)_applyTimeToAutocompleteResults:(id)a0 usingCurrentStartDate:(id)a1 currentEndDate:(id)a2 timeImplicitlySet:(BOOL)a3;
++ (id)_copyAlarmsForAutocompleteFromResult:(id)a0;
++ (id)_copyAttendeesForAutocompleteFromResult:(id)a0;
+
+- (id)notificationNamesForLocaleChange;
+- (void)_copyEventForPossibleRevert;
+- (id)_viewForSheet;
+- (void)_setEventTitleForTestingAutocomplete:(id)a0;
+- (unsigned long long)entityType;
+- (void).cxx_destruct;
+- (void)autocompleteResultsEditItemDidShowResults:(id)a0;
+- (void)autocompleteResultsEditItemDidHideResults:(id)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)autocompleteResultsEditItem:(id)a0 resultSelected:(id)a1;
+- (void)loadView;
+- (BOOL)shouldAutorotate;
+- (void)refreshStartAndEndDates;
+- (void)focus:(unsigned long long)a0 select:(BOOL)a1;
+- (void)editItemDidStartEditing:(id)a0;
+- (void)editItemTextChanged:(id)a0;
+- (struct CGSize { double x0; double x1; })preferredContentSize;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)hasAttachmentChanges;
+- (void)_focusAppearanceTarget;
+- (id)preferredTitle;
+- (void)refreshInvitees;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)_updateTitleEditItemSeparatorVisibility;
+- (void)refreshLocation;
+- (id)_calendarItemIndexSet;
+- (void)prepareEditItems;
+- (void)_scheduleAutocompleteSearchWithString:(id)a0;
+- (void)_showAutocompleteResults;
+- (void)_hideAndCancelAutocompleteResults;
+- (void)_cancelPendingAutocompleteAndCleanup;
+- (void)_scheduleAutocompleteTimerIfNeeded;
+- (void)_beginAutocompleteSearch:(id)a0;
+- (id)_orderedEditItems;
+- (BOOL)hasUnsavedChanges;
+- (void)_setAutocompleteResultsVisible:(BOOL)a0;
+- (void)reloadTableViewSectionsForDates:(BOOL)a0 invitees:(BOOL)a1 location:(BOOL)a2;
+- (BOOL)attachmentsModifiedOnRecurrence;
+- (id)attachmentsModifiedEvent;
+- (BOOL)saveCalendarItemWithSpan:(long long)a0 error:(id *)a1;
+- (id)_nameForDeleteButton;
+- (void)setupDeleteButton;
+- (id)defaultAlertTitle;
+- (void)_revertEvent;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)_editItems;
+
+@end

@@ -1,0 +1,8 @@
+@interface SiriPlaybackControlIntents.DeviceSelectingUtil : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ deviceSelector;
+    void /* unknown type, empty encoding */ deviceState;
+    void /* unknown type, empty encoding */ contextUtil;
+    void /* unknown type, empty encoding */ analyticsService;
+}
+
+@end

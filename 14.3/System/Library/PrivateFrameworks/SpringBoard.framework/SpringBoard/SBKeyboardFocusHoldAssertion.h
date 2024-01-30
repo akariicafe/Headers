@@ -1,0 +1,3 @@
+@interface SBKeyboardFocusHoldAssertion : BSSimpleAssertion
+
+@end

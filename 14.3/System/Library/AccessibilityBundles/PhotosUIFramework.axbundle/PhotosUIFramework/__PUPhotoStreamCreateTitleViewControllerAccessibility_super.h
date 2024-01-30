@@ -1,0 +1,3 @@
+@interface __PUPhotoStreamCreateTitleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

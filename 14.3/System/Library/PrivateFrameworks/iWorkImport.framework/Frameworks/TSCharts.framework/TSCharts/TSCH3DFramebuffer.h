@@ -1,0 +1,23 @@
+@class NSString;
+
+@interface TSCH3DFramebuffer : NSObject <TSCH3DPipelineLinkable> {
+    struct FramebufferAttributes { int type; long long samples; int colorDataType; int colorFormat; int depthDataType; BOOL linearFilter; BOOL discardHint; BOOL useIOSurfaceBacking; } mFramebufferAttributes;
+}
+
+@property (readonly, nonatomic) unsigned long long uniqueIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)framebufferWithFramebufferAttributes:(const struct FramebufferAttributes { int x0; long long x1; int x2; int x3; int x4; BOOL x5; BOOL x6; BOOL x7; } *)a0;
+
+- (void)dealloc;
+- (id)output;
+- (id).cxx_construct;
+- (const struct FramebufferAttributes { int x0; long long x1; int x2; int x3; int x4; BOOL x5; BOOL x6; BOOL x7; } *)framebufferAttributes;
+- (id)pixelBufferFromViewport:(const struct box<glm::detail::tvec2<int> > { struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x0; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x1; } *)a0 components:(unsigned long long)a1 flipped:(BOOL)a2 forProcessor:(id)a3 session:(id)a4;
+- (id)initWithFramebufferAttributes:(const struct FramebufferAttributes { int x0; long long x1; int x2; int x3; int x4; BOOL x5; BOOL x6; BOOL x7; } *)a0;
+- (id)resolvingFramebuffer;
+
+@end

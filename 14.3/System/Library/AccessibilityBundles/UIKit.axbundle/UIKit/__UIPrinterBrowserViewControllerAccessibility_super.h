@@ -1,0 +1,3 @@
+@interface __UIPrinterBrowserViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

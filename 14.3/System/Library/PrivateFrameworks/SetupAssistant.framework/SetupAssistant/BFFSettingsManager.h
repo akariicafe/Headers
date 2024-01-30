@@ -1,0 +1,82 @@
+@class NSMutableDictionary, NSArray, NSData, NSNumber, NSMutableArray;
+
+@interface BFFSettingsManager : NSObject {
+    NSMutableArray *_stashedPaths;
+    NSMutableDictionary *_stashedPreferences;
+    NSMutableDictionary *_stashedManagedConfigurationSettings;
+    NSMutableArray *_stashedButtonHaptics;
+    NSNumber *_stashedAssistantEnabled;
+    NSNumber *_stashedAssistantVoiceTriggerEnabled;
+    NSNumber *_stashedSiriDataSharingOptInStatus;
+    NSNumber *_stashedLocationServicesEnabled;
+    NSData *_stashedLocationServicesSettings;
+    NSData *_stashedWatchData;
+    NSArray *_stashedFlowSkipIdentifiers;
+    NSNumber *_stashedScreenTimeEnabled;
+    NSNumber *_stashedAutoUpdateEnabled;
+    NSNumber *_stashedAutoDownloadEnabled;
+    NSData *_stashedAccessibilityData;
+    NSNumber *_stashedUserInterfaceStyleMode;
+    NSMutableArray *_stashedAnalytics;
+}
+
++ (id)sharedManager;
+
+- (void)setScreenTimeEnabled:(BOOL)a0;
+- (void)_applyStashedPreferences;
+- (unsigned long long)_restoreConfiguration;
+- (void)_applyUserInterfaceStyleMode;
+- (void)_applyAssistantPreferences;
+- (id)_shovePath:(id)a0 toPath:(id)a1;
+- (void)stashWatchData:(id)a0;
+- (id)init;
+- (void)_reset:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)_restoreAccessibilityData;
+- (void)setAutoUpdateEnabled:(BOOL)a0;
+- (void)reset;
+- (id)loadConfigurationFromDisk;
+- (void)setAssistantEnabled:(BOOL)a0;
+- (BOOL)_stashConfiguration:(BOOL)a0;
+- (BOOL)_stashPaths;
+- (BOOL)removeSafeHaven;
+- (void)setBool:(BOOL)a0 forManagedConfigurationSetting:(id)a1;
+- (void)_applyLocationServices;
+- (void)_restoreWatchData;
+- (void)stashAnalyticEvent:(id)a0 payload:(id)a1;
+- (void)setAssistantVoiceTriggerEnabled:(BOOL)a0;
+- (void)stashPath:(id)a0;
+- (id)stashBuildVersion;
+- (void)setUserInterfaceStyleMode:(long long)a0;
+- (long long)stashConfigurationType;
+- (void)stashFlowSkipIdentifiers:(id)a0;
+- (BOOL)hasStashedValues;
+- (id)stashProductVersion;
+- (BOOL)hideStashInSafeHavenAsProvisional:(BOOL)a0;
+- (void)clearHapticTypeForButtonKind:(long long)a0;
+- (void)_applyStashedManagedConfiguration;
+- (unsigned long long)stashVersion;
+- (void)applySafeHavenStash;
+- (void)_applyStashedFlowSkipIdentifiers;
+- (void)populatePathsToStash;
+- (void)_applyScreenTimePreferences;
+- (void)setBool:(BOOL)a0 forDomain:(id)a1 key:(id)a2;
+- (void)_restoreStashedFiles;
+- (void)setAutoDownloadEnabled:(BOOL)a0;
+- (id)_preferencesForDomain:(id)a0;
+- (void)_applyLocationServicesSettings;
+- (BOOL)_commitStash;
+- (void)postDidRestoreSafeHavenNotification;
+- (void)stashAccessibilityData:(id)a0;
+- (void)stashHapticType:(long long)a0 forButtonKind:(long long)a1;
+- (void)_applyUpdatePreferences;
+- (void)setObject:(id)a0 forDomain:(id)a1 key:(id)a2;
+- (void)stashLocationServicesChoice:(BOOL)a0;
+- (void)stashLocationServicesSettings:(id)a0;
+- (void)removeBoolSettingForManagedConfigurationSetting:(id)a0;
+- (BOOL)hasStashedValuesOnDisk;
+- (BOOL)hideStashInSafeHaven;
+- (void)_applyStashedButtonHaptics;
+- (void)_restoreAnalyticsData;
+
+@end

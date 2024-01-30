@@ -1,0 +1,3 @@
+@interface VUISearchAppDocumentServiceViewController : VUIAppDocumentServiceViewController
+
+@end

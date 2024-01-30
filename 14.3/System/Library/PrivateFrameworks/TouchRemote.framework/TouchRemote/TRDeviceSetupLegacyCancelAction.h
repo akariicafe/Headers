@@ -1,0 +1,3 @@
+@interface TRDeviceSetupLegacyCancelAction : TRDeviceSetupLegacyAction
+
+@end

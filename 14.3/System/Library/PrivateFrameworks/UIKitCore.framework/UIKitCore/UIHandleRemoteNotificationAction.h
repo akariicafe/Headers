@@ -1,0 +1,3 @@
+@interface UIHandleRemoteNotificationAction : UISHandleRemoteNotificationAction
+
+@end

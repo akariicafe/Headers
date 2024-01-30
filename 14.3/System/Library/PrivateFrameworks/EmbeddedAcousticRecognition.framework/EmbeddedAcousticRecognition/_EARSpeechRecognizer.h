@@ -1,0 +1,90 @@
+@class NSData, NSString, NSArray, _EARSpeechRecognitionAudioBuffer, _EARFormatter, NSDictionary, _EARSpeakerCodeInfo, NSObject, _EARSpeechModelInfo;
+@protocol OS_dispatch_queue;
+
+@interface _EARSpeechRecognizer : NSObject {
+    NSObject<OS_dispatch_queue> *_formatterQueue;
+    _EARFormatter *_formatter;
+    NSObject<OS_dispatch_queue> *_trainingQueue;
+    struct shared_ptr<quasar::SpeakerCodeTraining> { struct SpeakerCodeTraining *__ptr_; struct __shared_weak_count *__cntrl_; } _training;
+    struct shared_ptr<quasar::SpeechRecognizer> { struct SpeechRecognizer *__ptr_; struct __shared_weak_count *__cntrl_; } _recognizer;
+    struct unique_ptr<quasar::TextTokenizer, std::__1::default_delete<quasar::TextTokenizer> > { struct __compressed_pair<quasar::TextTokenizer *, std::__1::default_delete<quasar::TextTokenizer> > { struct TextTokenizer *__value_; } __ptr_; } _tokenizer;
+    _EARSpeechRecognitionAudioBuffer *_currentAudioBuffer;
+    struct weak_ptr<ResultStreamWrapper> { struct ResultStreamWrapper *__ptr_; struct __shared_weak_count *__cntrl_; } _currentResultStreamWrapper;
+    NSString *_currentLanguage;
+    NSString *_currentTask;
+    unsigned long long _currentSamplingRate;
+    NSObject<OS_dispatch_queue> *_recognitionQueue;
+    NSString *_configPath;
+}
+
+@property (copy, nonatomic) NSData *userProfileData;
+@property (copy, nonatomic) NSData *jitProfileData;
+@property (readonly, nonatomic) _EARSpeechModelInfo *modelInfo;
+@property (readonly, nonatomic) _EARSpeakerCodeInfo *speakerCodeInfo;
+@property (nonatomic) BOOL detectUtterances;
+@property (nonatomic) BOOL concatenateUtterances;
+@property (nonatomic) double endpointStart;
+@property (nonatomic) BOOL recognizeEagerCandidates;
+@property (nonatomic) BOOL farField;
+@property (nonatomic) BOOL highPriority;
+@property (nonatomic) double maximumRecognitionDuration;
+@property (copy, nonatomic) NSDictionary *recognitionReplacements;
+@property (copy, nonatomic) NSDictionary *recognitionConfidenceSubtraction;
+@property (copy, nonatomic) NSArray *leftContext;
+@property (copy, nonatomic) NSString *inputOrigin;
+@property (copy, nonatomic) NSString *deviceId;
+@property (copy, nonatomic) NSString *refTranscriptForErrorBlaming;
+@property (copy, nonatomic) NSString *bluetoothDeviceId;
+@property (copy, nonatomic) NSString *userId;
+@property (copy, nonatomic) NSString *sessionId;
+@property (copy, nonatomic) NSArray *extraLmList;
+@property (copy, nonatomic) NSArray *scoreNbestExtraLmList;
+@property (nonatomic) BOOL scoreNbest;
+
++ (void)initialize;
++ (id)minimumSupportedConfigurationVersion;
++ (id)maximumSupportedConfigurationVersion;
++ (id)rawTokenResultsFromRecognitionResults:(id)a0;
++ (void)compileRecognizerModelsWithConfiguration:(id)a0;
++ (void)purgeCompiledRecognizerModelsWithConfiguration:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithConfiguration:(id)a0;
+- (struct TextTokenizer { void /* function */ **x0; } *)_tokenizer;
+- (id).cxx_construct;
+- (void)cancelRecognition;
+- (id)initWithConfiguration:(id)a0 useQuasarFormatter:(BOOL)a1;
+- (id)runRecognitionWithResultStream:(id)a0 language:(id)a1 task:(id)a2 samplingRate:(unsigned long long)a3;
+- (id)runRecognitionWithResultStream:(id)a0;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1 overrideConfigFiles:(id)a2;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1 overrideConfigFiles:(id)a2 language:(id)a3;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1 overrideConfigFiles:(id)a2 generalVoc:(id)a3 lexiconEnh:(id)a4 itnEnh:(id)a5;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1 overrideConfigFiles:(id)a2 generalVoc:(id)a3 lexiconEnh:(id)a4 itnEnh:(id)a5 language:(id)a6;
+- (void)_restartActiveRecognition;
+- (id)runRecognitionWithResultStream:(id)a0 language:(id)a1 task:(id)a2 samplingRate:(unsigned long long)a3 userProfileData:(id)a4 speakerCodeWriter:(id)a5;
+- (struct shared_ptr<quasar::RecogAudioBufferBase> { struct RecogAudioBufferBase *x0; struct __shared_weak_count *x1; })_audioBufferWithLangauge:(id)a0 task:(id)a1 samplingRate:(unsigned long long)a2 userProfileData:(id)a3 resultStream:(struct shared_ptr<quasar::RecogResultStreamBase> { struct RecogResultStreamBase *x0; struct __shared_weak_count *x1; })a4;
+- (id)recognitionResultsWithAudioData:(id)a0 userProfileData:(id)a1 language:(id)a2 task:(id)a3 samplingRate:(unsigned long long)a4;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1;
+- (id)initWithConfiguration:(id)a0 overrideConfigFiles:(id)a1;
+- (id)initWithConfiguration:(id)a0 withLanguage:(id)a1 withSdapiConfig:(id)a2;
+- (id)initWithConfiguration:(id)a0 withGeneralVoc:(id)a1 withLexiconEnh:(id)a2 withItnEnh:(id)a3;
+- (id)initWithConfiguration:(id)a0 overrides:(id)a1 generalVoc:(id)a2 lexiconEnh:(id)a3 itnEnh:(id)a4;
+- (id)initWithConfiguration:(id)a0 overrideConfigFiles:(id)a1 generalVoc:(id)a2 lexiconEnh:(id)a3 itnEnh:(id)a4;
+- (void)setLeftContextText:(id)a0;
+- (void)updateUserProfileData:(id)a0;
+- (void)updateJitProfileData:(id)a0;
+- (struct shared_ptr<quasar::SpeechRequestData> { struct SpeechRequestData *x0; struct __shared_weak_count *x1; })requestParametersWithUserProfileData:(id)a0 task:(id)a1 samplingRate:(unsigned long long)a2 resultStream:(struct shared_ptr<quasar::RecogResultStreamBase> { struct RecogResultStreamBase *x0; struct __shared_weak_count *x1; })a3 extraLanguageModel:(id)a4 symbolTableList:(const struct shared_ptr<quasar::SymbolTableList> { struct SymbolTableList *x0; struct __shared_weak_count *x1; } *)a5;
+- (id)runRecognitionWithResultStream:(id)a0 speakerCodeWriter:(id)a1 language:(id)a2 task:(id)a3 samplingRate:(unsigned long long)a4;
+- (void)writeRecordedStateAccesses;
+- (id)recognitionResultsWithAudioData:(id)a0 userProfileData:(id)a1 language:(id)a2 task:(id)a3 samplingRate:(unsigned long long)a4 extraLanguageModel:(id)a5;
+- (void)interruptTraining;
+- (id)recognitionStatistics;
+- (id)recognitionUtterenceStatistics;
+- (id)recognitionUtteranceInfos;
+- (void)getFormatterWithBlock:(id /* block */)a0;
+- (void)_waitForInitialization;
+- (void)dumpModelVirtualMemoryInfo;
+- (void)setAlternateRawRecognitionTokenSausage:(id)a0;
+- (struct shared_ptr<quasar::SpeechRecognizer> { struct SpeechRecognizer *x0; struct __shared_weak_count *x1; })getRecognizer;
+
+@end

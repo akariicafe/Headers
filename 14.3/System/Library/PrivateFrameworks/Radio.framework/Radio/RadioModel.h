@@ -1,0 +1,90 @@
+@class NSString, NSArray, BKSProcessAssertion, NSManagedObjectContext, NSOperationQueue, NSPersistentStoreCoordinator, NSObject, NSFetchedResultsController, NSFetchRequest, NSManagedObjectModel, NSMapTable;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface RadioModel : NSObject <NSFetchedResultsControllerDelegate> {
+    NSObject<OS_dispatch_queue> *_accessSerialQueue;
+    NSOperationQueue *_backgroundCleanupQueue;
+    BKSProcessAssertion *_backgroundProcessAssertion;
+    long long _backgroundTaskCount;
+    NSObject<OS_dispatch_source> *_backgroundTaskInvalidateTimerSource;
+    NSManagedObjectContext *_context;
+    BOOL _isBackgroundModel;
+    NSManagedObjectModel *_model;
+    int _modelChangedToken;
+    BOOL _modelChangedTokenIsValid;
+    int _modelDeletedToken;
+    BOOL _modelDeletedTokenIsValid;
+    NSFetchedResultsController *_stationFetchedResultsController;
+    NSFetchRequest *_stationFetchRequest;
+    NSMapTable *_stationToSkipControllerMapTable;
+    NSPersistentStoreCoordinator *_storeCoordinator;
+    long long _transactionCount;
+}
+
+@property (nonatomic) unsigned long long authenticatedAccountIdentifier;
+@property (nonatomic) unsigned long long globalVersion;
+@property (copy, nonatomic) NSString *globalHash;
+@property (readonly, nonatomic) NSArray *allStations;
+@property (readonly, nonatomic) NSArray *stations;
+@property (copy, nonatomic) NSArray *stationSortOrdering;
+@property (readonly, nonatomic) NSArray *userStations;
+@property (readonly, nonatomic) NSArray *featuredStations;
+@property (readonly, nonatomic) NSArray *previewStations;
+@property (readonly, copy, nonatomic) NSArray *reportProblemIssueTypes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)deleteAllData;
++ (id)sharedModel;
++ (id)backgroundModel;
++ (id)_radioDatabasePath;
++ (id)_persistentStoreConfigurationOptions;
++ (void)_postAccountDidDeauthenticateNotification;
++ (id)_radioDirectoryPath;
+
+- (id)context;
+- (void)_beginBackgroundTaskAssertion;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_resetModel;
+- (void)deleteAllData;
+- (void)dealloc;
+- (void)_endBackgroundTaskAssertion;
+- (id)stationWithID:(long long)a0;
+- (id)_init;
+- (void)performTransactionWithBlock:(id /* block */)a0;
+- (void)controller:(id)a0 didChangeObject:(id)a1 atIndexPath:(id)a2 forChangeType:(unsigned long long)a3 newIndexPath:(id)a4;
+- (void)setDatabaseVersion:(long long)a0;
+- (long long)databaseVersion;
+- (void)controllerDidChangeContent:(id)a0;
+- (id)_initBackgroundModelWithPersistentStoreCoordinator:(id)a0;
+- (void)_defaultRadioModelInitialization;
+- (void)_prepareModel;
+- (void)_postContextDidChangeNotification:(id)a0;
+- (id)_arrayByReplacingManagedObjectsInArray:(id)a0;
+- (id)_databasePropertyValueForKey:(id)a0;
+- (id)convertObject:(id)a0;
+- (void)deleteStation:(id)a0;
+- (void)performWriteTransactionWithBlock:(id /* block */)a0;
+- (id)newStationWithDictionary:(id)a0;
+- (id)stationWithPersistentID:(long long)a0;
+- (id)stationWithStationStringID:(id)a0;
+- (void)_performTransactionAndSave:(BOOL)a0 withBlock:(id /* block */)a1;
+- (void)_setDatabasePropertyValue:(id)a0 forKey:(id)a1;
+- (void)_contextDidSaveNotification:(id)a0;
+- (id)convertObjectsInSet:(id)a0;
+- (id)_setByReplacingManagedObjectsInSet:(id)a0;
+- (void)_createRadioDirectoryAndDatabaseIfNecessary;
+- (id)convertObjects:(id)a0;
+- (void)deletePreviewStation:(id)a0;
+- (void)deleteStationWithID:(long long)a0;
+- (id)newFeaturedStationWithDictionary:(id)a0;
+- (id)newPreviewStationWithDictionary:(id)a0;
+- (void)setReportProblemIssueTypes:(id)a0;
+- (void)setTrackPlaybackDescriptorQueue:(id)a0 forStation:(id)a1;
+- (id)stationWithHash:(id)a0;
+- (unsigned long long)_numberOfSkipsUsedWithSkipTimestamps:(id)a0 currentTimestamp:(double)a1 skipInterval:(double)a2 returningEarliestSkipTimestamp:(double *)a3;
+
+@end

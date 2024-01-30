@@ -1,0 +1,3 @@
+@interface __UIKeyboardEmojiCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,14 @@
+@class PXPhotoKitUIMediaProvider, PXAssetReference, PXAssetsDataSourceManager, PXPhotosDataSource;
+
+@interface PXSearchResultsOneUpViewModel : NSObject
+
+@property (retain, nonatomic) PXPhotoKitUIMediaProvider *mediaProvider;
+@property (retain, nonatomic) PXAssetsDataSourceManager *dataSourceManager;
+@property (retain, nonatomic) PXPhotosDataSource *dataSource;
+@property (retain, nonatomic) PXAssetReference *initialAssetReference;
+
+- (void).cxx_destruct;
+- (id)initWithOneUpWithAsset:(id)a0 atIndex:(unsigned long long)a1 inAssetCollection:(id)a2;
+- (void)updateDataSourceWithFetchResult:(id)a0;
+
+@end

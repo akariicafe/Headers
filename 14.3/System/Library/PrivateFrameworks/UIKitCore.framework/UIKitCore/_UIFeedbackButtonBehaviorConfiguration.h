@@ -1,0 +1,3 @@
+@interface _UIFeedbackButtonBehaviorConfiguration : _UIButtonFeedbackGeneratorConfiguration
+
+@end

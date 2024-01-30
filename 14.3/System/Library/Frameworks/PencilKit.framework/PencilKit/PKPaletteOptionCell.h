@@ -1,0 +1,3 @@
+@interface PKPaletteOptionCell : UIView
+
+@end

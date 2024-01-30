@@ -1,0 +1,16 @@
+@class NSString;
+
+@interface _NSLayoutConstraintConstant : NSObject <NSCoding, NSCopying>
+
+@property (readonly, copy, nonatomic) NSString *symbolicValue;
+@property (readonly, nonatomic) double numericValue;
+
++ (id)constantWithSymbolicValue:(id)a0 numericValue:(double)a1;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)initWithCoder:(id)a0;
+- (id)initWithSymbolicValue:(id)a0 numericValue:(double)a1;
+- (void)encodeWithCoder:(id)a0;
+
+@end

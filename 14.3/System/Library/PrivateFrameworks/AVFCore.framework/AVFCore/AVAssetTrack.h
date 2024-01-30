@@ -1,0 +1,94 @@
+@class AVAsset, AVAssetTrackInternal;
+
+@interface AVAssetTrack : NSObject <NSCopying, AVAsynchronousKeyValueLoading> {
+    AVAssetTrackInternal *_track;
+}
+
+@property (readonly, weak, nonatomic) AVAsset *asset;
+@property (readonly, nonatomic) int trackID;
+
++ (BOOL)expectsPropertyRevisedNotifications;
++ (id)mediaCharacteristicsForMediaTypes;
++ (id)keyPathsForValuesAffectingTimeRange;
+
+- (float)preferredVolume;
+- (id)locale;
+- (id)availableMetadataFormats;
+- (int)playabilityValidationResult;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })mediaDecodeTimeRange;
+- (id)mediaType;
+- (BOOL)requiresFrameReordering;
+- (long long)defaultAlternateGroupID;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })preferredTransform;
+- (struct CGSize { double x0; double x1; })naturalSize;
+- (id)init;
+- (id)_initWithAsset:(id)a0 trackID:(int)a1 trackIndex:(long long)a2;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_trackReferences;
+- (long long)layer;
+- (BOOL)hasAudibleBooksContent;
+- (long long)statusOfValueForKey:(id)a0 error:(id *)a1;
+- (long long)provisionalAlternateGroupID;
+- (BOOL)isDecodable;
+- (float)peakDataRate;
+- (void)dealloc;
+- (id)mediaCharacteristics;
+- (id)metadata;
+- (id)extendedLanguageTag;
+- (int)naturalTimeScale;
+- (id)availableTrackAssociationTypes;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })latentBaseDecodeTimeStampOfFirstTrackFragment;
+- (float)nominalFrameRate;
+- (unsigned long long)hash;
+- (BOOL)segmentsExcludeAudioPrimingAndRemainderDurations;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })minFrameDuration;
+- (id)languageCode;
+- (id)segmentForTrackTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct CGSize { double x0; double x1; })dimensions;
+- (id)description;
+- (id)segments;
+- (BOOL)isExcludedFromAutoselectionInTrackGroup;
+- (float)estimatedDataRate;
+- (long long)alternateGroupID;
+- (BOOL)isEqual:(id)a0;
+- (id)segmentsAsPresented;
+- (BOOL)hasMediaCharacteristic:(id)a0;
+- (id)loudnessInfo;
+- (void)loadValuesAsynchronouslyForKeys:(id)a0 completionHandler:(id /* block */)a1;
+- (long long)totalSampleDataLength;
+- (id)_weakReference;
+- (id)metadataForFormat:(id)a0;
+- (BOOL)isAudibleBooksContentAuthorized;
+- (id)commonMetadata;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })mediaPresentationTimeRange;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })timeRange;
+- (BOOL)isPlayable;
+- (struct OpaqueFigTrackReader { } *)_figTrackReader;
+- (id)_initWithAsset:(id)a0 trackID:(int)a1;
+- (id)_initWithAsset:(id)a0 trackIndex:(long long)a1;
+- (long long)statusOfValueForKey:(id)a0;
+- (struct OpaqueFigAssetTrack { } *)_figAssetTrack;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })gaplessSourceTimeRange;
+- (BOOL)hasMediaCharacteristics:(id)a0;
+- (BOOL)isSelfContained;
+- (id)associatedTracksOfType:(id)a0;
+- (id)_assetTrackInspector;
+- (void)_startListeningToFigAssetTrackNotifications;
+- (void)_stopListeningToFigAssetTrackNotifications;
+- (BOOL)hasAudioSampleDependencies;
+- (id)_followingTrackAmongTracks:(id)a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })samplePresentationTimeForTrackTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (BOOL)_hasMultipleEdits;
+- (id)_firstAssociatedTrackWithAssociationType:(id)a0;
+- (id)_fallbackTrack;
+- (BOOL)_subtitleFormatDescriptionMatchesTextDisplayFlags:(unsigned int)a0 flagsMask:(unsigned int)a1;
+- (id)_pairedForcedOnlySubtitlesTrack;
+- (BOOL)_hasScaledEdits;
+- (BOOL)_hasEmptyEdits;
+- (BOOL)_hasMultipleDistinctFormatDescriptions;
+- (BOOL)_firstFormatDescriptionIsLPCM;
+- (BOOL)isEnabled;
+- (BOOL)hasProtectedContent;
+- (id)formatDescriptions;
+
+@end

@@ -1,0 +1,76 @@
+@class TPPillView, NSArray, NSString, CTXPCServiceSubscriptionContext, UIView, TUSenderIdentity;
+@protocol CKComposeRecipientSelectionControllerDelegate;
+
+@interface CKComposeRecipientSelectionController : CKRecipientSelectionController <UITextFieldDelegate, TPPillViewDelegate>
+
+@property (copy, nonatomic) id /* block */ sendBlock;
+@property (retain, nonatomic) UIView *pillContainerView;
+@property (retain, nonatomic) TPPillView *pillView;
+@property (nonatomic) BOOL pillViewIdentityChanged;
+@property (retain, nonatomic) CTXPCServiceSubscriptionContext *selectedSubscriptionContext;
+@property (readonly, nonatomic) TUSenderIdentity *selectedSenderIdentity;
+@property (nonatomic) BOOL hasUserSetContextPreference;
+@property (nonatomic, getter=isFirstAppear) BOOL firstAppear;
+@property (nonatomic) BOOL contactPreferredContextSelected;
+@property (weak, nonatomic) id<CKComposeRecipientSelectionControllerDelegate> delegate;
+@property (readonly, nonatomic) NSArray *expandedRecipients;
+@property (readonly, nonatomic) NSArray *proposedRecipients;
+@property (readonly, nonatomic) NSString *selectedLastAddressedOrDefaultHandle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)addRecipient:(id)a0;
+- (id)recipients;
+- (BOOL)deviceHasMultipleSubscriptions;
+- (void).cxx_destruct;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)reset;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)atomizeAndSendTimeoutHandler;
+- (void)configureSubscriptionContextForRecipients:(id)a0;
+- (BOOL)_shouldHidePillView;
+- (void)presentAlertForSubscriptionContext;
+- (void)_layoutPillViewKeepHidden:(BOOL)a0;
+- (BOOL)hasBackfilledConversation;
+- (void)_updatePillViewIfNeeded;
+- (id)_defaultSubscriptionContext;
+- (id)_defaultSubscriptionContextForiMessage;
+- (id)_bestSenderIdentityForRecipient:(id)a0;
+- (void)presentContextSelectionAlertWithCompletion:(id /* block */)a0;
+- (id)_preferrediMessageAccountName;
+- (unsigned long long)_pillViewThemeForCurrentService;
+- (void)_updateContentOfPillView;
+- (BOOL)hasMultipleActiveSharedSubscriptions;
+- (id)menuForPillView:(id)a0;
+- (void)_legacyAddRecipient:(id)a0;
+- (BOOL)_hasExistingConversationWithAddedRecipient:(id)a0;
+- (id)_subscriptionContextForSimID:(id)a0 phoneNumber:(id)a1;
+- (void)_updateSubscriptionContextForRecipient:(id)a0 preferredService:(id)a1;
+- (void)_atomizeToConversationNameIfNecessary:(unsigned long long)a0;
+- (id)_contactPreferredSenderIdentityForRecipient:(id)a0;
+- (void)pillViewWasTapped:(id)a0;
+- (BOOL)_isOniMessageService:(id)a0;
+- (BOOL)_updateBackfillForNewRecipients;
+- (id)_handlesForRecipients:(id)a0;
+- (id)autocompleteResultIdentifier:(id)a0;
+- (id)conversationGUIDForRecipient:(id)a0;
+- (BOOL)recipientIsiMessagable:(id)a0;
+- (BOOL)shouldInvalidateIDSRequests;
+- (BOOL)hasiMessageableContext;
+- (void)atomizeAndInvokeBlock:(id /* block */)a0;
+- (void)viewDidAppearDeferredSetup;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)recipientSelectionControllerDidChange;
+- (BOOL)isBeingPresentedInMacDetailsView;
+- (BOOL)homogenizePreferredServiceForiMessage;
+- (BOOL)shouldAtomizeToConversationName;
+- (BOOL)shouldSuppressSearchResultsTable;
+- (BOOL)alwaysShowSearchResultsTable;
+- (id)conversationList;
+- (BOOL)_canShowWhileLocked;
+
+@end

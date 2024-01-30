@@ -1,0 +1,3 @@
+@interface NUAdContextConstants : NSObject
+
+@end

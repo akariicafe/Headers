@@ -1,0 +1,6 @@
+@interface SUMaskProvider : NSObject
+
+- (struct CGPath { } *)copyPathForMaskWithSize:(struct CGSize { double x0; double x1; })a0;
+- (id)copyMaskImageWithSize:(struct CGSize { double x0; double x1; })a0;
+
+@end

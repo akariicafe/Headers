@@ -1,0 +1,3 @@
+@interface ISCookieStorage : SSVCookieStorage
+
+@end

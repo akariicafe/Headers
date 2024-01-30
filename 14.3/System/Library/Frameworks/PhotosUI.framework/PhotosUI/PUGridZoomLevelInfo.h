@@ -1,0 +1,81 @@
+@class PHCachingImageManager, NSString, PUSectionedGridLayout, PHAssetResourceQualityClass, PUZoomableGridViewController, PUGridRenderedStrip, PUMomentsZoomLevelManager;
+
+@interface PUGridZoomLevelInfo : NSObject <PUGridRenderedStripDataSource, PUPhotosSectionHeaderViewDelegate, PUSectionedGridLayoutDelegate> {
+    PUGridRenderedStrip *_currentRenderedStrip;
+    BOOL _useFloatingHeaderGroupName;
+}
+
+@property (nonatomic) PUZoomableGridViewController *zoomableGridViewController;
+@property (readonly, nonatomic) NSString *renderedStripsElementKind;
+@property (readonly, nonatomic) NSString *sectionHeaderElementKind;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } thumbnailImageSize;
+@property (readonly, nonatomic) double itemContentScale;
+@property (readonly, nonatomic) struct __CFString { } *aggregateLevelKey;
+@property (nonatomic) BOOL useFloatingHeaderGroupName;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } thumbnailImageSize;
+@property (readonly, nonatomic) unsigned long long zoomLevel;
+@property (readonly, nonatomic) PUMomentsZoomLevelManager *zoomLevelManager;
+@property (readonly, nonatomic) PUGridZoomLevelInfo *baseZoomLevelInfo;
+@property (readonly, nonatomic) PUZoomableGridViewController *zoomableGridViewController;
+@property (readonly, nonatomic) PUSectionedGridLayout *collectionViewLayout;
+@property (nonatomic) double pendingContentWidth;
+@property (readonly, nonatomic) PHCachingImageManager *cachingImageManager;
+@property (retain, nonatomic) PHAssetResourceQualityClass *qualityClass;
+@property (nonatomic) struct CGSize { double width; double height; } lastItemPixelSize;
+@property (readonly, nonatomic) long long maxRowsPerSection;
+@property (nonatomic) BOOL summarizeSections;
+@property (readonly, nonatomic) double zoomInDuration;
+@property (readonly, nonatomic) double zoomOutDuration;
+@property (readonly, nonatomic) long long dateRangeFormatterPreset;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } imageRequestItemSize;
+@property (readonly, nonatomic) long long cellFillMode;
+@property (readonly, nonatomic) BOOL supportsCollectionViewDragSource;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)headerView:(id)a0 actionButtonPressed:(id)a1;
+- (void).cxx_destruct;
+- (BOOL)supportsEditMode;
+- (BOOL)configureGridCell:(id)a0 forIndexPath:(id)a1;
+- (BOOL)wantsMagnifierNavigation;
+- (BOOL)wantsAssetCountsVisible;
+- (BOOL)wantsCloudStatusVisible;
+- (BOOL)wantsAutomaticContentOffsetAdjustment;
+- (void)prepareForTransitionToZoomLevelInfo:(id)a0 animated:(BOOL)a1 interactive:(BOOL)a2;
+- (void)prepareForTransitionFromZoomLevelInfo:(id)a0 animated:(BOOL)a1 interactive:(BOOL)a2;
+- (void)didFinishZoomLevelTransition;
+- (void)renderedStrip:(id)a0 enumerateAssetsForVisualSection:(long long)a1 inVisualItemRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 usingBlock:(id /* block */)a3;
+- (id)renderedStrip:(id)a0 imageDataForAsset:(id)a1 imageWidth:(int *)a2 imageHeight:(int *)a3 bytesPerRow:(int *)a4 dataWidth:(int *)a5 dataHeight:(int *)a6 imageDataOffset:(int *)a7;
+- (void)updateForSizeChangeIfNecessary;
+- (void)willAnimateSizeTransition;
+- (void)registerReusableViewClassesForCollectionView:(id)a0;
+- (void)_updateBackdropGroupNameForHeaderView:(id)a0;
+- (void)willShowMagnifiedViewController:(id)a0;
+- (void)pushPhotosDetailsViewForVisualSection:(long long)a0 animated:(BOOL)a1;
+- (id)imageDataForAsset:(id)a0 itemContentScale:(double)a1 imageWidth:(int *)a2 imageHeight:(int *)a3 bytesPerRow:(int *)a4 dataWidth:(int *)a5 dataHeight:(int *)a6 imageDataOffset:(int *)a7;
+- (long long)_detailViewSourceOriginWithZoomLevel:(unsigned long long)a0;
+- (void)sectionedGridLayout:(id)a0 didPrepareTransitionIsAppearing:(BOOL)a1;
+- (void)sectionedGridLayout:(id)a0 didFinalizePrepareTransitionIsAppearing:(BOOL)a1;
+- (long long)sectionedGridLayout:(id)a0 maximumRowsForVisualSection:(long long)a1;
+- (id)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(id)a0;
+- (struct CGPoint { double x0; double x1; })sectionedGridLayout:(id)a0 targetContentOffsetForProposedUpdatesContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(id)a0;
+- (void)sectionedGridLayout:(id)a0 didInvalidateWithContext:(id)a1;
+- (BOOL)configureSupplementaryView:(id)a0 ofKind:(id)a1 forIndexPath:(id)a2;
+- (void)didTapHeaderView:(id)a0;
+- (id)initWithZoomLevel:(unsigned long long)a0 zoomLevelManager:(id)a1 baseZoomLevelInfo:(id)a2;
+- (id)newCollectionViewLayout;
+- (void)updateLayoutMetricsForWidth:(double)a0 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (void)configureSectionHeaderView:(id)a0 forVisualSection:(long long)a1;
+- (void)getPhotosDataSource:(id *)a0 displayTitleInfo:(id *)a1 forDetailsForVisualSection:(long long)a2;
+- (id)assetsToDisplayInMapForVisualSection:(long long)a0;
+- (id)diagnosticsProviderForVisualSection:(long long)a0;
+- (long long)imageDeliveryMode;
+- (double)cellAspectRatioHint;
+- (void)modelDidChange:(id)a0;
+- (BOOL)supportsIncrementalChangeNotifications;
+- (BOOL)shouldUseDynamicLayout;
+
+@end

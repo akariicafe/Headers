@@ -1,0 +1,27 @@
+@class NSString, NTKFace, NTKGreenfieldCompanionActivityViewController, UIViewController;
+
+@interface NTKGreenfieldCompanionShareController : NSObject <NTKGreenfieldCompanionSharePhotosPickerViewControllerDelegate> {
+    NTKFace *_face;
+    NTKFace *_updatedFace;
+    UIViewController *_originatedViewController;
+    NTKGreenfieldCompanionActivityViewController *_activityViewController;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedController;
+
+- (void).cxx_destruct;
+- (void)_handleError:(id)a0;
+- (void)companionSharePhotosPickerViewController:(id)a0 didFinishWithFace:(id)a1;
+- (void)shareWatchFace:(id)a0 fromViewController:(id)a1;
+- (void)_startFaceSharing;
+- (void)_presentInternalWarningIfNeededWithContinueBlock:(id /* block */)a0;
+- (void)_showPhotosPickerView;
+- (void)_prepareForShareSheet;
+- (void)_presentShareSheetWithDraftRecipe:(id)a0 previewImage:(id)a1;
+
+@end

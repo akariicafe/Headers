@@ -1,0 +1,92 @@
+@class BiometricKitXPCClientConnection;
+@protocol BiometricKitDelegateXpcProtocol;
+
+@interface BiometricKitXPCClient : NSObject {
+    unsigned long long _clientID;
+    unsigned long long _connectionID;
+    long long _clientType;
+    BiometricKitXPCClientConnection *_connection;
+    BOOL _connectionInitialized;
+    BOOL _connectionInvalidated;
+}
+
+@property (weak, nonatomic) id<BiometricKitDelegateXpcProtocol> delegate;
+@property (readonly, nonatomic) unsigned long long clientID;
+@property (readonly, nonatomic) unsigned long long connectionId;
+
++ (void)initialize;
+
+- (void)cancel;
+- (int)connect;
+- (void)disconnect;
+- (int)enableMatchAutoRetry:(BOOL)a0;
+- (void)detectPresenceWithOptions:(id)a0 async:(BOOL)a1 withReply:(id /* block */)a2;
+- (id)getProtectedConfigurationForUser:(unsigned int)a0;
+- (void)invalidateConnection;
+- (int)removeAllIdentitiesForUser:(unsigned int)a0 withOptions:(id)a1;
+- (id)init;
+- (int)getLastMatchEvent:(id *)a0;
+- (long long)getSensorCalibrationStatus;
+- (BOOL)isXARTAvailable;
+- (void).cxx_destruct;
+- (long long)getMaxIdentityCount:(int)a0;
+- (long long)getDeviceState;
+- (id)pullMatchPolicyInfoData;
+- (id)identities:(id)a0;
+- (void)dealloc;
+- (id)getIdentitiesDatabaseUUIDForUser:(unsigned int)a0;
+- (int)updateIdentity:(id)a0 withOptions:(id)a1;
+- (int)enrollContinue;
+- (id)getSensorInfo;
+- (int)forceBioLockoutForUser:(unsigned int)a0 withOptions:(id)a1;
+- (void)registerDelegateCall:(BOOL)a0;
+- (void)interruptConnection;
+- (int)diagnostics:(int)a0 withOptions:(id)a1 passed:(BOOL *)a2 withDetails:(id *)a3;
+- (id)getIdentitiesDatabaseHashForUser:(unsigned int)a0;
+- (int)fieldDiagnosticsControl:(unsigned int)a0 inData:(id)a1 outData:(id *)a2;
+- (id)pullCalibrationData;
+- (void)logEventOrCode:(unsigned long long)a0;
+- (id)pullAlignmentData;
+- (int)getExpressModeState:(long long *)a0 forUser:(unsigned int)a1;
+- (void)notifyAppIsBackground:(BOOL)a0;
+- (int)resetAppleConnectCounter;
+- (int)dropUnlockToken;
+- (id)getIdentityFromUUID:(id)a0;
+- (id)getNodeTopologyForIdentity:(id)a0;
+- (BOOL)fileRadarWithLogs:(id)a0 withDescription:(id)a1;
+- (id)pullDebugImageData:(BOOL)a0 rotated:(BOOL)a1 imageWidth:(unsigned int *)a2 imageHeight:(unsigned int *)a3;
+- (id)initWithDeviceType:(long long)a0 clientType:(long long)a1;
+- (int)setTemplate:(id)a0 forIdentity:(id)a1;
+- (void)registerDelegate:(BOOL)a0;
+- (int)enableBackgroundFdet:(BOOL)a0;
+- (int)suspendEnrollment:(BOOL)a0;
+- (int)setSystemProtectedConfiguration:(id)a0 withOptions:(id)a1;
+- (int)pauseFaceDetectTimer:(BOOL)a0;
+- (void)timestampEvent:(unsigned long long)a0 absoluteTime:(unsigned long long)a1;
+- (id)getLogs:(BOOL)a0 withDetails:(id *)a1;
+- (int)registerDSID:(unsigned long long)a0 withOptions:(id)a1;
+- (int)queryIdentityMigrationFailureForUser:(unsigned int)a0 failed:(BOOL *)a1 clear:(BOOL)a2;
+- (int)registerStoreToken:(id)a0;
+- (int)completeEnrollment;
+- (int)setProtectedConfiguration:(id)a0 forUser:(unsigned int)a1 withOptions:(id)a2;
+- (id)getCalibrationDataInfo;
+- (int)startNewMatchAttempt;
+- (id)pullCaptureBuffer;
+- (long long)getProvisioningState;
+- (long long)getFreeIdentityCount:(int)a0 forUser:(unsigned int)a1;
+- (int)setUserDSID:(unsigned long long)a0 withOptions:(id)a1;
+- (int)getBioLockoutState:(long long *)a0 forUser:(unsigned int)a1;
+- (void)setDebugImages:(BOOL)a0;
+- (void)notifyAppIsInactive:(BOOL)a0;
+- (BOOL)isFingerOn;
+- (int)removeIdentity:(id)a0 withOptions:(id)a1;
+- (int)initializeConnection;
+- (int)getAugmentationEligibility:(BOOL *)a0 forIdentity:(id)a1;
+- (void)match:(id)a0 withOptions:(id)a1 async:(BOOL)a2 withReply:(id /* block */)a3;
+- (id)getSystemProtectedConfiguration;
+- (int)getCountersignedStoreToken:(id *)a0;
+- (BOOL)isAriadneSignpostsEnabled;
+- (int)getBiometryAvailability:(long long *)a0 forUser:(unsigned int)a1;
+- (void)enroll:(int)a0 forUser:(unsigned int)a1 withOptions:(id)a2 async:(BOOL)a3 withReply:(id /* block */)a4;
+
+@end

@@ -1,0 +1,36 @@
+@class NSArray, FigCaptureIrisPreparedSettings;
+
+@interface FigCaptureIrisSinkConfiguration : FigCaptureSinkConfiguration
+
+@property (nonatomic) BOOL irisMovieCaptureEnabled;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } irisMovieDuration;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } irisMovieVideoFrameDuration;
+@property (nonatomic) int irisMovieAutoTrimMethod;
+@property (nonatomic) BOOL irisFrameHarvestingEnabled;
+@property (retain, nonatomic) FigCaptureIrisPreparedSettings *irisPreparedSettings;
+@property (nonatomic) BOOL optimizesImagesForOfflineVideoStabilization;
+@property (nonatomic) BOOL quadraHighResCaptureEnabled;
+@property (nonatomic) BOOL depthDataDeliveryEnabled;
+@property (nonatomic) BOOL portraitEffectsMatteDeliveryEnabled;
+@property (retain, nonatomic) NSArray *enabledSemanticSegmentationMatteURNs;
+@property (nonatomic) BOOL filterRenderingEnabled;
+@property (nonatomic) BOOL bravoConstituentPhotoDeliveryEnabled;
+@property (nonatomic) BOOL momentCaptureMovieRecordingEnabled;
+@property (nonatomic) BOOL spatialOverCaptureEnabled;
+@property (nonatomic) int maxQualityPrioritization;
+@property (nonatomic) BOOL deferredProcessingEnabled;
+@property (nonatomic) BOOL digitalFlashCaptureEnabled;
+@property (nonatomic) BOOL intelligentDistortionCorrectionEnabled;
+@property (nonatomic) BOOL demosaicedRawEnabled;
+@property (nonatomic) BOOL previewQualityAdjustedPhotoFilterRenderingEnabled;
+@property (nonatomic) BOOL fastCapturePrioritizationEnabled;
+
+- (int)sinkType;
+- (id)initWithXPCEncoding:(id)a0;
+- (id)copyXPCEncoding;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+
+@end

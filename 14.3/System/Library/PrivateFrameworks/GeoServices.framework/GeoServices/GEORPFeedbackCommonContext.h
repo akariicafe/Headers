@@ -1,0 +1,93 @@
+@class GEORPSearchCommonContext, PBDataReader, GEORPMapLocation, GEORPCurrentEnvironmentManifestURLs, GEOABAssignmentResponse, GEORPSourceInfo, NSMutableArray, PBUnknownFields, GEORPNavigationSettings;
+
+@interface GEORPFeedbackCommonContext : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct { int *list; unsigned long long count; unsigned long long size; } _userPaths;
+    NSMutableArray *_auxiliaryControls;
+    double _clientCreatedAt;
+    GEOABAssignmentResponse *_currentAbAssignmentResponse;
+    GEORPCurrentEnvironmentManifestURLs *_currentEnvironmentManifestUrls;
+    GEORPMapLocation *_mapLocation;
+    GEORPNavigationSettings *_navigationSettings;
+    unsigned long long _originatingAuxiliaryControlIndex;
+    GEORPSearchCommonContext *_searchCommon;
+    GEORPSourceInfo *_sourceInfo;
+    NSMutableArray *_visibleTileSets;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _deviceGmtOffset;
+    int _pinType;
+    struct { unsigned char has_clientCreatedAt : 1; unsigned char has_originatingAuxiliaryControlIndex : 1; unsigned char has_deviceGmtOffset : 1; unsigned char has_pinType : 1; unsigned char read_unknownFields : 1; unsigned char read_userPaths : 1; unsigned char read_auxiliaryControls : 1; unsigned char read_currentAbAssignmentResponse : 1; unsigned char read_currentEnvironmentManifestUrls : 1; unsigned char read_mapLocation : 1; unsigned char read_navigationSettings : 1; unsigned char read_searchCommon : 1; unsigned char read_sourceInfo : 1; unsigned char read_visibleTileSets : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasPinType;
+@property (nonatomic) int pinType;
+@property (readonly, nonatomic) BOOL hasMapLocation;
+@property (retain, nonatomic) GEORPMapLocation *mapLocation;
+@property (retain, nonatomic) NSMutableArray *visibleTileSets;
+@property (readonly, nonatomic) unsigned long long userPathsCount;
+@property (readonly, nonatomic) int *userPaths;
+@property (nonatomic) BOOL hasClientCreatedAt;
+@property (nonatomic) double clientCreatedAt;
+@property (retain, nonatomic) NSMutableArray *auxiliaryControls;
+@property (nonatomic) BOOL hasOriginatingAuxiliaryControlIndex;
+@property (nonatomic) unsigned long long originatingAuxiliaryControlIndex;
+@property (nonatomic) BOOL hasDeviceGmtOffset;
+@property (nonatomic) int deviceGmtOffset;
+@property (readonly, nonatomic) BOOL hasCurrentEnvironmentManifestUrls;
+@property (retain, nonatomic) GEORPCurrentEnvironmentManifestURLs *currentEnvironmentManifestUrls;
+@property (readonly, nonatomic) BOOL hasNavigationSettings;
+@property (retain, nonatomic) GEORPNavigationSettings *navigationSettings;
+@property (readonly, nonatomic) BOOL hasSourceInfo;
+@property (retain, nonatomic) GEORPSourceInfo *sourceInfo;
+@property (readonly, nonatomic) BOOL hasSearchCommon;
+@property (retain, nonatomic) GEORPSearchCommonContext *searchCommon;
+@property (readonly, nonatomic) BOOL hasCurrentAbAssignmentResponse;
+@property (retain, nonatomic) GEOABAssignmentResponse *currentAbAssignmentResponse;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (Class)visibleTileSetType;
++ (Class)auxiliaryControlType;
++ (BOOL)isValid:(id)a0;
+
+- (id)initWithJSON:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (id)initWithData:(id)a0;
+- (void)dealloc;
+- (id)jsonRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)addVisibleTileSet:(id)a0;
+- (void)addUserPath:(int)a0;
+- (void)addAuxiliaryControl:(id)a0;
+- (unsigned long long)visibleTileSetsCount;
+- (void)clearVisibleTileSets;
+- (void)readAll:(BOOL)a0;
+- (id)visibleTileSetAtIndex:(unsigned long long)a0;
+- (void)clearUserPaths;
+- (int)userPathAtIndex:(unsigned long long)a0;
+- (unsigned long long)auxiliaryControlsCount;
+- (void)clearAuxiliaryControls;
+- (id)auxiliaryControlAtIndex:(unsigned long long)a0;
+- (id)pinTypeAsString:(int)a0;
+- (int)StringAsPinType:(id)a0;
+- (void)setUserPaths:(int *)a0 count:(unsigned long long)a1;
+- (id)userPathsAsString:(int)a0;
+- (int)StringAsUserPaths:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)clearUnknownFields:(BOOL)a0;
+- (id)initWithDictionary:(id)a0;
+- (void)recordEnvironmentAndManifestURLs;
+- (void)_recordCurrentEnvironment:(id)a0;
+- (void)_recordManifestURLs:(id)a0;
+
+@end

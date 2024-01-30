@@ -1,0 +1,3 @@
+@interface __PXCloudQuotaBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

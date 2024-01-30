@@ -1,0 +1,93 @@
+@class NSString, NSMutableDictionary, NSObject, VSSpeechConnection;
+@protocol OS_dispatch_queue, VSSpeechSynthesizerDelegate;
+
+@interface VSSpeechSynthesizer : NSObject <VSSpeechConnectionDelegate> {
+    NSString *_clientBundleIdentifier;
+    unsigned int _audioSessionID;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
+    VSSpeechConnection *_xpcConnection;
+    NSString *_identifier;
+    struct { unsigned char delegateStart : 1; unsigned char delegateFinish : 1; unsigned char delegateFinishWithPhonemesSpoken : 1; unsigned char delegatePause : 1; unsigned char delegateContinue : 1; unsigned char delegateWillSpeak : 1; unsigned char delegateStartWithRequest : 1; unsigned char delegateFinishWithRequest : 1; unsigned char delegateFinishWithPhonemesSpokenWithRequest : 1; unsigned char delegateSuccessWithInstrumentMetrics : 1; unsigned char delegatePauseWithRequest : 1; unsigned char delegateContinueWithRequest : 1; unsigned char delegateWillSpeakWithRequest : 1; unsigned char willUseInput : 1; } _synthesizerFlags;
+}
+
+@property (copy, nonatomic) NSString *language;
+@property (retain, nonatomic) NSMutableDictionary *durationRequests;
+@property (weak, nonatomic) id<VSSpeechSynthesizerDelegate> delegate;
+@property (nonatomic) float rate;
+@property (nonatomic) float pitch;
+@property (nonatomic) float volume;
+@property (retain, nonatomic) NSString *voice;
+
++ (id)sharedInstance;
++ (id)errorWithReason:(id)a0;
++ (BOOL)playVoicePreviewForLanguageCode:(id)a0 gender:(long long)a1 completion:(id /* block */)a2;
++ (id)validateRequest:(id)a0;
++ (id)validatePresynthesizedAudioRequest:(id)a0;
++ (id)characterClassCountForUtterance:(id)a0 language:(id)a1;
++ (BOOL)playVoicePreviewForLanguageCode:(id)a0 gender:(long long)a1;
+
+- (void)getLogToFile:(id /* block */)a0;
+- (void)endAudioPowerUpdate;
+- (id)init;
+- (void).cxx_destruct;
+- (void)cleanUnusedAssets:(id /* block */)a0;
+- (void)_setDelegate:(id)a0;
+- (void)getTTSServerVoicesWithFilter:(id)a0 reply:(id /* block */)a1;
+- (void)beginAudioPowerUpdateWithReply:(id /* block */)a0;
+- (void)connection:(id)a0 presynthesizedAudioRequest:(id)a1 didStopAtEnd:(BOOL)a2 error:(id)a3;
+- (id)_stopSpeakingRequestAtNextBoundary:(long long)a0 synchronously:(BOOL)a1;
+- (id)_stopSpeakingPresynthesizedAudioRequestSynchronously:(BOOL)a0;
+- (id)_pauseSpeakingRequestAtNextBoundary:(long long)a0 synchronously:(BOOL)a1;
+- (BOOL)isSystemSpeaking;
+- (void)getLocalVoiceResources:(id /* block */)a0;
+- (id)_continueSpeakingRequest;
+- (id)availableVoicesForLanguageCode:(id)a0;
+- (id)availableFootprintsForVoice:(id)a0 languageCode:(id)a1;
+- (void)connection:(id)a0 speechRequestDidStart:(id)a1;
+- (void)connection:(id)a0 speechRequestDidPause:(id)a1;
+- (float)minimumRate;
+- (id)cachePresynthesizedAudioRequest:(id)a0;
+- (void)connection:(id)a0 speechRequestDidContinue:(id)a1;
+- (void)connection:(id)a0 speechRequest:(id)a1 didStopAtEnd:(BOOL)a2 phonemesSpoken:(id)a3 error:(id)a4;
+- (void)connection:(id)a0 speechRequest:(id)a1 willSpeakMark:(long long)a2 inRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a3;
+- (void)connection:(id)a0 speechRequest:(id)a1 successWithInstrumentMetrics:(id)a2;
+- (void)connection:(id)a0 speechRequest:(id)a1 didReceiveTimingInfo:(id)a2;
+- (void)connection:(id)a0 synthesisRequest:(id)a1 didFinishWithInstrumentMetrics:(id)a2 error:(id)a3;
+- (float)maximumRate;
+- (void)connection:(id)a0 presynthesizedAudioRequestDidStart:(id)a1;
+- (void)connection:(id)a0 presynthesizedAudioRequest:(id)a1 successWithInstrumentMetrics:(id)a2 error:(id)a3;
+- (void)connection:(id)a0 invalidatedWithError:(id)a1;
+- (id)prewarmIfNeededWithRequest:(id)a0;
+- (BOOL)queryPhaticCapability:(id)a0;
+- (id)startSpeakingPresynthesizedAudioRequest:(id)a0;
+- (BOOL)stopSpeakingPresynthesizedAudioSynchronously:(BOOL)a0 error:(id *)a1;
+- (double)estimateDurationOfRequest:(id)a0;
+- (BOOL)pauseSpeakingAtNextBoundary:(long long)a0 synchronously:(BOOL)a1 error:(id *)a2;
+- (void)estimateDurationOfRequest:(id)a0 completion:(id /* block */)a1;
+- (void)setMaintainPersistentConnection:(BOOL)a0;
+- (void)setMaintainInactivePersistentConnection:(BOOL)a0;
+- (void)useSharedAudioSession:(BOOL)a0;
+- (void)useSpecificAudioSession:(unsigned int)a0;
+- (BOOL)continueSpeakingWithError:(id *)a0;
+- (void)getLocalVoiceAssets:(id /* block */)a0;
+- (void)setAutoDownloadedVoiceAssets:(id)a0;
+- (void)triggerCellularDownloadedVoiceAssets:(id)a0;
+- (void)killDaemon;
+- (void)getAutoDownloadedVoiceAssets:(id /* block */)a0;
+- (id)availableLanguageCodes;
+- (void)forwardStreamObject:(id)a0;
+- (id)speechString;
+- (void)cancelDownloads:(id /* block */)a0;
+- (void)setLogToFile:(BOOL)a0;
+- (id)startSpeakingRequest:(id)a0;
+- (BOOL)stopSpeakingAtNextBoundary:(long long)a0 synchronously:(BOOL)a1 error:(id *)a2;
+- (BOOL)isSpeaking;
+- (void)getVoiceResourceForLanguage:(id)a0 reply:(id /* block */)a1;
+- (id)initForInputFeedback;
+- (void)invokeDaemon:(id /* block */)a0;
+- (void)getLocalVoiceAssetsForLanguage:(id)a0 reply:(id /* block */)a1;
+- (id)startSynthesizingRequest:(id)a0;
+- (void)getVoiceInfoForLanguageCode:(id)a0 footprint:(long long)a1 gender:(long long)a2 type:(long long)a3 reply:(id /* block */)a4;
+
+@end

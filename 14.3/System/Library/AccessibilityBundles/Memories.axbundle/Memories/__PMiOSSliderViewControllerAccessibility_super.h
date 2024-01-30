@@ -1,0 +1,3 @@
+@interface __PMiOSSliderViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

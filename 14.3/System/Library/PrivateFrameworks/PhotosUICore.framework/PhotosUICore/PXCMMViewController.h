@@ -1,0 +1,86 @@
+@class UIBarButtonItem, PXUpdater, PXCMMAssetsViewController, PXCMMSession, PXPhotoDetailsActionMenuController, PXMomentShareStatusPresentation, NSString, UIActivityIndicatorView, UINavigationBar, NSArray, PXOneUpPresentation, PXMiroMoviePresenter, PXCMMSpecManager, NSProgress;
+@protocol PXCMMActionControllerDelegate, PXCMMViewControllerDelegate;
+
+@interface PXCMMViewController : UIViewController <PXChangeObserver, PXCMMAssetsViewControllerDelegate, PXCMMActionControllerDelegate, PXPhotosDetailsActionMenuDelegate, UIPopoverPresentationControllerDelegate, PXSectionedDataSourceManagerObserver, PXAssetsDataSourceManagerObserver, PXToastViewControllerDelegate, PXCMMActionPerformerDelegate> {
+    PXMomentShareStatusPresentation *_momentShareStatusPresentation;
+    BOOL _hasStartedPreloadingTasks;
+    BOOL _didIncrementNumberOfPresentedSendBacks;
+}
+
+@property (readonly, nonatomic) PXOneUpPresentation *oneUpPresentation;
+@property (readonly, nonatomic) PXCMMSpecManager *specManager;
+@property (retain, nonatomic) UINavigationBar *standaloneNavigationBar;
+@property (retain, nonatomic) NSArray *layoutConstraints;
+@property (readonly, nonatomic) PXCMMAssetsViewController *assetsViewController;
+@property (nonatomic) BOOL showTitleInNavigationBar;
+@property (readonly, nonatomic) PXUpdater *updater;
+@property (retain, nonatomic) NSProgress *actionProgress;
+@property (retain, nonatomic) UIActivityIndicatorView *activityIndicatorView;
+@property (retain, nonatomic) UIBarButtonItem *progressButton;
+@property (retain, nonatomic) UIBarButtonItem *actionMenuButtonItem;
+@property (retain, nonatomic) PXPhotoDetailsActionMenuController *activeActionMenuController;
+@property (nonatomic, getter=isLoadingPeopleSuggestions) BOOL loadingPeopleSuggestions;
+@property (retain, nonatomic) PXMiroMoviePresenter *miroMoviePresenter;
+@property (readonly, nonatomic) PXCMMSession *session;
+@property (weak, nonatomic) id<PXCMMViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<PXCMMActionControllerDelegate> actionDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_updateTitle;
+- (void)willMoveToParentViewController:(id)a0;
+- (id)initWithSession:(id)a0;
+- (void)_updateStyle;
+- (void).cxx_destruct;
+- (void)_setNeedsUpdate;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)didDismissToastViewController:(id)a0;
+- (void)actionMenu:(id)a0 actionPerformer:(id)a1 didChangeState:(unsigned long long)a2;
+- (void)actionMenu:(id)a0 assetCollectionActionPerformer:(id)a1 playMovieForAssetCollection:(id)a2;
+- (BOOL)actionMenu:(id)a0 actionPerformer:(id)a1 presentViewController:(id)a2;
+- (void)_setupNavigationItem;
+- (BOOL)actionMenu:(id)a0 actionPerformer:(id)a1 dismissViewController:(id)a2 completionHandler:(id /* block */)a3;
+- (id)completeMyMomentViewController:(id)a0 performActionForSession:(id)a1;
+- (id)completeMyMomentViewController:(id)a0 performSendBackActionForSession:(id)a1;
+- (void)_startPreloadingTasksIfNeeded;
+- (BOOL)shouldShowAddMoreButtonForAssetsViewController:(id)a0;
+- (void)didTapAddMoreButtonForAssetsViewController:(id)a0;
+- (id)oneUpPresentationForAssetsViewController:(id)a0;
+- (void)didPerformDeletionActionForAssetsViewController:(id)a0;
+- (BOOL)_shouldShowActionMenu;
+- (void)assetsViewControllerDidTapActionButton:(id)a0;
+- (void)assetsViewControllerDidTapSendBackActionButton:(id)a0;
+- (void)_activateNotificationSuppressionIfNecessary;
+- (void)_deactivateNotificationSuppressionIfNecessary;
+- (void)_performCancel;
+- (id)_localizedSelectionTitle;
+- (void)_handleActionMenuButtonItem:(id)a0;
+- (void)_updateComponentViewController:(id)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_updateComponentsViewControllerLayout;
+- (void)_updateActionProgress;
+- (BOOL)_canPresentComposeRecipientViewController;
+- (void)_presentComposeRecipientViewController;
+- (void)_completePeopleSuggestionsLoading;
+- (void)_handleActionButton;
+- (void)_handleComposeRecipientCancelButton:(id)a0;
+- (void)_dismissViewControllerWithCompletionHandler:(id /* block */)a0;
+- (void)ppt_setSelecting:(BOOL)a0;
+- (id)initWithCoder:(id)a0;
+- (void)updateViewConstraints;
+- (void)didMoveToParentViewController:(id)a0;
+- (long long)positionForBar:(id)a0;
+- (BOOL)actionPerformer:(id)a0 dismissViewController:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)actionPerformer:(id)a0 presentViewController:(id)a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)_presentViewController:(id)a0;
+- (void)viewDidLoad;
+
+@end

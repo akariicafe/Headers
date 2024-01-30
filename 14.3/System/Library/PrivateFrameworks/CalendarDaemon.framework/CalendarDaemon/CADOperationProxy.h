@@ -1,0 +1,22 @@
+@class ClientConnection, NSMutableDictionary;
+
+@interface CADOperationProxy : NSObject {
+    ClientConnection *_conn;
+    NSMutableDictionary *_operationGroups;
+}
+
++ (id)allOperationGroupClasses;
++ (Class)_operationGroupClassFromSelector:(SEL)a0;
++ (Class)operationProxyClassForClientWithConnection:(id)a0;
+
+- (void)forwardInvocation:(id)a0;
+- (id)methodSignatureForSelector:(SEL)a0;
+- (id)forwardingTargetForSelector:(SEL)a0;
+- (void)dealloc;
+- (id)initWithClientConnection:(id)a0;
+- (id)_operationGroupForClass:(Class)a0;
+- (void)_emptyMethod;
+- (id)_copyReplyBlockFromInvocation:(id)a0;
+- (void)_callReplyHandler:(id)a0 ofInvocation:(id)a1 withError:(int)a2;
+
+@end

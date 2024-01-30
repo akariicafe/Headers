@@ -1,0 +1,72 @@
+@class PDSBag, PDSRequestQueue, NSDate, IMTimer, NSString, CUTDeferredTaskQueue, IDSPushHandler, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface PDSCoordinator : NSObject <PDSRequestQueueDelegate, IDSPushHandlerDelegate, IMSystemMonitorListener, PDSEntryStoreDelegate>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSDate *pendingRequestDate;
+@property (retain, nonatomic) PDSBag *serverBag;
+@property (retain, nonatomic) CUTDeferredTaskQueue *processDeferredTaskQueue;
+@property (copy, nonatomic) id /* block */ kvStoreBlock;
+@property (copy, nonatomic) id /* block */ entryStoreBlock;
+@property (retain, nonatomic) IDSPushHandler *pushHandler;
+@property (copy, nonatomic) id /* block */ pushTokenBlock;
+@property (retain, nonatomic) PDSRequestQueue *requestQueue;
+@property (retain, nonatomic) IMTimer *heartbeatTimer;
+@property (nonatomic) BOOL requestPending;
+@property (nonatomic) BOOL disabled;
+@property (nonatomic) BOOL tokenChanged;
+@property (nonatomic) long long bagLoadRetries;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_markNextCheckpointTimeWithTTL:(double)a0;
+- (id)_minEnabledVersion;
+- (unsigned long long)_lastRequestHash;
+- (void)_updateAllHeartbeatEntriesWithState:(unsigned char)a0 inEntryStore:(id)a1;
+- (void)_processEntryStore;
+- (void).cxx_destruct;
+- (void)_comparePushTokensWithEntryStore:(id)a0;
+- (long long)ttlForRequest:(id)a0;
+- (void)_scheduleHeartbeatWithCheckpointTime:(id)a0;
+- (BOOL)_lastPushTokenDiffersFrom:(id)a0;
+- (double)_timeToDelayRequestForTopics:(id)a0;
+- (void)dealloc;
+- (BOOL)_topicAvoidsCoalescing:(id)a0;
+- (void)requestQueue:(id)a0 processedRequest:(id)a1 withResponse:(id)a2;
+- (BOOL)_allRequiredBagCoalescingValuesPresent;
+- (id)initWithQueue:(id)a0 serverBag:(id)a1 requestQueue:(id)a2 kvStoreBlock:(id /* block */)a3 entryStoreBlock:(id /* block */)a4 pushTokenBlock:(id /* block */)a5 systemMonitor:(id)a6;
+- (void)_bagReloaded:(id)a0;
+- (long long)_ttlFromBag;
+- (id)_userDefaults;
+- (double)_coalesceMaxPeriodFromBag;
+- (void)_markSandboxPushToken:(id)a0;
+- (BOOL)_bagKillSwitchActive;
+- (void)handler:(id)a0 pushTokenChanged:(id)a1;
+- (void)systemDidLeaveFirstDataProtectionLock;
+- (BOOL)_matchingEntryExistsFor:(id)a0 inStore:(id)a1;
+- (long long)_ttlWindowFromBag;
+- (void)_markPushToken:(id)a0;
+- (void)_updateOrDeleteEntry:(id)a0 inStore:(id)a1;
+- (BOOL)_allRequiredBagTTLValuesPresent;
+- (id)_nextCheckpointTime;
+- (BOOL)_lastSandboxPushTokenDiffersFrom:(id)a0;
+- (void)_markLastRequest:(id)a0;
+- (double)_coalescePeriodFromBag;
+- (double)_coalesceDelayFromBag;
+- (BOOL)_needsToHeartbeat;
+- (BOOL)_disabledForAnyReason;
+- (void)_updateEntriesForResponse:(id)a0 fromRequest:(id)a1;
+- (long long)_ttlGracePeriodFromBag;
+- (BOOL)_requestMatchesPreviousRequest:(id)a0;
+- (void)_pushTokenChangedWithEntryStore:(id)a0;
+- (void)_scheduleHeartbeatWithTTL:(double)a0;
+- (id)_nonCoalescingTopicsFromBag;
+- (void)entryStore:(id)a0 didUpdatePendingTopics:(id)a1 forceImmediateUpdate:(BOOL)a2;
+- (void)registerIfNeeded;
+- (BOOL)_valuesDefinedAsNumbersInBagForKeys:(id)a0;
+- (BOOL)_entries:(id)a0 includeState:(unsigned char)a1;
+
+@end

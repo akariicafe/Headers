@@ -1,0 +1,3 @@
+@interface WDHeartbeatSequenceShowAllDataTableViewCell : WDShowAllDataTableViewCell
+
+@end

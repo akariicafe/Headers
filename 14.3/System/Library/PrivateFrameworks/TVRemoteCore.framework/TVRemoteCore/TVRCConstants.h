@@ -1,0 +1,3 @@
+@interface TVRCConstants : NSObject
+
+@end

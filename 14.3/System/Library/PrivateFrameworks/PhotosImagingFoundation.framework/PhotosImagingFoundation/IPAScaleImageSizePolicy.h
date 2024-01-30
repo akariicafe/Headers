@@ -1,0 +1,14 @@
+@interface IPAScaleImageSizePolicy : IPAImageSizePolicy {
+    double _scale;
+}
+
+- (id)initWithScale:(double)a0;
+- (struct CGSize { double x0; double x1; })transformSize:(struct CGSize { double x0; double x1; })a0;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (double)transformScaleForSize:(struct CGSize { double x0; double x1; })a0;
+
+@end

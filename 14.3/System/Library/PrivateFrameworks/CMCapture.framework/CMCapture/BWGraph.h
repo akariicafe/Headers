@@ -1,0 +1,96 @@
+@class NSMutableDictionary, BWMemoryPool, NSArray, NSString, NSMutableArray, NSObject;
+@protocol OS_dispatch_group, BWGraphStatusDelegate, OS_dispatch_queue;
+
+@interface BWGraph : NSObject {
+    NSMutableArray *_nodes;
+    NSMutableArray *_sourceNodes;
+    NSMutableArray *_sinkNodes;
+    NSMutableArray *_connections;
+    NSMutableArray *_outputsWithSharedPools;
+    NSMutableDictionary *_outputsWithSharedPoolsForAttachedMedia;
+    NSMutableArray *_nodesToPrepareConcurrently;
+    NSArray *_nodesToPrepareAfterGraphStart;
+    NSMutableArray *_deferredPreparePrioritySinks;
+    BOOL _deferredNodePrepareCancelled;
+    NSMutableArray *_deferredStartSourceNodes;
+    BOOL _haveStartedOrCancelledDeferredSourceNodes;
+    BOOL _running;
+    BOOL _beingConfigured;
+    long long _inflightConfigurationID;
+    NSObject<OS_dispatch_group> *_sourceNodesStartGroup;
+    NSObject<OS_dispatch_group> *_nonDeferredSourceNodesStartGroup;
+    NSObject<OS_dispatch_queue> *_sourceStartQueue;
+    NSObject<OS_dispatch_group> *_startGroup;
+    NSObject<OS_dispatch_group> *_commitGroup;
+    BOOL _supportsLiveReconfiguration;
+    BOOL _classicRetainedBufferCount;
+    NSString *_applicationID;
+    int _clientPID;
+    NSString *_modeDescription;
+    NSString *_sourceDescription;
+    int _graphStateTransitionTimeoutSeconds;
+    unsigned int _configurationQueuePriority;
+}
+
+@property int errorStatus;
+@property (readonly, nonatomic) BOOL deferredNodePrepareEnabled;
+@property (nonatomic) BOOL resumesConnectionsAsNodesArePrepared;
+@property (readonly, nonatomic) BOOL supportsLiveReconfiguration;
+@property (nonatomic) id<BWGraphStatusDelegate> statusDelegate;
+@property (retain, nonatomic) BWMemoryPool *memoryPool;
+
++ (void)initialize;
+
+- (void)setApplicationID:(id)a0;
+- (id)applicationID;
+- (BOOL)start:(id *)a0;
+- (void)startDeferredSourceNodesIfNeeded;
+- (void)_makeParentConfigurationChangesLive;
+- (id)init;
+- (BOOL)stop:(id *)a0;
+- (void)enableDeferredPrepareForNodesNotInPathOfSinkNode:(id)a0;
+- (void)enableConcurrentPrepareForNode:(id)a0;
+- (BOOL)commitConfigurationWithID:(long long)a0 error:(id *)a1;
+- (BOOL)connectOutput:(id)a0 toInput:(id)a1 pipelineStage:(id)a2;
+- (void)cancelDeferredSourceNodeStart;
+- (void)startDeferredNodePrepareIfNeededWithCompletionHandler:(id /* block */)a0;
+- (void)_timedOutWaitingForOperationToCompleteWithDescription:(id)a0;
+- (void)cancelDeferredNodePrepare;
+- (id)_sinkNodes;
+- (id)sourceDescription;
+- (id)_sourceNodes;
+- (void)dealloc;
+- (BOOL)_resolveRetainedBufferCounts:(id *)a0;
+- (void)_waitForStartOrCommitToComplete;
+- (id)_nodesInSubgraphOfSinkNode:(id)a0;
+- (void)setSourceDescription:(id)a0;
+- (id)_reverseBreadthFirstEnumerator;
+- (void)beginConfiguration;
+- (BOOL)addNode:(id)a0 error:(id *)a1;
+- (void)setClientPID:(int)a0;
+- (void)_waitForSourceNodesToStart;
+- (void)setModeDescription:(id)a0;
+- (int)clientPID;
+- (void)_suspendInputConnectionsForNodes:(id)a0;
+- (BOOL)_prepareNodesWithConfigurationChanges:(id *)a0;
+- (id)_breadthFirstEnumerator;
+- (void)_getNodesToPrepareSeriallyBeforeGraphStart:(id *)a0 concurrentlyBeforeGraphStart:(id *)a1 afterGraphStart:(id *)a2;
+- (id)_depthFirstEnumeratorWithVertexOrdering:(int)a0;
+- (void)_resolveVideoRetainedBufferCountsForOutput:(id)a0 forAttachedMediaKey:(id)a1 outputsWithSharedPools:(id)a2;
+- (void)_logActiveSinkNodesAfterGraphStopTimeout;
+- (void)enableDeferredStartForSourceNode:(id)a0;
+- (void)_writeDotStringToFile;
+- (BOOL)_resolveFormats:(id *)a0;
+- (id)_reverseDepthFirstEnumeratorWithVertexOrdering:(int)a0;
+- (void)notifyWhenNonDeferredSourceNodesHaveStarted:(id /* block */)a0;
+- (id)modeDescription;
+- (void)waitForStartOrCommitToComplete;
+- (id)initWithConfigurationQueuePriority:(unsigned int)a0;
+- (void)_resumeInputConnectionsForNodes:(id)a0 eventsOnly:(BOOL)a1;
+- (void)waitForNonDeferredSourceNodesToStart;
+- (void)_logActiveNodesAfterGraphStopTimeout;
+- (id)dotString;
+- (id)_newDispatchGroupForSinksToTransitionToState:(int)a0;
+- (id)_newDispatchGroupForSinksToBecomeLiveWithConfigurationID:(long long)a0;
+
+@end

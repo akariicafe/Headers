@@ -1,0 +1,28 @@
+@class NSString, FCCacheCoordinator, FCAssetStore;
+@protocol NDAnalyticsEnvelopeStoreObserver;
+
+@interface NDAnalyticsEnvelopeStore : NSObject <FCCacheCoordinatorDelegate, NDAnalyticsEnvelopeStore>
+
+@property (retain, nonatomic) FCAssetStore *assetStore;
+@property (retain, nonatomic) FCCacheCoordinator *cacheCoordinator;
+@property (weak, nonatomic) id<NDAnalyticsEnvelopeStoreObserver> observer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (unsigned long long)cacheCoordinatorCurrentSizeWithReadLock:(id)a0;
+- (id)initWithStoreDirectoryFileURL:(id)a0;
+- (id)envelopesForEntries:(id)a0;
+- (void)enableFlushing;
+- (void)copyEnvelopes:(id)a0;
+- (void)_deleteEnvelopesForKeysFromStore:(id)a0;
+- (id)allEntriesWithHoldToken:(id *)a0;
+- (id)sizesOfEnvelopesWithEntries:(id)a0;
+- (void)cacheCoordinator:(id)a0 flushKeysWithWriteLock:(id)a1;
+- (void)_reportEnvelopesToNewsAutomationIfNeeded:(id)a0;
+- (void)deleteEnvelopesForEntries:(id)a0;
+
+@end

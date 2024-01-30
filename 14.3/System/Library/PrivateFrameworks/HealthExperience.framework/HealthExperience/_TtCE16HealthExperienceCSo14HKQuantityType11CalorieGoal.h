@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType11CalorieGoal : _TtCs12_SwiftObject
+
+@end

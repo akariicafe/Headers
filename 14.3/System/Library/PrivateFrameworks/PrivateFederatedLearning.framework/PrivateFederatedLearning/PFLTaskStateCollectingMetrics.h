@@ -1,0 +1,19 @@
+@class NSURL, NSArray;
+
+@interface PFLTaskStateCollectingMetrics : NSObject <PFLTaskState>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSURL *compiledModelURL;
+@property (readonly, nonatomic) NSArray *validationIndicies;
+@property (readonly, nonatomic) NSArray *trainingIndicies;
+
+- (void).cxx_destruct;
+- (unsigned long long)tag;
+- (id)initWithCoder:(id)a0;
+- (void)suspend;
+- (void)encodeWithCoder:(id)a0;
+- (void)resume:(id)a0 completion:(id /* block */)a1;
+- (id)initWithCompiledModelURL:(id)a0 validationDataIndicies:(id)a1 trainingDataIndicies:(id)a2;
+
+@end

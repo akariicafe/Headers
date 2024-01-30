@@ -1,0 +1,94 @@
+@class NSURL, _MKUILabel, MKUGCCallToActionView, _MKLocalizedHoursBuilder, _MKDataHeaderModel, MKPlaceSectionRowView, UIView, UILayoutGuide, NSString, _MKTokenAttributedString, NSLayoutConstraint, MKUGCCallToActionViewAppearance, NSArray, UIImageView;
+@protocol GEOTransitLineItem, _MKPlaceItem, MKUGCCallToActionViewDelegate, MKPlaceCardHeaderViewControllerDelegate;
+
+@interface MKPlaceCardHeaderViewController : MKPlaceSectionViewController <_MKStackViewDelegate, MKModuleViewControllerProtocol, MKETAProviderObserver> {
+    unsigned long long _layout;
+    MKPlaceSectionRowView *_titleSectionView;
+    MKPlaceSectionRowView *_labelsSectionView;
+    UIImageView *_logoImageView;
+    _MKUILabel *_titleOnlyLabel;
+    _MKUILabel *_firstLabel;
+    _MKUILabel *_secondLabel;
+    _MKUILabel *_secondaryNameLabel;
+    _MKUILabel *_thirdLabel;
+    UIView *_thirdDisplayedLabel;
+    NSArray *_constraints;
+    UILayoutGuide *_leadingGuide;
+    NSURL *_logoURL;
+    _MKDataHeaderModel *_dataModel;
+    _MKTokenAttributedString *_titleToken;
+    _MKTokenAttributedString *_secondaryNameToken;
+    _MKTokenAttributedString *_distanceToken;
+    _MKTokenAttributedString *_ratingsToken;
+    _MKTokenAttributedString *_priceToken;
+    _MKTokenAttributedString *_categoryToken;
+    _MKTokenAttributedString *_openStateToken;
+    _MKTokenAttributedString *_userLocationToken;
+    _MKTokenAttributedString *_venueToken;
+    _MKTokenAttributedString *_verifiedToken;
+    NSLayoutConstraint *_titleTrailingConstraint;
+    MKUGCCallToActionView *_callToActionView;
+    NSLayoutConstraint *_secondLabelToFirstLabelConstraint;
+    NSLayoutConstraint *_lastLabelToBottomConstraint;
+    double _secondLabelToFirstLabelConstraintConstantMax;
+    double _secondLabelToFirstLabelConstraintConstantMin;
+    BOOL _isUserLocation;
+    BOOL _optionSmallScreen;
+    BOOL _constraintsCreated;
+    BOOL _notVerified;
+    double _lastMaskAlphaValueApplied;
+}
+
+@property (retain, nonatomic) _MKLocalizedHoursBuilder *localizedHoursBuilder;
+@property (readonly, nonatomic) double lastLabelToBottomConstant;
+@property (readonly, nonatomic) BOOL shouldShowCallToActionWithRatingHeaderInfo;
+@property (readonly, nonatomic) id<_MKPlaceItem> placeItem;
+@property (readonly, nonatomic) id<GEOTransitLineItem> lineItem;
+@property (weak, nonatomic) id<MKPlaceCardHeaderViewControllerDelegate> delegate;
+@property (nonatomic) double contentAlpha;
+@property (retain, nonatomic) MKUGCCallToActionViewAppearance *callToActionAppearance;
+@property (weak, nonatomic) id<MKUGCCallToActionViewDelegate> callToActionDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)minimalModeHeight;
+
+- (void)updateContent;
+- (id)titleFont;
+- (void)_commonInit;
+- (void).cxx_destruct;
+- (void)updateHeaderTitle;
+- (void)viewDidLayoutSubviews;
+- (double)secondaryNameLabelPadding;
+- (void)updateMaskAlpha:(double)a0 onHeight:(double)a1 withOffset:(double)a2;
+- (void)ETAProviderUpdated:(id)a0;
+- (void)_createViews;
+- (void)_setupDatas;
+- (void)_setAlpha:(double)a0 toView:(id)a1 ifIntersects:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)_upateContentAlpha;
+- (void)animateSecondLabelWithPercentage:(double)a0;
+- (id)secondaryNameTimingFunction;
+- (id)_secondaryNameTitle;
+- (void)infoCardThemeChanged;
+- (id)_currentTitle;
+- (id)_reviewLabelText;
+- (id)_openStateString;
+- (id)_verifiedText;
+- (BOOL)_isLikelyToShowDistance;
+- (BOOL)_hasSecondaryName;
+- (BOOL)_mapItemShouldDisplayDistance:(id)a0;
+- (void)setConstraints;
+- (id)newLabel;
+- (id)initWithLineItem:(id)a0 layout:(unsigned long long)a1;
+- (void)_contentSizeDidChange;
+- (void)hideTitle:(BOOL)a0;
+- (void)_loadLogo;
+- (BOOL)_canShowWhileLocked;
+- (void)_contentSizeDidChangeNotificationHandler;
+- (id)initWithPlaceItem:(id)a0 layout:(unsigned long long)a1;
+- (void)viewDidLoad;
+- (void)updateViews;
+
+@end

@@ -1,0 +1,3 @@
+@interface NSCloudKitMirroringImportRequest : NSCloudKitMirroringRequest
+
+@end

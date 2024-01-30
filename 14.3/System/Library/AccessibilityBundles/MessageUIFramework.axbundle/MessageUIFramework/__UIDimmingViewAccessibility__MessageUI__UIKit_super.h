@@ -1,0 +1,3 @@
+@interface __UIDimmingViewAccessibility__MessageUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

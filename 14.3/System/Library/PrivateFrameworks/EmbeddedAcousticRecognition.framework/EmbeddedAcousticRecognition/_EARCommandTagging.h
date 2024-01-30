@@ -1,0 +1,16 @@
+@class NSString, NSArray;
+
+@interface _EARCommandTagging : NSObject <NSCopying> {
+    struct unique_ptr<quasar::CommandTagging, std::__1::default_delete<quasar::CommandTagging> > { struct __compressed_pair<quasar::CommandTagging *, std::__1::default_delete<quasar::CommandTagging> > { struct CommandTagging *__value_; } __ptr_; } _tagging;
+}
+
+@property (readonly, copy, nonatomic) NSString *commandId;
+@property (readonly, copy, nonatomic) NSArray *tagSequence;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id).cxx_construct;
+- (id)_initWithQuasarCommandTagging:(const struct CommandTagging { struct map<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> >, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > > > > { struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > >, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > >, std::__1::less<std::__1::basic_string<char> >, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > > > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> *x0; struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > >, void *> > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> { struct __tree_node_base<void *> *x0; } x0; } x1; struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::vector<quasar::Token, std::__1::allocator<quasar::Token> > >, std::__1::less<std::__1::basic_string<char> >, true> > { unsigned long long x0; } x2; } x0; } x0; struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char> > > { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x1; struct __compressed_pair<std::__1::basic_string<char> *, std::__1::allocator<std::__1::basic_string<char> > > { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x2; } x1; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x2; } *)a0;
+- (id)tokensForTag:(id)a0;
+
+@end

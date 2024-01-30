@@ -1,0 +1,24 @@
+@class NSString, INPriceRange;
+
+@interface INRidePartySizeOption : NSObject <INRidePartySizeOptionExport, NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } partySizeRange;
+@property (readonly, nonatomic) NSString *sizeDescription;
+@property (readonly, nonatomic) INPriceRange *priceRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithPartySizeRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 sizeDescription:(id)a1 priceRange:(id)a2;
+- (id)initWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)descriptionAtIndent:(unsigned long long)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)_dictionaryRepresentation;
+
+@end

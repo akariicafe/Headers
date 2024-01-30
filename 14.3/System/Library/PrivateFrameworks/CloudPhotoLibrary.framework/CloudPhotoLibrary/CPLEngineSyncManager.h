@@ -1,0 +1,95 @@
+@class NSError, NSString, CPLSyncSession, CPLEngineForceSyncTask, CPLEngineLibrary, NSObject, CPLPlatformObject, CPLDerivativesFilter, CPLSyncStep, NSMutableArray;
+@protocol CPLEngineStoreUserIdentifier, OS_dispatch_queue, CPLEngineTransportSetupTask;
+
+@interface CPLEngineSyncManager : NSObject <CPLAbstractObject, CPLEngineComponent, CPLEngineSyncTaskDelegate, CPLEngineForceSyncTaskDelegate> {
+    id<CPLEngineStoreUserIdentifier> _transportUserIdentifier;
+    CPLDerivativesFilter *_derivativesFilter;
+    BOOL _setupIsDone;
+    BOOL _shouldUpdateDisabledFeatures;
+    BOOL _closed;
+    id<CPLEngineTransportSetupTask> _setupTask;
+    id /* block */ _closingCompletionHandler;
+    CPLSyncSession *_session;
+    NSObject<OS_dispatch_queue> *_lock;
+    NSError *_lastError;
+    CPLSyncStep *_currentStep;
+    CPLEngineForceSyncTask *_currentForceSyncTask;
+    CPLEngineForceSyncTask *_pendingForceSyncTask;
+    unsigned long long _shouldRestartSessionFromState;
+    NSMutableArray *_lastErrors;
+    BOOL _foreground;
+    BOOL _boostPriority;
+    BOOL _hasOverridenBudgets;
+    BOOL _disabledSchedulerForForceSyncTask;
+    NSMutableArray *_forcedSyncHistory;
+}
+
+@property (nonatomic, setter=_setState:) unsigned long long state;
+@property (nonatomic) BOOL shouldTryToMingleImmediately;
+@property (readonly, weak, nonatomic) CPLEngineLibrary *engineLibrary;
+@property (readonly, nonatomic) NSError *lastError;
+@property (readonly, nonatomic) CPLPlatformObject *platformObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)descriptionForState:(unsigned long long)a0;
++ (id)platformImplementationProtocol;
++ (id)shortDescriptionForState:(unsigned long long)a0;
++ (id)stepOrSyncTaskForState:(unsigned long long)a0 syncManager:(id)a1 session:(id)a2;
++ (unsigned int)qualityOfServiceForSyncSessions;
++ (unsigned int)qualityOfServiceForForcedTasks;
+
+- (id)componentName;
+- (void)openWithCompletionHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)_dispatchAfter:(double)a0 block:(id /* block */)a1;
+- (void)task:(id)a0 didFinishWithError:(id)a1;
+- (void)getStatusWithCompletionHandler:(id /* block */)a0;
+- (void)getStatusDictionaryWithCompletionHandler:(id /* block */)a0;
+- (void)closeAndDeactivate:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (id)initWithEngineLibrary:(id)a0;
+- (void)task:(id)a0 didProgress:(float)a1 userInfo:(id)a2;
+- (void)forceSyncTaskHasBeenLaunched:(id)a0;
+- (void)forceSyncTaskHasBeenCancelled:(id)a0;
+- (void)dispatchSyncBlock:(id /* block */)a0;
+- (void)dispatchForcedTaskBlock:(id /* block */)a0;
+- (void)_recordForcedSyncTask:(id)a0 discarded:(BOOL)a1 error:(id)a2;
+- (void)setErrorForSyncSessionUnlocked:(id)a0;
+- (void)_resetErrorForSyncSession;
+- (void)_cancelAllTasksLocked;
+- (void)_cancelAllTasksLockedDeferringPushTaskCancellationIfCurrentlyUploadingForeground:(BOOL)a0;
+- (void)_moveAllTasksToBackgroundLocked;
+- (id)_descriptionForCurrentState;
+- (id)_shortDescriptionForCurrentState;
+- (id)_descriptionForLaunchedTasks;
+- (BOOL)_launchNecessaryTasksForCurrentStateLocked;
+- (void)_notifyEndOfSyncSession;
+- (void)_advanceToNextStateLocked;
+- (void)_advanceToNextStateLockedMinimalState:(unsigned long long)a0;
+- (void)_restartSyncSessionFromStateLocked:(unsigned long long)a0 session:(id)a1 cancelIfNecessary:(BOOL)a2;
+- (void)startSyncSession:(id)a0 withMinimalPhase:(unsigned long long)a1 rewind:(BOOL)a2;
+- (void)cancelCurrentSyncSession;
+- (void)resetTransportUserIdentifier;
+- (void)discardTransportUserIdentifier;
+- (void)requestDisabledFeaturesUpdate;
+- (void)setSyncSessionShouldBeForeground:(BOOL)a0;
+- (void)_overrideBudgetsIfNeeded;
+- (void)setBoostPriority:(BOOL)a0;
+- (BOOL)prepareAndLaunchSyncTaskUnlocked:(id)a0;
+- (void)_disableSchedulerForForceSyncTaskIfNecessary;
+- (void)_reenableSchedulerForForceSyncTaskIfNecessary;
+- (BOOL)_checkForegroundAtLaunchForForceSyncTask;
+- (void)_discardPendingForceSyncTaskWithError:(id)a0;
+- (void)_forceSyncTaskDidFinishWithError:(id)a0;
+- (void)_launchForceSyncTaskIfNecessary;
+- (id)_descriptionForSetupTasks;
+- (BOOL)_launchSetupTask;
+- (void)_cancelAllTasksForSetup;
+- (BOOL)_didFinishSetupTaskWithError:(id)a0 shouldStop:(BOOL *)a1;
+- (void)beginClientWork:(id)a0;
+- (void)endClientWork:(id)a0;
+- (id)lastErrorUnlocked;
+
+@end

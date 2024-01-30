@@ -1,0 +1,92 @@
+@class NSString, NSXPCConnection, NSHashTable, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface VCVoiceShortcutClient : NSObject <INVCVoiceShortcutClient>
+
+@property (class, readonly) VCVoiceShortcutClient *standardClient;
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *internalStateQueue;
+@property (readonly, nonatomic) NSHashTable *errorHandlers;
+@property (readonly, copy, nonatomic) id /* block */ creationBlock;
+@property (readonly, copy, nonatomic) id /* block */ interfaceSetupBlock;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *xpcQueue;
+@property (retain, nonatomic) NSXPCConnection *xpcConnection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
+
+- (id)initWithListenerEndpoint:(id)a0;
+- (void).cxx_destruct;
+- (void)unregisterTriggerWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)sendAceCommandDictionary:(id)a0 completion:(id /* block */)a1;
+- (void)dealloc;
+- (void)getNumberOfVoiceShortcutsWithCompletion:(id /* block */)a0;
+- (void)getVoiceShortcutWithPhrase:(id)a0 completion:(id /* block */)a1;
+- (void)getVoiceShortcutsForAppWithBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)updateVoiceShortcutWithIdentifier:(id)a0 phrase:(id)a1 shortcut:(id)a2 completion:(id /* block */)a3;
+- (BOOL)requestDataMigration:(id *)a0;
+- (void)getSiriPodcastsDatabaseURLWithCompletion:(id /* block */)a0;
+- (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)generateSingleUseTokenForWorkflowIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)refreshTriggerWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)fireTriggerWithIdentifier:(id)a0 force:(BOOL)a1 completion:(id /* block */)a2;
+- (void)enqueueDialogRequest:(id)a0 runningContext:(id)a1 completionHandler:(id /* block */)a2;
+- (void)obliterateShortcuts:(id /* block */)a0;
+- (void)addDefaultShortcutsIfNecessaryWithCompletion:(id /* block */)a0;
+- (void)createSleepWorkflow:(id)a0 completion:(id /* block */)a1;
+- (void)resetDefaultShortcutFlagsWithCompletion:(id /* block */)a0;
+- (void)getSleepActionSuggestionsForAppWithBundleIdentifier:(id)a0 shouldFilterBySleep:(BOOL)a1 completion:(id /* block */)a2;
+- (void)getSleepActionSuggestionsForAllAppsFilteringBySleep:(BOOL)a0 completion:(id /* block */)a1;
+- (void)getSleepActionSuggestionsForAppWithBundleIdentifier:(id)a0 options:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)deleteSleepWorkflowWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)dismissPresentedContentWithCompletion:(id /* block */)a0;
+- (void)getSleepActionSuggestionsForAllAppsWithOptions:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)checkTriggerStateWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)showSingleStepCompletionForWebClip:(id)a0 completion:(id /* block */)a1;
+- (void)getConfiguredTriggerDescriptionsWithCompletion:(id /* block */)a0;
+- (void)resumeWorkflowFromContext:(id)a0 presentationMode:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)stopRunningWorkflowWithRunningContext:(id)a0;
+- (void)checkTriggerStateWithKeyPath:(id)a0 completion:(id /* block */)a1;
+- (void)getSleepWorkflowsWithCompletion:(id /* block */)a0;
+- (void)getAllSleepWorkflowsWithCompletion:(id /* block */)a0;
+- (void)deleteVoiceShortcutWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)deleteVoiceShortcutWithName:(id)a0 completion:(id /* block */)a1;
+- (id)accessibilityWorkflowsWithError:(id *)a0;
+- (id)accessibilityWorkflowWithIdentifier:(id)a0 error:(id *)a1;
+- (void)deleteTriggerWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)logRunOfContextualAction:(id)a0;
+- (void)logUndoOfContextualAction:(id)a0;
+- (id)shareSheetWorkflowsForExtensionMatchingDictionaries:(id)a0 resolvedActivityItems:(id)a1 hostBundleIdentifier:(id)a2 iconSize:(struct CGSize { double x0; double x1; })a3 iconScale:(double)a4 error:(id *)a5;
+- (id)initWithXPCConnection:(id)a0 XPCConnectionCreationBlock:(id /* block */)a1 XPCInterfaceSetupBlock:(id /* block */)a2;
+- (id)initWithXPCConnectionCreationBlock:(id /* block */)a0 XPCInterfaceSetupBlock:(id /* block */)a1;
+- (id)initWithMachServiceName:(id)a0 options:(unsigned long long)a1 interfaceSetupBlock:(id /* block */)a2;
+- (void)createVoiceShortcut:(id)a0 phrase:(id)a1 completion:(id /* block */)a2;
+- (void)subscribeToVoiceShortcutDataUpdateNotifications;
+- (id)runWorkflowWithRequest:(id)a0 completion:(id /* block */)a1;
+- (void)unsubscribeFromVoiceShortcutDataUpdateNotifications;
+- (BOOL)hasRunEventsInTheLast5DaysWithError:(id *)a0;
+- (void)importSharedShortcutFromURL:(id)a0 completion:(id /* block */)a1;
+- (void)getWidgetWorkflowWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)getWidgetWorkflowsInCollectionWithIdentifier:(id)a0 limit:(unsigned long long)a1 completion:(id /* block */)a2;
+- (id)firstUnsortedWorkflowWithBackgroundColorValue:(id *)a0 error:(id *)a1;
+- (void)getResultsForWorkflowQuery:(id)a0 resultClass:(Class)a1 completion:(id /* block */)a2;
+- (void)getValueForDescriptor:(id)a0 resultClass:(Class)a1 completion:(id /* block */)a2;
+- (id)asynchronousRemoteDataStoreWithErrorHandler:(id /* block */)a0;
+- (id)synchronousRemoteDataStoreWithErrorHandler:(id /* block */)a0;
+- (void)callErrorHandlerIfNeeded:(id /* block */)a0 withError:(id)a1;
+- (id)asynchronousRemoteDataStoreWithErrorHandler:(id /* block */)a0 synchronous:(BOOL)a1;
+- (id)unsafePopConnectionErrorHandlers;
+- (void)handleXPCConnectionInterruption;
+- (void)handleXPCConnectionInvalidation;
+- (void)unsafeSetupXPCConnection;
+- (id)drawGlyphs:(id)a0 atSize:(struct CGSize { double x0; double x1; })a1 withBackgroundColorValues:(id)a2 error:(id *)a3;
+- (void)getVoiceShortcutsWithCompletion:(id /* block */)a0;
+- (void)getVoiceShortcutWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)setShortcutSuggestions:(id)a0 forAppWithBundleIdentifier:(id)a1;
+- (void)setInteger:(long long)a0 forKey:(id)a1 inDomain:(id)a2 completionHandler:(id /* block */)a3;
+
+@end

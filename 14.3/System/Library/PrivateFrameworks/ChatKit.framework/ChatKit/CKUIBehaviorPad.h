@@ -1,0 +1,48 @@
+@interface CKUIBehaviorPad : CKUIBehavior
+
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })minTranscriptMarginInsets;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })defaultAVPlayerViewContorllerControlsInsets;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contactPhotoTranscriptInsets;
+- (double)transcriptContactImageDiameter;
+- (BOOL)canPresentOverKeyboard;
+- (double)entryViewMaxHandWritingPluginShelfHeight;
+- (BOOL)showsConversationListCellChevronImage;
+- (BOOL)shouldShowDisclosureChevronInRecipientAtoms;
+- (double)primaryColumnWidthForInterfaceOrientation:(long long)a0;
+- (BOOL)shouldSuppressRotationInNewCompose;
+- (BOOL)showMMSSetup;
+- (BOOL)presentsAutocompleteInAPopover;
+- (BOOL)usesUncollapsedSplitview;
+- (BOOL)lowClearanceInLandscape;
+- (BOOL)presentsQuickLookController;
+- (BOOL)presentForwardingUIModally;
+- (double)resumeToConversationListTimeInterval;
+- (BOOL)shouldOnlyResumeToConversationListAfterTimeout;
+- (double)maxNavigationBarNoContactPhotoCollapsedHeightValue;
+- (double)transcriptHeaderViewMaxRows;
+- (BOOL)shouldRefreshAlternateAddressesSheet;
+- (double)navigationBarMaxHeight;
+- (struct CGSize { double x0; double x1; })documentIconSize;
+- (BOOL)usesPopovers;
+- (unsigned long long)supportedInterfaceOrientations;
+- (unsigned long long)defaultConversationViewingMessageCount;
+- (BOOL)shouldDisableFocusRing;
+- (struct CGSize { double x0; double x1; })attachmentBrowserDefaultSizeForSquare;
+- (double)attachmentBrowserGridInterItemSpacing;
+- (double)photoPickerPopoverWidth;
+- (unsigned long long)numberOfButtonsInPhotoPicker;
+- (BOOL)photoPickerShouldZoomOnSelection;
+- (double)photoPickerMaxPopoverPhotoHeight;
+- (double)welcomeViewContentViewTopAnchorLayoutConstraintConstant;
+- (BOOL)shouldAlignRecipientGlyphsWithMargins;
+- (unsigned long long)suggestedAppStripLimit;
+- (BOOL)showPendingInConversationList;
+- (BOOL)shouldPopoverSuggestionsBanner;
+- (double)searchPhotosThumbnailWidth;
+- (double)searchLinksThumbnailWidth;
+- (BOOL)isAppStripInKeyboard;
+- (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)a0;
+- (double)conversationListMinimumWidthForHiddenContactImage;
+- (BOOL)canShowContactPhotosInConversationList;
+
+@end

@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface VCIntentDefinitionManager : NSObject <INVCIntentDefinitionManager>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)intentDefinitionURLsForBundleID:(id)a0 inDirectory:(id)a1;
++ (id)intentDefinitionURLsForBundleID:(id)a0;
++ (id)intentDefinitionLocalizableFileURLsForBundleID:(id)a0;
++ (id)allBundleIdentifiers;
++ (id)appInfoForBundleID:(id)a0;
++ (id)intentDefinitionBundleURLForBundleID:(id)a0;
+
+
+@end

@@ -1,0 +1,8 @@
+@interface CSLifeFSConnection : CSXPCConnection
+
++ (id)sharedConnection;
+
+- (void)sendMessageAsync:(id)a0 completion:(id /* block */)a1;
+- (void)handleError:(id)a0;
+
+@end

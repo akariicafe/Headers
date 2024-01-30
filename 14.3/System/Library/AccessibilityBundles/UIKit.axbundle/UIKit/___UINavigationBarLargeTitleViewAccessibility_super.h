@@ -1,0 +1,3 @@
+@interface ___UINavigationBarLargeTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

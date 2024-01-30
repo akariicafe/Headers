@@ -1,0 +1,16 @@
+@interface IOUSBHostDevice : IOUSBHostObject
+
+@property (readonly) const struct IOUSBDeviceDescriptor { unsigned char x0; unsigned char x1; unsigned short x2; unsigned char x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned short x7; unsigned short x8; unsigned short x9; unsigned char x10; unsigned char x11; unsigned char x12; unsigned char x13; } *deviceDescriptor;
+@property (readonly) const struct IOUSBBOSDescriptor { unsigned char x0; unsigned char x1; unsigned short x2; unsigned char x3; } *capabilityDescriptors;
+@property (readonly) const struct IOUSBConfigurationDescriptor { unsigned char x0; unsigned char x1; unsigned short x2; unsigned char x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned char x7; } *configurationDescriptor;
+
++ (struct __CFDictionary { } *)createMatchingDictionaryWithVendorID:(id)a0 productID:(id)a1 bcdDevice:(id)a2 deviceClass:(id)a3 deviceSubclass:(id)a4 deviceProtocol:(id)a5 speed:(id)a6 productIDArray:(id)a7;
+
+- (BOOL)resetWithError:(id *)a0;
+- (BOOL)configureWithValue:(unsigned long long)a0 matchInterfaces:(BOOL)a1 error:(id *)a2;
+- (const struct IOUSBConfigurationDescriptor { unsigned char x0; unsigned char x1; unsigned short x2; unsigned char x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned char x7; } *)configurationDescriptorWithIndex:(unsigned long long)a0 error:(id *)a1;
+- (const struct IOUSBConfigurationDescriptor { unsigned char x0; unsigned char x1; unsigned short x2; unsigned char x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned char x7; } *)configurationDescriptorWithConfigurationValue:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)configureWithValue:(unsigned long long)a0 error:(id *)a1;
+- (BOOL)allocateDownstreamBusCurrentWithWakeUnits:(unsigned long long *)a0 sleepUnits:(unsigned long long *)a1 error:(id *)a2;
+
+@end

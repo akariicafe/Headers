@@ -1,0 +1,83 @@
+@class BRCDeadlineScheduler, BRCDeadlineSource, APSConnection, NSObject, BRCAccountSession, _BRCOperation, BRCContainerMetadataSyncPersistedState, BRCSideCarSyncPersistedState, BRCFairSource, BRCSyncOperationThrottle, NSString, NSDate, BRCMigrateZonePCSOperation, BRCZoneHealthSyncPersistedState, BRCSyncBudgetThrottle, NSMutableArray, NSData;
+@protocol OS_dispatch_group, BRCOperationSubclass, OS_dispatch_workloop;
+
+@interface BRCContainerScheduler : NSObject <APSConnectionDelegate, BRCClientZoneDelegate, BRCAppLibraryDelegate> {
+    BRCDeadlineSource *_containerMetadataSyncSource;
+    BRCDeadlineSource *_sharedDatabaseSyncSource;
+    BRCDeadlineSource *_zoneHealthSyncSource;
+    BRCDeadlineSource *_sideCarSyncSource;
+    BRCFairSource *_pushSource;
+    NSString *_environmentName;
+    NSData *_pushToken;
+    APSConnection *_pushConnection;
+    NSObject<OS_dispatch_workloop> *_pushWorkloop;
+    BRCContainerMetadataSyncPersistedState *_containerMetadataPersistedState;
+    unsigned int _containerMetadataSyncState;
+    _BRCOperation<BRCOperationSubclass> *_containerMetadataSyncOperation;
+    unsigned int _sharedDBSyncState;
+    _BRCOperation<BRCOperationSubclass> *_sharedDatabaseSyncOperation;
+    unsigned int _zoneHealthSyncState;
+    _BRCOperation<BRCOperationSubclass> *_zoneHealthSyncOperation;
+    unsigned int _sideCarSyncState;
+    _BRCOperation<BRCOperationSubclass> *_sideCarSyncOperation;
+    BRCSyncOperationThrottle *_sideCarSyncDownThrottle;
+    BRCSyncOperationThrottle *_sideCarSyncUpThrottle;
+    _BRCOperation<BRCOperationSubclass> *_periodicSyncOperation;
+    NSDate *_lastPeriodicSyncDate;
+    BRCMigrateZonePCSOperation *_migrateZonePCSOperation;
+    BRCDeadlineSource *_migrateZonePCSSource;
+    BOOL _isInSyncBubble;
+    NSMutableArray *_nextZoneHealthSyncDownBarriers;
+}
+
+@property (readonly, nonatomic) BRCAccountSession *session;
+@property (readonly, nonatomic) NSObject<OS_dispatch_group> *initialSyncDownGroup;
+@property (readonly, nonatomic) NSObject<OS_dispatch_group> *syncGroup;
+@property (readonly, nonatomic) BRCSyncBudgetThrottle *syncUpBudget;
+@property (readonly, nonatomic) BRCDeadlineScheduler *syncScheduler;
+@property (readonly, nonatomic) BRCZoneHealthSyncPersistedState *zoneHealthSyncPersistedState;
+@property (readonly, nonatomic) BRCSideCarSyncPersistedState *sideCarSyncPersistedState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setup;
+- (void)connection:(id)a0 didReceivePublicToken:(id)a1;
+- (void)close;
+- (void).cxx_destruct;
+- (void)connection:(id)a0 didReceiveIncomingMessage:(id)a1;
+- (void)connection:(id)a0 didReceiveToken:(id)a1 forTopic:(id)a2 identifier:(id)a3;
+- (void)resume;
+- (void)dumpToContext:(id)a0 includeAllItems:(BOOL)a1 db:(id)a2;
+- (void)receivedUpdatedZoneHealthServerChangeToken:(id)a0 requestID:(unsigned long long)a1;
+- (void)finishedZoneHealthSyncDownWithRequestID:(unsigned long long)a0 error:(id)a1;
+- (id)initWithAccountSession:(id)a0;
+- (void)didChangeSyncStatusForContainerMetadataForContainer:(id)a0;
+- (void)willInitialSyncDownForClientZone:(id)a0;
+- (void)scheduleSyncDownForSideCarWithGroup:(id)a0;
+- (void)scheduleSyncUpForSideCar;
+- (id)_newSyncDeadlineSourceWithName:(id)a0;
+- (void)_syncScheduleForContainersMetadata;
+- (void)_syncScheduleForSharedDatabase;
+- (void)_syncScheduleForZoneHealth;
+- (void)_scheduleCrossZoneMovePCSPrep;
+- (void)_syncScheduleForSideCar;
+- (void)_updatePushTopicsRegistration;
+- (void)schedulePeriodicSyncIfNecessaryInGroup:(id)a0;
+- (void)_unscheduleClientZone:(id)a0;
+- (void)_scheduleUpdatePushTopicsRegistration;
+- (void)scheduleSyncDownForSharedDatabaseImmediately:(BOOL)a0;
+- (void)syncContextDidBecomeForeground:(id)a0;
+- (void)syncContextDidBecomeBackground:(id)a0;
+- (void)scheduleSyncDownForContainerMetadataWithGroup:(id)a0;
+- (void)scheduleSyncDownForZoneHealthWithGroup:(id)a0;
+- (void)didChangeSyncStatusForZoneHealthForContainer:(id)a0;
+- (void)didInitialSyncDownForClientZone:(id)a0;
+- (void)closeContainers;
+- (void)redoZonePCSPreperation;
+- (void)receivedUpdatedSideCarServerChangeToken:(id)a0 requestID:(unsigned long long)a1;
+- (void)refreshPushRegistrationAfterAppsListChanged;
+- (void)notifyAfterNextZoneHealthSyncDown:(id /* block */)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __ACUIAccountSummaryCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

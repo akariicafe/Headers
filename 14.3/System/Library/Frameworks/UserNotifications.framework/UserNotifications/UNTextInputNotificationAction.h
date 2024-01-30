@@ -1,0 +1,13 @@
+@class NSString;
+
+@interface UNTextInputNotificationAction : UNNotificationAction
+
+@property (readonly, copy, nonatomic) NSString *textInputButtonTitle;
+@property (readonly, copy, nonatomic) NSString *textInputPlaceholder;
+
++ (id)actionWithIdentifier:(id)a0 title:(id)a1 options:(unsigned long long)a2 textInputButtonTitle:(id)a3 textInputPlaceholder:(id)a4;
+
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+
+@end

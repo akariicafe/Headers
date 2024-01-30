@@ -1,0 +1,3 @@
+@interface PIVideoStabilizeAdjustmentController : PIVideoReframeAdjustmentController
+
+@end

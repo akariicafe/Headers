@@ -1,0 +1,72 @@
+@class NSString, ICAttachmentPreviewGeneratorOperationQueue, NSMutableDictionary, NSMutableSet, NSObject, NSMutableOrderedSet, NSMapTable, ICProgressIndicatorTracker;
+@protocol OS_dispatch_queue;
+
+@interface ICAttachmentPreviewGenerator : NSObject <ICProgressIndicatorTrackerDelegate>
+
+@property (class, readonly, nonatomic) ICAttachmentPreviewGenerator *sharedGenerator;
+@property (class, readonly, nonatomic) BOOL ocrGenerationEnabled;
+@property (class, readonly, nonatomic) BOOL imageClassificationEnabled;
+
+@property (retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *asyncGeneratorQueue;
+@property (retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *costlyGeneratorQueue;
+@property (retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *generatorQueue;
+@property (retain, nonatomic) NSMapTable *lastOperationForAttachmentID;
+@property (retain, nonatomic) NSMutableSet *attachmentIDsPending;
+@property (retain, nonatomic) NSMutableDictionary *attachmentIDsProgress;
+@property (retain, nonatomic) ICProgressIndicatorTracker *progressTracker;
+@property (retain, nonatomic) ICAttachmentPreviewGeneratorOperationQueue *postProcessingQueue;
+@property (retain, nonatomic) NSMutableOrderedSet *postProcessingIDsPending;
+@property unsigned long long postProcessingRequestIndex;
+@property unsigned long long previewGenerationState;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *previewQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *previewProgressQueue;
+@property (nonatomic) _Atomic BOOL shouldGenerateAttachmentsWhenReachable;
+@property (readonly, nonatomic) BOOL previewOperationsIdle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)setImageClassificationTemporarilyDisabled:(BOOL)a0;
++ (void)purgeImageClassificationsInContext:(id)a0;
++ (void)purgeOCRInContext:(id)a0;
+
+- (void)reachabilityChanged:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)managedObjectContextDidSave:(id)a0;
+- (void)didReceiveMemoryWarning;
+- (void)resume;
+- (void)suspend;
+- (void)generatePreviewsIfNeeded;
+- (void)generatePreviewIfNeededForAttachmentWithObjectID:(id)a0;
+- (void)operationComplete:(id)a0;
+- (void)enableAutomaticPreviewGeneration;
+- (BOOL)isPreviewGenerationSupported;
+- (void)generatePendingPreviews;
+- (id)missingOrOutdatedOCRSummaryAttachmentIDsInContext:(id)a0;
+- (id)missingOrOutdatedImageClassificationSummaryAttachmentIDsInContext:(id)a0;
+- (id)missingOrOutdatedMetaDataAttachmentIDsInContext:(id)a0;
+- (void)postProcessIfNeededForAttachment:(id)a0;
+- (void)beginPostProcessingAfterDelayIfNecessaryWithForceDelay:(BOOL)a0;
+- (void)postProcessPendingPreviews;
+- (void)postProcessPreviewForAttachment:(id)a0;
+- (void)adjustUserTitleIfNecessaryForAttachment:(id)a0;
+- (void)attachmentNeedsPreviewGenerationNotification:(id)a0;
+- (void)generatePreviewIfNeededForAttachment:(id)a0;
+- (void)attachmentDidLoad:(id)a0;
+- (void)attachmentWillBeDeleted:(id)a0;
+- (void)mediaDidLoad:(id)a0;
+- (void)generatePendingPreviewForAttachment:(id)a0;
+- (void)progressIndicatorTrackerStartAnimation;
+- (void)progressIndicatorTrackerStopAnimation;
+- (void)generateMissingOrOutdatedAttachmentMetaDataIfNeededInContext:(id)a0;
+- (void)attachmentNeedsPostProcessingNotification:(id)a0;
+- (void)cancelGenerationOfPendingPreviews;
+- (void)disableAutomaticPreviewGeneration;
+- (void)setProgress:(id)a0 forObjectID:(id)a1;
+- (id)progressForObjectID:(id)a0;
+- (void)cancelIfNeededForAttachment:(id)a0;
+
+@end

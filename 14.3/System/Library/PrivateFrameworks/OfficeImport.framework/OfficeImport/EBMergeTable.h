@@ -1,0 +1,5 @@
+@interface EBMergeTable : NSObject
+
++ (void)readWithState:(id)a0;
+
+@end

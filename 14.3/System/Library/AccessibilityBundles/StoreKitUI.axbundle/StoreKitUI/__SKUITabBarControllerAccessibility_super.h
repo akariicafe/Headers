@@ -1,0 +1,3 @@
+@interface __SKUITabBarControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

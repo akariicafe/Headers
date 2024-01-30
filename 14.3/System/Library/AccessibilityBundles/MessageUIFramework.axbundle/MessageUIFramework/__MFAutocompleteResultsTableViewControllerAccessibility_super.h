@@ -1,0 +1,3 @@
+@interface __MFAutocompleteResultsTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

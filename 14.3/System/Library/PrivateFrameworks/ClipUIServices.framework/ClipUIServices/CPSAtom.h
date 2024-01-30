@@ -1,0 +1,3 @@
+@interface CPSAtom : NSObject
+
+@end

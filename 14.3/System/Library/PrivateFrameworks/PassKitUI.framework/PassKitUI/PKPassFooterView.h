@@ -1,0 +1,81 @@
+@class PKPassFooterContentView, NSString, PKPassFooterViewConfiguration, NSObject, PKPaymentSessionHandle;
+@protocol PKPassFooterViewDelegate, OS_dispatch_source, OS_dispatch_group;
+
+@interface PKPassFooterView : UIView <PKPassFooterContentViewDelegate, PKForegroundActiveArbiterObserver, PKUIForegroundActiveArbiterDeactivationObserver> {
+    PKPassFooterContentView *_contentView;
+    PKPassFooterContentView *_fadingContentView;
+    BOOL _fadingContentViewNeedsDidHide;
+    NSObject<OS_dispatch_source> *_sessionStartTimer;
+    BOOL _isBackgrounded;
+    BOOL _isAssistantActive;
+    BOOL _acquiringSession;
+    unsigned long long _sessionToken;
+    NSObject<OS_dispatch_group> *_sessionDelayGroup;
+    PKPaymentSessionHandle *_sessionHandle;
+    BOOL _invalidated;
+    unsigned char _visibility;
+    unsigned char _contentViewVisibility;
+}
+
+@property (readonly, nonatomic) PKPassFooterViewConfiguration *configuration;
+@property (readonly, nonatomic, getter=isPassAuthorized) BOOL passAuthorized;
+@property (readonly, nonatomic, getter=isPhysicalButtonRequired) BOOL physicalButtonRequired;
+@property (readonly, nonatomic) long long coachingState;
+@property (weak, nonatomic) id<PKPassFooterViewDelegate> delegate;
+@property (readonly, nonatomic) BOOL requestPileSuppression;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)configureWithConfiguration:(id)a0 context:(id)a1 options:(struct { unsigned char x0 : 1; unsigned char x1 : 1; })a2;
+- (void)willBecomeVisibleAnimated:(BOOL)a0;
+- (void)willBecomeHiddenAnimated:(BOOL)a0;
+- (void)didBecomeVisibleAnimated:(BOOL)a0;
+- (void)didBecomeHiddenAnimated:(BOOL)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)_lostModeButtonTapped;
+- (void)passFooterContentViewDidChangeCoachingState:(id)a0;
+- (void)passFooterContentViewDidChangePileSuppressionRequirement:(id)a0;
+- (void)foregroundActiveArbiter:(id)a0 didUpdateForegroundActiveState:(struct { BOOL x0; BOOL x1; })a1;
+- (BOOL)isPassFooterContentViewInGroup:(id)a0;
+- (void)layoutSubviews;
+- (void)foregroundActiveArbiter:(id)a0 didUpdateDeactivationReasons:(unsigned int)a1;
+- (void)passFooterContentViewDidAuthorizeTransaction:(id)a0;
+- (void)_setCoachingState:(long long)a0;
+- (void)passFooterContentViewRequestsSessionSuppression:(id)a0;
+- (void)showFullScreenBarcode;
+- (void)passFooterContentViewDidChangePhysicalButtonRequirement:(id)a0;
+- (unsigned long long)suppressedContentForContentView:(id)a0;
+- (void)_endSession;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)passFooterContentViewDidAuthenticate:(id)a0;
+- (void)passFooterContentView:(id)a0 didAuthorizeAndRetrieveDecryptedBarcode:(id)a1;
+- (void)_advanceContentViewVisibilityToState:(unsigned char)a0 animated:(BOOL)a1;
+- (void)_advanceVisibilityToState:(unsigned char)a0 animated:(BOOL)a1;
+- (void)_configureWithConfiguration:(id)a0 context:(id)a1 animated:(BOOL)a2;
+- (void)_endSessionStartTimer;
+- (void)_updateForNonForegroundActivePresentationAnimated:(BOOL)a0;
+- (void)_updateForForegroundActivePresentationIfNecessaryAnimated:(BOOL)a0;
+- (void)_setContentView:(id)a0 animated:(BOOL)a1;
+- (id)_messageForPaymentApplicationState;
+- (id)_messageContentViewFromMessage:(id)a0;
+- (void)_configureForPersonalizedPaymentApplicationWithContext:(id)a0;
+- (void)_configureForValueAddedServiceWithContext:(id)a0;
+- (id)_messageForRestrictedState;
+- (id)_messageForPeerPaymentZeroBalance;
+- (id)_messageForPeerPaymentLockedByOwner;
+- (void)_acquireContactlessInterfaceSessionWithSessionToken:(unsigned long long)a0 handler:(id /* block */)a1;
+- (long long)_acquireContactlessInterfaceSessionErrorActionForError:(id)a0;
+- (BOOL)_canApplyContentViewForPersonalizedApplication;
+- (id)_messageForUnavailableState;
+- (void)_startContactlessInterfaceSessionWithContext:(id)a0 sessionAvailable:(id /* block */)a1 sessionUnavailable:(id /* block */)a2;
+- (BOOL)_canApplyContentViewForValueAddedService;
+- (void)_commitContentViewAnimated:(BOOL)a0;
+- (void)invalidate;
+- (void)passFooterContentViewDidInvalidateAuthorizedBarcode:(id)a0;
+- (void)_setPhysicalButtonRequired:(BOOL)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __MPAVRoutingControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

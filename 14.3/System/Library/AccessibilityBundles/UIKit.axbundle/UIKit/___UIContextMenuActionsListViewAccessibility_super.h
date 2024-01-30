@@ -1,0 +1,3 @@
+@interface ___UIContextMenuActionsListViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

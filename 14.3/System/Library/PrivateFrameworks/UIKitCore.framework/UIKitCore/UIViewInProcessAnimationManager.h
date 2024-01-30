@@ -1,0 +1,97 @@
+@class NSHashTable, NSString, CADisplayLink, NSThread, NSRunLoop, NSMutableArray, _UIAppCACommitFuture, NSObject;
+@protocol _UIViewInProcessAnimationManagerDriver, OS_dispatch_semaphore, OS_dispatch_queue, OS_dispatch_source;
+
+@interface UIViewInProcessAnimationManager : NSObject <_UIViewInProcessAnimationManagerDriver> {
+    NSMutableArray *_preCommitBlocks;
+    NSMutableArray *_entries;
+    NSMutableArray *_newlyAddedEntries;
+    NSMutableArray *_postTickBlocks;
+    NSMutableArray *_preExitBlocks;
+    NSMutableArray *_presentationModifierGroupRequestBlocks;
+    id<_UIViewInProcessAnimationManagerDriver> _animatorAdvancer;
+    double _time;
+    double _deltaTime;
+    double _refreshInterval;
+    NSObject<OS_dispatch_queue> *_tickPrepQueue;
+    NSObject<OS_dispatch_queue> *_tickQueue;
+    NSObject<OS_dispatch_queue> *_entryLockingQueue;
+    NSObject<OS_dispatch_queue> *_timerQueue;
+    NSObject<OS_dispatch_queue> *_displayLinkAccessQueue;
+    NSObject<OS_dispatch_queue> *_backlightQueue;
+    NSObject<OS_dispatch_source> *_timerSource;
+    NSObject<OS_dispatch_semaphore> *_postTicksDelaySemaphore;
+    BOOL _processingPreCommits;
+    BOOL _waitingForAnimatorAdvancerToStart;
+    _UIAppCACommitFuture *_caCommitFuture;
+    CADisplayLink *_displayLink;
+    int _screenDimmingNotificationToken;
+    BOOL _animationsSuspended;
+    BOOL _animationsShouldCompleteImmediately;
+    BOOL _skipNextFrame;
+    BOOL _displayLinkInvalidated;
+    BOOL _screenIsOff;
+    unsigned long long _presentationModifierRequestCount;
+    NSHashTable *_presentationGroups;
+    BOOL _appSuspended;
+    NSMutableArray *_observedWindowScenes;
+}
+
+@property (nonatomic) BOOL usesMainThreadExecution;
+@property (nonatomic) unsigned long long executionMode;
+@property (nonatomic) BOOL advancingOnCommitDisabled;
+@property (weak) NSThread *currentTickThread;
+@property (weak) NSThread *animationThread;
+@property (weak) NSRunLoop *animationThreadRunLoop;
+@property (retain) NSObject<OS_dispatch_semaphore> *animationThreadKeepAliveSemaphore;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_setExternalAnimationDriver:(id)a0;
++ (id)sharedManager;
++ (void)_cancelPresentationModifierGroupRequest:(id)a0;
++ (void)_dispatchAsyncOntoMainBeforeExit:(id /* block */)a0;
++ (id)_requestPresentationModifierGroup:(id /* block */)a0;
+
+- (void)_applicationDidEnterBackground;
+- (void)_updateAnimationSuspensionForAppStateChange;
+- (void)_displayLinkFire:(id)a0;
+- (void)_processEntriesCollectingEntriesToRemove:(id)a0 cancel:(BOOL)a1;
+- (id)init;
+- (void)_screenBasedSceneWillAttachWindow:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)_shouldKeepAnimationThreadAlive;
+- (void)_processTickExitRemovingEntries:(id)a0;
+- (void)_processPostTicksDelayIfNecessary:(double)a0;
+- (void)dealloc;
+- (void)_performWhenInProcessAnimationsTransactionCommits:(id /* block */)a0;
+- (double)refreshInterval;
+- (void)_setAnimationsSuspended:(BOOL)a0;
+- (void)_registerBacklightChangedNotification;
+- (void)_setCurrentMediaTime:(double)a0;
+- (void)_applicationResignedActive;
+- (void)_performTick:(double)a0 cancel:(BOOL)a1 force:(BOOL)a2 eventName:(id)a3 entry:(id /* block */)a4 exit:(id /* block */)a5;
+- (void)_setAnimationExecutionParameters;
+- (void)startAdvancingAnimationManager:(id)a0;
+- (unsigned long long)_runPreCommitBlocks;
+- (void)performAfterTick:(id /* block */)a0;
+- (void)performBeforeExiting:(id /* block */)a0;
+- (void)_cancelPresentationModifierGroupRequest:(id)a0;
+- (void)finishAdvancingAnimationManager;
+- (void)startAnimationAdvancerIfNeeded;
+- (void)scheduleAnimatorAdvancerToStart;
+- (BOOL)_isInvalidated;
+- (void)_screenBasedSceneDidDisconnect:(id)a0;
+- (void)_advanceWithTime:(double)a0;
+- (void)_processPresentationModifierRequestsAndFlush;
+- (void)_applicationBecameActive;
+- (id)_requestPresentationModifierGroup:(id /* block */)a0;
+- (void)_processPreCommitBlocks;
+- (void)_commitSynchronously;
+- (void)_prepareForTick;
+- (void)addEntry:(id /* block */)a0;
+- (void)_processPostTicks;
+- (void)_cancelAllAnimationsImmediately;
+
+@end

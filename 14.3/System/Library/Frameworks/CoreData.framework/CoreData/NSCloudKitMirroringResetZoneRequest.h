@@ -1,0 +1,3 @@
+@interface NSCloudKitMirroringResetZoneRequest : NSCloudKitMirroringRequest
+
+@end

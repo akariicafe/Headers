@@ -1,0 +1,72 @@
+@class PXUISnappingController, NSString, PUAdjustmentsViewFlowLayout, PUSelectionFeedbackGenerator, UIImage, CEKSlider, UICollectionView, PUAdjustmentInfo, NSIndexPath;
+@protocol PUAdjustmentViewControllerDelegate, PUAdjustmentsViewDataSource;
+
+@interface PUAdjustmentsViewController : UIViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecognizerDelegate, PUPhotoEditBaseAdjustmentCellDelegate, CEKSliderDelegate> {
+    struct CGPoint { double x; double y; } _lastOffset;
+    double _previousTimeStamp;
+    UIImage *_selectedItemBackgroundImage;
+    UIImage *_itemBackgroundImage;
+    BOOL _sliderIsScrubbing;
+    PXUISnappingController *_snappingController;
+}
+
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (retain, nonatomic) PUAdjustmentsViewFlowLayout *collectionViewLayout;
+@property (retain, nonatomic) CEKSlider *slider;
+@property (retain, nonatomic) NSIndexPath *selectedIndexPath;
+@property (nonatomic) struct CGSize { double width; double height; } controlSize;
+@property (nonatomic) BOOL didSetupControls;
+@property (nonatomic) BOOL isAnimatingScroll;
+@property (retain, nonatomic) PUSelectionFeedbackGenerator *selectionFeedbackGenerator;
+@property (nonatomic) BOOL didPerformHapticFeedback;
+@property (weak, nonatomic) id<PUAdjustmentsViewDataSource> dataSource;
+@property (weak, nonatomic) id<PUAdjustmentViewControllerDelegate> delegate;
+@property (nonatomic) long long layoutDirection;
+@property (nonatomic) BOOL shouldDisplayControlValues;
+@property (nonatomic) BOOL shouldDisplayMappedValues;
+@property (readonly, nonatomic) PUAdjustmentInfo *selectedAdjustmentInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionView:(id)a0 layout:(id)a1 insetForSectionAtIndex:(long long)a2;
+- (void).cxx_destruct;
+- (void)sliderValueChanged:(id)a0;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (long long)preferredUserInterfaceStyle;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (void)updateControls;
+- (void)sliderWillBeginScrolling:(id)a0;
+- (BOOL)canToggleCell:(id)a0;
+- (void)slider:(id)a0 willUpdateValue:(double *)a1 withVelocity:(double)a2;
+- (void)sliderWillEndScrolling:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)sliderDidEndScrolling:(id)a0;
+- (void)didToggleCell:(id)a0;
+- (void)_updateViewLayout;
+- (void)_updateSliderForControlAtIndexPath:(id)a0;
+- (void)_updateSelectedInfo;
+- (void)_updateCollectionViewLayoutDirection:(long long)a0;
+- (void)_resetControlsAtIndexPath:(id)a0;
+- (id)_circularImageWithSize:(struct CGSize { double x0; double x1; })a0 color:(id)a1;
+- (void)_setupCellBackgroundImagesIfNeeded;
+- (id)_backgroundImageForItemAtIndexPath:(id)a0;
+- (void)_updateCell:(id)a0 withInfo:(id)a1;
+- (void)resetControls;
+- (void)_sliderDidEndScrolling;
+- (void)_performFeedbackIfNeeded;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void)scrollViewDidEndScrollingAnimation:(id)a0;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)viewDidLoad;
+
+@end

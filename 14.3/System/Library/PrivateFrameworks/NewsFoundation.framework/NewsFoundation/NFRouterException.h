@@ -1,0 +1,3 @@
+@interface NFRouterException : NSException
+
+@end

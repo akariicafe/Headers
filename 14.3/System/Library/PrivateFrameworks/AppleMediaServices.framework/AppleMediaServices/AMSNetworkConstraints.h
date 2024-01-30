@@ -1,0 +1,32 @@
+@class AMSBagKeySet, NSString, NSMutableDictionary;
+
+@interface AMSNetworkConstraints : NSObject <AMSBagConsumer_Project, AMSBagConsumer>
+
+@property (class, readonly, nonatomic) AMSBagKeySet *bagKeySet;
+@property (class, readonly, nonatomic) NSString *bagSubProfile;
+@property (class, readonly, nonatomic) NSString *bagSubProfileVersion;
+
+@property (retain, nonatomic) NSMutableDictionary *sizeLimits;
+@property (readonly, getter=isAnyNetworkTypeEnabled) BOOL anyNetworkTypeEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)addRequiredBagKeysToAggregator:(id)a0;
++ (id)createBagForSubProfile;
++ (id)_networkConstraintsForMediaType:(id)a0 withArray:(id)a1;
++ (id)networkConstraintsForMediaType:(id)a0 withBag:(id)a1;
+
+- (BOOL)isEqualToConstraints:(id)a0;
+- (long long)sizeLimitForNetworkType:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_disableAllNetworkTypes;
+- (long long)_sizeLimitForNetworkType:(id)a0;
+- (id)_initWithStoreConstraintDictionary:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)_setSizeLimit:(long long)a0 forNetworkType:(id)a1;
+- (BOOL)hasSizeLimitForNetworkType:(id)a0;
+
+@end

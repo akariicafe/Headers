@@ -1,0 +1,19 @@
+@class NTKCurvedColoringLabel;
+
+@interface NTKRichComplicationCornerGaugeTextView : NTKRichComplicationCornerBaseGaugeView
+
+@property (readonly, nonatomic) NTKCurvedColoringLabel *outerLabel;
+
++ (BOOL)handlesComplicationTemplate:(id)a0;
++ (BOOL)supportsComplicationFamily:(long long)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (void)_handleTemplate:(id)a0 reason:(long long)a1;
+- (void)transitionToMonochromeWithFraction:(double)a0;
+- (void)updateMonochromeColor;
+- (void)_editingDidEnd;
+- (void)_enumerateLabelsWithBlock:(id /* block */)a0;
+
+@end

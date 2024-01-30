@@ -1,0 +1,3 @@
+@interface WBSCoreClass : NSObject
+
+@end

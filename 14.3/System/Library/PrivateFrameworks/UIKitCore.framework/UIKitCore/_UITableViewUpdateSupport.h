@@ -1,0 +1,76 @@
+@class NSArray, NSMutableIndexSet, UITableViewRowData, NSMutableArray, UITableView;
+
+@interface _UITableViewUpdateSupport : NSObject {
+    long long oldSection;
+    long long newSection;
+    long long oldGlobalRow;
+    long long newGlobalRow;
+    UITableView *tableView;
+    struct _NSRange { unsigned long long location; unsigned long long length; } visibleRows;
+    NSArray *updateItems;
+    UITableViewRowData *oldRowData;
+    UITableViewRowData *newRowData;
+    struct _NSRange { unsigned long long location; unsigned long long length; } oldRowRange;
+    struct _NSRange { unsigned long long location; unsigned long long length; } newRowRange;
+    NSMutableIndexSet *rows;
+    NSMutableIndexSet *movedRows;
+    NSMutableIndexSet *movedSections;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } oldTableViewVisibleBounds;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } newTableViewVisibleBounds;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } tableViewVisibleBoundsUnion;
+    double tableViewVisibleBoundsOffset;
+    long long oldSectionCount;
+    long long newSectionCount;
+    long long *oldSectionMap;
+    long long *newSectionMap;
+    long long oldGlobalRowCount;
+    long long newGlobalRowCount;
+    long long *oldGlobalRowMap;
+    long long *newGlobalRowMap;
+    id *animatedCells;
+    id *animatedHeaders;
+    id *animatedFooters;
+    long long globalReorderingRow;
+    id _context;
+    NSMutableArray *viewAnimations;
+    NSMutableArray *deletedSections;
+    NSMutableArray *insertedSections;
+    NSMutableArray *gaps;
+}
+
+- (double)_startOfRowAfterRow:(long long)a0 withRowData:(id)a1;
+- (void)_setupDeleteAnimationForFooterInSection:(long long)a0 withTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 forUpdateItem:(id)a2;
+- (BOOL)_isReloadSectionUpdate;
+- (void)_setupAnimationsForExistingVisibleCells;
+- (void).cxx_destruct;
+- (void)_setupAnimationsForExistingHeadersAndFooters;
+- (void)dealloc;
+- (void)_setupAnimationForReorderingRow;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_visibleRowRangePlusAdjoining;
+- (void)_setupAnimationForTableHeader;
+- (double)_startOfRowAfterFooterInSection:(long long)a0 withRowData:(id)a1;
+- (void)_computeGaps;
+- (id)initWithTableView:(id)a0 updateItems:(id)a1 oldRowData:(id)a2 newRowData:(id)a3 oldRowRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a4 newRowRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a5 context:(id)a6;
+- (void)_reallocateAndComputeNewGlobalRowMapWithActualNewGlobalRowCount:(long long)a0;
+- (void)_setupAnimationsForDeletedCells;
+- (double)_startOfRowAfterHeaderInSection:(long long)a0 withRowData:(id)a1;
+- (void)_computeSectionUpdates;
+- (void)_setupInsertAnimationForHeaderInSection:(long long)a0 withTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 forUpdateItem:(id)a2;
+- (void)_setupAnimationForTableFooter;
+- (void)_faultInRealHeightsOfNeededElements;
+- (void)_setupAnimationStructures;
+- (void)_validateAnimatedCells;
+- (void)_computeVisibleBounds;
+- (void)_setupAnimations;
+- (void)_setupAnimationsForExistingOffscreenCells;
+- (void)_addBottomShadowViewViewForViewAnimation:(id)a0 viewType:(int)a1;
+- (void)_setupInsertAnimationForFooterInSection:(long long)a0 withTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 forUpdateItem:(id)a2;
+- (void)_setupDeleteAnimationForHeaderInSection:(long long)a0 withTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 forUpdateItem:(id)a2;
+- (void)_setupAnimationsForInsertedHeadersAndFooters;
+- (void)_computeAutomaticAnimationTypes;
+- (id)_imageViewForView:(id)a0;
+- (void)_setupAnimationsForNewlyInsertedCells;
+- (void)_setupAnimationsForDeletedHeadersAndFooters;
+- (void)_computeRowUpdates;
+
+@end

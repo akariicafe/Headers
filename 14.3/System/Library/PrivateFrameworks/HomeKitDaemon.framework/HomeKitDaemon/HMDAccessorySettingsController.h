@@ -1,0 +1,101 @@
+@class NSUUID, NSString, HMFTimer, NSArray, NSMutableSet, NSMutableArray, NSObject, NSMapTable, HMDAccessorySettingGroup;
+@protocol HMDAccessorySettingsMessageHandler, HMDBackingStoreObjectProtocol, HMDAccessorySettingsControllerDependencyFactory, HMDAccessorySettingsControllerDataSource, HMDAccessorySettingsControllerDelegate, OS_dispatch_queue;
+
+@interface HMDAccessorySettingsController : HMFObject <HMFLogging, HMFTimerDelegate, HMDAccessorySettingsBackingStoreTransactionReceiverDelegate, HMDAccessorySettingsMessageController, NSSecureCoding> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) id<HMDAccessorySettingsControllerDependencyFactory> factory;
+@property (readonly) NSMutableArray *allChildrenIdentifiers;
+@property (readonly, weak) id<HMDAccessorySettingsControllerDataSource> dataSource;
+@property (readonly, weak) id<HMDAccessorySettingsControllerDelegate> delegate;
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) NSUUID *parentUUID;
+@property (readonly) NSString *codingKey;
+@property (readonly) NSMutableSet *dependantControllers;
+@property (retain) NSMapTable *groupsMap;
+@property (retain) NSMapTable *settingsMap;
+@property (weak) HMDAccessorySettingsController *ownerController;
+@property BOOL isSettingOwner;
+@property BOOL isMigrationOwner;
+@property (retain) HMFTimer *fixupSettingsTimer;
+@property (retain) HMFTimer *auditSettingsTimer;
+@property (retain, nonatomic) NSMutableSet *constraintItemsMarkedForRemoval;
+@property (nonatomic) BOOL didInitiateSettingsCreationForOlderSoftwareCounterpart;
+@property (readonly) id<HMDAccessorySettingsMessageHandler> messageHandler;
+@property (readonly) id<HMDBackingStoreObjectProtocol> transactionReceiver;
+@property (readonly, copy) NSArray *childrenIdentifiers;
+@property (readonly) HMDAccessorySettingGroup *rootGroup;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (BOOL)isProxy;
+- (void).cxx_destruct;
+- (id)settingForKeyPath:(id)a0;
+- (void)timerDidFire:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setRootGroup:(id)a0;
+- (id)logIdentifier;
+- (void)encodeWithCoder:(id)a0;
+- (void)decodeWithCoder:(id)a0;
+- (void)handleUpdatedGroupModel:(id)a0 completion:(id /* block */)a1;
+- (void)handleUpdatedSettingModel:(id)a0 completion:(id /* block */)a1;
+- (void)handleUpdatedSettingConstraintModel:(id)a0 completion:(id /* block */)a1;
+- (void)handleRemovedSettingModel:(id)a0 completion:(id /* block */)a1;
+- (void)handleRemovedGroupModel:(id)a0 completion:(id /* block */)a1;
+- (void)handleRemovedSettingConstraintModel:(id)a0 completion:(id /* block */)a1;
+- (void)settingsHierarchyDidChange;
+- (id)initWithQueue:(id)a0 delegate:(id)a1 dataSource:(id)a2 parentUUID:(id)a3 codingKey:(id)a4;
+- (void)configureIsSettingOwner:(BOOL)a0 home:(id)a1;
+- (id)modelObjectsForSettings;
+- (id)mergeWithSettingsMetadata:(id)a0;
+- (void)configureIsSettingOwner:(BOOL)a0 migrationOwner:(BOOL)a1 home:(id)a2;
+- (void)didDetectCounterpartUsesSoftwareVersionBasedMigrationOwner;
+- (void)addDependant:(id)a0;
+- (void)removeAllDependants;
+- (void)auditOnFirstFetch;
+- (void)updateSettingOwner:(BOOL)a0;
+- (id)initWithQueue:(id)a0 delegate:(id)a1 dataSource:(id)a2 parentUUID:(id)a3 codingKey:(id)a4 settingOwner:(BOOL)a5 migrationOwner:(BOOL)a6 factory:(id)a7;
+- (void)_didAddSetting:(id)a0;
+- (void)_didRemoveSetting:(id)a0;
+- (void)_didAddGroup:(id)a0;
+- (void)_didRemoveGroup:(id)a0;
+- (void)scheduleAuditWithReason:(unsigned long long)a0 from:(id)a1;
+- (void)_scheduleAuditWithReason:(unsigned long long)a0;
+- (BOOL)hasDependants;
+- (void)_reevaluateDependantSettings;
+- (void)_migrateSettingsWithCompletion:(id /* block */)a0;
+- (void)scheduleDependantFixup;
+- (id)_keyPathsForSettings;
+- (void)didChangeDependantSettings:(id)a0 ownerSettingsKeyPaths:(id)a1;
+- (void)_performDependantFixup;
+- (void)_performSettingsAudit;
+- (void)didBecomeIndependantOwner;
+- (void)owner:(id)a0 didUpdateSettings:(id)a1;
+- (void)_updateValue:(id)a0 forSetting:(id)a1 senderVersion:(id)a2 senderProductClass:(long long)a3 completion:(id /* block */)a4;
+- (void)_onMessageUpdateValue:(id)a0 settingKeyPath:(id)a1 senderVersion:(id)a2 senderProductClass:(long long)a3 completion:(id /* block */)a4;
+- (void)_replaceConstraintsOnMessageToChildWithAdditions:(id)a0 removedChildConstraints:(id)a1 settingKeyPath:(id)a2 senderProductClass:(long long)a3 completion:(id /* block */)a4;
+- (void)_cacheConstraintAdditions:(id)a0 removals:(id)a1 setting:(id)a2;
+- (void)_replaceConstraintsOnSetting:(id)a0 additions:(id)a1 removals:(id)a2 completion:(id /* block */)a3;
+- (void)updatedSetting:(id)a0 model:(id)a1 completion:(id /* block */)a2;
+- (void)addedSettingModel:(id)a0 completion:(id /* block */)a1;
+- (void)didChangeSetting:(id)a0;
+- (void)didUpdateSettingConstraints:(id)a0;
+- (void)_createSettings;
+- (void)_removeDependant:(id)a0;
+- (void)onMessageUpdateValue:(id)a0 settingIdentifier:(id)a1 senderVersion:(id)a2 senderProductClass:(long long)a3 completion:(id /* block */)a4;
+- (void)onMessageAddConstraint:(id)a0 settingIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)onMessageRemoveConstraint:(id)a0 settingIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)onMessageUpdateConstraints:(id)a0 settingIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)onMessageReplaceConstraintsWithAdditions:(id)a0 constraintIdsToRemove:(id)a1 settingIdentifier:(id)a2 senderProductClass:(long long)a3 completion:(id /* block */)a4;
+- (BOOL)haveGroupWithUUID:(id)a0;
+- (id)groupForKeyPath:(id)a0;
+- (void)removeDependant:(id)a0;
+
+@end

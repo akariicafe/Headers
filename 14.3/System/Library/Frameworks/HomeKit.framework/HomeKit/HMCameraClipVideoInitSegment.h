@@ -1,0 +1,3 @@
+@interface HMCameraClipVideoInitSegment : HMCameraClipVideoSegment
+
+@end

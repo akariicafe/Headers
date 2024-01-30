@@ -1,0 +1,9 @@
+@interface ISiosDocumentRecipe : NSObject <ISCompositorRecipe>
+
+@property (nonatomic) unsigned long long options;
+
+- (id)init;
+- (id)layerTreeForSize:(struct CGSize { double x0; double x1; })a0 scale:(double)a1;
+- (struct CGSize { double x0; double x1; })badgeSizeForSize:(struct CGSize { double x0; double x1; })a0 scale:(double)a1;
+
+@end

@@ -1,0 +1,85 @@
+@class NSString, NSXPCConnection, NSMutableDictionary, BiometricKitXPCServer;
+
+@interface BiometricKitXPCExportedObject : NSObject <BiometricKitXpcProtocol> {
+    NSMutableDictionary *_clients;
+}
+
+@property (nonatomic) BiometricKitXPCServer *server;
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)startNewMatchAttempt:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)terminate;
+- (id)clients;
+- (void)getLastMatchEvent:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)match:(id)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)detectPresenceWithOptions:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)suspendEnrollment:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)updateIdentity:(id)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)pullCalibrationData:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)isFingerOn:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)completeEnrollment:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (id)init;
+- (void)setUserDSID:(unsigned long long)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)fieldDiagnosticsControl:(unsigned int)a0 inData:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)isAriadneSignpostsEnabled:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)getMaxIdentityCount:(int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)diagnostics:(int)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)getIdentityFromUUID:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)dealloc;
+- (void)getSystemProtectedConfiguration:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getBioLockoutStateForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)disconnect:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getNodeTopologyForIdentity:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)pauseFaceDetectTimer:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)getLogs:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)resetAppleConnectCounter:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)logEventOrCode:(unsigned long long)a0;
+- (void)connect:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)setSystemProtectedConfiguration:(id)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)pullDebugImageData:(BOOL)a0 rotated:(BOOL)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)setTemplate:(id)a0 forIdentity:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)getDeviceState:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getProtectedConfigurationForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)getBiometryAvailabilityForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)getIdentitiesDatabaseUUIDForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)removeAllIdentitiesForUser:(unsigned int)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)enableBackgroundFdet:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)getSensorCalibrationStatus:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getFreeIdentityCount:(int)a0 user:(unsigned int)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)timestampEvent:(unsigned long long)a0 absoluteTime:(unsigned long long)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)fileRadarWithLogs:(id)a0 description:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)setDebugImages:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)dropUnlockToken:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (id)client:(unsigned long long)a0;
+- (void)enroll:(int)a0 user:(unsigned int)a1 options:(id)a2 client:(unsigned long long)a3 replyBlock:(id /* block */)a4;
+- (void)cancel:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)enableMatchAutoRetry:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)setProtectedConfiguration:(id)a0 user:(unsigned int)a1 options:(id)a2 client:(unsigned long long)a3 replyBlock:(id /* block */)a4;
+- (void)queryIdentityMigrationFailureForUser:(unsigned int)a0 clear:(BOOL)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)removeIdentity:(id)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)pullCaptureBuffer:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)registerDSID:(unsigned long long)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)getSensorInfo:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getProvisioningState:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)registerDelegate:(BOOL)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)identities:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)notifyAppIsInactive:(BOOL)a0 client:(unsigned long long)a1;
+- (void)enrollContinue:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)isXARTAvailable:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getExpressModeStateForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)forceBioLockoutForUser:(unsigned int)a0 options:(id)a1 client:(unsigned long long)a2 replyBlock:(id /* block */)a3;
+- (void)getCalibrationDataInfo:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getAugmentationEligibilityForIdentity:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)registerStoreToken:(id)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+- (void)notifyAppIsBackground:(BOOL)a0 client:(unsigned long long)a1;
+- (void)pullMatchPolicyInfoData:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getCountersignedStoreToken:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)pullAlignmentData:(unsigned long long)a0 replyBlock:(id /* block */)a1;
+- (void)getIdentitiesDatabaseHashForUser:(unsigned int)a0 client:(unsigned long long)a1 replyBlock:(id /* block */)a2;
+
+@end

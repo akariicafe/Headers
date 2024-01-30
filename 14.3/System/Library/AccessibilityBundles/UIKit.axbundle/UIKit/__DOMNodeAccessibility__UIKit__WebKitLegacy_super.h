@@ -1,0 +1,3 @@
+@interface __DOMNodeAccessibility__UIKit__WebKitLegacy_super : UIAccessibilitySafeCategory
+
+@end

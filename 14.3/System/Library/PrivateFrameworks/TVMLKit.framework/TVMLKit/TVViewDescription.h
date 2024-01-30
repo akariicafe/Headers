@@ -1,0 +1,3 @@
+@interface TVViewDescription : NSObject
+
+@end

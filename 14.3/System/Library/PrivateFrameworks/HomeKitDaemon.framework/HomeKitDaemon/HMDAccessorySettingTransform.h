@@ -1,0 +1,14 @@
+@interface HMDAccessorySettingTransform : NSObject
+
++ (id)modelForGroup:(id)a0;
++ (id)modelsForSetting:(id)a0;
++ (id)modelsForGroup:(id)a0;
++ (id)modelsForGroupDiff:(id)a0 fromGroup:(id)a1;
++ (id)modelsForSettingDiff:(id)a0 fromGroup:(id)a1;
++ (id)modelForSetting:(id)a0 identifier:(id)a1 parentIdentifier:(id)a2;
++ (id)modelForSetting:(id)a0;
++ (id)mergeWithGroupMetadata:(id)a0 group:(id)a1;
++ (id)modelsForChangedConstraints:(id)a0 fromSetting:(id)a1;
++ (void)changeAccessorySettingType:(id)a0 home:(id)a1;
+
+@end

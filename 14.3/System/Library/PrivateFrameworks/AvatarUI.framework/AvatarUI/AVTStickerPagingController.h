@@ -1,0 +1,84 @@
+@class UIView, NSString, _AVTAvatarRecordImageProvider, AVTUIEnvironment, AVTStickerConfigurationProvider, NSMutableDictionary, NSArray, AVTAvatarRecordDataSource, NSObject, UICollectionView, AVTUIStickerGeneratorPool, UICollectionViewCell;
+@protocol AVTStickerPagingControllerDelegate, AVTStickerDisclosureValidationDelegate, AVTResourceCache, AVTPresenterDelegate, AVTAvatarPickerDelegate, OS_dispatch_queue, AVTStickerTaskScheduler;
+
+@interface AVTStickerPagingController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AVTStickerSheetControllerDelegate, AVTNotifyingContainerViewDelegate, AVTAvatarActionsViewControllerDelegate, AVTObjectViewController, AVTAvatarPicker, UICollectionViewDataSourcePrefetching>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *renderingQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *encodingQueue;
+@property (retain, nonatomic) AVTAvatarRecordDataSource *dataSource;
+@property (retain, nonatomic) AVTUIStickerGeneratorPool *stickerGeneratorPool;
+@property (retain, nonatomic) AVTUIEnvironment *environment;
+@property (retain, nonatomic) NSMutableDictionary *pageForRecords;
+@property (readonly, nonatomic) BOOL allowsPeel;
+@property (readonly, nonatomic) id<AVTStickerTaskScheduler> taskScheduler;
+@property (readonly, nonatomic) id<AVTResourceCache> cache;
+@property (readonly, nonatomic) _AVTAvatarRecordImageProvider *imageProvider;
+@property (retain, nonatomic) NSString *focusedPageRecordIdentifier;
+@property (readonly, nonatomic) AVTStickerConfigurationProvider *stickerConfigurationProvider;
+@property (retain, nonatomic) NSArray *memojiStickerConfigurations;
+@property (retain, nonatomic) UIView *view;
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (nonatomic) struct CGPoint { double x; double y; } endDraggingTargetContentOffset;
+@property (nonatomic) BOOL isResizing;
+@property (retain, nonatomic) UICollectionViewCell *lastDeletedCell;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } pageContentInsets;
+@property (nonatomic) struct CGPoint { double x; double y; } pageContentOffset;
+@property (weak, nonatomic) id<AVTStickerPagingControllerDelegate> delegate;
+@property (weak, nonatomic) id<AVTStickerDisclosureValidationDelegate> disclosureValidationDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<AVTPresenterDelegate> presenterDelegate;
+@property (weak, nonatomic) id<AVTAvatarPickerDelegate> avatarPickerDelegate;
+
++ (id)stickerCacheWithEnvironment:(id)a0;
+
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 canFocusItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didEndDisplayingCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 cancelPrefetchingForItemsAtIndexPaths:(id)a1;
+- (void)collectionView:(id)a0 prefetchItemsAtIndexPaths:(id)a1;
+- (struct CGPoint { double x0; double x1; })collectionView:(id)a0 targetContentOffsetForProposedContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (void)reloadData;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)scrollToPageAtIndex:(long long)a0 animated:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)loadView;
+- (void)stickerSheetController:(id)a0 didFinishRenderingStickersForRecord:(id)a1;
+- (void)stickerSheetController:(id)a0 didScrollToContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (void)stickerSheetController:(id)a0 scrollView:(id)a1 willEndDraggingWithTargetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)stickerSheetController:(id)a0 didInteractWithStickerAtIndex:(long long)a1 byPeeling:(BOOL)a2;
+- (void)notifyingContainerViewWillChangeSize:(struct CGSize { double x0; double x1; })a0;
+- (void)notifyingContainerViewDidChangeSize:(struct CGSize { double x0; double x1; })a0;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (void)didEndDisplaying;
+- (id)centeredPageWithOffset:(struct CGPoint { double x0; double x1; })a0;
+- (id)sheetControllerForRecord:(id)a0;
+- (id)reloadSheetControllerForRecord:(id)a0;
+- (id)sheetControllerAtIndex:(long long)a0;
+- (long long)pageIndexForAvatarRecordIdentifier:(id)a0;
+- (void)prefetchDataForRecord:(id)a0;
+- (void)cancelPrefetchingDataForRecord:(id)a0;
+- (void)updateForEndingScrollWithTargetContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (void)scrollToAvatarWithIdentifier:(id)a0 animated:(BOOL)a1;
+- (id)avatarActionsViewController:(id)a0 recordUpdateForDeletingRecord:(id)a1;
+- (void)avatarActionsViewControllerDidFinish:(id)a0;
+- (void)selectAvatarRecordWithIdentifier:(id)a0 animated:(BOOL)a1;
+- (void)insertPageForRecord:(id)a0 atIndex:(long long)a1;
+- (void)deletePageForRecord:(id)a0 atIndex:(long long)a1;
+- (void)reloadPageForRecord:(id)a0 atIndex:(long long)a1;
+- (void)willEndDisplaying;
+- (id)initWithRecordDataSource:(id)a0 recordImageProvider:(id)a1 stickerConfigurationProvider:(id)a2 taskScheduler:(id)a3 environment:(id)a4 allowsPeel:(BOOL)a5;
+- (void)wrapAndPresentViewController:(id)a0 animated:(BOOL)a1;
+- (void)willStartDisplaying;
+- (id)firstPageItemView;
+- (id)collectionViewForPPT;
+- (long long)pageIndexForAvatarRecordIdentifierForPPT:(id)a0;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)scrollViewDidEndScrollingAnimation:(id)a0;
+
+@end

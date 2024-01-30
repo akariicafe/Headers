@@ -1,0 +1,95 @@
+@class NSArray, NSString, HDSQLiteDatabase, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface HDSimpleGraphDatabase : NSObject
+
+@property (class, readonly, copy, nonatomic) NSArray *tableCreateSQL;
+@property (class, readonly, copy, nonatomic) NSArray *indexCreateSQL;
+@property (class, readonly, copy, nonatomic) NSArray *indexDropSQL;
+
+@property (retain, nonatomic) HDSQLiteDatabase *database;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, copy, nonatomic) NSString *databasePath;
+
++ (id)graphDatabaseWithBackingStore:(id)a0 error:(id *)a1;
+
+- (id)init;
+- (void)close;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)work_getRelationshipsForNodeWithID:(long long)a0 relationships:(id)a1 fetchType:(long long)a2 error:(id *)a3;
+- (id)work_nodeForID:(long long)a0 error:(id *)a1;
+- (BOOL)_work_addAttributeToNodeWithID:(long long)a0 key:(id)a1 value:(id)a2 valueType:(id)a3 error:(id *)a4;
+- (BOOL)work_insertNewValueTypeIfNeeded:(id)a0 error:(id *)a1;
+- (BOOL)work_insertNewKeyIfNeededWithKeyID:(long long)a0 error:(id *)a1;
+- (BOOL)_work_addAttributeToNodeWithID:(long long)a0 keyID:(long long)a1 value:(id)a2 valueType:(id)a3 error:(id *)a4;
+- (id)work_attributesForNodeWithID:(long long)a0 error:(id *)a1;
+- (BOOL)performWork:(id /* block */)a0 error:(id *)a1;
+- (void)_work_attemptDeleteWithCompletion:(id /* block */)a0;
+- (void)work_validateExistingDatabaseVersion;
+- (BOOL)work_createTablesIfNeededWithError:(id *)a0;
+- (BOOL)work_createIndicesIfNeededwithError:(id *)a0;
+- (void)_work_close;
+- (BOOL)_work_openDatabaseAtURL:(id)a0 error:(id *)a1;
+- (long long)work_firstRowIDForNodeNamed:(id)a0 error:(id *)a1;
+- (id)work_addNodeWithName:(id)a0 error:(id *)a1;
+- (id)work_nodesForIDs:(id)a0 error:(id *)a1;
+- (id)work_addNodesWithNames:(id)a0 error:(id *)a1;
+- (long long)_work_countOfObjectsInTable:(id)a0;
+- (id)work_nodesForNames:(id)a0 error:(id *)a1;
+- (id)work_nodesForSQL:(id)a0 loadAttributes:(BOOL)a1 loadRelationshipsWithDepth:(long long)a2 error:(id *)a3 bindingHandler:(id /* block */)a4;
+- (BOOL)work_deleteNodesWithIDs:(id)a0 error:(id *)a1;
+- (BOOL)_work_deleteObjectsFromTable:(id)a0 withIDs:(id)a1 error:(id *)a2;
+- (BOOL)work_enumerateNodesForSQL:(id)a0 loadAttributes:(BOOL)a1 loadRelationshipsWithDepth:(long long)a2 error:(id *)a3 bindingHandler:(id /* block */)a4 enumerationHandler:(id /* block */)a5;
+- (BOOL)work_insertNewRelationshipIfNeededNamed:(id)a0;
+- (long long)work_getIDForRelationshipName:(id)a0 error:(id *)a1;
+- (long long)work_uniquedNodeWithName:(id)a0 error:(id *)a1;
+- (BOOL)work_deleteRelationshipsWithIDs:(id)a0 error:(id *)a1;
+- (BOOL)work_deleteRelationships:(id)a0 fromNodeWithID:(long long)a1 error:(id *)a2;
+- (BOOL)_work_deleteRelationships:(id)a0 fromNodeWithID:(long long)a1 toNodeNamed:(id)a2 error:(id *)a3;
+- (long long)work_rowIDForValueType:(id)a0 error:(id *)a1;
+- (BOOL)work_insertNewKeyIfNeeded:(id)a0 error:(id *)a1;
+- (long long)work_getIDForKeyName:(id)a0 error:(id *)a1;
+- (void)_work_beginTransaction;
+- (void)_work_endTransaction:(BOOL)a0;
+- (BOOL)_performWork:(id /* block */)a0 error:(id *)a1;
+- (BOOL)_openDatabaseError:(id *)a0;
+- (BOOL)_work_createGraphDatabaseIfNeededWithError:(id *)a0;
+- (id)initWithPath:(id)a0 error:(id *)a1;
+- (void)attemptDeleteWithCompletion:(id /* block */)a0;
+- (BOOL)attemptDelete;
+- (BOOL)work_dropIndicesWithError:(id *)a0;
+- (id)work_userVersionWithError:(id *)a0;
+- (id)work_makeNodeWithName:(id)a0 error:(id *)a1;
+- (long long)work_countOfNodesWithRelationship:(long long)a0 error:(id *)a1;
+- (long long)work_countOfNodes;
+- (long long)work_doesNodeExist:(id)a0 error:(id *)a1;
+- (id)work_nodeForName:(id)a0;
+- (BOOL)work_deleteNodeWithID:(long long)a0 error:(id *)a1;
+- (id)work_nodesContainingAttributeWithID:(long long)a0 limit:(long long)a1 withValue:(id)a2 error:(id *)a3;
+- (id)work_nodesContainingAttribute:(id)a0 withValue:(id)a1 error:(id *)a2;
+- (BOOL)work_deleteAllRelationshipsWithName:(id)a0 withError:(id *)a1;
+- (id)work_allNodesWithFromRelationshipID:(long long)a0 error:(id *)a1;
+- (id)work_nodesWithRelationshipOfType:(long long)a0 toNodeWithID:(long long)a1 error:(id *)a2;
+- (id)work_nodeNameForAttributeWithKeyID:(long long)a0 value:(id)a1 error:(id *)a2;
+- (long long)work_countOfRelationships;
+- (long long)work_countOfRelationshipOfType:(long long)a0 fromNodeWithID:(long long)a1 error:(id *)a2;
+- (BOOL)work_addRelationshipNamed:(id)a0 fromNodeNamed:(id)a1 toNodeNamed:(id)a2 error:(id *)a3;
+- (BOOL)work_addRelationshipNamed:(id)a0 fromNodeWithID:(long long)a1 toNodeWithID:(long long)a2 error:(id *)a3;
+- (BOOL)work_deleteRelationshipWithID:(long long)a0 error:(id *)a1;
+- (BOOL)work_deleteRelationship:(id)a0 fromNodeWithID:(long long)a1 error:(id *)a2;
+- (BOOL)_work_deleteRelationships:(id)a0 toNodeWithName:(id)a1 error:(id *)a2;
+- (BOOL)work_deleteRelationships:(id)a0 fromNodeWithID:(long long)a1 toNodeNamed:(id)a2 error:(id *)a3;
+- (BOOL)work_deleteAllRelationshipsOfTypes:(id)a0 error:(id *)a1;
+- (id)work_attributesForNodeWithID:(long long)a0 matchingKey:(id)a1 error:(id *)a2;
+- (BOOL)work_deleteAttributesFromNodeNamed:(id)a0 forKey:(id)a1 error:(id *)a2;
+- (BOOL)work_deleteAllAttributesFromNodeNamed:(id)a0 error:(id *)a1;
+- (id)work_metadataValueForKey:(id)a0;
+- (BOOL)work_setMetadataValue:(id)a0 forKey:(id)a1 error:(id *)a2;
+- (void)performWork:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (id)_work_nodesWithRelationship:(id)a0 toNodeWithID:(id)a1 reversed:(BOOL)a2 error:(id *)a3;
+- (id)work_nodesWithRelationship:(id)a0 toNodeWithID:(id)a1 error:(id *)a2;
+- (id)work_nodesWithRelationship:(id)a0 fromNodeWithID:(id)a1 error:(id *)a2;
+- (BOOL)work_changeRelationshipWithNameID:(long long)a0 subjectID:(long long)a1 toSampleWithUUID:(id)a2 withNewNameID:(long long)a3 error:(id *)a4;
+
+@end

@@ -1,0 +1,80 @@
+@class NSData, NSString, NSHashTable, NSArray, HMFActivity, HAPAccessory, HMFVersion, NSObject, NSNumber, HAPDeviceID;
+@protocol HAPAccessoryServerDelegate, HMFLocking, OS_dispatch_queue, HAPKeyStore;
+
+@interface HAPAccessoryServer : HMFObject {
+    id<HMFLocking> _lock;
+}
+
+@property (readonly, nonatomic) NSHashTable *internalDelegates;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *internalDelegateQueue;
+@property (retain, nonatomic) NSHashTable *notificationClients;
+@property (readonly, weak) id<HAPAccessoryServerDelegate> delegate;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue;
+@property (copy, nonatomic) NSString *name;
+@property (nonatomic) BOOL hasPairings;
+@property (nonatomic) unsigned long long pendingRemovePairing;
+@property (nonatomic, getter=isReachable) BOOL reachable;
+@property (getter=isSecuritySessionOpen) BOOL securitySessionOpen;
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) NSNumber *category;
+@property (nonatomic) unsigned long long configNumber;
+@property (nonatomic) unsigned long long stateNumber;
+@property (nonatomic) unsigned long long compatibilityFeatures;
+@property (nonatomic, getter=isIncompatibleUpdate) BOOL incompatibleUpdate;
+@property (retain, nonatomic) HAPAccessory *primaryAccessory;
+@property (copy, nonatomic) NSArray *accessories;
+@property (readonly, weak, nonatomic) id<HAPKeyStore> keyStore;
+@property (copy, nonatomic) NSData *setupHash;
+@property (copy) HMFVersion *version;
+@property (nonatomic) unsigned long long pairSetupType;
+@property (retain, nonatomic) NSString *productData;
+@property (weak, nonatomic) HMFActivity *pairingActivity;
+@property (readonly, copy) HAPDeviceID *deviceID;
+@property (readonly, nonatomic) long long linkType;
+@property (nonatomic) BOOL supportsTimedWrite;
+@property (nonatomic) unsigned long long authMethod;
+@property (readonly, nonatomic, getter=isBLELinkConnected) BOOL bleLinkConnected;
+@property (nonatomic) BOOL reachabilityPingEnabled;
+@property (nonatomic) BOOL reachablilityPingNotificationEnabled;
+
+- (BOOL)isPaired;
+- (void)setDelegate:(id)a0 queue:(id)a1;
+- (id)init;
+- (void).cxx_destruct;
+- (void)registerForNotifications:(id)a0;
+- (void)reconfirm;
+- (void)listPairingsWithCompletionQueue:(id)a0 completionHandler:(id /* block */)a1;
+- (void)unregisterForNotifications:(id)a0;
+- (BOOL)requiresTimedWrite:(id)a0;
+- (void)writeCharacteristicValues:(id)a0 timeout:(double)a1 completionQueue:(id)a2 completionHandler:(id /* block */)a3;
+- (void)readCharacteristicValues:(id)a0 timeout:(double)a1 completionQueue:(id)a2 completionHandler:(id /* block */)a3;
+- (void)enableEvents:(BOOL)a0 forCharacteristics:(id)a1 withCompletionHandler:(id /* block */)a2 queue:(id)a3;
+- (void)identifyWithCompletion:(id /* block */)a0;
+- (void)stopPing;
+- (void)startPing;
+- (id)initWithKeystore:(id)a0;
+- (void)discoverAccessories;
+- (void)startPairingWithConsentRequired:(BOOL)a0 config:(id)a1 ownershipToken:(id)a2;
+- (void)continuePairingAfterAuthPrompt;
+- (BOOL)stopPairingWithError:(id *)a0;
+- (BOOL)tryPairingPassword:(id)a0 error:(id *)a1;
+- (void)addPairing:(id)a0 completionQueue:(id)a1 completionHandler:(id /* block */)a2;
+- (void)removePairing:(id)a0 completionQueue:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)removePairingForCurrentControllerOnQueue:(id)a0 completion:(id /* block */)a1;
+- (BOOL)matchesSetupID:(id)a0 serverIdentifier:(id)a1;
+- (void)continueAuthAfterValidation:(BOOL)a0;
+- (void)continuePairingUsingWAC;
+- (void)tearDownSessionOnAuthCompletion;
+- (void)provisionToken:(id)a0;
+- (BOOL)isPinging;
+- (void)enumerateInternalDelegatesUsingBlock:(id /* block */)a0;
+- (void)authenticateAccessory;
+- (void)notifyClients:(unsigned long long)a0 withDictionary:(id)a1;
+- (void)handleUpdatesForCharacteristics:(id)a0 stateNumber:(id)a1;
+- (BOOL)pingSupported;
+- (void)addInternalDelegate:(id)a0;
+- (BOOL)matchesSetupID:(id)a0;
+- (void)removeInternalDelegate:(id)a0;
+
+@end

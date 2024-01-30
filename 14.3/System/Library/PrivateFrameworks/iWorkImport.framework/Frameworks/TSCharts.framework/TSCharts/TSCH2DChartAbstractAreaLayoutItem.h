@@ -1,0 +1,15 @@
+@class TSCHChartDataSetNameLayoutItem, TSCHChartBodyLayoutItem, TSCHChartTitleLayoutItem;
+
+@interface TSCH2DChartAbstractAreaLayoutItem : TSCHChartAbstractAreaLayoutItem {
+    TSCHChartTitleLayoutItem *mTitleElement;
+    TSCHChartDataSetNameLayoutItem *mDataSetNameElement;
+}
+
+@property (readonly, nonatomic) TSCHChartBodyLayoutItem *bodyLayoutItem;
+
+- (void).cxx_destruct;
+- (void)setChartBodyLayoutSize:(struct CGSize { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })chartBodyLayoutRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })i_currentBufferAreaUnitRect;
+
+@end

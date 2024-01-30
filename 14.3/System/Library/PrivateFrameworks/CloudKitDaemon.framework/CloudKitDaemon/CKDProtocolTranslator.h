@@ -1,0 +1,87 @@
+@class NSString, NSMutableDictionary, CKDPIdentifier;
+@protocol CKDProtocolTranslatorIdentityDelegate;
+
+@interface CKDProtocolTranslator : NSObject
+
+@property (copy, nonatomic) NSString *containerScopedUserID;
+@property (copy, nonatomic) NSString *overriddenContainerScopedUserID;
+@property (copy, nonatomic) NSString *orgAdminUserID;
+@property (copy, nonatomic) NSString *packageStagingDirectory;
+@property (retain, nonatomic) NSMutableDictionary *downloadPreauthorizationMap;
+@property (nonatomic) BOOL dontCreateValidatingParentReferences;
+@property (readonly, nonatomic) CKDPIdentifier *pUserID;
+@property (readonly, nonatomic) long long databaseScope;
+@property (weak, nonatomic) id<CKDProtocolTranslatorIdentityDelegate> identityDelegate;
+
++ (id)translatorIgnoringUserIDsWithPackageStagingDirectory:(id)a0 databaseScope:(long long)a1;
+
+- (BOOL)objectIsAnEncryptedType:(id)a0;
+- (id)assetFromPAsset:(id)a0 error:(id *)a1;
+- (id)streamingAssetFromPStreamingAsset:(id)a0 error:(id *)a1;
+- (id)pQueryFromQuery:(id)a0 error:(id *)a1;
+- (void)consumeResponseHeader:(id)a0;
+- (id)recordIDFromPShareIdentifier:(id)a0 error:(id *)a1;
+- (id)pStreamingAssetFromStreamingAsset:(id)a0 forCache:(BOOL)a1;
+- (id)containerPrivacySettingsFromPContainerPrivacySettings:(id)a0;
+- (id)pFieldActionWithLocation:(long long)a0 length:(unsigned long long)a1 values:(id)a2;
+- (id)pShareIdentifierFromRecordID:(id)a0;
+- (void).cxx_destruct;
+- (id)_initWithContainerScopedUserID:(id)a0 orgAdminUserID:(id)a1 packageStagingDirectory:(id)a2 databaseScope:(long long)a3;
+- (id)shareParticipantFromPParticipant:(id)a0 error:(id *)a1;
+- (id)pAliasWithUserRecordID:(id)a0;
+- (id)fieldValueOfType:(int)a0 withObject:(id)a1 forCache:(BOOL)a2;
+- (id)pAliasWithPhoneNumber:(id)a0;
+- (id)pFieldWithKey:(id)a0 value:(id)a1;
+- (id)objectRepresentationFromFieldValue:(id)a0;
+- (id)_pRecordFromRecordSansValues:(id)a0 forCache:(BOOL)a1;
+- (id)referenceFromPReference:(id)a0 error:(id *)a1;
+- (id)pRecordFromRecord:(id)a0;
+- (id)pAliasWithIdentityLookupInfo:(id)a0;
+- (id)pAliasWithEmailAddress:(id)a0;
+- (id)pShareFromShare:(id)a0 forCache:(BOOL)a1;
+- (id)encryptedFieldValueOfType:(int)a0 withObject:(id)a1;
+- (int)fieldValueTypeFromObject:(id)a0;
+- (BOOL)_isDefaultUserNameFromClient:(id)a0;
+- (id)fieldValueFromObject:(id)a0;
+- (id)identityFromPUser:(id)a0;
+- (id)encryptedObjectRepresentationFromFieldValue:(id)a0;
+- (id)pRecordIdentifierFromUserRecordName:(id)a0;
+- (id)pContainerScopedRecordZoneIdentifierFromFromPRecordZoneIdentifier:(id)a0;
+- (id)deltaPRecordFromRecord:(id)a0 withAllFields:(BOOL)a1 outDeletedMergeFields:(id *)a2 outKeysToSend:(id *)a3;
+- (id)shareFromPShare:(id)a0 error:(id *)a1;
+- (id)userNameFromPIdentifier:(id)a0 error:(id *)a1;
+- (id)pRecordZoneIdentifierFromRecordZoneID:(id)a0;
+- (BOOL)_valueTypeIsAnEncryptedBytesTypeForField:(id)a0;
+- (id)notificationFromPPushMessage:(id)a0;
+- (id)subscriptionFromPSubscription:(id)a0 error:(id *)a1;
+- (int)fieldValueTypeFromEncryptedDataObject:(id)a0 isInList:(BOOL)a1;
+- (id)pUserIdentifierFromUserRecordName:(id)a0;
+- (id)initWithContainerScopedUserID:(id)a0 orgAdminUserID:(id)a1 packageStagingDirectory:(id)a2 databaseScope:(long long)a3;
+- (unsigned long long)capabilitiesFromPZoneCapabilities:(id)a0;
+- (id)pIdentifierFromUserRecordID:(id)a0;
+- (id)locationFieldValueWithLatitude:(double)a0 longitude:(double)a1;
+- (id)packageFromPPackage:(id)a0 error:(id *)a1;
+- (id)throttleFromPThrottlingConfig:(id)a0;
+- (id)initWithPackageStagingDirectory:(id)a0 databaseScope:(long long)a1;
+- (id)pAliasWithHashedStringID:(id)a0 type:(int)a1;
+- (id)pRecordIdentifierFromRecordID:(id)a0;
+- (id)recordFromPRecord:(id)a0 error:(id *)a1;
+- (id)pPackageFromPackage:(id)a0;
+- (id)pParticipantFromShareParticipant:(id)a0 forCache:(BOOL)a1;
+- (id)pRecordZoneFromRecordZone:(id)a0;
+- (BOOL)_isDefaultUserNameFromServer:(id)a0;
+- (id)pReferenceFromReference:(id)a0 error:(id *)a1;
+- (id)recordZoneIDFromPRecordZoneIdentifier:(id)a0 error:(id *)a1;
+- (id)pAssetFromAsset:(id)a0;
+- (id)pContainerScopedRecordIdentifierWithPRecordIdentifier:(id)a0;
+- (id)pSubscriptionFromSubscription:(id)a0 error:(id *)a1;
+- (id)fieldValueFromObject:(id)a0 forCache:(BOOL)a1;
+- (id)fieldValueOfType:(int)a0 withObject:(id)a1;
+- (id)pContainerScopedUserIdentifierFromPUserIdentifier:(id)a0;
+- (id)pFieldWithKey:(id)a0 value:(id)a1 forCache:(BOOL)a2;
+- (id)recordZoneFromPRecordZone:(id)a0 error:(id *)a1;
+- (id)pRecordFromRecord:(id)a0 forCache:(BOOL)a1;
+- (id)recordIDFromPRecordIdentifier:(id)a0 error:(id *)a1;
+- (id)recordIDFromPUserName:(id)a0 error:(id *)a1;
+
+@end

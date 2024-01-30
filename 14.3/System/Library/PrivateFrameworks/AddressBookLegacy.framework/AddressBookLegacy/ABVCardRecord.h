@@ -1,0 +1,70 @@
+@interface ABVCardRecord : NSObject {
+    void *_record;
+    struct __CFArray { } *_properties;
+}
+
++ (BOOL)includeNotesInVCards;
++ (BOOL)includeREVInVCards;
++ (BOOL)includeImageURIInVCards;
++ (BOOL)includeABClipRectInVCardPhotos;
++ (void)setPrivateVCardEnabled:(BOOL)a0;
++ (void)clearPrivateFields;
++ (BOOL)privateVCardEnabled;
++ (void)setVCardField:(id)a0 isPrivate:(BOOL)a1;
++ (BOOL)vcardFieldisPrivate:(id)a0;
++ (void)setIncludeNotesInVCards:(BOOL)a0;
++ (void)setIncludeREVInVCards:(BOOL)a0;
++ (void)setIncludePhotosInVCards:(BOOL)a0;
++ (BOOL)includePhotosInVCards;
++ (struct __CFArray { } *)supportedProperties;
+
+- (void *)valueForProperty:(unsigned int)a0;
+- (id)imageData;
+- (id)init;
+- (BOOL)_isCompany;
+- (id)_prodID;
+- (void)dealloc;
+- (BOOL)_showField:(unsigned int)a0;
+- (id)alternateName;
+- (id)_21vCardRepresentationAsData;
+- (id)_copyVCardRepresentationAsStringIncludeExternalProperties:(BOOL)a0 withPhoto:(id)a1 extraPhotoParameters:(id)a2 includePrivateData:(BOOL)a3;
+- (BOOL)useThumbnailImageFormatIfAvailable;
+- (id)_copyGroupVCardRepresentationAsStringIncludeExternalProperties:(BOOL)a0;
+- (id)newISO8061StringFromDate:(id)a0;
+- (id)stringForAlternateBirthdayComponent:(id)a0 key:(id)a1 format:(id)a2;
+- (void *)copyValueForProperty:(unsigned int)a0;
+- (BOOL)_showField:(unsigned int)a0 identifier:(int)a1;
+- (id)encodedLineForValue:(id)a0;
+- (struct __CFString { } *)_vCardKeyForGenericLabel:(id)a0;
+- (void)appendLabel:(id)a0 toVCardRep:(id)a1 inGroup:(id)a2;
+- (id)encodedDataForValue:(id)a0 charsetName:(id *)a1;
+- (id)propertyLineForIMHandles:(id)a0 labels:(id)a1 vCardProperty:(id)a2;
+- (id)_dictionaryForActivityAlerts;
+- (id)_valueForPersonSounds:(void *)a0 identifier:(int)a1;
+- (void)_addPersonSounds:(void *)a0 identifier:(int)a1 toActivityAlerts:(id *)a2 activity:(id)a3 alert:(id)a4;
+- (id)_typeParameterForToneType:(id)a0;
+- (id)_realCompositeName;
+- (id)_fullNameIncludingAuxiliaryElements:(BOOL)a0;
+- (struct __CFString { } *)_vCardKeyForEmailLabel:(id)a0;
+- (id)_vCardKeysForPhoneLabel:(id)a0;
+- (id)_vCardKeyForAddressLabel:(id)a0 vCard3:(BOOL)a1;
+- (id)propertyLineForGenericABProperty21:(unsigned int)a0 vCardProperty:(id)a1;
+- (id)ISO8061StringFromDate:(id)a0;
+- (id)dataForInstantMessageProperties;
+- (id)dataForSocialProfileProperty:(void *)a0 groupCount:(long long *)a1 includePrivateData:(BOOL)a2;
+- (id)ISO8061StringFromDateTime:(id)a0;
+- (id)dataForSoundProperty:(void *)a0;
+- (id)stringFromAlternateBirthday:(id)a0;
+- (BOOL)_usesArrayForExternalPropKey:(id)a0;
+- (void)_appendPropValue:(id)a0 forPropKey:(id)a1 toOutString:(id)a2 usingDelimiter:(id)a3 inGroup:(id)a4;
+- (id)propertyLineForGenericABProperty:(unsigned int)a0 vCardProperty:(id)a1 is21:(BOOL)a2 groupCount:(long long *)a3;
+- (id)propertyLineForInstantMessageHandles:(BOOL)a0 groupCount:(long long *)a1 includePrivateData:(BOOL)a2;
+- (id)propertyLineForIMPPProperty:(BOOL)a0 groupCount:(long long *)a1 includePrivateData:(BOOL)a2;
+- (id)vCardRepresentationForMode:(int)a0;
+- (void *)record;
+- (id)initWithRecord:(void *)a0;
+- (id)_fullName;
+- (id)initWithVCardRepresentation:(id)a0;
+- (BOOL)setValue:(void *)a0 forProperty:(unsigned int)a1;
+
+@end

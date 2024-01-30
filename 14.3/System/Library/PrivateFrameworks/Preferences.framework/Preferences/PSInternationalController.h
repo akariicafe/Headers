@@ -1,0 +1,3 @@
+@interface PSInternationalController : PSListController
+
+@end

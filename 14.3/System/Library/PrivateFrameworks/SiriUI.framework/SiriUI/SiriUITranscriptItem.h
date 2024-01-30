@@ -1,0 +1,20 @@
+@class NSUUID, UIViewController, AceObject;
+@protocol SiriUIViewController;
+
+@interface SiriUITranscriptItem : NSObject
+
+@property (copy, nonatomic) NSUUID *itemIdentifier;
+@property (retain, nonatomic) UIViewController<SiriUIViewController> *viewController;
+@property (retain, nonatomic) AceObject *aceObject;
+@property (nonatomic, getter=isRestored) BOOL restored;
+@property (nonatomic) BOOL shouldBeExposed;
+@property (nonatomic) BOOL snippetViewControllerHasBeenUnloaded;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } previousFrame;
+
++ (id)transcriptItemWithAceObject:(id)a0;
+
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithAceObject:(id)a0;
+
+@end

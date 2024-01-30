@@ -1,0 +1,3 @@
+@interface _TtC10RealityKitP33_D3A1A57E3A41BD482E6D82B661C46C1C26__RKEntityGlobalTapTrigger : RealityKit.__RKEntityTrigger
+
+@end

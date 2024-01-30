@@ -1,0 +1,3 @@
+@interface WFShortcut : INObject
+
+@end

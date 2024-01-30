@@ -1,0 +1,12 @@
+@interface PDFView_QSExtras : __PDFView_QSExtras_super
+
++ (id)safeCategoryTargetClassName;
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (id)_accessibilityQuickSpeakContent;
+- (id)_accessibilitySpeakTextSelectionViews;
+- (void)_accessibilityQuickSpeakTextRectsWithRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 string:(id)a1 highlightRects:(id)a2 sentenceRects:(id)a3 singleTextRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a4;
+- (void)_axConvertRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 toRects:(id)a1 operatingPage:(id)a2;
+
+@end

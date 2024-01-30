@@ -1,0 +1,88 @@
+@class VCVideoStreamRateAdaptation, NSString, VideoAttributes, VCMediaStreamStats, NSObject, VCMediaStreamSynchronizer;
+@protocol OS_dispatch_queue;
+
+@interface VCVideoStreamReceiver : VCVideoReceiverBase <VCMediaStreamSyncDestination> {
+    struct tagHANDLE { int x0; } *_hRTP;
+    struct OpaqueCMMemoryPool { } *_blockBufferMemoryPool;
+    struct __CFAllocator { } *_blockBufferMemoryPoolAllocator;
+    struct OpaqueVTDecompressionSession { } *_decompressionSession;
+    BOOL _receivedFirstPacket;
+    BOOL _receivedFirstRemoteFrame;
+    unsigned short _lastSequenceNumber;
+    int _sequenceNumberOutOfOrder;
+    unsigned char _firSequenceNumber;
+    double _lastFIRArrivalTime;
+    VCVideoStreamRateAdaptation *_rateAdaptation;
+    struct opaqueCMBufferQueue { } *_videoQueue;
+    unsigned int _mostRecentTimestamp;
+    unsigned int _lastVideoTimestamp;
+    unsigned int _videoTimestampWrapCount;
+    struct opaqueCMFormatDescription { } *_formatDescription;
+    NSObject<OS_dispatch_queue> *_videoStreamReceiverQueue;
+    struct OpaqueFigThread { } *_networkReceiveThread;
+    BOOL _runNetworkReceiveThread;
+    int _sRecvReset;
+    struct VideoPacketBuffer_t { } *_videoPacketBuffer;
+    VideoAttributes *_remoteVideoAttributes;
+    VCMediaStreamSynchronizer *_mediaStreamSynchronizer;
+    int _remoteVideoCamera;
+    BOOL _remoteVideoMirrored;
+    BOOL _enableCVO;
+    unsigned long long _cvoExtensionID;
+    unsigned long long _lastKeyFrameSampleBufferSize;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastFrameTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastDisplayTime;
+    VCMediaStreamStats *_stats;
+    double _reportingIntervalStartTime;
+    double _reportingLastUpdateTime;
+    unsigned int _receivedBytes;
+    unsigned int _videoStallDurationMillis;
+    double _videoStallStartTime;
+    struct opaqueRTCReporting { } *_reportingAgent;
+    int _reportingModuleID;
+    BOOL _enableReceiveBitstreamDump;
+    struct OpaqueVCTransportStreamRunLoop { } *_runLoop;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)pauseVideo;
+- (void)gatherRealtimeStats:(struct __CFDictionary { } *)a0;
+- (void)reportingVideoStreamEvent:(unsigned short)a0;
+- (void)startVideo;
+- (void)stopVideo;
+- (void)handleActiveConnectionChange:(id)a0;
+- (BOOL)startSynchronization:(id)a0;
+- (void)stopSynchronization;
+- (int)stopNetworkReceiveThread;
+- (void)teardownDecodeSession:(BOOL)a0;
+- (void)setEnableRateAdaptation:(BOOL)a0 maxBitrate:(unsigned int)a1 minBitrate:(unsigned int)a2 adaptationInterval:(double)a3;
+- (int)startNetworkReceiveThread;
+- (void)setSyncSource:(id)a0;
+- (id)syncSource;
+- (void)handleAlarmForTimeStamp:(unsigned int)a0;
+- (int)processVideoRTP;
+- (int)processVideoRTCP;
+- (void)updateVideoStallStatus:(BOOL)a0;
+- (int)scheduleDecodeForFrameWithBuffer:(struct VCVideoReceiverSampleBuffer_t { struct __CFAllocator *x0; struct tagVCVideoDecodingArgs { int x0; int x1; unsigned int x2; unsigned short x3; unsigned char x4; BOOL x5; unsigned short x6; BOOL x7; double x8; int x9; unsigned short x10; BOOL x11; unsigned short x12; double x13; BOOL x14; int x15; double x16; } x1; struct OpaqueCMBlockBuffer *x2; unsigned long long x3; struct OpaqueCMBlockBuffer *x4; struct VCBlockBuffer_t { struct OpaqueCMBlockBuffer *x0; unsigned long long x1; char *x2; } x5; struct VCBlockBuffer_t { struct OpaqueCMBlockBuffer *x0; unsigned long long x1; char *x2; } x6; struct VCBlockBuffer_t { struct OpaqueCMBlockBuffer *x0; unsigned long long x1; char *x2; } x7; struct VCBlockBuffer_t { struct OpaqueCMBlockBuffer *x0; unsigned long long x1; char *x2; } x8; int x9; } *)a0 timestamp:(unsigned int)a1 hostTime:(double)a2 showFrame:(BOOL)a3;
+- (void)scheduleDecodeForTimestamp:(unsigned int)a0;
+- (void)scheduleVideoDecode:(unsigned int *)a0 schedule_n:(int)a1;
+- (void)updateSequenceNumber:(unsigned short)a0;
+- (void)processReceptionReportBlock:(struct tagRTCP_RRB { unsigned int x0; unsigned char x1 : 8; unsigned int x2 : 24; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; } *)a0 blockCount:(unsigned int)a1 arrivalNTPTime:(union tagNTP { unsigned long long x0; struct { unsigned int x0; unsigned int x1; } x1; })a2;
+- (int)decodeFrame:(struct opaqueCMSampleBuffer { } *)a0 showFrame:(BOOL)a1;
+- (void)createDecodeSession:(struct opaqueCMFormatDescription { } *)a0;
+- (BOOL)canDequeue:(struct opaqueCMBufferQueue { } *)a0 forTimestamp:(unsigned int)a1;
+- (void)dequeueAndDecodeForTimestamp:(unsigned int)a0;
+- (BOOL)handleRemoteVideoAttributesChange:(struct __CVBuffer { } *)a0;
+- (id)initWithRTP:(struct tagHANDLE { int x0; } *)a0 delegate:(id)a1 reportingAgent:(struct opaqueRTCReporting { } *)a2 dumpID:(unsigned int)a3 reportingParentID:(int)a4 statisticsCollector:(id)a5 useTransportStreamRunLoop:(BOOL)a6;
+- (void)setEnableCVO:(BOOL)a0 cvoExtensionID:(unsigned long long)a1;
+- (void)updateSourcePlayoutTimestamp:(struct { long long x0; int x1; unsigned int x2; long long x3; } *)a0;
+- (void *)networkReceivePackets;
+- (void)rtcpSendIntervalElapsed;
+- (int)showDecodedFrame:(struct __CVBuffer { } *)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+
+@end

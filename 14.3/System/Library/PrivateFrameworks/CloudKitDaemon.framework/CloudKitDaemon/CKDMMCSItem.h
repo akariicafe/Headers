@@ -1,0 +1,77 @@
+@class NSURL, NSFileHandle, CKPackage, CKAssetDownloadPreauthorization, NSDictionary, CKDMMCSItemCommandWriter, CKDAssetZoneKey, CKAsset, NSMutableArray, NSString, CKRecordID, NSNumber, NSData, NSError;
+
+@interface CKDMMCSItem : NSObject
+
+@property (retain, nonatomic) NSURL *fileURL;
+@property (retain, nonatomic) NSNumber *deviceID;
+@property (retain, nonatomic) NSNumber *fileID;
+@property (retain, nonatomic) NSNumber *generationID;
+@property (retain, nonatomic) NSFileHandle *clientOpenedFileHandle;
+@property (retain, nonatomic) NSNumber *modTimeInSeconds;
+@property (nonatomic) unsigned long long itemID;
+@property (nonatomic) double progress;
+@property (nonatomic) unsigned long long fileSize;
+@property (nonatomic) unsigned long long paddedFileSize;
+@property (nonatomic) unsigned long long offset;
+@property (nonatomic) unsigned int chunkCount;
+@property (nonatomic) unsigned long long packageIndex;
+@property (retain, nonatomic) NSString *putPackageSectionIdentifier;
+@property (retain, nonatomic) CKAsset *asset;
+@property (retain, nonatomic) CKPackage *package;
+@property (retain, nonatomic) CKRecordID *recordID;
+@property (retain, nonatomic) NSString *recordType;
+@property (retain, nonatomic) NSString *recordKey;
+@property (retain, nonatomic) NSData *signature;
+@property (retain, nonatomic) NSString *itemTypeHint;
+@property (retain, nonatomic) NSURL *contentBaseURL;
+@property (retain, nonatomic) NSString *owner;
+@property (retain, nonatomic) NSString *requestor;
+@property (retain, nonatomic) NSString *authToken;
+@property (retain, nonatomic) CKAssetDownloadPreauthorization *downloadPreauthorization;
+@property (retain, nonatomic) NSString *uploadReceipt;
+@property (nonatomic) double uploadReceiptExpiration;
+@property (retain, nonatomic) NSMutableArray *sectionItems;
+@property (retain, nonatomic) NSError *error;
+@property (retain, nonatomic) NSData *assetKey;
+@property (retain, nonatomic) NSData *wrappedAssetKey;
+@property (retain, nonatomic) NSData *clearAssetKey;
+@property (retain, nonatomic) NSData *boundaryKey;
+@property (retain, nonatomic) NSData *referenceSignature;
+@property (retain, nonatomic) CKDMMCSItemCommandWriter *writer;
+@property (nonatomic) BOOL inMemoryDownloadLooksOkay;
+@property (nonatomic) unsigned long long uploadTokenExpiration;
+@property (nonatomic) unsigned long long downloadTokenExpiration;
+@property (retain, nonatomic) NSDictionary *assetChunkerOptions;
+@property (retain, nonatomic) CKDAssetZoneKey *assetZoneKey;
+@property (retain, nonatomic) NSURL *constructedAssetDownloadURL;
+@property (nonatomic) unsigned long long constructedAssetEstimatedSize;
+@property (retain, nonatomic) NSString *trackingUUID;
+@property (nonatomic) BOOL hasSize;
+@property (nonatomic) BOOL hasOffset;
+@property (nonatomic) BOOL finished;
+@property (nonatomic, getter=isTemporary) BOOL temporary;
+@property (nonatomic) BOOL shouldReadRawEncryptedData;
+@property (nonatomic) BOOL shouldReadAssetContentUsingClientProxy;
+@property (nonatomic) BOOL isAlreadyRegistered;
+@property (nonatomic) BOOL isReaderReadFrom;
+@property (nonatomic) BOOL isRereferencedAssetUpload;
+
+- (id)openWithError:(id *)a0;
+- (id)CKPropertiesDescription;
+- (id)init;
+- (void).cxx_destruct;
+- (id)description;
+- (id)initWithAsset:(id)a0;
+- (id)initWithPackage:(id)a0;
+- (id)readBytesOfInMemoryAssetContentWithProxy:(id)a0 offset:(unsigned long long)a1 length:(unsigned long long)a2 error:(id *)a3;
+- (void)setupForGetChunkKeysWithAsset:(id)a0 destinationDatabaseScope:(long long)a1;
+- (id)getFileSizeWithProxy:(id)a0 error:(id *)a1;
+- (id)openWithProxy:(id)a0 error:(id *)a1;
+- (id)getFileMetadataWithProxy:(id)a0 fileHandle:(id)a1 error:(id *)a2;
+- (BOOL)canBeRegistered;
+- (id)_openInfo;
+- (void)clearFileSize;
+- (id)getFileSizeWithError:(id *)a0;
+- (id)getFileMetadataWithFileHandle:(id)a0 error:(id *)a1;
+
+@end

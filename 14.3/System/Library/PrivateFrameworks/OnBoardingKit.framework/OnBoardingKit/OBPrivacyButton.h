@@ -1,0 +1,3 @@
+@interface OBPrivacyButton : UIButton
+
+@end

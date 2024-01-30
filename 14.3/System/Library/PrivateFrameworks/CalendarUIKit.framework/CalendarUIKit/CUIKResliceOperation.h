@@ -1,0 +1,3 @@
+@interface CUIKResliceOperation : CUIKSaveOperation
+
+@end

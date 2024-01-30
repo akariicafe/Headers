@@ -1,0 +1,3 @@
+@interface __PXCMMComposeRecipientTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

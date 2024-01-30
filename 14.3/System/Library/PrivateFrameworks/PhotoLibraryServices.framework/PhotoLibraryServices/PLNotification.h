@@ -1,0 +1,87 @@
+@class NSString, NSArray, NSDictionary, NSDate, NSData, NSMutableSet;
+
+@interface PLNotification : NSObject {
+    NSString *_senderName;
+    NSString *_albumTitle;
+    BOOL _mainAssetIsMine;
+    BOOL _mainAssetIsVideo;
+    BOOL _containsBatchFirstKnownAsset;
+    NSMutableSet *_assetUUIDs;
+    long long _assetCount;
+    NSMutableSet *_placeholderAssetUUIDs;
+    NSMutableSet *_lowResThumbAssetUUIDs;
+    int _invitationState;
+    NSString *_firstCommentGUID;
+    NSDate *_commentDate;
+    long long _commentCount;
+    BOOL _commentIsCaption;
+    NSMutableSet *_senderNames;
+    BOOL _forMultipleAsset;
+    BOOL _allMultipleAssetIsMine;
+    BOOL _isMixedType;
+    NSString *_notificationTitle;
+    NSString *_notificationSubtitle;
+    NSString *_suggestedCMMUUID;
+    NSString *_keyMomentShareUUID;
+    NSArray *_momentShareUUIDs;
+    NSString *_momentShareOwnerLocalizedName;
+}
+
+@property (readonly) long long notificationType;
+@property (readonly, copy) NSString *albumUUID;
+@property (readonly, copy) NSString *albumCloudGUID;
+@property (readonly, copy) NSString *mainAssetUUID;
+@property (readonly, copy) NSString *senderEmailAddress;
+@property (readonly) NSString *title;
+@property (readonly) NSString *message;
+@property (readonly, copy) NSDate *date;
+@property (copy) NSDate *originalDate;
+@property (readonly, copy) NSDate *expirationDate;
+@property (readonly) NSString *destinationURLString;
+@property (readonly) BOOL hasThumbnail;
+@property (readonly) NSArray *suppressionContexts;
+@property (readonly) NSDictionary *dictionaryRepresentation;
+@property (readonly) BOOL canMergeWithPersistedNotifications;
+@property (readonly) BOOL allAssetsAreFullResolution;
+@property (readonly) BOOL thumbnailAssetIsPlaceholder;
+@property (readonly) double completionPercentage;
+@property BOOL suppressAlert;
+@property (copy) NSDate *notificationDeliveryDate;
+@property (readonly) NSString *requestIdentifier;
+@property (readonly) NSString *keyObjectUUID;
+@property (readonly) NSString *interestingMemoryUUID;
+@property (retain) NSData *thumbnailImageData;
+@property (readonly) BOOL offerToReportAsJunk;
+@property (readonly) NSString *photosBatchID;
+@property (readonly) NSString *commentText;
+
++ (id)requestIdentifierByNotificationType:(long long)a0 keyObjectUUID:(id)a1 photosBatchID:(id)a2;
++ (id)_UNCategoryFromNotificationType:(long long)a0;
+
+- (id)_initWithCommentsCount:(long long)a0 commentDate:(id)a1 firstCommentGUID:(id)a2 toAssetWithUUID:(id)a3 photosBatchID:(id)a4 mainAssetIsMine:(BOOL)a5 mainAssetIsVideo:(BOOL)a6 inAlbumWithTitle:(id)a7 albumUUID:(id)a8 albumCloudGUID:(id)a9 assetUUIDs:(id)a10 placeholderAssetUUIDs:(id)a11 lowResThumbAssetUUIDs:(id)a12;
+- (id)init;
+- (void).cxx_destruct;
+- (id)_initWithLikesCount:(long long)a0 commentDate:(id)a1 firstCommentGUID:(id)a2 toAssetWithUUID:(id)a3 photosBatchID:(id)a4 mainAssetIsMine:(BOOL)a5 mainAssetIsVideo:(BOOL)a6 inAlbumWithTitle:(id)a7 albumUUID:(id)a8 albumCloudGUID:(id)a9 assetUUIDs:(id)a10 placeholderAssetUUIDs:(id)a11 lowResThumbAssetUUIDs:(id)a12 senderNames:(id)a13 forMultipleAsset:(BOOL)a14 allMultipleAssetIsMine:(BOOL)a15 isMixedType:(BOOL)a16;
+- (id)notificationByMergingWithNotificationDictionary:(id)a0;
+- (id)_initWithType:(long long)a0;
+- (id)notificationByMergingWithNotification:(id)a0;
+- (id)initWithExpiringMomentShareUUIDs:(id)a0 thumbnailImageData:(id)a1 notificationTitle:(id)a2 notificationSubtitle:(id)a3;
+- (id)initWithSuggestedCMMUUID:(id)a0 keyAssetUUID:(id)a1 notificationTitle:(id)a2 notificationSubtitle:(id)a3;
+- (id)initWithInterestingMemoryNotificationWithMemoryUUID:(id)a0 keyAssetUUID:(id)a1 notificationTitle:(id)a2 notificationSubtitle:(id)a3;
+- (id)initCMMInvitationReadyToViewWithMomentShare:(id)a0;
+- (id)initWithExpiringMomentShares:(id)a0;
+- (id)initCMMInvitationWithMomentShare:(id)a0;
+- (id)initWithLikeAdded:(id)a0;
+- (id)initWithCommentAdded:(id)a0;
+- (id)initWithAssetsAdded:(id)a0 toAlbum:(id)a1;
+- (id)initWithMultipleContributorEnabledForAlbum:(id)a0;
+- (id)initWithInvitationRecordStatusChanged:(id)a0;
+- (id)description;
+- (id)initWithInvitationAlbum:(id)a0;
+- (id)initWithAssetAdded:(id)a0 atIndex:(unsigned long long)a1 toAlbum:(id)a2;
+- (id)_initWithPhotosAddedNotification:(id)a0 mergedWithNotification:(id)a1;
+- (id)_initWithPhotosAddedNotification:(id)a0 mergedWithNotificationDictionary:(id)a1;
+- (BOOL)isCommentPiggyBackedOnPhotosAddedNotification;
+- (BOOL)assetWithUUID:(id)a0 didChangePlaceholderKindTo:(short)a1 fromOldKind:(short)a2;
+
+@end

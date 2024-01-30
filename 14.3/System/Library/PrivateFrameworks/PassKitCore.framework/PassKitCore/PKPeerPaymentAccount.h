@@ -1,0 +1,80 @@
+@class NSDate, NSString, NSURL, NSArray, NSSet, NSDictionary, PKCurrencyAmount, PKPeerPaymentAdditionalPushTopics, PKPeerPaymentAssociatedAccountInformation, NSDecimalNumber;
+
+@interface PKPeerPaymentAccount : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSDictionary *minimumTransferAmounts;
+@property (readonly, nonatomic) NSDictionary *maximumTransferAmounts;
+@property (copy, nonatomic) NSString *identifier;
+@property (nonatomic) unsigned long long role;
+@property (nonatomic) unsigned long long state;
+@property (nonatomic) unsigned long long stage;
+@property (nonatomic) unsigned long long stateReason;
+@property (nonatomic) unsigned long long personToPersonRestrictionType;
+@property (copy, nonatomic) NSString *countryCode;
+@property (copy, nonatomic) PKCurrencyAmount *currentBalance;
+@property (copy, nonatomic) NSDecimalNumber *maximumBalance;
+@property (nonatomic) BOOL identityVerificationRequired;
+@property (retain, nonatomic) NSDate *lastUpdated;
+@property (nonatomic) double proactiveFetchPeriod;
+@property (retain, nonatomic) NSDate *nextPossibleFetchDate;
+@property (nonatomic) long long backoffRetryLevel;
+@property (nonatomic) BOOL termsAcceptanceRequired;
+@property (copy, nonatomic) NSString *termsIdentifier;
+@property (copy, nonatomic) NSURL *termsURL;
+@property (copy, nonatomic) NSURL *associatedPassURL;
+@property (copy, nonatomic) NSString *associatedPassSerialNumber;
+@property (copy, nonatomic) NSString *associatedPassTypeIdentifier;
+@property (copy, nonatomic) NSSet *supportedFeatureDescriptors;
+@property (nonatomic) long long pendingPaymentCount;
+@property (nonatomic) BOOL identityVerificationForDisbursementsRequired;
+@property (copy, nonatomic) NSString *altDSID;
+@property (copy, nonatomic) NSSet *cloudStoreZoneNames;
+@property (retain, nonatomic) PKPeerPaymentAdditionalPushTopics *additionalPushTopics;
+@property (retain, nonatomic) PKPeerPaymentAssociatedAccountInformation *associatedAccountInformation;
+@property (nonatomic) BOOL hasDisplayedAssociatedAccountActiveNotification;
+@property (copy, nonatomic) NSString *transactionSourceIdentifier;
+@property (readonly, copy, nonatomic) NSArray *defaultSuggestions;
+@property (nonatomic, getter=isAccountStateDirty) BOOL accountStateDirty;
+
+- (void).cxx_destruct;
+- (BOOL)isAccountOutOfDate;
+- (BOOL)supportsPreserveCurrentBalance;
+- (id)loadFromCardFeatureDescriptor;
+- (BOOL)supportsCardBalancePromotion;
+- (id)sendToUserFeatureDescriptor;
+- (id)initWithDictionary:(id)a0 lastUpdated:(id)a1;
+- (BOOL)supportsFamilySharing;
+- (id)peerPaymentAccountWithIdentifier:(id)a0;
+- (id)peerPaymentAccountWithAltDSID:(id)a0;
+- (id)accountInvitationWithAltDSID:(id)a0;
+- (BOOL)areAssociatedAccountsOutOfDate;
+- (BOOL)isParticipantAccountLockedByOwner;
+- (BOOL)isPariticipantAccountSecurityDowngraded;
+- (BOOL)isPariticipantAccountEmbargoRecovery;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+- (BOOL)supportsLoadFromCard;
+- (id)transferToBankFeatureDescriptor;
+- (id)requestFromUserFeatureDescriptor;
+- (id)cardBalancePromotionFeatureDescriptor;
+- (BOOL)supportsTransferToBank;
+- (id)associatedAccountStateActionFeatureDescriptor;
+- (id)preserveCurrentBalanceFeatureDescriptor;
+- (id)supportsFamilySharingFeatureDescriptor;
+- (id)supportsGraduationWhileAssociatedAccountLockedFeatureDescriptor;
+- (BOOL)supportsSendToUser;
+- (BOOL)supportsRequestFromUser;
+- (id)instantWithdrawalPromotionFeatureDescriptor;
+- (BOOL)supportsInstantWithdrawal;
+- (BOOL)supportsAssociatedAccountStateAction;
+- (BOOL)supportsGraduationWhileAssociatedAccountLocked;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (id)_featureWithIdentifier:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)associatedPassUniqueID;
+- (void)encodeWithCoder:(id)a0;
+
+@end

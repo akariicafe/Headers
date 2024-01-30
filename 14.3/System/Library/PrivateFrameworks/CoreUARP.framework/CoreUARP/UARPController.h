@@ -1,0 +1,84 @@
+@class UARPPacketDumper, NSArray, NSMutableDictionary, UARPUploader, UARPAnalyticsUpdateFirmwareManager, NSObject, NSCache;
+@protocol OS_os_log, UARPControllerInternalDelegate, OS_dispatch_queue, UARPControllerDelegateProtocol;
+
+@interface UARPController : NSObject {
+    NSMutableDictionary *_accessories;
+    NSCache *_assetCache;
+    NSObject<OS_os_log> *_xpcLog;
+    NSObject<OS_os_log> *_controllerLog;
+    NSObject<OS_dispatch_queue> *_internalQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    UARPUploader *_uploader;
+    id<UARPControllerInternalDelegate> _internalDelegate;
+    UARPAnalyticsUpdateFirmwareManager *_updateFirmwareAnalytics;
+    UARPPacketDumper *_packetDumper;
+    NSMutableDictionary *_assetAvailabilityNotificationTokenDict;
+}
+
+@property (readonly) NSArray *accessoryList;
+@property (weak) id<UARPControllerDelegateProtocol> delegate;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (BOOL)removeAccessory:(id)a0;
+- (void)assetAvailablityUpdateForAccessoryID:(id)a0 assetID:(id)a1;
+- (BOOL)pauseAssetTransfersForAccessory:(id)a0;
+- (BOOL)resumeAssetTransfersForAccessory:(id)a0;
+- (BOOL)accessoryReachable:(id)a0;
+- (BOOL)stageFirmwareUpdateOnAccessoryList:(id)a0 withUserIntent:(BOOL)a1;
+- (BOOL)applyFirmwareUpdateOnAccessoryList:(id)a0 withUserIntent:(BOOL)a1;
+- (BOOL)accessoryUnreachable:(id)a0;
+- (BOOL)updateProperty:(unsigned long long)a0 value:(id)a1 forAccessory:(id)a2;
+- (BOOL)recvDataFromAccessory:(id)a0 data:(id)a1 error:(id *)a2;
+- (BOOL)downloadAvailableFirmwareUpdate:(id)a0 assetID:(id)a1 withUserIntent:(BOOL)a2;
+- (BOOL)downloadReleaseNotes:(id)a0 assetID:(id)a1;
+- (void)queryFirmwareUpdateResultForAccessory:(id)a0;
+- (void)firmwareUpdateResult:(id)a0 vendorSpecificStatus:(unsigned int)a1 error:(id)a2;
+- (void)firmwareStagingProgress:(id)a0 assetID:(id)a1 bytesSent:(unsigned long long)a2 bytesTotal:(unsigned long long)a3;
+- (void)firmwareStagingComplete:(id)a0 assetID:(id)a1 withStatus:(unsigned long long)a2;
+- (void)queryCompleteForAccessory:(id)a0 manufacturer:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 modelName:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 firmwareVersion:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 stagedFirmwareVersion:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 stats:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 hardwareVersion:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 serialNumber:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 hsmodelsPreInstalled:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 hsmodelsDownloaded:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 appleModelNumber:(id)a1 error:(id)a2;
+- (void)queryCompleteForAccessory:(id)a0 hwFusingType:(id)a1 error:(id)a2;
+- (void)stagedFirmwareApplicationComplete:(id)a0 withStatus:(unsigned long long)a1;
+- (void)stagedFirmwareRescindComplete:(id)a0 withStatus:(unsigned long long)a1;
+- (BOOL)addAccessory:(id)a0 assetID:(id)a1;
+- (BOOL)changeAssetLocation:(id)a0 assetID:(id)a1;
+- (BOOL)checkForUpdate:(id)a0;
+- (void)sendUpdateFirmwareAnalyticsEventForAccessoryID:(id)a0 assetID:(id)a1 params:(id)a2;
+- (BOOL)accessoryKnown:(id)a0;
+- (BOOL)accessoryIDKnown:(id)a0;
+- (void)sendFirmwareUpdateProgressForAccessory:(id)a0 assetID:(id)a1 bytesSent:(unsigned long long)a2 bytesTotal:(unsigned long long)a3;
+- (BOOL)personalizationVectorForAccessory:(id)a0 assetTag:(unsigned int)a1 outVector:(unsigned int *)a2;
+- (void)manifestPropertiesReceivedForAccessory:(id)a0 assetTag:(unsigned int)a1 properties:(id)a2;
+- (void)sendMessageToAccessory:(id)a0 uarpMsg:(id)a1;
+- (long long)queryProperty:(unsigned long long)a0 forAccessory:(id)a1;
+- (void)unregisterForAllAssetAvailabilityNotifications;
+- (void)queryCorePropertiesFromAccessory:(id)a0;
+- (long long)queryPropertyInternal:(unsigned long long)a0 forAccessory:(id)a1;
+- (BOOL)accessoryReachableInternal:(id)a0;
+- (BOOL)accessoryUnreachableInternal:(id)a0;
+- (BOOL)applyStagedFirmwareOnAccessoryList:(id)a0 withUserIntent:(BOOL)a1;
+- (id)pendingAssetForAccessory:(id)a0 assetID:(id)a1;
+- (void)updatePendingAssetsForAccessory:(id)a0 assetID:(id)a1;
+- (void)assetAvailablityUpdateForAccessory:(id)a0 assetID:(id)a1;
+- (BOOL)registerForAssetAvailabilityNotification:(id)a0;
+- (void)unregisterForAssetAvailabilityNotification:(id)a0;
+- (void)assetAvailabilityNotificationPosted:(int)a0;
+- (id)assetAvailabilityTokenForAccessory:(id)a0;
+- (BOOL)rescindStagedFirmwareOnAccessoryList:(id)a0 withUserIntent:(BOOL)a1;
+- (BOOL)cancelFirmwareUpdateOnAccessoryList:(id)a0;
+- (BOOL)cancelFirmwareStagingForAccessory:(id)a0 assetID:(id)a1;
+- (BOOL)startPacketCapture:(id)a0;
+- (void)stopPacketCapture;
+- (void)personalizationResponseForAccessoryID:(id)a0 response:(id)a1 error:(id)a2;
+
+@end

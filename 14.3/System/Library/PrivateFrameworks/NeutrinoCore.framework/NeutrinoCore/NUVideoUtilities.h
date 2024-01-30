@@ -1,0 +1,54 @@
+@interface NUVideoUtilities : NSObject
+
++ (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })conformRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 inRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1;
++ (struct { long long x0; int x1; unsigned int x2; long long x3; })minimumFrameDurationForAssetTrack:(id)a0;
++ (struct { struct { long long x0; long long x1; } x0; struct { long long x0; long long x1; } x1; })cleanApertureOfTrack:(id)a0 oriented:(BOOL)a1;
++ (id)firstEnabledVideoTrackInAsset:(id)a0 error:(out id *)a1;
++ (id)defaultVideoSettingsForAVAssetReaderWithHDR:(BOOL)a0;
++ (id)rgbVideoSettingsForAVAssetReader;
++ (BOOL)deviceSupportsHardwareHEVCEncoding;
++ (BOOL)deviceSupportsHardware10BitHEVCEncoding;
++ (BOOL)deviceSupportsHighDynamicRangeVideo;
++ (id)defaultExportCodecForComposition:(id)a0;
++ (id)defaultOutputColorSpaceForComposition:(id)a0;
++ (BOOL)isAVAssetHDR:(id)a0 error:(out id *)a1;
++ (BOOL)isAVAssetDolbyProfile5:(id)a0 error:(out id *)a1;
++ (id)bestOutputSettingsPresetForTargetVideoSize:(struct { long long x0; long long x1; })a0 codec:(unsigned int)a1;
++ (struct { long long x0; int x1; unsigned int x2; long long x3; })minimumFrameDurationForAsset:(id)a0;
++ (struct { long long x0; int x1; unsigned int x2; long long x3; })minimumFrameDurationForAsset:(id)a0 videoComposition:(id)a1;
++ (void)readNextPixelBuffer:(id)a0 output:(id)a1 block:(id /* block */)a2;
++ (void)readNextSampleBuffer:(id)a0 output:(id)a1 block:(id /* block */)a2;
++ (BOOL)_metadataTrack:(id)a0 containsIdentifier:(id)a1;
++ (BOOL)isMetadataTrackStillImageDisplayTimeMarkerInLivePhoto:(id)a0;
++ (BOOL)isMetadataTrackWithStillImageTransformInLivePhoto:(id)a0;
++ (BOOL)isMetadataTrackWithStillImageDimensionsInLivePhoto:(id)a0;
++ (BOOL)isMetadataTrackWithLivePhotoInfo:(id)a0;
++ (BOOL)videoTrackContainsDolbyVisionMetadata:(id)a0;
++ (id)metadataTrackWithStillImageDisplayTimeMarkerInLivePhotoAsset:(id)a0;
++ (id)metadataTrackWithStillImageTransformInLivePhotoAsset:(id)a0;
++ (id)metadataTrackWithStillImageDimensionsInLivePhotoAsset:(id)a0;
++ (struct { long long x0; int x1; unsigned int x2; long long x3; })readStillImageTimeFromVideoAsset:(id)a0;
++ (BOOL)readFromReader:(id)a0 andWriteToWriter:(id)a1 stillImageTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 createCustomMetadata:(BOOL)a3 geometryTransform:(id)a4 inputSize:(struct CGSize { double x0; double x1; })a5 outputSize:(struct CGSize { double x0; double x1; })a6 progress:(id)a7 error:(out id *)a8;
++ (BOOL)updateVideoMetadataAtURL:(id)a0 withItems:(id)a1 stillImageTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 error:(out id *)a3;
++ (id)deepMutableCopyVideoComposition:(id)a0;
++ (id)readerOutputForAsset:(id)a0 outputSettings:(id)a1 videoComposition:(id)a2 error:(out id *)a3;
++ (struct __CVBuffer { } *)readVideoFrameAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 fromAsset:(id)a1 outputSettings:(id)a2 videoComposition:(id)a3 error:(out id *)a4;
++ (long long)videoOrientationForAssetPreferredTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
++ (long long)videoOrientationForAsset:(id)a0 videoComposition:(id)a1;
++ (struct { long long x0; long long x1; })naturalSizeOfTrack:(id)a0 oriented:(BOOL)a1;
++ (struct { long long x0; long long x1; })encodedPixelSizeOfTrack:(id)a0 oriented:(BOOL)a1;
++ (id)newPixelBufferOfSize:(struct { long long x0; long long x1; })a0 format:(unsigned int)a1;
++ (id)repeatVideoComposition:(id)a0 count:(long long)a1 error:(out id *)a2;
++ (id)repeatAudio:(id)a0 count:(long long)a1 error:(out id *)a2;
++ (id)repeatVideo:(id)a0 count:(long long)a1 error:(out id *)a2;
++ (id)videoDescription:(id)a0;
++ (id)videoCompositionDescription:(id)a0;
++ (BOOL)compositionInstructions:(id)a0 areEqualToCompositionInstructions:(id)a1;
++ (id)cleanApertureVideoSettingsFor:(struct { struct { long long x0; long long x1; } x0; struct { long long x0; long long x1; } x1; })a0 scale:(struct { long long x0; long long x1; })a1 videoSize:(struct { long long x0; long long x1; })a2;
++ (id)debugDescriptionOfAssetTrack:(id)a0;
++ (id)pixelFormatStringForCVPixelBuffer:(struct __CVBuffer { } *)a0;
++ (id)compositionFromVideoComposition:(id)a0;
++ (id)urlOfAVAsset:(id)a0;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })preferredTransformFromOrientation:(long long)a0 size:(struct { long long x0; long long x1; })a1;
+
+@end

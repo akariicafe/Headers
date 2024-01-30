@@ -1,0 +1,32 @@
+@class PKMapsSnapshotManager, NSString, PKPaymentTransactionIconGenerator, PKPeerPaymentContactResolver, UIImage, PKThumbnailCollectionViewCell, NSCache;
+
+@interface PKTransactionGroupThumbnailPresenter : NSObject <PKDashboardItemPresenter> {
+    PKPaymentTransactionIconGenerator *_iconGenerator;
+    PKPeerPaymentContactResolver *_contactResolver;
+    NSCache *_iconsPerMerchantCategory;
+    UIImage *_mapsPlaceholderImage;
+    PKThumbnailCollectionViewCell *_sampleCell;
+}
+
+@property (retain, nonatomic) PKMapsSnapshotManager *snapshotManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (double)thumbnailWidth;
+- (id)init;
+- (void).cxx_destruct;
+- (void)_updateAvatarOnThumbnailCell:(id)a0 contact:(id)a1;
+- (void)_updateTitleOnThumbnailCell:(id)a0 withPeerPaymentCounterpartHandle:(id)a1 contact:(id)a2;
+- (Class)itemClass;
+- (id)mapsPlaceholderImage;
+- (id)collectionViewCellClasses;
+- (id)cellForItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2;
+- (void)updateCell:(id)a0 forItem:(id)a1 inCollectionView:(id)a2 atIndexPath:(id)a3;
+- (void)didSelectItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2 navigationController:(id)a3 canPresent:(id /* block */)a4;
+- (struct CGSize { double x0; double x1; })sizeForItem:(id)a0 inCollectionView:(id)a1 atIndexPath:(id)a2;
+- (void)traitCollectionDidChangeFromTrait:(id)a0 toTrait:(id)a1 inCollectionView:(id)a2;
+- (id)_contactKeysToFetch;
+
+@end

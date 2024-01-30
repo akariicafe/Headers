@@ -1,0 +1,29 @@
+@class NSMutableArray;
+
+@interface FCCKPConfiguration : PBCodable <NSCopying> {
+    struct { unsigned char created : 1; unsigned char expires : 1; } _has;
+}
+
+@property (retain, nonatomic) NSMutableArray *fields;
+@property (nonatomic) BOOL hasCreated;
+@property (nonatomic) unsigned long long created;
+@property (nonatomic) BOOL hasExpires;
+@property (nonatomic) unsigned long long expires;
+
++ (Class)fieldsType;
+
+- (id)fieldsAtIndex:(unsigned long long)a0;
+- (unsigned long long)fieldsCount;
+- (void)clearFields;
+- (void)addFields:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (void)dealloc;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+
+@end

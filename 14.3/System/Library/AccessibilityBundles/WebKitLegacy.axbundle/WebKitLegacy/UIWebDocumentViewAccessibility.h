@@ -1,0 +1,58 @@
+@interface UIWebDocumentViewAccessibility : __UIWebDocumentViewAccessibility_super
+
++ (id)safeCategoryTargetClassName;
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (void)setSelectedTextRange:(id)a0;
+- (void)toggleItalics:(id)a0;
+- (void)cut:(id)a0;
+- (void)selectAll:(id)a0;
+- (void)clearSelection;
+- (void)toggleBoldface:(id)a0;
+- (void)_showTextStyleOptions:(id)a0;
+- (void)paste:(id)a0;
+- (id)accessibilityElements;
+- (id)_accessibilitySpeakThisString;
+- (void)copy:(id)a0;
+- (BOOL)isAccessibilityElement;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_accessibilityContentFrame;
+- (void)accessibilityZoomInAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)accessibilityZoomOutAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (long long)accessibilityContainerType;
+- (void)dealloc;
+- (BOOL)_accessibilityIsFirstElementForFocus;
+- (id)_accessibilityResponderElement;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (BOOL)shouldGroupAccessibilityChildren;
+- (unsigned long long)accessibilityTraits;
+- (void)webView:(id)a0 didFinishLoadForFrame:(id)a1;
+- (void)webView:(id)a0 didFailLoadWithError:(id)a1 forFrame:(id)a2;
+- (void)setSelectedDOMRange:(id)a0 affinity:(unsigned long long)a1;
+- (id)accessibilityLabel;
+- (BOOL)_accessibilityMimicsTextInputResponder;
+- (void)stopLoading:(id)a0;
+- (id)_accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (id)_accessibilitySupplementaryHeaderViews;
+- (BOOL)_accessibilityScrollingEnabled;
+- (id)_accessibilityScrollStatus;
+- (BOOL)_accessibilityIsScrollAncestor;
+- (BOOL)accessibilityScrollUpPage;
+- (BOOL)_accessibilityIsWebDocumentView;
+- (BOOL)_accessibilityScrollToFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 forView:(id)a1;
+- (BOOL)accessibilityScrollLeftPage;
+- (BOOL)accessibilityScrollRightPage;
+- (BOOL)accessibilityScrollDownPage;
+- (id)_accessibilityAttributedValueForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a0;
+- (id)_accessibilityDataDetectorScheme:(struct CGPoint { double x0; double x1; })a0;
+- (void)webView:(id)a0 willShowFullScreenForPlugInView:(id)a1;
+- (BOOL)_accessibilityHasTextOperations;
+- (void)handleKeyWebEvent:(id)a0;
+- (void)toggleUnderline:(id)a0;
+- (id)_accessibilityEquivalenceTag;
+- (void)_accessibilityZoomAtPoint:(struct CGPoint { double x0; double x1; })a0 zoomIn:(BOOL)a1;
+- (void)_axZoomToCenterWithScale:(struct CGPoint { double x0; double x1; })a0 scale:(double)a1;
+- (id)_accessibilityRootObject;
+- (id)_accessibilityDocumentView;
+
+@end

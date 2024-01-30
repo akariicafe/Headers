@@ -1,0 +1,43 @@
+@class AVAsset, NSArray, NSURL, NSDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface NUVideoSourceNode : NUSourceNode {
+    NSObject<OS_dispatch_queue> *_queue;
+    BOOL _loaded;
+    NSURL *_URL;
+    AVAsset *_asset;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _duration;
+    struct { long long width; long long height; } _size;
+    struct { struct { long long x; long long y; } origin; struct { long long width; long long height; } size; } _cleanAperture;
+    long long _orientation;
+    NSArray *_metadata;
+    NSDictionary *_colorProperties;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _livePhotoKeyFrameTime;
+}
+
+@property (readonly) struct { struct { long long x0; long long x1; } x0; struct { long long x0; long long x1; } x1; } cleanAperture;
+@property (readonly) struct { long long x0; int x1; unsigned int x2; long long x3; } duration;
+@property (readonly) BOOL isHDR;
+
+- (id)initWithSettings:(id)a0;
+- (BOOL)load:(out id *)a0;
+- (void).cxx_destruct;
+- (BOOL)_load:(out id *)a0;
+- (id)asset:(out id *)a0;
+- (id)initWithURL:(id)a0 identifier:(id)a1;
+- (id)_evaluateImagePropertiesWithSourceOptions:(id)a0 error:(out id *)a1;
+- (id)_evaluateImageWithSourceOptions:(id)a0 subsampleFactor:(long long *)a1 error:(out id *)a2;
+- (id)sourceOptionsForSettings:(id)a0 error:(out id *)a1;
+- (id)resolvedNodeWithCachedInputs:(id)a0 settings:(id)a1 pipelineState:(id)a2 error:(out id *)a3;
+- (long long)sourceOrientation;
+- (BOOL)shouldCacheNodeForPipelineState:(id)a0;
+- (struct { long long x0; long long x1; })pixelSizeWithSourceOptions:(id)a0;
+- (id)_evaluateVideo:(out id *)a0;
+- (id)_evaluateVideoCompositionWithSourceOptions:(id)a0 error:(out id *)a1;
+- (BOOL)supportsPipelineState:(id)a0 error:(out id *)a1;
+- (id)_settingsForPipelineState:(id)a0 ownedFrame:(BOOL)a1;
+- (id)_evaluateVideoPropertiesWithSourceOptions:(id)a0 error:(out id *)a1;
+- (BOOL)requiresVideoComposition;
+- (BOOL)requiresAudioMix;
+
+@end

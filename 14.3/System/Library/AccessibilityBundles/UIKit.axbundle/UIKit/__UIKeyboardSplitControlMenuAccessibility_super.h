@@ -1,0 +1,3 @@
+@interface __UIKeyboardSplitControlMenuAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,77 @@
+@class CNContactPickerViewController, UIView, NSArray, GKPickerSearchTextField, NSString, UIButton, UITextField, NSLayoutConstraint, UIVisualEffectView, UILabel, GKDashboardMultiplayerPickerDataSource;
+@protocol GKDashboardNearbyBrowserDelegate, GKDashboardMultiplayerPickerDelegate;
+
+@interface GKDashboardMultiplayerPickerViewController : GKDashboardCollectionViewController <UITextFieldDelegate, GKDashboardMultiplayerPickerDatasourceDelegate, CNContactPickerDelegate>
+
+@property (retain, nonatomic) NSArray *initiallySelectedPlayers;
+@property (nonatomic) BOOL shouldIgnoreClearSelection;
+@property (retain, nonatomic) UILabel *descriptionLabel;
+@property (retain, nonatomic) UIButton *sendButton;
+@property (retain, nonatomic) UIButton *customizeMessageButton;
+@property (retain, nonatomic) UITextField *messageField;
+@property (retain, nonatomic) NSLayoutConstraint *customizeMessageBottomConstraint;
+@property (nonatomic) double initialCustomizeMessageBottomConstraintConstant;
+@property (readonly, nonatomic) GKDashboardMultiplayerPickerDataSource *pickerDataSource;
+@property (retain, nonatomic) CNContactPickerViewController *contactPicker;
+@property (retain, nonatomic) UIView *searchBackgroundView;
+@property (retain, nonatomic) UIVisualEffectView *backgroundEffectView;
+@property (retain, nonatomic) GKPickerSearchTextField *searchTextField;
+@property (retain, nonatomic) UIButton *showContactPickerButton;
+@property (copy, nonatomic) NSString *message;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) BOOL supportsNearby;
+@property (readonly, nonatomic) BOOL nearbyOnly;
+@property (nonatomic) id<GKDashboardNearbyBrowserDelegate> nearbyDelegate;
+@property (weak, nonatomic) id<GKDashboardMultiplayerPickerDelegate> multiplayerPickerDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)cancel:(id)a0;
+- (void)clearSelection;
+- (void)addMessage:(id)a0;
+- (id)preferredFocusEnvironments;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (BOOL)hasData;
+- (void)willTransitionToTraitCollection:(id)a0 withTransitionCoordinator:(id)a1;
+- (void)textFieldDidBeginEditing:(id)a0;
+- (void)textFieldDidEndEditing:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)adjustCustomizeMessageConstraint;
+- (void)_updateButtonEnableState;
+- (void)dataUpdated:(BOOL)a0 withError:(id)a1;
+- (void)setupNoContentView:(id)a0 withError:(id)a1;
+- (BOOL)textField:(id)a0 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (void)_updateCollectionView;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)contactPicker:(id)a0 didSelectContact:(id)a1;
+- (void)contactPickerDidCancel:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)setSearchText:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)initWithMaxSelectable:(long long)a0 hiddenPlayers:(id)a1 nearbyOnly:(BOOL)a2;
+- (void)traitCollectionDidChange:(id)a0;
+- (BOOL)supportsNearby;
+- (id)blurEffectForTraitCollection:(id)a0;
+- (void)setSupportsNearby:(BOOL)a0;
+- (void)selectPlayersAtIndexPaths:(id)a0 askDelegateFirst:(BOOL)a1;
+- (void)handleSearchTextFieldReturn:(id)a0;
+- (void)didBeginSearchTextEditing;
+- (void)didEndSearchTextEditing;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionSectionInset;
+- (void)pickerDatasource:(id)a0 didPickPlayers:(id)a1;
+- (void)pickerDatasourceDidSelectAddFriend:(id)a0;
+- (id)createSortPickerMenu;
+- (void)didPressShowContactPickerButton:(id)a0;
+- (void)viewDidLoad;
+- (void)send:(id)a0;
+
+@end

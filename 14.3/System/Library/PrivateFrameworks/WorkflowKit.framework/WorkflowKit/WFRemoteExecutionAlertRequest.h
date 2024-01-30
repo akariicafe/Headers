@@ -1,0 +1,17 @@
+@class NSString, WFPBAlert, WFAlert;
+
+@interface WFRemoteExecutionAlertRequest : WFRemoteExecutionRequest
+
+@property (retain, nonatomic) WFPBAlert *pbAlert;
+@property (readonly, nonatomic) NSString *associatedRunRequestIdentifier;
+@property (readonly, nonatomic) WFAlert *alert;
+
++ (long long)version;
+
+- (void).cxx_destruct;
+- (BOOL)readMessageFromData:(id)a0 error:(id *)a1;
+- (id)writeMessageToWriter:(id)a0 error:(id *)a1;
+- (id)initWithAlert:(id)a0 associatedRunRequestIdentifier:(id)a1;
+- (void)inflateAlertWithBlock:(id /* block */)a0;
+
+@end

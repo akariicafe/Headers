@@ -1,0 +1,3 @@
+@interface __PUSlideshowSpeedCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

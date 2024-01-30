@@ -1,0 +1,98 @@
+@class NSUUID, NSData, NSString, NSMutableDictionary, NSDictionary, NSObject, NSKeyedUnarchiver, NEHelper;
+@protocol OS_dispatch_queue;
+
+@interface NEConfigurationManager : NSObject {
+    NSString *_description;
+}
+
+@property (readonly) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *outerQueue;
+@property int changedNotifyToken;
+@property (retain) NSDictionary *currentIndex;
+@property (retain) NSObject<OS_dispatch_queue> *changedQueue;
+@property (copy) id /* block */ changedHandler;
+@property (retain) NSMutableDictionary *loadedIndex;
+@property (retain) NSMutableDictionary *loadedConfigurations;
+@property (retain) NSKeyedUnarchiver *decoder;
+@property long long generation;
+@property (retain) NEHelper *helper;
+@property (retain) NSData *SCPreferencesSignature;
+@property BOOL hasReadPermission;
+@property BOOL isVPNPublicAPI;
+@property BOOL isVPNPrivateAPI;
+@property BOOL isNEHelper;
+@property (nonatomic) BOOL isSynchronous;
+@property BOOL hasVPNAPIEntitlement;
+@property (readonly) NSUUID *userUUID;
+@property (copy) id /* block */ incomingMessageHandler;
+@property long long configurationChangeSource;
+@property (readonly) NSString *pluginType;
+
++ (void)disableConfiguration:(id)a0 onDemandOnly:(BOOL)a1;
++ (long long)configuration:(id)a0 overlapsWithOtherConfiguration:(id)a1 sameTypeCount:(unsigned long long *)a2;
++ (void)updateFlags:(unsigned long long *)a0 withConfiguration:(id)a1;
++ (id)sharedManager;
++ (id)sharedManagerForAllUsers;
++ (BOOL)configurationIsEnabled:(id)a0;
+
+- (id)makeMutableCopyOfIndex:(id)a0;
+- (void)clearLoadedConfigurationsWithIDs:(id)a0;
+- (void)loadConfigurationWithID:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (void)updateSCPreferencesSignatureOnDisk;
+- (void)loadConfigurationsWithCompletionQueue:(id)a0 handler:(id /* block */)a1;
+- (id)filterIndexWithFilter:(id)a0;
+- (BOOL)resetKeychainItemsAfterProtocolChange:(id)a0 newConfiguration:(id)a1;
+- (id)init;
+- (BOOL)configurationHasChanged:(id)a0;
+- (void).cxx_destruct;
+- (void)showLocalNetworkAlertForApp:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (void)upgradeLegacyPluginConfigurations:(id)a0 withUpgradeInfo:(id)a1 completionQueue:(id)a2 handler:(id /* block */)a3;
+- (void)executeBlock:(id /* block */)a0;
+- (void)dealloc;
+- (void)getCurrentIndexWithCompletionHandler:(id /* block */)a0;
+- (BOOL)isSystemConfiguration:(id)a0;
+- (void)removeConfigurationFromDisk:(id)a0 completionQueue:(id)a1 completionHandler:(id /* block */)a2;
+- (void)syncConfigurationsWithSC:(id)a0 completionQueue:(id)a1 completionHandler:(id /* block */)a2;
+- (void)fetchUpgradeInfoForPluginType:(id)a0 completionQueue:(id)a1 handler:(id /* block */)a2;
+- (void)loadConfigurations:(id)a0 withFilter:(id)a1 completionQueue:(id)a2 completionHandler:(id /* block */)a3;
+- (void)didLoadConfiguration:(id)a0 withSignature:(id)a1;
+- (void)loadConfigurationsInternal:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)loadConfigurationAndUserWithID:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (void)handleFileRemovedWithCompletionQueue:(id)a0 completionHandler:(id /* block */)a1;
+- (id)initSynchronous;
+- (void)copyIdentities:(id)a0 fromDomain:(long long)a1 withCompletionQueue:(id)a2 handler:(id /* block */)a3;
+- (void)postChangeNotificationWithGeneration:(long long)a0 andFlags:(unsigned long long)a1 onlyIfChanged:(BOOL)a2;
+- (void)registerForChangeNotifications;
+- (id)initWithUserUUID:(id)a0;
+- (id)description;
+- (void)saveConfigurationToDisk:(id)a0 currentSignature:(id)a1 userUUID:(id)a2 isUpgrade:(BOOL)a3 completionQueue:(id)a4 completionHandler:(id /* block */)a5;
+- (void)executeCallbackOnQueue:(id)a0 callback:(id /* block */)a1;
+- (void)sendRequest:(id)a0 responseHandler:(id /* block */)a1;
+- (void)removeConfiguration:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (id)initForAllUsers;
+- (id)readIndexFromDiskWithError:(id *)a0;
+- (void)didLoadConfiguration:(id)a0;
+- (void)triggerLocalAuthenticationForConfigurationWithID:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (id)getCurrentUserUUIDForConfigurationID:(id)a0 fromIndex:(id)a1;
+- (void)postGeneration;
+- (id)copyChangedConfigurationIDs:(id)a0;
+- (void)loadIndexWithFilter:(id)a0 completionQueue:(id)a1 handler:(id /* block */)a2;
+- (id)getConfigurationUserUUID:(id)a0;
+- (void)loadLegacyPluginConfigurationsWithCompletionQueue:(id)a0 handler:(id /* block */)a1;
+- (id)decodeConfigurationWithIdentifier:(id)a0;
+- (void)notifyChanges;
+- (BOOL)reloadFromDisk;
+- (void)handleApplicationsRemoved:(id)a0 completionQueue:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)fetchClientListenerWithBundleID:(id)a0 completionQueue:(id)a1 handler:(id /* block */)a2;
+- (void)saveConfiguration:(id)a0 withCompletionQueue:(id)a1 handler:(id /* block */)a2;
+- (id)errorWithCode:(long long)a0 specifics:(id)a1;
+- (void)setChangedQueue:(id)a0 andHandler:(id /* block */)a1;
+- (id)removeConfigurationFromDisk:(id)a0 updateSCPreferences:(struct __SCPreferences { } *)a1;
+- (id)initWithPluginType:(id)a0;
+- (void)showLocalNetworkAlertForApp:(id)a0 withCompletionQueue:(id)a1 query:(id)a2 hasEntitlement:(BOOL)a3 handler:(id /* block */)a4;
+- (id)saveConfigurationToDisk:(id)a0 updateSCPreferences:(struct __SCPreferences { } *)a1 currentSignature:(id)a2 userUUID:(id)a3 notifyNow:(BOOL)a4 isUpgrade:(BOOL)a5;
+- (void)repopulateNetworkPrivacyConfigurationResetAll:(BOOL)a0;
+- (void)postChangeNotification;
+- (void)handlePluginTypesRemoved:(id)a0 configuration:(id)a1 vpn:(id)a2 updateSCPreferences:(struct __SCPreferences { } *)a3;
+
+@end

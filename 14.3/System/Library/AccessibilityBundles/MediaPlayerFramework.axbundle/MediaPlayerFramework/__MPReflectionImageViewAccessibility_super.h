@@ -1,0 +1,3 @@
+@interface __MPReflectionImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

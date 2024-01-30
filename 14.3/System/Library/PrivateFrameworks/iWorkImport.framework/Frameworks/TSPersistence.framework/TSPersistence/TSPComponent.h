@@ -1,0 +1,92 @@
+@class NSDate, NSString, NSArray, TSPObjectReferenceMap, NSMapTable, NSMutableSet, NSObject, TSPComponentExternalReferenceMap, TSPObject, NSIndexSet, TSPComponentObjectUUIDMap;
+@protocol TSPComponentDelegate, OS_dispatch_queue;
+
+@interface TSPComponent : NSObject <NSDiscardableContent> {
+    _Atomic int _accessCount;
+    id<TSPComponentDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSString *_locator;
+    unsigned long long _documentReadVersion;
+    unsigned long long _documentWriteVersion;
+    unsigned long long _componentReadVersion;
+    unsigned long long _componentRequiredVersion;
+    unsigned long long _saveToken;
+    TSPObject *_strongRootObject;
+    TSPObject *_weakRootObject;
+    NSMapTable *_writtenObjects;
+    TSPComponentExternalReferenceMap *_externalReferenceMap;
+    NSIndexSet *_ambiguousReferences;
+    NSMutableSet *_dataReferences;
+    _Atomic struct _flags;
+}
+
+@property (readonly, nonatomic) long long identifier;
+@property (readonly, nonatomic) NSString *preferredLocator;
+@property (readonly, nonatomic) NSString *locator;
+@property (readonly, nonatomic) unsigned long long documentReadVersion;
+@property (readonly, nonatomic) unsigned long long documentWriteVersion;
+@property (readonly, nonatomic) unsigned long long componentReadVersion;
+@property (readonly, nonatomic) unsigned long long componentRequiredVersion;
+@property (readonly, nonatomic) BOOL canBeDropped;
+@property (readonly, nonatomic) BOOL isWasteful;
+@property (readonly, nonatomic) NSIndexSet *ambiguousReferences;
+@property (readonly, nonatomic) unsigned char requiredPackageIdentifier;
+@property (readonly, nonatomic) long long compressionAlgorithm;
+@property (readonly, nonatomic) NSArray *featureInfos;
+@property (readonly, nonatomic) BOOL isStoredOutsideObjectArchive;
+@property (readonly, nonatomic) TSPComponentObjectUUIDMap *componentObjectUUIDMap;
+@property (readonly, nonatomic) unsigned long long saveToken;
+@property (readonly, nonatomic) unsigned long long encodedLength;
+@property (readonly, nonatomic) NSDate *lastModificationDate;
+@property (readonly, nonatomic) BOOL incompatibleVersion;
+@property (readonly, nonatomic) TSPObjectReferenceMap *objectReferenceMap;
+@property (readonly) unsigned char packageIdentifier;
+@property (retain) TSPObject *rootObject;
+@property (readonly) BOOL modified;
+@property (readonly) BOOL persisted;
+@property (readonly) BOOL needsArchiving;
+@property (readonly, nonatomic) BOOL isTransientComponent;
+
++ (id)componentsDiscardingContentOnCurrentThread;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)additionalDescription;
+- (id)description;
+- (void)discardContentIfPossible;
+- (void)endContentAccess;
+- (BOOL)beginContentAccess;
+- (BOOL)isContentDiscarded;
+- (BOOL)isCachingEnabled;
+- (void)setModified:(BOOL)a0 forObject:(id)a1;
+- (void)didReadObjects:(id)a0;
+- (id)initWithDelegate:(id)a0 identifier:(long long)a1 preferredLocator:(id)a2 packageIdentifier:(unsigned char)a3;
+- (void)setDocumentReadVersion:(unsigned long long)a0 documentWriteVersion:(unsigned long long)a1 componentObjectUUIDMap:(id)a2;
+- (struct ComponentExternalReferenceInfo { long long x0; BOOL x1; BOOL x2; })externalReferenceInfoForObjectIdentifier:(long long)a0;
+- (void)enumerateExternalReferences:(id /* block */)a0;
+- (void)setEncodedLength:(unsigned long long)a0 lastModificationDate:(id)a1;
+- (void)setComponentObjectUUIDMap:(id)a0;
+- (void)setPackageIdentifier:(unsigned char)a0 preferredLocator:(id)a1 locator:(id)a2 isStoredOutsideObjectArchive:(BOOL)a3 compressionAlgorithm:(long long)a4 rootObjectOrNil:(id)a5 archivedObjects:(id)a6 externalReferenceMap:(id)a7 ambiguousReferences:(id)a8 dataReferences:(id)a9 documentReadVersion:(unsigned long long)a10 documentWriteVersion:(unsigned long long)a11 componentReadVersion:(unsigned long long)a12 componentRequiredVersion:(unsigned long long)a13 canBeDropped:(BOOL)a14 isWasteful:(BOOL)a15 requiredPackageIdentifier:(unsigned char)a16 featureInfos:(id)a17 componentObjectUUIDMap:(id)a18 objectReferenceMap:(id)a19 saveToken:(unsigned long long)a20 encodedLength:(unsigned long long)a21 lastModificationDate:(id)a22 wasCopied:(BOOL)a23 wasModifiedDuringWrite:(BOOL)a24;
+- (void)enumerateDataReferences:(id /* block */)a0;
+- (id)newExternalReferenceMapWithStrongReferences:(id)a0 weakReferences:(id)a1 delegate:(id)a2;
+- (id)newUpdatedExternalReferenceMapUsingDelegate:(id)a0;
+- (void)saveToMessage:(struct ComponentInfo { void /* function */ **x0; struct InternalMetadataWithArena { void *x0; } x1; struct HasBits<1> { unsigned int x0[1]; } x2; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x3; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x4; int x5; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x6; int x7; struct RepeatedPtrField<TSP::ComponentExternalReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x8; struct RepeatedPtrField<TSP::ComponentDataReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x9; struct RepeatedPtrField<TSP::ObjectUUIDMapEntry> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x10; struct RepeatedPtrField<TSP::FeatureInfo> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x11; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x12; int x13; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x14; int x15; struct RepeatedPtrField<TSP::ComponentExternalReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x16; struct RepeatedField<unsigned long long> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x17; int x18; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x19; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x20; unsigned long long x21; unsigned long long x22; BOOL x23; BOOL x24; BOOL x25; unsigned int x26; unsigned int x27; } *)a0 saveToken:(unsigned long long)a1 writtenComponentInfo:(const struct WrittenComponentInfo { id x0; id x1; BOOL x2; BOOL x3; id x4; BOOL x5; BOOL x6; BOOL x7; id x8; id x9; BOOL x10; unsigned char x11; long long x12; unsigned long long x13; unsigned long long x14; unsigned long long x15; unsigned long long x16; BOOL x17; id x18; id x19; id x20; id x21; id x22; id x23; id x24; id x25; } *)a2;
+- (id)initWithDelegate:(id)a0 message:(const struct ComponentInfo { void /* function */ **x0; struct InternalMetadataWithArena { void *x0; } x1; struct HasBits<1> { unsigned int x0[1]; } x2; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x3; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x4; int x5; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x6; int x7; struct RepeatedPtrField<TSP::ComponentExternalReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x8; struct RepeatedPtrField<TSP::ComponentDataReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x9; struct RepeatedPtrField<TSP::ObjectUUIDMapEntry> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x10; struct RepeatedPtrField<TSP::FeatureInfo> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x11; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x12; int x13; struct RepeatedField<unsigned int> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x14; int x15; struct RepeatedPtrField<TSP::ComponentExternalReference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x16; struct RepeatedField<unsigned long long> { int x0; int x1; union Pointer { struct Arena *x0; struct Rep *x1; } x2; } x17; int x18; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x19; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x20; unsigned long long x21; unsigned long long x22; BOOL x23; BOOL x24; BOOL x25; unsigned int x26; unsigned int x27; } *)a1 packageIdentifier:(unsigned char)a2 encodedLength:(unsigned long long)a3 lastModificationDate:(id)a4;
+- (BOOL)shouldForceCaching;
+- (BOOL)needsArchivingImpl;
+- (BOOL)shouldKeepStrongObjectImpl;
+- (BOOL)isDiscardingContent;
+- (void)continueDiscardingContentIfPossibleUsingBlock:(id /* block */)a0;
+- (void)discardContentIfPossibleFromNSCache:(BOOL)a0;
+- (void)performSynchronousDiscardContentIfPossibleUsingBlock:(id /* block */)a0;
+- (id)p_locator;
+- (void)setModified:(BOOL)a0 forObject:(id)a1 isDocumentUpgrade:(BOOL)a2;
+- (void)setModifiedImpl:(BOOL)a0 forObject:(id)a1;
+- (void)setArchivedObjectsImpl:(id)a0;
+- (void)markAsDiscarded;
+- (BOOL)addExternalReferenceToObjectOrLazyReference:(id)a0 isWeak:(BOOL)a1 externalReferenceMap:(id)a2 delegate:(id)a3;
+- (id)initWithDelegate:(id)a0 rootObject:(id)a1;
+- (void)p_setLocator:(id)a0;
+- (void)willDiscardComponent;
+
+@end

@@ -1,0 +1,96 @@
+@class NSString, NSArray, CoreTelephonyClient, NSMutableDictionary, CTRemotePlan, CTDeviceIdentifier, CTXPCServiceSubscriptionInfo, NSMutableSet, UIViewController;
+
+@interface NPHCellularBridgeUIManager : NSObject {
+    CoreTelephonyClient *_coreTelephonyClient;
+    CTXPCServiceSubscriptionInfo *_serviceSubscriptionInfo;
+    NSMutableDictionary *_serviceSubscriptionInfoList;
+    NSArray *_proxyPlanItems;
+    long long _outstandingPlanFlowsIdentified;
+    NSMutableSet *_outstandingRemotePlanItemsRequestedForCSN;
+    UIViewController *_hostViewController;
+    id /* block */ _hostCompletionBlock;
+}
+
+@property (retain, nonatomic) CTRemotePlan *transferableRemotePlan;
+@property (retain, nonatomic) CTDeviceIdentifier *transferableRemoteDeviceID;
+@property (copy, nonatomic) NSString *tinkerFamilyMemberFirstName;
+@property (readonly, nonatomic) BOOL cellularPlanIsSetUp;
+@property (readonly, nonatomic) BOOL isAnyCellularPlanActivating;
+@property (readonly, nonatomic) NSArray *serviceSubscriptionsInUse;
+@property (readonly, nonatomic) NSArray *serviceSubscriptionsToOfferUser;
+@property (readonly, nonatomic) NSArray *serviceSubscriptionsShouldShowAddNewRemotePlan;
+@property (readonly, nonatomic) NSArray *serviceSubscriptionsOfferingRemotePlan;
+@property (readonly, nonatomic) NSArray *serviceSubscriptionsOfferingTrialPlan;
+@property (readonly, nonatomic) BOOL shouldOfferRemotePlan;
+@property (readonly, nonatomic) BOOL shouldOfferTrialPlan;
+@property (readonly, nonatomic) BOOL LTEMayImpactService;
+@property (readonly, nonatomic) BOOL shouldOfferSignupCompletion;
+@property (readonly, nonatomic) NSString *trialPlanType;
+
++ (id)sharedInstance;
++ (id)carrierName;
++ (void)presentCellularError:(id)a0 onViewController:(id)a1;
++ (BOOL)_isSubscriptionInUse:(id)a0;
++ (void)_presentAirplaneModeOnAlertOnViewController:(id)a0;
++ (void)_presentCellularRequiredModeAlertOnViewController:(id)a0;
++ (void)_presentErrorTitled:(id)a0 withMessage:(id)a1 onViewController:(id)a2;
++ (void)_presentErrorTitle:(id)a0 onViewController:(id)a1 withActionTitle:(id)a2 actionHandler:(id /* block */)a3;
+
+- (void)subscriptionInfoDidChange;
+- (void)simStatusDidChange:(id)a0 status:(id)a1;
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)activeSubscriptionsDidChange;
+- (void)finishRemoteProvisioning;
+- (void)fetchTinkerFamilyMember;
+- (id)selectedCellularPlan;
+- (id)cellularPlans;
+- (id)cellularUseErrors;
+- (void)updateCellularPlansWithFetch:(BOOL)a0;
+- (BOOL)isGeminiSetup;
+- (long long)consentRequiredRelevantCellularPlanItem:(id *)a0;
+- (id)cellularPlanRequiringPreInstallConsent;
+- (void)installPendingCellularPlan:(id)a0 withCompletion:(id /* block */)a1;
+- (void)setUpCellularPlanOnViewController:(id)a0 withContext:(id)a1 withCompletion:(id /* block */)a2;
+- (void)transferCellularPlanOnViewController:(id)a0 withCompletion:(id /* block */)a1;
+- (BOOL)shouldAllowUserToAddOrSetUpPlan;
+- (id)userConsentMessageForConsentType:(long long)a0 relevantPlanItem:(id)a1;
+- (id)simLabelForSubscription:(id)a0;
+- (BOOL)isTinkerCrossCarrierSetup;
+- (BOOL)shouldAllowUserToTransferPlanFromDeviceWithCSN:(id)a0;
+- (id)carrierNameForSubscription:(id)a0;
+- (id)lteOverrideForSubscription:(id)a0;
+- (id)carrierPhoneNumberForSubscription:(id)a0;
+- (id)_currentDeviceCSN;
+- (void)_ctCellularPlanInfoDidChange:(id)a0;
+- (void)_localPlanInfoDidChange:(id)a0;
+- (void)_ctCellularRemoteProvisioningDidBecomeAvailable:(id)a0;
+- (void)_updateCoreTelephonyClientInfo;
+- (void)_updateSIMStatusForSubscriptionContext:(id)a0 withStatus:(id)a1;
+- (id)_serviceSubscriptionInfoForSubscriptionContext:(id)a0;
+- (void)_updateServiceSubscriptionInfo:(id)a0;
+- (void)_prePromptForUserConsentIfNecessary:(id /* block */)a0;
+- (void)_updateTransferableCellularPlanFromDeviceWithCSN:(id)a0;
+- (BOOL)allCompanionSIMsMissing;
+- (BOOL)_isCarrierSetupFlowUnsupportedForServiceSubscription:(id)a0;
+- (void)_setUpCellularPlanDirectWithContext:(id)a0 withCompletion:(id /* block */)a1;
+- (void)_setUpCellularPlanWithActivationCodeOnViewController:(id)a0 withContext:(id)a1 withCompletion:(id /* block */)a2 codelessActivationBlock:(id /* block */)a3;
+- (void)_prePromptUserForConsentTextType:(long long)a0 relevantPlanItem:(id)a1 completionBlock:(id /* block */)a2;
+- (id)_activeDeviceCSNList;
+- (void)_updateCellularPlansWithFetch:(BOOL)a0 forCSN:(id)a1;
+- (void)_updateShouldShowAddNewRemotePlan;
+- (void)_updateIsRemotePlanCapable;
+- (void)_updateShouldWarnAboutLTEMayImpactService;
+- (BOOL)_isPersistentError:(id)a0;
+- (BOOL)_isSetupBlockingError:(id)a0;
+- (void)_updateSIMStatusForAllSubscriptionContexts;
+- (id)_trialPlanTypeForContext:(id)a0;
+- (void)_nrPairedWatchDidBecomeActive;
+- (void)startRemoteProvisioning;
+- (id)subscriptionContextForCellularPlanItem:(id)a0;
+- (id)displayNameForCellularPlan:(id)a0;
+- (id)formattedPhoneNumberForSubscription:(id)a0;
+- (BOOL)isCarrierSetupFlowUnsupported;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIKeyCommandDiscoverabilityHUDViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

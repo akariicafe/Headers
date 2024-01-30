@@ -1,0 +1,3 @@
+@interface ___UISearchBarVisualProviderIOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

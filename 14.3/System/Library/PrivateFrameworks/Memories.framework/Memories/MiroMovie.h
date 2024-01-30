@@ -1,0 +1,85 @@
+@class NSString, PHAsset, AVPlayerItem, MiroMemory, NSSet, PregenerateHelper, PHAssetCollection, MiroExportController, UIViewController, MiroAutoEditor;
+@protocol MiroMovieDelegate;
+
+@interface MiroMovie : NSObject <ExportDelegate>
+
+@property (retain, nonatomic) MiroMemory *memory;
+@property (retain) AVPlayerItem *playerItem;
+@property (retain) MiroAutoEditor *autoEditor;
+@property (nonatomic) BOOL allowNonPHMemoryForUnitTesting;
+@property (retain, nonatomic) NSString *outputString;
+@property (weak, nonatomic) id associatedPlayerViewController;
+@property (retain, nonatomic) MiroExportController *exportController;
+@property (retain, nonatomic) PregenerateHelper *helper;
+@property (retain, nonatomic) PHAsset *keyAsset;
+@property (retain, nonatomic) PHAssetCollection *collection;
+@property (readonly, nonatomic) UIViewController *playerViewController;
+@property (readonly, nonatomic) NSSet *defaultAssets;
+@property (weak, nonatomic) id<MiroMovieDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)runTest:(id)a0 options:(id)a1 usingPlayerViewController:(id)a2;
+
+- (long long)mood;
+- (void)setMood:(long long)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithAssetCollection:(id)a0;
+- (id)songID;
+- (void)dealloc;
+- (void)setSongID:(id)a0;
+- (id)initWithAssetCollection:(id)a0 keyAsset:(id)a1;
+- (id)production;
+- (id)keyAsset;
+- (double)maximumDuration;
+- (id)subtitle;
+- (id)initWithDataRepresentation:(id)a0;
+- (id)titleStyle;
+- (void)setTitleStyle:(id)a0;
+- (void)setSubtitle:(id)a0;
+- (void)setTitle:(id)a0;
+- (BOOL)isCompelling;
+- (id)diagnosticItemProvider;
+- (float)duration;
+- (void)setKeyAsset:(id)a0;
+- (id)dataRepresentation;
+- (void)removeAsset:(id)a0;
+- (id)title;
+- (void)addAsset:(id)a0;
+- (void)setDuration:(float)a0;
+- (void)prepareForPlayback;
+- (void)pregenerateMovieWithCompletionHandler:(id /* block */)a0;
+- (void)cancelPregenerateMovie;
+- (void)_teardownInternals;
+- (void)didFinishExport;
+- (void)exportController:(id)a0 progressedTo:(float)a1 preventBackslide:(BOOL)a2;
+- (void)cancelPrepareForPlayback;
+- (id)createPHMemory;
+- (void)_generateProjectWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)_exportProject:(id)a0 presets:(id)a1 progressHandler:(id /* block */)a2 completionHandler:(id /* block */)a3;
+- (id)moodIDmap;
+- (void)generateProjectWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)playerItemWithProgressHandler:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (void)exportWithPresets:(id)a0 progressHandler:(id /* block */)a1 completionHandler:(id /* block */)a2;
+- (id)availableSongs;
+- (id)availableTitleStyles;
+- (void)removeClip:(id)a0;
+- (void)setRangeOfInterest:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 forClip:(id)a1;
+- (void)setVolume:(unsigned long long)a0 forClip:(id)a1;
+- (id)exportSessionWithPresetName:(id)a0;
+- (id)_getMiroTapToRadarFilePath;
+- (id)_tapToRadarDebug;
+- (id)_tapToRadarMemory;
+- (id)_tapToRadarBlueprint;
+- (id)_tapToRadarPicklist;
+- (id)_tapToRadarRanges;
+- (id)_tapToRadarMediaanalysis_db;
+- (id)_tapToRadarMediaanalysis_db_shm;
+- (id)_tapToRadarMediaanalysis_db_wal;
+- (void)tapToRadar;
+- (void)_testPregenerateWithCompletion:(id /* block */)a0;
+
+@end

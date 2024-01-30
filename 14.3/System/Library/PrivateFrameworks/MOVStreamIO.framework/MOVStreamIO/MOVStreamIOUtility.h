@@ -1,0 +1,44 @@
+@interface MOVStreamIOUtility : NSObject
+
++ (id)valueWithCGAffineTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
++ (id)audioNoneEncoderConfig;
++ (id)monochrome8bitHEVCLosslessEncoderConfig;
++ (id)monochrome8bitHEVCEncoderConfigWithBitrate:(unsigned long long)a0;
++ (id)monochrome8bitHEVCEncoderConfig;
++ (id)slimEncoderConfig;
++ (BOOL)isEncoderAvailableForEncoderType:(int)a0;
++ (id)colorH264EncoderConfigWithBitrate:(unsigned long long)a0;
++ (id)colorH264EncoderConfig;
++ (id)colorHEVCLosslessEncoderConfig;
++ (id)colorHEVCEncoderConfigWithBitrate:(unsigned long long)a0;
++ (id)colorHEVCEncoderConfig;
++ (struct opaqueCMFormatDescription { } *)formatForPixelBuffer:(struct __CVBuffer { } *)a0;
++ (BOOL)isEncoderAvailableWithEncoderName:(id)a0;
++ (double)transformAngleFromVideoOrientation:(int)a0;
++ (unsigned long long)getPreferredPlaneAlignmentSize;
++ (unsigned long long)getPreferredBytesPerRowAlignmentSize;
++ (unsigned long long)getDefaultBitrateForVideoDimension:(struct { int x0; int x1; })a0 atExpectedFramerate:(double)a1 forEncoderType:(int)a2;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })CGAffineTransformValueFromNSValue:(id)a0;
++ (id)addTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0 toConfiguration:(id)a1;
++ (id)addTrackTypeInfo:(unsigned long long)a0 toConfiguration:(id)a1;
++ (id)monochrome10bitHEVCLosslessEncoderConfig;
++ (id)color8bitHEVCWithAlphaEncoderConfig;
++ (id)color8bitHEVCWithAlphaEncoderConfigWithBitrate:(unsigned long long)a0;
++ (id)colorWithAlphaLossless8bitHEVCEncoderConfig;
++ (id)slimXEncoderConfig;
++ (id)noneEncoderConfig;
++ (id)sampleBufferConfigWithPixelFormat:(unsigned int)a0;
++ (id)customEncoderConfig;
++ (id)customEncoderConfigWithEmbeddedConfiguration:(id)a0;
++ (id)monochrome10bitHEVCEncoderConfig;
++ (id)monochrome10bitHEVCEncoderConfigWithBitrate:(unsigned long long)a0;
++ (BOOL)verifyExactBytesPerRow:(unsigned long long)a0 width:(unsigned long long)a1 height:(unsigned long long)a2 pixelFormat:(unsigned int)a3;
++ (id)getJsonFriendlyCopy:(id)a0;
++ (id)getPlistFriendlyCopyOf:(id)a0;
++ (BOOL)isValidJSONObject:(id)a0 path:(id)a1;
++ (struct opaqueCMFormatDescription { } *)createL010FormatDescriptionFromL016FormatDescription:(struct opaqueCMFormatDescription { } *)a0;
++ (struct opaqueCMFormatDescription { } *)createL010FormatDescriptionFromRawBayerFormatDescription:(struct opaqueCMFormatDescription { } *)a0;
++ (struct opaqueCMFormatDescription { } *)createxf20FormatDescriptionFromRawBayerFormatDescription:(struct opaqueCMFormatDescription { } *)a0;
++ (struct opaqueCMFormatDescription { } *)createL008FormatDescriptionFromCompandedRawBayerFormatDescription:(struct opaqueCMFormatDescription { } *)a0;
+
+@end

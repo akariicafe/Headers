@@ -1,0 +1,93 @@
+@class NSLock, CBUUID, NSString, NSSet, NSMutableDictionary, CBCentralManager, HDProfile, HDIdentifierTable, HDDataCollectionManager, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface HDHealthServiceManager : NSObject <CBCentralManagerPrivateDelegate, CBPairingAgentDelegate> {
+    int _privacyNotificationToken;
+}
+
+@property (retain, nonatomic) CBCentralManager *central;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) HDDataCollectionManager *dataCollectionManager;
+@property (weak, nonatomic) HDProfile *profile;
+@property (retain, nonatomic) NSLock *discoveryLock;
+@property (retain, nonatomic) HDIdentifierTable *discoveryInfosTable;
+@property (retain, nonatomic) NSMutableDictionary *discoveryInfosByServiceUUID;
+@property (retain, nonatomic) NSSet *scanServiceUUIDs;
+@property (retain, nonatomic) CBUUID *allServicesUUID;
+@property (retain, nonatomic) NSLock *connectionLock;
+@property (retain, nonatomic) HDIdentifierTable *connectionInfosTable;
+@property (retain, nonatomic) NSMutableDictionary *connectionInfosByPeripheralUUID;
+@property (retain, nonatomic) NSMutableDictionary *connectedPeripheralsByPeripheralUUID;
+@property (retain, nonatomic) NSMutableDictionary *bluetoothUpdateHandlers;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *privateModeTimer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)_isBTLESupportedWithCentral:(id)a0 error:(id *)a1;
+
+- (id)initWithProfile:(id)a0;
+- (void)centralManager:(id)a0 didDiscoverPeripheral:(id)a1 advertisementData:(id)a2 RSSI:(id)a3;
+- (void)centralManagerDidUpdateState:(id)a0;
+- (void)releasePrivateMode;
+- (id)_reportPeripheral:(id)a0 serviceUUID:(id)a1 serviceAdvertisementData:(id)a2 peripheralAdvertisementData:(id)a3;
+- (unsigned long long)connectHealthService:(id)a0 connectionOptions:(unsigned long long)a1 sessionHandler:(id /* block */)a2 dataHandler:(id /* block */)a3 mfaSuccessHandler:(id /* block */)a4 autoPairData:(id)a5 error:(id *)a6;
+- (BOOL)healthUpdatesEnabledFromDevice:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (void)pairingAgent:(id)a0 peerDidCompletePairing:(id)a1;
+- (void)characteristicReceived:(id)a0 device:(id)a1;
+- (void)centralManager:(id)a0 didDisconnectPeripheral:(id)a1 error:(id)a2;
+- (id)reviewSavedHealthServiceSessionsWithError:(id *)a0;
+- (void)updateConnectionInfosForPeripheralUUID:(id)a0 withMutation:(id /* block */)a1;
+- (BOOL)setHealthUpdatesEnabled:(BOOL)a0 fromDevice:(id)a1 error:(id *)a2;
+- (void)dealloc;
+- (id)shortDescription;
+- (id)_copyDiscoveryInfosForServiceUUID:(id)a0;
+- (void)_queue_reportExistingDiscoveriesForService:(id)a0;
+- (unsigned long long)connectHealthService:(id)a0 sessionHandler:(id /* block */)a1 dataHandler:(id /* block */)a2 error:(id *)a3;
+- (id)_serviceFromUUID:(id)a0 peripheral:(id)a1 serviceAdvertisementData:(id)a2 peripheralAdvertisementData:(id)a3;
+- (void)_disconnectPeripheralWithDeviceIdentifier:(id)a0 error:(id)a1;
+- (unsigned long long)_connectHealthService:(id)a0 connectionInfo:(id)a1 error:(id *)a2;
+- (id)retrieveOOBData:(id *)a0;
+- (void)pairingAgent:(id)a0 peerDidFailToCompletePairing:(id)a1 error:(id)a2;
+- (void)resetOOBState;
+- (id)initWithProfile:(id)a0 centralManager:(id)a1 queue:(id)a2;
+- (void)performOperation:(id)a0 onSession:(unsigned long long)a1 withParameters:(id)a2 completion:(id /* block */)a3;
+- (void)_queue_notifyBluetoothStatusUpdates:(long long)a0 error:(id)a1;
+- (void)_queue_handleMFASuccessNotification;
+- (void)discoveredServices:(id)a0 forPeripheral:(id)a1;
+- (id)_healthServiceForPeriperalID:(id)a0 serviceType:(long long)a1;
+- (void)writeCharacteristic:(id)a0 onSession:(unsigned long long)a1 expectResponse:(BOOL)a2 completion:(id /* block */)a3;
+- (void)pairingAgent:(id)a0 peerDidRequestPairing:(id)a1 type:(long long)a2 passkey:(id)a3;
+- (void)centralManager:(id)a0 didConnectPeripheral:(id)a1;
+- (void)discoveredCharacteristics:(id)a0 forDevice:(id)a1 service:(id)a2;
+- (void)centralManager:(id)a0 didFailToConnectPeripheral:(id)a1 error:(id)a2;
+- (void)pairingAgent:(id)a0 peerDidUnpair:(id)a1;
+- (void)enablePrivateModeForSessionWithIdentifier:(id)a0;
+- (unsigned long long)connectHealthService:(id)a0 sessionHandler:(id /* block */)a1 dataHandler:(id /* block */)a2 characteristicsHandler:(id /* block */)a3 error:(id *)a4;
+- (id)_scanOptionsForDiscoveryInfos:(id)a0;
+- (void)retrieveAndRemoveDisconnectedPeripherals;
+- (void)disconnectHealthService:(unsigned long long)a0;
+- (void)_queue_extendPrivateModeLeaseForSessionWithIdentifier:(id)a0;
+- (unsigned long long)_addConnectedPeripheral:(id)a0 service:(id)a1 connectionInfo:(id)a2;
+- (id)_createDiscoveryTimeout:(unsigned long long)a0 forIdentifier:(unsigned long long)a1;
+- (void)sendBluetoothStatusUpdatesForServer:(id)a0 updateHandler:(id /* block */)a1 completion:(id /* block */)a2;
+- (void)_queue_updateScan;
+- (void)removeConnectingPeripheralsWithError:(id)a0;
+- (id)allServicesWithError:(id *)a0;
+- (void)_createConnectionTimeoutForConnectionInfo:(id)a0;
+- (unsigned long long)discoverHealthServicesWithType:(long long)a0 timeout:(unsigned long long)a1 alwaysNotify:(BOOL)a2 handler:(id /* block */)a3 error:(id *)a4;
+- (void)centralManager:(id)a0 willRestoreState:(id)a1;
+- (void)_removeConnectedPeripheral:(unsigned long long)a0 withError:(id)a1;
+- (void)getSupportedPropertyNamesWithHandler:(id /* block */)a0;
+- (id)_allServiceUUIDs;
+- (void)_notifyDiscoveryForInfos:(id)a0 peripheral:(id)a1 healthService:(id)a2 alwaysNotify:(BOOL)a3;
+- (void)unpairHealthServiceIfNecessary:(id)a0;
+- (void)stopDiscoveryWithIdentifier:(unsigned long long)a0;
+- (void)_queue_stopScan;
+- (id)_copyConnectionInfosForPeripheralUUID:(id)a0;
+- (void)getProperty:(id)a0 forSession:(unsigned long long)a1 withHandler:(id /* block */)a2;
+- (void)servicesInvalidatedForDevice:(id)a0 withError:(id)a1;
+
+@end

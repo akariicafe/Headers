@@ -1,0 +1,3 @@
+@interface __MPUTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,61 @@
+@interface UITextViewAccessibility : __UITextViewAccessibility_super
+
++ (id)safeCategoryTargetClassName;
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (BOOL)canBecomeFocused;
+- (void)setContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)keyboardInput:(id)a0 shouldInsertText:(id)a1 isMarkedText:(BOOL)a2;
+- (BOOL)resignFirstResponder;
+- (void)setAttributedText:(id)a0;
+- (id)accessibilityElements;
+- (BOOL)isAccessibilityElement;
+- (unsigned long long)_accessibilityAutomationType;
+- (long long)accessibilityContainerType;
+- (void)dealloc;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (id)accessibilityDropPointDescriptors;
+- (id)accessibilityDragSourceDescriptors;
+- (unsigned long long)accessibilityTraits;
+- (void)_accessibilityLoadAccessibilityInformation;
+- (BOOL)_accessibilityTextViewShouldBreakUpParagraphs;
+- (id)accessibilityLabel;
+- (id)accessibilityCustomRotors;
+- (id)_accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (id)accessibilityPlaceholderValue;
+- (struct CGPoint { double x0; double x1; })accessibilityActivationPoint;
+- (id)accessibilityAttributedValue;
+- (id)_accessibilityAttributedTextRetrieval;
+- (void)_accessibilitySetValue:(id)a0;
+- (id)_accessibilitySupplementaryHeaderViews;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_accessibilitySelectedTextRange;
+- (void)_accessibilitySetSelectedTextRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (BOOL)accessibilityActivate;
+- (id)_accessibilityInternalTextLinks;
+- (BOOL)_accessibilityOverridesPotentiallyAttributedAPISelector:(SEL)a0;
+- (id)_accessibilityAttributedValueForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_accessibilityBoundsForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)_accessibilityDataDetectorScheme:(struct CGPoint { double x0; double x1; })a0;
+- (id)accessibilityValue;
+- (double)_accessibilityFontSize;
+- (BOOL)keyboardInput:(id)a0 shouldReplaceTextInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementText:(id)a2;
+- (BOOL)_allowCustomActionHintSpeakOverride;
+- (void)setAttributedPlaceholder:(id)a0;
+- (void)setSelectedRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (id)_accessibilityTextSelectionRectWithLargestVisualRangeFromCandidates:(id)a0;
+- (id)_accessibilityGetValue;
+- (BOOL)_axDidRegisterForDDNotification;
+- (void)_axDidFinishDataDetectorURLification:(id)a0;
+- (void)_axSetDidRegisterForDDNotification:(BOOL)a0;
+- (void)_axRegisterForDDNotificationIfNeeded;
+- (void)_axClearCachedLinkData;
+- (id)_accessibilityGetValue:(BOOL)a0;
+- (BOOL)_axIsOnlyOneLinkElement;
+- (BOOL)_accessibilityActivateLink:(id)a0;
+- (id)_accessibilityParagraphElements;
+- (id)_accessibilityParagraphLinksCustomRotor;
+- (id)_accessibilityParagraphElementsWithLinks;
+- (id)_accessibilityLinksForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+
+@end

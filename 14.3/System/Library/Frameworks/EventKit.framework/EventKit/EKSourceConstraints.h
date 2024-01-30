@@ -1,0 +1,83 @@
+@interface EKSourceConstraints : NSObject {
+    struct { unsigned int maxAlarmsAllowed; unsigned int maxRecurrencesAllowed; unsigned char supportsAlarmTriggerIntervals : 1; unsigned char supportsAlarmTriggerDates : 1; unsigned char supportsAlarmsTriggeringAfterStartDate : 1; unsigned char snoozeAlarmRequiresDetach : 1; unsigned char organizerCanSeeAttendeeStatuses : 1; unsigned char inviteesCanSeeAttendeeStatuses : 1; unsigned char statusesAreAccurate : 1; unsigned char supportsIncomingInvitations : 1; unsigned char supportsOutgoingInvitations : 1; unsigned char requiresOutgoingInvitationsInDefaultCalendar : 1; unsigned char supportsInvitationModifications : 1; unsigned char supportsEventForwarding : 1; unsigned char supportsResponseComments : 1; unsigned char deliverySourceOrExternalIDRequiredForResponse : 1; unsigned char proposedStatusRequiredForResponse : 1; unsigned char declinedStatusChangeRequiresNoPendingStatus : 1; unsigned char eventDurationConstrainedToRecurrenceInterval : 1; unsigned char alarmTriggerIntervalConstrainedToRecurrenceInterval : 1; unsigned char occurrencesMustOccurOnSeparateDays : 1; unsigned char futureStartDateLimitedToOccurrenceCacheBounds : 1; unsigned char supportsRecurrencesOnDetachedEvents : 1; unsigned char recurrencesShouldPinToMonthDays : 1; unsigned char requiresAttendeeSearchInSingleAccount : 1; unsigned char mustAcknowledgeMasterEvent : 1; unsigned char canSetAvailability : 1; unsigned char eventAvailabilityLimited : 1; unsigned char requiresMSFormattedUID : 1; unsigned char shouldCancelDeletedEvents : 1; unsigned char shouldDeclineDeletedInvitations : 1; unsigned char supportsStructuredLocations : 1; unsigned char supportsReminderActions : 1; unsigned char supportsReminderLocations : 1; unsigned char supportsAlarmProximity : 1; unsigned char allowsCalendarAddDeleteModify : 1; unsigned char allowsTasks : 1; unsigned char allowsEvents : 1; unsigned char supportsURLField : 1; unsigned char supportsAllDayDueDates : 1; unsigned char supportsSharedCalendars : 1; unsigned char isFacebook : 1; unsigned char recurrenceSeriesMustIncludeMoreThanFirstOccurrence : 1; unsigned char supportsPrivateEvents : 1; unsigned char prohibitsPrivateEventsWithAttendees : 1; unsigned char supportsAvailabilityRequests : 1; unsigned char supportsIgnoringEventsInAvailabilityRequests : 1; unsigned char supportsLocationDirectorySearches : 1; unsigned char requiresSamePrivacyLevelAcrossRecurrenceSeries : 1; unsigned char supportsInboxAvailability : 1; unsigned char prohibitsMultipleMonthsInYearlyRecurrence : 1; unsigned char prohibitsMultipleDaysInMonthlyRecurrence : 1; unsigned char prohibitsYearlyRecurrenceInterval : 1; unsigned char requiresOccurrencesConformToRecurrenceRule : 1; unsigned char prohibitsDetachmentOnCommentChange : 1; unsigned char allowsProposeNewTime : 1; unsigned char prohibitsICSImport : 1; unsigned char supportsAutoGeocodingStructuredLocations : 1; unsigned char supportsJunkReporting : 1; unsigned char supportsPhoneNumbers : 1; unsigned char attendeesUseDeletedByOrganizerStatus : 1; unsigned char prohibitsSlicingEventsWithAttendees : 1; unsigned char supportsSubscribedCalendars : 1; unsigned char supportsAttachments : 1; unsigned char supportsDelegation : 1; unsigned char supportsDelegateEnumeration : 1; unsigned char supportsFloatingTimeZone : 1; unsigned char prohibitsUsingEventOrganizerEmailWhenComposingMail : 1; unsigned char supportsRecurrenceSplit : 1; unsigned char requiresOpeningAttachmentAsLink : 1; unsigned char shouldUseDeleteAndAddInsteadOfMoveBetweenCalendars : 1; unsigned char supportsInvitationModificationsWithoutNotification : 1; } _flags;
+}
+
+@property (nonatomic) int maxAlarmsAllowed;
+@property (nonatomic) int maxRecurrencesAllowed;
+@property (nonatomic) BOOL supportsAlarmTriggerIntervals;
+@property (nonatomic) BOOL supportsAlarmTriggerDates;
+@property (nonatomic) BOOL supportsAlarmsTriggeringAfterStartDate;
+@property (nonatomic) BOOL snoozeAlarmRequiresDetach;
+@property (nonatomic) BOOL organizerCanSeeAttendeeStatuses;
+@property (nonatomic) BOOL inviteesCanSeeAttendeeStatuses;
+@property (nonatomic) BOOL statusesAreAccurate;
+@property (nonatomic) BOOL supportsIncomingInvitations;
+@property (nonatomic) BOOL supportsOutgoingInvitations;
+@property (nonatomic) BOOL requiresOutgoingInvitationsInDefaultCalendar;
+@property (nonatomic) BOOL supportsInvitationModifications;
+@property (nonatomic) BOOL supportsEventForwarding;
+@property (nonatomic) BOOL supportsResponseComments;
+@property (nonatomic) BOOL deliverySourceOrExternalIDRequiredForResponse;
+@property (nonatomic) BOOL proposedStatusRequiredForResponse;
+@property (nonatomic) BOOL declinedStatusChangeRequiresNoPendingStatus;
+@property (nonatomic) BOOL eventDurationConstrainedToRecurrenceInterval;
+@property (nonatomic) BOOL alarmTriggerIntervalConstrainedToRecurrenceInterval;
+@property (nonatomic) BOOL occurrencesMustOccurOnSeparateDays;
+@property (nonatomic) BOOL futureStartDateLimitedToOccurrenceCacheBounds;
+@property (nonatomic) BOOL supportsRecurrencesOnDetachedEvents;
+@property (nonatomic) BOOL recurrencesShouldPinToMonthDays;
+@property (nonatomic) BOOL requiresAttendeeSearchInSingleAccount;
+@property (nonatomic) BOOL mustAcknowledgeMasterEvent;
+@property (nonatomic) BOOL canSetAvailability;
+@property (nonatomic) BOOL eventAvailabilityLimited;
+@property (nonatomic) BOOL requiresMSFormattedUID;
+@property (nonatomic) BOOL shouldCancelDeletedEvents;
+@property (nonatomic) BOOL shouldDeclineDeletedInvitations;
+@property (nonatomic) BOOL supportsStructuredLocations;
+@property (nonatomic) BOOL supportsReminderActions;
+@property (nonatomic) BOOL supportsReminderLocations;
+@property (nonatomic) BOOL supportsAlarmProximity;
+@property (nonatomic) BOOL allowsCalendarAddDeleteModify;
+@property (nonatomic) BOOL allowsTasks;
+@property (nonatomic) BOOL allowsEvents;
+@property (nonatomic) BOOL supportsURLField;
+@property (nonatomic) BOOL supportsAllDayDueDates;
+@property (nonatomic) BOOL supportsSharedCalendars;
+@property (nonatomic) BOOL isFacebook;
+@property (nonatomic) BOOL supportsPrivateEvents;
+@property (nonatomic) BOOL prohibitsPrivateEventsWithAttendees;
+@property (nonatomic) BOOL requiresSamePrivacyLevelAcrossRecurrenceSeries;
+@property (nonatomic) BOOL supportsAvailabilityRequests;
+@property (nonatomic) BOOL supportsIgnoringEventsInAvailabilityRequests;
+@property (nonatomic) BOOL supportsLocationDirectorySearches;
+@property (nonatomic) BOOL supportsInboxAvailability;
+@property (nonatomic) BOOL recurrenceSeriesMustIncludeMoreThanFirstOccurrence;
+@property (nonatomic) BOOL prohibitsMultipleMonthsInYearlyRecurrence;
+@property (nonatomic) BOOL prohibitsMultipleDaysInMonthlyRecurrence;
+@property (nonatomic) BOOL prohibitsYearlyRecurrenceInterval;
+@property (nonatomic) BOOL requiresOccurrencesConformToRecurrenceRule;
+@property (nonatomic) BOOL prohibitsDetachmentOnCommentChange;
+@property (nonatomic) BOOL allowsProposeNewTime;
+@property (nonatomic) BOOL prohibitsICSImport;
+@property (nonatomic) BOOL supportsAutoGeocodingStructuredLocations;
+@property (nonatomic) BOOL supportsJunkReporting;
+@property (nonatomic) BOOL supportsPhoneNumbers;
+@property (nonatomic) BOOL attendeesUseDeletedByOrganizerStatus;
+@property (nonatomic) BOOL prohibitsSlicingEventsWithAttendees;
+@property (nonatomic) BOOL supportsSubscribedCalendars;
+@property (nonatomic) BOOL supportsAttachments;
+@property (nonatomic) BOOL supportsFloatingTimeZone;
+@property (nonatomic) BOOL requiresOpeningAttachmentAsLink;
+@property (nonatomic) BOOL shouldUseDeleteAndAddInsteadOfMoveBetweenCalendars;
+@property (nonatomic) BOOL prohibitsUsingEventOrganizerEmailWhenComposingMail;
+@property (nonatomic) BOOL supportsDelegation;
+@property (nonatomic) BOOL supportsDelegateEnumeration;
+@property (nonatomic) BOOL supportsInvitationModificationsWithoutNotification;
+@property (nonatomic) BOOL supportsRecurrenceSplit;
+
++ (id)allAllowSourceConstraints;
+
+- (id)init;
+- (id)initWithCDBSourceConstraintFlags:(struct { unsigned int x0; unsigned int x1; unsigned char x2 : 1; unsigned char x3 : 1; unsigned char x4 : 1; unsigned char x5 : 1; unsigned char x6 : 1; unsigned char x7 : 1; unsigned char x8 : 1; unsigned char x9 : 1; unsigned char x10 : 1; unsigned char x11 : 1; unsigned char x12 : 1; unsigned char x13 : 1; unsigned char x14 : 1; unsigned char x15 : 1; unsigned char x16 : 1; unsigned char x17 : 1; unsigned char x18 : 1; unsigned char x19 : 1; unsigned char x20 : 1; unsigned char x21 : 1; unsigned char x22 : 1; unsigned char x23 : 1; unsigned char x24 : 1; unsigned char x25 : 1; unsigned char x26 : 1; unsigned char x27 : 1; unsigned char x28 : 1; unsigned char x29 : 1; unsigned char x30 : 1; unsigned char x31 : 1; unsigned char x32 : 1; unsigned char x33 : 1; unsigned char x34 : 1; unsigned char x35 : 1; unsigned char x36 : 1; unsigned char x37 : 1; unsigned char x38 : 1; unsigned char x39 : 1; unsigned char x40 : 1; unsigned char x41 : 1; unsigned char x42 : 1; unsigned char x43 : 1; unsigned char x44 : 1; unsigned char x45 : 1; unsigned char x46 : 1; unsigned char x47 : 1; unsigned char x48 : 1; unsigned char x49 : 1; unsigned char x50 : 1; unsigned char x51 : 1; unsigned char x52 : 1; unsigned char x53 : 1; unsigned char x54 : 1; unsigned char x55 : 1; unsigned char x56 : 1; unsigned char x57 : 1; unsigned char x58 : 1; unsigned char x59 : 1; unsigned char x60 : 1; unsigned char x61 : 1; unsigned char x62 : 1; unsigned char x63 : 1; unsigned char x64 : 1; unsigned char x65 : 1; unsigned char x66 : 1; unsigned char x67 : 1; unsigned char x68 : 1; unsigned char x69 : 1; unsigned char x70 : 1; unsigned char x71 : 1; })a0;
+
+@end

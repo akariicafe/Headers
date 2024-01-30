@@ -1,0 +1,18 @@
+@class UILabel, UITextView;
+
+@interface SLSheetTextComposeView : UIView
+
+@property (retain, nonatomic) UITextView *textView;
+@property (retain, nonatomic) UILabel *placeholderLabel;
+@property (nonatomic) double textRightInset;
+
+- (BOOL)becomeFirstResponder;
+- (BOOL)resignFirstResponder;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)_assembleView;
+- (void)restoreKeyboard;
+
+@end

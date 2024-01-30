@@ -1,0 +1,83 @@
+@class NSMutableDictionary, NSDate, NSDictionary, NSObject, CPLEngineScheduler, CPLEngineTransport, NSString, CPLDerivativesFilter, CPLBatchExtractionStrategy, NSMutableSet, CPLEnginePushRepository, NSArray, CPLChangeBatch, CPLEngineScopeStorage, NSError;
+@protocol CPLEngineTransportCheckRecordsExistenceTask, CPLEngineTransportGroup, CPLEngineTransportUploadBatchTask, OS_dispatch_queue;
+
+@interface CPLPushToTransportScopeTask : CPLEngineScopedTask {
+    NSObject<OS_dispatch_queue> *_lock;
+    CPLEngineScopeStorage *_scopes;
+    CPLEngineTransport *_transport;
+    CPLEnginePushRepository *_pushRepository;
+    CPLEngineScheduler *_scheduler;
+    CPLBatchExtractionStrategy *_currentStrategy;
+    CPLChangeBatch *_uploadBatch;
+    CPLChangeBatch *_batchToCommit;
+    NSError *_preparationError;
+    CPLDerivativesFilter *_derivativesFilter;
+    NSArray *_uploadResourceTasks;
+    NSDictionary *_recordsWithGeneratedResources;
+    NSMutableDictionary *_recordsWithSparseResources;
+    NSMutableDictionary *_recordsWithForwardCompatibilityCheck;
+    NSMutableDictionary *_recordsWithUntrustedCloudCache;
+    NSMutableDictionary *_recordsWithResourcesToLookAhead;
+    NSMutableDictionary *_recordsCopyingDerivativesFromSource;
+    NSMutableDictionary *_recordsToCheckForExistence;
+    NSMutableSet *_recordsNeedingToBeFullyFetched;
+    NSMutableDictionary *_additionalTransportScopes;
+    id<CPLEngineTransportCheckRecordsExistenceTask> _checkExistenceTask;
+    id<CPLEngineTransportUploadBatchTask> _uploadTask;
+    unsigned long long _lastReportedProgress;
+    unsigned long long _countOfPushedChanges;
+    double _startOfIteration;
+    double _startOfDerivativesGeneration;
+    BOOL _generatingSomeDerivatives;
+    BOOL _deferredCancel;
+    BOOL _hasCachedShouldCheckResourcesAhead;
+    BOOL _shouldCheckResourcesAhead;
+    unsigned long long _estimatedSize;
+    unsigned long long _estimatedCount;
+    BOOL _shouldSetupEstimatedSize;
+    id<CPLEngineTransportGroup> _transportGroup;
+    long long _taskItem;
+    BOOL _mightPushSomeResources;
+    BOOL _hasPushedSomeChanges;
+    BOOL _hasDroppedSomeResources;
+    BOOL _shouldResetExceedingQuotaOnSuccess;
+    BOOL _isUsingOverQuotaStrategy;
+    BOOL _resetStrategy;
+    double _latestApproximativeUploadRate;
+    NSString *_currentTaskKey;
+    NSDate *_taskStartDate;
+    unsigned long long _recordCount;
+    BOOL _didExtractOneBatch;
+}
+
+@property (nonatomic) BOOL highPriority;
+
+- (void)cancel;
+- (void)cancel:(BOOL)a0;
+- (void)launch;
+- (id)taskIdentifier;
+- (void).cxx_destruct;
+- (void)_doOneIteration;
+- (void)_uploadBatch;
+- (id)initWithEngineLibrary:(id)a0 session:(id)a1 clientCacheIdentifier:(id)a2 scope:(id)a3 transportScope:(id)a4;
+- (void)_didStartTaskWithKey:(id)a0 recordCount:(unsigned long long)a1;
+- (void)_didFinishTaskWithKey:(id)a0 error:(BOOL)a1 cancelled:(BOOL)a2;
+- (void)_popNextBatchAndContinue;
+- (void)_updateQuotaStrategyAfterSuccessInTransaction:(id)a0;
+- (void)_requireExistenceCheckForRecords:(id)a0;
+- (BOOL)_prepareResourcesToUploadInBatch:(id)a0 transaction:(id)a1 error:(id *)a2;
+- (BOOL)_markUploadedTasksDidFinishWithError:(id)a0 transaction:(id)a1 error:(id *)a2;
+- (BOOL)_discardUploadedExtractedBatch:(id)a0 error:(id *)a1;
+- (BOOL)_reenqueueExtractedBatchWithRejectedRecords:(id)a0 error:(id *)a1;
+- (void)_updateChangeProperties:(id)a0 withBaseChange:(id)a1 withCopyProperty:(id /* block */)a2;
+- (BOOL)_shouldCheckResourcesAheadForChange:(id)a0;
+- (void)_clearUploadBatch;
+- (void)_detectUpdatesNeedingExistenceCheck:(id)a0;
+- (void)_checkForRecordExistence;
+- (void)_prepareUploadBatchWithTransaction:(id)a0 andStore:(id)a1;
+- (void)_deleteGeneratedResourcesAfterError:(id)a0;
+- (void)_generateDerivativesForNextRecord:(id)a0;
+- (void)_generateNeededDerivatives;
+- (void)_pushTaskDidFinishWithError:(id)a0;
+
+@end

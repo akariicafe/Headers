@@ -1,0 +1,3 @@
+@interface PKAccountWebServiceAccountTransactionAnswerResponse : PKAccountWebServiceResponse
+
+@end

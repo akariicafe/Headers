@@ -1,0 +1,83 @@
+@class NSString, NSMapTable, PRSQueryRankingConfiguration, SSTrialManager;
+
+@interface PRSRankingItemRanker : NSObject {
+    PRSQueryRankingConfiguration *_rankingConfiguration;
+    SSTrialManager *_trialModelManager;
+}
+
+@property (retain, nonatomic) NSString *keyboardLanguage;
+@property (retain, nonatomic) NSString *searchString;
+@property (retain, nonatomic) NSString *userQueryString;
+@property BOOL isInternalDevice;
+@property (retain, nonatomic) NSMapTable *bundleFeatures;
+@property (nonatomic) double experimentalWeight1;
+@property (nonatomic) double experimentalWeight2;
+@property (retain, nonatomic) NSString *meContactIdentifier;
+@property (nonatomic) BOOL policyDisabled;
+@property (nonatomic) float lastIsSpaceFeature;
+@property BOOL isCancelled;
+@property BOOL isCJK;
+@property (nonatomic) double currentTime;
+@property (nonatomic) BOOL hasPolicyMultipleTermsPhraseMatch;
+@property (nonatomic) BOOL hasParsecPolicyPhraseMatch;
+@property (nonatomic) BOOL exact;
+@property (nonatomic) BOOL isContentWord;
+@property (nonatomic) unsigned long long queryTermCount;
+@property (nonatomic) unsigned long long queryTermLength;
+@property (nonatomic) BOOL isAltNamePrefixMatchOnlyTopHitExcludedQuery;
+@property (nonatomic) BOOL isSpellCorrectPrefixMatchOnlyTopHitExcludedQuery;
+@property (nonatomic) BOOL containsEnglishAlphabetInQuery;
+@property (nonatomic) unsigned long long queryKind;
+
++ (void)initialize;
++ (void)preheat;
++ (id)phoneFavoritesCopy;
++ (void)clearState;
++ (id)sortedUniqueBundleFeatureValuesFromBundleFeatures:(id)a0;
++ (id)importantAttributesForBundle:(id)a0;
++ (id)importantAttributesForParsecBundle:(id)a0;
++ (BOOL)isKeywordsHidingEnabled;
++ (void)setDockApps:(id)a0;
++ (struct _LanguageModel { } *)languageModel;
++ (BOOL)isContentWordQuery:(id)a0 queryTermCount:(long long)a1 keyboardLanguage:(id)a2;
++ (BOOL)isBlendingScoreDemoted:(float)a0;
++ (unsigned long long)spellCorrectedAppMinQueryLen;
++ (BOOL)isCJK;
+
+- (void)cancel;
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)activate;
+- (void)deactivate;
+- (id)userQuery;
+- (id)rankingConfiguration;
+- (BOOL)wasItemCreatedWithinAWeek:(id)a0;
+- (void)prepareParsecResults:(id)a0 inBundle:(id)a1;
+- (float *)computeScoresForVectors:(id)a0 withBundleFeatures:(id)a1;
+- (id)initWithSearchString:(id)a0 userQueryString:(id)a1 language:(id)a2 isCJK:(BOOL)a3 experimentalWeight1:(double)a4 experimentalWeight2:(double)a5 currentTime:(double)a6;
+- (id)initWithSearchString:(id)a0 language:(id)a1 isCJK:(BOOL)a2 experimentalWeight1:(double)a3 experimentalWeight2:(double)a4 currentTime:(double)a5;
+- (id)rankingConfigurationWithMeContact:(id)a0 emailAddresses:(id)a1 phoneFavorites:(id)a2 vipList:(id)a3 clientBundle:(id)a4 isScopedSearch:(BOOL)a5 spotlightQuery:(id)a6 userQuery:(id)a7 queryKind:(unsigned long long)a8 isPeopleSearch:(BOOL)a9 keyboardLanguage:(id)a10;
+- (void)relevantResultSetPRSL2FeaturesFromBundleFeature:(unsigned long long)a0 absRankFeatureOut:(unsigned short *)a1 relRankFeatureOut:(unsigned short *)a2;
+- (void)pickMostRecentDateForItem:(id)a0 pastItems:(id *)a1 futureItems:(id *)a2;
+- (void)computeRelativeFeatureForContext:(id)a0 items:(id)a1;
+- (void)updateResultSetContext:(struct _resultset_computation_ctx { float *x0; BOOL x1; BOOL x2; BOOL x3; float x4; float x5; float x6; float x7[44]; } *)a0 andUniqueScores:(id)a1 withResultSetItems:(id)a2;
+- (void)updateResultSetFeaturesOnItems:(id)a0 withContext:(struct _resultset_computation_ctx { float *x0; BOOL x1; BOOL x2; BOOL x3; float x4; float x5; float x6; float x7[44]; } *)a1 uniqueScores:(id)a2;
+- (void)populateRankResultSetBundleFeaturesWithBundleItems:(id)a0 withUniqueBundleMaxScores:(id)a1;
+- (void)populateLocalResultSetDateFeaturesForItems:(id)a0;
+- (void)populateMailContactFeaturesWithMailItems:(id)a0 contactItems:(id)a1;
+- (id /* block */)comparatorByJoiningComparator:(id /* block */)a0 withPredicate:(id)a1;
+- (void)updateScoresForPreparedItems:(id)a0 isCJK:(BOOL)a1 clientBundle:(id)a2 thresholdValue:(double)a3;
+- (void)computeResultSetDependantFeatures:(id)a0 allItems:(id)a1;
+- (void)computePolicyFeaturesForBundleItems:(id)a0 isCJK:(BOOL)a1;
+- (void)rerankItemsWithPolicyForBundleItems:(id)a0 isCJK:(BOOL)a1;
+- (void)setRenderEngagementFeaturesForItemAsShorts:(id)a0 counts:(short[6])a1 isRender:(BOOL)a2 bundleDict:(id)a3;
+- (void)resetbundleFeaturesScratchBuf:(float *)a0;
+- (id)initWithSearchString:(id)a0 userQueryString:(id)a1 language:(id)a2 currentTime:(double)a3;
+- (id)initWithSearchString:(id)a0 language:(id)a1 currentTime:(double)a2;
+- (id)rankingConfigurationWithMeContact:(id)a0 emailAddresses:(id)a1 phoneFavorites:(id)a2 vipList:(id)a3 clientBundle:(id)a4 isScopedSearch:(BOOL)a5 spotlightQuery:(id)a6 keyboardLanguage:(id)a7;
+- (void)updateScoresForPreparedItems:(id)a0;
+- (void)setRenderEngagementFeaturesForItem:(id)a0 counts:(id)a1 isRender:(BOOL)a2 bundleDict:(id)a3;
+- (void)prepareItems:(id)a0 inBundle:(id)a1;
+
+@end

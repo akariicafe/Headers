@@ -1,0 +1,3 @@
+@interface __CALayerAccessibility__UIKit__QuartzCore_super : UIAccessibilitySafeCategory
+
+@end

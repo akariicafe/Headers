@@ -1,0 +1,74 @@
+@class NSHashTable, NSError, NSArray, SXTimeline, NSString, SXAVPlayer, NSObject, SVKeyValueObserver;
+@protocol SXVideoProviding, SXVideoPlaybackHost, SXAVPlayerFactory;
+
+@interface SXPlaybackCoordinator : NSObject <SXVideoMetadata>
+
+@property (nonatomic) BOOL playbackRequested;
+@property (readonly, nonatomic) NSHashTable *observers;
+@property (retain, nonatomic) SXAVPlayer *player;
+@property (copy, nonatomic) id /* block */ cancelHandler;
+@property (nonatomic) BOOL initiatedPlayback;
+@property (nonatomic) struct CGSize { double width; double height; } dimensions;
+@property (nonatomic) unsigned long long state;
+@property (retain, nonatomic) SVKeyValueObserver *playerItemPresentationSizeObserver;
+@property (retain, nonatomic) SVKeyValueObserver *readyForDisplayObserver;
+@property (retain, nonatomic) NSError *error;
+@property (readonly, nonatomic) id<SXAVPlayerFactory> playerFactory;
+@property (retain, nonatomic) SVKeyValueObserver *muteStateObserver;
+@property (retain, nonatomic) SVKeyValueObserver *playbackLikelyToKeepUpObserver;
+@property (retain, nonatomic) SVKeyValueObserver *playbackBufferFullObserver;
+@property (readonly, nonatomic) SXTimeline *timeline;
+@property (nonatomic) double pausedAtTime;
+@property (readonly, nonatomic) id<SXVideoProviding> video;
+@property (readonly, nonatomic) NSArray *loadedTimeRanges;
+@property (readonly, nonatomic) double loadingProgress;
+@property (readonly, nonatomic) BOOL playbackLikelyToKeepUp;
+@property (readonly, nonatomic) BOOL playbackBufferFull;
+@property (weak, nonatomic) NSObject<SXVideoPlaybackHost> *host;
+@property (nonatomic) BOOL muted;
+@property (readonly, nonatomic) double duration;
+@property (readonly, nonatomic) double time;
+@property (readonly, nonatomic) double framerate;
+@property (readonly, nonatomic) double timePlayed;
+@property (readonly, nonatomic) double volume;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } naturalSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)load;
+- (void).cxx_destruct;
+- (void)stateChanged;
+- (void)addPlaybackObserver:(id)a0;
+- (void)removePlaybackObserver:(id)a0;
+- (void)pause;
+- (void)playbackReadyToStart;
+- (void)playbackStarted;
+- (void)playbackPaused;
+- (void)playbackResumed;
+- (void)playbackFinished;
+- (void)playbackFailedWithError:(id)a0;
+- (void)playbackInitiatedWithButtonTapped:(BOOL)a0;
+- (void)timeElapsed:(double)a0 duration:(double)a1;
+- (void)loadedTimeRangesChanged;
+- (void)loadVideoIfNeeded;
+- (void)setupPlayerWithURL:(id)a0;
+- (void)addPlayerItemPresentationSizeObserver;
+- (void)addMuteStateObserver;
+- (void)addPlaybackBuferObserver;
+- (void)addPlaybackLikelyToKeepUpObserver;
+- (void)configureTimeline;
+- (void)playbackPausedAtTime:(double)a0;
+- (void)playbackResumedAtTime:(double)a0;
+- (void)playbackBufferFullStateChanged;
+- (void)playbackLikelyToKeepUpStateChanged;
+- (void)muteStateChanged;
+- (BOOL)supportImpressionTracking;
+- (BOOL)supportsQuartileTracking;
+- (id)initWithVideo:(id)a0 playerFactory:(id)a1;
+- (void)playWithButtonTapped:(BOOL)a0;
+- (void)seekToTime:(double)a0 withCompletionBlock:(id /* block */)a1;
+- (void)removePlayerItemPresentationSizeObserver;
+
+@end

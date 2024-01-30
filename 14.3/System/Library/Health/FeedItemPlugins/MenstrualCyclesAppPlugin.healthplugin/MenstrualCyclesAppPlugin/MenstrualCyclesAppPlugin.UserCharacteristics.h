@@ -1,0 +1,7 @@
+@interface MenstrualCyclesAppPlugin.UserCharacteristics : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ healthStore;
+    void /* unknown type, empty encoding */ observers;
+    void /* unknown type, empty encoding */ userCharacteristicsNotificationObserver;
+}
+
+@end

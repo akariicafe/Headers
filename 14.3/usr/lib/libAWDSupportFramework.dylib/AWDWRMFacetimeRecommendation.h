@@ -1,0 +1,83 @@
+@class NSString;
+
+@interface AWDWRMFacetimeRecommendation : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char wifiRssi : 1; unsigned char wifiSNR : 1; unsigned char audioErasure : 1; unsigned char bssLoad : 1; unsigned char cca : 1; unsigned char cellRsrp : 1; unsigned char cellRsrq : 1; unsigned char cellSnr : 1; unsigned char counter : 1; unsigned char dataLQM : 1; unsigned char facetimeAction : 1; unsigned char facetimePacketLoss : 1; unsigned char facetimeTimeDelay : 1; unsigned char qbssLoad : 1; unsigned char signalBar : 1; unsigned char stationCount : 1; unsigned char videoErasure : 1; unsigned char voiceLQM : 1; unsigned char wifiEstimatedBandwitdh : 1; unsigned char wifiRxPhyRate : 1; unsigned char wifiRxRetry : 1; unsigned char wifiTxPER : 1; unsigned char wifiTxPhyRate : 1; unsigned char alertedMode : 1; unsigned char captiveNetworks : 1; unsigned char cellMode : 1; unsigned char isPCDetected : 1; unsigned char isStallDetected : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasWifiRssi;
+@property (nonatomic) long long wifiRssi;
+@property (nonatomic) BOOL hasWifiTxPER;
+@property (nonatomic) unsigned int wifiTxPER;
+@property (nonatomic) BOOL hasWifiSNR;
+@property (nonatomic) long long wifiSNR;
+@property (nonatomic) BOOL hasCaptiveNetworks;
+@property (nonatomic) BOOL captiveNetworks;
+@property (nonatomic) BOOL hasWifiRxRetry;
+@property (nonatomic) unsigned int wifiRxRetry;
+@property (nonatomic) BOOL hasWifiEstimatedBandwitdh;
+@property (nonatomic) unsigned int wifiEstimatedBandwitdh;
+@property (nonatomic) BOOL hasWifiTxPhyRate;
+@property (nonatomic) unsigned int wifiTxPhyRate;
+@property (nonatomic) BOOL hasWifiRxPhyRate;
+@property (nonatomic) unsigned int wifiRxPhyRate;
+@property (nonatomic) BOOL hasQbssLoad;
+@property (nonatomic) unsigned int qbssLoad;
+@property (nonatomic) BOOL hasCca;
+@property (nonatomic) unsigned int cca;
+@property (nonatomic) BOOL hasStationCount;
+@property (nonatomic) unsigned int stationCount;
+@property (nonatomic) BOOL hasDataLQM;
+@property (nonatomic) unsigned int dataLQM;
+@property (nonatomic) BOOL hasBssLoad;
+@property (nonatomic) unsigned int bssLoad;
+@property (nonatomic) BOOL hasVoiceLQM;
+@property (nonatomic) unsigned int voiceLQM;
+@property (nonatomic) BOOL hasSignalBar;
+@property (nonatomic) unsigned int signalBar;
+@property (readonly, nonatomic) BOOL hasRatType;
+@property (retain, nonatomic) NSString *ratType;
+@property (readonly, nonatomic) BOOL hasIRATRecommendation;
+@property (retain, nonatomic) NSString *iRATRecommendation;
+@property (readonly, nonatomic) BOOL hasIRATRecommendationReason;
+@property (retain, nonatomic) NSString *iRATRecommendationReason;
+@property (nonatomic) BOOL hasFacetimePacketLoss;
+@property (nonatomic) unsigned int facetimePacketLoss;
+@property (nonatomic) BOOL hasFacetimeAction;
+@property (nonatomic) unsigned int facetimeAction;
+@property (nonatomic) BOOL hasFacetimeTimeDelay;
+@property (nonatomic) unsigned int facetimeTimeDelay;
+@property (nonatomic) BOOL hasCounter;
+@property (nonatomic) unsigned int counter;
+@property (nonatomic) BOOL hasAlertedMode;
+@property (nonatomic) BOOL alertedMode;
+@property (nonatomic) BOOL hasIsStallDetected;
+@property (nonatomic) BOOL isStallDetected;
+@property (nonatomic) BOOL hasIsPCDetected;
+@property (nonatomic) BOOL isPCDetected;
+@property (nonatomic) BOOL hasVideoErasure;
+@property (nonatomic) unsigned int videoErasure;
+@property (nonatomic) BOOL hasAudioErasure;
+@property (nonatomic) unsigned int audioErasure;
+@property (nonatomic) BOOL hasCellRsrp;
+@property (nonatomic) int cellRsrp;
+@property (nonatomic) BOOL hasCellRsrq;
+@property (nonatomic) int cellRsrq;
+@property (nonatomic) BOOL hasCellSnr;
+@property (nonatomic) int cellSnr;
+@property (nonatomic) BOOL hasCellMode;
+@property (nonatomic) BOOL cellMode;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (void)dealloc;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+
+@end

@@ -1,0 +1,102 @@
+@class NSString, NSArray, VNCanceller, VNWarningRecorder, NSDictionary, NSObject, VNRequestConfiguration, NSIndexSet, VNProcessingDevice;
+@protocol OS_dispatch_queue, MTLDevice, OS_dispatch_semaphore;
+
+@interface VNRequest : NSObject <VNWarningRecorder, VNSequencedRequestSupporting, NSCopying> {
+    VNRequestConfiguration *_configuration;
+    VNWarningRecorder *_warningRecorder;
+    VNCanceller *_canceller;
+    BOOL _cancellationTriggered;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _cancellationResourcesLock;
+    NSObject<OS_dispatch_queue> *_cancellationQueue;
+}
+
+@property (class, readonly, copy, nonatomic) NSIndexSet *supportedRevisions;
+@property (class, readonly, nonatomic) unsigned long long defaultRevision;
+@property (class, readonly, nonatomic) unsigned long long currentRevision;
+
+@property (retain) NSObject<OS_dispatch_semaphore> *cancellationSemaphore;
+@property (readonly, copy, nonatomic) NSDictionary *options;
+@property (readonly) BOOL cancellationTriggered;
+@property (nonatomic) unsigned long long modelFileBackingStore;
+@property (retain, nonatomic) id<MTLDevice> preferredMetalContext;
+@property (nonatomic) unsigned long long metalContextPriority;
+@property (nonatomic) unsigned long long detectionLevel;
+@property (copy, nonatomic) VNProcessingDevice *processingDevice;
+@property (nonatomic) BOOL preferBackgroundProcessing;
+@property (nonatomic) BOOL usesCPUOnly;
+@property (readonly, copy, nonatomic) NSArray *results;
+@property (readonly, copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) unsigned long long revision;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (const struct { unsigned long long x0; struct { int x0; int x1; } x1; struct { int x0; int x1; } x2; struct { int x0; int x1; } x3; } *)revisionAvailability;
++ (id)defaultProcessingDeviceForRevision:(unsigned long long)a0;
++ (BOOL)getOptionalObject:(id *)a0 ofClass:(Class)a1 forKey:(id)a2 inOptions:(id)a3 error:(id *)a4;
++ (BOOL)supportsPrivateRevision:(unsigned long long)a0;
++ (BOOL)getOptionalArray:(id *)a0 forKey:(id)a1 inOptions:(id)a2 withElementsOfClass:(Class)a3 error:(id *)a4;
++ (BOOL)getFloatValue:(float *)a0 forKey:(id)a1 inOptions:(id)a2 withDefaultValue:(float)a3 error:(id *)a4;
++ (BOOL)warmUpSession:(id)a0 error:(id *)a1;
++ (unsigned long long)compatibleRevisionForDependentRequestOfClass:(Class)a0 beingPerformedByRevision:(unsigned long long)a1;
++ (unsigned long long)resolvedRevisionForRevision:(unsigned long long)a0;
++ (id)newConfigurationInstance;
++ (BOOL)defaultRequestInstanceWarmUpSession:(id)a0 error:(id *)a1;
++ (BOOL)getRequiredObject:(id *)a0 ofClass:(Class)a1 forKey:(id)a2 inOptions:(id)a3 error:(id *)a4;
++ (unsigned long long)_defaultRevisionForBuildVersion:(int)a0;
++ (id)_introspectionBuiltSupportedRevisions;
++ (const struct { unsigned long long x0; Class x1; unsigned long long x2; } *)dependentRequestCompatability;
++ (Class)configurationClass;
++ (void)recordDefaultOptionsInDictionary:(id)a0;
++ (BOOL)getFloatValue:(float *)a0 forKey:(id)a1 inOptions:(id)a2 error:(id *)a3;
++ (id)descriptionForPrivateRevision:(unsigned long long)a0;
++ (BOOL)getDoubleValue:(double *)a0 forKey:(id)a1 inOptions:(id)a2 withDefaultValue:(double)a3 error:(id *)a4;
++ (BOOL)getDoubleValue:(double *)a0 forKey:(id)a1 inOptions:(id)a2 error:(id *)a3;
++ (BOOL)getOptionalInputFacesArray:(id *)a0 inOptions:(id)a1 error:(id *)a2;
++ (BOOL)setsTimeRangeOnResults;
+
+- (void)cancel;
+- (id)init;
+- (id)initWithCompletionHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)recordWarning:(id)a0 value:(id)a1;
+- (void)setResults:(id)a0;
+- (BOOL)wantsSequencedRequestObservationsRecording;
+- (id)configuration;
+- (BOOL)internalPerformRevision:(unsigned long long)a0 inContext:(id)a1 error:(id *)a2;
+- (BOOL)warmUpSession:(id)a0 error:(id *)a1;
+- (id)_defaultProcessingDevice;
+- (void)_updateProcessingDeviceOption;
+- (void)setValue:(id)a0 forPrivateOption:(id)a1;
+- (id)valueForPrivateOption:(id)a0;
+- (void)setValue:(id)a0 forRequestOption:(id)a1;
+- (BOOL)hasCancellationHook;
+- (id)newDefaultDetectorOptionsForSession:(id)a0;
+- (void)copyStateOfRequest:(id)a0;
+- (BOOL)performInContext:(id)a0 error:(id *)a1;
+- (BOOL)validateConfigurationAndReturnError:(id *)a0;
+- (BOOL)internalCancelInContext:(id)a0 error:(id *)a1;
+- (void)setSortedResults:(id)a0;
+- (id)cancellerAndReturnError:(id *)a0;
+- (BOOL)cancellationTriggeredAndReturnError:(id *)a0;
+- (void)_setResolvedRevision:(unsigned long long)a0;
+- (unsigned long long)resolvedRevision;
+- (BOOL)validateImageBuffer:(id)a0 ofNonZeroWidth:(unsigned long long *)a1 andHeight:(unsigned long long *)a2 error:(id *)a3;
+- (unsigned long long)compatibleRevisionForDependentRequest:(id)a0;
+- (id)newDefaultDetectorOptionsForRequestRevision:(unsigned long long)a0 session:(id)a1;
+- (id /* block */)resultsSortingComparator;
+- (BOOL)setPrivateRevision:(unsigned long long)a0 error:(id *)a1;
+- (void)applyConfigurationOfRequest:(id)a0;
+- (long long)dependencyProcessingOrdinality;
+- (BOOL)allowsCachingOfResults;
+- (BOOL)internalPerformInContext:(id)a0 error:(id *)a1;
+- (id)warnings;
+- (id)sequencedRequestPreviousObservationsKey;
+- (BOOL)willAcceptCachedResultsFromRequestWithConfiguration:(id)a0;
+- (id)newDefaultRequestInstance;
+- (id)valueForWarning:(id)a0;
+
+@end

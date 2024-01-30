@@ -1,0 +1,3 @@
+@interface CAReportingPerformanceUtility : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface NTKZeusDensityEditOption : NTKZeusAnalogDensityEditOption
+
+@end

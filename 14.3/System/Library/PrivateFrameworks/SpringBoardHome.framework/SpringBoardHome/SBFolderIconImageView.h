@@ -1,0 +1,80 @@
+@class SBFloatyFolderView, NSString, NSHashTable, UIView, _SBIconGridWrapperView, NSMutableArray;
+
+@interface SBFolderIconImageView : SBIconImageView <SBFolderIconObserver, SBFolderIconImageCacheObserver> {
+    UIView *_solidColorBackgroundView;
+    UIView *_pageGridContainer;
+    _SBIconGridWrapperView *_leftWrapperView;
+    _SBIconGridWrapperView *_rightWrapperView;
+    NSMutableArray *_pageElements;
+    SBFloatyFolderView *_crossfadeFolderView;
+    UIView *_crossfadeScalingView;
+    NSHashTable *_imageUpdateDisableAssertions;
+    unsigned long long _transitionToken;
+}
+
+@property (readonly, nonatomic) unsigned long long concreteBackgroundStyle;
+@property (nonatomic) unsigned long long currentBackgroundStyle;
+@property (nonatomic) unsigned long long backgroundStyle;
+@property (readonly, nonatomic) unsigned long long currentPageIndex;
+@property (readonly, nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) double iconGridImageAlpha;
+@property (retain, nonatomic) UIView *backgroundView;
+@property (readonly, nonatomic) BOOL hasCustomBackgroundView;
+@property (nonatomic, getter=isPageGridHidden) BOOL pageGridHidden;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)scrollToGapOrTopIfFullOfPage:(unsigned long long)a0 animated:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })visibleImageRelativeFrameForMiniIconAtIndex:(unsigned long long)a0;
+- (unsigned long long)lastVisibleMiniIconIndex;
+- (void)_showRightMinigrid;
+- (void)prepareToCrossfadeWithFloatyFolderView:(id)a0 allowFolderInteraction:(BOOL)a1;
+- (unsigned long long)firstVisibleMiniIconIndex;
+- (void)scrollToTopOfPage:(unsigned long long)a0 animated:(BOOL)a1;
+- (void)setBackgroundAndIconGridImageAlpha:(double)a0;
+- (Class)_iconGridImageClass;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForMiniIconAtIndex:(unsigned long long)a0;
+- (unsigned long long)visibleMiniIconCount;
+- (void)cleanupAfterFloatyFolderCrossfade;
+- (void)_updateAccessibilityBackgroundContrast;
+- (unsigned long long)centerVisibleMiniIconIndex;
+- (void).cxx_destruct;
+- (unsigned long long)visibleMiniIconListIndex;
+- (void)_performScrollingDirection:(long long)a0 targetPageIndex:(unsigned long long)a1 targetPageScrollRow:(unsigned long long)a2 newLeftElement:(id)a3 newRightElement:(id)a4 animated:(BOOL)a5;
+- (void)iconViewLegibilitySettingsDidChange;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)snapshot;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForMiniIconAtIndexPath:(id)a0;
+- (void)_setAnimating:(BOOL)a0;
+- (void)scrollToFirstGapAnimated:(BOOL)a0;
+- (void)_updateRasterization;
+- (void)dealloc;
+- (void)scrollToTopOfFirstPageAnimated:(BOOL)a0;
+- (void)setFloatyFolderCrossfadeFraction:(double)a0;
+- (void)invalidateImageUpdatesAssertion:(id)a0;
+- (id)_folderIconImageCache;
+- (void)prepareForReuse;
+- (id)_generateSquareContentsImage;
+- (id)_currentPageElement;
+- (id)_folderIcon;
+- (void)_setupGridViewsInDefaultConfiguration;
+- (void)updateImageAnimated:(BOOL)a0;
+- (id)representedListLayout;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })_interPageSpacing;
+- (id)disableImageUpdatesForReason:(id)a0;
+- (void)setBackgroundScale:(double)a0;
+- (void)_updateCurrentBackgroundStyle;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)contentsImage;
+- (struct CGSize { double x0; double x1; })_interiorGridSizeClipRect;
+- (void)folderIconImageCache:(id)a0 didUpdateImagesForFolderIcon:(id)a1;
+- (void)setIcon:(id)a0 location:(id)a1 animated:(BOOL)a2;
+- (void)iconViewFolderIconImageCacheDidChange;
+- (void)fulfillGridImageForPageElement:(id)a0;
+- (void)_showLeftMinigrid;
+- (void)_setPageElements:(id)a0;
+
+@end

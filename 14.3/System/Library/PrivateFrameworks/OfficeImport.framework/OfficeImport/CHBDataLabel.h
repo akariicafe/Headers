@@ -1,0 +1,8 @@
+@interface CHBDataLabel : NSObject
+
++ (id)chdDataLabelFromXlChartSeriesFormat:(const struct XlChartSeriesFormat { void /* function */ **x0; struct XlChartLineStyle *x1; struct XlChartFillStyle *x2; struct XlChartMarkerStyle *x3; struct XlChartPicF *x4; char *x5; char *x6; unsigned int x7; unsigned int x8; int x9; unsigned short x10; unsigned short x11; unsigned short x12; int x13; BOOL x14; BOOL x15; BOOL x16; BOOL x17; BOOL x18; BOOL x19; BOOL x20; BOOL x21; BOOL x22; BOOL x23; } *)a0 state:(id)a1;
++ (int)chdLabelPositionEnumFromXlLabelPosition:(int)a0;
++ (int)xlLabelPositionEnumFromCHDDataLabelPosition:(int)a0;
++ (id)chdDataLabelFromXlChartCustomLabelText:(struct XlChartCustomLabelText { void /* function */ **x0; float x1; float x2; float x3; float x4; int x5; int x6; int x7; int x8; struct XlChartLineStyle *x9; struct XlChartFillStyle *x10; struct XlChartPicF *x11; BOOL x12; BOOL x13; BOOL x14; char *x15; unsigned int x16; struct OcText *x17; struct CsColour { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; } x18; char *x19; char *x20; int x21; int x22; int x23; int x24; int x25; struct ChVector<XlChartTextFrame::TextRun> { struct TextRun *x0; struct TextRun *x1; struct __compressed_pair<XlChartTextFrame::TextRun *, ChAllocator<XlChartTextFrame::TextRun> > { struct TextRun *x0; } x2; } x26; unsigned int x27; unsigned int x28; short x29; short x30; unsigned int x31; short x32; short x33; BOOL x34; BOOL x35; BOOL x36; BOOL x37; BOOL x38; BOOL x39; BOOL x40; BOOL x41; BOOL x42; BOOL x43; BOOL x44; BOOL x45; BOOL x46; BOOL x47; BOOL x48; struct XlString *x49; unsigned int x50; unsigned short x51; } *)a0 state:(id)a1;
+
+@end

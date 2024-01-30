@@ -1,0 +1,86 @@
+@class NSSet, NSString, _FBSCDHashCacheInfo, NSURL, NSDictionary, NSArray, NSNumber;
+
+@interface FBSApplicationInfo : FBSBundleInfo <BSDescriptionProviding> {
+    NSDictionary *_lazy_entitlements;
+    BOOL _isManaged;
+    NSSet *_backgroundModes;
+    NSArray *_lazy_folderNames;
+    NSString *_lazy_fallbackFolderName;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    BOOL _initialized;
+}
+
+@property (readonly, nonatomic) unsigned int signatureVersion;
+@property (readonly, nonatomic) BOOL isSignatureVersionSupportEndingSoon;
+@property (retain) _FBSCDHashCacheInfo *cachedCDHashInfo;
+@property (readonly, copy, nonatomic, getter=_appIDEntitlement) NSString *appIDEntitlement;
+@property (nonatomic, getter=_isInstalling, setter=_setInstalling:) BOOL installing;
+@property (nonatomic, getter=_isUninstalling, setter=_setUninstalling:) BOOL uninstalling;
+@property (nonatomic, getter=_isPendingUninstall, setter=_setPendingUninstall:) BOOL pendingUninstall;
+@property (nonatomic) long long interfaceOrientation;
+@property (nonatomic) unsigned long long supportedInterfaceOrientations;
+@property (readonly, nonatomic, getter=isEnabled) BOOL enabled;
+@property (readonly, nonatomic) NSURL *executableURL;
+@property (readonly, nonatomic) NSURL *bundleContainerURL;
+@property (readonly, nonatomic) NSURL *dataContainerURL;
+@property (readonly, nonatomic) NSURL *sandboxURL;
+@property (readonly, nonatomic) double lastModifiedDate;
+@property (readonly, copy, nonatomic) NSString *preferenceDomain;
+@property (readonly, nonatomic) NSString *teamIdentifier;
+@property (readonly, copy, nonatomic) NSString *signerIdentity;
+@property (readonly, nonatomic) NSDictionary *environmentVariables;
+@property (readonly, nonatomic) NSDictionary *entitlements;
+@property (readonly, nonatomic) BOOL hasViewServicesEntitlement;
+@property (readonly, nonatomic) NSArray *tags;
+@property (readonly, nonatomic) NSArray *customMachServices;
+@property (readonly, nonatomic) BOOL supportsMultiwindow;
+@property (readonly, nonatomic, getter=isProvisioningProfileValidated) BOOL provisioningProfileValidated;
+@property (readonly, nonatomic, getter=isUPPProvisioningProfileValidated) BOOL UPPProvisioningProfileValidated;
+@property (readonly, nonatomic, getter=isFreeDeveloperProvisioningProfileValidated) BOOL freeDeveloperProvisioningProfileValidated;
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic, getter=isRestricted) BOOL restricted;
+@property (readonly, nonatomic, getter=isBlocked) BOOL blocked;
+@property (readonly, nonatomic) NSArray *requiredCapabilities;
+@property (readonly, nonatomic) NSArray *deviceFamilies;
+@property (readonly, copy, nonatomic) NSString *sdkVersion;
+@property (readonly, nonatomic, getter=isBeta) BOOL beta;
+@property (readonly, copy, nonatomic) NSString *shortVersionString;
+@property (readonly, nonatomic, getter=isExitsOnSuspend) BOOL exitsOnSuspend;
+@property (readonly, nonatomic) BOOL requiresPersistentWiFi;
+@property (readonly, nonatomic) float minimumBrightnessLevel;
+@property (readonly, nonatomic) NSArray *externalAccessoryProtocols;
+@property (readonly, nonatomic) long long screenTimePolicy;
+@property (readonly, nonatomic, getter=isBlockedForScreenTimeExpiration) BOOL blockedForScreenTimeExpiration;
+@property (readonly, nonatomic) long long ratingRank;
+@property (readonly, nonatomic) NSNumber *itemID;
+@property (readonly, nonatomic) NSNumber *purchaserDSID;
+@property (readonly, nonatomic) NSNumber *downloaderDSID;
+@property (readonly, nonatomic) NSArray *folderNames;
+@property (readonly, nonatomic) NSString *fallbackFolderName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (unsigned long long)_applicationTypeForProxy:(id)a0;
++ (id)_configureEnvironment:(id)a0 withInfo:(id)a1 isPreApex:(BOOL)a2;
+
+- (id)_initWithApplicationProxy:(id)a0;
+- (id)_initWithApplicationProxy:(id)a0 overrideURL:(id)a1;
+- (id)_initWithBundleProxy:(id)a0 overrideURL:(id)a1;
+- (BOOL)builtOnOrAfterSDKVersion:(id)a0;
+- (BOOL)supportsBackgroundMode:(id)a0;
+- (id)_initWithBundleIdentifier:(id)a0 url:(id)a1;
+- (BOOL)supportsInterfaceOrientation:(long long)a0;
+- (BOOL)supportsAllInterfaceOrientations;
+- (void)_overrideTags:(id)a0;
+- (unsigned long long)unauthoritativeTrustState;
+- (void).cxx_destruct;
+- (id)initWithApplicationProxy:(id)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (void)_loadFromProxy:(id)a0;
+- (BOOL)supportsDeviceFamily:(unsigned long long)a0;
+- (void)_synchronize:(id /* block */)a0;
+
+@end

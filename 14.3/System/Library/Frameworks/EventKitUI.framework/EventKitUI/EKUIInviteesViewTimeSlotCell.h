@@ -1,0 +1,83 @@
+@class NSMutableDictionary, UILabel, NSDate, NSDictionary, UITapGestureRecognizer, NSTimeZone, UIButton, UIView, NSLayoutConstraint, UIColor, UITextView, NSArray, UIImageView;
+
+@interface EKUIInviteesViewTimeSlotCell : UITableViewCell
+
+@property (retain, nonatomic) UILabel *labelForTextSizeTesting;
+@property (retain, nonatomic) UITextView *textViewForTextSizeTesting;
+@property (retain, nonatomic) UILabel *topTimeLabel;
+@property (retain, nonatomic) UILabel *bottomTimeLabel;
+@property (retain, nonatomic) UILabel *timeZoneTimeLabel;
+@property (retain, nonatomic) UILabel *proposedByLabel;
+@property (retain, nonatomic) UIView *andMoreDebugOverlay;
+@property (retain, nonatomic) UITextView *participantsTextView;
+@property (retain, nonatomic) UIImageView *checkmarkImageView;
+@property (retain, nonatomic) UIButton *showPreviewButton;
+@property (retain, nonatomic) NSArray *persistentConstraints;
+@property (retain, nonatomic) NSMutableDictionary *colorToBusyImageAttributedString;
+@property (retain, nonatomic) NSLayoutConstraint *topTimeLabelToTopContentViewConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *bottomTimeLabelToTopTimeLabelConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *timeZoneTimeLabelToBottomTimeLabelConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *proposedTimeLabelToBottomTimeLabelConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *participantsViewToBottomTimeLabelConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *participantsViewToContentViewConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *topTimeLabelHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *bottomTimeLabelHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *timeZoneTimeLabelHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *proposedByMinHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *proposedByMaxHeightConstraint;
+@property (retain, nonatomic) NSDate *startDate;
+@property (retain, nonatomic) NSDate *endDate;
+@property (retain, nonatomic) NSTimeZone *timeZone;
+@property (nonatomic) BOOL updateFontBasedConstraints;
+@property (nonatomic) BOOL updateTimeText;
+@property (nonatomic) BOOL updateParticipantsText;
+@property (nonatomic) BOOL showAllParticipants;
+@property (retain, nonatomic) NSArray *busyParticipants;
+@property (retain, nonatomic) UITapGestureRecognizer *tappedMoreRecognizer;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } andMoreBoundingRect;
+@property (copy, nonatomic) id /* block */ showPreviewOfEventAtTime;
+@property (copy, nonatomic) id /* block */ showAllConflictedParticipantsTapped;
+@property (nonatomic) BOOL checked;
+@property (readonly, nonatomic) UIColor *participantsTextColor;
+@property (readonly, nonatomic) UIColor *timeTextColor;
+@property (retain, nonatomic) NSDictionary *andMoreStringCache;
+@property (retain, nonatomic) NSArray *proposedBy;
+@property (nonatomic) BOOL searchInProgress;
+
++ (double)_leftBuffer;
++ (void)_setRequiredHuggingAndCompression:(id)a0;
++ (id)_generateParticipantTextView;
++ (double)_rightBuffer;
++ (id)_proposedByFont;
++ (id)_timeLabelFont;
++ (id)_participantsTextViewFont;
++ (id)_interParticipantSpacing;
++ (id)_andMoreLeftSpacing;
++ (id)_generateAndMoreStringWithCount:(unsigned long long)a0 attributes:(id)a1;
++ (BOOL)_layoutManagerReportsExcessLines:(id)a0;
++ (id)_replaceSpacesWithNonBreakingSpaces:(id)a0;
++ (id)_nonBreakingSpace;
+
+- (id)initWithStyle:(long long)a0 reuseIdentifier:(id)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)_showPreviewButtonTapped:(id)a0;
+- (void)_andMoreTapped:(id)a0;
+- (void)_resetFonts;
+- (void)_resetPreferredMaxLayoutWidths;
+- (void)updateConstraints;
+- (BOOL)_shouldDisplayTimeZone;
+- (void)_resetTimeTextIfNeeded;
+- (void)_resetParticipantsTextIfNeeded;
+- (BOOL)_textWillFit:(id)a0;
+- (BOOL)_everyoneCanAttend;
+- (id)_generateStringForAllParticipants:(id)a0;
+- (id)_generateStringForSomeParticipantsAndStampMoreBoundingRect:(id)a0;
+- (id)_textForParticipant:(id)a0 color:(id)a1;
+- (id)_busyImageAttributedStringForColor:(id)a0;
+- (void)updateWithStartDate:(id)a0 endDate:(id)a1 timeZone:(id)a2 busyParticipants:(id)a3 showAllParticipants:(BOOL)a4 checked:(BOOL)a5;
+- (double)_preferredMaxLayoutWidth;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+
+@end

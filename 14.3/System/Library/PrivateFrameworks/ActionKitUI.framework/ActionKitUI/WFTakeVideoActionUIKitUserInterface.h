@@ -1,0 +1,21 @@
+@class NSString;
+
+@interface WFTakeVideoActionUIKitUserInterface : WFActionUserInterface <UIImagePickerControllerDelegate, UINavigationControllerDelegate, WFTakeVideoActionUserInterface>
+
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)cameraDeviceFromString:(id)a0;
++ (long long)qualityFromString:(id)a0;
+
+- (void).cxx_destruct;
+- (void)imagePickerController:(id)a0 didFinishPickingMediaWithInfo:(id)a1;
+- (void)imagePickerControllerDidCancel:(id)a0;
+- (void)cancelPresentationWithCompletionHandler:(id /* block */)a0;
+- (void)showWithQuality:(id)a0 device:(id)a1 startImmediately:(BOOL)a2 completionHandler:(id /* block */)a3;
+- (void)finishWithOutput:(id)a0 error:(id)a1;
+
+@end

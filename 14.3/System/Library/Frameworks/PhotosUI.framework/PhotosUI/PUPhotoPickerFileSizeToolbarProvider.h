@@ -1,0 +1,39 @@
+@class NSString, NSArray, PUPhotoPickerResizeTaskDescriptor, NSSet, UITableViewController, NSMutableDictionary, UILabel, UIBarButtonItem;
+@protocol PUPhotoPickerFileSizeToolbarProviderDelegate, PUPhotosGridViewSupplementalToolbarDataSource;
+
+@interface PUPhotoPickerFileSizeToolbarProvider : NSObject <UITableViewDataSource, UITableViewDelegate, PUPhotosGridViewSupplementalToolbarProvider> {
+    id<PUPhotosGridViewSupplementalToolbarDataSource> _dataSource;
+    UIBarButtonItem *_sizePickerItem;
+    UILabel *_sizePickerDescriptionLabel;
+    UITableViewController *_sizePickerViewController;
+    BOOL _preparingToPresentSizePickerViewController;
+    NSArray *_toolbarItems;
+    NSArray *_resizeTaskDescriptors;
+    NSSet *_cachedAssetSet;
+    PUPhotoPickerResizeTaskDescriptor *_selectedTaskDescriptor;
+    NSMutableDictionary *_taskDescriptorsToCachedLabels;
+}
+
+@property (weak, nonatomic) id<PUPhotoPickerFileSizeToolbarProviderDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL shouldShowToolbar;
+@property (readonly, copy, nonatomic) NSArray *toolbarItems;
+
+- (id)initWithDataSource:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void).cxx_destruct;
+- (id)_sizePickerItem;
+- (id)_orderedResizeTaskDescriptors;
+- (id)_orderedResizeTaskDescriptorsForCurrentlySelectedAssets;
+- (void)_presentSizePicker:(id)a0;
+- (id)_localizedLabelForResizeTaskDescriptor:(id)a0;
+- (void)_updateSizePickerItemIfNeeded;
+- (void)_updateTableViewSelection;
+- (id)_computeSelectedIndexPath;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+
+@end

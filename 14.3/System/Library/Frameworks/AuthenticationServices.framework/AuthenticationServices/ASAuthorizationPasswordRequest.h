@@ -1,0 +1,3 @@
+@interface ASAuthorizationPasswordRequest : ASAuthorizationRequest
+
+@end

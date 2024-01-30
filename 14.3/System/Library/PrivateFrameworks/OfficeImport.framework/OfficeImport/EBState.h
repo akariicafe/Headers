@@ -1,0 +1,28 @@
+@class EDResources, EDWorkbook;
+@protocol TCCancelDelegate;
+
+@interface EBState : NSObject {
+    struct XlLinkTable { void /* function */ **x0; struct XlLinkLookupTable { void /* function */ **x0; BOOL x1; struct ChVector<XlXti *> { struct XlXti **x0; struct XlXti **x1; struct __compressed_pair<XlXti **, ChAllocator<XlXti *> > { struct XlXti **x0; } x2; } x2; } x1; struct ChVector<XlLink *> { struct XlLink **x0; struct XlLink **x1; struct __compressed_pair<XlLink **, ChAllocator<XlLink *> > { struct XlLink **x0; } x2; } x2; } *mXlLinkTable;
+    struct XlNameTable { void /* function */ **x0; struct CsSimpleHeapVector<XlRecord> { struct ChVector<XlRecord *> { struct XlRecord **x0; struct XlRecord **x1; struct __compressed_pair<XlRecord **, ChAllocator<XlRecord *> > { struct XlRecord **x0; } x2; } x0; } x1; struct OcText { void /* function */ **x0; int x1; unsigned int x2; unsigned int x3; unsigned int x4; char *x5; char *x6; BOOL x7; } x2[14]; } *mXlNameTable;
+    struct ChVector<OcText> { struct OcText *x0; struct OcText *x1; struct __compressed_pair<OcText *, ChAllocator<OcText> > { struct OcText *x0; } x2; } *mSheetNames;
+    struct XlFormulaProcessor { void /* function */ **x0; struct XlFormulaParser *x1; struct XlBaseFormulaTable *x2; struct ChVector<CsString *> { struct CsString **x0; struct CsString **x1; struct __compressed_pair<CsString **, ChAllocator<CsString *> > { struct CsString **x0; } x2; } x3; struct XlNameTable *x4; struct ChVector<OcText> *x5; struct XlLinkTable *x6; unsigned int x7; unsigned int x8; char x9[64]; unsigned short *x10; char *x11; BOOL x12; unsigned int x13; unsigned short x14; unsigned short x15; } *mXlFormulaProcessor;
+    EDWorkbook *mWorkbook;
+    EDResources *mResources;
+}
+
+@property (readonly, nonatomic) id<TCCancelDelegate> cancelDelegate;
+
+- (void).cxx_destruct;
+- (BOOL)isCancelled;
+- (void)setResources:(id)a0;
+- (void)dealloc;
+- (id)resources;
+- (id)workbook;
+- (id)initWithCancelDelegate:(id)a0;
+- (void)setWorkbook:(id)a0;
+- (struct XlFormulaProcessor { void /* function */ **x0; struct XlFormulaParser *x1; struct XlBaseFormulaTable *x2; struct ChVector<CsString *> { struct CsString **x0; struct CsString **x1; struct __compressed_pair<CsString **, ChAllocator<CsString *> > { struct CsString **x0; } x2; } x3; struct XlNameTable *x4; struct ChVector<OcText> *x5; struct XlLinkTable *x6; unsigned int x7; unsigned int x8; char x9[64]; unsigned short *x10; char *x11; BOOL x12; unsigned int x13; unsigned short x14; unsigned short x15; } *)xlFormulaProcessor;
+- (struct XlLinkTable { void /* function */ **x0; struct XlLinkLookupTable { void /* function */ **x0; BOOL x1; struct ChVector<XlXti *> { struct XlXti **x0; struct XlXti **x1; struct __compressed_pair<XlXti **, ChAllocator<XlXti *> > { struct XlXti **x0; } x2; } x2; } x1; struct ChVector<XlLink *> { struct XlLink **x0; struct XlLink **x1; struct __compressed_pair<XlLink **, ChAllocator<XlLink *> > { struct XlLink **x0; } x2; } x2; } *)xlLinkTable;
+- (struct XlNameTable { void /* function */ **x0; struct CsSimpleHeapVector<XlRecord> { struct ChVector<XlRecord *> { struct XlRecord **x0; struct XlRecord **x1; struct __compressed_pair<XlRecord **, ChAllocator<XlRecord *> > { struct XlRecord **x0; } x2; } x0; } x1; struct OcText { void /* function */ **x0; int x1; unsigned int x2; unsigned int x3; unsigned int x4; char *x5; char *x6; BOOL x7; } x2[14]; } *)xlNameTable;
+- (struct ChVector<OcText> { struct OcText *x0; struct OcText *x1; struct __compressed_pair<OcText *, ChAllocator<OcText> > { struct OcText *x0; } x2; } *)sheetNames;
+
+@end

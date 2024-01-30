@@ -1,0 +1,3 @@
+@interface SensingRoot : GPBRootObject
+
+@end

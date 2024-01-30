@@ -1,0 +1,104 @@
+@class NSArray, NSURL, NSString, NSDictionary;
+
+@interface NSBundle : NSObject {
+    unsigned long long _flags;
+    _Atomic struct __CFBundle *_cfBundle;
+    unsigned long long _reserved2;
+    Class _principalClass;
+    id _initialPath;
+    id _resolvedPath;
+    NSString *_firstClassName;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly) NSBundle *mainBundle;
+@property (class, readonly, copy) NSArray *allBundles;
+@property (class, readonly, copy) NSArray *allFrameworks;
+
+@property (readonly, getter=isLoaded) BOOL loaded;
+@property (readonly, copy) NSURL *bundleURL;
+@property (readonly, copy) NSURL *resourceURL;
+@property (readonly, copy) NSURL *executableURL;
+@property (readonly, copy) NSURL *privateFrameworksURL;
+@property (readonly, copy) NSURL *sharedFrameworksURL;
+@property (readonly, copy) NSURL *sharedSupportURL;
+@property (readonly, copy) NSURL *builtInPlugInsURL;
+@property (readonly, copy) NSURL *appStoreReceiptURL;
+@property (readonly, copy) NSString *bundlePath;
+@property (readonly, copy) NSString *resourcePath;
+@property (readonly, copy) NSString *executablePath;
+@property (readonly, copy) NSString *privateFrameworksPath;
+@property (readonly, copy) NSString *sharedFrameworksPath;
+@property (readonly, copy) NSString *sharedSupportPath;
+@property (readonly, copy) NSString *builtInPlugInsPath;
+@property (readonly, copy) NSString *bundleIdentifier;
+@property (readonly, copy) NSDictionary *infoDictionary;
+@property (readonly, copy) NSDictionary *localizedInfoDictionary;
+@property (readonly) Class principalClass;
+@property (readonly, copy) NSArray *preferredLocalizations;
+@property (readonly, copy) NSArray *localizations;
+@property (readonly, copy) NSString *developmentLocalization;
+@property (readonly, copy) NSArray *executableArchitectures;
+
++ (id)bundleForClass:(Class)a0;
++ (id)findBundleResources:(id)a0 callingMethod:(SEL)a1 directory:(id)a2 languages:(id)a3 name:(id)a4 types:(id)a5 limit:(unsigned long long)a6;
++ (id)URLsForResourcesWithExtension:(id)a0 subdirectory:(id)a1 inBundleWithURL:(id)a2;
++ (id)findBundleResourceURLsCallingMethod:(SEL)a0 baseURL:(id)a1 passingTest:(id /* block */)a2;
++ (id)URLForResource:(id)a0 withExtension:(id)a1 subdirectory:(id)a2 inBundleWithURL:(id)a3;
++ (id)bundleWithPath:(id)a0;
++ (id)preferredLocalizationsFromArray:(id)a0 forPreferences:(id)a1;
++ (id)preferredLocalizationsFromArray:(id)a0;
++ (id)_bundleWithIdentifier:(id)a0 andLibraryName:(id)a1;
++ (id)pathsForResourcesOfType:(id)a0 inDirectory:(id)a1;
++ (id)bundleWithURL:(id)a0;
++ (id)loadedBundles;
++ (id)pathForResource:(id)a0 ofType:(id)a1 inDirectory:(id)a2;
++ (void)setSystemLanguages:(id)a0;
++ (id)bundleWithIdentifier:(id)a0;
++ (id)debugDescription;
+
+- (id)initWithPath:(id)a0;
+- (void)__static;
+- (struct __CFBundle { } *)_cfBundle;
+- (id)URLsForResourcesWithExtension:(id)a0 subdirectory:(id)a1 localization:(id)a2;
+- (id)pathForResource:(id)a0 ofType:(id)a1 inDirectory:(id)a2 forLocalization:(id)a3;
+- (BOOL)load;
+- (id)localizedAttributedStringForKey:(id)a0 value:(id)a1 table:(id)a2 locale:(id)a3;
+- (id)URLForResource:(id)a0 withExtension:(id)a1 subdirectory:(id)a2 localization:(id)a3;
+- (id)pathsForResourcesOfType:(id)a0 inDirectory:(id)a1 forLocalization:(id)a2;
+- (id)findBundleResourceURLsCallingMethod:(SEL)a0 passingTest:(id /* block */)a1;
+- (id)pathsForResourcesOfType:(id)a0 inDirectory:(id)a1 forLanguage:(id)a2;
+- (id)localizedAttributedStringForKey:(id)a0 value:(id)a1 table:(id)a2;
+- (id)URLsForResourcesWithExtension:(id)a0 subdirectory:(id)a1;
+- (id)_pathsForResourcesOfType:(id)a0 inDirectory:(id)a1 forRegion:(id)a2;
+- (id)pathForResource:(id)a0 ofType:(id)a1 inDirectory:(id)a2 forLanguage:(id)a3;
+- (BOOL)_searchForLocalizedString:(id)a0 foundKey:(id *)a1 foundTable:(id *)a2;
+- (id)_pathForResource:(id)a0 ofType:(id)a1 inDirectory:(id)a2 forRegion:(id)a3;
+- (id)URLForResource:(id)a0 withExtension:(id)a1 subdirectory:(id)a2;
+- (id)pathForResource:(id)a0 ofType:(id)a1;
+- (id)objectForInfoDictionaryKey:(id)a0;
+- (Class)classNamed:(id)a0;
+- (id)pathsForResourcesOfType:(id)a0 inDirectory:(id)a1;
+- (void)dealloc;
+- (void)setPreservationPriority:(double)a0 forTags:(id)a1;
+- (unsigned long long)versionNumber;
+- (id)_regionsArray;
+- (id)pathForAuxiliaryExecutable:(id)a0;
+- (id)URLForResource:(id)a0 withExtension:(id)a1;
+- (id)bundleLanguages;
+- (BOOL)unload;
+- (id)_wrapperContainerURL;
+- (BOOL)preflightAndReturnError:(id *)a0;
+- (id)_wrappedBundleURL;
+- (id)URLForAuxiliaryExecutable:(id)a0;
+- (id)initWithURL:(id)a0;
+- (void)setPreservationPriority:(double)a0 forTag:(id)a1;
+- (struct __CFBundle { } *)_cfBundleIfPresent;
+- (double)preservationPriorityForTag:(id)a0;
+- (void)invalidateResourceCache;
+- (id)description;
+- (id)pathForResource:(id)a0 ofType:(id)a1 inDirectory:(id)a2;
+- (BOOL)loadAndReturnError:(id *)a0;
+- (id)localizedStringForKey:(id)a0 value:(id)a1 table:(id)a2;
+
+@end

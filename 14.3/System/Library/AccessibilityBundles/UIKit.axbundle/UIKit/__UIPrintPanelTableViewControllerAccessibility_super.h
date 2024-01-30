@@ -1,0 +1,3 @@
+@interface __UIPrintPanelTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

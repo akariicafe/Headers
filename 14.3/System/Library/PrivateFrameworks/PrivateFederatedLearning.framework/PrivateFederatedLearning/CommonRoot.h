@@ -1,0 +1,3 @@
+@interface CommonRoot : GPBRootObject
+
+@end

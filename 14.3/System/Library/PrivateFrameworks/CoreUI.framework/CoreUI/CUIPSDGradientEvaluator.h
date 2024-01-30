@@ -1,0 +1,43 @@
+@class NSArray;
+
+@interface CUIPSDGradientEvaluator : NSObject <NSCoding, NSCopying> {
+    NSArray *colorStops;
+    NSArray *colorMidpointLocations;
+    NSArray *opacityStops;
+    NSArray *opacityMidpointLocations;
+    double smoothingCoefficient;
+    struct _psdGradientColor { double red; double green; double blue; double alpha; } fillColor;
+    struct { unsigned char colorEdgePixel : 2; unsigned char opacityEdgePixel : 2; unsigned char isDithered : 1; unsigned char reserved : 3; } pgeFlags;
+}
+
+@property (nonatomic) int blendMode;
+
++ (void)initialize;
+
+- (struct _psdGradientColor { double x0; double x1; double x2; double x3; })fillColor;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)colorStops;
+- (id)colorMidpointLocations;
+- (id)opacityStops;
+- (id)opacityMidpointLocations;
+- (double)smoothingCoefficient;
+- (void)dealloc;
+- (id)initWithColorStops:(id)a0 colorMidpoints:(id)a1 opacityStops:(id)a2 opacityMidpoints:(id)a3 smoothingCoefficient:(double)a4 fillColor:(struct _psdGradientColor { double x0; double x1; double x2; double x3; })a5 dither:(BOOL)a6;
+- (id)initWithCoder:(id)a0;
+- (id)_cleanedUpMidpointLocationsFromLocations:(id)a0;
+- (struct _psdGradientColor { double x0; double x1; double x2; double x3; })_smoothedGradientColorAtLocation:(double)a0;
+- (void)_createOrderedStops:(id *)a0 midpoints:(id *)a1 fromStops:(id)a2 midpoints:(id)a3 edgePixel:(long long *)a4;
+- (double)_smoothedInterpolationOfLocation:(double)a0 betweenLower:(double)a1 upper:(double)a2 scaledMidpoint:(double)a3;
+- (double)fillCoefficient;
+- (BOOL)hasEdgePixel;
+- (id)initWithColorStops:(id)a0 colorMidpoints:(id)a1 opacityStops:(id)a2 opacityMidpoints:(id)a3 smoothingCoefficient:(double)a4 fillCoefficient:(double)a5;
+- (void)setColorStops:(id)a0 midpoints:(id)a1;
+- (void)setOpacityStops:(id)a0 midpoints:(id)a1;
+- (void)setSmoothingCoefficient:(double)a0;
+- (void)setFillCoefficient:(double)a0;
+- (void)customizeForDistance:(double)a0;
+- (id)description;
+- (BOOL)isDithered;
+- (void)encodeWithCoder:(id)a0;
+
+@end

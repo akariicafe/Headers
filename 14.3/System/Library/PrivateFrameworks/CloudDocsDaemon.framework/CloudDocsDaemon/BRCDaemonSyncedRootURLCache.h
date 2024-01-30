@@ -1,0 +1,12 @@
+@class NSArray, NSString;
+
+@interface BRCDaemonSyncedRootURLCache : NSObject <BRSyncedRootURLCache>
+
+@property (readonly, nonatomic) NSArray *syncedRootURLs;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+
+@end

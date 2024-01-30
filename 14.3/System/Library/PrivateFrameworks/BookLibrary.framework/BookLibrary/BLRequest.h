@@ -1,0 +1,3 @@
+@interface BLRequest : NSObject
+
+@end

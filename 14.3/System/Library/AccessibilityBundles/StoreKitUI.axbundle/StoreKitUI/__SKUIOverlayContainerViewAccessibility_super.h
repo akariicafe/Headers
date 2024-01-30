@@ -1,0 +1,3 @@
+@interface __SKUIOverlayContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

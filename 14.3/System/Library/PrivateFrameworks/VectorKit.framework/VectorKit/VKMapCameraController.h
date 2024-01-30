@@ -1,0 +1,86 @@
+@class NSString, VKMapModel, VKMapCanvas, VKTimedAnimation;
+
+@interface VKMapCameraController : VKScreenCameraController <VKGesturingCameraController> {
+    VKTimedAnimation *_horizontalOffsetAnimation;
+    double _minDistanceToGroundAlongForwardVector;
+    double _maxDistanceToGroundAlongForwardVector;
+    double _finalYaw;
+    double _finalPitch;
+}
+
+@property (retain, nonatomic) VKMapModel *mapModel;
+@property (nonatomic) VKMapCanvas *mapCanvas;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)restoreViewportFromInfo:(id)a0;
+- (double)pitch;
+- (long long)tileSize;
+- (void)updateCameraZBounds;
+- (void)setGesturing:(BOOL)a0;
+- (double)yaw;
+- (id)viewportInfo;
+- (void)zoom:(double)a0 withPoint:(struct Matrix<double, 3, 1> { double x0[3]; })a1 completionHandler:(id /* block */)a2;
+- (void)setMapRegion:(id)a0 pitch:(double)a1 yaw:(double)a2 duration:(double)a3 timingCurve:(id /* block */)a4 completion:(id /* block */)a5;
+- (struct { double x0; double x1; })centerCoordinate;
+- (void)clampPitch:(double *)a0 yaw:(double *)a1 atTargetPositionZ:(double)a2;
+- (float)currentDisplayZoomLevel;
+- (void)setRegionRestriction:(id)a0 duration:(double)a1 timingFunction:(id /* block */)a2;
+- (void)updateCameraToPositionOrientationLimits;
+- (double)heading;
+- (void)zoom:(double)a0 withFocusPoint:(struct CGPoint { double x0; double x1; })a1 completionHandler:(id /* block */)a2;
+- (double)minPitch;
+- (BOOL)isFullyPitched;
+- (float)idealPitchForNormalizedZoomLevel:(float)a0;
+- (double)altitude;
+- (void)dealloc;
+- (void)enter3DMode;
+- (double)presentationYaw;
+- (id)initWithMapDataAccess:(struct MapDataAccess { struct World *x0; unsigned char x1; unsigned char x2; id x3; struct shared_ptr<gdc::Camera> { struct Camera *x0; struct __shared_weak_count *x1; } x4; } *)a0 animationRunner:(struct AnimationRunner { struct MapEngine *x0; } *)a1 runLoopController:(struct RunLoopController { struct MapEngine *x0; long long x1; long long x2; } *)a2 cameraDelegate:(id)a3;
+- (float)currentMaximumNormalizedZoomLevel;
+- (void)_animateToPosition:(struct Matrix<double, 3, 1> { double x0[3]; })a0 pitch:(double)a1 yaw:(double)a2 duration:(double)a3 timingCurve:(id /* block */)a4 completion:(id /* block */)a5;
+- (void)panWithOffset:(struct CGPoint { double x0; double x1; })a0 relativeToScreenPoint:(struct CGPoint { double x0; double x1; })a1 animated:(BOOL)a2 duration:(double)a3 completionHandler:(id /* block */)a4;
+- (float)maximumNormalizedZoomLevel;
+- (float)currentTopDownMinimumNormalizedZoomLevel;
+- (float)minimumNormalizedZoomLevel;
+- (struct Matrix<double, 3, 1> { double x0[3]; })positionClampedToCameraRestriction:(struct Matrix<double, 3, 1> { double x0[3]; })a0;
+- (BOOL)canEnter3DMode;
+- (void)animateRegionWithDuration:(double)a0 timingFunction:(id /* block */)a1 stepHandler:(id /* block */)a2 completionHandler:(id /* block */)a3;
+- (void)zoomToLevel:(double)a0 withFocusPoint:(struct CGPoint { double x0; double x1; })a1;
+- (float)minimumPitchForNormalizedZoomLevel:(float)a0;
+- (float)normalizedZoomLevelAdjustmentForTileSize:(long long)a0;
+- (void)clampZoomLevelIfNecessary;
+- (void)tapZoom:(struct CGPoint { double x0; double x1; })a0 levels:(double)a1 completionHandler:(id /* block */)a2;
+- (void)rotateToYaw:(double)a0 withPoint:(const struct Matrix<double, 3, 1> { double x0[3]; } *)a1 animated:(BOOL)a2;
+- (void)setYaw:(double)a0 animated:(BOOL)a1;
+- (BOOL)isPitched;
+- (double)maxPitch;
+- (float)currentStyleZoomLevel;
+- (void)startTrackingAnnotation:(id)a0 trackHeading:(BOOL)a1 animated:(BOOL)a2 duration:(double)a3 timingFunction:(id /* block */)a4;
+- (struct { double x0; double x1; })_mercatorCenterCoordinateForMapRegion:(id)a0;
+- (float)maxPitchForNormalizedZoomLevel:(float)a0;
+- (void)setCenterCoordinate:(struct { double x0; double x1; })a0 altitude:(double)a1 yaw:(double)a2 pitch:(double)a3 duration:(double)a4 animationStyle:(long long)a5 timingCurve:(id /* block */)a6 forceDestination:(BOOL)a7 completion:(id /* block */)a8;
+- (void)setCenterCoordinate3D:(struct { double x0; double x1; double x2; })a0 altitude:(double)a1 yaw:(double)a2 pitch:(double)a3 duration:(double)a4 animationStyle:(long long)a5 timingCurve:(id /* block */)a6 completion:(id /* block */)a7;
+- (void)_jumpToCenterPoint:(struct Matrix<double, 3, 1> { double x0[3]; })a0 pitchRadians:(double)a1 yawRadians:(double)a2;
+- (void)setCenterCoordinateDistanceRange:(struct { double x0; double x1; })a0 duration:(double)a1 timingFunction:(id /* block */)a2;
+- (void)setCenterCoordinate:(struct { double x0; double x1; })a0 altitude:(double)a1 yaw:(double)a2 pitch:(double)a3 duration:(double)a4 animationStyle:(long long)a5 timingCurve:(id /* block */)a6 completion:(id /* block */)a7;
+- (void)exit3DMode;
+- (double)distanceFromCenterCoordinate;
+- (float)currentNormalizedZoomLevel;
+- (double)durationToAnimateToMapRegion:(id)a0;
+- (double)maximumZoomLevel;
+- (double)topDownMinimumZoomLevel;
+- (void)rotateToPitch:(double)a0 withPoint:(const struct Matrix<double, 3, 1> { double x0[3]; } *)a1 preserveAltitude:(BOOL)a2 animated:(BOOL)a3 exaggerate:(BOOL)a4;
+- (void)_animateToPosition:(struct Matrix<double, 3, 1> { double x0[3]; })a0 pitch:(double)a1 yaw:(double)a2 duration:(double)a3 timingCurve:(id /* block */)a4 forceDestination:(BOOL)a5 completion:(id /* block */)a6;
+- (double)zoomLevelAdjustmentForTileSize:(long long)a0;
+- (void)canvasDidLayout;
+- (BOOL)canRotate;
+- (double)minimumZoomLevel;
+- (float)currentMinimumNormalizedZoomLevel;
+- (void)zoomToLevel:(double)a0 withPoint:(struct Matrix<double, 3, 1> { double x0[3]; })a1;
+- (double)currentZoomLevel;
+- (BOOL)snapMapIfNecessary:(BOOL)a0;
+
+@end

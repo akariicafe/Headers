@@ -1,0 +1,73 @@
+@interface NTKPrideCircularQuad : NTKPrideSplinesQuad {
+    struct { void /* unknown type, empty encoding */ x0[32]; float x1[32]; void /* unknown type, empty encoding */ x2[32]; id x3; float x4; float x5; float x6; unsigned short x7; } *_perSplineData;
+    float _displayMode;
+    float _currentFade;
+    BOOL _fading;
+    float _globalTouchTime;
+    BOOL _paused;
+    unsigned long long _currentStyle;
+    float _velocity;
+    struct { int startColor; BOOL startReversed; int endColor; BOOL endReversed; } _currentColorConfig;
+    float _complicationFade;
+}
+
+@property (readonly, nonatomic) BOOL useXRsRGB;
+@property (copy, nonatomic) id /* block */ complicationAlphaCallback;
+@property (nonatomic) double splineColorTransitionFraction;
+@property (readonly, nonatomic) float softness;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)prepareWristRaiseAnimation;
+- (void)performWristRaiseAnimation;
+- (void)prepareForZoom;
+- (void)applyToForegroundZoomFraction:(double)a0 faceScale:(double)a1;
+- (int)numSplines;
+- (float)computeAmplitudeForControlPoint:(int)a0 inSpline:(int)a1 atTime:(double)a2;
+- (void /* unknown type, empty encoding */)noiseSamplePositionForControlPoint:(int)a0 inSpline:(int)a1;
+- (id /* block */)getNTKPrideSplineDefinitionFiller;
+- (BOOL)preSemaphoreComputeForTime:(double)a0;
+- (id)initWithDevice:(id)a0 useXRsRGB:(BOOL)a1;
+- (id)renderPipelineManager;
+- (id)vertexShaderName;
+- (id)renderPipelineName;
+- (struct { } *)noiseConfiguration;
+- (void)handleOrdinaryScreenWake;
+- (BOOL)postSemaphoreComputeForTime:(double)a0;
+- (void)handleScreenOff;
+- (void)_generateControlPointDampingCoefficients;
+- (void)clearWaves;
+- (BOOL)shouldForceRender;
+- (void)processSpline:(int)a0;
+- (int)numControlPointsPerSpline;
+- (int)numVertsForSpline:(int)a0;
+- (float)interpolationStepSizeForSpline:(int)a0;
+- (id)generateVignetteTextureData;
+- (void)generateControlPointsForSpline:(int)a0;
+- (float)globalAmplitudeForTime:(double)a0;
+- (void)startWavesAtTime:(double)a0;
+- (void)setAmplitude:(float)a0 forControlPoint:(int)a1 ofSpline:(int)a2;
+- (float)ampltiudeForControlPoint:(int)a0 ofSpline:(int)a1;
+- (void)setNoise:(SEL)a0 forControlPoint:(int)a1 inSpline:(int)a2;
+- (id)splineColorAtIndex:(int)a0;
+- (void)setDefaultSplineColors;
+- (BOOL)willConsumeTouch:(id)a0;
+- (void)applyTransitionFromDialToFullScreenWithFraction:(double)a0;
+- (void)setFullscreenMode;
+- (void)setDialMode;
+- (void)cleanupAfterAZoom;
+- (float)_dialRadiusForSpline:(int)a0;
+- (float)_rectRadiusForSpline:(int)a0;
+- (float)_dampingFactorForSpline:(int)a0;
+- (int)_numVertsForSpline:(int)a0;
+- (void)_colorSequenceForStartIndex:(int)a0 reverseDirection:(BOOL)a1 colorSequence:(id /* block */)a2;
+- (void)setColorConfig:(struct { int x0; BOOL x1; int x2; BOOL x3; })a0;
+- (struct { int x0; BOOL x1; int x2; BOOL x3; })advanceConfig:(struct { int x0; BOOL x1; int x2; BOOL x3; })a0;
+- (struct { int x0; BOOL x1; int x2; BOOL x3; })generateNextRandomConfigFromConfig:(struct { int x0; BOOL x1; int x2; BOOL x3; })a0;
+- (void)initializePerSplineData;
+- (void)randomizeSplineColors;
+- (float)currentSplineWidth;
+- (struct { int x0; BOOL x1; int x2; BOOL x3; })advanceCurrentConfig;
+- (struct { int x0; BOOL x1; int x2; BOOL x3; })generateNextRandomConfigFromCurrentConfig;
+
+@end

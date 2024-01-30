@@ -1,0 +1,77 @@
+@class CPDocument, CPPage, NSMutableArray;
+
+@interface CPObject : NSObject <NSCopying, CPCopying> {
+    CPObject *parent;
+    NSMutableArray *children;
+    CPDocument *document;
+    CPPage *page;
+    long long zOrder;
+}
+
+- (int)depth;
+- (void)add:(id)a0;
+- (id)page;
+- (void)remove:(id)a0;
+- (void)performSelector:(SEL)a0;
+- (void)setPage:(id)a0;
+- (void)remove;
+- (unsigned long long)indexOf:(id)a0;
+- (void)removeAll;
+- (id)init;
+- (long long)zOrder;
+- (void)addChildren:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)previousSibling;
+- (id)document;
+- (id)parent;
+- (id)lastChild;
+- (id)children;
+- (BOOL)isEqual:(id)a0;
+- (id)childAtIndex:(unsigned int)a0;
+- (id)firstChild;
+- (unsigned int)count;
+- (void)setDocument:(id)a0;
+- (void)accept:(id)a0;
+- (id)nextSibling;
+- (void)removeObjectAtIndex:(unsigned int)a0;
+- (void)setParent:(id)a0;
+- (id)childrenOfClass:(Class)a0;
+- (id)ancestorOfClass:(Class)a0;
+- (void)removeLastChild;
+- (id)copyAndSplitChildrenAtIndex:(unsigned int)a0;
+- (void)recomputeZOrder;
+- (void)updateZOrder:(long long)a0;
+- (void)add:(id)a0 atIndex:(unsigned int)a1;
+- (void)addChildrenOf:(id)a0;
+- (id)newTakeChildren;
+- (id)newTakeChildrenAmong:(id)a0;
+- (void)disposeDescendants;
+- (id)copyWithoutChildren;
+- (void)commonMapFuncCall:(SEL)a0 target:(id)a1 childrenOfClass:(Class)a2 ofCount:(int)a3;
+- (id)descendantsOfClass:(Class)a0 deep:(BOOL)a1;
+- (void)descendantsOfClass:(Class)a0 to:(id)a1;
+- (id)descendantsOfClass:(Class)a0 omitTraversing:(Class)a1;
+- (id)firstDescendantOfClass:(Class)a0;
+- (id)lastDescendantOfClass:(Class)a0;
+- (unsigned int)countOfFirstDescendantsOfClass:(Class)a0;
+- (void)setZOrder:(long long)a0;
+- (void)clearCachedInfo;
+- (id)firstDescendantsOfClass:(Class)a0;
+- (id)initSuper;
+- (unsigned int)countOfClass:(Class)a0;
+- (id)lastSibling;
+- (id)firstSibling;
+- (void)removeFirstChild;
+- (void)promoteChildren;
+- (void)childrenOfClass:(Class)a0 into:(id)a1;
+- (id)childrenNotOfClass:(Class)a0;
+- (void)map:(SEL)a0 target:(id)a1 childrenOfClass:(Class)a2 last:(BOOL)a3;
+- (void)map:(SEL)a0 target:(id)a1 childrenOfClass:(Class)a2;
+- (void)mapSafely:(SEL)a0 target:(id)a1 childrenOfClass:(Class)a2;
+- (void)map:(SEL)a0 target:(id)a1;
+- (void)map:(SEL)a0 target:(id)a1 last:(BOOL)a2;
+- (id)descendantsOfClass:(Class)a0;
+- (id)shallowDescendantsOfClass:(Class)a0;
+
+@end

@@ -1,0 +1,33 @@
+@class IMFullScreenEffectPlayer, IMFullScreenEffect, NSString, NSMutableArray, IMScheduledUpdater;
+@protocol IMFullScreenEffectManagerDelegate;
+
+@interface IMFullScreenEffectManager : NSObject <IMFullScreenEffectPlayerDelegate>
+
+@property (retain, nonatomic) IMFullScreenEffectPlayer *currentEffectPlayer;
+@property (retain, nonatomic) NSMutableArray *effectQueue;
+@property (retain, nonatomic) IMScheduledUpdater *triggerUpdater;
+@property (weak, nonatomic) id<IMFullScreenEffectManagerDelegate> delegate;
+@property (readonly, nonatomic) IMFullScreenEffect *currentEffect;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)triggerNextEffect;
+- (void)beginHoldingUpdatesForKey:(id)a0;
+- (void)endHoldingUpdatesForKey:(id)a0;
+- (BOOL)isFullScreenEffectQueued:(id)a0;
+- (void)willStartFullScreenEffect:(id)a0;
+- (void)_stopCurrentFullscreenEffect:(BOOL)a0;
+- (void)stopCurrentFullscreenEffectPlayer;
+- (void)queueFullScreenEffectPlayer:(id)a0 withRepeating:(BOOL)a1;
+- (void)fullScreenEffectPlayerDidPrepare:(id)a0;
+- (void)fullScreenEffectPlayerDidStart:(id)a0;
+- (void)fullScreenEffectPlayerDidFinish:(id)a0;
+- (void)stopAllFullscreenEffectPlayers;
+- (double)adjustedEffectDurationForTesting:(id)a0;
+
+@end

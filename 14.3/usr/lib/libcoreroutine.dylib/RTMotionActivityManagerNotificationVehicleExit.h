@@ -1,0 +1,3 @@
+@interface RTMotionActivityManagerNotificationVehicleExit : RTNotification
+
+@end

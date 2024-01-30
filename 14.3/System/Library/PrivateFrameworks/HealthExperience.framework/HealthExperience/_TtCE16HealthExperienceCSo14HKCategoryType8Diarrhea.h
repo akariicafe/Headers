@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType8Diarrhea : _TtCs12_SwiftObject
+
+@end

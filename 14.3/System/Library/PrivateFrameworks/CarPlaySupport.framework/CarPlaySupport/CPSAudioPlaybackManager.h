@@ -1,0 +1,67 @@
+@class NSString, UIImage, CPSTemplateEnvironment, CARSessionStatus, CPUINowPlayingManager, CPUINowPlayingSnapshot, MPArtworkCatalog, CPNowPlayingTemplate, CPSNowPlayingViewController;
+@protocol CPNowPlayingClientTemplateDelegate;
+
+@interface CPSAudioPlaybackManager : NSObject <CPUINowPlayingObserving, CARSessionObserving, CPUINowPlayingViewControllerDataSource, CPUINowPlayingViewControllerDelegate>
+
+@property (retain, nonatomic) CPUINowPlayingManager *nowPlayingManager;
+@property (readonly, nonatomic) CPNowPlayingTemplate *template;
+@property (retain, nonatomic) id<CPNowPlayingClientTemplateDelegate> templateDelegate;
+@property (retain, nonatomic) CARSessionStatus *sessionStatus;
+@property (retain, nonatomic) MPArtworkCatalog *artworkCatalog;
+@property (retain, nonatomic) UIImage *fullSizeArtwork;
+@property (retain, nonatomic) CPUINowPlayingSnapshot *lastSnapshot;
+@property (weak, nonatomic) CPSTemplateEnvironment *environment;
+@property (nonatomic) BOOL actionStateHeld;
+@property (nonatomic) BOOL shouldShowAlbumArt;
+@property (weak, nonatomic) CPSNowPlayingViewController *nowPlayingViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)session:(id)a0 didUpdateConfiguration:(id)a1;
+- (void)nowPlayingManager:(id)a0 didUpdateSnapshot:(id)a1;
+- (void)nowPlayingManager:(id)a0 didThrottleUpdateForBundleIdentifier:(id)a1;
+- (id)initWithNowPlayingTemplate:(id)a0 templateDelegate:(id)a1 environment:(id)a2;
+- (void)updateNowPlayingTemplate:(id)a0 templateDelegate:(id)a1;
+- (void)_updateAlbumArtFromSessionConfiguration:(id)a0;
+- (id)nowPlayingButtonWithClass:(Class)a0;
+- (id)nowPlayingButtonWithIdentifier:(id)a0;
+- (BOOL)nowPlayingViewControllerIsPlaying:(id)a0;
+- (void)_loadArtworkIfNeeded:(id)a0;
+- (id)artistTextForNowPlayingController:(id)a0;
+- (id)albumTextForNowPlayingController:(id)a0;
+- (id)titleForNowPlayingController:(id)a0;
+- (id)backgroundArtForNowPlayingController:(id)a0;
+- (BOOL)nowPlayingViewControllerIsShowingExplicitTrack:(id)a0;
+- (struct { double x0; double x1; double x2; double x3; double x4; float x5; float x6; BOOL x7; BOOL x8; })durationSnapshotForNowPlayingViewController:(id)a0;
+- (long long)placeholderTypeForNowPlayingViewController:(id)a0;
+- (long long)shuffleTypeForNowPlayingViewController:(id)a0;
+- (long long)repeatTypeForNowPlayingViewController:(id)a0;
+- (BOOL)nowPlayingViewController:(id)a0 shouldDisplayButton:(long long)a1 withImage:(out id *)a2 existingIdentifier:(id)a3 tinted:(out BOOL *)a4;
+- (BOOL)nowPlayingViewController:(id)a0 buttonShouldBeActive:(long long)a1;
+- (void)nowPlayingViewController:(id)a0 didSendAction:(long long)a1 state:(long long)a2;
+- (BOOL)nowPlayingViewControllerCanShuffle:(id)a0;
+- (void)nowPlayingViewControllerToggleShuffle:(id)a0;
+- (BOOL)nowPlayingViewControllerCanRepeat:(id)a0;
+- (void)nowPlayingViewControllerToggleRepeat:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowAddToLibrary:(id)a0;
+- (void)nowPlayingViewControllerAddToLibrary:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowAlbumLink:(id)a0;
+- (void)nowPlayingViewControllerAlbumArtistButtonTapped:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowUpNext:(id)a0;
+- (id)titleForUpNextInNowPlayingViewController:(id)a0;
+- (void)nowPlayingViewControllerUpNextButtonTapped:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowChangePlaybackRate:(id)a0;
+- (void)nowPlayingViewControllerChangePlaybackRate:(id)a0;
+- (id)nowPlayingViewControllerGetPlaybackRate:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowMore:(id)a0;
+- (void)nowPlayingViewControllerMore:(id)a0;
+- (BOOL)nowPlayingViewControllerCanShowAlbumArt:(id)a0;
+- (void)nowPlayingViewControllerWillAppear:(id)a0;
+- (id)customPlaybackControlButtonsForNowPlayingViewController:(id)a0;
+- (void)nowPlayingViewController:(id)a0 didSelectButton:(id)a1;
+
+@end

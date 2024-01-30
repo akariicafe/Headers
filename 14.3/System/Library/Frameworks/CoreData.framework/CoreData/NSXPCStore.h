@@ -1,0 +1,95 @@
+@class NSXPCStoreConnectionManager, NSString, NSDictionary, NSSQLModel, NSSQLCore, NSXPCStoreNotificationObserver, NSGenerationalRowCache;
+
+@interface NSXPCStore : NSIncrementalStore <NSSQLModelProvider, NSCoreDataKeyedArchivingDelegate> {
+    NSDictionary *_metadata;
+    NSGenerationalRowCache *_cache;
+    NSString *_fileBackedFuturesDirectory;
+    NSXPCStoreConnectionManager *_connectionManager;
+    NSSQLModel *_model;
+    NSSQLCore *_core;
+    NSString *_sanityCheckToken;
+    NSXPCStoreNotificationObserver *_observer;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _stateLock;
+}
+
+@property (readonly, copy) NSString *remoteStoreChangedNotificationName;
+
++ (void)initialize;
++ (BOOL)_allowCoreDataFutures;
++ (id)replacementObjectForXPCConnection:(id)a0 encoder:(id)a1 object:(id)a2;
++ (void)setDebugDefault:(int)a0;
++ (int)debugDefault;
++ (id)archiver:(id)a0 willEncodeObject:(id)a1;
++ (BOOL)_isOnExtendedTimeout;
+
+- (id)sqlCore;
+- (id)entityForEntityDescription:(id)a0;
+- (id)ancillarySQLModels;
+- (id)_storeInfoForEntityDescription:(id)a0;
+- (id)currentQueryGeneration;
+- (id)objectIDFactoryForEntity:(id)a0;
+- (id)newValueForRelationship:(id)a0 forObjectWithID:(id)a1 withContext:(id)a2 error:(id *)a3;
+- (id)ancillaryModels;
+- (id)reopenQueryGenerationWithIdentifier:(id)a0 error:(id *)a1;
+- (void)disconnect;
+- (BOOL)_allowCoreDataFutures;
+- (id)_rawMetadata__;
+- (id)obtainPermanentIDsForObjects:(id)a0 error:(id *)a1;
+- (id)currentChangeToken;
+- (id)newObjectIDForEntity:(id)a0 pk:(long long)a1;
+- (void)willRemoveFromPersistentStoreCoordinator:(id)a0;
+- (void)setMetadata:(id)a0;
+- (BOOL)load:(id *)a0;
+- (BOOL)supportsConcurrentRequestHandling;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (BOOL)loadMetadata:(id *)a0;
+- (id)fileBackedFuturesDirectory;
+- (id)executeRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (Class)_objectIDClass;
+- (id)replacementObjectForXPCConnection:(id)a0 encoder:(id)a1 object:(id)a2;
+- (void)freeQueryGenerationWithIdentifier:(id)a0;
+- (id)newValuesForObjectWithID:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)connectionManager;
+- (BOOL)supportsGenerationalQuerying;
+- (void)decodePrefetchResult:(id)a0 forSources:(id)a1 context:(id)a2;
+- (id)executeBatchDeleteRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)model;
+- (id)_createAndCacheRowForObjectWithID:(id)a0 propertyValues:(id)a1 inContext:(id)a2 error:(id *)a3;
+- (id)unarchiver:(id)a0 didDecodeObject:(id)a1;
+- (id)executeSaveRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)_executeSaveRequestForContext:(id)a0 error:(id *)a1;
+- (void)dealloc;
+- (id)metadata;
+- (id)executeBatchInsertRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (void)_freeQueryGenerationWithIdentifier:(id)a0;
+- (id)decodeResults:(id)a0 forFetch:(id)a1 context:(id)a2 error:(id *)a3;
+- (id)newForeignKeyID:(long long)a0 entity:(id)a1;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (id)decodeResults:(id)a0 forFaultOfObjectWithID:(id)a1 context:(id)a2 error:(id *)a3;
+- (void)_setMetadata:(id)a0 includeVersioning:(BOOL)a1;
+- (id)decodeValue:(id)a0 forRelationship:(id)a1 onSource:(id)a2 inContext:(id)a3 error:(id *)a4;
+- (id)sendMessage:(id)a0 fromContext:(id)a1 interrupts:(unsigned long long *)a2 error:(id *)a3;
+- (id)_cachedRowForObjectWithID:(id)a0 generation:(id)a1;
+- (id)initWithPersistentStoreCoordinator:(id)a0 configurationName:(id)a1 URL:(id)a2 options:(id)a3;
+- (id)serviceName;
+- (void)setURL:(id)a0;
+- (id)_newObjectIDForEntityDescription:(id)a0 pk:(long long)a1;
+- (id)type;
+- (void)_commitChangesForRequestContext:(id)a0;
+- (void)cacheContents:(id)a0 ofRelationship:(id)a1 onObjectWithID:(id)a2 generation:(id)a3;
+- (void)cacheFetchedRows:(id)a0 forManagedObjects:(id)a1 generation:(id)a2;
+- (void)cacheContents:(id)a0 ofRelationship:(id)a1 onObjectWithID:(id)a2 withTimestamp:(double)a3 generation:(id)a4;
+- (void)_setSanityCheckToken:(id)a0;
+- (void)setSQLCore:(id)a0;
+- (id)_sanityCheckToken;
+- (id)executeFetchRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)executePersistentHistoryRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (Class)objectIDFactoryForSQLEntity:(id)a0;
+- (void)setIdentifier:(id)a0;
+- (id)executeBatchUpdateRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (void)_clearCachedRowForObjectWithID:(id)a0 generation:(id)a1;
+- (void)decodePrefetchArray:(id)a0 forSources:(id)a1 context:(id)a2;
+- (id)_cachedRowForRelationship:(id)a0 onObjectWithID:(id)a1 generation:(id)a2;
+- (void)setupRemoteStoreObserver;
+
+@end

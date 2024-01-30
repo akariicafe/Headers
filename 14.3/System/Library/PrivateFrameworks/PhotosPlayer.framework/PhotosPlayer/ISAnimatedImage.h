@@ -1,0 +1,3 @@
+@interface ISAnimatedImage : PFAnimatedImage
+
+@end

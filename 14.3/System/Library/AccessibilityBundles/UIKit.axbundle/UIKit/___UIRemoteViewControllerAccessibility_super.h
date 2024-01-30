@@ -1,0 +1,3 @@
+@interface ___UIRemoteViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

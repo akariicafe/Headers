@@ -1,0 +1,73 @@
+@class NSString, NSSet, NSURL, NSDate, NSArray, NSValue;
+
+@interface TDNamedAssetImportInfo : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSString *name;
+@property (nonatomic) long long nameIdentifier;
+@property (copy, nonatomic) NSURL *fileURL;
+@property (copy, nonatomic) NSDate *modificationDate;
+@property (nonatomic) long long idiom;
+@property (nonatomic) long long subtype;
+@property (nonatomic) unsigned long long scaleFactor;
+@property (nonatomic) struct { double top; double left; double bottom; double right; } sliceInsets;
+@property (nonatomic) long long renditionType;
+@property (nonatomic) long long resizingMode;
+@property (nonatomic) struct CGSize { double width; double height; } resizableSliceSize;
+@property (nonatomic) BOOL preservesVectorRepresentation;
+@property (nonatomic) short autoscalingType;
+@property (nonatomic) BOOL isTemplate;
+@property (nonatomic) long long templateRenderingMode;
+@property (nonatomic) BOOL optOutOfThinning;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } alignmentRect;
+@property (nonatomic) long long sizeClassHorizontal;
+@property (nonatomic) long long sizeClassVertical;
+@property (nonatomic) long long displayGamut;
+@property (nonatomic) long long layoutDirection;
+@property (nonatomic) BOOL isFlippable;
+@property (nonatomic) unsigned long long memoryClass;
+@property (nonatomic) unsigned long long graphicsClass;
+@property (nonatomic) long long graphicsFeatureSetClass;
+@property (nonatomic) long long compressionType;
+@property (nonatomic) double lossyCompressionQuality;
+@property (copy, nonatomic) NSSet *tags;
+@property (copy, nonatomic) NSString *universalTypeIdentifier;
+@property (copy, nonatomic) NSArray *containedImageNames;
+@property (nonatomic) struct CGSize { double width; double height; } physicalSizeInMeters;
+@property (nonatomic) struct { void /* unknown type, empty encoding */ columns[4]; } transformation;
+@property (nonatomic) int objectVersion;
+@property (nonatomic) struct CGSize { double width; double height; } canvasSize;
+@property (copy, nonatomic) NSArray *layerReferences;
+@property (nonatomic) unsigned long long textureWidth;
+@property (nonatomic) unsigned long long textureHeight;
+@property (nonatomic) unsigned long long textureDepth;
+@property (nonatomic) BOOL cubeMap;
+@property (nonatomic) unsigned long long arrayIndex;
+@property (nonatomic) long long texturePixelFormat;
+@property (nonatomic) long long textureInterpretation;
+@property (copy, nonatomic) NSArray *textureInfos;
+@property (nonatomic) long long colorSpaceID;
+@property (copy, nonatomic) NSArray *colorComponents;
+@property (retain, nonatomic) NSString *systemColorName;
+@property (copy, nonatomic) NSString *fontName;
+@property (nonatomic) double fontSize;
+@property (copy, nonatomic) NSString *foregroundColorName;
+@property (copy, nonatomic) NSString *backgroundColorName;
+@property (nonatomic) long long backgroundColorSpaceID;
+@property (copy, nonatomic) NSArray *backgroundColorComponents;
+@property (nonatomic) long long textAlignment;
+@property (nonatomic) long long scalingStyle;
+@property (nonatomic) double maxPointSize;
+@property (nonatomic) double minPointSize;
+@property (copy, nonatomic) NSValue *iconSize;
+@property (copy, nonatomic) NSString *appearanceName;
+@property (nonatomic) long long appearanceIdentifier;
+@property (copy, nonatomic) NSString *localizationName;
+@property (nonatomic) long long localizationIdentifier;
+
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)description;
+- (long long)renditionSubtype;
+
+@end

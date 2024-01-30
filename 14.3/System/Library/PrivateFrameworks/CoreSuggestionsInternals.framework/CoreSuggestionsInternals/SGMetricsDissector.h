@@ -1,0 +1,18 @@
+@class NSString, SGSqlEntityStore;
+
+@interface SGMetricsDissector : SGPipelineDissector <SGMailMessageProcessing, SGTextMessageProcessing> {
+    SGSqlEntityStore *_store;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)dissectTextMessage:(id)a0 entity:(id)a1 context:(id)a2;
+- (id)initWithEntityStore:(id)a0;
+- (BOOL)_shouldSampleMessage;
+- (void)dissectMailMessage:(id)a0 entity:(id)a1 context:(id)a2;
+
+@end

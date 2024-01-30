@@ -1,0 +1,3 @@
+@interface UISceneRequestOptions : UISSceneRequestOptions
+
+@end

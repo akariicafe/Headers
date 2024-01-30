@@ -1,0 +1,3 @@
+@interface __MPVideoViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

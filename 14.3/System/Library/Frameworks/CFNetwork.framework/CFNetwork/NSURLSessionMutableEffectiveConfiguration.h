@@ -1,0 +1,3 @@
+@interface NSURLSessionMutableEffectiveConfiguration : NSURLSessionEffectiveConfiguration
+
+@end

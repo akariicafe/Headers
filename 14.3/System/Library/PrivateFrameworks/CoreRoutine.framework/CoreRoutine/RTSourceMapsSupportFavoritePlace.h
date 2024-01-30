@@ -1,0 +1,3 @@
+@interface RTSourceMapsSupportFavoritePlace : RTSourceMapsSupport
+
+@end

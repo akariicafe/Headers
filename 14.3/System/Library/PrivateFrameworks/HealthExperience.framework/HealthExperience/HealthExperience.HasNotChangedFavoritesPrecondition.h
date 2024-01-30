@@ -1,0 +1,3 @@
+@interface HealthExperience.HasNotChangedFavoritesPrecondition : HealthExperience.UserDefaultsQueryPrecondition
+
+@end

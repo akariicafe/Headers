@@ -1,0 +1,95 @@
+@class UIView, TUIEmojiSearchInputViewController, NSString, TUISystemInputAssistantLayoutStandard, NSTimer, NSMutableDictionary, UITextInputAssistantItem, TUISystemInputAssistantLayoutSplit, UIViewController, TUISystemInputAssistantView;
+@protocol UIPredictiveViewController, UIKeyInput;
+
+@interface UISystemInputAssistantViewController : UIInputViewController <UIPopoverPresentationControllerDelegate, UIKeyboardAutocorrectionObserver, TUISystemInputAssistantViewDelegate, TUIEmojiSearchInputViewControllerDelegate> {
+    id<UIKeyInput> _pendingResponderForChangedNotification;
+    NSTimer *_pendingResponderChangedTimer;
+    BOOL _postedSwitchFromEmojiNotification;
+}
+
+@property (weak, nonatomic) UIView *popoverSourceView;
+@property (weak, nonatomic) UITextInputAssistantItem *observedInputAssistantItem;
+@property (retain, nonatomic) NSMutableDictionary *cachedPredictiveViewControllers;
+@property (retain, nonatomic) TUISystemInputAssistantLayoutStandard *standardAssistantViewLayout;
+@property (retain, nonatomic) TUISystemInputAssistantLayoutSplit *splitAssistantViewLayout;
+@property (retain, nonatomic) TUIEmojiSearchInputViewController *emojiSearchViewController;
+@property (retain, nonatomic) UIViewController<UIPredictiveViewController> *predictiveViewController;
+@property (weak, nonatomic) UIViewController *expandedItemsController;
+@property BOOL assistantEnabledPreference;
+@property BOOL assistantOniPhonePreference;
+@property BOOL hasCheckedPreferences;
+@property BOOL currentlyCheckingPreferences;
+@property (retain, nonatomic) UIViewController<UIPredictiveViewController> *centerViewController;
+@property (readonly, nonatomic) TUISystemInputAssistantView *systemInputAssistantView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_requiresProxyInterface;
++ (double)_defaultPreferredHeightForTraitCollection:(id)a0;
+
+- (void)emojiSearchTextFieldWillBecomeInactive:(id)a0;
+- (void)emojiSearchTextFieldDidBecomeActive:(id)a0;
+- (void)emojiSearchTextFieldWillBecomeActive:(id)a0;
+- (double)preferredHeightForTraitCollection:(id)a0;
+- (void)_showCandidates;
+- (void)preferencesControllerChanged:(id)a0;
+- (void)emojiSearchTextFieldDidBecomeInactive:(id)a0;
+- (void)systemInputAssistantView:(id)a0 wantsToShowCollapsedItemGroup:(id)a1 fromView:(id)a2;
+- (void)_queueResponderChangedForNewResponder:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)_currentInputDelegate;
+- (double)_centerViewWidthForTraitCollection:(id)a0 interfaceOrientation:(long long)a1;
+- (void)_inputModeChanged:(id)a0;
+- (void)dealloc;
+- (void)emojiSearchWillInsertEmoji:(id)a0 forSearchQuery:(id)a1;
+- (BOOL)_shouldShowEmojiSearchViewControllerForInputDelegate:(id)a0;
+- (void)autocorrectionControllerDidClearAutocorrections:(id)a0;
+- (void)popoverPresentationControllerDidDismissPopover:(id)a0;
+- (id)_inputDelegateAsResponder:(id)a0;
+- (void)loadView;
+- (double)_buttonBarWidthForTraitCollection:(id)a0 interfaceOrientation:(long long)a1;
+- (void)_beginObservingInputAssistantItemForRelevantItemChanges:(id)a0;
+- (BOOL)layoutHasBuiltinAssistantView;
+- (BOOL)_shouldCollapseEmojiSearchView;
+- (void)_responderChangedNotification:(id)a0;
+- (void)_didReceiveTextEffectsRotationNotification:(id)a0;
+- (void)_updateSystemInputAssistantViewStylingForInputAssistantItem:(id)a0;
+- (void)prepareForPopoverPresentation:(id)a0;
+- (BOOL)_shouldShowExpandableButtonBarItemsForResponder:(id)a0;
+- (void)updateAssistantPreferences;
+- (BOOL)isEmojiSearchResultsVisible;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)_popoverViewControllerForBarButtonItemGroup:(id)a0;
+- (BOOL)_canShowCenterBarButtonItem;
+- (void)_registerForAssistantViewNotifications;
+- (void)updateCenterViewVisibilityStateForInputDelegate:(id)a0;
+- (void)_applicationDidBecomeActiveNotification:(id)a0;
+- (BOOL)shouldBeShownForInputDelegate:(id)a0 inputViews:(id)a1;
+- (id)_defaultTintColor;
+- (void)_updateCenterViewWidthForInterfaceOrientation:(long long)a0;
+- (void)_expandBarItems;
+- (id)candidateViewController;
+- (void)_didChangePlacementOrInputSourceNotification:(id)a0;
+- (void)setInputAssistantButtonItemsForResponder:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)_willChangePlacementNotification:(id)a0;
+- (void)_responderCapabilitiesChangedNotification:(id)a0;
+- (void)_candidatesChanged;
+- (void)_keyboardDictationAvailabilityDidChangeNotification:(id)a0;
+- (BOOL)_allowedToShowBarButtonItemsInline:(id)a0;
+- (BOOL)_centerPredictionViewVisibleForInputDelegate:(id)a0 inputViews:(id)a1;
+- (void)autocorrectionController:(id)a0 didUpdateAutocorrectionList:(id)a1;
+- (BOOL)_isEmojiInputMode;
+- (BOOL)_canShowWhileLocked;
+- (long long)adaptivePresentationStyleForPresentationController:(id)a0;
+- (BOOL)_isAssistantPreferenceEnabled;
+- (void)automaticallySetCenterViewControllerBasedOnInputDelegate:(id)a0;
+- (id)predictionViewController;
+- (void)_collapseBarItems;
+- (BOOL)_assistantItemsVisibleForResponder:(id)a0;
+- (void)viewDidLoad;
+
+@end

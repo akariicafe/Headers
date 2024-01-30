@@ -1,0 +1,6 @@
+@interface WBList : NSObject
+
++ (void)write:(id)a0 list:(id)a1 to:(struct WrdListFormatOverride { void /* function */ **x0; struct WrdListLevelFormatOverride *x1; int x2; struct ChVector<WrdListLevelFormatOverride *> { struct WrdListLevelFormatOverride **x0; struct WrdListLevelFormatOverride **x1; struct __compressed_pair<WrdListLevelFormatOverride **, ChAllocator<WrdListLevelFormatOverride *> > { struct WrdListLevelFormatOverride **x0; } x2; } x3; unsigned char x4; unsigned char x5; unsigned char x6 : 1; unsigned char x7 : 1; unsigned char x8 : 1; unsigned char x9 : 1; unsigned char x10 : 1; unsigned char x11 : 1; unsigned char x12 : 1; unsigned char x13 : 1; } *)a2;
++ (void)readFrom:(id)a0 list:(id)a1 override:(struct WrdListFormatOverride { void /* function */ **x0; struct WrdListLevelFormatOverride *x1; int x2; struct ChVector<WrdListLevelFormatOverride *> { struct WrdListLevelFormatOverride **x0; struct WrdListLevelFormatOverride **x1; struct __compressed_pair<WrdListLevelFormatOverride **, ChAllocator<WrdListLevelFormatOverride *> > { struct WrdListLevelFormatOverride **x0; } x2; } x3; unsigned char x4; unsigned char x5; unsigned char x6 : 1; unsigned char x7 : 1; unsigned char x8 : 1; unsigned char x9 : 1; unsigned char x10 : 1; unsigned char x11 : 1; unsigned char x12 : 1; unsigned char x13 : 1; } *)a2;
+
+@end

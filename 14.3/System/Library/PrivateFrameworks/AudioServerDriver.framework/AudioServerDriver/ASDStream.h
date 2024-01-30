@@ -1,0 +1,82 @@
+@class NSString, ASDStreamFormat, NSArray, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue;
+
+@interface ASDStream : ASDObject {
+    ASDStreamFormat *_physicalFormat;
+    NSArray *_physicalFormats;
+    NSObject<OS_dispatch_queue> *_physicalFormatQueue;
+    NSMutableArray *_controls;
+    NSObject<OS_dispatch_queue> *_controlQueue;
+    NSString *_streamName;
+    unsigned int _latency;
+    BOOL _isTapStream;
+    id /* block */ _readInputBlockUnretained;
+    id /* block */ _convertInputBlockUnretained;
+    id /* block */ _processInputBlockUnretained;
+    id /* block */ _processOutputBlockUnretained;
+    id /* block */ _mixOutputBlockUnretained;
+    id /* block */ _processMixBlockUnretained;
+    id /* block */ _convertMixBlockUnretained;
+    id /* block */ _writeMixBlockUnretained;
+}
+
+@property (readonly, nonatomic) id /* block */ *readInputBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *convertInputBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *processInputBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *processOutputBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *mixOutputBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *processMixBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *convertMixBlockUnretainedPtr;
+@property (readonly, nonatomic) id /* block */ *writeMixBlockUnretainedPtr;
+@property (nonatomic) BOOL isActive;
+@property (nonatomic) unsigned int latency;
+@property (copy, nonatomic) NSString *streamName;
+@property (nonatomic) unsigned int direction;
+@property (nonatomic) unsigned int startingChannel;
+@property (copy, nonatomic) ASDStreamFormat *physicalFormat;
+@property (nonatomic, getter=isPhysicalFormatSettable) BOOL physicalFormatSettable;
+@property (copy, nonatomic) NSArray *physicalFormats;
+@property (nonatomic) unsigned int terminalType;
+@property (nonatomic) BOOL isTapStream;
+@property (copy, nonatomic) id /* block */ readInputBlock;
+@property (copy, nonatomic) id /* block */ convertInputBlock;
+@property (copy, nonatomic) id /* block */ processInputBlock;
+@property (copy, nonatomic) id /* block */ processOutputBlock;
+@property (copy, nonatomic) id /* block */ mixOutputBlock;
+@property (copy, nonatomic) id /* block */ processMixBlock;
+@property (copy, nonatomic) id /* block */ convertMixBlock;
+@property (copy, nonatomic) id /* block */ writeMixBlock;
+
+- (void)setLatency:(unsigned int)a0;
+- (unsigned int)scope;
+- (unsigned int)latency;
+- (id)streamName;
+- (void).cxx_destruct;
+- (void)stopStream;
+- (void)startStream;
+- (void)setStreamName:(id)a0;
+- (id)controls;
+- (id)initWithPlugin:(id)a0;
+- (BOOL)hasProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0;
+- (id)diagnosticDescriptionWithIndent:(id)a0 walkTree:(BOOL)a1;
+- (id)physicalFormat;
+- (void)setPhysicalFormat:(id)a0;
+- (unsigned int)dataSizeForProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 withQualifierSize:(unsigned int)a1 andQualifierData:(const void *)a2;
+- (BOOL)getProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 withQualifierSize:(unsigned int)a1 qualifierData:(const void *)a2 dataSize:(unsigned int *)a3 andData:(void *)a4 forClient:(int)a5;
+- (id)driverClassName;
+- (id)initWithDirection:(unsigned int)a0 withPlugin:(id)a1;
+- (BOOL)changePhysicalFormat:(id)a0;
+- (BOOL)isPropertySettable:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0;
+- (BOOL)setProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 withQualifierSize:(unsigned int)a1 qualifierData:(const void *)a2 dataSize:(unsigned int)a3 andData:(const void *)a4 forClient:(int)a5;
+- (id)channelNameForChannelIndex:(unsigned int)a0;
+- (id)channelCategoryForChannelIndex:(unsigned int)a0;
+- (id)channelNumberForChannelIndex:(unsigned int)a0;
+- (BOOL)deviceChangedToSamplingRate:(double)a0;
+- (void)addControl:(id)a0;
+- (void)removeControl:(id)a0;
+- (id)physicalFormats;
+- (void)addPhysicalFormat:(id)a0;
+- (void)removePhysicalFormat:(id)a0;
+- (void)setPhysicalFormats:(id)a0;
+
+@end

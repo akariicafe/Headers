@@ -1,0 +1,3 @@
+@interface UIOpenURLAction : UISOpenURLAction
+
+@end

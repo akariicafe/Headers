@@ -1,0 +1,24 @@
+@class NSString, PLPlatterView, UIView;
+
+@interface NCNotificationViewControllerView : UIView <PLContentSizeManaging> {
+    UIView *_stackDimmingView;
+}
+
+@property (weak, nonatomic) PLPlatterView *contentView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)_dynamicUserInterfaceTraitDidChange;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (struct CGSize { double x0; double x1; })contentSizeForSize:(struct CGSize { double x0; double x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFitsContentWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)configureStackDimmingForTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)_updateStackDimmingVisualStyling;
+- (void)invalidateStackedPlattersRecipe;
+
+@end

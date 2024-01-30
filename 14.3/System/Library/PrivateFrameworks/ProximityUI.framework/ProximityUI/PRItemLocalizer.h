@@ -1,0 +1,79 @@
+@class NSTimer, CMMotionActivityManager, PRRemoteDevice, PRRoseSolution, PRDevicePoseProvider, NSOperationQueue, NSDictionary, PRFindMyCoreAnalytics, NSObject, NSMutableArray, NSString, PRCompanionRangingSession;
+@protocol OS_os_log, PRItemLocalizerDelegate, OS_dispatch_queue, PRItemLocalizerDataRecorder;
+
+@interface PRItemLocalizer : NSObject <PRDevicePoseProviderDelegate, PRGenericRangingSessionDelegate> {
+    struct unique_ptr<RoseSyntheticApertureFiltering::PRRoseSyntheticApertureBatchFilter, std::__1::default_delete<RoseSyntheticApertureFiltering::PRRoseSyntheticApertureBatchFilter> > { struct __compressed_pair<RoseSyntheticApertureFiltering::PRRoseSyntheticApertureBatchFilter *, std::__1::default_delete<RoseSyntheticApertureFiltering::PRRoseSyntheticApertureBatchFilter> > { struct PRRoseSyntheticApertureBatchFilter *__value_; } __ptr_; } _itemLocationFilter;
+    struct unique_ptr<RoseSyntheticApertureFiltering::PRRoseRangeFilter, std::__1::default_delete<RoseSyntheticApertureFiltering::PRRoseRangeFilter> > { struct __compressed_pair<RoseSyntheticApertureFiltering::PRRoseRangeFilter *, std::__1::default_delete<RoseSyntheticApertureFiltering::PRRoseRangeFilter> > { struct PRRoseRangeFilter *__value_; } __ptr_; } _rangeFilter;
+    NSObject<OS_os_log> *_logger;
+    int _clientState;
+    int _rangingState;
+    double _lastSuccessfulCompanionCommunicationOrInitMachContinuousTimeSeconds;
+}
+
+@property (retain, nonatomic) PRDevicePoseProvider *poseProvider;
+@property (retain, nonatomic) PRCompanionRangingSession *session;
+@property (retain, nonatomic) PRRemoteDevice *remoteDevice;
+@property (retain, nonatomic) NSDictionary *configurationParameters;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *proximityQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *estimatorQueue;
+@property (retain, nonatomic) NSMutableArray *trajectory;
+@property (retain, nonatomic) PRRoseSolution *latestProximity;
+@property BOOL targetIsMoving;
+@property BOOL deviceIsMoving;
+@property BOOL pathIsDegenerate;
+@property (retain, nonatomic) NSTimer *movementTimer;
+@property (retain, nonatomic) CMMotionActivityManager *deviceActivityManager;
+@property (retain, nonatomic) NSOperationQueue *activityQueue;
+@property (retain, nonatomic) PRFindMyCoreAnalytics *analytics;
+@property (retain, nonatomic) id<PRItemLocalizerDataRecorder> dataRecorder;
+@property (weak, nonatomic) id<PRItemLocalizerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isInternalBuild;
+
+- (BOOL)stop:(id *)a0;
+- (void).cxx_destruct;
+- (id)initWithDelegate:(id)a0 queue:(id)a1;
+- (void)reset;
+- (void)dealloc;
+- (void)didFailWithError:(id)a0;
+- (id).cxx_construct;
+- (void)rangingServiceDidUpdateState:(unsigned long long)a0 cause:(long long)a1;
+- (void)didReceiveNewSolutions:(id)a0;
+- (void)rangingRequestDidUpdateStatus:(unsigned long long)a0;
+- (void)remoteDevice:(id)a0 didChangeState:(long long)a1;
+- (BOOL)commonConfigure:(id)a0;
+- (void)sendItemLocalizerChangedActivity:(unsigned long long)a0;
+- (void)updateDelegateWithSelector:(SEL)a0 object:(id)a1;
+- (unsigned long long)trajectoryIndexForTime:(double)a0;
+- (void)logEstimatorInput:(id)a0;
+- (void)logTargetEstimates:(id)a0;
+- (void)presentTargetEstimate:(id)a0;
+- (id)estimatorInputForProximity:(id)a0;
+- (void)performFilteringWithEstimatorInput:(id)a0 targetMoving:(BOOL)a1 deviceMoving:(BOOL)a2;
+- (id)produceBlendedRangeEstimateForPose:(id)a0;
+- (void)logRangeEstimate:(id)a0;
+- (void)presentRangeEstimate:(id)a0;
+- (void)revokeTargetEstimate;
+- (void)logAndPresentSolution:(struct BatchSolution { int x0; BOOL x1; int x2; BOOL x3; struct vector<RoseSyntheticApertureFiltering::BatchSolutionParticle, std::__1::allocator<RoseSyntheticApertureFiltering::BatchSolutionParticle> > { struct BatchSolutionParticle *x0; struct BatchSolutionParticle *x1; struct __compressed_pair<RoseSyntheticApertureFiltering::BatchSolutionParticle *, std::__1::allocator<RoseSyntheticApertureFiltering::BatchSolutionParticle> > { struct BatchSolutionParticle *x0; } x2; } x4; double x5; })a0 withTimeStamp:(double)a1;
+- (struct BatchSolution { int x0; BOOL x1; int x2; BOOL x3; struct vector<RoseSyntheticApertureFiltering::BatchSolutionParticle, std::__1::allocator<RoseSyntheticApertureFiltering::BatchSolutionParticle> > { struct BatchSolutionParticle *x0; struct BatchSolutionParticle *x1; struct __compressed_pair<RoseSyntheticApertureFiltering::BatchSolutionParticle *, std::__1::allocator<RoseSyntheticApertureFiltering::BatchSolutionParticle> > { struct BatchSolutionParticle *x0; } x2; } x4; double x5; })performLocationFiltering:(id)a0;
+- (void)setDegeneratePath:(BOOL)a0;
+- (id)performRangeFilteringWithVIO:(id)a0;
+- (id)performRangeFilteringWithoutVIO:(id)a0 targetMoving:(BOOL)a1 deviceMoving:(BOOL)a2;
+- (void)invalidPoseDetected;
+- (void)deleteTrajectoryWaypointsBeforeTime:(double)a0;
+- (void)sendItemLocalizerChangedState:(unsigned long long)a0;
+- (void)sendPRItemState:(unsigned long long)a0;
+- (void)remoteDeviceDidMove;
+- (void)logTargetIsMovingChange:(BOOL)a0;
+- (void)devicePoseUpdated:(id)a0;
+- (BOOL)configureForDeviceWithId:(id)a0;
+- (BOOL)startWithDevicePoseProvider:(id)a0 error:(id *)a1;
+- (id)saveData;
+- (void)discardData;
+
+@end

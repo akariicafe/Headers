@@ -1,0 +1,83 @@
+@class NSUUID, PBRequest, NSString, NSDate, NSData, NSArray, NSDictionary, NSNumber;
+@protocol DRSDecisionServerBatchRequest;
+
+@interface DRSRequest : NSObject <DRSDSRequestObject>
+
+@property (readonly, nonatomic) NSUUID *uniqueID;
+@property (readonly, nonatomic) PBRequest *pbRequest;
+@property (readonly, nonatomic) id<DRSDecisionServerBatchRequest> pbBatchInstance;
+@property (readonly, nonatomic) Class pbBatchResponseClass;
+@property (readonly, nonatomic) NSString *functionName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) unsigned long long expectedType;
+@property (retain, nonatomic) NSString *logPath;
+@property (retain, nonatomic) NSString *logType;
+@property (readonly, nonatomic) unsigned long long uploadID;
+@property (retain, nonatomic) NSNumber *cachedLogSize;
+@property (nonatomic) unsigned long long requestState;
+@property (nonatomic) unsigned char decisionServerDecision;
+@property (nonatomic) unsigned short uploadAttemptCount;
+@property (nonatomic) BOOL hasBeenCountedByTelemetry;
+@property (readonly, nonatomic) NSUUID *requestID;
+@property (readonly, nonatomic) NSDate *requestDate;
+@property (readonly, nonatomic) NSString *build;
+@property (readonly, nonatomic) NSString *teamID;
+@property (readonly, nonatomic) NSString *issueCategory;
+@property (readonly, nonatomic) NSString *issueDescription;
+@property (readonly, nonatomic) NSData *contextDictionaryData;
+@property (readonly, nonatomic) NSDictionary *contextDictionary;
+@property (readonly, nonatomic) unsigned long long requestMCT;
+@property (readonly, nonatomic) NSString *requestType;
+@property (readonly, nonatomic) NSNumber *logSize;
+@property (readonly, nonatomic) NSArray *filePaths;
+@property (readonly, nonatomic) NSArray *fileURLs;
+@property (readonly, nonatomic) NSArray *fileNames;
+@property (readonly, nonatomic) BOOL hasUploadableContent;
+@property (readonly, nonatomic) NSString *requestStateString;
+@property (readonly, nonatomic) unsigned char requestOutcome;
+@property (readonly, nonatomic) NSString *requestOutcomeString;
+@property (readonly, nonatomic) NSString *errorDescription;
+@property (readonly, nonatomic) NSString *decisionServerDecisionString;
+
++ (id)entityName;
++ (Class)_moClass;
++ (id)_requestWithRequestMO_ON_MOC_QUEUE:(id)a0;
++ (id)requestsForFilterPredicate:(id)a0 context:(id)a1 sortDescriptors:(id)a2 fetchLimit:(unsigned long long)a3 errorOut:(id *)a4;
++ (id)requiredSystemResourceName;
++ (id)requestForMessage:(id)a0;
++ (id)unreportedTerminalRequestsFromContext:(id)a0 sortDescriptors:(id)a1 fetchLimit:(unsigned long long)a2 errorOut:(id *)a3;
++ (id)uploadedBytesSinceDate:(id)a0 context:(id)a1 errorOut:(id *)a2;
++ (unsigned long long)requestCountForFilterPredicate:(id)a0 context:(id)a1 fetchLimit:(unsigned long long)a2 errorOut:(id *)a3;
++ (id)leastRecentDateFirstSortDescriptor;
++ (id)mostRecentDateFirstSortDescriptor;
++ (BOOL)cleanRequestRecordsFromPersistentContainer:(id)a0 removeFiles:(BOOL)a1 removeRecord:(BOOL)a2 matchingPredicate:(id)a3 errorOut:(id *)a4;
+
+- (id)fileAssets;
+- (void).cxx_destruct;
+- (id)initWithXPCDict:(id)a0;
+- (id)recordRepresentation;
+- (BOOL)isEqualToRequest:(id)a0;
+- (BOOL)_deleteLog;
+- (void)_configureRequestMO:(id)a0;
+- (id)newRequestMOInContext_ON_MOC_QUEUE:(id)a0;
+- (BOOL)_markLogsAsPurgeableWithUrgencyWithDeleteFallback:(unsigned long long)a0;
+- (BOOL)_updateLogStateToExpectedState:(unsigned char)a0;
+- (BOOL)_updateLogFileStateForTransitionFromPreviousState:(unsigned long long)a0;
+- (BOOL)updateToState:(unsigned long long)a0 errorDescription:(id)a1 errorOut:(id *)a2;
+- (void)uploadFailedDueToReason:(id)a0;
+- (id)_metadataDescription;
+- (id)jsonCompatibleDictionaryRepresentationVerbose:(BOOL)a0;
+- (void)updateContextWithRequest_ON_MOC_QUEUE:(id)a0;
+- (BOOL)performOnReceiptWork:(id)a0 dampeningOutcome:(unsigned long long)a1;
+- (BOOL)uploadStarted;
+- (void)uploadCompleteWithError:(id)a0;
+- (void)uploadAbortedDueToMissingLog;
+- (void)uploadAbortedDueToLogSize;
+- (void)uploadDeniedByDecisionServerWithReason:(id)a0;
+- (id)_initWithRequestMO_ON_MOC_QUEUE:(id)a0;
+- (id)uploadRequest;
+
+@end

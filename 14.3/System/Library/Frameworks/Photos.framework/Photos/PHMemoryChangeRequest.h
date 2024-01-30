@@ -1,0 +1,92 @@
+@class NSData, NSDate, PHRelationshipChangeRequestHelper, NSString, PHMemoryFeature, NSManagedObjectID, NSDictionary, PHObjectPlaceholder;
+
+@interface PHMemoryChangeRequest : PHChangeRequest <PHInsertChangeRequest, PHUpdateChangeRequest> {
+    BOOL _incrementPlayCount;
+    BOOL _incrementShareCount;
+    BOOL _incrementViewCount;
+}
+
+@property (readonly, nonatomic) PHRelationshipChangeRequestHelper *keyAssetHelper;
+@property (readonly, nonatomic) PHRelationshipChangeRequestHelper *representativeAssetsHelper;
+@property (readonly, nonatomic) PHRelationshipChangeRequestHelper *curatedAssetsHelper;
+@property (readonly, nonatomic) PHRelationshipChangeRequestHelper *extendedCuratedAssetsHelper;
+@property (readonly, nonatomic) PHRelationshipChangeRequestHelper *movieCuratedAssetsHelper;
+@property (readonly, nonatomic) BOOL clientEntitledToMemoryMutation;
+@property (nonatomic) unsigned long long category;
+@property (retain, nonatomic) NSDate *creationDate;
+@property (readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedMemory;
+@property (nonatomic, getter=isRejected) BOOL rejected;
+@property (nonatomic, getter=isFavorite) BOOL favorite;
+@property (nonatomic, getter=isPending) BOOL pending;
+@property (nonatomic, getter=isUserCreated) BOOL userCreated;
+@property (nonatomic) double score;
+@property (readonly, nonatomic) NSDictionary *movieAssetState;
+@property (retain, nonatomic) NSData *movieData;
+@property (retain, nonatomic) NSData *photosGraphData;
+@property (nonatomic) long long photosGraphVersion;
+@property (retain, nonatomic) NSDate *lastViewedDate;
+@property (retain, nonatomic) NSDate *lastMoviePlayedDate;
+@property (retain, nonatomic) NSString *subtitle;
+@property (retain, nonatomic) NSString *title;
+@property (nonatomic) unsigned long long notificationState;
+@property (nonatomic) unsigned long long featuredState;
+@property (retain, nonatomic) PHMemoryFeature *blacklistedFeature;
+@property (readonly) BOOL isNewRequest;
+@property (nonatomic) BOOL shouldPerformConcurrentWork;
+@property (readonly, getter=isMutated) BOOL mutated;
+@property (readonly, nonatomic) NSString *managedEntityName;
+@property (readonly, nonatomic) NSManagedObjectID *objectID;
+@property (readonly, nonatomic, getter=isClientEntitled) BOOL clientEntitled;
+@property (readonly, nonatomic) NSString *clientName;
+@property (readonly, nonatomic) long long accessScopeOptionsRequirement;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)blockPerson:(id)a0;
++ (id)validateMemoryTitle:(id)a0 error:(id *)a1;
++ (id)preferredAttributesForMemoryCreationFromAssetCollection:(id)a0 proposedAttributes:(id)a1;
++ (id)creationRequestForMemoryWithTitle:(id)a0 subtitle:(id)a1 creationDate:(id)a2 category:(unsigned long long)a3 subcategory:(unsigned long long)a4 representativeAssets:(id)a5 curatedAssets:(id)a6 keyAsset:(id)a7;
++ (id)preferredAttributesForMemoryCreationFromPeople:(id)a0 proposedAttributes:(id)a1;
++ (id)creationRequestForMemoryWithTitle:(id)a0 subtitle:(id)a1 creationDate:(id)a2 category:(unsigned long long)a3 subcategory:(unsigned long long)a4 representativeAssets:(id)a5 curatedAssets:(id)a6 extendedCuratedAssets:(id)a7 keyAsset:(id)a8;
++ (BOOL)_shouldAcceptProposedAttributes:(id)a0;
++ (id)creationRequestForMemoryWithTitle:(id)a0 subtitle:(id)a1 creationDate:(id)a2 category:(unsigned long long)a3 representativeAssets:(id)a4 curatedAssets:(id)a5 keyAsset:(id)a6;
++ (id)preferredAttributesForMemoryCreationFromCollectionList:(id)a0 proposedAttributes:(id)a1;
++ (id)creationRequestForMemoryWithTitle:(id)a0 subtitle:(id)a1 creationDate:(id)a2 category:(unsigned long long)a3 assets:(id)a4 curatedAssets:(id)a5 keyAsset:(id)a6;
++ (long long)_titleFormatForProposedAttributes:(id)a0;
++ (id)changeRequestForMemory:(id)a0;
++ (void)deleteMemories:(id)a0;
++ (id)_preferredAttributesForMemoryCreationFromObject:(id)a0 withSuccess:(BOOL)a1 title:(id)a2 subtitle:(id)a3 error:(id)a4 proposedAttributes:(id)a5;
++ (void)blockPerson:(id)a0 withAsset:(id)a1;
++ (id)changeRequestForRemotelyViewedMemoryWithLocalIdentifier:(id)a0;
+
+- (void)encodeToXPCDict:(id)a0;
+- (void)incrementPlayCount;
+- (void).cxx_destruct;
+- (void)incrementViewCount;
+- (BOOL)applyMutationsToManagedObject:(id)a0 photoLibrary:(id)a1 error:(id *)a2;
+- (void)_prepareAssetIDsIfNeeded;
+- (void)incrementShareCount;
+- (BOOL)validateInsertIntoPhotoLibrary:(id)a0 error:(id *)a1;
+- (id)createManagedObjectForInsertIntoPhotoLibrary:(id)a0 error:(id *)a1;
+- (unsigned long long)subcategory;
+- (void)setSubcategory:(unsigned long long)a0;
+- (id)_mutableRepresentativeAssetObjectIDsAndUUIDs;
+- (id)_mutableCuratedAssetObjectIDsAndUUIDs;
+- (id)_mutableExtendedCuratedAssetObjectIDsAndUUIDs;
+- (void)setRepresentativeAssets:(id)a0 curatedAssets:(id)a1 extendedCuratedAssets:(id)a2 keyAsset:(id)a3;
+- (void)setMovieCuratedAssets:(id)a0;
+- (void)setMovieStateData:(id)a0 forAsset:(id)a1;
+- (void)setQueryHintObject:(id)a0;
+- (void)setQueryHintObjects:(id)a0;
+- (BOOL)allowMutationToManagedObject:(id)a0 propertyKey:(id)a1 error:(id *)a2;
+- (id)_mutableKeyAssetObjectIDsAndUUIDs;
+- (id)initWithXPCDict:(id)a0 request:(id)a1 clientAuthorization:(id)a2;
+- (BOOL)validateForDeleteManagedObject:(id)a0 error:(id *)a1;
+- (void)setKeyAsset:(id)a0;
+- (id)initWithUUID:(id)a0 objectID:(id)a1;
+- (BOOL)validateMutationsToManagedObject:(id)a0 error:(id *)a1;
+- (id)initForNewObject;
+
+@end

@@ -1,0 +1,78 @@
+@class PMPosterViewController, NSString, PMAVSynchronizedView, UITapGestureRecognizer, PMTitleSubtitleView, AVPlayerItem, PMPosterContainerView, PMRotationViewController, NSNumber;
+@protocol PMMovieContainerViewControllerDelegate;
+
+@interface PMMovieContainerViewController : UIViewController <UIGestureRecognizerDelegate, PHAirPlayControllerContentProvider, PHAirPlayControllerRouteObserver, PMPlayerControlling>
+
+@property (retain, nonatomic) NSString *savedAudioCategory;
+@property (retain, nonatomic) PMPosterViewController *parentAirplayPlaceholderPosterViewController;
+@property (nonatomic) long long posterMoodIndex;
+@property (nonatomic) long long secondaryPosterMoodIndex;
+@property (nonatomic) BOOL airplayActive;
+@property (nonatomic) BOOL registeredAsAirPlayProvider;
+@property (copy, nonatomic) NSNumber *titleScale;
+@property (retain, nonatomic) UITapGestureRecognizer *visibilityTapGestureRecognizer;
+@property (retain, nonatomic) UITapGestureRecognizer *zoomDoubleTap;
+@property (retain, nonatomic) PMRotationViewController *rotationViewController;
+@property (retain, nonatomic) PMPosterContainerView *posterContainerView;
+@property (retain, nonatomic) PMPosterViewController *posterViewController;
+@property (retain, nonatomic) PMAVSynchronizedView *synchronizedView;
+@property (readonly, nonatomic) PMTitleSubtitleView *titleView;
+@property (retain, nonatomic) id playbackProgressTimeObserver;
+@property (weak, nonatomic) id<PMMovieContainerViewControllerDelegate> delegate;
+@property (nonatomic) BOOL preventRotation;
+@property (readonly, nonatomic) BOOL playerReadyForDisplay;
+@property (nonatomic) double posterAspect;
+@property (retain, nonatomic) AVPlayerItem *playerItem;
+@property (nonatomic) float playerRate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, getter=isPlaying) BOOL playing;
+@property (readonly, nonatomic) int currentFrameTime;
+
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)setCurrentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (id)player;
+- (void)viewDidLayoutSubviews;
+- (void)didMoveToParentViewController:(id)a0;
+- (id)contentViewControllerForAirPlayController:(id)a0;
+- (void)airPlayControllerScreenAvailabilityChanged:(id)a0;
+- (void)airPlayControllerRouteAvailabilityChanged:(id)a0;
+- (BOOL)wantsContentVisibleAfterUnregisteringWithAirPlayController:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)viewDidLoad;
+- (void)addObserversToPlayer;
+- (void)toggleZoom:(id)a0;
+- (void)toggleControlVisibility:(id)a0;
+- (double)heightOfTitleArea;
+- (void)removeObserversFromPlayer;
+- (void)addTimeObserverToPlayer;
+- (void)updateAirplay;
+- (void)activateAirplay;
+- (void)deactivateAirplay;
+- (id)airPlayScreenController;
+- (void)_saveAudioCategory;
+- (void)_makeAudioCategoryPlayback;
+- (void)_restoreAudioCategory;
+- (void)_notifyTitleScaleChanged;
+- (void)mediaServicesReset;
+- (BOOL)isPlayerAtEndOfProject;
+- (void)setCurrentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 completionHandler:(id /* block */)a1;
+- (void)hidePosterAnimated:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)playerResumeActive;
+- (void)setupPosterViews;
+- (void)teardownPosterViews;
+- (void)showPosterAnimated:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)hidePosterTitleAnimated:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)registerAsAirPlayProvider;
+- (void)unregisterAsAirPlayProvider;
+- (id)addAirPlayPlaceholderViewToParentView:(id)a0;
+- (void)removeAirPlayPlaceholderViewFromParentView:(id)a0;
+- (void)updatePostersViewsWithProduction:(id)a0;
+- (void)updatePostersViewsWithImages:(id)a0;
+- (void)setPlayerRate:(float)a0 time:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+
+@end

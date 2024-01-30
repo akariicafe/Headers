@@ -1,0 +1,90 @@
+@class NSString, NSArray, UIImage, _SBAlertController;
+
+@interface SBAlertItem : NSObject <BSDescriptionProviding> {
+    _SBAlertController *_alertController;
+    BOOL _didEverActivate;
+    BOOL _didEverDeactivate;
+    BOOL _didPlayPresentationSound;
+}
+
+@property (nonatomic, setter=_setPresentationState:) unsigned long long _presentationState;
+@property (nonatomic, getter=_isPresented, setter=_setPresented:) BOOL presented;
+@property (retain, nonatomic, setter=_setHeaderImage:) UIImage *_headerImage;
+@property (retain, nonatomic, setter=_setAttachmentImage:) UIImage *_attachmentImage;
+@property (nonatomic, setter=_setIgnoresQuietMode:) BOOL _ignoresQuietMode;
+@property (retain, nonatomic, setter=setIconImage:) UIImage *iconImage;
+@property (retain, nonatomic, getter=_iconImagePath) NSString *iconImagePath;
+@property (nonatomic) BOOL ignoreIfAlreadyDisplaying;
+@property (nonatomic) BOOL allowInSetup;
+@property (nonatomic) BOOL pendInSetupIfNotAllowed;
+@property (nonatomic) BOOL pendWhileKeyBagLocked;
+@property (retain, nonatomic) NSArray *allowedBundleIDs;
+@property (nonatomic) BOOL suppressForKeynote;
+@property (nonatomic) BOOL allowInCar;
+@property (nonatomic) BOOL allowMessageInCar;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)activateAlertItem:(id)a0;
++ (id)_alertItemsController;
+
+- (id)init;
+- (id)sound;
+- (id)_prepareNewAlertControllerWithLockedState:(BOOL)a0 requirePasscodeForActions:(BOOL)a1;
+- (void).cxx_destruct;
+- (id)visualStyleForAlertControllerStyle:(long long)a0 traitCollection:(id)a1 descriptor:(id)a2;
+- (id)lockLabel;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)shortLockLabel;
+- (BOOL)wakeDisplay;
+- (id)_publicDescription;
+- (void)didFailToActivate;
+- (void)presentationStateDidChangeFromState:(unsigned long long)a0 toState:(unsigned long long)a1;
+- (BOOL)forcesModalAlertAppearance;
+- (id)succinctDescription;
+- (void)performUnlockAction;
+- (BOOL)shouldShowInLockScreen;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (void)doCleanupAfterDeactivationAnimation;
+- (id)_alertController;
+- (id)alertController;
+- (void)configure:(BOOL)a0 requirePasscodeForActions:(BOOL)a1;
+- (void)dismiss:(int)a0;
+- (id)succinctDescriptionBuilder;
+- (BOOL)dismissOnLock;
+- (BOOL)reappearsAfterLock;
+- (void)_noteVolumeOrLockPressed;
+- (BOOL)allowLockScreenDismissal;
+- (BOOL)allowInLoginWindow;
+- (BOOL)behavesSuperModally;
+- (BOOL)allowMenuButtonDismissal;
+- (void)willDeactivateForReason:(int)a0;
+- (BOOL)hideOnClonedDisplay;
+- (void)didDeactivateForReason:(int)a0;
+- (void)deactivate;
+- (BOOL)_displayActionButtonOnLockScreen;
+- (void)willActivate;
+- (void)dismiss;
+- (BOOL)reappearsAfterUnlock;
+- (BOOL)dismissesOverlaysOnLockScreen;
+- (void)deactivateForButton;
+- (void)playPresentationSound;
+- (BOOL)_didEverActivate;
+- (BOOL)shouldShowInEmergencyCall;
+- (void)didActivate;
+- (void)_deactivationCompleted;
+- (void)_clearAlertController;
+- (void)deactivateForReason:(int)a0;
+- (BOOL)undimsScreen;
+- (BOOL)unlocksScreen;
+- (BOOL)didPlayPresentationSound;
+- (void)alertItemDidAppear;
+- (void)alertItemDidDisappear;
+- (void)willRelockForButtonPress:(BOOL)a0;
+- (int)alertPriority;
+- (BOOL)_hasActiveKeyboardOnScreen;
+- (void)buttonDismissed;
+
+@end

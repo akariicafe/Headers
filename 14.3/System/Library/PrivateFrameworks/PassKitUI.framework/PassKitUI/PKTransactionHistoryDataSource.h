@@ -1,0 +1,86 @@
+@class PKPaymentTransactionGroup, NSIndexPath, PKTransactionReceipt, PKTransactionSource, PKPeerPaymentContactResolver, PKWorldRegionUpdater, PKDashboardTransactionFetcher, PKInstallmentPlan, PKCoarseLocationMonitor, NSDateFormatter, NSCalendar, NSString, CNContact, PKPaymentTransaction, PKAccount, NSArray, PKAccountServiceAccountResolutionController, PKCurrencyAmount, PKMerchant;
+@protocol PKDashboardDataSourceDelegate, PKPaymentDataProvider;
+
+@interface PKTransactionHistoryDataSource : NSObject <PKDashboardTransactionFetcherDelegate, PKWorldRegionUpdaterObserver, PKDashboardDataSource> {
+    PKTransactionSource *_transactionSource;
+    PKDashboardTransactionFetcher *_transactionFetcher;
+    PKPeerPaymentContactResolver *_contactResolver;
+    NSString *_peerPaymentCounterpartHandle;
+    id<PKDashboardDataSourceDelegate> _delegate;
+    PKPaymentTransaction *_featuredTransaction;
+    PKPaymentTransactionGroup *_selectedTransactions;
+    PKInstallmentPlan *_associatedInstallmentPlan;
+    PKTransactionReceipt *_associatedReceipt;
+    NSArray *_featuredTransactionActions;
+    NSArray *_actionItems;
+    PKAccountServiceAccountResolutionController *_resolutionController;
+    id<PKPaymentDataProvider> _dataProvider;
+    PKWorldRegionUpdater *_regionUpdater;
+    PKCoarseLocationMonitor *_coarseLocationMonitor;
+    NSArray *_tokens;
+    BOOL _contentIsLoaded;
+    BOOL _contactLoaded;
+    BOOL _transactionHistoryLoaded;
+    BOOL _associatedReceiptLoaded;
+    NSArray *_transactionHistory;
+    BOOL _hasReceived;
+    BOOL _hasSent;
+    NSDateFormatter *_formatterTitle;
+    NSDateFormatter *_formatterMonth;
+    NSCalendar *_currentCalendar;
+    PKAccount *_account;
+}
+
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic) CNContact *contact;
+@property (readonly, nonatomic) PKMerchant *merchant;
+@property (readonly, nonatomic) PKPaymentTransactionGroup *group;
+@property (readonly, nonatomic) NSArray *groups;
+@property (readonly, nonatomic) NSString *footerTitle;
+@property (readonly, nonatomic) PKCurrencyAmount *footerTotal;
+@property (readonly, nonatomic) NSString *footerSecondaryTitle;
+@property (readonly, nonatomic) PKCurrencyAmount *footerSecondaryTotal;
+@property (readonly, nonatomic) NSIndexPath *headerIndexPath;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (unsigned long long)numberOfSections;
+- (unsigned long long)numberOfItemsInSection:(unsigned long long)a0;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)transactionsChanged:(id)a0;
+- (id)initWithFetcher:(id)a0 transactionSource:(id)a1 account:(id)a2 featuredTransaction:(id)a3 selectedTransactions:(id)a4 transactionHistory:(id)a5 type:(unsigned long long)a6;
+- (id)initWithTransactionGroups:(id)a0 headerGroup:(id)a1 regionUpdater:(id)a2 tokens:(id)a3 transactionSource:(id)a4 account:(id)a5;
+- (id)titleForSection:(unsigned long long)a0;
+- (void)_handleCoarseLocationChangedNotification:(id)a0;
+- (void)_loadContact;
+- (void)_loadTransactionReceipt;
+- (void)_handleTransactionHistoryUpdated:(id)a0;
+- (void)_reloadTransactions;
+- (void)_updateFooterTotalFromGroup:(id)a0;
+- (void)_notifyContentLoadedIfNecessary;
+- (void)_p2pTotalsFromTransactions:(id)a0 received:(id *)a1 sent:(id *)a2;
+- (void)_updateInstallmentPlan;
+- (BOOL)_updateGroup:(id)a0 withRegion:(id)a1;
+- (void)updateGroups:(id)a0 headerGroup:(id)a1;
+- (void)worldRegionUpdated:(id)a0 updatedRegion:(id)a1;
+- (void)updateGroup:(id)a0;
+- (id)navigationBarTitle;
+- (id)initWithTransactionGroup:(id)a0 transactionSource:(id)a1 account:(id)a2 fetcher:(id)a3 transactionHistory:(id)a4;
+- (id)_totalSpendingFromTransactions:(id)a0 startDate:(id)a1 endDate:(id)a2;
+- (void)_handleAccountsChangedNotification:(id)a0;
+- (id)_totalFromGroups:(id)a0;
+- (id)_headerItem;
+- (id)_transactionItemForTransaction:(id)a0;
+- (id)_groupItemForTransaction:(id)a0;
+- (id)_totalPaymentsFromTransactions:(id)a0 startDate:(id)a1 endDate:(id)a2;
+- (id)_totalRewardsFromTransactions:(id)a0;
+- (id)itemAtIndexPath:(id)a0;
+- (id)footerTextItemForSection:(unsigned long long)a0;
+- (void)setDataSourceDelegate:(id)a0;
+- (id)initWithInstallmentPlan:(id)a0 transactionSource:(id)a1 account:(id)a2;
+- (id)_contactKeysToFetch;
+
+@end

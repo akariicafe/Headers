@@ -1,0 +1,3 @@
+@interface WDWorkoutRouteShowAllDataTableViewCell : WDShowAllDataTableViewCell
+
+@end

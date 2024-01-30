@@ -1,0 +1,17 @@
+@interface NTKCaliforniaColorEditOption : NTKFaceColorEditOption
+
+@property (readonly, nonatomic) unsigned long long californiaColor;
+
++ (id)optionWithCaliforniaColor:(unsigned long long)a0 forDevice:(id)a1;
++ (id)_snapshotKeyForValue:(unsigned long long)a0 forDevice:(id)a1;
++ (id)_localizedNameForValue:(unsigned long long)a0 forDevice:(id)a1;
++ (id)_orderedValuesForDevice:(id)a0;
++ (id)_orderedValuesRestrictedByDevice:(id)a0;
++ (id)__orderedValuesForDevice:(id)a0;
++ (id)_curatedColorValuesForDevice:(id)a0;
+
+- (long long)swatchStyle;
+- (BOOL)optionExistsInDevice:(id)a0;
+- (id)_valueToFaceBundleStringDict;
+
+@end

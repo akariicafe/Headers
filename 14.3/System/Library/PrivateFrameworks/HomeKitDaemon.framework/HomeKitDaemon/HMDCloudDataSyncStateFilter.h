@@ -1,0 +1,83 @@
+@class HMFTimer, NSUUID, HMFMessageDispatcher, HMDHomeManager, NSDate, NSObject, NSString;
+@protocol OS_dispatch_source, OS_dispatch_queue;
+
+@interface HMDCloudDataSyncStateFilter : HMDMessageFilter <HMFMessageReceiver, HMFTimerDelegate>
+
+@property (retain, nonatomic) NSUUID *uuid;
+@property (nonatomic) BOOL keychainSyncEnabled;
+@property (retain, nonatomic) HMFMessageDispatcher *msgDispatcher;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *popupTimer;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *iCloudSwitchPopupTimer;
+@property (nonatomic) BOOL keychainSyncRequiredPopShown;
+@property (nonatomic) BOOL iCloudSwitchRequiredPopShown;
+@property (nonatomic) BOOL iCloudAccountActive;
+@property (nonatomic) BOOL cloudDataSyncCompleted;
+@property (nonatomic) BOOL serverTokenAvailable;
+@property (nonatomic) BOOL iCloudSwitchStateEnabled;
+@property (nonatomic) BOOL localDataDecryptionFailed;
+@property (nonatomic) long long totalHomes;
+@property (nonatomic) BOOL networkConnectivityAvailable;
+@property (retain, nonatomic) HMFTimer *cloudDataSyncInProgressTimer;
+@property (nonatomic) double remainingDataSyncPeriod;
+@property (retain, nonatomic) NSDate *dataSyncTimerStartTimestamp;
+@property (retain, nonatomic) HMFTimer *resetConfigDisplayTimer;
+@property (nonatomic) double remainingResetConfigDisplayPeriod;
+@property (retain, nonatomic) NSDate *resetConfigDisplayTimerStartTimestamp;
+@property (nonatomic) BOOL resetConfigDisplayTimeHasElapsed;
+@property (weak, nonatomic) HMDHomeManager *homeManager;
+@property (nonatomic, getter=isKeychainSyncPeerAvailable) BOOL keychainSyncPeerAvailable;
+@property (nonatomic, getter=isCloudDataSyncPeerAvailable) BOOL cloudDataSyncPeerAvailable;
+@property (nonatomic) BOOL decryptionFailed;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isWhitelistedMessage:(id)a0;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)timerDidFire:(id)a0;
+- (void)_registerForMessages;
+- (void)resetConfiguration;
+- (BOOL)isiCloudSwitchEnabled;
+- (BOOL)isLocalDataDecryptionFailed;
+- (void)startDataConfigResetTimers;
+- (void)updateCloudDataSyncState:(BOOL)a0;
+- (void)updateWithoutDataSynCheckServerTokenAvailable:(BOOL)a0;
+- (void)updateServerTokenAvailable:(BOOL)a0;
+- (void)kickResetConfigDisplayTimer;
+- (BOOL)acceptMessage:(id)a0 target:(id)a1 errorReason:(id *)a2;
+- (BOOL)shouldCloudSyncData;
+- (void)_updateCurrentAccount:(id)a0;
+- (void)handleKeychainSyncStateChangedNotification:(id)a0;
+- (void)_handleAccountStatusChanged:(id)a0;
+- (void)_startDataConfigResetTimers;
+- (void)_stopDataConfigResetTimers;
+- (BOOL)_cloudSyncinProgressCheck:(id)a0 supressPopup:(BOOL)a1 sendCanceledError:(BOOL *)a2 dataSyncState:(unsigned long long *)a3;
+- (void)_updateKeychainSyncEnabled:(BOOL)a0;
+- (void)_postNotificationForDataSyncInProgress:(BOOL)a0 dataSyncState:(unsigned long long)a1 forcePost:(BOOL)a2;
+- (void)_startCloudDataSyncTimer;
+- (void)_startResetConfigDisplayTimer;
+- (void)_stopCloudDataSyncTimer;
+- (void)_stopResetConfigDisplayTimer;
+- (void)_stallCloudDataSyncTimer;
+- (void)_stallResetConfigDisplayTimer;
+- (void)_resetCloudDataSyncTimer;
+- (void)_clearResetConfigDisplayTimer;
+- (void)_updateCloudDataSyncState:(BOOL)a0;
+- (void)_stopPopupTimer;
+- (void)_stopiCloudSwitchPopupTimer;
+- (void)_startPopupTimer;
+- (void)_startiCloudSwitchPopupTimer;
+- (id)initWithName:(id)a0 homeManager:(id)a1 messageDispatcher:(id)a2 serverTokenAvailable:(BOOL)a3 homeDataHasBeenDecrypted:(BOOL)a4 homeManagerServerTokenAvailable:(BOOL)a5 localDataDecryptionFailed:(BOOL)a6 totalHomes:(long long)a7 currentAccount:(id)a8;
+- (void)updateNetworkConnectivity:(BOOL)a0;
+- (void)updateTotalHomes:(long long)a0;
+- (void)updateCurrentAccount:(id)a0;
+- (BOOL)dataSyncInProgressWithState:(unsigned long long *)a0 withMessage:(id)a1;
+- (void)updateiCloudSwitchState:(BOOL)a0;
+- (void)updateLocalDataDecryptionFailed:(BOOL)a0;
+
+@end

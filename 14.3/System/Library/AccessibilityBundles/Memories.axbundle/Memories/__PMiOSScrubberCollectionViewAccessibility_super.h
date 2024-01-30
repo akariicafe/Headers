@@ -1,0 +1,3 @@
+@interface __PMiOSScrubberCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

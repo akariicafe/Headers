@@ -1,0 +1,3 @@
+@interface __SLMicroBlogComposeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,78 @@
+@class NSTimer, AVScrubber, AVButton, NSArray, AVPlaybackControlsRoutePickerView, AVLabel, UIView, AVStyleSheet, NSString, AVTouchIgnoringView, UILabel, AVLayoutView;
+@protocol AVTransportControlsViewDelegate;
+
+@interface AVTransportControlsView : AVView <AVScrubberDelegate>
+
+@property (readonly, nonatomic) AVLayoutView *controlsLayoutView;
+@property (retain, nonatomic) AVLayoutView *detachedExtraContentLayoutView;
+@property (readonly, nonatomic) AVLabel *liveBroadcastLabel;
+@property (readonly, nonatomic) AVLabel *liveBroadcastScrubberLabel;
+@property (readonly, nonatomic) AVTouchIgnoringView *embeddedExtraContentContainer;
+@property (readonly, nonatomic) UILabel *scrubInstructionsLabel;
+@property (readonly, nonatomic) AVLabel *detachedScrubInstructionsBackdropLabel;
+@property (weak, nonatomic) NSTimer *scrubInstructionsTimer;
+@property (nonatomic) float scrubberValueWhenScrubInstructionsTimerBegan;
+@property (readonly, nonatomic) BOOL canShowScrubInstructions;
+@property (retain, nonatomic) AVTouchIgnoringView *flexibleViewAfterRoutePickerView;
+@property (retain, nonatomic) AVTouchIgnoringView *flexibleViewAfterSkipForwardButtons;
+@property (nonatomic) struct CGSize { double width; double height; } extrinsicContentSize;
+@property (nonatomic, getter=isCollapsed) BOOL collapsed;
+@property (nonatomic, getter=isIncluded) BOOL included;
+@property (nonatomic, getter=isRemoved) BOOL removed;
+@property (readonly, nonatomic, getter=isCollapsedOrExcluded) BOOL collapsedOrExcluded;
+@property (nonatomic) BOOL hasAlternateAppearance;
+@property (nonatomic) BOOL hasFullScreenAppearance;
+@property (nonatomic, getter=isShowingScrubInstructions) BOOL showingScrubInstructions;
+@property (nonatomic, getter=isAnimatingScrubInstructions) BOOL animatingScrubInstructions;
+@property (weak, nonatomic) id<AVTransportControlsViewDelegate> delegate;
+@property (retain, nonatomic) AVStyleSheet *styleSheet;
+@property (nonatomic, getter=isDoubleRowLayoutEnabled) BOOL doubleRowLayoutEnabled;
+@property (nonatomic) BOOL showsLoadingIndicator;
+@property (nonatomic) BOOL showsLiveStreamingControls;
+@property (nonatomic) BOOL liveStreamingControlsIncludeScrubber;
+@property (readonly, nonatomic) double minimumRequiredWidth;
+@property (readonly, nonatomic) AVScrubber *scrubber;
+@property (readonly, nonatomic) AVLabel *elapsedTimeLabel;
+@property (readonly, nonatomic) AVLabel *timeRemainingLabel;
+@property (readonly, nonatomic) AVButton *standardPlayPauseButton;
+@property (readonly, nonatomic) AVButton *skipForwardButton;
+@property (readonly, nonatomic) AVButton *skipBackButton;
+@property (readonly, nonatomic) AVButton *startLeftwardContentTransitionButton;
+@property (readonly, nonatomic) AVButton *startRightwardContentTransitionButton;
+@property (readonly, nonatomic) AVPlaybackControlsRoutePickerView *routePickerView;
+@property (readonly, nonatomic) AVButton *mediaSelectionButton;
+@property (copy, nonatomic) NSArray *customItems;
+@property (readonly, nonatomic) NSArray *singleRowViews;
+@property (readonly, nonatomic) NSArray *doubleRowViews;
+@property (retain, nonatomic) UIView *customContentTransitioningInfoPanel;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void).cxx_destruct;
+- (void)avkit_reevaluateHiddenStateOfItem:(id)a0;
+- (void)scrubberSlowKnobMovementDetected:(id)a0;
+- (void)_showScrubInstructions;
+- (void)scrubberValueChanged:(id)a0;
+- (double)_singeRowLayoutSpacingAfterSubview:(id)a0;
+- (double)_doubleRowLayoutSpacingAfterSubview:(id)a0;
+- (void)_layoutDoubleRowViews;
+- (void)_layoutSingleRowViews;
+- (double)_rowSpacingForDoubleRowLayoutAfterRow:(unsigned long long)a0;
+- (unsigned long long)_layoutItemDisplayPriorityForSubview:(id)a0;
+- (void)_updateFontSizes;
+- (void)_updateScrubInstructionsLabelsText;
+- (void)_updateScrubInstructionsFrame;
+- (id)_scrubInstructionsAttributedText;
+- (void)_updateCustomContentTransitioningInfoPanelLayout;
+- (double)layoutHeightThatFitsRowsStartingWithRow:(unsigned long long)a0;
+- (void)layoutSubviews;
+- (void)reevaluateHiddenStateOfAllItems;
+- (void)beginScrubbing:(id)a0;
+- (void)endScrubbing:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleSheet:(id)a1;
+
+@end

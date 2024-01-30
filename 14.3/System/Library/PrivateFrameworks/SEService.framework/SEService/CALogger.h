@@ -1,0 +1,3 @@
+@interface CALogger : NSObject
+
+@end

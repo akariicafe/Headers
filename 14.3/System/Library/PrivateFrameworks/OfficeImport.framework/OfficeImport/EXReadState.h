@@ -1,0 +1,85 @@
+@class EXOfficeArtState, CXNamespace, OCPPackagePart, EDResources, NSMutableDictionary, EXOAVState, EDWorkbook, NSMutableArray, EDReference, EDSheet, ECColumnWidthConvertor;
+@protocol TCCancelDelegate;
+
+@interface EXReadState : OCXReadState {
+    unsigned int mCurrentSheetIndex;
+    EDSheet *mCurrentSheet;
+    unsigned long long mCellStyleXfsOffset;
+    double mDefaultColumnWidth;
+    double mDefaultRowHeight;
+    OCPPackagePart *mCurrentPart;
+    OCPPackagePart *mWorkbookPart;
+    struct map<long, unsigned long, std::__1::less<long>, std::__1::allocator<std::__1::pair<const long, unsigned long> > > { struct __tree<std::__1::__value_type<long, unsigned long>, std::__1::__map_value_compare<long, std::__1::__value_type<long, unsigned long>, std::__1::less<long>, true>, std::__1::allocator<std::__1::__value_type<long, unsigned long> > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> *__begin_node_; struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long, unsigned long>, void *> > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> { struct __tree_node_base<void *> *__left_; } __value_; } __pair1_; struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long, std::__1::__value_type<long, unsigned long>, std::__1::less<long>, true> > { unsigned long long __value_; } __pair3_; } __tree_; } mSharedFormulasMap;
+    NSMutableArray *mArrayedFormulas;
+    EDReference *mSheetDimension;
+    EXOfficeArtState *mOfficeArtState;
+    EXOAVState *mOAVState;
+    BOOL mMaxColumnsWarned;
+    BOOL mMaxRowsWarned;
+    BOOL mIsPredefinedTableStylesRead;
+    NSMutableDictionary *mReferenceForCommentTextBox;
+    BOOL mIsPredefinedDxfsBeingRead;
+    struct _xmlNs { struct _xmlNs *x0; int x1; char *x2; char *x3; void *x4; struct _xmlDoc *x5; } *mRelationshipNS;
+    ECColumnWidthConvertor *mColumnWidthConvertor;
+    NSMutableArray *mLegacyDrawables;
+    EDWorkbook *mWorkbook;
+    EDResources *mResources;
+    unsigned int mCurrentRowMinColumnIndex;
+    unsigned int mCurrentRowMaxColumnIndex;
+}
+
+@property (readonly, nonatomic) id<TCCancelDelegate> cancelDelegate;
+@property (retain, nonatomic) CXNamespace *EXSpreadsheetMLNamespace;
+@property (retain, nonatomic) CXNamespace *EXSpreadsheetDrawingNamespace;
+@property (retain, nonatomic) CXNamespace *EXSpreadsheetRelationsNamespace;
+
+- (void).cxx_destruct;
+- (BOOL)isCancelled;
+- (void)setResources:(id)a0;
+- (id)resources;
+- (id).cxx_construct;
+- (double)defaultRowHeight;
+- (id)currentPart;
+- (void)setCurrentPart:(id)a0;
+- (id)currentSheet;
+- (id)workbook;
+- (id)columnWidthConvertor;
+- (double)defaultColumnWidth;
+- (void)setCurrentSheet:(id)a0;
+- (void)reportWarning:(id)a0;
+- (void)setupNSForXMLFormat:(int)a0;
+- (id)oavState;
+- (id)officeArtState;
+- (void)setWorkbook:(id)a0;
+- (void)setOfficeArtState:(id)a0;
+- (void)setCurrentSheetIndex:(unsigned int)a0;
+- (void)setDefaultColumnWidth:(double)a0;
+- (void)setDefaultRowHeight:(double)a0;
+- (void)resetForNewSheet;
+- (BOOL)isPredefinedDxfsBeingRead;
+- (id)initWithWorkbookPart:(id)a0 cancelDelegate:(id)a1;
+- (unsigned int)currentSheetIndex;
+- (unsigned int)currentRowMinColumnIndex;
+- (void)setCurrentRowMinColumnIndex:(unsigned int)a0;
+- (unsigned int)currentRowMaxColumnIndex;
+- (void)setCurrentRowMaxColumnIndex:(unsigned int)a0;
+- (unsigned long long)cellStyleXfsOffset;
+- (void)setCellStyleXfsOffset:(unsigned long long)a0;
+- (id)workbookPart;
+- (unsigned long long)sharedBaseFormulaIndexWithIndex:(long long)a0;
+- (void)addSharedBaseFormulaIndex:(unsigned long long)a0 withIndex:(long long)a1;
+- (id)arrayedFormulas;
+- (id)sheetDimension;
+- (void)setSheetDimension:(id)a0;
+- (void)setTextBox:(id)a0 author:(id)a1 forReference:(id)a2;
+- (id)textBoxForReference:(id)a0;
+- (id)authorForReference:(id)a0;
+- (BOOL)isPredefinedTableStylesRead;
+- (void)setPredefinedTableStylesRead:(BOOL)a0;
+- (void)setPredefinedDxfsBeingRead:(BOOL)a0;
+- (struct _xmlNs { struct _xmlNs *x0; int x1; char *x2; char *x3; void *x4; struct _xmlDoc *x5; } *)relationshipNameSpaceForWorkbook;
+- (void)relationshipNameSpaceForWorkbook:(struct _xmlNs { struct _xmlNs *x0; int x1; char *x2; char *x3; void *x4; struct _xmlDoc *x5; } *)a0;
+- (id)legacyDrawables;
+- (void)reportWorksheetWarning:(id)a0;
+
+@end

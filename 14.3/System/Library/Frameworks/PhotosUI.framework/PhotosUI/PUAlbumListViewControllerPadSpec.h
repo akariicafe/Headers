@@ -1,0 +1,43 @@
+@interface PUAlbumListViewControllerPadSpec : PUAlbumListViewControllerSpec
+
+- (struct CGSize { double x0; double x1; })imageSize;
+- (id)nameOfEmptyAlbumPlaceholderImage;
+- (id)nameOfEmptySharedAlbumPlaceholderImage;
+- (unsigned long long)folderStackViewStyle;
+- (BOOL)showsDeleteButtonOnCellContentView;
+- (struct CGSize { double x0; double x1; })cellSizeForStackSize:(struct CGSize { double x0; double x1; })a0;
+- (struct CGSize { double x0; double x1; })imageSizeForLayoutReferenceSize:(struct CGSize { double x0; double x1; })a0 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (double)posterSubitemCornerRadius;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })stackPerspectiveInsets;
+- (long long)cellContentViewLayout;
+- (void)configureGridLayout:(id)a0 forLayoutReferenceSize:(struct CGSize { double x0; double x1; })a1 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a2;
+- (id)nameOfAddSharedAlbumPlaceholderImage;
+- (id)nameOfRecentlyDeletedAlbumPlaceholderImage;
+- (double)posterSquareCornerRadius;
+- (id)nameOfHiddenAlbumPlaceholderImage;
+- (struct UIOffset { double x0; double x1; })stackOffset;
+- (double)sectionHeaderHeight;
+- (struct CGSize { double x0; double x1; })stackSize;
+- (void)configureStackViewWithGridStyle:(id)a0;
+- (BOOL)shouldShowSectionHeaders;
+- (id)stackPhotoDecoration;
+- (unsigned long long)stackViewStyle;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })sectionInsetsForLayoutReferenceSize:(struct CGSize { double x0; double x1; })a0 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (struct UIOffset { double x0; double x1; })stackPerspectiveOffset;
+- (id)feedViewControllerSpec;
+- (double)sectionFooterHeight;
+- (BOOL)usesStackTransitionToGrid;
+- (long long)albumDeletionConfirmationStyle;
+- (id)photosPickerViewControllerSpec;
+- (BOOL)shouldUseCollageForCloudFeedPlaceholder;
+- (struct CGSize { double x0; double x1; })collageImageSize;
+- (long long)collageImageContentMode;
+- (double)collageSpacing;
+- (id)emptyStackPhotoDecoration;
+- (id)gridViewControllerSpec;
+- (id)albumViewControllerSpec;
+- (id)panoramaViewControllerSpec;
+- (BOOL)canShowVirtualCollections;
+- (struct CGSize { double x0; double x1; })stackSizeForLayoutReferenceSize:(struct CGSize { double x0; double x1; })a0 safeAreaInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+
+@end

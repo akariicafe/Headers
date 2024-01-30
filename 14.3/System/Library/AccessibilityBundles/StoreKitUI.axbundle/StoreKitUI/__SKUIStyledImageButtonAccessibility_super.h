@@ -1,0 +1,3 @@
+@interface __SKUIStyledImageButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

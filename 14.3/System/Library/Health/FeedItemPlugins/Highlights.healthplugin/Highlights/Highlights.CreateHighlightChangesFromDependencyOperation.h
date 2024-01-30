@@ -1,0 +1,3 @@
+@interface Highlights.CreateHighlightChangesFromDependencyOperation : Highlights.CreateHighlightChangesOperation
+
+@end

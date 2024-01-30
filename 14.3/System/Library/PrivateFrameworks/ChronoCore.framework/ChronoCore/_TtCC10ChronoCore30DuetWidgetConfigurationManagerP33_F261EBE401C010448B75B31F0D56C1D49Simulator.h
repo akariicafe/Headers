@@ -1,0 +1,3 @@
+@interface _TtCC10ChronoCore30DuetWidgetConfigurationManagerP33_F261EBE401C010448B75B31F0D56C1D49Simulator : _TtCs12_SwiftObject
+
+@end

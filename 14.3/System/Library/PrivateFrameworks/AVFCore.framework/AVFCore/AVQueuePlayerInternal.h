@@ -1,0 +1,3 @@
+@interface AVQueuePlayerInternal : NSObject
+
+@end

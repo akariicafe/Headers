@@ -1,0 +1,87 @@
+@class IMChat, NSString, IMMessage, NSArray, NSURL, DDScannerResult, IMPluginPayload, NSData, NSMutableSet, LPLinkMetadata, NSAttributedString;
+
+@interface IMBalloonPluginDataSource : NSObject
+
+@property (retain, nonatomic) NSURL *url;
+@property (retain, nonatomic) DDScannerResult *dataDetectedResult;
+@property (retain, nonatomic) NSArray *attachmentGUIDs;
+@property (retain, nonatomic) IMPluginPayload *pluginPayload;
+@property (retain, nonatomic) NSArray *pendingAttachmentData;
+@property (retain, nonatomic) NSMutableSet *temporaryAttachmentURLs;
+@property (retain, nonatomic) NSString *_imMessageGUID;
+@property (nonatomic, setter=setShowingLatestMessageAsBreadcrumb:) BOOL isShowingLatestMessageAsBreadcrumb;
+@property (nonatomic) BOOL allowedByScreenTime;
+@property (retain, nonatomic) NSString *messageGUID;
+@property (retain, nonatomic) NSString *sessionGUID;
+@property (readonly, retain, nonatomic) NSString *bundleID;
+@property (nonatomic) BOOL hasInvalidatedSize;
+@property (nonatomic) BOOL payloadInShelf;
+@property (readonly, nonatomic) IMMessage *imMessage;
+@property (retain, nonatomic) IMChat *chat;
+@property (retain, nonatomic) NSArray *consumedPayloads;
+@property (nonatomic) BOOL initialMessageIsFromMe;
+@property (nonatomic) BOOL parentChatHasAllUnknownRecipients;
+@property (readonly, nonatomic) LPLinkMetadata *richLinkMetadata;
+@property (readonly, retain, nonatomic) NSData *messagePayloadDataForSending;
+@property (nonatomic, setter=setLast:) BOOL isLast;
+@property (readonly, nonatomic, getter=isShowingLatestMessageAsBreadcrumb) BOOL showingLatestMessageAsBreadcrumb;
+@property (readonly, retain, nonatomic) NSString *guidOfLastMessageInSession;
+@property (readonly, nonatomic) long long messageIDOfLastMessageInSession;
+@property (readonly, nonatomic) BOOL supportsDynamicSize;
+@property (retain, nonatomic) NSData *payload;
+@property (readonly, nonatomic) BOOL wantsStatusItem;
+@property (readonly, retain, nonatomic) NSString *statusString;
+@property (readonly, retain, nonatomic) NSAttributedString *statusAttributedString;
+@property (readonly, nonatomic) BOOL wantsReplyFromContentView;
+@property (readonly, nonatomic) NSURL *URLToOpenOnTapAction;
+@property (readonly, nonatomic) NSArray *allPayloads;
+@property (readonly, nonatomic) BOOL isFromMe;
+@property (readonly, nonatomic) BOOL isPlayed;
+
++ (id)previewSummaryForPluginBundle:(id)a0;
++ (BOOL)supportsIndividualPreviewSummaries;
++ (id)previewSummaryForPluginPayload:(id)a0 withBundleID:(id)a1 previewAttachmentURL:(id *)a2 previewAttachmentUTI:(id *)a3;
++ (id)previewSummary;
++ (BOOL)supportsURL:(id)a0;
++ (id)individualPreviewSummaryForPluginPayload:(id)a0;
++ (id)replaceHandleWithContactNameInString:(id)a0 forAccount:(id)a1 additionalHandles:(id)a2;
++ (id)unlocalizedPreviewSummaryForPluginBundle:(id)a0 pluginDisplayName:(id)a1;
+
+- (void)stopPlayback;
+- (void)endShowingLastConsumedBreadcrumb;
+- (void).cxx_destruct;
+- (id)initWithPluginPayload:(id)a0;
+- (void)didTapStatusItem;
+- (void)payloadWillSendFromShelf;
+- (id)description;
+- (unsigned long long)playbackType;
+- (void)payloadWillEnterShelf;
+- (void)beginShowingLastConsumedBreadcrumbForOutgoingPayload:(id)a0;
+- (id)_replaceHandleWithContactNameInString:(id)a0;
+- (id)individualPreviewSummary;
+- (void)markAsPlayed;
+- (void)playbackWithCompletionBlock:(id /* block */)a0;
+- (void)sendPayload:(id)a0;
+- (void)datasourceWasMovedToNewGuid:(id)a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (id)initWithMessageGUID:(id)a0 payload:(id)a1 dataDetectedResult:(id)a2 url:(id)a3;
+- (void)_updateTemporaryAttachmentURLsForPluginPayload;
+- (void)checkForAllowedByScreenTime;
+- (void)sendPayload:(id)a0 attachments:(id)a1;
+- (void)updatePayload:(id)a0 attachments:(id)a1;
+- (unsigned long long)_updateWithPluginPayload:(id)a0 messageID:(long long)a1 messageGUID:(id)a2;
+- (void)pluginPayloadDidChange:(unsigned long long)a0;
+- (void)payloadDidChange;
+- (BOOL)_senderIsSameBetweenPayload:(id)a0 andOtherPayload:(id)a1;
+- (void)_removeTemporaryAttachmentURLs;
+- (id)individualPreviewAttachmentFileAndUTI:(id *)a0;
+- (id)_summaryText;
+- (void)_reloadLatestUnconsumedBreadcrumb;
+- (void)setPayload:(id)a0 attachments:(id)a1;
+- (void)updatePayload:(id)a0;
+- (void)_updatePayload:(id)a0 messageID:(long long)a1 messageGUID:(id)a2;
+- (void)thumbnailURLWithSize:(struct CGSize { double x0; double x1; })a0 completion:(id /* block */)a1;
+- (void)statusStringNeedsUpdate;
+- (void)needsResize;
+
+@end

@@ -1,0 +1,58 @@
+@class NSString, NSURL, CLLocation, NSDate, UIImage;
+
+@interface CAMTransientAsset : NSObject <PUTransientDisplayAsset>
+
+@property (readonly, nonatomic) NSString *uuid;
+@property (readonly, nonatomic) unsigned long long mediaType;
+@property (readonly, nonatomic) unsigned long long mediaSubtypes;
+@property (readonly, nonatomic) long long playbackStyle;
+@property (readonly, nonatomic) long long playbackVariation;
+@property (readonly, nonatomic) unsigned long long pixelWidth;
+@property (readonly, nonatomic) unsigned long long pixelHeight;
+@property (readonly, nonatomic) CLLocation *location;
+@property (readonly, nonatomic) double duration;
+@property (readonly, nonatomic, getter=isFavorite) BOOL favorite;
+@property (readonly, nonatomic) NSDate *creationDate;
+@property (readonly, nonatomic) NSDate *modificationDate;
+@property (readonly, nonatomic) double aspectRatio;
+@property (readonly, nonatomic) NSString *localizedGeoDescription;
+@property (readonly, nonatomic) BOOL isLivePhoto;
+@property (readonly, nonatomic) BOOL canPlayPhotoIris;
+@property (readonly, nonatomic) BOOL canPlayLoopingVideo;
+@property (readonly, nonatomic) BOOL isPhotoIrisPlaceholder;
+@property (readonly, nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } photoIrisStillDisplayTime;
+@property (readonly, nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } photoIrisVideoDuration;
+@property (readonly, nonatomic) BOOL hasPhotoColorAdjustments;
+@property (readonly, copy, nonatomic) NSURL *persistenceURL;
+@property (readonly, nonatomic) UIImage *placeholderImage;
+@property (readonly, nonatomic, getter=isHDR) BOOL HDR;
+@property (readonly, nonatomic) BOOL representsBurst;
+@property (readonly, copy, nonatomic) NSString *burstIdentifier;
+@property (readonly, nonatomic) unsigned long long numberOfRepresentedAssets;
+@property (readonly, nonatomic, getter=isHidden) BOOL hidden;
+@property (readonly, nonatomic) NSDate *localCreationDate;
+@property (readonly, nonatomic) BOOL isTemporaryPlaceholder;
+@property (readonly, nonatomic) NSString *uniformTypeIdentifier;
+@property (readonly, nonatomic) unsigned long long originalFilesize;
+@property (readonly, nonatomic) BOOL isAnimatedImage;
+@property (readonly, nonatomic, getter=isLivePhoto) BOOL livePhoto;
+@property (readonly, nonatomic) unsigned long long deferredLogInfo;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } videoKeyFrameSourceTime;
+@property (readonly, nonatomic) BOOL needsDeferredProcessing;
+@property (readonly, nonatomic) unsigned short deferredProcessingNeeded;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithUUID:(id)a0;
+- (unsigned long long)isContentEqualTo:(id)a0;
+- (id)initWithAsset:(id)a0 uuid:(id)a1;
+- (void)_populateStillImageTransientAssetFromConvertible:(id)a0;
+- (void)_populateVideoTransientAssetFromConvertible:(id)a0;
+- (id)initWithAsset:(id)a0 convertible:(id)a1;
+
+@end

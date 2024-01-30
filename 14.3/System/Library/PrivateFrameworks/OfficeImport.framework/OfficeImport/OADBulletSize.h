@@ -1,0 +1,3 @@
+@interface OADBulletSize : NSObject
+
+@end

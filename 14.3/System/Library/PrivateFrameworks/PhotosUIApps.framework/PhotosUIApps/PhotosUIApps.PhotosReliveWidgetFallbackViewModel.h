@@ -1,0 +1,3 @@
+@interface PhotosUIApps.PhotosReliveWidgetFallbackViewModel : PhotosUIApps.PhotosReliveWidgetViewModel
+
+@end

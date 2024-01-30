@@ -1,0 +1,3 @@
+@interface MiroVPClassificationMetadataRange : MiroVPMetadataRange
+
+@end

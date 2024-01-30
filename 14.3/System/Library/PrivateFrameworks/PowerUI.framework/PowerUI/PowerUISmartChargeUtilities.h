@@ -1,0 +1,51 @@
+@interface PowerUISmartChargeUtilities : NSObject
+
++ (BOOL)isInternalBuild;
++ (id)lastPluggedInDateWithContext:(id)a0 withStore:(id)a1;
++ (id)batteryProperties;
++ (long long)currentBatteryLevelWithContext:(id)a0;
++ (BOOL)isOBCSupported;
++ (void)setDate:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (BOOL)isDesktopDeviceWithDurations:(double *)a0 withAOEThreshold:(double)a1 withStore:(id)a2 withContext:(id)a3;
++ (id)historicalChargeDurationsFromLevel:(int)a0 toLevel:(int)a1 filteredByMinimumPluginDuration:(double)a2 withStore:(id)a3;
++ (double)totalPluginDurationAfter:(id)a0 withMinimumDuration:(double)a1 withPluginEvents:(id)a2;
++ (id)percentageOfTimeForBatteryLevels:(double *)a0 withLog:(id)a1;
++ (id)getEngagementMetricsForDevice:(id)a0 withKnowledgeStore:(id)a1;
++ (id)eventsAdjustedForTimeZoneOffsets:(id)a0;
++ (id)log;
++ (id)predicateForEventsWithinSeconds:(double)a0 aroundTimeOfDay:(id)a1 goingDaysBack:(int)a2;
++ (void)setString:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (id)roundedDateFromDate:(id)a0;
++ (double)areaOverEightyWithStore:(id)a0 withContext:(id)a1 withBatteryLevelDurations:(double *)a2;
++ (BOOL)deviceConnectedToWirelessChargerWithContext:(id)a0;
++ (BOOL)isPluggedInWithContext:(id)a0;
++ (BOOL)deviceWasActiveWithinSeconds:(double)a0 withContext:(id)a1 withStore:(id)a2;
++ (void)batteryLevelsWithStore:(id)a0 withContext:(id)a1 withBatteryLevelDurations:(double *)a2;
++ (id)getEngagementMetricsWithDefaultKnowledgeStore;
++ (id)historicalTopOffDurationsWithStore:(id)a0;
++ (double)percentageOfBatteryDurations:(double *)a0 aboveBatteryLevel:(double)a1;
++ (BOOL)deviceWasConnectedToChargerWithinSeconds:(double)a0 withContext:(id)a1;
++ (id)concatenateContinuousEventsOfSameState:(id)a0 sortedAscending:(BOOL)a1;
++ (double)batteryLevelAtDate:(id)a0 withCurrentBatteryLevel:(double)a1 withKnowledgeStore:(id)a2 withContextStore:(id)a3;
++ (unsigned long long)decileClassificationWithStore:(id)a0 withTopBinCutOff:(float *)a1 withContext:(id)a2;
++ (id)readStringForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (BOOL)isiPad;
++ (id)historicalEngagementsWithStore:(id)a0 sortedAscending:(BOOL)a1;
++ (void)setDict:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (id)pluginEventsBefore:(id)a0 withMinimumDuration:(double)a1 withStore:(id)a2;
++ (id)pluginEvents:(id)a0 withMinimumDuration:(double)a1;
++ (void)recordEngagementEventAt:(id)a0 withEngagedMinutes:(long long)a1 withEligibleDurationMins:(long long)a2 wasUndercharged:(BOOL)a3 withKnowledgeStore:(id)a4;
++ (id)getEngagementMetricsWithKnowledgeStore:(id)a0;
++ (id)getEngagementMetricsWithDefaultKnowledgeStoreForDevice:(id)a0;
++ (id)dateForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (void)setNumber:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (void)recordEngagementEventAt:(id)a0 withEngagedMinutes:(long long)a1 withEligibleDurationMins:(long long)a2 wasUndercharged:(BOOL)a3 forDevice:(id)a4 withKnowledgeStore:(id)a5;
++ (id)concatenateEventsPrivate:(id)a0;
++ (BOOL)deviceHasEnoughPluggedInTimeWithMinimumDays:(double)a0 withContext:(id)a1 withKnowledgeStore:(id)a2;
++ (id)readDictForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (BOOL)isiPhone;
++ (id)getCurrentBootSessionUUID;
++ (BOOL)isiPod;
++ (id)numberForPreferenceKey:(id)a0 inDomain:(id)a1;
+
+@end

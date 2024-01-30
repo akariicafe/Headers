@@ -1,0 +1,14 @@
+@class SADomainObject;
+
+@interface SAAcknowledgeAlert : SABaseClientBoundCommand
+
+@property (retain, nonatomic) SADomainObject *object;
+
++ (id)acknowledgeAlert;
++ (id)acknowledgeAlertWithDictionary:(id)a0 context:(id)a1;
+
+- (id)groupIdentifier;
+- (id)encodedClassName;
+- (BOOL)requiresResponse;
+
+@end

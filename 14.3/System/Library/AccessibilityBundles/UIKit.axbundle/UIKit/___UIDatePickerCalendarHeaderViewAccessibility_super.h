@@ -1,0 +1,3 @@
+@interface ___UIDatePickerCalendarHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

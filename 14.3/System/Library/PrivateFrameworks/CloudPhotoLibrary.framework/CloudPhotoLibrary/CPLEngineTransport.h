@@ -1,0 +1,88 @@
+@class CPLPlatformObject, NSString, CPLEngineLibrary;
+
+@interface CPLEngineTransport : NSObject <CPLAbstractObject, CPLEngineComponent>
+
+@property (readonly, weak, nonatomic) CPLEngineLibrary *engineLibrary;
+@property (readonly, nonatomic) Class transportGroupClass;
+@property (readonly, nonatomic) Class userIdentifierClass;
+@property (readonly, nonatomic) CPLPlatformObject *platformObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)platformImplementationProtocol;
+
+- (id)componentName;
+- (void)openWithCompletionHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)setShouldOverride:(BOOL)a0 forSystemBudgets:(unsigned long long)a1;
+- (void)noteClientIsEndingSignificantWork;
+- (void)noteClientIsBeginningSignificantWork;
+- (void)getSystemBudgetsWithCompletionHandler:(id /* block */)a0;
+- (void)getStatusWithCompletionHandler:(id /* block */)a0;
+- (void)getStatusDictionaryWithCompletionHandler:(id /* block */)a0;
+- (void)closeAndDeactivate:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (id)initWithEngineLibrary:(id)a0;
+- (id)setupTaskUpdateDisabledFeatures:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (id)checkRecordsExistenceTaskForRecords:(id)a0 fetchRecordProperties:(id)a1 transportScope:(id)a2 scope:(id)a3 additionalTransportScopes:(id)a4 completionHandler:(id /* block */)a5;
+- (id)uploadBatchTaskForBatch:(id)a0 transportScope:(id)a1 scope:(id)a2 additionalTransportScopes:(id)a3 progressHandler:(id /* block */)a4 completionHandler:(id /* block */)a5;
+- (id)queryTaskForCursor:(id)a0 class:(Class)a1 transportScope:(id)a2 scope:(id)a3 progressHandler:(id /* block */)a4 completionHandler:(id /* block */)a5;
+- (id)downloadBatchTaskForSyncAnchor:(id)a0 transportScope:(id)a1 scope:(id)a2 currentScopeChange:(id)a3 progressHandler:(id /* block */)a4 completionHandler:(id /* block */)a5;
+- (id)fetchScopeListChangesForScopeListSyncAnchor:(id)a0 progressHandler:(id /* block */)a1 completionHandler:(id /* block */)a2;
+- (id)deleteTransportScope:(id)a0 scope:(id)a1 completionHandler:(id /* block */)a2;
+- (id)updateTransportScope:(id)a0 scope:(id)a1 scopeChange:(id)a2 completionHandler:(id /* block */)a3;
+- (id)getScopeInfoWithTransportScope:(id)a0 scope:(id)a1 completionHandler:(id /* block */)a2;
+- (id)getCurrentSyncAnchorWithTransportScope:(id)a0 scope:(id)a1 completionHandler:(id /* block */)a2;
+- (id)fetchTransportScopeForScope:(id)a0 transportScope:(id)a1 completionHandler:(id /* block */)a2;
+- (id)getStreamingURLTaskForResource:(id)a0 intent:(unsigned long long)a1 hints:(id)a2 transportScope:(id)a3 clientBundleID:(id)a4 completionHandler:(id /* block */)a5;
+- (id)resourceCheckTaskForResources:(id)a0 transportScopes:(id)a1 completionHandler:(id /* block */)a2;
+- (id)rampingRequestTaskForResourceType:(unsigned long long)a0 numRequested:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (id)resourcesDownloadTaskWithCompletionHandler:(id /* block */)a0;
+- (id)inMemoryDownloadTaskForResource:(id)a0 transportScope:(id)a1 completionHandler:(id /* block */)a2;
+- (id)createScopeTaskForScope:(id)a0 completionHandler:(id /* block */)a1;
+- (id)fetchTaskForScopeWithShareURL:(id)a0 completionHandler:(id /* block */)a1;
+- (id)acceptTaskForSharedScope:(id)a0 completionHandler:(id /* block */)a1;
+- (id)queryUserDetailsTaskForParticipants:(id)a0 completionHandler:(id /* block */)a1;
+- (id)sendFeedbackTaskForMessages:(id)a0 completionHandler:(id /* block */)a1;
+- (id)bestErrorForUnderlyingError:(id)a0;
+- (id)simpleDescriptionForSyncAnchor:(id)a0;
+- (id)simpleDescriptionForScopeListSyncAnchor:(id)a0;
+- (void)cancelBlockedTasksIncludingBackground:(BOOL)a0;
+- (id)descriptionForTransportScope:(id)a0;
+- (id)scopeNameForTransportScope:(id)a0;
+- (id)transportScopeForUpgradeFromScopeName:(id)a0;
+- (void)upgradeFlags:(id)a0 fromTransportScope:(id)a1;
+- (void)getPushEnvironmentWithCompletionHandler:(id /* block */)a0;
+- (BOOL)isResourceDynamic:(id)a0;
+- (void)findPersistedInitialSyncSession:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (id)createGroupForInitialUpload;
+- (id)createGroupForResetSync;
+- (id)createGroupForInitialDownload;
+- (id)createGroupForPrefetch;
+- (id)createGroupForThumbnailPrefetch;
+- (id)createGroupForNonDerivativePrefetch;
+- (id)createGroupForKeepOriginalsPrefetch;
+- (id)createGroupForMemoriesPrefetch;
+- (id)createGroupForRecoveryDownload;
+- (id)createGroupForWidgetPrefetch;
+- (id)createGroupForSetup;
+- (id)createGroupForTransportScopeDelete;
+- (id)createGroupForTransportScopeUpdate;
+- (id)createGroupForFetchScopeListChanges;
+- (id)createGroupForFeedback;
+- (id)createGroupForLibraryStateCheck;
+- (id)createGroupForChangeUpload;
+- (id)createGroupForChangeDownload;
+- (id)createGroupForThumbnailsDownload;
+- (id)createGroupForResourcesDownload;
+- (id)createGroupForWidgetResourcesDownload;
+- (id)createGroupForMovieStreamingWithIntent:(unsigned long long)a0;
+- (id)createGroupForAnalysisDownload;
+- (id)createGroupForPruningCheck;
+- (id)createGroupForPublishingMomentShare;
+- (id)createGroupForFetchingMomentShare;
+- (id)createGroupForAcceptingMomentShare;
+- (id)createGroupForQueryUserIdentities;
+
+@end

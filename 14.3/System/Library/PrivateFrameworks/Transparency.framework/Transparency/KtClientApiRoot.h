@@ -1,0 +1,3 @@
+@interface KtClientApiRoot : GPBRootObject
+
+@end

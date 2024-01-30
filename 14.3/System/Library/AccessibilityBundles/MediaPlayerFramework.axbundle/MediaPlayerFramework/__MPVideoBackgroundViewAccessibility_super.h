@@ -1,0 +1,3 @@
+@interface __MPVideoBackgroundViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

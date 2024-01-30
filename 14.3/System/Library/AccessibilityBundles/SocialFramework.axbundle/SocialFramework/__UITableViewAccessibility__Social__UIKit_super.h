@@ -1,0 +1,3 @@
+@interface __UITableViewAccessibility__Social__UIKit_super : UIAccessibilitySafeCategory
+
+@end

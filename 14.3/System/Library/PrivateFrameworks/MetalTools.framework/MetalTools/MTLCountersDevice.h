@@ -1,0 +1,48 @@
+@interface MTLCountersDevice : MTLToolsDevice
+
+- (id)newLibraryWithFile:(id)a0 error:(id *)a1;
+- (id)newDefaultLibraryWithBundle:(id)a0 error:(id *)a1;
+- (id)newLibraryWithData:(id)a0 error:(id *)a1;
+- (id)newRenderPipelineStateWithTileDescriptor:(id)a0 options:(unsigned long long)a1 reflection:(id *)a2 error:(id *)a3;
+- (void)dealloc;
+- (id)newRenderPipelineStateWithTileDescriptor:(id)a0 error:(id *)a1;
+- (void)newRenderPipelineStateWithTileDescriptor:(id)a0 completionHandler:(id /* block */)a1;
+- (id)initWithBaseObject:(id)a0 parent:(id)a1;
+- (id)newFunctionWithGLIR:(void *)a0 functionType:(unsigned long long)a1;
+- (id)newBufferWithIOSurface:(struct __IOSurface { } *)a0;
+- (id)newComputePipelineStateWithFunction:(id)a0 options:(unsigned long long)a1 reflection:(id *)a2 error:(id *)a3;
+- (id)newCommandQueue;
+- (id)newComputePipelineStateWithImageFilterFunctionsSPI:(id)a0 imageFilterFunctionInfo:(const struct { BOOL x0; unsigned long long x1; struct *x2; } *)a1 error:(id *)a2;
+- (id)newCommandQueueWithMaxCommandBufferCount:(unsigned long long)a0;
+- (void)newComputePipelineStateWithFunction:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)newComputePipelineStateWithDescriptor:(id)a0 completionHandler:(id /* block */)a1;
+- (id)newFunctionWithGLIR:(void *)a0 inputsDescription:(id)a1 functionType:(unsigned long long)a2;
+- (void)newLibraryWithSource:(id)a0 options:(id)a1 completionHandler:(id /* block */)a2;
+- (id)newBufferWithBytes:(const void *)a0 length:(unsigned long long)a1 options:(unsigned long long)a2;
+- (id)newTextureWithDescriptor:(id)a0;
+- (id)newBufferWithLength:(unsigned long long)a0 options:(unsigned long long)a1;
+- (id)newComputePipelineStateWithDescriptor:(id)a0 options:(unsigned long long)a1 reflection:(id *)a2 error:(id *)a3;
+- (id)newTextureWithDescriptor:(id)a0 iosurface:(struct __IOSurface { } *)a1 plane:(unsigned long long)a2;
+- (id)newTextureWithBytesNoCopy:(void *)a0 length:(unsigned long long)a1 descriptor:(id)a2 deallocator:(id /* block */)a3;
+- (id)newBufferWithBytesNoCopy:(void *)a0 length:(unsigned long long)a1 options:(unsigned long long)a2 deallocator:(id /* block */)a3;
+- (id)newSamplerStateWithDescriptor:(id)a0;
+- (id)newRenderPipelineStateWithDescriptor:(id)a0 error:(id *)a1;
+- (id)newDepthStencilStateWithDescriptor:(id)a0;
+- (id)newFence;
+- (void)newComputePipelineStateWithFunction:(id)a0 completionHandler:(id /* block */)a1;
+- (id)newDefaultLibrary;
+- (id)newRenderPipelineStateWithDescriptor:(id)a0 options:(unsigned long long)a1 reflection:(id *)a2 error:(id *)a3;
+- (void)newRenderPipelineStateWithDescriptor:(id)a0 completionHandler:(id /* block */)a1;
+- (void)newRenderPipelineStateWithDescriptor:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (id)newComputePipelineStateWithFunction:(id)a0 error:(id *)a1;
+- (void)newComputePipelineStateWithDescriptor:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (id)newComputePipelineStateWithDescriptor:(id)a0 error:(id *)a1;
+- (id)newLibraryWithURL:(id)a0 error:(id *)a1;
+- (void)newRenderPipelineStateWithTileDescriptor:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (id)newLibraryWithSource:(id)a0 options:(id)a1 error:(id *)a2;
+- (id)newHeapWithDescriptor:(id)a0;
+- (id)newCommandQueueWithDescriptor:(id)a0;
+- (id)_newRenderPipelineStateWithTileDescriptor:(id)a0 options:(unsigned long long)a1 reflection:(id *)a2 error:(id *)a3;
+- (void)_newRenderPipelineStateWithTileDescriptor:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+
+@end

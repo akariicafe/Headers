@@ -1,0 +1,3 @@
+@interface PFSerialQueueClass : PFDispatchQueueBaseClass
+
+@end

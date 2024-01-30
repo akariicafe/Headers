@@ -1,0 +1,3 @@
+@interface PVLibraryGraphEdge : MAEdge
+
+@end

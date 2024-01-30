@@ -1,0 +1,80 @@
+@class _UIFulfilledContextMenuConfiguration, _UIContextMenuLayoutArbiter, UIVisualEffectView, _UIContextMenuStyle, UITapGestureRecognizer, _UIContextMenuLayoutArbiterOutput, UIView, NSString, UITargetedPreview, _UIPreviewPlatterPanController, _UIContextMenuActionsListView, NSArray, _UIContextMenuActionScrubbingHandoffGestureRecognizer, _UIPreviewPlatterView;
+@protocol _UIPreviewPlatterPresentationControllerDelegate;
+
+@interface _UIPreviewPlatterPresentationController : UIPresentationController <_UIContextMenuActionsListViewDelegate, UIGestureRecognizerDelegate, _UIPreviewPlatterPanControllerDelegate>
+
+@property (retain, nonatomic) UITapGestureRecognizer *platterActionTapGestureRecognizer;
+@property (retain, nonatomic) UITapGestureRecognizer *dismissalTapGestureRecognizer;
+@property (retain, nonatomic) _UIContextMenuActionScrubbingHandoffGestureRecognizer *actionScrubbingHandoffGestureRecognizer;
+@property (retain, nonatomic) _UIFulfilledContextMenuConfiguration *displayedConfiguration;
+@property (retain, nonatomic) UITargetedPreview *sourcePreview;
+@property (retain, nonatomic) _UIPreviewPlatterPanController *platterPanController;
+@property (retain, nonatomic) _UIContextMenuLayoutArbiter *layoutArbiter;
+@property (copy, nonatomic) _UIContextMenuStyle *currentStyle;
+@property (nonatomic) struct CGSize { double width; double height; } platterContentSize;
+@property (nonatomic) BOOL platterContentSizeDidChange;
+@property (weak, nonatomic) id<_UIPreviewPlatterPresentationControllerDelegate> delegate;
+@property (readonly, nonatomic) UIView *platterTransitionView;
+@property (readonly, nonatomic) UIView *platterContainerView;
+@property (readonly, nonatomic) UIVisualEffectView *backgroundEffectView;
+@property (readonly, nonatomic) _UIPreviewPlatterView *contentPlatterView;
+@property (readonly, nonatomic) _UIContextMenuActionsListView *actionsView;
+@property (nonatomic) BOOL isAnimatingPresentation;
+@property (readonly, nonatomic) NSArray *accessoryViews;
+@property (readonly, nonatomic) _UIContextMenuLayoutArbiterOutput *currentLayout;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_actionsOnlyViewControllerForSourcePreview:(id)a0;
+
+- (void)dismissalTransitionWillBegin;
+- (id)_traitCollectionForChildEnvironment:(id)a0;
+- (void)presentationTransitionWillBegin;
+- (long long)presentationStyle;
+- (void)presentationTransitionDidEnd:(BOOL)a0;
+- (void)_applicationWillResignActive:(id)a0;
+- (BOOL)_shouldDisableInteractionDuringTransitions;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameOfPresentedViewInContainerView;
+- (BOOL)_shouldKeepCurrentFirstResponder;
+- (void).cxx_destruct;
+- (void)_keyboardWillShow:(id)a0;
+- (void)dealloc;
+- (BOOL)_shouldPreserveFirstResponder;
+- (id)contextMenuListView:(id)a0 willDisplayMenu:(id)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_baseContentInsetsWithLeftMargin:(double *)a0 rightMargin:(double *)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)contextMenuListView:(id)a0 didSelectElement:(id)a1;
+- (void)_keyboardWillHide:(id)a0;
+- (BOOL)_shouldOccludeDuringPresentation;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)_testing_tapAnAction;
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(id)a0;
+- (id)_parentTraitEnvironment;
+- (void)_createActionsViewIfNecessary;
+- (void)_handleDismissalTapGesture:(id)a0;
+- (void)_handleActionHandoffGesture:(id)a0;
+- (void)_updatePlatterContentSizeWithPreferredContentSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_preDismissalTasks;
+- (void)_updatePlatterContainerViewTraitCollection;
+- (void)_handlePlatterActionTapGesture:(id)a0;
+- (void)_updatePlatterAndActionViewLayoutForce:(BOOL)a0 updateAttachment:(BOOL)a1;
+- (BOOL)_needsToAvoidKeyboard;
+- (void)_updateLayoutAndAttachment:(BOOL)a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)_updateActionsViewReversesOrderForAttachment:(unsigned long long)a0;
+- (void)setDisplayedMenu:(id)a0 withAnimationStyle:(unsigned long long)a1;
+- (id)initWithPresentingViewController:(id)a0 configuration:(id)a1 sourcePreview:(id)a2 style:(id)a3;
+- (void)tearOffForDraggingWithDragContainerView:(id)a0;
+- (void)_testing_dismissByTappingOutside;
+- (void)_updatePresentedViewFrame;
+- (void)preferredContentSizeDidChangeForChildContentContainer:(id)a0;
+- (BOOL)_shouldRestoreFirstResponder;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)platterPanInteractionEnded:(id)a0;
+- (void)platterPanControllerDidSwipeDown:(id)a0;
+- (void)platterPanInteractionBegan:(id)a0;
+- (void)platterPanControllerDidTearOff:(id)a0;
+
+@end

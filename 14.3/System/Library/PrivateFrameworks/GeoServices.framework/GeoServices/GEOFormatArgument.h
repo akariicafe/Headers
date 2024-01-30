@@ -1,0 +1,96 @@
+@class NSString, NSArray, GEONumberData, PBDataReader, PBUnknownFields, GEOPBTransitArtwork, GEOCountdownData, NSMutableArray, GEOMeasurementData, GEOPrice;
+@protocol GEOTransitArtworkDataSource, GEOServerFormatTokenCountdownValue, GEOServerFormatTokenPriceValue;
+
+@interface GEOFormatArgument : PBCodable <GEOServerFormatToken, NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct { unsigned int *list; unsigned long long count; unsigned long long size; } _valInt3s;
+    GEOPBTransitArtwork *_artwork;
+    GEOCountdownData *_countdownData;
+    GEOMeasurementData *_measurementData;
+    GEONumberData *_numberData;
+    GEOPrice *_price;
+    NSMutableArray *_timestampDatas;
+    NSString *_token;
+    NSString *_valString;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _format;
+    unsigned int _valInt1;
+    unsigned int _valInt2;
+    struct { unsigned char has_format : 1; unsigned char has_valInt1 : 1; unsigned char has_valInt2 : 1; unsigned char read_unknownFields : 1; unsigned char read_valInt3s : 1; unsigned char read_artwork : 1; unsigned char read_countdownData : 1; unsigned char read_measurementData : 1; unsigned char read_numberData : 1; unsigned char read_price : 1; unsigned char read_timestampDatas : 1; unsigned char read_token : 1; unsigned char read_valString : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) NSString *token;
+@property (readonly, nonatomic) unsigned int value1;
+@property (readonly, nonatomic) unsigned int value2;
+@property (readonly, nonatomic) NSArray *value3s;
+@property (readonly, nonatomic) NSString *stringValue;
+@property (readonly, nonatomic) float percentageValue;
+@property (readonly, nonatomic) BOOL shouldScaleUnits;
+@property (readonly, nonatomic) id<GEOServerFormatTokenPriceValue> priceValue;
+@property (readonly, nonatomic) id<GEOTransitArtworkDataSource> artworkValue;
+@property (readonly, nonatomic) NSArray *timeStampValues;
+@property (readonly, nonatomic) id<GEOServerFormatTokenCountdownValue> countdownValue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL hasToken;
+@property (retain, nonatomic) NSString *token;
+@property (nonatomic) BOOL hasValInt1;
+@property (nonatomic) unsigned int valInt1;
+@property (nonatomic) BOOL hasValInt2;
+@property (nonatomic) unsigned int valInt2;
+@property (readonly, nonatomic) unsigned long long valInt3sCount;
+@property (readonly, nonatomic) unsigned int *valInt3s;
+@property (readonly, nonatomic) BOOL hasValString;
+@property (retain, nonatomic) NSString *valString;
+@property (readonly, nonatomic) BOOL hasPrice;
+@property (retain, nonatomic) GEOPrice *price;
+@property (readonly, nonatomic) BOOL hasArtwork;
+@property (retain, nonatomic) GEOPBTransitArtwork *artwork;
+@property (retain, nonatomic) NSMutableArray *timestampDatas;
+@property (readonly, nonatomic) BOOL hasCountdownData;
+@property (retain, nonatomic) GEOCountdownData *countdownData;
+@property (readonly, nonatomic) BOOL hasNumberData;
+@property (retain, nonatomic) GEONumberData *numberData;
+@property (readonly, nonatomic) BOOL hasMeasurementData;
+@property (retain, nonatomic) GEOMeasurementData *measurementData;
+@property (nonatomic) BOOL hasFormat;
+@property (nonatomic) int format;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (Class)timestampDataType;
++ (BOOL)isValid:(id)a0;
+
+- (id)initWithJSON:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (id)initWithData:(id)a0;
+- (void)dealloc;
+- (id)jsonRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)addValInt3:(unsigned int)a0;
+- (void)addTimestampData:(id)a0;
+- (void)clearValInt3s;
+- (unsigned int)valInt3AtIndex:(unsigned long long)a0;
+- (unsigned long long)timestampDatasCount;
+- (void)clearTimestampDatas;
+- (id)timestampDataAtIndex:(unsigned long long)a0;
+- (void)setValInt3s:(unsigned int *)a0 count:(unsigned long long)a1;
+- (id)formatAsString:(int)a0;
+- (int)StringAsFormat:(id)a0;
+- (void)readAll:(BOOL)a0;
+- (void)writeTo:(id)a0;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)clearUnknownFields:(BOOL)a0;
+- (id)initWithDictionary:(id)a0;
+
+@end

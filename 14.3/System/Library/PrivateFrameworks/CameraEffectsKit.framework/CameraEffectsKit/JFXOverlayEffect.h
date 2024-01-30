@@ -1,0 +1,88 @@
+@class NSString, JFXFaceTrackedEffectTransform, JFXTrackedEffectProperties;
+
+@interface JFXOverlayEffect : JFXTextEffect <JFXTrackedEffectPropertiesDelegate> {
+    _Atomic int _isInteractiveEditingCount;
+    _Atomic int _isEditingFaceTrackingTransformsCount;
+}
+
+@property (retain) JFXFaceTrackedEffectTransform *internalFaceTrackingTransform;
+@property (nonatomic, getter=isHidden) BOOL hidden;
+@property (copy, nonatomic) NSString *accessibilityOverlayEffectLabel;
+@property (retain, nonatomic) JFXFaceTrackedEffectTransform *faceTrackingTransform;
+@property (readonly, nonatomic) BOOL isEmoji;
+@property (nonatomic, getter=isTextFlipped) BOOL flipText;
+@property (nonatomic, getter=isTailFlipped) BOOL flipTail;
+@property (retain, nonatomic) JFXTrackedEffectProperties *trackingProps;
+@property (readonly, nonatomic) BOOL isTracking;
+@property (nonatomic) BOOL prefersTrackingNotActivateAutomatically;
+@property (readonly, nonatomic) BOOL isInteractiveEditing;
+@property (readonly, nonatomic) BOOL isEditingFaceTrackingTransforms;
+@property (copy, nonatomic) NSString *dynamicTextString;
+@property (readonly, nonatomic) unsigned long long dynamicTextType;
+
++ (BOOL)supportsSecureCoding;
++ (id)effectIDToImageSequenceIDMap;
++ (id)dynamicTextPlaceholderMap;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)maxCharacters;
+- (BOOL)isEqual:(id)a0;
+- (id)accessibilityName;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)enablePresentationState:(BOOL)a0;
+- (id)initWithEffectID:(id)a0;
+- (void)setForceRenderAtPosterFrame:(BOOL)a0;
+- (void)trackedEffectPropertiesDidChangeTrackingType:(id)a0;
+- (BOOL)JFX_posterFrameIsCachable;
+- (BOOL)JFX_shouldEnableDynamicLineSpacingForDiacritics;
+- (void)setSingleLineScaleThreshold:(double)a0;
+- (void)JFX_setupTrackingProps;
+- (double)customPickerRotation;
+- (id)customPrimaryFillColor;
+- (id)serializableEffectParameters;
+- (BOOL)isAppearanceEqual:(id)a0 forPurpose:(unsigned long long)a1;
+- (id)overlayContentDataSource;
+- (struct CGPoint { double x0; double x1; })hitAreaScale;
+- (double)pickerScale;
+- (BOOL)supportsFlippingText;
+- (void)JFX_updateInteractiveMode;
+- (void)JFX_applyEffectParametersForFaceTrackingTransform:(id)a0;
+- (struct PVCGPointQuad { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; struct CGPoint { double x0; double x1; } x2; struct CGPoint { double x0; double x1; } x3; })cornersAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 includeDropShadow:(BOOL)a2 scale:(struct CGPoint { double x0; double x1; })a3 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 basisOrigin:(int)a5;
+- (const struct CGPath { } *)newPathsForHitTestingAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 basisOrigin:(int)a3 adjustForMinimumSize:(BOOL)a4 normalizedMinimumSize:(struct { double x0; double x1; })a5 outExpandedPath:(out const struct CGPath **)a6;
+- (struct { void /* unknown type, empty encoding */ x0[4]; })transformAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 includeTransformAnimation:(BOOL)a2 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 basisOrigin:(int)a4;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })addTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0 withComponentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 basisOrigin:(int)a3 restrictToBounds:(BOOL)a4;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })addTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0 withComponentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 basisOrigin:(int)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })imageFrameAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 includeDropShadow:(BOOL)a2 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 basisOrigin:(int)a4;
+- (void)applyScaleToFitFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withComponentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 relativeRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (struct CGPoint { double x0; double x1; })effectPointToScreenPoint:(struct CGPoint { double x0; double x1; })a0 effectToScreenTransform:(struct { void /* unknown type, empty encoding */ x0[4]; })a1 viewSize:(struct CGSize { double x0; double x1; })a2;
+- (double)JFX_adjustedMinimumSizeFromNormalizedMinimumSize:(struct { double x0; double x1; })a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 forcePosterFrame:(BOOL)a2 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 basisOrigin:(int)a4;
+- (void)setImageSequencePath:(id)a0;
+- (BOOL)JFX_hasPosterFrame;
+- (BOOL)hasDynamicText;
+- (void)resetDynamicTextString;
+- (id)JFX_dynamicTextPlaceHolderText;
+- (id)JFX_stringAtIndex:(unsigned long long)a0;
+- (BOOL)supportsFlippingTail;
+- (void)suspendTracking;
+- (void)resumeTracking;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })hitAreaBoundingFrameAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 includeDropShadow:(BOOL)a2 adjustForMinimumSize:(BOOL)a3 normalizedMinimumSize:(struct { double x0; double x1; })a4 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a5 basisOrigin:(int)a6;
+- (BOOL)objectBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 time:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 forcePosterFrame:(BOOL)a2 includeDropShadow:(BOOL)a3 includeMasks:(BOOL)a4;
+- (struct { void /* unknown type, empty encoding */ x0[4]; })transformAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 basisOrigin:(int)a3;
+- (void)updateRenderSizeMaintainingAppearance:(struct CGSize { double x0; double x1; })a0 withComponentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+- (struct CGPoint { double x0; double x1; })effectCenterAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 includeTransformAnimation:(BOOL)a2 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 basisOrigin:(int)a4;
+- (BOOL)hitTestPoint:(struct CGPoint { double x0; double x1; })a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 forcePosterFrame:(BOOL)a2 relativeTo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 basisOrigin:(int)a4 adjustForMinimumSize:(BOOL)a5 normalizedMinimumSize:(struct { double x0; double x1; })a6;
+- (struct CGPoint { double x0; double x1; })closeButtonInset;
+- (BOOL)includeDropShadowWhenPositioningCloseButton;
+- (void)setImageSequencePathToBundledAssets;
+- (BOOL)loopedRangeRenderIsCacheable;
+- (void)beginInteractiveEditing;
+- (void)endInteractiveEditing;
+- (void)beginEditingFaceTrackingTransforms;
+- (void)endEditingFaceTrackingTransforms;
+- (void)updateDynamicTextWithCompletionBlock:(id /* block */)a0;
+- (BOOL)wasDynamicTextSet;
+
+@end

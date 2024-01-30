@@ -1,0 +1,3 @@
+@interface __SKUIReviewInAppRatingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

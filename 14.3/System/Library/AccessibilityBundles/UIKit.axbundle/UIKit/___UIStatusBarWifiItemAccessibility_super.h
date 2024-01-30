@@ -1,0 +1,3 @@
+@interface ___UIStatusBarWifiItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

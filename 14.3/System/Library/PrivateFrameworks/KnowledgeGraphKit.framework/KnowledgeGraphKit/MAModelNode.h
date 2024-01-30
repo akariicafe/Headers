@@ -1,0 +1,3 @@
+@interface MAModelNode : MAModelElement
+
+@end

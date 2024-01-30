@@ -1,0 +1,3 @@
+@interface ___UIPrintPreviewPageCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

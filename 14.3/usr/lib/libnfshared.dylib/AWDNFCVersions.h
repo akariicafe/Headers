@@ -1,0 +1,85 @@
+@class NSString;
+
+@interface AWDNFCVersions : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char hardwareType : 1; unsigned char middlewareVersion : 1; unsigned char nfccFWRevision : 1; unsigned char nfccFWVersion : 1; unsigned char nfccHWVersion : 1; unsigned char nfccROMVersion : 1; unsigned char seAvailableIndices : 1; unsigned char seDeviceType : 1; unsigned char seFWVersion : 1; unsigned char seHWVersion : 1; unsigned char seMigrationInst : 1; unsigned char seMigrationPkgs : 1; unsigned char seMigrationState : 1; unsigned char seOSMode : 1; unsigned char seReferenceCounter : 1; unsigned char seRestrictedMode : 1; unsigned char seSequenceCounter : 1; unsigned char seSignKeyType : 1; unsigned char seTotalIndices : 1; unsigned char seTransientDeselect : 1; unsigned char seTransientPersistent : 1; unsigned char seTransientReset : 1; unsigned char seosHWVersion : 1; unsigned char seosMigrationState : 1; unsigned char seosOSMode : 1; unsigned char seosOSVersion : 1; unsigned char seosSignKeyType : 1; unsigned char seosTransientDeselect : 1; unsigned char seosTransientPersistent : 1; unsigned char seosTransientReset : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasMiddlewareVersion;
+@property (nonatomic) unsigned int middlewareVersion;
+@property (readonly, nonatomic) BOOL hasPlatformVersion;
+@property (retain, nonatomic) NSString *platformVersion;
+@property (nonatomic) BOOL hasNfccHWVersion;
+@property (nonatomic) unsigned int nfccHWVersion;
+@property (nonatomic) BOOL hasNfccROMVersion;
+@property (nonatomic) unsigned int nfccROMVersion;
+@property (nonatomic) BOOL hasNfccFWVersion;
+@property (nonatomic) unsigned int nfccFWVersion;
+@property (nonatomic) BOOL hasNfccFWRevision;
+@property (nonatomic) unsigned int nfccFWRevision;
+@property (nonatomic) BOOL hasSeDeviceType;
+@property (nonatomic) unsigned int seDeviceType;
+@property (nonatomic) BOOL hasSeHWVersion;
+@property (nonatomic) unsigned int seHWVersion;
+@property (nonatomic) BOOL hasSeFWVersion;
+@property (nonatomic) unsigned int seFWVersion;
+@property (nonatomic) BOOL hasSeSignKeyType;
+@property (nonatomic) unsigned int seSignKeyType;
+@property (nonatomic) BOOL hasSeSequenceCounter;
+@property (nonatomic) unsigned int seSequenceCounter;
+@property (nonatomic) BOOL hasSeReferenceCounter;
+@property (nonatomic) unsigned int seReferenceCounter;
+@property (nonatomic) BOOL hasSeOSMode;
+@property (nonatomic) unsigned int seOSMode;
+@property (nonatomic) BOOL hasSeRestrictedMode;
+@property (nonatomic) unsigned int seRestrictedMode;
+@property (nonatomic) BOOL hasSeMigrationState;
+@property (nonatomic) unsigned int seMigrationState;
+@property (nonatomic) BOOL hasSeMigrationPkgs;
+@property (nonatomic) unsigned int seMigrationPkgs;
+@property (nonatomic) BOOL hasSeMigrationInst;
+@property (nonatomic) unsigned int seMigrationInst;
+@property (readonly, nonatomic) BOOL hasSeosPlatformID;
+@property (retain, nonatomic) NSString *seosPlatformID;
+@property (nonatomic) BOOL hasSeosHWVersion;
+@property (nonatomic) unsigned int seosHWVersion;
+@property (nonatomic) BOOL hasSeosOSVersion;
+@property (nonatomic) unsigned int seosOSVersion;
+@property (nonatomic) BOOL hasSeosOSMode;
+@property (nonatomic) unsigned int seosOSMode;
+@property (nonatomic) BOOL hasSeosSignKeyType;
+@property (nonatomic) unsigned int seosSignKeyType;
+@property (nonatomic) BOOL hasSeosMigrationState;
+@property (nonatomic) unsigned int seosMigrationState;
+@property (nonatomic) BOOL hasHardwareType;
+@property (nonatomic) unsigned int hardwareType;
+@property (nonatomic) BOOL hasSeTransientDeselect;
+@property (nonatomic) unsigned int seTransientDeselect;
+@property (nonatomic) BOOL hasSeTransientReset;
+@property (nonatomic) unsigned int seTransientReset;
+@property (nonatomic) BOOL hasSeTransientPersistent;
+@property (nonatomic) unsigned int seTransientPersistent;
+@property (nonatomic) BOOL hasSeAvailableIndices;
+@property (nonatomic) unsigned int seAvailableIndices;
+@property (nonatomic) BOOL hasSeTotalIndices;
+@property (nonatomic) unsigned int seTotalIndices;
+@property (nonatomic) BOOL hasSeosTransientDeselect;
+@property (nonatomic) unsigned int seosTransientDeselect;
+@property (nonatomic) BOOL hasSeosTransientReset;
+@property (nonatomic) unsigned int seosTransientReset;
+@property (nonatomic) BOOL hasSeosTransientPersistent;
+@property (nonatomic) unsigned int seosTransientPersistent;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+
+@end

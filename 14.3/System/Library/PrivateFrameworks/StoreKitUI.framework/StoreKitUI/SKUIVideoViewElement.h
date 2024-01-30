@@ -1,0 +1,18 @@
+@class NSArray, SKUIImageViewElement;
+
+@interface SKUIVideoViewElement : SKUIViewElement {
+    char _enabled;
+}
+
+@property (readonly, nonatomic) NSArray *assets;
+@property (readonly, nonatomic) long long itemIdentifier;
+@property (readonly, nonatomic) long long kind;
+@property (readonly, nonatomic) long long playbackStyle;
+@property (readonly, nonatomic) SKUIImageViewElement *thumbnailImage;
+
+- (void).cxx_destruct;
+- (BOOL)isEnabled;
+- (id)initWithDOMElement:(id)a0 parent:(id)a1 elementFactory:(id)a2;
+- (id)applyUpdatesWithElement:(id)a0;
+
+@end

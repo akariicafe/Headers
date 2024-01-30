@@ -1,0 +1,19 @@
+@class UITableViewController;
+
+@interface WKSelectPopover : WKFormRotatingAccessoryPopover <WKFormControl> {
+    struct RetainPtr<WKSelectTableViewController> { void *m_ptr; } _tableViewController;
+}
+
+@property (readonly, nonatomic) UITableViewController *tableViewController;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)controlView;
+- (void)controlBeginEditing;
+- (void)controlEndEditing;
+- (id).cxx_construct;
+- (void)_userActionDismissedPopover:(id)a0;
+- (id)initWithView:(id)a0 hasGroups:(BOOL)a1;
+- (void)selectRow:(long long)a0 inComponent:(long long)a1 extendingSelection:(BOOL)a2;
+
+@end

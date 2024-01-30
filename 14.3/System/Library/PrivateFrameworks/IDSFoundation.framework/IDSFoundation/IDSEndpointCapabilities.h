@@ -1,0 +1,55 @@
+@interface IDSEndpointCapabilities : NSObject <NSSecureCoding> {
+    char _supportsKeySharing;
+    char _supportsHarmony;
+    char _supportsFMDV2;
+    char _supportsFMFenceV1;
+    char _supportsLocationSharing;
+    char _supportsScreenTimeV2;
+    char _supportsIncomingFindMyV1;
+    char _supportsActivitySharing;
+    char _supportsManateeForAppleCash;
+    char _supportsRegionForAppleCash;
+    char _ecVersion;
+    char _isC2KEquipment;
+    char _showPeerErrors;
+    char _nicknamesVersion;
+    char _optionallyReceiveTypingIndicator;
+    char _supportsInlineAttachments;
+    char _supportsKeepReceipts;
+    char _supportsStickersV1;
+    char _supportsChatAppsV1;
+    char _supportsBubbleEditingV1;
+    char _supportsAcknowledgementsV1;
+    char _supportsFullScreenMomentsV1;
+    char _supportsFullScreenMomentsV2;
+    char _supportsFullScreenMomentsV3;
+    char _supportsInvisibleInkV1;
+    char _supportsImpactEffectsV1;
+    char _supportsUpdateAttachmentsV1;
+    char _supportsAutoloopVideoV1;
+    char _supportsMediaV2;
+    char _supportsPhotosExtensionV1;
+    char _supportsAudioMessagingV2;
+    char _supportsAnimojiV2;
+    char _supportsCertifiedDeliveryV1;
+    char _supportsOriginalTimestampOrderingV1;
+    char _supportsProtobufPayloadDataV2;
+    char _supportsHEIFEncoding;
+    char _supportsHDRVideo;
+    char _prefersSDRVideo;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
++ (id)allowedCapabilities;
+
+- (id)initWithCapabilitiesMap:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)isEqualToEndpointCapabilites:(id)a0;
+- (long long)valueForCapability:(id)a0;
+- (id)debugDescription;
+- (void)encodeWithCoder:(id)a0;
+
+@end

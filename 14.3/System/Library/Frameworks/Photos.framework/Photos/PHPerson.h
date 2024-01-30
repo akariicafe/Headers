@@ -1,0 +1,85 @@
+@class NSString, NSDictionary;
+
+@interface PHPerson : PHObject
+
+@property (readonly, nonatomic) unsigned long long persistedSuggestionForClient;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSString *displayName;
+@property (readonly, nonatomic) long long type;
+@property (readonly, nonatomic) unsigned long long manualOrder;
+@property (readonly, nonatomic) NSString *personUri;
+@property (readonly, nonatomic, getter=isInPersonNamingModel) BOOL inPersonNamingModel;
+@property (readonly, nonatomic) long long faceCount;
+@property (readonly, nonatomic, getter=isVerified) BOOL verified;
+@property (readonly, nonatomic) long long verifiedType;
+@property (readonly, nonatomic) unsigned short questionType;
+@property (readonly, nonatomic) unsigned short ageType;
+@property (readonly, nonatomic) unsigned short genderType;
+@property (readonly, nonatomic) unsigned short sexType;
+@property (readonly, nonatomic) NSDictionary *contactMatchingDictionary;
+
++ (id)displayNameFromContact:(id)a0;
++ (long long)personSuggestionsForPerson:(id)a0 confirmedPersonSuggestions:(id)a1 rejectedPersonSuggestions:(id)a2 completion:(id /* block */)a3;
++ (id)_packageSuggestionList:(id)a0 photoLibrary:(id)a1;
++ (id)personSuggestionsForPerson:(id)a0 confirmedPersonSuggestions:(id)a1 rejectedPersonSuggestions:(id)a2;
++ (id)_verifiedPersonWithLocalIdentifier:(id)a0 fromPhotoLibrary:(id)a1;
++ (long long)updateKeyFacesOfPersons:(id)a0 forceUpdate:(BOOL)a1 completion:(id /* block */)a2;
++ (long long)_personSuggestionsForPerson:(id)a0 confirmedPersonSuggestions:(id)a1 rejectedPersonSuggestions:(id)a2 fromClient:(id)a3 completion:(id /* block */)a4;
++ (id)_personSuggestionMarkedAsConfirmed:(BOOL)a0 fromPersonSuggestion:(id)a1;
++ (id)_convertToPersonSuggestion:(id)a0 photoLibrary:(id)a1;
++ (id)identifierCode;
++ (id)propertiesToFetchWithHint:(unsigned long long)a0;
++ (id)fetchType;
++ (id)fullNameFromContact:(id)a0;
++ (id)entityKeyMap;
++ (id)fetchPersonsForReferences:(id)a0 photoLibrary:(id)a1;
++ (id)transformValueExpression:(id)a0 forKeyPath:(id)a1;
++ (id)fetchPredicateFromComparisonPredicate:(id)a0 options:(id)a1;
++ (id)fetchPersonsForContactIdentifiers:(id)a0 options:(id)a1;
++ (id)fetchPersonsWithOptions:(id)a0;
++ (id)managedEntityName;
++ (BOOL)managedObjectSupportsPersonFilters;
++ (BOOL)managedObjectSupportsKeyFaces;
++ (id)localIdentifierExpressionForFetchRequests;
++ (id)fetchPersonsWithType:(long long)a0 options:(id)a1;
++ (id)fetchPersonsWithQuestionType:(unsigned short)a0 options:(id)a1;
++ (id)fetchPersonsWithLocalIdentifiers:(id)a0 options:(id)a1;
++ (id)fetchPersonsInAsset:(id)a0 options:(id)a1;
++ (id)fetchPersonsForAssetCollection:(id)a0 options:(id)a1;
++ (id)fetchPersonWithFace:(id)a0 options:(id)a1;
++ (id)fetchRejectedPersonsForFace:(id)a0 options:(id)a1;
++ (id)fetchPersonAssociatedWithFaceGroup:(id)a0 options:(id)a1;
++ (id)fetchAssociatedPersonsGroupedByFaceGroupLocalIdentifierForFaceGroups:(id)a0 options:(id)a1;
++ (id)fetchMergeCandidatePersonsForPerson:(id)a0 options:(id)a1;
++ (id)fetchInvalidMergeCandidatePersonsForPerson:(id)a0 options:(id)a1;
++ (id)fetchFinalMergeTargetPersonsForPersonWithUUID:(id)a0 options:(id)a1;
++ (id)_assetLocalIdentifiersForAssetCollection:(id)a0;
++ (id)_momentLocalIdentifiersForAssetCollection:(id)a0;
++ (id)fetchSuggestedPersonsForAssetCollection:(id)a0 options:(id)a1;
++ (id)fetchSuggestedPersonsForFocusedAssetCollection:(id)a0 options:(id)a1;
++ (id)fetchSuggestedRecipientsForAssetCollection:(id)a0 options:(id)a1;
++ (id)fetchSuggestedRecipientsForFocusedAssetCollection:(id)a0 options:(id)a1;
++ (id)batchFetchSuggestedRecipientsForAssets:(id)a0 options:(id)a1;
++ (id)_fetchSuggestedPersonsForRecipients:(id)a0 options:(id)a1 photoLibrary:(id)a2;
++ (id)_fetchSuggestedRecipientsForFocusedAssetCollection:(id)a0 assetCollection:(id)a1 options:(id)a2 client:(unsigned long long)a3;
++ (id)fetchVerifiedPersonUUIDsGroupedByAssetUUIDForAssetUUIDs:(id)a0 options:(id)a1;
++ (id)fetchPersonsGroupedByAssetLocalIdentifierForAssets:(id)a0 options:(id)a1;
++ (id)fetchPersonCountGroupedByAssetLocalIdentifierForAssets:(id)a0 options:(id)a1;
++ (id)personToKeepForCloudConistencyFromPersons:(id)a0;
++ (id)fetchPersonsForContacts:(id)a0 options:(id)a1;
++ (id)inferredContactByPersonLocalIdentifierForPersons:(id)a0;
++ (id)batchFetchRelationshipInferencesForPersons:(id)a0;
++ (id)batchFetchContactInferencesForPersons:(id)a0 queryOptions:(unsigned long long)a1;
++ (id)fetchSuggestedPersonsForClient:(unsigned long long)a0 options:(id)a1;
+
+- (Class)changeRequestClass;
+- (void).cxx_destruct;
+- (id)objectReference;
+- (id)description;
+- (id)initWithFetchDictionary:(id)a0 propertyHint:(unsigned long long)a1 photoLibrary:(id)a2;
+- (id)inferredContact;
+- (void)markAsNeedingKeyFace;
+- (id)linkedContactWithKeysToFetch:(id)a0;
+- (id)suggestedContacts;
+
+@end

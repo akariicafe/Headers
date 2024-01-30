@@ -1,0 +1,3 @@
+@interface MiroVPStabilizationMetadataRange : MiroVPMetadataRange
+
+@end

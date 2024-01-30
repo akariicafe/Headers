@@ -1,0 +1,82 @@
+@class UIBarButtonItem, UINavigationController, UITableView, OBTrayButton, WFWorkflowViewController, WFWorkflowIcon, UIView, OBWelcomeController, WFTrigger, NSString, NSLayoutConstraint, WFDatabase, WFAutomationSuggestion, WFWorkflow;
+@protocol VCUIShortcutViewControllerDelegate;
+
+@interface VCUIShortcutViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate, WFWorkflowViewControllerDelegate>
+
+@property (readonly, nonatomic) unsigned long long mode;
+@property (readonly, nonatomic) NSLayoutConstraint *tableViewHeightConstraint;
+@property (readonly, nonatomic) UITableView *tableView;
+@property (readonly, nonatomic) NSLayoutConstraint *customViewContainerHeightConstraint;
+@property (readonly, nonatomic) UIView *customViewContainer;
+@property (retain, nonatomic) UIView *customView;
+@property (retain, nonatomic) OBTrayButton *primaryButton;
+@property (retain, nonatomic) OBTrayButton *secondaryButton;
+@property (readonly, nonatomic) WFDatabase *database;
+@property (retain, nonatomic) WFWorkflowViewController *inlineWorkflowViewController;
+@property (nonatomic) BOOL hasAppeared;
+@property (weak, nonatomic) id<VCUIShortcutViewControllerDelegate> delegate;
+@property (readonly, nonatomic) OBWelcomeController *welcomeController;
+@property (readonly, nonatomic) UINavigationController *navigationController;
+@property (retain, nonatomic) UIBarButtonItem *rightBarButtonItem;
+@property (retain, nonatomic) WFWorkflow *workflow;
+@property (retain, nonatomic) WFTrigger *trigger;
+@property (retain, nonatomic) WFAutomationSuggestion *suggestion;
+@property (nonatomic) unsigned long long source;
+@property (copy, nonatomic) NSString *shortcutName;
+@property (copy, nonatomic) NSString *shortcutDescription;
+@property (copy, nonatomic) WFWorkflowIcon *shortcutIcon;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_preventsAppearanceProxyCustomization;
+
+- (id)captionText;
+- (int)eventSource;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void).cxx_destruct;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)dealloc;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)subtitle;
+- (void)keyboardWillChange:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)didTapCancel;
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)applicationBundleIdentifier;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)navigationController:(id)a0 willShowViewController:(id)a1 animated:(BOOL)a2;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (id)nameCell;
+- (id)primaryButtonTitle;
+- (id)secondaryButtonTitle;
+- (void)textFieldDidChange:(id)a0;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (id)title;
+- (void)viewDidLoad;
+- (id)headerImage;
+- (void)didTapPrimaryButton;
+- (void)didTapSecondaryButton;
+- (void)workflowViewController:(id)a0 didChangeContentSize:(struct CGSize { double x0; double x1; })a1;
+- (id)initWithWorkflow:(id)a0 database:(id)a1 mode:(unsigned long long)a2;
+- (id)initWithAutomationSuggestion:(id)a0 workflow:(id)a1 database:(id)a2;
+- (unsigned long long)currentPreviewMode;
+- (void)updateCustomView;
+- (void)setCustomView:(id)a0 withHeight:(double)a1;
+- (id)shortcutPreviewImage;
+- (id)shortcutPreview;
+- (id)primaryButtonTintColor;
+- (id)createdSecondaryButton;
+- (id)secondaryButtonTintColor;
+- (id)nameSectionTitle;
+- (BOOL)shouldShowActionCell;
+- (void)createNewAutomationSuggestion;
+- (void)updatePrimaryButton;
+- (void)trackAddEvent;
+- (BOOL)isUpdatingExistingShortcut;
+
+@end

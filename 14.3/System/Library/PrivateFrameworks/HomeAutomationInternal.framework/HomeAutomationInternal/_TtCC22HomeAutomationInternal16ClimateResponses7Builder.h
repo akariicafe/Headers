@@ -1,0 +1,3 @@
+@interface _TtCC22HomeAutomationInternal16ClimateResponses7Builder : _TtCC22HomeAutomationInternal22NumericEntityResponses7Builder
+
+@end

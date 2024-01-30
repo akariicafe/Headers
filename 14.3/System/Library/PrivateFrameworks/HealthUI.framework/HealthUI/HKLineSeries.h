@@ -1,0 +1,40 @@
+@class NSArray, HKLineSeriesPointMarkerStyle;
+
+@interface HKLineSeries : HKGraphSeries
+
+@property (retain, nonatomic) NSArray *unhighlightedPresentationStyles;
+@property (retain, nonatomic) NSArray *highlightedPresentationStyles;
+@property (retain, nonatomic) NSArray *selectedPresentationStyles;
+@property (retain, nonatomic) HKLineSeriesPointMarkerStyle *selectedPointMarkerStyle;
+@property (nonatomic) BOOL flatLastValue;
+@property (nonatomic) BOOL extendLastValue;
+@property (nonatomic) BOOL extendFirstValue;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)coordinatesForBlock:(id)a0 blockPath:(struct { long long x0; long long x1; })a1 xAxis:(id)a2 yAxis:(id)a3;
+- (void)drawSeriesWithBlockCoordinates:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomLevelConfiguration:(id)a2 pointTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a3 renderContext:(struct CGContext { } *)a4 secondaryRenderContext:(id)a5;
+- (BOOL)supportsMultiTouchSelection;
+- (BOOL)blockCoordinateIsVisibleInsideOfChartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 blockCoordinate:(id)a1;
+- (double)distanceFromPoint:(struct CGPoint { double x0; double x1; })a0 blockCoordinate:(id)a1 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (double)xAxisDistanceFromPoint:(struct CGPoint { double x0; double x1; })a0 blockCoordinate:(id)a1 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (double)yAxisDifferenceToPoint:(struct CGPoint { double x0; double x1; })a0 blockCoordinate:(id)a1 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (BOOL)blockCoordinate:(id)a0 lessThan:(id)a1;
+- (BOOL)blockCoordinate:(id)a0 greaterThan:(id)a1;
+- (void)_enumerateCoordinateList:(id)a0 withTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 weightedAverageWidth:(double)a2 block:(id /* block */)a3;
+- (void)_enumerateCoordinateList:(id)a0 withTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 presentationStyle:(id)a2 zoomLevelConfiguration:(id)a3 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 block:(id /* block */)a5;
+- (void)_enumerateSawToothPathsFromBlockCoordinates:(id)a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 zoomLevelConfiguration:(id)a2 presentationStyle:(id)a3 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 handler:(id /* block */)a5;
+- (void)_enumerateSinePathsFromBlockCoordinates:(id)a0 transfrom:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 zoomLevelConfiguration:(id)a2 presentationStyle:(id)a3 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 handler:(id /* block */)a5;
+- (id)_currentPresentationStyles;
+- (void)_enumerateCoordinateListByRemovingOffscreenPoints:(id)a0 withTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 presentationStyle:(id)a2 zoomLevelConfiguration:(id)a3 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4 block:(id /* block */)a5;
+- (void)addAxisAnnotationForValue:(double)a0;
+- (void)_enumeratePathsFromBlockCoordinates:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomLevelConfiguration:(id)a2 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a3 presentationStyle:(id)a4 handler:(id /* block */)a5;
+- (void)_renderLineEndCapsInContext:(struct CGContext { } *)a0 endCaps:(id)a1 endCapImage:(id)a2;
+- (void)_renderPointMarkersInContext:(struct CGContext { } *)a0 blockCoordinates:(id)a1 pointTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a2 pointMarkerImage:(id)a3;
+- (void)_renderPointLabelsInContext:(struct CGContext { } *)a0 blockCoordinates:(id)a1 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 pointTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a3 presentationStyle:(id)a4 zoomLevelConfiguration:(id)a5;
+- (void)_renderLegendPointLabelInContext:(struct CGContext { } *)a0 point:(struct CGPoint { double x0; double x1; })a1 untransformedPoint:(struct CGPoint { double x0; double x1; })a2 presentationStyle:(id)a3 leftOfPoint:(BOOL)a4;
+- (void)_updateSecondaryRenderContextWithBlockCoordinates:(id)a0 secondaryRenderContext:(id)a1 pointTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a2 zoomLevelConfiguration:(id)a3 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a4;
+- (void)_renderPointLegendLabelWithText:(id)a0 drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 labelAttributes:(id)a2;
+- (void)_renderPointLabelInContext:(struct CGContext { } *)a0 renderingData:(struct { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; double x1; long long x2; })a1 numberFormatter:(id)a2 labelAttributes:(id)a3;
+
+@end

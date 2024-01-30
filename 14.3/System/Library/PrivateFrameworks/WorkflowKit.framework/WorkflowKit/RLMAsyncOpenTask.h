@@ -1,0 +1,3 @@
+@interface RLMAsyncOpenTask : NSObject
+
+@end

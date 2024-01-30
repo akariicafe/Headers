@@ -1,0 +1,3 @@
+@interface ICColorDummyClass : NSObject
+
+@end

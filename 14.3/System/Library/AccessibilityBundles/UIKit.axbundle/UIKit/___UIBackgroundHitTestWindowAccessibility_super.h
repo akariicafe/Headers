@@ -1,0 +1,3 @@
+@interface ___UIBackgroundHitTestWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

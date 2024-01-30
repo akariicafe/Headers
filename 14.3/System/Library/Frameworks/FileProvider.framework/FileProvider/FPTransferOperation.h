@@ -1,0 +1,3 @@
+@interface FPTransferOperation : FPMoveOperation
+
+@end

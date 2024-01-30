@@ -1,0 +1,3 @@
+@interface AUImageView : UIImageView
+
+@end

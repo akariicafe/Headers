@@ -1,0 +1,3 @@
+@interface SBCoverSheetScreenEdgePanGestureRecognizer : SBHomeGesturePanGestureRecognizer
+
+@end

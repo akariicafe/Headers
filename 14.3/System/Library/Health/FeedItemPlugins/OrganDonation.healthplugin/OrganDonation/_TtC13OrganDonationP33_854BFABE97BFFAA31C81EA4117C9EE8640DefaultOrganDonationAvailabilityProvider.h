@@ -1,0 +1,3 @@
+@interface _TtC13OrganDonationP33_854BFABE97BFFAA31C81EA4117C9EE8640DefaultOrganDonationAvailabilityProvider : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,78 @@
+@class UIStackView, UILabel, HKHeartRhythmAvailability, UIView, HKSeparatorLineView, NSDate, HRStackedButtonView, NSString, NSDateFormatter, NSLayoutConstraint, HKCaretOptionalTextField, UIDatePicker;
+
+@interface HROnboardingElectrocardiogramAvailabilityViewController : HROnboardingBaseViewController <HRStackedButtonViewDelegate, UITextFieldDelegate>
+
+@property (retain, nonatomic) HKHeartRhythmAvailability *availability;
+@property (retain, nonatomic) UIView *heroView;
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *bodyLabel;
+@property (retain, nonatomic) UILabel *birthdayPromptLabel;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayTopSeparator;
+@property (retain, nonatomic) UIStackView *birthdayEntryView;
+@property (retain, nonatomic) HKCaretOptionalTextField *birthdayTextField;
+@property (retain, nonatomic) UIDatePicker *datePicker;
+@property (retain, nonatomic) NSDate *dateOfBirth;
+@property (retain, nonatomic) NSDateFormatter *dateFormatter;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayBottomSeparator;
+@property (retain, nonatomic) UILabel *birthdayFooterLabel;
+@property (retain, nonatomic) UILabel *locationFooterLabel;
+@property (retain, nonatomic) HRStackedButtonView *stackedButtonView;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewBottomConstraint;
+@property (retain, nonatomic) NSString *productType;
+@property (nonatomic) long long provenance;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_titleFont;
+- (void).cxx_destruct;
+- (id)_bodyFont;
+- (BOOL)textField:(id)a0 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (id)_titleFontTextStyle;
+- (void)setUpConstraints;
+- (void)setUpUI;
+- (id)bodyString;
+- (void)viewDidLoad;
+- (id)titleString;
+- (id)createHeroView;
+- (id)buttonTitleString;
+- (void)stackedButtonView:(id)a0 didTapButtonAtIndex:(long long)a1;
+- (id)disclaimerString;
+- (id)_bodyFontTextStyle;
+- (void)_keyboardFrameChanged:(id)a0;
+- (id)_footnoteFont;
+- (void)_updateDateOfBirthDisplay;
+- (double)_ageEntryTopSeparatorToFirstBaseline;
+- (double)_ageEntryLastBaselineToBottomSeparator;
+- (id)_ageEntryTitleFont;
+- (id)_dateOfBirthDatePicker;
+- (void)_dateOfBirthTapped:(id)a0;
+- (void)_datePickerValueChanged:(id)a0;
+- (BOOL)_meetsAgeRequirement;
+- (id)ageIneligiblePromptBodyString;
+- (id)ageIneligiblePromptAckButtonString;
+- (id)ageWithDate:(id)a0;
+- (id)ageLimit;
+- (id)ageIneligiblePromptTitleString;
+- (id)learnMoreString;
+- (id)featureDisabledBodyString;
+- (id)locationNotFoundPromptBodyString;
+- (id)watchOSVersionTooLowBodyString;
+- (id)deviceNotSupportedBodyString;
+- (id)locationFeatureIneligiblePromptBodyString;
+- (id)_footnoteTextStyle;
+- (id)initForOnboarding:(BOOL)a0 provenance:(long long)a1;
+- (double)_titleBottomToBodyTop;
+- (id)locationFooterString;
+- (id)_birthdayPromptFont;
+- (void)_setupBirthdayEntryView;
+- (id)birthdayFooterString;
+- (double)_bodyBottomToAgePromptTop;
+- (double)_agePromptLastBaselineToAgeEntryTop;
+- (double)_bottomSeparatorToBirthdayFooterFirstBaseline;
+- (double)_birthdayFooterLastBaselineToContinueButton;
+- (void)_trackElectrocardiogramOnboardingStepIfNeeded:(long long)a0 countryCode:(id)a1;
+- (id)createLearnMoreExpandedView;
+
+@end

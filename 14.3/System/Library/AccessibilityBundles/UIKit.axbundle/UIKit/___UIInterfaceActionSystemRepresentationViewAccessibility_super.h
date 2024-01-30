@@ -1,0 +1,3 @@
+@interface ___UIInterfaceActionSystemRepresentationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

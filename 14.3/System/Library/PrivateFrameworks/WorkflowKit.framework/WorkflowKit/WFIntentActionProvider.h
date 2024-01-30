@@ -1,0 +1,24 @@
+@class NSDictionary, INStringLocalizer;
+
+@interface WFIntentActionProvider : WFActionProvider
+
+@property (nonatomic, getter=isObservingInstalledApplicationsChanges) BOOL observingInstalledApplicationsChanges;
+@property (copy, nonatomic) NSDictionary *cachedSchemasByBundleIdentifier;
+@property (readonly, nonatomic) INStringLocalizer *stringLocalizer;
+
++ (void)initialize;
++ (id)disabledPlatformsForIntentWithTypeName:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)installedApplicationsDidChange:(id)a0;
+- (id)availableActionIdentifiers;
+- (void)createActionsForRequests:(id)a0;
+- (id)createAllAvailableActions;
+- (id)schemasByBundleIdentifier;
+- (id)schemaForBundleIdentifier:(id)a0 ignoreCache:(BOOL)a1;
+- (id)actionIdentifiersForBundleIdentifier:(id)a0 schema:(id)a1;
+- (BOOL)shouldCreateActionForIntentClassName:(id)a0 actionIdentifier:(id)a1 bundleIdentifier:(id)a2 inSchema:(id)a3;
+- (void)observeInstalledApplicationsChangesIfNeeded;
+
+@end

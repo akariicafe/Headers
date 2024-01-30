@@ -1,0 +1,95 @@
+@class NSSet, NSString, NSMutableDictionary, NSMutableSet, TSTCustomFormatList, TSADrawableFactory;
+@protocol TSADocumentRootDelegate;
+
+@interface TSADocumentRoot : TSKDocumentRoot <TSKImportExportDelegate> {
+    int _needsToCaptureViewState;
+    NSMutableDictionary *_upgradeState;
+    NSMutableSet *_warnings;
+    NSString *_creationLanguage;
+    unsigned long long _creationLanguageWritingDirection;
+    TSTCustomFormatList *_tablesCustomFormatList;
+    BOOL _needsMovieCompatibilityUpgrade;
+    BOOL _isClosed;
+    NSString *_templateIdentifier;
+}
+
+@property (nonatomic) BOOL hasPreUFFVersion;
+@property (readonly, nonatomic) NSSet *missingFontWarningMessages;
+@property (nonatomic) BOOL needsMovieCompatibilityUpgrade;
+@property (nonatomic) id<TSADocumentRootDelegate> delegate;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSString *defaultDraftName;
+@property (readonly, nonatomic, getter=isDocumentEditedSinceLastSave) BOOL documentEditedSinceLastSave;
+@property (copy, nonatomic) NSString *templateIdentifier;
+@property (readonly, nonatomic) TSADrawableFactory *drawableFactory;
+@property (readonly, nonatomic) BOOL importingDesignDemoDoc;
+@property (readonly, nonatomic) BOOL isBrowsingVersions;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)persistenceWarningsForData:(id)a0 isReadable:(BOOL)a1 isExternal:(BOOL)a2;
+
+- (void)didEnterBackground;
+- (id)initWithContext:(id)a0;
+- (id)init;
+- (void)dealloc;
+- (void)willEnterForeground;
+- (unsigned long long)writingDirection;
+- (id)warnings;
+- (id)upgradeState;
+- (void)documentDidLoad;
+- (void)addWarning:(id)a0;
+- (id)packageDataForWrite;
+- (id)additionalDocumentPropertiesForWrite;
+- (id)dataFromDocumentCachePath:(id)a0;
+- (BOOL)writeData:(id)a0 atDocumentCachePath:(id)a1;
+- (struct CGImageSource { } *)newImageSourceForDocumentCachePath:(id)a0;
+- (id)uniqueDocumentCachePathForProposedPath:(id)a0;
+- (void)changeDocumentCacheFileProtection:(id)a0;
+- (void)didSaveWithEncryptionChange;
+- (id)creationLanguage;
+- (id)commandForPropagatingPresetChangeCommand:(id)a0 alwaysPreserveAppearance:(BOOL)a1;
+- (long long)addObserverForICloudTeardownWithBlock:(id /* block */)a0;
+- (BOOL)hasICloudConflict;
+- (id)referencedStylesOfClass:(Class)a0;
+- (id)customFormatList;
+- (void)p_updateCreationLanguage;
+- (void)p_updateBuildVersionHistoryWithVersionOfTemplateBundle:(id)a0;
+- (void)setCreationLanguage:(id)a0;
+- (BOOL)isMultiPageForQuickLook;
+- (void)fulfillPasteboardPromises;
+- (void)p_registerAllFormulasAfterImport;
+- (BOOL)exportToPath:(id)a0 exporter:(id)a1 delegate:(id)a2 error:(id *)a3;
+- (id)p_parseNumberOutOfBasename:(id)a0 hasNumber:(BOOL *)a1 number:(unsigned long long *)a2;
+- (id)protected_defaultTextPresetOrdering;
+- (void)pUpgradeHyperlinksInStorage:(id)a0;
+- (void)performHyperlinkUpgradesIfNecessaryForVersion:(unsigned long long)a0;
+- (void)p_removeStyles:(id)a0;
+- (void)p_replaceStyles:(id)a0 andChildrenWithVariationOfStyle:(id)a1;
+- (id)documentCachePath;
+- (void)removeWarning:(id)a0;
+- (void)prepareNewDocumentWithTemplateBundle:(id)a0;
+- (void)updateWritingDirection:(unsigned long long)a0;
+- (void)documentDidSave;
+- (void)willClose;
+- (void)initializeForImport;
+- (void)setCustomFormatList:(id)a0;
+- (void)suspendBackgroundActivities;
+- (void)resumeBackgroundActivities;
+- (void)suspendThumbnailing;
+- (void)resumeThumbnailing;
+- (void)didDownloadDocumentResources:(id)a0 failedOrCancelledDocumentResources:(id)a1 error:(id)a2;
+- (void)importerDidFinish:(id)a0;
+- (id)newExporterForType:(id)a0 options:(id)a1 preferredType:(id *)a2;
+- (BOOL)exportToPath:(id)a0 exporter:(id)a1 error:(id *)a2;
+- (void)prepareForSavingAsTemplate;
+- (void)insertTextPresetDisplayItemsPreservingGrouping:(id)a0 insertAtBeginningOfGroup:(BOOL)a1;
+- (id)p_characterStyleWithProperties:(id)a0 stylesheet:(id)a1 override:(id)a2;
+- (void)pUpgradeHyperlinks;
+- (void)performStylesheetUpdatesIfNecessaryForVersion:(unsigned long long)a0;
+- (void)p_replaceStyle:(id)a0 andChildrenWithVariationOfStyle:(id)a1;
+- (BOOL)shouldAllowDrawableInGroups:(id)a0 forImport:(BOOL)a1;
+
+@end

@@ -1,0 +1,56 @@
+@interface ICKeychainUtilities : NSObject
+
++ (unsigned long long)getUnsignedIntegerFromKeyChainForIdentifier:(id)a0;
++ (void)setUnsignedInteger:(unsigned long long)a0 forIdentifierInKeychain:(id)a1;
++ (BOOL)addDevicePasscodeGuardedItem:(id)a0 forIdentifier:(id)a1 error:(id *)a2;
++ (id)getItemForIdentifier:(id)a0 alertTextForAuthentication:(id)a1 error:(id *)a2;
++ (BOOL)getBoolFromKeyChainForIdentifier:(id)a0;
++ (id)getItemFromAnyKeychainGroupForIdentifier:(id)a0 error:(id *)a1;
++ (id)policyStateNilData;
++ (BOOL)addItem:(id)a0 forIdentifier:(id)a1 secAccessControlObject:(id)a2 itemType:(unsigned long long)a3 acccountIdentifier:(id)a4 error:(id *)a5;
++ (void)clearKeysAndUpdateDomainPolicyState;
++ (void)setBool:(BOOL)a0 forIdentifierInKeychain:(id)a1;
++ (BOOL)exceededMaxUpdatePolicyDomainStateAttemptCount;
++ (void)bumpUpdatePolicyDomainStateAttemptCount;
++ (BOOL)removeAllFromBiometricID;
++ (void)resetUpdatePolicyDomainStateAttemptCount;
++ (BOOL)biometricIDIsEnrolled:(id *)a0 checkPolicyDomainState:(BOOL)a1;
++ (BOOL)isControlVariableVersionMigratedToCurrent;
++ (id)faceIDEnabledKeyForAccountID:(id)a0;
++ (id)DEPRECATED_faceIDUserDefaultsDisabled;
++ (id)touchIDEnabledKeyForAccountID:(id)a0;
++ (id)DEPRECATED_touchIDUserDefaultsDisabled;
++ (void)removeNoteFromBiometricID:(id)a0;
++ (BOOL)removeItemForIdentifier:(id)a0 error:(id *)a1;
++ (BOOL)addEncryptionKeyWithoutGuardianIfBiometricIDSupportedAndEnabled:(id)a0 forIdentifier:(id)a1 accountID:(id)a2 error:(id *)a3;
++ (void)removeItemFromBiometricID:(id)a0;
++ (BOOL)biometricIDSupportedAndEnabledForSharedPasswordForAccountID:(id)a0 checkPolicyDomainState:(BOOL)a1;
++ (BOOL)faceIDNotesSettingEnabledForAccountID:(id)a0;
++ (BOOL)touchIDNotesSettingEnabledForAccountID:(id)a0;
++ (BOOL)biometricIDSupportedAndEnabledForSharedPasswordForAccountIDs:(id)a0 strict:(BOOL)a1 checkPolicyDomainState:(BOOL)a2;
++ (BOOL)touchIDIsEnrolled;
++ (BOOL)biometricIDSupportedAndEnabledForSharedPasswordForAccountID:(id)a0;
++ (id)secAccessControlObjectWithCreationFlag:(unsigned long long)a0 error:(id *)a1;
++ (id)_queryForIdentifier:(id)a0 accessGroupIdentifier:(id)a1 alertTextForAuthentication:(id)a2 returnData:(BOOL)a3;
++ (id)_getItemForIdentifier:(id)a0 accessGroupIdentifier:(id)a1 alertTextForAuthentication:(id)a2 error:(id *)a3;
++ (BOOL)_removeItemForIdentifier:(id)a0 accessGroupIdentifier:(id)a1 itemType:(unsigned long long)a2 accountIdentifier:(id)a3 error:(id *)a4;
++ (unsigned long long)unsignedIntegerFromData:(id)a0;
++ (BOOL)_updateItemForIdentifier:(id)a0 accessGroupIdentifier:(id)a1 alertTextForAuthentication:(id)a2 attributesToUpdate:(id)a3 error:(id *)a4;
++ (BOOL)_removeAllFromBiometricIDAssumeEncryptionKeyTypeIsUsed;
++ (void)setTouchIDEnabled:(BOOL)a0 forAccountID:(id)a1;
++ (void)setFaceIDEnabled:(BOOL)a0 forAccountID:(id)a1;
++ (void)setControlVariableVersionToCurrent;
++ (void)beginEvaluatePolicyReplyBlock;
++ (void)moveAllEncryptionKeysToGroupContainerForAccountIdentifiers:(id)a0 context:(id)a1;
++ (void)endEvaluatePolicyReplyBlock;
++ (BOOL)biometricIDHardwareIsAvailable;
++ (BOOL)looselyAuthenticateWithDevicePasscodeWithAlertText:(id)a0;
++ (BOOL)biometricIDIsEnrolled;
++ (BOOL)faceIDIsEnrolled;
++ (BOOL)biometricIDSupportedAndEnabledForSharedPasswordForAccountIDs:(id)a0 strict:(BOOL)a1;
++ (BOOL)touchIDEnabledForSharedPasswordForAccountIDs:(id)a0 strict:(BOOL)a1;
++ (void)migrateFromBioIDDisabledKeysToBioIDEnabledKeys;
++ (void)migrateKeysByMarkingWithEncryptionKeyTypeAndMovingIntoGroupContainer;
++ (void)removeAccountFromBiometricID:(id)a0 andRemoveNotes:(BOOL)a1;
+
+@end

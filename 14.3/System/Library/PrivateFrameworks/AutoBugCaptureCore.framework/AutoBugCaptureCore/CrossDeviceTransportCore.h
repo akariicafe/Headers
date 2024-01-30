@@ -1,0 +1,3 @@
+@interface CrossDeviceTransportCore : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC10RealityKit13AudioResource24UnsupportedConfiguration : _TtCC10RealityKit13AudioResource10AudioError
+
+@end

@@ -1,0 +1,31 @@
+@class NSString, NSMutableArray;
+
+@interface HKSHSleepDaySummaryQuery : HKQuery <HKSHSleepDaySummaryQueryClientInterface> {
+    id /* block */ _resultsHandler;
+    NSMutableArray *_summariesPendingDelivery;
+}
+
+@property (readonly, nonatomic) struct { long long start; long long duration; } morningIndexRange;
+@property (readonly, nonatomic) BOOL ascending;
+@property (readonly, nonatomic) long long limit;
+@property (readonly, nonatomic) BOOL requireSleepAnalysis;
+@property (readonly, nonatomic) BOOL onlySleepAnalysis;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)clientInterfaceProtocol;
++ (Class)configurationClass;
++ (void)configureClientInterface:(id)a0;
+
+- (void)queue_validate;
+- (void)queue_queryDidDeactivate:(id)a0;
+- (void)queue_populateConfiguration:(id)a0;
+- (void).cxx_destruct;
+- (void)queue_deliverError:(id)a0;
+- (id)initWithMorningIndexRange:(struct { long long x0; long long x1; })a0 ascending:(BOOL)a1 limit:(long long)a2 requireSleepAnalysis:(BOOL)a3 onlySleepAnalysis:(BOOL)a4 resultsHandler:(id /* block */)a5;
+- (id)initWithMorningIndexRange:(struct { long long x0; long long x1; })a0 ascending:(BOOL)a1 limit:(long long)a2 requireSleepAnalysis:(BOOL)a3 resultsHandler:(id /* block */)a4;
+- (void)client_deliverDaySummaries:(id)a0 clearPending:(BOOL)a1 isFinalBatch:(BOOL)a2 queryUUID:(id)a3;
+
+@end

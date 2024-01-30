@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_4FF627671B2E357BF8FD0A376089C04136AnyAccessibilityActionHandlerBoxBase : _TtCs12_SwiftObject
+
+@end

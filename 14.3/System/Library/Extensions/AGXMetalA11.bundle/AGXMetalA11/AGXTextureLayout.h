@@ -1,0 +1,23 @@
+@class NSString;
+
+@interface AGXTextureLayout : IOGPUMetalTextureLayout <MTLTextureLayout> {
+    struct Texture { void /* function */ **x0; struct Device *x1; BOOL x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; unsigned long long x6; struct AGXTextureCompressionSettings { union { struct { unsigned char x0 : 1; unsigned char x1 : 1; unsigned char x2 : 1; unsigned char x3 : 1; unsigned char x4 : 4; } x0; unsigned char x1; } x0; unsigned char x1; } x7; unsigned int x8; struct TextureArguments { unsigned long long x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; unsigned int x11; } x9; unsigned int x10; unsigned int x11; unsigned int x12; unsigned int x13; unsigned int x14; unsigned long long x15; unsigned long long x16; struct __IOSurface *x17; unsigned int x18; struct __IOSurface *x19; int x20; unsigned int x21; BOOL x22; struct TextureFormat *x23; unsigned int x24; unsigned int x25; BOOL x26; unsigned int x27; BOOL x28; struct agxsTwiddledBlockInfo { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned char x4; unsigned char x5; unsigned char x6; unsigned char x7; unsigned char x8; unsigned char x9; unsigned char x10; unsigned char x11; unsigned char x12; unsigned char x13; unsigned char x14; unsigned char x15; unsigned char x16; } x29[2]; void *x30; BOOL x31; int x32; int x33; BOOL x34; BOOL x35; unsigned long long x36; unsigned long long x37; unsigned long long x38[1]; unsigned long long x39[1]; unsigned long long x40; unsigned long long x41; unsigned int x42; int x43; unsigned int x44; struct AGXHardwareTextureLayout { unsigned char x0; unsigned char x1; struct AGXHardwareTextureModifiers { union { struct { unsigned char x0 : 1; unsigned char x1 : 1; unsigned char x2 : 1; unsigned char x3 : 5; } x0; unsigned char x1; } x0; } x2; unsigned char x3; } x45; BOOL x46; BOOL x47; struct ImageStateFields { union _AgxTexState0Word0 { unsigned long long x0; struct { unsigned char x0 : 3; unsigned char x1 : 2; unsigned char x2 : 7; unsigned char x3 : 3; unsigned char x4 : 3; unsigned char x5 : 3; unsigned char x6 : 3; unsigned char x7 : 3; unsigned short x8 : 14; unsigned short x9 : 14; unsigned char x10 : 4; unsigned char x11 : 4; unsigned char x12 : 1; } x1; } x0; union _AgxTexState0Word1 { unsigned long long x0; struct { unsigned char x0 : 2; unsigned long x1 : 36; unsigned char x2 : 3; unsigned char x3 : 3; unsigned char x4 : 2; unsigned short x5 : 16; unsigned char x6 : 1; unsigned char x7 : 1; } x1; } x1; union _AgxTexState1Word0 { unsigned long long x0; struct { unsigned long x0 : 36; unsigned short x1 : 16; unsigned short x2 : 12; } x1; } x2; } x48[2]; } *_impl;
+}
+
+@property (readonly) unsigned long long size;
+@property (readonly) unsigned long long alignment;
+@property (readonly) struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; } copyGranularity;
+@property (readonly) struct { unsigned long long x0[2]; } watermark;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)initializeTextureMemory:(void *)a0;
+- (id)initWithDevice:(id)a0 descriptor:(id)a1 isHeapOrBufferBacked:(BOOL)a2;
+- (void)finalizeTextureMemory:(void *)a0;
+- (void)copyFromTextureMemory:(const void *)a0 textureSlice:(unsigned long long)a1 textureLevel:(unsigned long long)a2 textureRegion:(struct { struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; } x0; struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; } x1; })a3 toLinearBytes:(void *)a4 linearOffset:(unsigned long long)a5 linearBytesPerRow:(unsigned long long)a6 linearBytesPerImage:(unsigned long long)a7;
+- (void)copyFromLinearBytes:(const void *)a0 linearOffset:(unsigned long long)a1 linearBytesPerRow:(unsigned long long)a2 linearBytesPerImage:(unsigned long long)a3 toTextureMemory:(void *)a4 textureSlice:(unsigned long long)a5 textureLevel:(unsigned long long)a6 textureRegion:(struct { struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; } x0; struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; } x1; })a7;
+
+@end

@@ -1,0 +1,15 @@
+@class NSXPCListener, NSMutableDictionary, NSString, NSNumber;
+
+@interface ADAttributionService : ADSingleton <NSXPCListenerDelegate>
+
+@property (retain) NSXPCListener *listener;
+@property (retain, nonatomic) NSMutableDictionary *clients;
+@property (retain, nonatomic) NSNumber *transactionID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+@end

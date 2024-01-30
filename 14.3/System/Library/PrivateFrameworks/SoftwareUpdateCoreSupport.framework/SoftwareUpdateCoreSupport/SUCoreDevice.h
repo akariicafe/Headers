@@ -1,0 +1,83 @@
+@class NSString, NSDictionary;
+
+@interface SUCoreDevice : NSObject
+
+@property (retain, nonatomic) NSString *targetedSystemVolume;
+@property (retain, nonatomic) NSString *systemVersionPlistPath;
+@property (retain, nonatomic) NSDictionary *systemVersionPlistContents;
+@property (retain, nonatomic) NSString *restoreVersionPlistPath;
+@property (retain, nonatomic) NSDictionary *restoreVersionPlistContents;
+@property (retain, nonatomic) NSString *bridgeVersionPlistPath;
+@property (retain, nonatomic) NSDictionary *bridgeVersionPlistContents;
+@property (retain, nonatomic) NSString *sfrSystemVersionPlistPath;
+@property (retain, nonatomic) NSDictionary *sfrSystemVersionPlistContents;
+@property (retain, nonatomic) NSString *sfrRestoreVersionPlistPath;
+@property (retain, nonatomic) NSDictionary *sfrRestoreVersionPlistContents;
+@property (retain, nonatomic) NSString *appleInternalVariantPlistPath;
+@property (retain, nonatomic) NSDictionary *appleInternalVariantPlistContents;
+@property (nonatomic) BOOL deviceSupportsMobileGestalt;
+@property (nonatomic) BOOL deviceSupportsCoreServices;
+@property (nonatomic) BOOL deviceSupportsAppleInternalVariant;
+@property (nonatomic) BOOL deviceSupportsRestoreVersion;
+@property (nonatomic) BOOL deviceSupportsSFRSystemVersion;
+@property (nonatomic) BOOL deviceSupportsSFRRestoreVersion;
+@property (nonatomic) BOOL deviceSupportsMultiVolumeBoot;
+@property (retain, nonatomic) NSString *buildVersion;
+@property (retain, nonatomic) NSString *productVersion;
+@property (retain, nonatomic) NSString *hwModelString;
+@property (retain, nonatomic) NSString *deviceClass;
+@property (retain, nonatomic) NSString *productType;
+@property (retain, nonatomic) NSString *releaseType;
+@property (retain, nonatomic) NSString *deviceBoardID;
+@property (retain, nonatomic) NSString *hwTarget;
+@property (retain, nonatomic) NSString *restoreVersion;
+@property (retain, nonatomic) NSString *bridgeVersion;
+@property (nonatomic) BOOL isInternal;
+@property (nonatomic) BOOL isBootedOSSecureInternal;
+@property (nonatomic) BOOL hasEmbeddedOS;
+@property (nonatomic) BOOL hasBridgeOS;
+@property (retain, nonatomic) NSString *bridgeBuildVersion;
+@property (retain, nonatomic) NSString *bridgeRestoreVersion;
+@property (nonatomic) BOOL isBridgeInternal;
+@property (nonatomic) BOOL hasSFR;
+@property (retain, nonatomic) NSString *sfrBuildVersion;
+@property (retain, nonatomic) NSString *sfrProductVersion;
+@property (retain, nonatomic) NSString *sfrRestoreVersion;
+@property (retain, nonatomic) NSString *sfrReleaseType;
+
++ (id)sharedDevice;
+
+- (id)summary;
+- (void).cxx_destruct;
+- (id)description;
+- (id)_copyGestaltValueForKey:(long long)a0;
+- (id)initTargetingSystemVolume:(id)a0;
+- (void)adjustTargetingSystemVolume:(id)a0;
+- (BOOL)_supportsMobileGestalt;
+- (BOOL)_supportsCoreServices;
+- (BOOL)_supportsAppleInternalVariant;
+- (BOOL)_supportsRestoreVersion;
+- (BOOL)_supportsSFRSystemVersion;
+- (BOOL)_supportsSFRRestoreVersion;
+- (id)_copyStringValueForKey:(long long)a0;
+- (id)_copyDeviceBoardID;
+- (void)_initializeBridgeOSProperties;
+- (BOOL)_supportsSFR;
+- (void)_adjustValuesForMacOS;
+- (void)_parseBridgeOSBuildInformationFromDevice:(id)a0;
+- (long long)_queryMethodForKey:(long long)a0;
+- (id)_copyCoreServicesValueForKey:(long long)a0;
+- (id)_copyCoreServicesAppleInternalValue;
+- (id)_copyRestoreVersionValueForKey:(long long)a0;
+- (id)_copySysCtlValueForKey:(long long)a0;
+- (id)_copySFRSystemVersionValueForKey:(long long)a0;
+- (id)_copySFRRestoreVersionValueForKey:(long long)a0;
+- (id)_nameForQueryMethod:(long long)a0;
+- (id)_nameForQueryKey:(long long)a0;
+- (struct __CFString { } *)_gestaltKeyForQueryKey:(long long)a0;
+- (id)_coreServicesKeyForQueryKey:(long long)a0;
+- (id)_restoreVersionKeyForQueryKey:(long long)a0;
+- (id)_sysCtlKeyForQueryKey:(long long)a0;
+- (id)_copyDeviceNVRAMHardwareModel;
+
+@end

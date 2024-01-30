@@ -1,0 +1,19 @@
+@class MLModel;
+
+@interface AXElementVision__generated__ : NSObject
+
+@property (readonly, nonatomic) MLModel *model;
+
++ (id)urlOfModelInThisBundle;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithContentsOfURL:(id)a0 error:(id *)a1;
+- (id)predictionFromFeatures:(id)a0 error:(id *)a1;
+- (id)initWithContentsOfURL:(id)a0 configuration:(id)a1 error:(id *)a2;
+- (id)predictionFromFeatures:(id)a0 options:(id)a1 error:(id *)a2;
+- (id)initWithConfiguration:(id)a0 error:(id *)a1;
+- (id)predictionFromImage:(struct __CVBuffer { } *)a0 iouThreshold:(double)a1 confidenceThreshold:(double)a2 error:(id *)a3;
+- (id)predictionsFromInputs:(id)a0 options:(id)a1 error:(id *)a2;
+
+@end

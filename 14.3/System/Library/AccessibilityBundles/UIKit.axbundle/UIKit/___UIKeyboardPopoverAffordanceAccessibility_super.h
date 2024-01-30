@@ -1,0 +1,3 @@
+@interface ___UIKeyboardPopoverAffordanceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

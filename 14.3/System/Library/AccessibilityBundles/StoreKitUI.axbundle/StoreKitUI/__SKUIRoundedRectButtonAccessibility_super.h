@@ -1,0 +1,3 @@
+@interface __SKUIRoundedRectButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

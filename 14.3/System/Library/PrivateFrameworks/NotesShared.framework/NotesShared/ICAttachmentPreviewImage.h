@@ -1,0 +1,87 @@
+@class ICAttachment, NSString, NSData, ICAccount, NSObject, NSDate;
+@protocol OS_dispatch_queue;
+
+@interface ICAttachmentPreviewImage : ICCloudSyncingObject <ICAttachmentPreviewImageUI>
+
+@property (weak, nonatomic) ICAccount *placeholderAccount;
+@property (retain, nonatomic) NSData *encryptedMetadata;
+@property (retain, nonatomic) NSData *cryptoMetadataInitializationVector;
+@property (retain, nonatomic) NSData *cryptoMetadataTag;
+@property (nonatomic) unsigned long long imageID;
+@property (readonly) NSObject<OS_dispatch_queue> *fileQueue;
+@property (nonatomic) double width;
+@property (nonatomic) double height;
+@property (nonatomic) double scale;
+@property (nonatomic) short appearanceType;
+@property (nonatomic) short version;
+@property (nonatomic) BOOL versionOutOfDate;
+@property (retain, nonatomic) NSDate *modifiedDate;
+@property (retain, nonatomic) ICAttachment *attachment;
+@property (nonatomic) BOOL scaleWhenDrawing;
+@property (retain, nonatomic) NSData *metadata;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)fileGlobalQueue;
++ (id)attachmentPreviewImageIdentifiersForAccount:(id)a0;
++ (void)purgePreviewImageFilesForIdentifiers:(id)a0 account:(id)a1;
++ (void)deleteStrandedAttachmentPreviewImagesInContext:(id)a0;
++ (id)previewImageURLsForIdentifier:(id)a0 account:(id)a1;
++ (id)fileQueueGroup;
++ (long long)updateFileWriteCounterBy:(long long)a0 identifier:(id)a1;
++ (void)purgeAllPreviewImageFiles;
++ (id)concurrentFileLoadLimitSemaphore;
++ (void)waitUntilAllFileWritesAreFinished;
++ (id)identifierForContentIdentifier:(id)a0 scale:(double)a1 width:(double)a2 height:(double)a3 appearanceType:(unsigned long long)a4;
++ (id)allAttachmentPreviewImagesInContext:(id)a0;
++ (id)attachmentPreviewImagesMatchingPredicate:(id)a0 inContext:(id)a1;
++ (id)newAttachmentPreviewImageWithIdentifier:(id)a0 attachment:(id)a1;
++ (void)purgeAllAttachmentPreviewImagesInContext:(id)a0;
++ (id)visibleAttachmentPreviewImagesInContext:(id)a0;
++ (id)attachmentPreviewImageWithIdentifier:(id)a0 inContext:(id)a1;
+
+- (void)setMetadata:(id)a0;
+- (void)invalidateCache;
+- (void)prepareForDeletion;
+- (void).cxx_destruct;
+- (id)metadata;
+- (id)ic_loggingValues;
+- (id)cloudAccount;
+- (void)deleteFromLocalDatabase;
+- (struct CGSize { double x0; double x1; })size;
+- (BOOL)shouldSyncToCloud;
+- (void)invalidateOrientedImage;
+- (BOOL)setImageData:(id)a0 withSize:(struct CGSize { double x0; double x1; })a1 scale:(double)a2 appearanceType:(unsigned long long)a3;
+- (BOOL)needsInitialFetchFromCloud;
+- (void)saveAndClearDecryptedData;
+- (id)containerAccount;
+- (id)orientedPreviewImageURLWithoutCreating;
+- (void)removeItemAtURL:(id)a0;
+- (id)previewImageURL;
+- (id)encryptedPreviewImageURL;
+- (void)invalidateImage;
+- (BOOL)makeSurePreviewImageDirectoryExists:(id *)a0;
+- (BOOL)writeEncryptedImageFromData:(id)a0;
+- (void)updateFlagToExcludeFromCloudBackup;
+- (id)previewImagePathExtension;
+- (void)createOrientedPreviewIfNeeded;
+- (BOOL)imageIsValid;
+- (id)_decryptedImageData;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })orientedImageTransform;
+- (BOOL)imageIsWriting;
+- (BOOL)setScaledImageFromImageSrc:(struct CGImageSource { } *)a0 typeUTI:(struct __CFString { } *)a1;
+- (BOOL)hasAnyPNGPreviewImageFiles;
+- (id)orientedPreviewImageURL;
+- (long long)minimumSupportedNotesVersion;
+- (BOOL)needsToBePushedToCloud;
+- (BOOL)needsToBeDeletedFromCloud;
+- (BOOL)needsToBeFetchedFromCloud;
+- (id)decryptedImageData;
+- (void)accountWillChangeToAccount:(id)a0;
+- (id)initWithEntity:(id)a0 insertIntoManagedObjectContext:(id)a1;
+- (void)willTurnIntoFault;
+- (id)parentEncryptableObject;
+
+@end

@@ -1,0 +1,3 @@
+@interface ADStereoPipelineParameters : ADPipelineParameters
+
+@end

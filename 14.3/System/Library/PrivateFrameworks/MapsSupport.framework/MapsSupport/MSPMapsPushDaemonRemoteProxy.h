@@ -1,0 +1,95 @@
+@class NSString, NSXPCConnection, NSHashTable, MSPUserRoutingPreferences;
+
+@interface MSPMapsPushDaemonRemoteProxy : NSObject <MSPMapsPushDaemonProxyObserver, MSPMapsPushDaemonProxy> {
+    NSXPCConnection *_connection;
+    NSHashTable *_observers;
+    MSPUserRoutingPreferences *_cachedUserRoutingPreferences;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void)showLowFuelAlertBulletinForLowFuelDetails:(id)a0;
+- (void)closeConnection;
+- (void)pushDaemonProxyReceivedNotificationData:(id)a0 forType:(id)a1 recordIdentifier:(id)a2;
+- (void)showParkedCarReplacementBulletinForEvent:(id)a0 replacingEvent:(id)a1;
+- (void)openConnection;
+- (void)checkin;
+- (void)showTrafficConditionsBulletinWithTitle:(id)a0 message:(id)a1 actionURL:(id)a2;
+- (void)clearCurrentAnnouncement;
+- (id)init;
+- (void)eraseCollectionsSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)fetchAnnouncementsFilePath:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)showTrafficIncidentAlertWithID:(id)a0 withReroute:(BOOL)a1 title:(id)a2 description:(id)a3;
+- (void)fetchDownloadedAnnouncements:(id /* block */)a0;
+- (void)fetchPinnedPlacesSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (oneway void)updateMapsModelBackupAttributesIfNeeded;
+- (void)fetchUserRoutingPreferencesWithCompletion:(id /* block */)a0;
+- (void)simulateProblemResolution;
+- (void)fetchProblemStatus;
+- (void)removeObserver:(id)a0;
+- (void)removeProblemStatusResponseWithNotificationID:(id)a0;
+- (void)fetchCollectionsSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)clearMapsSuggestionsBulletin;
+- (void)historyDidChange;
+- (void)fetchDevicePushToken:(id /* block */)a0;
+- (void)registerForTopic;
+- (void)showVenueBulletinWithTitle:(id)a0 message:(id)a1 actionURL:(id)a2;
+- (void)testByNotingHistoryChangedOnDisk;
+- (void)clearBulletinWithRecordID:(id)a0;
+- (void)fetchAnnouncementsURLPath:(id /* block */)a0;
+- (void)resetAnnouncements;
+- (void)handleMapsApplicationRemoval:(id /* block */)a0;
+- (void)addObserver:(id)a0;
+- (void)commitFavoritesSerializedRepresentation:(id)a0 reapingTombstones:(BOOL)a1 operationIdentifier:(id)a2 completion:(id /* block */)a3;
+- (void)clearTrafficConditionsBulletin;
+- (void)fetchFavoritesSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)showPredictedRouteTrafficIncidentBulletinForCommuteDetails:(id)a0;
+- (void)commitHistorySerializedRepresentation:(id)a0 reapingTombstones:(BOOL)a1 earliestKnownSyncDate:(id)a2 operationIdentifier:(id)a3 completion:(id /* block */)a4;
+- (id)userRoutingPrefrencesFromSettingsWithFreshness:(double)a0;
+- (void)showPredictedRouteTrafficIncidentBulletinForCommuteDetails:(id)a0 afterDelay:(double)a1;
+- (void)_connectToDaemonIfNeeded;
+- (void)fetchHistorySerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)fetchShownAnnouncements:(id /* block */)a0;
+- (void)clearParkedCarBulletin;
+- (void)showParkedCarBulletinForEvent:(id)a0;
+- (void)fetchLastKnownPinnedPlacesOperationIdentifier:(id /* block */)a0;
+- (void)setShouldUseDevAPNS:(BOOL)a0;
+- (void)noteMapstoolChangedHistoryOnDisk;
+- (void)noteMapstoolChangedFavoritesOnDisk;
+- (id)_connection;
+- (void)updateActiveAnnouncement;
+- (void)fetchLastKnownHistoryOperationIdentifier:(id /* block */)a0;
+- (void)clearCachedUserRoutingPreferences;
+- (void)erasePinnedPlacesSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)eraseRAPData;
+- (void)clearVenueBulletin;
+- (void)showMapsSuggestionsBulletinWithTitle:(id)a0 message:(id)a1 actionURL:(id)a2;
+- (void)_clearConnection;
+- (void)commitCollectionsSerializedRepresentation:(id)a0 operationIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)clearTrafficIncidentBulletinWithAlertID:(id)a0;
+- (void)clearLowFuelAlertBulletin;
+- (void)eraseHistorySerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)clearTrafficIncidentsBulletin;
+- (void)fetchCurrentAnnouncement:(id /* block */)a0;
+- (void)problemStatusResponseWithNotificationID:(id)a0 completion:(id /* block */)a1;
+- (void)shouldUseDevAPNS:(id /* block */)a0;
+- (void)showParkedCarReplacementBulletinForEvent:(id)a0 replacingEvent:(id)a1 afterDelay:(double)a2;
+- (void)fetchLastKnownCollectionsOperationIdentifier:(id /* block */)a0;
+- (void)clearPredictedRouteTrafficIncidentBulletin;
+- (void)clearShownAnnouncements;
+- (id)_remoteObjectProxy;
+- (void)updateAnnouncements:(id /* block */)a0;
+- (void)commitPinnedPlacesSerializedRepresentation:(id)a0 operationIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)favoritesDidChange;
+- (void)eraseFavoritesSerializedRepresentationWithCompletion:(id /* block */)a0;
+- (void)simulateAnnouncement:(id)a0 afterDelay:(double)a1;
+- (void)fetchLastKnownFavoritesOperationIdentifier:(id /* block */)a0;
+- (void)showParkedCarBulletinForEvent:(id)a0 afterDelay:(double)a1;
+
+@end

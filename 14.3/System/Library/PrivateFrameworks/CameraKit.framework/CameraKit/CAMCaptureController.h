@@ -1,0 +1,3 @@
+@interface CAMCaptureController : NSObject
+
+@end

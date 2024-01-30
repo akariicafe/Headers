@@ -1,0 +1,3 @@
+@interface CLKComplicationBundleConstants : NSObject
+
+@end

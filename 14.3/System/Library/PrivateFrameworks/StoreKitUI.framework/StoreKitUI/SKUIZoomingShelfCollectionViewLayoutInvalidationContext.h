@@ -1,0 +1,5 @@
+@interface SKUIZoomingShelfCollectionViewLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext
+
+@property (nonatomic) BOOL invalidateGeometryOnlyOfExistingLayoutAttributes;
+
+@end

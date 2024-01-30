@@ -1,0 +1,29 @@
+@class NSURL, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface TSPDocumentResourceCache : NSObject {
+    NSURL *_cacheURL;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    NSMutableDictionary *_entries;
+}
+
+@property (nonatomic) long long maxCacheSizeInBytes;
+
++ (id)sharedCache;
++ (id)defaultCacheURL;
+
+- (void)clearCache;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCacheURL:(id)a0;
+- (void)reloadEntries;
+- (id)entryForDigestString:(id)a0;
+- (void)shrinkCacheWithMaxCacheSizeInBytes:(long long)a0;
+- (void)enumerateEntriesFromCacheURLWithHandler:(id /* block */)a0;
+- (id)URLForDocumentResourceDigestString:(id)a0;
+- (BOOL)cacheDocumentResourceDigestString:(id)a0 extension:(id)a1 sourceURL:(id)a2 fileSize:(long long)a3 wasDownloaded:(BOOL)a4;
+- (BOOL)beginDocumentResourceAccessForDigestString:(id)a0;
+- (void)endDocumentResourceAccessForDigestString:(id)a0;
+- (void)shrinkCache;
+
+@end

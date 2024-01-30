@@ -1,0 +1,5 @@
+@interface TIStandardTypingSessionConfidenceEvaluator : NSObject
+
++ (unsigned long long)evaluateConfidenceInSession:(id)a0 alignedSession:(id)a1;
+
+@end

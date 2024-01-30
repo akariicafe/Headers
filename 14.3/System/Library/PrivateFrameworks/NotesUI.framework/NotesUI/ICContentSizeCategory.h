@@ -1,0 +1,3 @@
+@interface ICContentSizeCategory : NSObject
+
+@end

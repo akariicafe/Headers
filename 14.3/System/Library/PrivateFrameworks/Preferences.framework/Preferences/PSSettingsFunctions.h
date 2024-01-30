@@ -1,0 +1,3 @@
+@interface PSSettingsFunctions : NSObject
+
+@end

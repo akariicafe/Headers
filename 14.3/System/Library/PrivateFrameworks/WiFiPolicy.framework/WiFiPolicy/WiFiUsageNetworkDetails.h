@@ -1,0 +1,77 @@
+@class NSString, WiFiUsageBssDetails, NSDate, NSMutableArray;
+
+@interface WiFiUsageNetworkDetails : NSObject <NSCopying>
+
+@property (retain, nonatomic) NSMutableArray *downloadSpeedResults;
+@property (nonatomic) BOOL isKnown;
+@property (nonatomic) BOOL isOpen;
+@property (nonatomic) BOOL isPublic;
+@property (nonatomic) BOOL isHome;
+@property (nonatomic) BOOL isWork;
+@property (nonatomic) BOOL isInternal;
+@property (nonatomic) BOOL isManaged;
+@property (nonatomic) BOOL isCarrierBased;
+@property (nonatomic) BOOL isCarPlay;
+@property (nonatomic) BOOL isAppBased;
+@property (nonatomic) BOOL isWalletBased;
+@property (nonatomic) BOOL isPersonalHotspot;
+@property (nonatomic) BOOL isInstantHotspot;
+@property (nonatomic) BOOL isAutoHotspot;
+@property (nonatomic) BOOL isMoving;
+@property (nonatomic) BOOL isMesh;
+@property (nonatomic) BOOL isWidelyDeployed;
+@property (nonatomic) BOOL isAutoJoined;
+@property (nonatomic) BOOL isAdhoc;
+@property (nonatomic) BOOL isHidden;
+@property (nonatomic) BOOL isPasspoint;
+@property (nonatomic) BOOL isMetered;
+@property (nonatomic) BOOL hasWapi;
+@property (nonatomic) BOOL hasWeakSecurity;
+@property (nonatomic) BOOL hasWpa3;
+@property (nonatomic) BOOL hasWep;
+@property (nonatomic) BOOL hasEnterpriseSecurity;
+@property (nonatomic) BOOL hasLegacyEnterpriseSecurity;
+@property (nonatomic) BOOL hasNoMap;
+@property (nonatomic) BOOL hasAmbiguousSsid;
+@property (nonatomic) BOOL hasCustomNetworkSettings;
+@property (nonatomic) BOOL requiresUsername;
+@property (nonatomic) BOOL requiresPassword;
+@property (nonatomic) BOOL requiresIdentity;
+@property (nonatomic) BOOL requiresOtp;
+@property (nonatomic) BOOL canExposeImsi;
+@property (nonatomic) BOOL addedFromUI;
+@property (nonatomic) BOOL addedFromApp;
+@property (nonatomic) BOOL addedViaSync;
+@property (nonatomic) BOOL addedViaATJ;
+@property (nonatomic) BOOL addedViaRecommendation;
+@property (nonatomic) BOOL addedViaSharing;
+@property (nonatomic) long long usageRank;
+@property (nonatomic) BOOL autoJoinDisabled;
+@property (nonatomic) BOOL autoLoginDisabled;
+@property (nonatomic) BOOL lowDataModeEnabled;
+@property (nonatomic) BOOL controlCenterDisabled;
+@property (nonatomic) unsigned long long advertisedCountryCode;
+@property (nonatomic) unsigned long long appliedCountryCode;
+@property (nonatomic) unsigned long long localeSource;
+@property (nonatomic) unsigned long long bssEnvironment;
+@property (copy, nonatomic) NSString *networkName;
+@property (nonatomic) unsigned long long colocatedNetworkCount;
+@property (copy, nonatomic) WiFiUsageBssDetails *connectedBss;
+@property (nonatomic) unsigned long long switchedAwayCount;
+@property (nonatomic) unsigned long long switchedToCount;
+@property (nonatomic) long long networkScore;
+@property (copy, nonatomic) NSDate *lastJoinDate;
+@property (copy, nonatomic) NSString *privateMacType;
+@property (nonatomic) BOOL privateMacFeatureToggled;
+@property (nonatomic) BOOL privateMacUnderClassification;
+@property (nonatomic) BOOL privateMacDisabledByProfile;
+@property (nonatomic) BOOL privateMacNetworkTypeHome;
+@property (nonatomic) unsigned long long captiveStatus;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithNetworkName:(id)a0;
+- (id)eventDictionary:(BOOL)a0 isInternalInstall:(BOOL)a1;
+- (void)addDownloadSpeed:(double)a0;
+
+@end

@@ -1,0 +1,26 @@
+@class NSString, PPTextToTopicTransform, CKContextClient;
+
+@interface SGTopicDissector : SGPipelineDissector <SGMailMessageProcessing> {
+    CKContextClient *_contextClient;
+    PPTextToTopicTransform *_transform;
+    BOOL _significanceCheckEnabled;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (id)initWithContextClient:(id)a0 significanceCheckEnabled:(BOOL)a1;
+- (id)init;
+- (void).cxx_destruct;
+- (id)extractionsFromContextKitWithText:(id)a0 isPlainText:(BOOL)a1 bundleId:(id)a2 language:(id)a3 weight:(double)a4;
+- (void)_collectHighLevelTopicsWithText:(id)a0 bundleId:(id)a1 addTopic:(id /* block */)a2 weight:(double)a3;
+- (id)topicsInText:(id)a0 isPlainText:(BOOL)a1 source:(id)a2 cloudSync:(BOOL)a3 language:(id)a4 topicAlgorithms:(id)a5 namedEntityAlgorithms:(id)a6 weight:(double)a7;
+- (id)initWithSignificanceCheckEnabled:(BOOL)a0;
+- (void)_collectResultsFromContextKitWithText:(id)a0 isPlainText:(BOOL)a1 bundleId:(id)a2 language:(id)a3 useContextKitTopics:(BOOL)a4 useContextKitNamedEntities:(BOOL)a5 addTopic:(id /* block */)a6 addNamedEntity:(id /* block */)a7 weight:(double)a8;
+- (void)dissectMailMessage:(id)a0 entity:(id)a1 context:(id)a2;
+
+@end

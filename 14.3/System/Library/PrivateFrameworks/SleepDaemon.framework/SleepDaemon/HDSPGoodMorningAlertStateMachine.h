@@ -1,0 +1,29 @@
+@class HKSPSleepScheduleModel, NSString, HDSPGoodMorningAlertWaitingState, NSDate, HDSPGoodMorningAlertPresentingState, HDSPGoodMorningAlertDisabledState;
+@protocol HDSPGoodMorningAlertStateMachineInfoProvider, HDSPGoodMorningAlertStateMachineDelegate, NAScheduler;
+
+@interface HDSPGoodMorningAlertStateMachine : HKSPPersistentStateMachine <HDSPGoodMorningAlertStateMachineDelegate, HDSPGoodMorningAlertStateMachineInfoProvider, HDSPGoodMorningAlertStateMachineEventHandler>
+
+@property (readonly, weak, nonatomic) id<HDSPGoodMorningAlertStateMachineDelegate> delegate;
+@property (readonly, weak, nonatomic) id<HDSPGoodMorningAlertStateMachineInfoProvider> infoProvider;
+@property (readonly, nonatomic) HDSPGoodMorningAlertDisabledState *disabledState;
+@property (readonly, nonatomic) HDSPGoodMorningAlertWaitingState *waitingState;
+@property (readonly, nonatomic) HDSPGoodMorningAlertPresentingState *presentingState;
+@property (readonly, nonatomic) id<NAScheduler> callbackScheduler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSDate *currentDate;
+@property (readonly, nonatomic) BOOL goodMorningAlertEnabled;
+@property (readonly, nonatomic) HKSPSleepScheduleModel *sleepScheduleModel;
+@property (readonly, nonatomic) unsigned long long sleepScheduleState;
+
+- (id)stateMachineLog;
+- (id)initWithIdentifier:(id)a0 persistence:(id)a1 delegate:(id)a2 infoProvider:(id)a3 currentDateProvider:(id /* block */)a4;
+- (void)presentAlertForGoodMorning;
+- (void)dismissAlertForGoodMorning;
+- (void).cxx_destruct;
+- (void)sleepScheduleStateChangedToWakeUp;
+- (void)sleepScheduleStateChangedToBedtime;
+
+@end

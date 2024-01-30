@@ -1,0 +1,98 @@
+@class NSRecursiveLock, NSString, NSMapTable, NSTimer, CTXPCServiceSubscriptionContext, PCSimpleTimer, CoreTelephonyClient;
+
+@interface PCPersistentInterfaceManager : NSObject <CoreTelephonyClientDataDelegate, PCInterfaceMonitorDelegate> {
+    NSRecursiveLock *_lock;
+    NSMapTable *_delegatesAndQueues;
+    struct __CFSet { } *_WiFiAutoAssociationDelegates;
+    PCSimpleTimer *_WiFiAutoAssociationDisableTimer;
+    struct __CFSet { } *_wakeOnWiFiDelegates;
+    PCSimpleTimer *_wakeOnWiFiDisableTimer;
+    void *_interfaceAssertion;
+    NSString *_WWANInterfaceName;
+    BOOL _isWWANInterfaceUp;
+    NSTimer *_inCallWWANOverrideTimer;
+    BOOL _isWWANInterfaceDataActive;
+    BOOL _ctIsWWANInHomeCountry;
+    BOOL _isWWANInterfaceSuspended;
+    BOOL _isPowerStateDetectionSupported;
+    BOOL _isWWANInterfaceInProlongedHighPowerState;
+    BOOL _isWWANInterfaceActivationPermitted;
+    double _lastActivationTime;
+    BOOL _isInCall;
+    BOOL _isWakeOnWiFiSupported;
+    BOOL _isWakeOnWiFiEnabled;
+    CoreTelephonyClient *_ctClient;
+    CTXPCServiceSubscriptionContext *_currentDataSimContext;
+    void *_ctServerConnection;
+}
+
+@property (readonly) BOOL isPowerStateDetectionSupported;
+@property (readonly) BOOL isWWANInterfaceInProlongedHighPowerState;
+@property (readonly) BOOL isInCall;
+@property (readonly) BOOL isWWANInterfaceActivationPermitted;
+@property (readonly) BOOL areAllNetworkInterfacesDisabled;
+@property (readonly, nonatomic) BOOL isWWANInterfaceUp;
+@property (readonly, nonatomic) BOOL isWWANInHomeCountry;
+@property (readonly, nonatomic) BOOL isWWANBetterThanWiFi;
+@property (readonly, nonatomic) BOOL isWWANInterfaceSuspended;
+@property (readonly, nonatomic) BOOL hasWWANStatusIndicator;
+@property (readonly, nonatomic) BOOL doesWWANInterfaceExist;
+@property (readonly, nonatomic) NSString *WWANInterfaceName;
+@property (readonly, nonatomic) BOOL isInternetReachableViaWiFi;
+@property (readonly, nonatomic) BOOL isWakeOnWiFiSupported;
+@property (readonly, nonatomic) BOOL isInternetReachable;
+@property (readonly, nonatomic) BOOL allowBindingToWWAN;
+@property (readonly, nonatomic) NSString *currentLinkQualityString;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void)interfaceReachabilityChanged:(id)a0;
+- (void)addDelegate:(id)a0 queue:(id)a1;
+- (void)currentDataSimChanged:(id)a0;
+- (void)removeDelegate:(id)a0;
+- (void)dataStatus:(id)a0 dataStatusInfo:(id)a1;
+- (void)interfaceLinkQualityChanged:(id)a0 previousLinkQuality:(int)a1;
+- (void)_scheduleCalloutsForSelector:(SEL)a0;
+- (id)init;
+- (BOOL)_isWWANInHomeCountryLocked;
+- (void)_adjustWakeOnWiFiLocked;
+- (void).cxx_destruct;
+- (void)_adjustWiFiAutoAssociationLocked;
+- (void)cutWiFiManagerDeviceAttached:(id)a0;
+- (void)dealloc;
+- (BOOL)_wwanIsPoorLinkQuality;
+- (void)_updateWWANInterfaceAssertions;
+- (void)_inCallWWANOverrideTimerFired;
+- (BOOL)_isInternetReachableLocked;
+- (BOOL)_isCurrentDataSimContextLocked:(id)a0;
+- (void)handleMachMessage:(void *)a0;
+- (void)_clearInCallWWANOverrideTimerLocked;
+- (void)_processDataStatusLocked:(id)a0;
+- (id)_nonCellularMonitor;
+- (void)_updateWWANInterfaceUpState;
+- (BOOL)_wifiIsPoorLinkQuality;
+- (void)_updateWWANInterfaceAssertionsLocked;
+- (void)_createCTConnection;
+- (void)_processConnectionStatusLocked:(id)a0;
+- (void)_adjustWiFiAutoAssociation;
+- (void)enableWiFiAutoAssociation:(BOOL)a0 forDelegate:(id)a1;
+- (void)_updateWWANInterfaceUpStateLocked;
+- (BOOL)_isCellularCall:(struct __CTCall { } *)a0;
+- (void)_adjustWakeOnWiFi;
+- (void)_mainThreadCTConnectionAttempt;
+- (void)enableWakeOnWiFi:(BOOL)a0 forDelegate:(id)a1;
+- (BOOL)_isWiFiUsable;
+- (void)_updateCTIsWWANInHomeCountry:(BOOL)a0 isWWANInterfaceDataActive:(BOOL)a1;
+- (void)connectionActivationError:(id)a0 connection:(int)a1 error:(int)a2;
+- (void)connectionStateChanged:(id)a0 connection:(int)a1 dataConnectionStatusInfo:(id)a2;
+- (BOOL)_wantsWWANInterfaceAssertion;
+- (void)_ctConnectionAttempt;
+- (void)_processCallStatusChanged:(id)a0;
+- (BOOL)_wantsWakeOnWiFiEnabled;
+- (void)_processCurrentDataSimChangedLocked:(id)a0;
+
+@end

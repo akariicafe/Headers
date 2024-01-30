@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface TICursorEvent : TIUserAction
+
+@property (nonatomic) BOOL isSelection;
+@property (nonatomic) BOOL extendsPriorWord;
+@property (copy, nonatomic) NSString *inWord;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } inWordRange;
+@property (nonatomic) unsigned long long selectionLocation;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)initWithTIKeyboardState:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (void)encodeWithCoder:(id)a0;
+
+@end

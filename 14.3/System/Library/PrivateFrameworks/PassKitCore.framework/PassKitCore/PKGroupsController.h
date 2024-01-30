@@ -1,0 +1,82 @@
+@class NSString, NSArray, NSSet, NSMutableDictionary, PKCatalog, NSMutableArray, PKPassLibrary, PKPaymentService;
+@protocol PKGroupsControllerDelegate;
+
+@interface PKGroupsController : NSObject <PKPassLibraryDelegate> {
+    PKPassLibrary *_passLibrary;
+    PKPaymentService *_paymentService;
+    unsigned long long _filters;
+    unsigned long long _passTypeMask;
+    NSMutableArray *_groups;
+    NSMutableDictionary *_passesByUniqueID;
+    NSMutableDictionary *_groupsByGroupID;
+    NSMutableDictionary *_indicesByGroupID;
+    NSMutableDictionary *_groupIDsByPassUniqueID;
+    BOOL _suppressRemoteUpdates;
+    BOOL _enqueueRemoteUpdates;
+    PKCatalog *_catalogBeforeReordering;
+    NSMutableArray *_enqueuedUpdates;
+    NSArray *_localPasses;
+    NSSet *_expressPassesInformation;
+    BOOL _limitedMode;
+    BOOL _activePassesOnly;
+    int _expressPassesInformationToken;
+}
+
+@property (weak, nonatomic) id<PKGroupsControllerDelegate> delegate;
+@property (nonatomic) BOOL reorderingEnabled;
+@property (readonly, nonatomic) BOOL filteringEnabled;
+@property (readonly, nonatomic) NSArray *filteredPassUniqueIDs;
+@property (nonatomic) BOOL shouldSeparatePaymentPasses;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (unsigned long long)indexOfGroup:(id)a0;
+- (void).cxx_destruct;
+- (unsigned long long)groupCount;
+- (void)dealloc;
+- (id)passWithUniqueID:(id)a0;
+- (void)passLibrary:(id)a0 receivedUpdatedCatalog:(id)a1 passes:(id)a2;
+- (id)initWithPassLibrary:(id)a0;
+- (id)groups;
+- (void)handleUserPassDelete:(id)a0;
+- (void)_fixIndex:(unsigned long long)a0;
+- (void)objectSettingsDidChangeNotification:(id)a0;
+- (void)reloadGroups;
+- (id)initLimited;
+- (void)_updateStateWithCatalog:(id)a0 passes:(id)a1 notify:(BOOL)a2;
+- (void)_getPassesAndCatalogSynchronously:(BOOL)a0 withHandler:(id /* block */)a1;
+- (void)reloadGroupsWithCompletion:(id /* block */)a0;
+- (unsigned long long)_indexOfGroupID:(id)a0;
+- (id)groupAtIndex:(unsigned long long)a0;
+- (unsigned long long)groupIndexForPassUniqueID:(id)a0;
+- (void)_removeGroup:(id)a0 notify:(BOOL)a1;
+- (id)_copyRemoteCatalog;
+- (void)_moveGroup:(id)a0 fromIndex:(unsigned long long)a1 toIndex:(unsigned long long)a2 notify:(BOOL)a3;
+- (BOOL)_groupIDIsNew:(id)a0;
+- (void)_performEnqueuedUpdates;
+- (void)_insertGroup:(id)a0 atIndex:(unsigned long long)a1 notify:(BOOL)a2;
+- (void)reloadGroupsAndNotify:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_performOrEnqueueUpdate:(id /* block */)a0;
+- (void)_fixIndicesFrom:(unsigned long long)a0;
+- (id)_displayablePassesDictionaryFromSet:(id)a0;
+- (void)_placeGroup:(id)a0 atIndex:(unsigned long long)a1 notify:(BOOL)a2;
+- (void)_insertLocalGroupsIntoCatalog:(id)a0 withPassesByUniqueID:(id)a1;
+- (id)_updateAndCreateGroupsWithCatalog:(id)a0 passesByUniqueID:(id)a1 notify:(BOOL)a2;
+- (void)loadGroupsWithCompletion:(id /* block */)a0;
+- (unsigned long long)_destinationIndexForGroupID:(id)a0 catalogGroups:(id)a1 skippingNewGroupsAfterIndex:(unsigned long long)a2;
+- (void)_fixIndicesFrom:(unsigned long long)a0 through:(unsigned long long)a1;
+- (id)_groupsExcludingTypePayment;
+- (id)initWithPassTypeMask:(unsigned long long)a0 passFilters:(unsigned long long)a1;
+- (void)loadGroupsSynchronously;
+- (unsigned long long)indexOfSeparationGroup;
+- (void)handleUserPassesDelete:(id)a0;
+- (void)suppressRemoteUpdates:(BOOL)a0;
+- (void)moveGroupAtIndex:(unsigned long long)a0 toIndex:(unsigned long long)a1;
+- (void)movePass:(id)a0 inGroup:(id)a1 toIndex:(unsigned long long)a2;
+- (void)enableRemoteUpdates;
+- (void)addLocalPasses:(id)a0;
+
+@end

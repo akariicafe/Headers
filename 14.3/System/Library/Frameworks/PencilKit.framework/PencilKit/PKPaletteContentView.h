@@ -1,0 +1,70 @@
+@class UIStackView, UIView, PKPaletteToolPickerView, NSString, PKPaletteUndoRedoView, PKDrawingPaletteInputAssistantView, PKPaletteToolPickerAndColorPickerView, PKPaletteColorPickerView, NSLayoutConstraint, PKPaletteAdditionalOptionsView;
+@protocol PKDrawingPaletteViewStateSubject, PKPaletteContentViewInputAssistantDelegate;
+
+@interface PKPaletteContentView : UIView <PKPaletteColorPickerContainerViewDelegate, PKEdgeLocatable, PKPalettePopoverDismissing, PKPaletteViewStateObserving>
+
+@property (weak, nonatomic) id<PKDrawingPaletteViewStateSubject> paletteViewState;
+@property (retain, nonatomic) UIStackView *stackView;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewTopConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewBottomConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewLeftConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewRightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewCenterXConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewCompactLeftConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *stackViewCompactRightConstraint;
+@property (retain, nonatomic) UIView *contextualEditingView;
+@property (retain, nonatomic) PKPaletteToolPickerAndColorPickerView *toolAndColorPickerContainerView;
+@property (retain, nonatomic) NSLayoutConstraint *toolAndColorPickerContainerViewHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *toolAndColorPickerContainerViewWidthConstraint;
+@property (nonatomic, getter=isUsingSmallestSupportedWidth) BOOL usingSmallestSupportedWidth;
+@property (weak, nonatomic) id<PKPaletteContentViewInputAssistantDelegate> inputAssistantViewDelegate;
+@property (readonly, nonatomic) PKPaletteUndoRedoView *undoRedoView;
+@property (readonly, nonatomic) PKPaletteToolPickerView *toolPickerView;
+@property (readonly, nonatomic) PKPaletteColorPickerView *colorPickerView;
+@property (readonly, nonatomic) PKDrawingPaletteInputAssistantView *paletteInputAssistantView;
+@property (readonly, nonatomic) PKPaletteAdditionalOptionsView *additionalOptionsView;
+@property (nonatomic) long long contextEditingMode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) unsigned long long edgeLocation;
+
+- (void)safeAreaInsetsDidChange;
+- (void).cxx_destruct;
+- (BOOL)_useCompactSize;
+- (void)_updateUI;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)_installStackView;
+- (void)_installUndoRedoButtonsView;
+- (void)_installContextualEditingView;
+- (void)_installAdditionalOptionsView;
+- (void)toggleColorSelectionPopover;
+- (double)_stackViewSpacing;
+- (BOOL)_isAnnotationSupportEnabled;
+- (BOOL)_contextEditingModeWantsContextualEditingViewVisible;
+- (BOOL)_shouldShowEllipsisButtonBelowColorSwatch;
+- (BOOL)_wantsCompactInputAssistantViewVisible;
+- (BOOL)_wantsInputAssistantViewVisible;
+- (void)_handleKeyboardButtonPressed;
+- (void)_handleReturnKeyButtonPressed;
+- (void)dismissPalettePopoverWithCompletion:(id /* block */)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })plusButtonFrame;
+- (void)colorPickerContainerView:(id)a0 willPresentInputAssistantView:(id)a1;
+- (void)colorPickerContainerView:(id)a0 willDismissInputAssistantView:(id)a1;
+- (void)paletteViewStateDidChange:(id)a0;
+- (void)paletteViewStateDidChangeScaleFactor:(id)a0;
+- (void)paletteViewStateDidChangeAnnotationSupport:(id)a0;
+- (void)paletteViewStateDidChangeAutoHide:(id)a0;
+- (void)paletteViewStateDidChangeShowsHandwritingTool:(id)a0;
+- (void)paletteViewStateDidChangeSelectedTool:(id)a0;
+- (void)paletteViewStateDidChangeInputAssistantItems:(id)a0;
+- (void)paletteViewStateDidChangeIsVisible:(id)a0;
+- (void)paletteViewStateDidChangeEnableKeyboardButtons:(id)a0;
+- (void)paletteViewStateDidChangeFloatingKeyboardType:(id)a0;
+- (id)initWithPaletteViewStateObservable:(id)a0;
+- (void)_dismissPalettePopoverUsingConfirmationBlock:(id /* block */)a0 completion:(id /* block */)a1;
+
+@end

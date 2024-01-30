@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType18ToothbrushingEvent : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface REMStoreInvocationResult : REMStoreInvocationValueStorage
+
+@end

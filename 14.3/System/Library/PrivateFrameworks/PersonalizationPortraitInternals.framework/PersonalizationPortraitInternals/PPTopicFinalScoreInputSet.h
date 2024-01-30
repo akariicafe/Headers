@@ -1,0 +1,3 @@
+@interface PPTopicFinalScoreInputSet : PPBaseScoreInputSet
+
+@end

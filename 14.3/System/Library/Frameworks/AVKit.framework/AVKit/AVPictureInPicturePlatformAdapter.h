@@ -1,0 +1,81 @@
+@class NSTimer, NSString, AVPictureInPicturePrerollAttributes, AVSecondScreenConnection, UIWindow, PGPictureInPictureProxy, AVPictureInPictureViewController, UIImageSymbolConfiguration, AVObservationController, AVPlayerController;
+@protocol AVPictureInPictureContentSource, AVPictureInPicturePlatformAdapterDelegate;
+
+@interface AVPictureInPicturePlatformAdapter : NSObject <AVPictureInPictureViewControllerDelegate, PGPictureInPictureProxyDelegate, AVPictureInPictureControlsStyleAppearance>
+
+@property (class, readonly, nonatomic, getter=isPictureInPictureSupported) BOOL pictureInPictureSupported;
+@property (class, readonly, nonatomic) NSString *stopPictureInPictureButtonImageName;
+@property (class, readonly, nonatomic) NSString *startPictureInPictureButtonImageName;
+@property (class, readonly, nonatomic) UIImageSymbolConfiguration *imageSymbolConfiguration;
+
+@property (readonly, nonatomic) PGPictureInPictureProxy *pegasusProxy;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } videoRectInScreen;
+@property (readonly, nonatomic) NSTimer *layoutCheckTimer;
+@property (retain, nonatomic) AVSecondScreenConnection *secondScreenConnection;
+@property (weak, nonatomic) UIWindow *sourceWindowWhenPictureInPictureStarted;
+@property (weak, nonatomic) id<AVPictureInPictureContentSource> contentSourceAwaitingInvalidation;
+@property (weak, nonatomic) id<AVPictureInPictureContentSource> contentSourceAwaitingSetup;
+@property (nonatomic) long long observedTimeControlStatus;
+@property (nonatomic, getter=isScrubbingOrSeeking) BOOL scrubbingOrSeeking;
+@property (nonatomic, getter=isScrubbing) BOOL scrubbing;
+@property (nonatomic, getter=isSeeking) BOOL seeking;
+@property (nonatomic) double rateWhenScrubbingOrSeekingBegan;
+@property (nonatomic, getter=isInterruptedForAudioSession) BOOL interruptedForAudioSession;
+@property (nonatomic) BOOL wasPlayingWhenSuspended;
+@property (weak, nonatomic) id<AVPictureInPictureContentSource> source;
+@property (readonly, nonatomic) AVObservationController *observationController;
+@property (nonatomic) long long status;
+@property (nonatomic, getter=isRoutingVideoToHostedWindow) BOOL routingVideoToHostedWindow;
+@property (weak, nonatomic) id<AVPictureInPicturePlatformAdapterDelegate> delegate;
+@property (retain, nonatomic) AVPlayerController *playerController;
+@property (nonatomic) BOOL allowsPictureInPicturePlayback;
+@property (readonly, nonatomic, getter=isSystemPictureInPicturePossible) BOOL systemPictureInPicturePossible;
+@property (nonatomic) BOOL alwaysStartsAutomaticallyWhenEnteringBackground;
+@property (nonatomic) BOOL canStartAutomaticallyWhenEnteringBackground;
+@property (nonatomic) BOOL requiresLinearPlayback;
+@property (nonatomic) long long controlsStyle;
+@property (nonatomic, getter=isMicrophoneEnabled) BOOL microphoneEnabled;
+@property (retain, nonatomic) AVPictureInPicturePrerollAttributes *prerollAttributes;
+@property (nonatomic) BOOL managesWiredSecondScreenPlayback;
+@property (readonly, nonatomic) BOOL canAnimatePictureInPictureTransition;
+@property (readonly, nonatomic) AVPictureInPictureViewController *pictureInPictureViewController;
+@property (readonly, nonatomic, getter=isAnyPictureInPictureActive) BOOL anyPictureInPictureActive;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithSource:(id)a0;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)_updateStatus;
+- (void)startPictureInPicture;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })pictureInPictureProxyViewFrameForTransitionAnimation:(id)a0;
+- (long long)pictureInPictureProxyInterfaceOrientationForTransitionAnimation:(id)a0;
+- (id)pictureInPictureProxyViewControllerWindowForTransitionAnimation:(id)a0;
+- (void)pictureInPictureProxy:(id)a0 willStartPictureInPictureWithAnimationType:(long long)a1;
+- (void)pictureInPictureViewControllerViewDidAppear:(id)a0;
+- (void)pictureInPictureProxy:(id)a0 didStartPictureInPictureWithAnimationType:(long long)a1;
+- (void)pictureInPictureProxy:(id)a0 failedToStartPictureInPictureWithAnimationType:(long long)a1 error:(id)a2;
+- (void)pictureInPictureProxy:(id)a0 restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(id /* block */)a1;
+- (void)pictureInPictureProxy:(id)a0 willStopPictureInPictureWithAnimationType:(long long)a1 reason:(long long)a2;
+- (void)pictureInPictureProxy:(id)a0 didStopPictureInPictureWithAnimationType:(long long)a1 reason:(long long)a2;
+- (void)stopPictureInPictureAndRestoreUserInterface:(BOOL)a0;
+- (void)pictureInPictureProxyPictureInPictureInterruptionBegan:(id)a0;
+- (void)pictureInPictureProxyPictureInPictureInterruptionEnded:(id)a0;
+- (void)pictureInPictureProxy:(id)a0 didReceivePlaybackCommand:(id)a1;
+- (void)pictureInPictureProxy:(id)a0 didUpdateResourcesUsageReductionReasons:(unsigned long long)a1 oldReasons:(unsigned long long)a2;
+- (void)pictureInPictureViewControllerViewWillDisappear:(id)a0;
+- (void)updateLayoutDependentBehaviors;
+- (void)_updatePictureInPictureShouldStartWhenEnteringBackground;
+- (void)_updateProxyPlaybackState;
+- (void)_createProxyIfNeeded;
+- (void)_startObservation;
+- (void)_startObservingForPlaybackStateUpdates;
+- (void)_removeSecondScreenConnection;
+- (long long)_sceneActivationState;
+- (void)_setStatusAndNotifyDelegateIfNeeded:(long long)a0;
+- (void)_setRoutingVideoToHostedWindow:(BOOL)a0 pictureInPictureViewController:(id)a1 source:(id)a2;
+- (void)_updateStatusUsingProposedStatus:(long long)a0;
+
+@end

@@ -1,0 +1,100 @@
+@class NSUUID, NSString, __CFN_SessionMetrics, NSOperationQueue, NSDictionary, NSMutableDictionary, NSObject, NSMutableSet, __CFN_ConnectionContextManager, NSURLSessionConfiguration;
+@protocol OS_nw_context, OS_dispatch_queue, NSURLSessionDelegate;
+
+@interface NSURLSession : NSObject <NSCopying, __NSURLSessionTaskGroupForConfiguration> {
+    __CFN_ConnectionContextManager *_nwContextManager;
+    struct shared_ptr<NSObject<OS_nw_context> > { NSObject<OS_nw_context> *__ptr_; struct __shared_weak_count *__cntrl_; } _nwContext;
+    NSDictionary *_atsState_ivar;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    BOOL _invalid_ivar;
+    BOOL _isSharedSession_ivar;
+    NSOperationQueue *_delegateQueue_ivar;
+    NSObject<OS_dispatch_queue> *_delegateDispatchQueue;
+    NSURLSessionConfiguration *_local_immutable_configuration_ivar;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    NSUUID *_uuid_ivar;
+    NSMutableSet *_h1FallbackHosts;
+    NSMutableDictionary *_coalescing;
+    __CFN_SessionMetrics *_metrics;
+}
+
+@property (class, readonly) BOOL _backgroundServiceAvailable;
+@property (class, readonly) NSURLSession *sharedSession;
+
+@property (copy, nonatomic) NSString *_tlsSessionCachePrefix;
+@property (readonly) unsigned long long nextSeed;
+@property (readonly, retain) NSOperationQueue *delegateQueue;
+@property (readonly, retain) id<NSURLSessionDelegate> delegate;
+@property (readonly, copy) NSURLSessionConfiguration *configuration;
+@property (copy) NSString *sessionDescription;
+@property (readonly, weak) NSURLSessionConfiguration *_groupConfiguration;
+@property (readonly, weak) NSURLSession *_groupSession;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_obliterateAllBackgroundSessionsWithCompletionHandler:(id /* block */)a0;
++ (id)_sessionWithConfiguration:(id)a0 delegate:(id)a1 delegateDispatchQueue:(id)a2;
++ (id)sessionWithConfiguration:(id)a0 delegate:(id)a1 delegateQueue:(id)a2;
++ (void)_sendPendingCallbacksForSessionIdentifier:(id)a0;
++ (void)_disableATS;
++ (void)_getActiveSessionIdentifiersWithCompletionHandler:(id /* block */)a0;
++ (void)_releaseProcessAssertionForSessionIdentifier:(id)a0;
++ (void)_strictTrustEvaluate:(id)a0 queue:(id)a1 completionHandler:(id /* block */)a2;
++ (void)_disableAppSSO;
++ (void)_setEventDelegate:(id)a0 queue:(id)a1;
++ (id)sessionWithConfiguration:(id)a0;
++ (void)_setHTTPRewriter:(id)a0;
++ (id)new;
+
+- (void)flushWithCompletionHandler:(id /* block */)a0;
+- (id)assetDownloadTaskWithURLAsset:(id)a0 assetTitle:(id)a1 assetArtworkData:(id)a2 options:(id)a3;
+- (id)aggregateAssetDownloadTaskWithURLAsset:(id)a0 mediaSelections:(id)a1 assetTitle:(id)a2 assetArtworkData:(id)a3 options:(id)a4;
+- (id)uploadTaskWithRequest:(id)a0 fromFile:(id)a1 completionHandler:(id /* block */)a2;
+- (id)uploadTaskWithRequest:(id)a0 fromData:(id)a1 completionHandler:(id /* block */)a2;
+- (id)_AVAssetDownloadTaskWithURL:(id)a0 destinationURL:(id)a1 options:(id)a2;
+- (id)assetDownloadTaskWithURLAsset:(id)a0 destinationURL:(id)a1 options:(id)a2;
+- (id)_downloadTaskWithRequest:(id)a0 downloadFilePath:(id)a1;
+- (id)downloadTaskWithRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (id)downloadTaskWithResumeData:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getAllTasksWithCompletionHandler:(id /* block */)a0;
+- (id)downloadTaskWithURL:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_groupSession;
+- (id)dataTaskWithURL:(id)a0 completionHandler:(id /* block */)a1;
+- (id)init;
+- (id)dataTaskWithRequest:(id)a0 uniqueIdentifier:(id)a1;
+- (id)webSocketTaskWithRequest:(id)a0;
+- (id)delegateQueue;
+- (void).cxx_destruct;
+- (id)uploadTaskWithStreamedRequest:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)streamTaskWithHostName:(id)a0 port:(long long)a1;
+- (void)getTasksWithCompletionHandler:(id /* block */)a0;
+- (id)_groupConfiguration;
+- (id)defaultTaskGroup;
+- (id)downloadTaskWithRequest:(id)a0;
+- (void)resetWithCompletionHandler:(id /* block */)a0;
+- (id)downloadTaskWithResumeData:(id)a0;
+- (id)taskGroupWithConfiguration:(id)a0;
+- (id)webSocketTaskWithURL:(id)a0 protocols:(id)a1;
+- (id)streamTaskWithNetService:(id)a0;
+- (id)uploadTaskWithRequest:(id)a0 fromFile:(id)a1;
+- (id)uploadTaskWithRequest:(id)a0 fromData:(id)a1;
+- (void)dealloc;
+- (id)downloadTaskWithURL:(id)a0;
+- (id)initWithConfiguration:(id)a0 delegate:(id)a1 delegateQueue:(id)a2 delegateDispatchQueue:(id)a3;
+- (id)dataTaskWithRequest:(id)a0;
+- (id)webSocketTaskWithURL:(id)a0;
+- (void)_setEventDelegate:(id)a0;
+- (id)dataTaskWithURL:(id)a0;
+- (id)dataTaskWithRequest:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_useTLSSessionCacheFromSession:(id)a0;
+- (id).cxx_construct;
+- (void)finishTasksAndInvalidate;
+- (void)invalidateAndCancel;
+- (id)_downloadTaskWithTaskForClass:(id)a0;
+- (id)_dataTaskWithTaskForClass:(id)a0;
+- (id)_uploadTaskWithTaskForClass:(id)a0;
+
+@end

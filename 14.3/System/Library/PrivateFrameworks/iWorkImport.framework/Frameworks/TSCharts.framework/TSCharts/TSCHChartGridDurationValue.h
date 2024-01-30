@@ -1,0 +1,20 @@
+@class NSString;
+
+@interface TSCHChartGridDurationValue : NSObject <TSCHChartGridValue> {
+    double mDuration;
+}
+
+@property (readonly, nonatomic) int chartGridValueType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)durationValueWithDouble:(double)a0;
+
+- (double)doubleValue;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithDouble:(double)a0;
+- (BOOL)isEqual:(id)a0;
+
+@end

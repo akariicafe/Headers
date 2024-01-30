@@ -1,0 +1,3 @@
+@interface RTFingerprintManagerNotificationMonitorFingerprints : RTNotification
+
+@end

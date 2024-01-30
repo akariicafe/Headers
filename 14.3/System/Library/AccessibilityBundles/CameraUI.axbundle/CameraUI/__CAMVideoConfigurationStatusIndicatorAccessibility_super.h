@@ -1,0 +1,3 @@
+@interface __CAMVideoConfigurationStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

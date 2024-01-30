@@ -1,0 +1,3 @@
+@interface _TtCC7NewsUI219StubFeedPoolServiceP33_6ED57CCA159D5E24D5DD08B6744269B018StubHistoryService : _TtCs12_SwiftObject
+
+@end

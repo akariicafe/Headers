@@ -1,0 +1,70 @@
+@interface APPCPromotedContentView : UIView <NewsTransparencyViewControllerDelegate, WKNavigationDelegate, APWebProcessDelegate> {
+    void /* unknown type, empty encoding */ webView;
+    void /* unknown type, empty encoding */ privacyMarkerView;
+    void /* unknown type, empty encoding */ dimmerView;
+    void /* unknown type, empty encoding */ videoProgressMetricThresholds;
+    void /* unknown type, empty encoding */ customPrivacyHandling;
+    void /* unknown type, empty encoding */ outstreamVisibleThreshold;
+    void /* unknown type, empty encoding */ nonOutstreamVisibleThreshold;
+    void /* unknown type, empty encoding */ mraidActionTypes;
+    void /* unknown type, empty encoding */ tapGestureRecognizer;
+    void /* unknown type, empty encoding */ expandedAdTapGestureRecognizer;
+    void /* unknown type, empty encoding */ expandedAdFrame;
+    void /* unknown type, empty encoding */ videoProgressMetricStatus;
+    void /* unknown type, empty encoding */ visiblePercentage;
+    void /* unknown type, empty encoding */ unfairLock;
+    void /* unknown type, empty encoding */ promotedContent;
+    void /* unknown type, empty encoding */ lastPerformedAction;
+    void /* unknown type, empty encoding */ shouldBlockNavigation;
+    void /* unknown type, empty encoding */ tapWasRecognized;
+    void /* unknown type, empty encoding */ nativeArticleOnDisplay;
+    void /* unknown type, empty encoding */ interactionDelegate;
+    void /* unknown type, empty encoding */ interactionPresentationDelegate;
+    void /* unknown type, empty encoding */ nativeView;
+    void /* unknown type, empty encoding */ oldPercentageTimestamp;
+    void /* unknown type, empty encoding */ newPercentageTimestamp;
+    void /* unknown type, empty encoding */ overriddenPrivacyMarkerPosition;
+}
+
+@property (nonatomic) void /* unknown type, empty encoding */ readiness;
+@property (nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frame;
+
+- (void)newsTransparencyViewControllerDidDismiss:(id)a0;
+- (void)webView:(id)a0 didStartProvisionalNavigation:(id)a1;
+- (void)webView:(id)a0 didFinishNavigation:(id)a1;
+- (void)webViewWebContentProcessDidTerminate:(id)a0;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)webView:(id)a0 didFailNavigation:(id)a1 withError:(id)a2;
+- (id)initWithCoder:(id)a0;
+- (void)tapRecognized:(id)a0;
+- (void)layoutSubviews;
+- (void)webProcessPlugInBrowserContextControllerGlobalObjectIsAvailableForFrame;
+- (void)webView:(id)a0 decidePolicyForNavigationAction:(id)a1 decisionHandler:(id /* block */)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)webView:(id)a0 didFailProvisionalNavigation:(id)a1 withError:(id)a2;
+- (void)webProcessMRAIDJSODidCallClose;
+- (void)webProcessMRAIDJSODidCallExpand:(id)a0 withMaximumWidth:(double)a1 andHeight:(double)a2;
+- (void)webProcessMRAIDJSODidCallCreateCalendarEvent:(id)a0;
+- (void)webProcessMRAIDJSODidCallOpen:(id)a0;
+- (void)webProcessVideoAdJSOGetVideoInfo:(id /* block */)a0;
+- (void)webProcessVideoAdJSOCreativeViewLoaded;
+- (void)webProcessVideoAdJSODidCallPlayStarted:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallPlayResumed:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallPlayPaused:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallPlayProgressed:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallPlayCompletedWithVolume:(float)a0;
+- (void)webProcessVideoAdJSODidCallViewabilityChanged:(BOOL)a0 playTime:(float)a1 volume:(float)a2;
+- (void)webProcessVideoAdJSODidCallVolumeChanged:(float)a0 playTime:(float)a1;
+- (void)webProcessVideoAdJSODidCallAudioMuted:(float)a0;
+- (void)webProcessVideoAdJSODidCallAudioUnmuted:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallMoreInfoTapped:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallVideoTapped:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallSkipAdTapped:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallFullScreenTapped:(float)a0 volume:(float)a1;
+- (void)webProcessVideoAdJSODidCallExitFullScreenTapped:(float)a0 volume:(float)a1;
+- (void)webProcessDiagnosticJSOStatusReported:(id)a0 status:(id)a1;
+- (void)sizeCategoryChanged:(id)a0;
+- (void)tappedPrivacyMarker:(id)a0;
+
+@end

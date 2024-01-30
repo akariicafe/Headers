@@ -1,0 +1,87 @@
+@class WFNetworkSettingsConfig, NSAttributedString, NSArray, UISwitch, WFNetworkSettingsCellFactory, NSString, UITableViewHeaderFooterView, UIAlertController, WFHyperlinkFooterView, UIColor;
+@protocol WFNetworkSettingsViewControllerDataCoordinator, WFNetworkSettingsViewControllerDelegate, WFDetailsProviderContext;
+
+@interface WFNetworkSettingsViewController : WFInsetTableViewController <UITableViewDelegate, UITableViewDataSource, WFNetworkView> {
+    UITableViewHeaderFooterView *_lowDataModeFooterView;
+    UITableViewHeaderFooterView *_randomMACFooterView;
+}
+
+@property (retain) NSArray *sections;
+@property (retain, nonatomic) WFNetworkSettingsCellFactory *cellFactory;
+@property (copy, nonatomic) WFNetworkSettingsConfig *config;
+@property (retain, nonatomic) NSAttributedString *recommendationLinkAttributedString;
+@property (retain, nonatomic) WFHyperlinkFooterView *linkFooterView;
+@property (retain, nonatomic) UISwitch *autoJoinSwitch;
+@property (retain, nonatomic) UISwitch *autoLoginSwitch;
+@property (retain, nonatomic) UISwitch *saveDataModeSwitch;
+@property (retain, nonatomic) UISwitch *randomMACSwitch;
+@property (retain, nonatomic) UIColor *backgroundColor;
+@property (retain, nonatomic) id<WFDetailsProviderContext> context;
+@property (retain, nonatomic) UIAlertController *alert;
+@property (retain, nonatomic) NSString *hardwareMACAddress;
+@property (retain, nonatomic) NSString *randomMACAddress;
+@property (nonatomic) BOOL randomMACSwitchOn;
+@property (nonatomic) BOOL isUsingRandomMac;
+@property (nonatomic) BOOL randomFeatureEnabled;
+@property (nonatomic) BOOL useInsetGroupedTableView;
+@property (weak, nonatomic) id<WFNetworkSettingsViewControllerDataCoordinator> dataCoordinator;
+@property (weak, nonatomic) id<WFNetworkSettingsViewControllerDelegate> delegate;
+@property (nonatomic) long long deviceCapability;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL wantsModalPresentation;
+
+- (void)_contentSizeCategoryDidChange:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void).cxx_destruct;
+- (BOOL)tableView:(id)a0 canPerformAction:(SEL)a1 forRowAtIndexPath:(id)a2 withSender:(id)a3;
+- (void)tableView:(id)a0 performAction:(SEL)a1 forRowAtIndexPath:(id)a2 withSender:(id)a3;
+- (id)initWithConfig:(id)a0;
+- (void)dealloc;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (double)tableView:(id)a0 estimatedHeightForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 titleForHeaderInSection:(long long)a1;
+- (BOOL)tableView:(id)a0 shouldShowMenuForRowAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidLoad;
+- (id)initWithConfig:(id)a0 detailsContext:(id)a1 hardwareMACAddress:(id)a2 useInsetGroupedTableView:(BOOL)a3;
+- (void)refreshConfig:(id)a0;
+- (long long)_sectionTypeAtSection:(long long)a0;
+- (BOOL)_isChinaDevice;
+- (id)initWithConfig:(id)a0 detailsContext:(id)a1 hardwareMACAddress:(id)a2;
+- (id)_sectionsFromConfig:(id)a0;
+- (void)_logSections:(id)a0;
+- (BOOL)_shouldShowIPv6ForConfig:(id)a0;
+- (void)_updateRandomMACValueChanged:(BOOL)a0;
+- (BOOL)_shouldShowRandomConfigSwith;
+- (id)_macAddressToDisplay;
+- (BOOL)_isIPv4ConfigAuto;
+- (void)_promptForgetNetwork;
+- (void)_saveConfig:(id)a0;
+- (void)_presentDetailViewController:(id)a0;
+- (void)_presentRenewLeaseAlertWithSourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)_showRecommendationSupportLink;
+- (id)_lowDataModeFooterView;
+- (id)_randomMACFooterView;
+- (void)_saveAutoJoinEnabledChanged:(BOOL)a0;
+- (void)_saveAutoLoginEnabledChanged:(BOOL)a0;
+- (void)_saveSaveDataModeChanged:(BOOL)a0;
+- (void)_promptChangePrivateAddress;
+- (void)_autoJoinSwitchChanged:(id)a0;
+- (void)_autoLoginSwitchChanged:(id)a0;
+- (void)_saveDataModeSwitchChanged:(id)a0;
+- (void)_usingRandomMACSwitchChanged:(id)a0;
+- (void)_openRecommendationsLink:(id)a0;
+- (id)_stringForSettingsSection:(long long)a0;
+- (id)_randomAddressToDisplay;
+- (id)_randomMACFooterTextToDisplay;
+- (void)_httpProxyConfigChanged:(long long)a0;
+- (void)_httpProxyAuthChanged:(id)a0;
+
+@end

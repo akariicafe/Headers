@@ -1,0 +1,35 @@
+@class MLMultiArray, NSSet;
+
+@interface SignificantActivityOutput : NSObject <MLFeatureProvider>
+
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block8_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block8_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block8_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block8_box__class_prob__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block7_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block7_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block7_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block7_box__class_prob__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block6_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block6_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block6_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block6_box__class_prob__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block9_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block9_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block9_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block9_box__class_prob__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block10_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block10_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block10_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block10_box__class_prob__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block11_box__yaw_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block11_box__roll_angle__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block11_box__box_offset__0;
+@property (retain, nonatomic) MLMultiArray *ShotNet__ShotNet__ssd_predictions__block11_box__class_prob__0;
+@property (readonly, nonatomic) NSSet *featureNames;
+
+- (id)featureValueForName:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithShotNet__ShotNet__ssd_predictions__block8_box__yaw_angle__0:(id)a0 ShotNet__ShotNet__ssd_predictions__block8_box__roll_angle__0:(id)a1 ShotNet__ShotNet__ssd_predictions__block8_box__box_offset__0:(id)a2 ShotNet__ShotNet__ssd_predictions__block8_box__class_prob__0:(id)a3 ShotNet__ShotNet__ssd_predictions__block7_box__yaw_angle__0:(id)a4 ShotNet__ShotNet__ssd_predictions__block7_box__roll_angle__0:(id)a5 ShotNet__ShotNet__ssd_predictions__block7_box__box_offset__0:(id)a6 ShotNet__ShotNet__ssd_predictions__block7_box__class_prob__0:(id)a7 ShotNet__ShotNet__ssd_predictions__block6_box__yaw_angle__0:(id)a8 ShotNet__ShotNet__ssd_predictions__block6_box__roll_angle__0:(id)a9 ShotNet__ShotNet__ssd_predictions__block6_box__box_offset__0:(id)a10 ShotNet__ShotNet__ssd_predictions__block6_box__class_prob__0:(id)a11 ShotNet__ShotNet__ssd_predictions__block9_box__yaw_angle__0:(id)a12 ShotNet__ShotNet__ssd_predictions__block9_box__roll_angle__0:(id)a13 ShotNet__ShotNet__ssd_predictions__block9_box__box_offset__0:(id)a14 ShotNet__ShotNet__ssd_predictions__block9_box__class_prob__0:(id)a15 ShotNet__ShotNet__ssd_predictions__block10_box__yaw_angle__0:(id)a16 ShotNet__ShotNet__ssd_predictions__block10_box__roll_angle__0:(id)a17 ShotNet__ShotNet__ssd_predictions__block10_box__box_offset__0:(id)a18 ShotNet__ShotNet__ssd_predictions__block10_box__class_prob__0:(id)a19 ShotNet__ShotNet__ssd_predictions__block11_box__yaw_angle__0:(id)a20 ShotNet__ShotNet__ssd_predictions__block11_box__roll_angle__0:(id)a21 ShotNet__ShotNet__ssd_predictions__block11_box__box_offset__0:(id)a22 ShotNet__ShotNet__ssd_predictions__block11_box__class_prob__0:(id)a23;
+
+@end

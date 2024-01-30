@@ -1,0 +1,3 @@
+@interface ICProtobufUtilities : NSObject
+
+@end

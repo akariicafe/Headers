@@ -1,0 +1,10 @@
+@interface TSWPApplicationDelegate : TSKApplicationDelegate
+
+@property (readonly, nonatomic) BOOL showChineseNamedPointSizes;
+
+- (BOOL)isValidURLForImportedHyperlink:(id)a0 targetDocumentRoot:(id)a1 forCrossDocumentPaste:(BOOL)a2;
+- (id)stringForEquationChoiceTitle;
+- (id)stringForEquationChoiceBody;
+- (id)stringForEquationChoiceUseEQKitButtonTitle;
+
+@end

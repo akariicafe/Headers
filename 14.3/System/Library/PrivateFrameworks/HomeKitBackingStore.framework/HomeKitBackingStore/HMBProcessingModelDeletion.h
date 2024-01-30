@@ -1,0 +1,3 @@
+@interface HMBProcessingModelDeletion : HMBProcessingModelResult
+
+@end

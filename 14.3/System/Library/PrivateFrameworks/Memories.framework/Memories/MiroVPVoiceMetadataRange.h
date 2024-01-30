@@ -1,0 +1,3 @@
+@interface MiroVPVoiceMetadataRange : MiroVPMetadataRange
+
+@end

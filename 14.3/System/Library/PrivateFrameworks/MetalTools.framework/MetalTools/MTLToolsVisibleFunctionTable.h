@@ -1,0 +1,33 @@
+@class NSString;
+@protocol MTLHeap, MTLBuffer, MTLDevice;
+
+@interface MTLToolsVisibleFunctionTable : MTLToolsResource <MTLVisibleFunctionTableSPI>
+
+@property (readonly, nonatomic) unsigned long long resourceIndex;
+@property (readonly) unsigned long long uniqueIdentifier;
+@property (retain, nonatomic) id<MTLBuffer> globalBuffer;
+@property (nonatomic) unsigned long long globalBufferOffset;
+@property (copy) NSString *label;
+@property (readonly) id<MTLDevice> device;
+@property (readonly) unsigned long long cpuCacheMode;
+@property (readonly) unsigned long long storageMode;
+@property (readonly) unsigned long long hazardTrackingMode;
+@property (readonly) unsigned long long resourceOptions;
+@property (readonly) id<MTLHeap> heap;
+@property (readonly) unsigned long long heapOffset;
+@property (readonly) unsigned long long allocatedSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setFunction:(id)a0 atIndex:(unsigned long long)a1;
+- (void)setFunctions:(const id *)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setValue:(unsigned long long)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)setBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)setVisibleFunctionTable:(id)a0 atBufferIndex:(unsigned long long)a1;
+- (void)setBuffers:(const id *)a0 offsets:(const unsigned long long *)a1 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)setValue:(unsigned long long)a0 atIndex:(unsigned long long)a1;
+- (void)setVisibleFunctionTables:(const id *)a0 withBufferRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+
+@end

@@ -1,0 +1,80 @@
+@interface GEOFeatureStyleAttributes : NSObject <NSCopying, NSSecureCoding> {
+    struct { unsigned int x0; int x1; } *v;
+    GEOFeatureStyleAttributes *_sharedAttributes;
+    struct { unsigned int x0; unsigned long long x1; } *extAttrs;
+    unsigned char countExtAttrs;
+    unsigned char countAttrs;
+    char featureType;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
++ (id)homeStyleAttributes;
++ (id)addressMarkerStyleAttributes;
++ (id)airportStyleAttributes;
++ (id)searchResultStyleAttributes;
++ (id)workStyleAttributes;
++ (id)schoolStyleAttributes;
++ (id)transitStationStyleAttributes;
++ (id)parkedCarStyleAttributes;
++ (id)restaurantStyleAttributes;
++ (id)calendarEventStyleAttributes;
++ (id)frequentLocationStyleAttributes;
++ (id)gasStationStyleAttributes;
++ (id)evChargerStyleAttributes;
++ (id)hotelStyleAttributes;
++ (id)carRentalStyleAttributes;
++ (id)ticketedEventStyleAttributes;
++ (id)inviteStyleAttributes;
++ (id)styleAttributesForPlace:(id)a0;
+
+- (void)removeKey:(unsigned int)a0;
+- (id)initWithAttributes:(unsigned int)a0;
+- (id)init;
+- (BOOL)isTransit;
+- (void).cxx_destruct;
+- (int)bikeableSide;
+- (BOOL)isBorder;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithPlaceStyleAttributes:(id)a0;
+- (BOOL)hasAttributes;
+- (void)setExtAttributes:(const struct { unsigned int x0; unsigned long long x1; } *)a0 count:(unsigned int)a1;
+- (void)dealloc;
+- (BOOL)isWalkable;
+- (BOOL)isTunnel;
+- (unsigned int)lineType;
+- (BOOL)isRailway;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+- (id)initWithPlaceDataStyleAttributes:(id)a0;
+- (BOOL)isLandmarkPOI;
+- (int)rampDirection;
+- (void)replaceAttributes:(const struct { unsigned int x0; int x1; } *)a0 count:(unsigned int)a1;
+- (id)description;
+- (int)rampType;
+- (BOOL)isLabelPOI;
+- (id)copyWithAirportStyleAttributes;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)hasDrivingSide;
+- (id)dictionaryRepresentation;
+- (BOOL)isSearchResult;
+- (void)sort;
+- (int)bikeLaneSide;
+- (BOOL)isSuperset:(id)a0;
+- (BOOL)shouldSuppress3DBuildingStrokes;
+- (int)walkableSide;
+- (id)initWithSharedStyleAttributes:(id)a0 extAttributes:(const struct { unsigned int x0; unsigned long long x1; } *)a1 extAttributeCount:(unsigned char)a2;
+- (BOOL)isFreeway;
+- (int)sidewalkSide;
+- (int)drivingSide;
+- (id)initWithGEOStyleAttributes:(id)a0;
+- (BOOL)isRoadPedestrianNavigable;
+- (BOOL)isRamp;
+- (BOOL)isBridge;
+- (BOOL)isDrivable;
+- (char)featureType;
+- (int)poiType;
+- (id)initWithStyleAttributes:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

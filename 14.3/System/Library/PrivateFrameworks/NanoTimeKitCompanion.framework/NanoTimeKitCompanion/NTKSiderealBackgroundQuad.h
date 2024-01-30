@@ -1,0 +1,80 @@
+@class NTKPromise, NSOrderedSet, NTKAltitudeColorCurve, NTKSiderealData, MTLRenderPassDescriptor, NTKSiderealCachedMTLTexture, CLKDevice;
+@protocol MTLDevice, MTLCommandBuffer, MTLTexture, MTLBuffer;
+
+@interface NTKSiderealBackgroundQuad : CLKUIQuad {
+    CLKDevice *_clkDevice;
+    id<MTLDevice> _device;
+    NTKPromise *_mtlSolidPipelineState;
+    NTKPromise *_mtlGradientPipelineState;
+    NTKPromise *_mtlGlowPipelineState;
+    NTKPromise *_mtlSpritePipelineState;
+    NTKPromise *_mtlBlurPipelineState;
+    NTKPromise *_mtlCompositePipelineState;
+    id<MTLCommandBuffer> _gradientLoadingBuffer;
+    id<MTLTexture> _gradientTex;
+    id<MTLBuffer> _mtlIndexBuffer;
+    id<MTLBuffer> _mtlSectorDescriptorBuffers[3];
+    unsigned short _currentBufferIndex;
+    id<MTLCommandBuffer> _textureLoadingBuffer;
+    NTKSiderealCachedMTLTexture *_dialTex;
+    NTKSiderealCachedMTLTexture *_waypointTex;
+    NTKSiderealCachedMTLTexture *_gnomonTexture;
+    NTKSiderealCachedMTLTexture *_dayGnomonTexture;
+    NTKSiderealCachedMTLTexture *_dayDiskBloomTexture;
+    NTKSiderealCachedMTLTexture *_dayDiskTexture;
+    NTKSiderealCachedMTLTexture *_nightGnomonTexture;
+    NTKSiderealCachedMTLTexture *_nightDiskTexture;
+    NTKSiderealCachedMTLTexture *_nightRingTexture;
+    struct CGSize { double width; double height; } _size;
+    NSOrderedSet *_sectors;
+    double _dayProgress;
+    NTKAltitudeColorCurve *_civilTwilightCurve;
+    NTKAltitudeColorCurve *_nauticalTwilightCurve;
+    NTKAltitudeColorCurve *_astronomicalTwilightCurve;
+    NTKAltitudeColorCurve *_nightColorCurve;
+    NTKAltitudeColorCurve *_bloomColorCurve;
+    void /* unknown type, empty encoding */ _ticksColor_dim;
+    void /* unknown type, empty encoding */ _ticksColor_bright;
+    void /* unknown type, empty encoding */ _waypointsColor;
+    NTKSiderealData *_currentData;
+    double _glowStartAngle;
+    double _glowEndAngle;
+    float _diameter;
+    float _orbitDiameter;
+    MTLRenderPassDescriptor *_offscreenPassDescriptor;
+    MTLRenderPassDescriptor *_verticalBlurPassDescriptor;
+    MTLRenderPassDescriptor *_horizontalBlurPassDescriptor;
+    id<MTLTexture> _offscreenBuffer;
+    id<MTLTexture> _verticalBlurBuffer;
+    id<MTLTexture> _horizontalBlurBuffer;
+    float _blurOrbitRadius;
+    float _blurRadius;
+    BOOL _useXR;
+    BOOL _isConstantSun;
+}
+
+@property (nonatomic) float litProgress;
+@property (nonatomic) float backgroundDimming;
+@property (nonatomic) float blurScale;
+@property (nonatomic) BOOL shouldDrawGlowPath;
+@property (nonatomic) float sunsetFilter;
+@property (nonatomic) unsigned long long renderingMode;
+@property (retain, nonatomic) id<MTLTexture> dayMask;
+@property (retain, nonatomic) id<MTLTexture> nightMask;
+
+- (void).cxx_destruct;
+- (void)setupForQuadView:(id)a0;
+- (void)performOffscreenPassesWithCommandBuffer:(id)a0;
+- (void)renderForDisplayWithEncoder:(id)a0;
+- (BOOL)prepareForTime:(double)a0;
+- (void)setSolarDayProgress:(double)a0;
+- (void)loadGradientTexture;
+- (void)siderealDataChanged:(id)a0;
+- (id)_currentBuffer;
+- (int)numSlicesForAngle:(double)a0;
+- (id)initWithDevice:(id)a0 orbitDiameter:(double)a1 timeOrbitRadius:(double)a2 timeRadius:(double)a3 dialImage:(id)a4 waypointImage:(id)a5 gnomonImage:(id)a6 dayGnomonImage:(id)a7 dayDiskBloomImage:(id)a8 dayDiscImage:(id)a9 nightGnomonImage:(id)a10 nightDiscImage:(id)a11 nightRingImage:(id)a12 initialData:(id)a13 useXR:(BOOL)a14;
+- (void)setGlowViewStartAngle:(double)a0 endAngle:(double)a1;
+- (void)updateWaypointImage:(id)a0;
+- (void)setSectors:(id)a0;
+
+@end

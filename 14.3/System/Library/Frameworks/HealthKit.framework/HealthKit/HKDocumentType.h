@@ -1,0 +1,3 @@
+@interface HKDocumentType : HKSampleType
+
+@end

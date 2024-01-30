@@ -1,0 +1,3 @@
+@interface OKMKMapView : MKMapView
+
+@end

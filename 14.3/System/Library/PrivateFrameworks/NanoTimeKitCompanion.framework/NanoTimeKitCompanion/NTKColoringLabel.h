@@ -1,0 +1,90 @@
+@class CLKFont, NSString, CLKTextProvider, UIFont, NSAttributedString, CLKDevice, _NTKColorManager, NSNumber, UIView, NSParagraphStyle, UIColor;
+@protocol CLKMonochromeFilterProvider;
+
+@interface NTKColoringLabel : NTKLegibilityLabel <NTKColoringView, CLKUILabel, NTKTimeTravelState> {
+    CLKDevice *_device;
+    _NTKColorManager *_colorManager;
+    NSNumber *_updateToken;
+    BOOL _updatedAfterTimeTravelStateChange;
+    CLKFont *_preTimeTravelFont;
+    BOOL _monochromeSnapshot;
+    double _previousFraction;
+    NSAttributedString *_originalString;
+    UIView *_snapshot;
+}
+
+@property (nonatomic) struct CGSize { double width; double height; } cachedSingleLineSize;
+@property (nonatomic) BOOL cachedSizeIsValid;
+@property (readonly, nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } cachedOpticalEdgeInsets;
+@property (nonatomic) BOOL cachedOpticalEdgeInsetsIsValid;
+@property (nonatomic) BOOL usesTextProviderSize;
+@property (readonly, nonatomic) unsigned long long options;
+@property (retain, nonatomic) CLKTextProvider *textProvider;
+@property (retain, nonatomic) CLKFont *monospacedDigitsFont;
+@property (retain, nonatomic) CLKFont *textProviderFont;
+@property (retain, nonatomic) CLKFont *textProviderSmallCapsBaseFont;
+@property (nonatomic) double maxWidth;
+@property (nonatomic) BOOL uppercase;
+@property (nonatomic) BOOL usesTextProviderTintColoring;
+@property (readonly, nonatomic) BOOL isTextTruncated;
+@property (copy, nonatomic) NSParagraphStyle *paragraphStyle;
+@property (nonatomic) double tracking;
+@property (copy, nonatomic) id /* block */ nowProvider;
+@property (copy, nonatomic) id /* block */ needsResizeHandler;
+@property (nonatomic) long long twoToneStyleInMonochrome;
+@property (weak, nonatomic) id<CLKMonochromeFilterProvider> filterProvider;
+@property (retain, nonatomic) UIColor *color;
+@property (nonatomic) BOOL usesLegibility;
+@property (retain, nonatomic) UIColor *overrideColor;
+@property (readonly, nonatomic) UIColor *contentColor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) UIFont *font;
+@property (retain, nonatomic) UIColor *textColor;
+@property (nonatomic) long long textAlignment;
+@property (readonly, nonatomic) double _lastLineBaseline;
+@property (copy, nonatomic) NSString *text;
+@property (copy, nonatomic) NSAttributedString *attributedText;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } opticalInsets;
+@property (nonatomic) BOOL inTimeTravel;
+
++ (id)labelWithOptions:(unsigned long long)a0;
+
+- (void)setShadowOffset:(struct CGSize { double x0; double x1; })a0;
+- (void)setNumberOfLines:(long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 options:(unsigned long long)a1;
+- (id)_font;
+- (id)forwardingTargetForSelector:(SEL)a0;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)sizeToFit;
+- (BOOL)_shouldAnimatePropertyWithKey:(id)a0;
+- (void)setBackgroundColor:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)minimumWidth;
+- (double)_firstLineBaseline;
+- (void)traitCollectionDidChange:(id)a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)invalidateCachedSize;
+- (void)setUsesLegibility:(BOOL)a0;
+- (double)widthForMaxWidth:(double)a0 withFont:(id)a1;
+- (void)editingDidEnd;
+- (void)transitionToMonochromeWithFraction:(double)a0 style:(long long)a1;
+- (void)updateMonochromeColorWithStyle:(long long)a0;
+- (id)_activeFont;
+- (void)_updateDynamicTracking;
+- (void)_requeryTextProviderAndNotify:(BOOL)a0;
+- (void)_updateTwoToneLabelMonochromeColor;
+- (void)_transitionTwoToneLabelToMonochromeWithFraction:(double)a0;
+- (double)widthForMaxWidth:(double)a0 withFont:(id)a1 smallCapsBaseFont:(id)a2;
+- (double)minimumWithFont:(id)a0;
+- (double)minimumWithFont:(id)a0 smallCapsBaseFont:(id)a1;
+- (void)_setAnimationAlpha:(double)a0;
+- (BOOL)usesLegibility:(BOOL)a0;
+- (double)widthForMaxWidth:(double)a0;
+- (id)_fontWithMonospaceNumbers:(id)a0;
+- (void)_setUpSnapshot;
+
+@end

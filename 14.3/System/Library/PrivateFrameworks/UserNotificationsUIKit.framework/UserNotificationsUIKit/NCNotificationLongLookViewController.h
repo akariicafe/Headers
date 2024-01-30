@@ -1,0 +1,94 @@
+@class NSString, NCLongLookTransitioningDelegate, UIView;
+@protocol PLExpandedPlatterDismissing, PLClickPresentationInteractionPresenting;
+
+@interface NCNotificationLongLookViewController : NCNotificationViewController <NCNotificationLongLookViewDelegate, PLExpandedPlatterPresentationControllerDelegate, NCLongLookDefaultPresentationControllerDelegate, NCNotificationCustomContentDelegate, PLClickPresentationInteractionPresentable, PLExpandedPlatterPresentable, PLExpandedPlatterPresentationViewDelegate, PLExpandedPlatterDismissing> {
+    NCLongLookTransitioningDelegate *_longLookTransitionDelegate;
+    id _cancelTouchesToken;
+}
+
+@property (copy, nonatomic, getter=_notificationTapBlock, setter=_setNotificationTapBlock:) id /* block */ notificationTapBlock;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PLClickPresentationInteractionPresenting> presenter;
+@property (readonly, nonatomic) UIView *viewWithContent;
+@property (readonly, nonatomic) UIView *viewForTouchContinuation;
+@property (weak, nonatomic) id<PLExpandedPlatterDismissing> dismisser;
+
++ (void)initialize;
+
+- (BOOL)becomeFirstResponder;
+- (BOOL)canResignFirstResponder;
+- (BOOL)resignFirstResponder;
+- (void)_handleIconButton:(id)a0;
+- (void).cxx_destruct;
+- (id)_extensionIdentifier;
+- (struct CGSize { double x0; double x1; })sizeForChildContentContainer:(id)a0 withParentContainerSize:(struct CGSize { double x0; double x1; })a1;
+- (void)loadView;
+- (BOOL)isContentExtensionVisible:(id)a0;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (id)_scrollView;
+- (BOOL)canBecomeFirstResponder;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)dismissViewControllerWithTransition:(int)a0 completion:(id /* block */)a1;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void)scrollViewDidEndScrollingAnimation:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (id)_initWithNotificationRequest:(id)a0 revealingAdditionalContentOnPresentation:(BOOL)a1;
+- (void)_updateWithProvidedStaticContent;
+- (void)_updateWithProvidedAuxiliaryOptionsContent;
+- (void)_updateWithProvidedCustomContent;
+- (id)_presentedLongLookViewController;
+- (void)preserveInputViews;
+- (BOOL)restoreInputViews;
+- (void)_updateLookView:(id)a0 withTitleFromProvidedStaticContent:(id)a1;
+- (unsigned long long)_maximumNumberOfPrimaryTextLinesForProvidedStaticContent;
+- (unsigned long long)_maximumNumberOfPrimaryLargeTextLinesForProvidedStaticContent;
+- (unsigned long long)_maximumNumberOfSecondaryTextLinesForProvidedStaticContent;
+- (unsigned long long)_maximumNumberOfSecondaryLargeTextLinesForProvidedStaticContent;
+- (void)_loadLookView;
+- (struct CGSize { double x0; double x1; })_preferredCustomContentSizeForSize:(struct CGSize { double x0; double x1; })a0 parentContentContainerBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_setPreferredCustomContentSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_notificationViewControllerViewDidLoad;
+- (void)customContentDidLoadExtension:(id)a0;
+- (void)customContentDidUpdateTitle:(id)a0;
+- (void)customContent:(id)a0 didUpdateUserNotificationActions:(id)a1;
+- (BOOL)expandedPlatterPresentationControllerShouldAllowKeyboardOnAppearance:(id)a0;
+- (id)expandedPlatterPresentationController:(id)a0 keyboardAssertionForGestureWindow:(id)a1;
+- (id)hideHomeAffordanceAnimationSettingsForExpandedPlatterPresentationController:(id)a0;
+- (id)unhideHomeAffordanceAnimationSettingsForExpandedPlatterPresentationController:(id)a0;
+- (id)settleHomeAffordanceAnimationBehaviorDescriptionForExpandedPlatterPresentationController:(id)a0;
+- (void)setNotificationRequest:(id)a0;
+- (void)setCustomContentHomeAffordanceVisible:(BOOL)a0;
+- (void)setCustomContentHomeAffordanceGestureRecognizer:(id)a0;
+- (void)presentLongLookAnimated:(BOOL)a0 trigger:(long long)a1 completion:(id /* block */)a2;
+- (BOOL)isLookStyleLongLook;
+- (BOOL)notificationLongLookView:(id)a0 tapGestureRecognizerShouldReceiveTouch:(id)a1;
+- (void)notificationLongLookView:(id)a0 willInteractWithURL:(id)a1;
+- (void)expandedPlatterPresentable:(id)a0 requestsDismissalWithTrigger:(long long)a1;
+- (id)customBackgroundContainerViewForExpandedPlatterPresentationController:(id)a0;
+- (void)playMedia;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })expandedPlatterPresentationController:(id)a0 frameForTransitionViewInPresentationSuperview:(id)a1;
+- (BOOL)expandedPlatterPresentationControllerShouldProvideBackground:(id)a0;
+- (id)_initWithNotificationRequest:(id)a0 andPresentingNotificationViewController:(id)a1 revealingAdditionalContentOnPresentation:(BOOL)a2;
+- (id)_longLookViewIfLoaded;
+- (id)_expandedPlatterPresentationViewScrollView;
+- (void)_updateTitleWithProvidedCustomContent;
+- (void)_handleNotificationTap:(id)a0;
+- (unsigned long long)_maximumNumberOfTextLinesForProvidedStaticContentWithDefaultNumber:(unsigned long long)a0 isPrimary:(BOOL)a1 isLarge:(BOOL)a2;
+- (id)_longLookViewLoadingIfNecessary;
+- (id)_expandedPlatterPresentationViewLoadingIfNecessary:(BOOL)a0;
+- (id)_presentingNotificationViewController;
+- (id)_longLookViewScrollView;
+- (BOOL)associatedViewControllerDidAppearForExpandedPlatterView:(id)a0;
+- (id)expandedPlatterViewForPresentationView:(id)a0;
+- (void)contentProviderDismissCustomContent:(id)a0 animated:(BOOL)a1;
+- (BOOL)_shouldPadScrollViewContentSizeHeight;
+- (long long)viewControllerTransitionTypeForTransitionDelegate:(id)a0;
+
+@end

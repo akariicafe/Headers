@@ -1,0 +1,3 @@
+@interface SBHUDWindow : SBSecureMainScreenActiveInterfaceOrientationWindow
+
+@end

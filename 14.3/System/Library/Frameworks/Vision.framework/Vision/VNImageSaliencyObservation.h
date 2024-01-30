@@ -1,0 +1,3 @@
+@interface VNImageSaliencyObservation : VNSaliencyImageObservation
+
+@end

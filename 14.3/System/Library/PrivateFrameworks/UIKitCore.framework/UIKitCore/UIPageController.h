@@ -1,0 +1,87 @@
+@class UIScrollView, UIPageControl, UIView, NSMutableArray, UIViewController;
+@protocol UIPageControllerDelegate;
+
+@interface UIPageController : UIViewController {
+    NSMutableArray *_viewControllers;
+    UIView *_wrapperViews[3];
+    int _notificationState[3];
+    UIScrollView *_scrollView;
+    UIPageControl *_pageControl;
+    int _pageSpacing;
+    long long _visibleIndex;
+    long long _pageCount;
+    struct { unsigned char delegateViewControllerAtIndex : 1; unsigned char delegateWillBeginPaging : 1; unsigned char delegateDidEndPaging : 1; unsigned char displaysPageControl : 1; unsigned char wraps : 1; } _pageControllerFlags;
+}
+
+@property (nonatomic) id<UIPageControllerDelegate> delegate;
+@property (nonatomic) double pageSpacing;
+@property (nonatomic) BOOL displaysPageControl;
+@property (readonly, retain, nonatomic) UIViewController *visibleViewController;
+@property (nonatomic) long long pageCount;
+@property (nonatomic) long long visibleIndex;
+@property (nonatomic) BOOL wraps;
+
+- (void)willRotateToInterfaceOrientation:(long long)a0 duration:(double)a1;
+- (void)didRotateFromInterfaceOrientation:(long long)a0;
+- (void)_getRotationContentSettings:(struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; double x5; int x6; } *)a0;
+- (void)willAnimateRotationToInterfaceOrientation:(long long)a0 duration:(double)a1;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (void)willAnimateSecondHalfOfRotationFromInterfaceOrientation:(long long)a0 duration:(double)a1;
+- (void)willAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)a0 duration:(double)a1;
+- (BOOL)_doesVisibleViewControllerSupportInterfaceOrientation:(long long)a0;
+- (void)setVisibleIndex:(long long)a0 preservingLoadedViewControllers:(BOOL)a1 animated:(BOOL)a2;
+- (void)dealloc;
+- (void)_notifyViewController:(id)a0 ofState:(int)a1 previousState:(int)a2 animated:(BOOL)a3;
+- (void)_replaceViewControllerAtIndex:(long long)a0 withViewController:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)didAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)a0;
+- (void)loadView;
+- (BOOL)_isSupportedInterfaceOrientation:(long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_scrollViewFrame;
+- (id)_scrollView;
+- (void)_pageChanged:(id)a0;
+- (void)viewDidUnload;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_createPageControl;
+- (BOOL)_needToLoadVisible;
+- (id)rotatingHeaderView;
+- (BOOL)_needToLoadNext;
+- (void)_scrollViewDidEndPaging;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)rotatingFooterView;
+- (BOOL)_allowsAutorotation;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)_nextViewController;
+- (BOOL)_needToLoadPrevious;
+- (void)_setNextViewController:(id)a0;
+- (BOOL)_shouldUseOnePartRotation;
+- (void)_scrollView:(id)a0 boundsDidChangeToSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_scrollViewDidScroll:(id)a0 forceUpdate:(BOOL)a1;
+- (void)_scrollViewWillBeginPaging;
+- (BOOL)_isViewControllerBeingUnloaded:(id)a0 atIndex:(long long)a1;
+- (void)_adjustScrollViewContentInsets;
+- (void)_setPreviousViewController:(id)a0;
+- (void)_setVisibleViewController:(id)a0;
+- (void)_notifyVisibleViewController:(int)a0 animated:(BOOL)a1;
+- (id)_loadPreviousViewController;
+- (id)_loadVisibleViewControllerAndNotify:(BOOL)a0;
+- (id)_loadNextViewController;
+- (id)_previousViewController;
+- (int)_previousViewControllerNotificationState;
+- (int)_visibleViewControllerNotificationState;
+- (int)_nextViewControllerNotificationState;
+- (void)_notifyPreviousViewController:(int)a0 animated:(BOOL)a1;
+- (void)_notifyNextViewController:(int)a0 animated:(BOOL)a1;
+- (BOOL)_hasPreviousViewController;
+- (BOOL)_hasNextViewController;
+- (void)setVisibleIndex:(long long)a0 animated:(BOOL)a1;
+- (void)_setNextViewControllerNotificationState:(int)a0;
+- (void)_setVisibleViewControllerNotificationState:(int)a0;
+- (void)_setPreviousViewControllerNotificationState:(int)a0;
+- (void)reloadViewControllerAtIndex:(long long)a0;
+- (BOOL)_hasVisibleViewController;
+- (long long)indexOfViewController:(id)a0;
+- (id)_pageControllerScrollView;
+- (id)_visibleViewController;
+
+@end

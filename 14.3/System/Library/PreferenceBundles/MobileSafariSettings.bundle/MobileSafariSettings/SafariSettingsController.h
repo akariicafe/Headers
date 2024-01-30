@@ -1,0 +1,83 @@
+@class NSString, SafariSettingsFeatureManager, MCProfileConnection, PSSystemPolicyForApp, NSArray, PSSpecifier, DOCDownloadSettings, WebBookmarkCollection;
+
+@interface SafariSettingsController : SafariSettingsListController <MCProfileConnectionObserver> {
+    MCProfileConnection *_profileConnection;
+    PSSystemPolicyForApp *_systemPolicyForApp;
+    SafariSettingsFeatureManager *_featureManager;
+    WebBookmarkCollection *_bookmarkCollection;
+    NSArray *_contentBlockerExtensions;
+    id _contentBlockerMatchingContext;
+    BOOL _recentlyClearedHistoryAndWebSiteData;
+    NSString *_defaultDownloadsFolderTitle;
+    DOCDownloadSettings *_downloadSettings;
+    PSSpecifier *_downloadsSettingsSpecifier;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)a0 userInfo:(id)a1;
+- (id)init;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (void).cxx_destruct;
+- (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)a0 userInfo:(id)a1;
+- (void)dealloc;
+- (id)specifiers;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)willBecomeActive;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)_bookmarksDidReload:(id)a0;
+- (void)suspend;
+- (id)_specifiersForPerSitePreferences;
+- (id)_specifierForClosingTabsAutomatically;
+- (id)_downloadsFolderTitle;
+- (void)_updateDownloadsFolderTitle;
+- (void)setSearchEngineInSpecifiers:(id)a0;
+- (void)_synchronizeNanoUserDefaults;
+- (unsigned long long)_enabledContentBlockerCount;
+- (void)_setValueForClosingTabsAutomatically:(id)a0;
+- (id)_valueForClosingTabsAutomatically;
+- (BOOL)_isCloudHistoryEnabled;
+- (void)safariClearHistoryAndData;
+- (void)_setSafariAcceptCookiesForPolicy:(unsigned long long)a0;
+- (void)setCookieStoragePolicy:(unsigned long long)a0 andNotifySpecifierWithID:(id)a1;
+- (void)_updateBlockAllNewWebsiteDataPolicyToBlockAllWebsiteData:(BOOL)a0;
+- (void)_confirmBlockAllCookies:(id)a0;
+- (void)_cancelBlockAllCookiesPrompt:(id)a0;
+- (void)_presentPrivacyFlowWithBundleIdentifier:(id)a0;
+- (BOOL)areSiriSuggestionsSupported;
+- (void)setIconsInTabEnabled:(id)a0 forSpecifier:(id)a1;
+- (BOOL)isFavoritesFolderRestricted:(id)a0;
+- (id)favoritesFolderTitle;
+- (BOOL)isSafariFraudWarningRestricted:(id)a0;
+- (id)isSafariFraudWarningEnabled:(id)a0;
+- (void)safariFraudWarningsToggled:(id)a0 forSpecifier:(id)a1;
+- (void)_copyFile:(id)a0 toFile:(id)a1;
+- (void)safariToggleHideFrequentlyVisitedSites:(id)a0 forSpecifier:(id)a1;
+- (BOOL)isTabBarAvailable:(id)a0;
+- (void)safariToggleApplePayDisclosureAllowed:(id)a0 forSpecifier:(id)a1;
+- (id)_valueForAutomaticallyDownloadReadingListItems;
+- (void)_setSafariAutomaticallyDownloadReadingListItems:(id)a0 forSpecifier:(id)a1;
+- (BOOL)isOfflineReadingListAvailable:(id)a0;
+- (BOOL)isClearHistoryRestricted:(id)a0;
+- (void)showClearHistoryAndDataConfirmation:(id)a0;
+- (BOOL)isAutoFillAvailable:(id)a0;
+- (BOOL)isAutoFillRestricted:(id)a0;
+- (id)siteSpecificSearchSettingsEnabledString;
+- (BOOL)isBlockPopUpsRestricted:(id)a0;
+- (id)isBlockPopUpsEnabled:(id)a0;
+- (BOOL)isTrackerProtectionRestricted:(id)a0;
+- (id)trackerProtectionEnabled;
+- (void)safariToggleTrackerProtection:(id)a0 forSpecifier:(id)a1;
+- (BOOL)isBlockAllNewWebsiteDataRestricted:(id)a0;
+- (id)blockAllNewWebsiteDataEnabled;
+- (void)safariToggleBlockAllNewWebsiteData:(id)a0 forSpecifier:(id)a1;
+- (BOOL)isContentBlockersAvailable:(id)a0;
+- (id)enabledContentBlockerCountString;
+- (void)showPrivacyExplanationSheet:(id)a0;
+- (void)showSearchExplanationSheet:(id)a0;
+
+@end

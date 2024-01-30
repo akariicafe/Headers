@@ -1,0 +1,3 @@
+@interface SKUIFullscreenImageViewElement : SKUIImageViewElement
+
+@end

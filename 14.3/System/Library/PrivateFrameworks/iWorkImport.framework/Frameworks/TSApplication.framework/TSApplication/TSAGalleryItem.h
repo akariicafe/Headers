@@ -1,0 +1,95 @@
+@class TSDImageDataHelper, NSString, NSArray, TSSPropertySetChangeDetails, TSDInfoGeometry, NSObject, TSWPStorage, TSDImageAdjustments, TSPData, TSPObject;
+@protocol TSDInfo, TSDOwningAttachment, OS_dispatch_queue;
+
+@interface TSAGalleryItem : TSPObject <TSDContainerInfo, TSWPStorageParent, TSDChangeableInfo, TSKDocumentObject> {
+    TSWPStorage *_captionStorage;
+    double _scale;
+    BOOL _definedOffset;
+    BOOL _definedScale;
+    BOOL _definedThumbnailImageData;
+    BOOL _definedImageAdjustments;
+    BOOL _definedAdjustedImageData;
+    BOOL _definedThumbnailAdjustedImageData;
+    BOOL _definedAccessibilityDescription;
+    TSDImageDataHelper *_imageDataHelper;
+    TSDImageDataHelper *_adjustedImageDataHelper;
+    NSObject<OS_dispatch_queue> *_naturalSizeQueue;
+    TSSPropertySetChangeDetails *_changes;
+}
+
+@property (nonatomic) struct CGPoint { double x; double y; } offset;
+@property (nonatomic) double scale;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } naturalSize;
+@property (retain, nonatomic) TSPData *imageData;
+@property (retain, nonatomic) TSPData *thumbnailImageData;
+@property (readonly, nonatomic) BOOL needsDownload;
+@property (readonly, nonatomic) BOOL canCopyData;
+@property (copy, nonatomic) TSDImageAdjustments *imageAdjustments;
+@property (retain, nonatomic) TSPData *adjustedImageData;
+@property (retain, nonatomic) TSPData *thumbnailAdjustedImageData;
+@property (readonly, nonatomic) TSWPStorage *captionStorage;
+@property (readonly, nonatomic) NSString *displayName;
+@property (copy, nonatomic) NSString *accessibilityDescription;
+@property (readonly, nonatomic) unsigned long long itemIndex;
+@property (readonly, copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) BOOL isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) BOOL inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) BOOL autoListRecognition;
+@property (readonly, nonatomic) BOOL autoListTermination;
+@property (readonly, nonatomic) BOOL textIsLinked;
+@property (readonly, nonatomic) BOOL preventsComments;
+@property (readonly, nonatomic) BOOL preventsChangeTracking;
+@property (readonly, nonatomic) BOOL supportsMultipleColumns;
+@property (readonly, nonatomic) long long contentWritingDirection;
+@property (readonly, nonatomic) BOOL storageChangesInvalidateWrap;
+@property (readonly, nonatomic) BOOL supportsVerticalTextLayoutInChildStorages;
+@property (readonly, nonatomic) BOOL supportsDropCapsInChildStorages;
+
++ (BOOL)needsObjectUUID;
+
+- (void).cxx_destruct;
+- (void)commonInit;
+- (id)copyWithContext:(id)a0;
+- (BOOL)isSelectable;
+- (id)childEnumerator;
+- (Class)repClass;
+- (Class)layoutClass;
+- (void)acceptVisitor:(id)a0;
+- (void)clearBackPointerToParentInfoIfNeeded:(id)a0;
+- (BOOL)isThemeContent;
+- (void)beginCollectingChanges;
+- (id)endCollectingChanges;
+- (BOOL)textIsVerticalAtCharIndex:(unsigned long long)a0;
+- (void)willChangeProperty:(int)a0;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)adoptStylesheet:(id)a0 withMapper:(id)a1;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)saveToMessage:(struct GalleryItem { void /* function */ **x0; struct InternalMetadataWithArena { void *x0; } x1; struct HasBits<1> { unsigned int x0[1]; } x2; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x3; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x4; struct Point *x5; struct DataReference *x6; struct DataReference *x7; struct ImageAdjustmentsArchive *x8; struct DataReference *x9; struct DataReference *x10; struct Reference *x11; float x12; } *)a0 archiver:(id)a1;
+- (void)didInitFromSOS;
+- (id)objectUUIDPath;
+- (void)setPrimitiveGeometry:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (void)loadFromMessage:(const struct GalleryItem { void /* function */ **x0; struct InternalMetadataWithArena { void *x0; } x1; struct HasBits<1> { unsigned int x0[1]; } x2; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x3; struct ArenaStringPtr { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > *x0; } x4; struct Point *x5; struct DataReference *x6; struct DataReference *x7; struct ImageAdjustmentsArchive *x8; struct DataReference *x9; struct DataReference *x10; struct Reference *x11; float x12; } *)a0 unarchiver:(id)a1;
+- (id)initWithContext:(id)a0 imageData:(id)a1 thumbnailImageData:(id)a2;
+- (void)p_willModifyImageData;
+- (BOOL)p_canCopy:(id)a0;
+- (void)setCaptionStorage:(id)a0;
+- (id)initWithContext:(id)a0 imageData:(id)a1;
+
+@end

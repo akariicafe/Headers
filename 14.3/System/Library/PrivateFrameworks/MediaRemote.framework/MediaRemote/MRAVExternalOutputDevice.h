@@ -1,0 +1,3 @@
+@interface MRAVExternalOutputDevice : MRAVDistantOutputDevice
+
+@end

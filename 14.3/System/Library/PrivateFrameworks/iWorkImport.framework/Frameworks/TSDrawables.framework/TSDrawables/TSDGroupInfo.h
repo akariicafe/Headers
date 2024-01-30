@@ -1,0 +1,92 @@
+@class TSDInfoGeometry, NSArray, TSPObject, NSString, NSSet, NSObject, NSMutableArray;
+@protocol TSDInfo, TSDOwningAttachment;
+
+@interface TSDGroupInfo : TSDDrawableInfo <TSDMutableContainerInfo, TSDMixing, TSKDocumentObject, TSDModelContainer, TSDAttachmentAwareContainerInfo> {
+    NSMutableArray *mChildInfos;
+    BOOL mIsInDocument;
+}
+
+@property (copy, nonatomic) NSArray *childInfos;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfos;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfosForWrap;
+@property (readonly, nonatomic) NSArray *allNestedChildrenInfosIncludingGroups;
+@property (readonly, nonatomic) BOOL canAspectRatioLockBeChangedByUser;
+@property (readonly, nonatomic) BOOL isFreehandDrawing;
+@property (readonly, nonatomic) BOOL isEffectivelyEmpty;
+@property (readonly, nonatomic) BOOL isMaster;
+@property (copy, nonatomic) TSDInfoGeometry *geometry;
+@property (nonatomic) NSObject<TSDInfo> *parentInfo;
+@property (nonatomic) TSPObject<TSDOwningAttachment> *owningAttachment;
+@property (readonly, nonatomic) TSPObject<TSDOwningAttachment> *owningAttachmentNoRecurse;
+@property (readonly, nonatomic, getter=isFloatingAboveText) BOOL floatingAboveText;
+@property (readonly, nonatomic, getter=isAnchoredToText) BOOL anchoredToText;
+@property (readonly, nonatomic, getter=isInlineWithText) BOOL inlineWithText;
+@property (readonly, nonatomic, getter=isInlineWithTextWithWrap) BOOL inlineWithTextWithWrap;
+@property (readonly, nonatomic, getter=isAttachedToBodyText) BOOL attachedToBodyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL matchesObjectPlaceholderGeometry;
+@property (readonly, nonatomic) NSArray *containedModels;
+@property (readonly, nonatomic) NSSet *infosToObserveForAttachedInfo;
+
++ (id)groupGeometryFromChildrenInfos:(id)a0;
++ (Class)classForUnarchiver:(id)a0;
++ (id)groupGeometryFromChildrenInfos:(id)a0 currentlyLaidOutWithLayoutController:(id)a1;
++ (id)p_drawablesToInsertForGroup:(id)a0 outDidUngroup:(BOOL *)a1 filteredWithBlock:(id /* block */)a2;
++ (id)drawablesToInsertForGroup:(id)a0 filteredWithBlock:(id /* block */)a1;
+
+- (void)didCopy;
+- (BOOL)needsDownload;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)copyWithContext:(id)a0;
+- (id)childEnumerator;
+- (Class)repClass;
+- (Class)layoutClass;
+- (void)acceptVisitor:(id)a0;
+- (id)initWithContext:(id)a0 geometry:(id)a1;
+- (BOOL)allowsTitle;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willCopyWithOtherDrawables:(id)a0;
+- (BOOL)canAnchor;
+- (void)adoptStylesheet:(id)a0 withMapper:(id)a1;
+- (id)mixedObjectWithFraction:(double)a0 ofObject:(id)a1;
+- (void)addChildInfo:(id)a0;
+- (void)insertChildInfo:(id)a0 atIndex:(unsigned long long)a1;
+- (void)insertChildInfo:(id)a0 below:(id)a1;
+- (void)insertChildInfo:(id)a0 above:(id)a1;
+- (void)moveChildren:(id)a0 toIndexes:(id)a1;
+- (void)removeChildInfo:(id)a0;
+- (void)replaceChildInfo:(id)a0 with:(id)a1;
+- (BOOL)supportsParentRotation;
+- (id)groupedGeometryForChildInfo:(id)a0;
+- (void)removeAllChildrenInDocument:(BOOL)a0;
+- (id)ungroupedGeometryForChildInfo:(id)a0;
+- (void)makeChildGeometriesRelativeAndComputeOwnAbsoluteGeometry;
+- (void)ensureGeometryFitsChildren;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (id)childEnumeratorForUserSearch;
+- (void)saveToArchive:(struct GroupArchive { void /* function */ **x0; struct ExtensionSet { struct Arena *x0; unsigned short x1; unsigned short x2; union AllocatedData { struct KeyValue *x0; struct map<int, google::protobuf::internal::ExtensionSet::Extension, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, google::protobuf::internal::ExtensionSet::Extension> > > *x1; } x3; } x1; struct InternalMetadataWithArena { void *x0; } x2; struct HasBits<1> { unsigned int x0[1]; } x3; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x4; struct RepeatedPtrField<TSP::Reference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x5; struct DrawableArchive *x6; struct Reference *x7; } *)a0 archiver:(id)a1;
+- (void)insertContainedModel:(id)a0 atIndex:(unsigned long long)a1;
+- (void)removeContainedModel:(id)a0;
+- (void)moveModel:(id)a0 toIndex:(unsigned long long)a1;
+- (id)infoForSelectionPath:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (long long)mixingTypeWithObject:(id)a0 context:(id)a1;
+- (BOOL)isNonGroupedChild:(id)a0;
+- (BOOL)shouldShowInPrint;
+- (BOOL)allowsCaption;
+- (BOOL)wantsCounterRotationWhenNotSupportingParentRotationInRotatedParent;
+- (BOOL)canCopyData;
+- (void)loadFromArchive:(const struct GroupArchive { void /* function */ **x0; struct ExtensionSet { struct Arena *x0; unsigned short x1; unsigned short x2; union AllocatedData { struct KeyValue *x0; struct map<int, google::protobuf::internal::ExtensionSet::Extension, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, google::protobuf::internal::ExtensionSet::Extension> > > *x1; } x3; } x1; struct InternalMetadataWithArena { void *x0; } x2; struct HasBits<1> { unsigned int x0[1]; } x3; struct CachedSize { struct atomic<int> { struct __cxx_atomic_impl<int, std::__1::__cxx_atomic_base_impl<int> > { _Atomic int x0; } x0; } x0; } x4; struct RepeatedPtrField<TSP::Reference> { struct Arena *x0; int x1; int x2; struct Rep *x3; } x5; struct DrawableArchive *x6; struct Reference *x7; } *)a0 unarchiver:(id)a1 upgradeDOLC:(BOOL)a2;
+- (BOOL)shouldBeIgnoredWhenCopying;
+- (BOOL)allowsParentGroupToBeResizedWithoutAspectRatioLock;
+- (void)p_didUpdateChildInfos;
+- (id)p_ungroupedGeometryForInfo:(id)a0;
+
+@end

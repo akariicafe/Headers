@@ -1,0 +1,52 @@
+@interface SearchUIUtilities : NSObject
+
++ (id)localizedStringForKey:(id)a0;
++ (id)stringForSFRichText:(id)a0;
++ (void)dispatchAsyncIfNecessary:(id /* block */)a0;
++ (BOOL)deviceIsAuthenticated;
++ (BOOL)shouldHandleCardSectionEngagement:(id)a0 feedbackListener:(id)a1;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
++ (void)playNegativeHaptic;
++ (id)openOptions;
++ (void)dispatchMainIfNecessary:(id /* block */)a0;
++ (void)openPunchout:(id)a0 completion:(id /* block */)a1;
++ (id)pointerKeyMapTable;
++ (void)openApplicationWithBundleIdentifier:(id)a0 completion:(id /* block */)a1;
++ (id)bundleIdentifierForApp:(unsigned long long)a0;
++ (BOOL)backgroundColorPrefersWhiteForegroundText:(id)a0;
++ (void)openApplicationWithBundleIdentifier:(id)a0;
++ (BOOL)bundleIdentifierIsBlockedForScreenTimeExpiration:(id)a0;
++ (void)openURL:(id)a0 withCompletion:(id /* block */)a1;
++ (void)openUserActivity:(id)a0 applicationBundleIdentifier:(id)a1;
++ (id)stringForSFRichTextArray:(id)a0;
++ (void)requestDeviceUnlockWithSuccessHandler:(id /* block */)a0;
++ (id)environmentForDelegate:(id)a0;
++ (void)openUserActivity:(id)a0 applicationBundleIdentifier:(id)a1 completion:(id /* block */)a2;
++ (void)performAnimatableChanges:(id /* block */)a0;
++ (double)onePixelForCurrentScreenResolution;
++ (id)imageForBlockedApp;
++ (BOOL)isWideScreen;
++ (void)performOpenTask:(id /* block */)a0;
++ (BOOL)appIsValidForBundleIdentifier:(id)a0;
++ (BOOL)resultIsSiriAction:(id)a0;
++ (void)fetchURLForFileResult:(id)a0 completionHandler:(id /* block */)a1;
++ (BOOL)isPortraitForWindow:(id)a0;
++ (void)openPunchout:(id)a0 fromCardSection:(id)a1 toListener:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4 completion:(id /* block */)a5;
++ (double)standardTableCellContentInset;
++ (void)requestDeviceUnlock:(id /* block */)a0;
++ (void)openPunchout:(id)a0;
++ (id)defaultBrowserBundleIdentifier;
++ (BOOL)isLargeIpad;
++ (void)presentViewController:(id)a0 environment:(id)a1 prefersModalPresentation:(BOOL)a2;
++ (BOOL)deviceSupportsRotation;
++ (BOOL)resultBlockedForScreenTime:(id)a0;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1;
++ (id)sendFeedbackForPunchout:(id)a0 toListener:(id)a1 fromCardSection:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4;
++ (id)addAspectRatioConstraintForSize:(struct CGSize { double x0; double x1; })a0 toView:(id)a1;
++ (void)openPunchout:(id)a0 fromCardSection:(id)a1 toListener:(id)a2 triggerEvent:(unsigned long long)a3 queryId:(unsigned long long)a4;
++ (BOOL)isMinimizedHardwareKeyboardMode;
++ (id)uiColorForSFColor:(id)a0;
++ (id)hyphenatableStringForString:(id)a0;
++ (id)fileProviderItemIDForFileResult:(id)a0;
+
+@end

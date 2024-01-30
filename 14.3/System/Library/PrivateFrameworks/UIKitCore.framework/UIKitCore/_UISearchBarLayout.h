@@ -1,0 +1,78 @@
+@class _UISearchBarScopeContainerView, UIView, UISearchBarTextField, _UISearchBarScopeContainerLayout, UIFont, _UISearchBarPromptContainerView, NSString, _UISearchBarSearchContainerLayout, _UISearchBarSearchContainerView;
+
+@interface _UISearchBarLayout : _UISearchBarLayoutBase <_UISearchBarContainerSublayoutDelegate> {
+    struct { unsigned char hasCancelButton : 1; unsigned char hasDeleteButton : 1; unsigned char hasLeftButton : 1; unsigned char hasScopeBar : 1; unsigned char hasPromptLabel : 1; unsigned char hasSearchBarBackground : 1; unsigned char hasSearchBarBackdrop : 1; unsigned char hasSeparator : 1; unsigned char allowSearchFieldShrinkage : 1; unsigned char searchFieldUsesCustomBackgroundImage : 1; unsigned char searchFieldEffectivelySupportsDynamicType : 1; unsigned char isProspective : 1; unsigned char isHostingNavBarTransitionActive : 1; } _searchBarLayoutFlags;
+    double _cachedFontValueBeforeScaling;
+    double _cachedFontValueAfterScaling;
+}
+
+@property (retain, nonatomic) _UISearchBarScopeContainerLayout *scopeContainerLayout;
+@property (retain, nonatomic) _UISearchBarSearchContainerLayout *searchContainerLayout;
+@property (readonly, nonatomic) double naturalSearchBarHeight;
+@property (readonly, nonatomic) double naturalSearchFieldHeight;
+@property (readonly, nonatomic) double naturalScopeBarHeight;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } scopeContainerSpecificInsets;
+@property (readonly, nonatomic) double naturalPromptContainerHeight;
+@property (readonly, nonatomic) double naturalTotalHeight;
+@property (nonatomic, getter=isProspective) BOOL prospective;
+@property (nonatomic, getter=isHostingNavBarTransitionActive) BOOL hostingNavBarTransitionActive;
+@property (retain, nonatomic) UIView *searchBarBackground;
+@property (retain, nonatomic) UIView *searchBarBackdrop;
+@property (retain, nonatomic) UIView *separator;
+@property (retain, nonatomic) _UISearchBarScopeContainerView *scopeBarContainer;
+@property (retain, nonatomic) _UISearchBarSearchContainerView *searchFieldContainer;
+@property (retain, nonatomic) _UISearchBarPromptContainerView *promptContainer;
+@property (retain, nonatomic) UIView *scopeBar;
+@property (retain, nonatomic) UISearchBarTextField *searchField;
+@property (retain, nonatomic) UIView *cancelButton;
+@property (retain, nonatomic) UIView *deleteButton;
+@property (retain, nonatomic) UIView *leftButton;
+@property (nonatomic) BOOL hasCancelButton;
+@property (nonatomic) BOOL hasDeleteButton;
+@property (nonatomic) BOOL hasLeftButton;
+@property (nonatomic) BOOL hasScopeBar;
+@property (nonatomic) BOOL hasPromptLabel;
+@property (nonatomic) BOOL hasSearchBarBackground;
+@property (nonatomic) BOOL hasSearchBarBackdrop;
+@property (nonatomic) BOOL hasSeparator;
+@property (nonatomic) double backgroundExtension;
+@property (nonatomic) BOOL allowSearchFieldShrinkage;
+@property (nonatomic) BOOL searchFieldUsesCustomBackgroundImage;
+@property (nonatomic) BOOL searchFieldEffectivelySupportsDynamicType;
+@property (nonatomic) struct UIOffset { double horizontal; double vertical; } searchFieldBackgroundPositionAdjustment;
+@property (nonatomic) double searchBarReadableWidth;
+@property (nonatomic) unsigned long long numberOfScopeTitles;
+@property (retain, nonatomic) UIFont *searchFieldFont;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } searchFieldContainerLayoutFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } scopeBarContainerLayoutFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } promptContainerLayoutFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } searchBarBackgroundLayoutFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } separatorLayoutFrame;
+@property (nonatomic) long long representedLayoutState;
+@property (readonly, nonatomic) struct { double minimum; double maximum; } heightRange;
+@property (nonatomic) double additionalPaddingForCancelButtonAtLeadingEdge;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)updateLayout;
+- (void)applyLayout;
+- (void)setUpScopeContainerLayout;
+- (void)cleanUpLayout;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)applyScopeContainerSublayout;
+- (void)prepareScopeContainerLayout;
+- (void)setUpSearchContainerLayout;
+- (void)setLayoutCustomizationDelegateSearchFieldContainerWillLayoutSubviewsCallback:(id /* block */)a0;
+- (void)prepareBaseConfigurationForSublayout:(id)a0;
+- (double)layout:(id)a0 fontScaledValueForValue:(double)a1;
+- (void)prepareSublayouts;
+- (void)containerLayoutWillUpdateLayout:(id)a0;
+- (void)setDelegateSearchFieldFrameManipulationBlock:(id /* block */)a0;
+- (double)minimumLayoutWidth;
+- (void)prepareSearchContainerLayout;
+- (void)ensureCorrectContainerViewOrdering;
+
+@end

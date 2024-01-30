@@ -1,0 +1,76 @@
+@class OADStroke, OADTableCell3DProperties, OADFill;
+
+@interface OADTableCellProperties : NSObject {
+    OADStroke *mLeftStroke;
+    OADStroke *mRightStroke;
+    OADStroke *mTopStroke;
+    OADStroke *mBottomStroke;
+    OADStroke *mTopLeftToBottomRightStroke;
+    OADStroke *mBottomLeftToTopRightStroke;
+    OADTableCell3DProperties *mThreeDProperties;
+    OADFill *mFill;
+    float mLeftMargin;
+    BOOL mIsLeftMarginOverridden;
+    float mRightMargin;
+    BOOL mIsRightMarginOverridden;
+    float mTopMargin;
+    BOOL mIsTopMarginOverridden;
+    float mBottomMargin;
+    BOOL mIsBottomMarginOverridden;
+    unsigned char mTextFlow;
+    BOOL mIsTextFlowOverridden;
+    unsigned char mTextAnchor;
+    BOOL mIsTextAnchorOverridden;
+    BOOL mTextAnchorCenter;
+    BOOL mIsTextAnchorCenterOverridden;
+    unsigned char mTextHorizontalOverflow;
+    BOOL mIsTextHorizontalOverflowOverridden;
+}
+
+- (id)fill;
+- (void).cxx_destruct;
+- (void)setLeftMargin:(float)a0;
+- (void)setTopMargin:(float)a0;
+- (void)setBottomMargin:(float)a0;
+- (void)setTextFlow:(unsigned char)a0;
+- (id)description;
+- (float)rightMargin;
+- (unsigned char)textFlow;
+- (float)topMargin;
+- (float)bottomMargin;
+- (void)setRightMargin:(float)a0;
+- (id)stroke:(int)a0;
+- (float)leftMargin;
+- (BOOL)isLeftMarginOverridden;
+- (BOOL)isRightMarginOverridden;
+- (BOOL)isTopMarginOverridden;
+- (BOOL)isBottomMarginOverridden;
+- (void)setFill:(id)a0;
+- (unsigned char)textAnchor;
+- (id)topStroke;
+- (id)bottomStroke;
+- (id)leftStroke;
+- (id)rightStroke;
+- (BOOL)isTextAnchorOverridden;
+- (void)setLeftStroke:(id)a0;
+- (void)setRightStroke:(id)a0;
+- (void)setTopStroke:(id)a0;
+- (void)setBottomStroke:(id)a0;
+- (void)setTopLeftToBottomRightStroke:(id)a0;
+- (void)setBottomLeftToTopRightStroke:(id)a0;
+- (void)setTextAnchor:(unsigned char)a0;
+- (void)setTextAnchorCenter:(BOOL)a0;
+- (void)setTextHorizontalOverflow:(unsigned char)a0;
+- (id)topLeftToBottomRightStroke;
+- (id)bottomLeftToTopRightStroke;
+- (void)setStrokeOfType:(int)a0 toValue:(id)a1;
+- (id)strokeNormalToDir:(int)a0 bound:(int)a1;
+- (id)threeDProperties;
+- (void)setThreeDProperties:(id)a0;
+- (BOOL)isTextFlowOverridden;
+- (BOOL)textAnchorCenter;
+- (BOOL)isTextAnchorCenterOverridden;
+- (unsigned char)textHorizontalOverflow;
+- (BOOL)isTextHorizontalOverflowOverridden;
+
+@end

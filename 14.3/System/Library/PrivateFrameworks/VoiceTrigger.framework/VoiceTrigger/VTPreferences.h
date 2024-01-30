@@ -1,0 +1,61 @@
+@interface VTPreferences : NSObject
+
++ (id)sharedPreferences;
++ (id)deviceCategoryStringRepresentationForCategoryType:(unsigned long long)a0;
+
+- (BOOL)isSATEnrolledForLanguageCode:(id)a0;
+- (BOOL)gestureSubscriptionEnabled;
+- (BOOL)useSiriActivationSPIForwatchOS;
+- (id)_localeIdentifier;
+- (id)init;
+- (BOOL)voiceTriggerEnabled;
+- (id)audioInjectionFilePath;
+- (BOOL)isSATEnrollmentMigratedForLanguageCode:(id)a0;
+- (BOOL)hasVoiceProfileIniCloudForLanguageCode:(id)a0;
+- (BOOL)voiceTriggerEnabledWhenChargerDisconnected;
+- (void)setPhraseSpotterEnabled:(BOOL)a0;
+- (void)setVoiceTriggerEnabledWhenChargerDisconnected:(BOOL)a0;
+- (void)enableVoiceTriggerUponVoiceProfileSyncForLanguage:(id)a0;
+- (void)setPhraseSpotterEnabled:(BOOL)a0 sender:(id)a1;
+- (BOOL)_storeModeEnabled;
+- (void)setVoiceTriggerEnabled:(BOOL)a0 sender:(id)a1;
+- (void)setSecondPassAudioLoggingEnabled:(BOOL)a0;
+- (BOOL)isVoiceTriggerAvailable;
+- (void)markSATEnrollmentSuccessForLanguageCode:(id)a0;
+- (BOOL)corespeechDaemonEnabled;
+- (BOOL)isRemoteVoiceTriggerAvailable;
+- (void)discardAllSATEnrollment;
+- (id)getMD5HashForSATEnrollmentAudioForLanguageCode:(id)a0;
+- (BOOL)voiceTriggerInCoreSpeech;
+- (BOOL)_voiceTriggerEnabled;
+- (BOOL)fileLoggingIsEnabled;
+- (id)_languageCode;
+- (void)setFileLoggingIsEnabled:(BOOL)a0;
+- (void)synchronize;
+- (BOOL)phraseSpotterEnabled;
+- (BOOL)secondPassAudioLoggingEnabled;
+- (void)_setVoiceTriggerEnabled:(BOOL)a0 sender:(id)a1;
+- (void)setVoiceTriggerEnabled:(BOOL)a0;
+- (BOOL)hasExplicitlySetVoiceTriggerEnabled;
+- (void)discardSATEnrollmentForLanguageCode:(id)a0;
+- (BOOL)isMultiPhraseVTEnabled;
+- (id)getSATEnrollmentPath;
+- (BOOL)_isSATMarkedForMarker:(id)a0 languageCode:(id)a1;
+- (BOOL)_isLocalVoiceTriggerAvailable;
+- (BOOL)onetimeRemoteAssetQueryRanSuccessfully;
+- (id)_getSATEnrollmentAudioPathForLanguageCodeForLegacyVoiceProfile:(id)a0;
+- (id)localizedTriggerPhrase;
+- (void)setVoiceTriggerEnabledWhenChargerConnected:(BOOL)a0;
+- (BOOL)useSiriActivationSPIForiOS;
+- (id)_VTSATBasePath;
+- (BOOL)isSATAvailable;
+- (id)_VTSATCachePath;
+- (id)fileLoggingLevel;
+- (void)setOnetimeRemoteAssetQueryRanSuccessfully:(BOOL)a0;
+- (BOOL)voiceTriggerEnabledWhenChargerConnected;
+- (BOOL)_gibraltarHasBuiltInMic;
+- (id)localizedTriggerPhraseForLanguageCode:(id)a0;
+- (id)devicesWithVoiceProfileIniCloudForLanguage:(id)a0;
+- (void)setFileLoggingLevel:(id)a0;
+
+@end

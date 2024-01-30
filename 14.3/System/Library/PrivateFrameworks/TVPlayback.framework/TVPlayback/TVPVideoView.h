@@ -1,0 +1,28 @@
+@class UIImageView, TVPPlayerLayerView, UILabel, NSObject;
+@protocol TVPAVFPlayback;
+
+@interface TVPVideoView : UIView
+
+@property (retain, nonatomic) TVPPlayerLayerView *playerLayerView;
+@property (nonatomic, getter=isReadyForDisplay) BOOL readyForDisplay;
+@property (retain, nonatomic) UIImageView *stillImageView;
+@property (retain, nonatomic) NSObject<TVPAVFPlayback> *player;
+@property (readonly, nonatomic) UILabel *debugLabel;
+@property (nonatomic) BOOL isPrimarySubtitleDisplayer;
+@property (nonatomic) long long videoGravity;
+
++ (void)initialize;
++ (id)preservedVideoViewsForPlayer:(id)a0 identifier:(id)a1;
++ (void)_playerStateDidChange:(id)a0;
++ (void)_purgePreservedVideoViewsForPlayer:(id)a0;
++ (void)preserveVideoViewForReuse:(id)a0 identifier:(id)a1;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)setAVPlayer:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)AVPlayer;
+- (void)_playerStillImageDidChange:(id)a0;
+
+@end

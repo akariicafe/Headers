@@ -1,0 +1,84 @@
+@class UIView, NSString, PLRoundProgressView, _UIBackdropView, UIButton, NSMutableArray, NSLayoutConstraint, PXUIButton, PUTrimToolController, UILabel;
+
+@interface PUPhotoEditLivePhotoVideoToolController : PUPhotoEditToolController <PUTrimToolControllerDelegate> {
+    _UIBackdropView *_backdropBackgroundView;
+    UIView *_solidBackgroundView;
+    UIView *_containerView;
+    NSLayoutConstraint *_viewHeightConstraint;
+    NSLayoutConstraint *_leadingWidthConstraint;
+    NSLayoutConstraint *_trailingWidthConstraint;
+    NSMutableArray *_constraints;
+    PUTrimToolController *_trimController;
+    PXUIButton *_muteLivePhotoButton;
+    PXUIButton *_livePhotoButton;
+    UILabel *_videoLabelView;
+    UIButton *_stabilizeButton;
+    PLRoundProgressView *_stabilizeProgressView;
+    BOOL _trimControllerVisible;
+    BOOL _viewHasAppeared;
+    BOOL _trimControllerScrubberNeedsVisualUpdate;
+    BOOL _stabilizationInProgress;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _originalStillImageTime;
+}
+
+@property (nonatomic) long long layoutType;
+@property (retain, nonatomic) UIView *primaryView;
+@property (nonatomic) double horizontalControlPadding;
+@property (readonly, nonatomic) double horizontalPrimaryViewPaddingOffset;
+@property (nonatomic) double verticalButtonOffset;
+@property (nonatomic) BOOL useTranslucentBackground;
+@property (readonly, nonatomic) UIButton *livePhotoButton;
+@property (readonly, nonatomic) PUTrimToolController *trimController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)wantsSecondaryToolbarVisible;
+- (void)baseLivePhotoInvalidated;
+- (void)loadView;
+- (id)leadingToolbarViews;
+- (id)accessibilityHUDItemForButton:(id)a0;
+- (id)localizedName;
+- (void)setPlaceholderImage:(id)a0;
+- (void)updateViewConstraints;
+- (void)_invalidateConstraints;
+- (void)_updateBackgroundAnimated:(BOOL)a0;
+- (void)setUseGradientBackground:(BOOL)a0 animated:(BOOL)a1;
+- (id)toolbarIcon;
+- (id)centerToolbarView;
+- (BOOL)canResetToDefaultValue;
+- (BOOL)wantsZoomAndPanEnabled;
+- (long long)toolControllerTag;
+- (void)willBecomeActiveTool;
+- (void)setLayoutOrientation:(long long)a0 withTransitionCoordinator:(id)a1;
+- (void)compositionControllerDidChangeForAdjustments:(id)a0;
+- (void)trimToolControllerDidChange:(id)a0 state:(unsigned long long)a1;
+- (void)setOriginalStillImageTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (BOOL)_isTrimAllowed;
+- (void)updateForIncomingAnimation;
+- (void)photoEditLivePhotoModelUpdated;
+- (BOOL)_wantsTrimControl;
+- (void)_updateTrimControl;
+- (id)makeTrimToolController;
+- (void)videoRenderingChanged;
+- (void)_invalidateTrimControlScrubberThumbnails;
+- (void)_handleMuteLivePhotoButton:(id)a0;
+- (void)reloadToolbarButtons:(BOOL)a0;
+- (void)updateToolbarButtonsAnimated:(BOOL)a0;
+- (void)_updateMuteButtonAnimated:(BOOL)a0;
+- (void)_updateStabilizeButtonAnimated:(BOOL)a0;
+- (void)_reportStabilizeProgress:(double)a0;
+- (void)_updateStabilizeProgressViewAnimated:(BOOL)a0;
+- (void)_updateStabilizationInProgress:(BOOL)a0;
+- (void)_handleStabilizeButton:(id)a0;
+- (void)_handleLivePhotoButton:(id)a0;
+- (void)_updateLivePhotoButton:(id)a0;
+- (void)_updateLivePhotoButtonAnimated:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)setBackdropViewGroupName:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+
+@end

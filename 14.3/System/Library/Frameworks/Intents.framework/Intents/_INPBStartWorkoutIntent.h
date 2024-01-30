@@ -1,0 +1,54 @@
+@class NSArray, NSString, _INPBDataString, _INPBDouble, _INPBIntentMetadata;
+
+@interface _INPBStartWorkoutIntent : PBCodable <_INPBStartWorkoutIntent, NSSecureCoding, NSCopying> {
+    struct { unsigned char isBuiltInWorkoutType : 1; unsigned char isOpenEnded : 1; unsigned char isVoiceOnly : 1; unsigned char sequenceLabel : 1; unsigned char workoutGoalUnitType : 1; unsigned char workoutLocationType : 1; } _has;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSArray *associatedItems;
+@property (readonly, nonatomic) unsigned long long associatedItemsCount;
+@property (retain, nonatomic) _INPBDouble *goalValue;
+@property (readonly, nonatomic) BOOL hasGoalValue;
+@property (retain, nonatomic) _INPBIntentMetadata *intentMetadata;
+@property (readonly, nonatomic) BOOL hasIntentMetadata;
+@property (nonatomic) BOOL isBuiltInWorkoutType;
+@property (nonatomic) BOOL hasIsBuiltInWorkoutType;
+@property (nonatomic) BOOL isOpenEnded;
+@property (nonatomic) BOOL hasIsOpenEnded;
+@property (nonatomic) BOOL isVoiceOnly;
+@property (nonatomic) BOOL hasIsVoiceOnly;
+@property (nonatomic) int sequenceLabel;
+@property (nonatomic) BOOL hasSequenceLabel;
+@property (nonatomic) int workoutGoalUnitType;
+@property (nonatomic) BOOL hasWorkoutGoalUnitType;
+@property (nonatomic) int workoutLocationType;
+@property (nonatomic) BOOL hasWorkoutLocationType;
+@property (retain, nonatomic) _INPBDataString *workoutName;
+@property (readonly, nonatomic) BOOL hasWorkoutName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)associatedItemsType;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearAssociatedItems;
+- (void)addAssociatedItems:(id)a0;
+- (id)associatedItemsAtIndex:(unsigned long long)a0;
+- (id)sequenceLabelAsString:(int)a0;
+- (int)StringAsSequenceLabel:(id)a0;
+- (id)workoutGoalUnitTypeAsString:(int)a0;
+- (int)StringAsWorkoutGoalUnitType:(id)a0;
+- (id)workoutLocationTypeAsString:(int)a0;
+- (int)StringAsWorkoutLocationType:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)encodeWithCoder:(id)a0;
+
+@end

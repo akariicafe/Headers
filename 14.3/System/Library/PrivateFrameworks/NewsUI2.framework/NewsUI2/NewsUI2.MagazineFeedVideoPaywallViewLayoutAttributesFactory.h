@@ -1,0 +1,3 @@
+@interface NewsUI2.MagazineFeedVideoPaywallViewLayoutAttributesFactory : _TtCs12_SwiftObject
+
+@end

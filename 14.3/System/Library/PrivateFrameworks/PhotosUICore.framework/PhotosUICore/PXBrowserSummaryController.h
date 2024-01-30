@@ -1,0 +1,82 @@
+@class NSAttributedString, NSString, PXSelectedItemsStack, PXInfoUpdater, NSArray, NSDateInterval, NSDictionary, NSObject, NSDateFormatter, NSDateIntervalFormatter;
+@protocol OS_dispatch_queue, PXBrowserSelectionSnapshot, PXBrowserSummaryControllerDataSource;
+
+@interface PXBrowserSummaryController : PXObservable <PXMutableBrowserSummaryController, PXInfoUpdaterObserver, PXInfoProvider> {
+    struct { BOOL containerTitle; BOOL localizedContainerItemsCount; BOOL containerDateInterval; BOOL selectionSnapshot; BOOL filteringContainerContent; BOOL attributedPrimaryTitle; BOOL secondaryTitle; BOOL tertiaryTitle; BOOL navigationTitle; BOOL attributedSelectionTitle; BOOL stackedAssets; } _needsUpdateFlags;
+    struct { BOOL containerTitle; BOOL localizedContainerItemsCount; BOOL containerDateInterval; BOOL visibleContentSnapshot; BOOL selectionSnapshot; BOOL filteringContainerContent; BOOL useAssetImportDate; BOOL shouldUpdateImmediately; } _dataSourceRespondsTo;
+}
+
+@property (readonly, nonatomic) PXInfoUpdater *visibleMetadataInfoUpdater;
+@property (readonly, nonatomic) PXInfoUpdater *selectionInfoUpdater;
+@property (readonly, nonatomic) PXInfoUpdater *titlesInfoUpdater;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSDateIntervalFormatter *dateIntervalFormatter;
+@property (readonly, nonatomic) NSDateFormatter *importDateFormatter;
+@property (readonly, nonatomic) NSString *localizedComponentsSeparator;
+@property (copy, nonatomic) NSString *containerTitle;
+@property (copy, nonatomic) NSString *localizedContainerItemsCount;
+@property (copy, nonatomic) NSDateInterval *containerDateInterval;
+@property (retain, nonatomic) id<PXBrowserSelectionSnapshot> selectionSnapshot;
+@property (nonatomic, getter=isFilteringContainerContent) BOOL filteringContainerContent;
+@property (copy, nonatomic) NSAttributedString *attributedPrimaryTitle;
+@property (copy, nonatomic) NSString *secondaryTitle;
+@property (copy, nonatomic) NSString *tertiaryTitle;
+@property (copy, nonatomic) NSString *navigationTitle;
+@property (copy, nonatomic) NSAttributedString *attributedSelectionTitle;
+@property (retain, nonatomic) PXSelectedItemsStack *selectedAssetsStack;
+@property (copy, nonatomic) NSArray *stackedAssets;
+@property (nonatomic, getter=isReady) BOOL ready;
+@property (readonly, nonatomic) NSString *noFilteringResultsPlaceholderText;
+@property (weak, nonatomic) id<PXBrowserSummaryControllerDataSource> dataSource;
+@property (readonly, nonatomic) unsigned long long containerDateFormatGranularity;
+@property (nonatomic) BOOL shouldUseSubtitles;
+@property (nonatomic) BOOL shouldUseNavigationTitle;
+@property (nonatomic) BOOL shouldUseAbbreviatedDates;
+@property (nonatomic) BOOL shouldShowLocationNames;
+@property (copy, nonatomic) NSDictionary *defaultAttributes;
+@property (copy, nonatomic) NSDictionary *emphasizedAttributes;
+@property (copy, nonatomic) NSDictionary *selectionAttributes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_invalidateSelectionSnapshot;
+- (void)invalidateContainerTitle;
+- (void)performBlockWhenDoneUpdating:(id /* block */)a0;
+- (id)init;
+- (void)invalidateVisibleContent;
+- (void).cxx_destruct;
+- (void)_invalidateContainerTitle;
+- (void)_updateContainerDateIntervalIfNeeded;
+- (void)_invalidateAttributedSelectionTitle;
+- (void)_setNeedsUpdate;
+- (id)_requestTitlesInfoWithResultHandler:(id /* block */)a0;
+- (void)_invalidateFilteringContainerContent;
+- (BOOL)shouldUpdateImmediately;
+- (void)didPerformChanges;
+- (void)_invalidateStackedAssets;
+- (void)_updateContainerTitleIfNeeded;
+- (void)_invalidateTitles;
+- (BOOL)_needsUpdate;
+- (void)performChanges:(id /* block */)a0;
+- (void)invalidateSelection;
+- (void)_updateIfNeeded;
+- (long long)priorityForInfoRequestOfKind:(id)a0;
+- (id)mutableChangeObject;
+- (void)invalidateLocalizedContainerItemsCount;
+- (void)infoUpdaterDidUpdate:(id)a0;
+- (void)_updateStackedAssetsIfNeeded;
+- (id)_performRequestBlock:(id /* block */)a0;
+- (void)_updateFilteringContainerContentIfNeeded;
+- (void)_updateLocalizedContainerItemsCountIfNeeded;
+- (void)_updateAttributedSelectionTitleIfNeeded;
+- (void)setContainerDateFormatGranularity:(unsigned long long)a0;
+- (id)requestInfoOfKind:(id)a0 withResultHandler:(id /* block */)a1;
+- (void)invalidateContainerDateInterval;
+- (void)_invalidateLocalizedContainerItemsCount;
+- (void)_invalidateContainerDateInterval;
+- (void)invalidateFilteringContainerContent;
+- (void)_updateSelectionSnapshotIfNeeded;
+
+@end

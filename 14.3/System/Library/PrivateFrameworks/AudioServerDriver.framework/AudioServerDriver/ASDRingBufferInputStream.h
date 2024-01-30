@@ -1,0 +1,18 @@
+@protocol ASDManagedRingBuffer;
+
+@interface ASDRingBufferInputStream : ASDStream {
+    struct unique_ptr<ASDBufferList, std::__1::default_delete<ASDBufferList> > { struct __compressed_pair<ASDBufferList *, std::__1::default_delete<ASDBufferList> > { struct ASDBufferList *__value_; } __ptr_; } _bufferList;
+}
+
+@property (readonly, nonatomic) id<ASDManagedRingBuffer> ringBuffer;
+
+- (void).cxx_destruct;
+- (void)stopStream;
+- (void)startStream;
+- (id).cxx_construct;
+- (void)setPhysicalFormat:(id)a0;
+- (id /* block */)readInputBlock;
+- (id)initWithDirection:(unsigned int)a0 withPlugin:(id)a1;
+- (id)initWithRingBuffer:(id)a0 withPlugin:(id)a1;
+
+@end

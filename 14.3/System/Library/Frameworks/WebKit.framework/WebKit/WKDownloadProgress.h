@@ -1,0 +1,16 @@
+@interface WKDownloadProgress : NSProgress {
+    struct RetainPtr<NSURLSessionDownloadTask> { void *m_ptr; } m_task;
+    struct WeakPtr<WebKit::Download, WTF::EmptyCounter> { struct RefPtr<WTF::WeakPtrImpl<WTF::EmptyCounter>, WTF::DumbPtrTraits<WTF::WeakPtrImpl<WTF::EmptyCounter> > > { struct WeakPtrImpl<WTF::EmptyCounter> *m_ptr; } m_impl; } m_download;
+    struct RefPtr<WebKit::SandboxExtension, WTF::DumbPtrTraits<WebKit::SandboxExtension> > { struct SandboxExtension *m_ptr; } m_sandboxExtension;
+}
+
+- (void)publish;
+- (void).cxx_destruct;
+- (void)unpublish;
+- (void)dealloc;
+- (id).cxx_construct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithDownloadTask:(id)a0 download:(struct Download { void /* function */ **x0; struct WeakPtrFactory<WebKit::Download, WTF::EmptyCounter> { struct RefPtr<WTF::WeakPtrImpl<WTF::EmptyCounter>, WTF::DumbPtrTraits<WTF::WeakPtrImpl<WTF::EmptyCounter> > > { struct WeakPtrImpl<WTF::EmptyCounter> *x0; } x0; } x1; struct DownloadManager *x2; struct DownloadID { unsigned long long x0; } x3; struct Ref<WebKit::DownloadManager::Client, WTF::DumbPtrTraits<WebKit::DownloadManager::Client> > { struct Client *x0; } x4; struct Vector<WTF::RefPtr<WebCore::BlobDataFileReference, WTF::DumbPtrTraits<WebCore::BlobDataFileReference> >, 0, WTF::CrashOnOverflow, 16, WTF::FastMalloc> { struct RefPtr<WebCore::BlobDataFileReference, WTF::DumbPtrTraits<WebCore::BlobDataFileReference> > *x0; unsigned int x1; unsigned int x2; } x5; struct RefPtr<WebKit::SandboxExtension, WTF::DumbPtrTraits<WebKit::SandboxExtension> > { struct SandboxExtension *x0; } x6; struct RefPtr<WebKit::NetworkDataTask, WTF::DumbPtrTraits<WebKit::NetworkDataTask> > { struct NetworkDataTask *x0; } x7; struct RetainPtr<NSURLSessionDownloadTask> { void *x0; } x8; struct RetainPtr<NSProgress> { void *x0; } x9; struct SessionID { unsigned long long x0; } x10; struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl *x0; } x0; } x11; BOOL x12; BOOL x13; struct DownloadMonitor { struct Download *x0; struct Deque<WebKit::DownloadMonitor::Timestamp, 10> { unsigned long long x0; unsigned long long x1; struct VectorBuffer<WebKit::DownloadMonitor::Timestamp, 10, WTF::FastMalloc> { struct Timestamp *x0; unsigned int x1; unsigned int x2; struct type { unsigned char x0[16]; } x3[10]; } x2; } x1; struct Timer { void /* function */ **x0; struct MonotonicTime { double x0; } x1; struct Seconds { double x0; } x2; struct RefPtr<WebCore::ThreadTimerHeapItem, WTF::DumbPtrTraits<WebCore::ThreadTimerHeapItem> > { struct ThreadTimerHeapItem *x0; } x3; struct Ref<WTF::Thread, WTF::DumbPtrTraits<WTF::Thread> > { struct Thread *x0; } x4; struct Function<void ()> { struct unique_ptr<WTF::Detail::CallableWrapperBase<void>, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct __compressed_pair<WTF::Detail::CallableWrapperBase<void> *, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct CallableWrapperBase<void> *x0; } x0; } x0; } x5; } x2; unsigned long long x3; } x14; unsigned int x15; } *)a1 URL:(id)a2 sandboxExtension:(struct RefPtr<WebKit::SandboxExtension, WTF::DumbPtrTraits<WebKit::SandboxExtension> > { struct SandboxExtension *x0; })a3;
+- (void)performCancel;
+
+@end

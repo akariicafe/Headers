@@ -1,0 +1,3 @@
+@interface SiriKitRuntime.ResolveParameterResponseGenerator : SiriKitRuntime.RCHCommonResponseGenerator
+
+@end

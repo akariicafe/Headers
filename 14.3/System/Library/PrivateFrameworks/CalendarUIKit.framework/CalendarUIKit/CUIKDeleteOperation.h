@@ -1,0 +1,3 @@
+@interface CUIKDeleteOperation : CUIKUserOperation
+
+@end

@@ -1,0 +1,18 @@
+@class NSArray, NSString;
+
+@interface HFAggregatedCharacteristicReadPolicy : NSObject <HFCharacteristicReadPolicy, NSCopying, NSMutableCopying>
+
+@property (readonly, nonatomic) NSArray *policies;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)evaluateWithCharacteristic:(id)a0 traits:(out id *)a1;
+- (id)initWithPolicies:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+
+@end

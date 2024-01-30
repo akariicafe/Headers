@@ -1,0 +1,98 @@
+@class NSString, CKSQLite, NSData, NSArray, NSObject, CKRecord;
+@protocol OS_dispatch_queue;
+
+@interface CKPackage : NSObject <NSSecureCoding, CKRecordValue>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) long long state;
+@property (copy, nonatomic) NSData *archiverInfo;
+@property (retain, nonatomic) CKSQLite *sqlite;
+@property (nonatomic) unsigned long long nextItemIndex;
+@property (nonatomic, getter=isOpen) BOOL open;
+@property (nonatomic, getter=inTransaction) BOOL transaction;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic) struct _OpaquePCSShareProtection { } *recordPCS;
+@property (copy, nonatomic) NSString *UUID;
+@property (nonatomic) unsigned long long size;
+@property (nonatomic) BOOL wasCached;
+@property (nonatomic) BOOL uploaded;
+@property (nonatomic) BOOL downloaded;
+@property (nonatomic) BOOL hasSize;
+@property (nonatomic) BOOL shouldReadRawEncryptedData;
+@property (nonatomic) long long storageGroupingPolicy;
+@property (nonatomic) long long uploadRank;
+@property (nonatomic) long long packageID;
+@property (copy, nonatomic) NSArray *assets;
+@property (weak, nonatomic) CKRecord *record;
+@property (copy, nonatomic) NSString *recordKey;
+@property (copy, nonatomic) NSString *databaseBasePath;
+@property (copy, nonatomic) NSString *rootDatabasePath;
+@property (copy, nonatomic) NSData *signature;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)packageWithError:(id *)a0;
++ (id)_packagesBasePathForBundleID:(id)a0;
++ (void)gcPackagesInDirectory:(id)a0 dbInUseBlock:(id /* block */)a1;
++ (id)packageWithPackage:(id)a0 error:(id *)a1;
++ (id)packageInDaemonWithBasePath:(id)a0 error:(id *)a1;
++ (id)packageProcessBasePath;
++ (id)packageInClientWithBasePath:(id)a0 error:(id *)a1;
++ (void)destroyClientPackageWithDatabaseBasePath:(id)a0 UUID:(id)a1;
++ (id)clientPackageDatabaseDirectory;
++ (id)_createPackageDBWithPath:(id)a0;
++ (id)_packageDatabaseDirectoryWithBasePath:(id)a0 state:(long long)a1;
++ (id)stagingPathSuffixForCloudKitCachesDirectoryWithBundleIdentifier:(id)a0;
++ (id)_packageDatabasePathWithBasePath:(id)a0 UUID:(id)a1 state:(long long)a2;
+
+- (BOOL)openWithError:(id *)a0;
+- (id)CKDescriptionPropertiesWithPublic:(BOOL)a0 private:(BOOL)a1 shouldExpand:(BOOL)a2;
+- (id)sectionAtIndex:(unsigned long long)a0;
+- (void)addItem:(id)a0;
+- (void)beginTransaction;
+- (void)endTransaction;
+- (id)init;
+- (void)close;
+- (void).cxx_destruct;
+- (void)addSection:(id)a0;
+- (unsigned long long)sectionCount;
+- (void)dealloc;
+- (BOOL)claimOwnershipWithError:(id *)a0;
+- (id)itemAtIndex:(unsigned long long)a0;
+- (id)itemEnumerator;
+- (id)initWithCoder:(id)a0;
+- (void)removeDB;
+- (id)clonedPackageInDaemonWithBasePath:(id)a0 filesDuplicatedIntoDirectory:(id)a1 error:(id *)a2;
+- (BOOL)removeDBAndDeleteFilesWithError:(id *)a0;
+- (id)_initWithBasePath:(id)a0 UUID:(id)a1;
+- (id)_packageDatabasePath;
+- (BOOL)prepareDBWithError:(id *)a0;
+- (void)handleChangeStateAction:(long long)a0;
+- (id)sqliteOrRaise;
+- (BOOL)handleChangeStateAction:(long long)a0 error:(id *)a1;
+- (id)_packageDatabasePathWithState:(long long)a0;
+- (BOOL)movePackagesDatabaseInDirection:(BOOL)a0 error:(id *)a1;
+- (void)releaseDBWithRemove:(BOOL)a0;
+- (BOOL)_locked_openWithError:(id *)a0;
+- (void)_locked_open;
+- (id)_itemWithColumnsByName:(id)a0;
+- (id)_itemOrNilAtIndex:(unsigned long long)a0;
+- (void)_locked_beginTransaction;
+- (void)_locked_endTransaction;
+- (id)initUnreachablePackageWithUUID:(id)a0;
+- (BOOL)setArchiverInfo:(id)a0 error:(id *)a1;
+- (id)itemEnumeratorForSectionAtIndex:(unsigned long long)a0;
+- (void)updateItemAtIndex:(long long)a0 withSignature:(id)a1 size:(unsigned long long)a2 itemID:(unsigned long long)a3 sectionIndex:(unsigned long long)a4;
+- (void)updateItemAtIndex:(long long)a0 withFileURL:(id)a1;
+- (void)updateItemsAtIndexes:(id)a0 fileURLs:(id)a1;
+- (void)testAddSectionConstraintAndRaise:(id)a0;
+- (double)earliestUploadReceiptExpiration;
+- (void)releaseDB;
+- (void)open;
+- (unsigned long long)itemCount;
+- (void)encodeWithCoder:(id)a0;
+
+@end

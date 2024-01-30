@@ -1,0 +1,34 @@
+@class NSString, NSNumber;
+
+@interface ASDWatchAppMetadata : NSObject <ASDAppMetadata, NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property BOOL skipIfInstalled;
+@property (copy) NSString *altDSID;
+@property (copy) NSString *appleID;
+@property (copy) NSString *bundleID;
+@property (copy) NSNumber *downloaderID;
+@property (copy) NSNumber *externalVersionID;
+@property (copy) NSNumber *itemID;
+@property (copy) NSNumber *previousExternalVersionID;
+@property (copy) NSString *previousVariantID;
+@property (copy) NSNumber *purchaserID;
+@property (copy) NSString *redownloadParams;
+@property (readonly) long long metadataType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)metadataFromStoreMetadata:(id)a0;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithItemID:(id)a0 externalVersionID:(id)a1;
+- (id)initWithItemID:(id)a0;
+- (id)initWithStoreMetadata:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

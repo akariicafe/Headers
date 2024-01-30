@@ -1,0 +1,3 @@
+@interface MiroVPMusicMetadataRange : MiroVPMetadataRange
+
+@end

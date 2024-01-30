@@ -1,0 +1,85 @@
+@class NSString, NSArray, NSHashTable, NSMutableDictionary, NSNumber;
+@protocol CBPeripheralDelegate;
+
+@interface CBPeripheral : CBPeer {
+    struct { unsigned char didUpdateName : 1; unsigned char didModifyServices : 1; unsigned char didReadRSSI : 1; unsigned char didUpdateRSSI : 1; unsigned char didDiscoverServices : 1; unsigned char didDiscoverIncludedServices : 1; unsigned char didDiscoverCharacteristics : 1; unsigned char didUpdateCharacteristicValue : 1; unsigned char didWriteCharacteristicValue : 1; unsigned char didNotifyCharacteristicValue : 1; unsigned char didDiscoverDescriptors : 1; unsigned char didUpdateDescriptorValue : 1; unsigned char didWriteDescriptorValue : 1; unsigned char didReceiveTimeSync : 1; unsigned char didOpenL2CAPChannel : 1; } _delegateFlags;
+    NSMutableDictionary *_attributes;
+}
+
+@property (retain) NSString *name;
+@property unsigned short appearance;
+@property (retain) NSNumber *RSSI;
+@property long long state;
+@property (retain) NSArray *services;
+@property unsigned int writesPending;
+@property BOOL canSendWriteWithoutResponse;
+@property BOOL ancsAuthorized;
+@property (readonly, nonatomic) BOOL isConnectedToSystem;
+@property (readonly, retain, nonatomic) NSHashTable *l2capChannels;
+@property (retain) NSString *BDAddress;
+@property (readonly) BOOL visibleInSettings;
+@property (readonly, nonatomic, getter=isConnectedToSystem) BOOL connectedToSystem;
+@property (weak, nonatomic) id<CBPeripheralDelegate> delegate;
+
+- (void)readRSSI;
+- (id)sendSyncMsg:(int)a0 args:(id)a1;
+- (void)sendMsg:(int)a0 args:(id)a1;
+- (void)handleDescriptorValueWritten:(id)a0;
+- (void)handleDescriptorValueUpdated:(id)a0;
+- (void)sendMsg:(int)a0 requiresConnected:(BOOL)a1 args:(id)a2;
+- (void)handleTimeSyncResponse:(id)a0;
+- (void)writeValue:(id)a0 forCharacteristic:(id)a1 type:(long long)a2;
+- (void).cxx_destruct;
+- (void)handleServiceEvent:(id)a0 serviceSelector:(SEL)a1 delegateSelector:(SEL)a2 delegateFlag:(BOOL)a3;
+- (id)attributeForHandle:(id)a0;
+- (void)openL2CAPChannel:(unsigned short)a0;
+- (void)removeAttributeForHandle:(id)a0;
+- (void)readValueForCharacteristic:(id)a0;
+- (void)setNotifyValue:(BOOL)a0 forCharacteristic:(id)a1;
+- (void)handleConnectionStateUpdated:(BOOL)a0;
+- (void)dealloc;
+- (void)readValueForDescriptor:(id)a0;
+- (void)invalidateAllAttributes;
+- (void)getTimeSyncData;
+- (void)handleSuccessfulConnection:(id)a0;
+- (void)setVisibleInSettings:(BOOL)a0;
+- (void)setAttribute:(id)a0 forHandle:(id)a1;
+- (void)handleServiceCharacteristicsDiscovered:(id)a0;
+- (void)handleCharacteristicValueNotifying:(id)a0;
+- (void)discoverIncludedServices:(id)a0 forService:(id)a1;
+- (void)handleCharacteristicValueWritten:(id)a0;
+- (void)handleDescriptorEvent:(id)a0 descriptorSelector:(SEL)a1 delegateSelector:(SEL)a2 delegateFlag:(BOOL)a3;
+- (void)handleCharacteristicDescriptorsDiscovered:(id)a0;
+- (void)handleAttributeEvent:(id)a0 args:(id)a1 attributeSelector:(SEL)a2 delegateSelector:(SEL)a3 delegateFlag:(BOOL)a4;
+- (void)handleNameUpdated:(id)a0;
+- (id)description;
+- (void)handleServicesChanged:(id)a0;
+- (BOOL)isConnected;
+- (void)handleVisibilityChanged:(id)a0;
+- (void)handleL2CAPChannelClosed:(id)a0;
+- (void)setHighPriorityStream:(BOOL)a0 duration:(id)a1;
+- (void)handleL2CAPChannelOpened:(id)a0;
+- (void)discoverCharacteristics:(id)a0 forService:(id)a1;
+- (void)handleFailedConnection;
+- (void)handleServicesDiscovered:(id)a0;
+- (void)openL2CAPChannel:(unsigned short)a0 options:(id)a1;
+- (void)handleDisconnection;
+- (void)isReadyForUpdates;
+- (void)handleServiceIncludedServicesDiscovered:(id)a0;
+- (void)discoverDescriptorsForCharacteristic:(id)a0;
+- (void)handleMsg:(int)a0 args:(id)a1;
+- (id)l2capChannelForPeer:(id)a0 withPsm:(unsigned short)a1;
+- (void)setBroadcastValue:(BOOL)a0 forCharacteristic:(id)a1;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)removeAllL2CAPChannels;
+- (unsigned long long)maximumWriteValueLengthForType:(long long)a0;
+- (void)handleRSSIUpdated:(id)a0;
+- (void)writeValue:(id)a0 forDescriptor:(id)a1;
+- (void)setOrphan;
+- (id)initWithCentralManager:(id)a0 info:(id)a1;
+- (void)setPeripheralName:(id)a0;
+- (void)handleCharacteristicValueUpdated:(id)a0;
+- (void)discoverServices:(id)a0;
+- (void)handleCharacteristicEvent:(id)a0 characteristicSelector:(SEL)a1 delegateSelector:(SEL)a2 delegateFlag:(BOOL)a3;
+
+@end

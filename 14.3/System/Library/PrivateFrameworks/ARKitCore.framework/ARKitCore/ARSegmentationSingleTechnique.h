@@ -1,0 +1,3 @@
+@interface ARSegmentationSingleTechnique : ARSegmentationTechnique
+
+@end

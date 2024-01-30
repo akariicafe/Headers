@@ -1,0 +1,86 @@
+@class GEOMapRegion, NSString, VKCamera;
+@protocol MDRenderTarget, VKMapViewCameraDelegate;
+
+@interface VKCameraController : NSObject <VKCameraController> {
+    VKCamera *_camera;
+    id<MDRenderTarget> _canvas;
+    id<VKMapViewCameraDelegate> _cameraDelegate;
+    BOOL _gesturing;
+    unsigned long long _regionChangeCount;
+    BOOL _inProgressRegionChangeIsAnimated;
+    struct VKEdgeInsets { float top; float left; float bottom; float right; } _edgeInsets;
+    BOOL _edgeInsetsAnimating;
+}
+
+@property (readonly, nonatomic) double presentationHeading;
+@property (nonatomic) BOOL isPitchEnabled;
+@property (nonatomic) BOOL isRotateEnabled;
+@property (nonatomic) BOOL staysCenteredDuringPinch;
+@property (nonatomic) BOOL staysCenteredDuringRotation;
+@property (readonly, nonatomic) BOOL canPitch;
+@property (readonly, nonatomic) BOOL canRotate;
+@property (nonatomic) struct { double x0; double x1; } centerCoordinate;
+@property (nonatomic) double distanceFromCenterCoordinate;
+@property (nonatomic) double heading;
+@property (nonatomic) double pitch;
+@property (readonly, nonatomic) GEOMapRegion *mapRegion;
+@property (readonly, nonatomic) double altitude;
+@property (readonly, nonatomic) double minPitch;
+@property (readonly, nonatomic) double maxPitch;
+@property (readonly, nonatomic) BOOL isPitched;
+@property (readonly, nonatomic) BOOL isRotated;
+@property (readonly, nonatomic) BOOL isFullyPitched;
+@property (readonly, nonatomic) struct MapDataAccess { } *mapDataAccess;
+@property (readonly, nonatomic) struct AnimationRunner { } *animationRunner;
+@property (readonly, nonatomic) struct RunLoopController { } *runLoopController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)canvas;
+- (BOOL)restoreViewportFromInfo:(id)a0;
+- (id)camera;
+- (void)setEdgeInsets:(struct VKEdgeInsets { float x0; float x1; float x2; float x3; })a0;
+- (void)setCamera:(id)a0;
+- (BOOL)isGesturing;
+- (id)detailedDescription;
+- (BOOL)wantsTimerTick;
+- (void)setGesturing:(BOOL)a0;
+- (id)viewportInfo;
+- (BOOL)edgeInsetsAnimating;
+- (BOOL)isChangingRegion;
+- (struct CGPoint { double x0; double x1; })centerScreenPoint;
+- (void)checkAndResetRegionChangeCount;
+- (struct CGPoint { double x0; double x1; })scaledScreenPointForPoint:(struct CGPoint { double x0; double x1; })a0;
+- (struct Matrix<int, 2, 1> { int x0[2]; })cursorFromScreenPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)stylesheetDidChange;
+- (BOOL)centerCoordinate:(struct { double x0; double x1; } *)a0 andDistanceFromCenter:(double *)a1 forMapRegion:(id)a2;
+- (void)updateCameraToPositionOrientationLimits;
+- (void)setCanvas:(id)a0;
+- (void)dealloc;
+- (id)initWithMapDataAccess:(struct MapDataAccess { } *)a0 animationRunner:(struct AnimationRunner { } *)a1 runLoopController:(struct RunLoopController { } *)a2 cameraDelegate:(id)a3;
+- (double)maximumZoomLevelForTileSize:(long long)a0;
+- (BOOL)canZoomOutForTileSize:(long long)a0;
+- (double)currentZoomLevelForTileSize:(long long)a0;
+- (id)cameraDelegate;
+- (void)setCameraDelegate:(id)a0;
+- (void)populateDebugNode:(struct DebugTreeNode { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x0; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { char *x0; unsigned long long x1; unsigned long long x2; } x0; struct __short { char x0[23]; struct { unsigned char x0; } x1; } x1; struct __raw { unsigned long long x0[3]; } x2; } x0; } x0; } x0; } x1; struct vector<gdc::DebugTreeNode, std::__1::allocator<gdc::DebugTreeNode> > { struct DebugTreeNode *x0; struct DebugTreeNode *x1; struct __compressed_pair<gdc::DebugTreeNode *, std::__1::allocator<gdc::DebugTreeNode> > { struct DebugTreeNode *x0; } x2; } x2; struct vector<gdc::DebugTreeProperty, std::__1::allocator<gdc::DebugTreeProperty> > { struct DebugTreeProperty *x0; struct DebugTreeProperty *x1; struct __compressed_pair<gdc::DebugTreeProperty *, std::__1::allocator<gdc::DebugTreeProperty> > { struct DebugTreeProperty *x0; } x2; } x3; } *)a0 withOptions:(const struct bitset<4> { } *)a1;
+- (BOOL)isAnimating;
+- (double)topDownMinimumZoomLevelForTileSize:(long long)a0;
+- (double)minimumZoomLevelForTileSize:(long long)a0;
+- (struct VKEdgeInsets { float x0; float x1; float x2; float x3; })edgeInsets;
+- (double)maximumZoomLevel;
+- (BOOL)canZoomInForTileSize:(long long)a0;
+- (double)topDownMinimumZoomLevel;
+- (double)zoomLevelAdjustmentForTileSize:(long long)a0;
+- (void)canvasDidLayout;
+- (void)updateWithTimestamp:(double)a0;
+- (double)minimumZoomLevel;
+- (void)setEdgeInsetsAnimating:(BOOL)a0;
+- (double)currentZoomLevel;
+- (void)beginRegionChange:(BOOL)a0;
+- (void)endRegionChange;
+- (void)stylesheetDidReload;
+
+@end

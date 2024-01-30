@@ -1,0 +1,3 @@
+@interface __QLDetailItemViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

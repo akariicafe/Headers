@@ -1,0 +1,3 @@
+@interface __MPModalPresentationWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

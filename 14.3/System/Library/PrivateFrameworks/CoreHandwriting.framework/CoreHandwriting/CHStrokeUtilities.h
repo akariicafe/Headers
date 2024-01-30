@@ -1,0 +1,25 @@
+@interface CHStrokeUtilities : NSObject
+
++ (struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; })convexHullForStrokes:(id)a0 inDrawing:(id)a1;
++ (struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; })enlargedConvexHull:(const struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; } *)a0 withMargin:(double)a1;
++ (double)threePointsOrientationWithOrigin:(struct CGPoint { double x0; double x1; })a0 pointA:(struct CGPoint { double x0; double x1; })a1 pointB:(struct CGPoint { double x0; double x1; })a2;
++ (double)distanceFromPoint:(struct CGPoint { double x0; double x1; })a0 toRectangle:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
++ (double)distanceFromPoint:(struct CGPoint { double x0; double x1; })a0 toSegmentFromPoint:(struct CGPoint { double x0; double x1; })a1 toPoint:(struct CGPoint { double x0; double x1; })a2;
++ (BOOL)isPointEnumerationSupportedForStroke:(id)a0;
++ (void)enumeratePointsForStroke:(id)a0 interpolationType:(long long)a1 resolution:(long long)a2 usingBlock:(id /* block */)a3;
++ (struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; })convexHullForPoints:(struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; } *)a0;
++ (void)getAddedStrokes:(id *)a0 removedStrokeIdentifiers:(id *)a1 inStrokeProvider:(id)a2 lastGroupingResult:(id)a3;
++ (id)strokeForIdentifier:(id)a0 inStrokeProvider:(id)a1;
++ (double)durationOfStrokesInStrokeGroup:(id)a0 strokeProvider:(id)a1;
++ (double)speedForFinalTimeRange:(double)a0 stroke:(id)a1;
++ (double)arcLengthForStroke:(id)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundingBoxOfPoints:(const struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; } *)a0 rotatedAroundPoint:(struct CGPoint { double x0; double x1; })a1 byAngle:(double)a2;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })unionStrokeBounds:(const struct vector<CGRect, std::__1::allocator<CGRect> > { struct CGRect *x0; struct CGRect *x1; struct __compressed_pair<CGRect *, std::__1::allocator<CGRect> > { struct CGRect *x0; } x2; } *)a0 usingStrokeCountLimit:(long long)a1 reverseOrder:(BOOL)a2;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })unionStrokeBounds:(const struct vector<CGRect, std::__1::allocator<CGRect> > { struct CGRect *x0; struct CGRect *x1; struct __compressed_pair<CGRect *, std::__1::allocator<CGRect> > { struct CGRect *x0; } x2; } *)a0 aroundXPosition:(double)a1 usingOneSideStrokeCountLimit:(long long)a2;
++ (struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; })convexHullForStroke:(id)a0;
++ (double)circumferenceRatioOfCircleFittedToPoints:(const struct list<CGPoint, std::__1::allocator<CGPoint> > { struct __list_node_base<CGPoint, void *> { struct __list_node_base<CGPoint, void *> *x0; struct __list_node_base<CGPoint, void *> *x1; } x0; struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<CGPoint, void *> > > { unsigned long long x0; } x1; } *)a0 circleCenter:(struct CGPoint { double x0; double x1; } *)a1 circleRadius:(double *)a2;
++ (double)vectorMeanWithoutOutliers:(struct vector<double, std::__1::allocator<double> > { double *x0; double *x1; struct __compressed_pair<double *, std::__1::allocator<double> > { double *x0; } x2; } *)a0;
++ (double)lineOrientationForStrokePoints:(const struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; } *)a0 error:(double *)a1;
++ (struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; })regularizedPathFromPoints:(const struct vector<CGPoint, std::__1::allocator<CGPoint> > { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::__1::allocator<CGPoint> > { struct CGPoint *x0; } x2; } *)a0 delta:(double)a1 gamma:(double)a2 outError:(double *)a3;
+
+@end

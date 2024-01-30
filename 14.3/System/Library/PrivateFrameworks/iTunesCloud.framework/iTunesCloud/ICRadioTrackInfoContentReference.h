@@ -1,0 +1,16 @@
+@class NSDictionary;
+
+@interface ICRadioTrackInfoContentReference : ICRadioStoreContentReference <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSDictionary *trackInfo;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithStoreIdentifier:(id)a0 trackInfo:(id)a1;
+- (id)rawContentDictionary;
+- (void)encodeWithCoder:(id)a0;
+
+@end

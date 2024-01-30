@@ -1,0 +1,12 @@
+@class TSKDateTimeFormat, TSKCustomFormatWrapper, TSKBooleanFormat;
+
+@interface TSCEValueContainer : NSObject {
+    struct TSCEValue { struct TSCENumberValue { void /* function */ **_vptr$TSCEAbstractValue; struct TSUDecimal { struct { unsigned long long w[2]; } _decimal; } _decimal; int _baseUnits[1]; struct TSCEFormat { struct TSCEFormatStruct { unsigned int mFormatType; union { struct { unsigned short mCurrencyCodeIndex : 16; unsigned char mDecimalPlaces : 8; unsigned char mNegativeStyle : 3; unsigned char mShowThousandsSeparator : 1; unsigned char mUseAccountingStyle : 1; } mNumberStruct; struct { unsigned char mFractionAccuracy : 8; } mFractionFormatStruct; struct { unsigned char mBase : 8; unsigned char mBasePlaces : 8; unsigned char mBaseUseMinusSign : 1; } mBaseFormatStruct; struct { unsigned char mUseAutomaticUnits : 1; int mDurationUnitSmallest; int mDurationUnitLargest; int mDurationStyle; } mDurationFormatStruct; } ; TSKDateTimeFormat *_dateTimeFormat; TSKCustomFormatWrapper *_customFormatWrapper; TSKBooleanFormat *_booleanFormat; } _formatStruct; unsigned char _formatState; } _format; BOOL _isUnitlessZero; } _numberValue; unsigned long long _buff[19]; int _type; } mValue;
+}
+
+- (void).cxx_destruct;
+- (struct TSCEValue { struct TSCENumberValue { void /* function */ **x0; struct TSUDecimal { struct { unsigned long long x0[2]; } x0; } x1; int x2[1]; struct TSCEFormat { struct TSCEFormatStruct { unsigned int x0; union { struct { unsigned short x0 : 16; unsigned char x1 : 8; unsigned char x2 : 3; unsigned char x3 : 1; unsigned char x4 : 1; } x0; struct { unsigned char x0 : 8; } x1; struct { unsigned char x0 : 8; unsigned char x1 : 8; unsigned char x2 : 1; } x2; struct { unsigned char x0 : 1; int x1; int x2; int x3; } x3; } x1; id x2; id x3; id x4; } x0; unsigned char x1; } x3; BOOL x4; } x0; unsigned long long x1[19]; int x2; })value;
+- (id).cxx_construct;
+- (id)initWithValue:(struct TSCEValue { struct TSCENumberValue { void /* function */ **x0; struct TSUDecimal { struct { unsigned long long x0[2]; } x0; } x1; int x2[1]; struct TSCEFormat { struct TSCEFormatStruct { unsigned int x0; union { struct { unsigned short x0 : 16; unsigned char x1 : 8; unsigned char x2 : 3; unsigned char x3 : 1; unsigned char x4 : 1; } x0; struct { unsigned char x0 : 8; } x1; struct { unsigned char x0 : 8; unsigned char x1 : 8; unsigned char x2 : 1; } x2; struct { unsigned char x0 : 1; int x1; int x2; int x3; } x3; } x1; id x2; id x3; id x4; } x0; unsigned char x1; } x3; BOOL x4; } x0; unsigned long long x1[19]; int x2; })a0;
+
+@end

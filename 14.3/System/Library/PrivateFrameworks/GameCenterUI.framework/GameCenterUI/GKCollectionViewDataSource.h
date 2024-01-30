@@ -1,0 +1,76 @@
+@class GKGridLayoutMetrics, NSMutableDictionary, GKSectionMetrics, NSHashTable, NSString;
+@protocol GKCollectionViewDataSourceDelegate;
+
+@interface GKCollectionViewDataSource : NSObject <GKCollectionViewDataSourceDelegate, UICollectionViewDataSource>
+
+@property (retain, nonatomic) NSMutableDictionary *kindsToFactories;
+@property (retain, nonatomic) NSHashTable *listeners;
+@property (retain, nonatomic) NSMutableDictionary *sectionsToMetrics;
+@property (retain, nonatomic) NSMutableDictionary *sectionsToSearchKeys;
+@property (weak, nonatomic) id<GKCollectionViewDataSourceDelegate> delegate;
+@property (retain, nonatomic) GKGridLayoutMetrics *dataSourceMetricsInternal;
+@property (retain, nonatomic) GKSectionMetrics *defaultSectionMetricsInternal;
+@property (readonly, nonatomic) BOOL isRootDataSource;
+@property (copy, nonatomic) GKSectionMetrics *defaultSectionMetrics;
+@property (copy, nonatomic) GKGridLayoutMetrics *dataSourceMetrics;
+@property (retain, nonatomic) NSString *defaultSearchKey;
+@property (readonly, nonatomic) BOOL isSearchable;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)registerSupplementaryViewOfKind:(id)a0 withClass:(Class)a1 target:(id)a2 configurator:(SEL)a3;
+- (id)targetForAction:(SEL)a0;
+- (id)collectionView:(id)a0 evaluateFactoryForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2 isRecursive:(BOOL)a3;
+- (id)collectionView:(id)a0 defaultViewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (id)createMetricsTreeWithGridLayout:(id)a0;
+- (void)collectionViewWillBecomeActive:(id)a0;
+- (void)collectionViewDidBecomeInactive:(id)a0;
+- (BOOL)containsDataSource:(id)a0;
+- (unsigned long long)sectionForDataSource:(id)a0;
+- (void)notifyItemsInsertedAtIndexPaths:(id)a0;
+- (void)notifyItemsRemovedAtIndexPaths:(id)a0;
+- (void)notifyItemsRefreshedAtIndexPaths:(id)a0;
+- (void)notifyItemMovedFromIndexPath:(id)a0 toIndexPaths:(id)a1;
+- (void)notifySectionMovedFrom:(long long)a0 to:(long long)a1;
+- (void)setDefaultSectionMetrics:(id)a0;
+- (id)defaultSectionMetrics;
+- (id)searchKeyForSection:(long long)a0;
+- (void)setMetrics:(id)a0 forSection:(long long)a1;
+- (id)metricsForSection:(long long)a0;
+- (void)notifyBatchUpdate:(id /* block */)a0;
+- (id)metricsForSectionInternal:(long long)a0;
+- (id)supplementaryViewFactoryForKind:(id)a0;
+- (void)setSearchKey:(id)a0 forSection:(long long)a1;
+- (void)notifySectionsMovedWithItems;
+- (void)updateSupplementaryMetricsForKey:(id)a0 usingBlock:(id /* block */)a1;
+- (void)registerSupplementaryViewOfKind:(id)a0 withFactory:(id)a1;
+- (id)itemAtIndexPath:(id)a0;
+- (long long)totalItemCount;
+- (void)loadDataWithCompletionHandlerAndError:(id /* block */)a0;
+- (void)enumerateItemsAndIndexPathsUsingBlock:(id /* block */)a0;
+- (void)setDataSourceMetrics:(id)a0;
+- (id)_gkDescriptionWithChildren:(long long)a0;
+- (id)localDescription;
+- (id)dataSourceMetrics;
+- (void)notifyDidReloadData;
+- (id)dataSourceForSection:(unsigned long long)a0;
+- (void)notifyPlaceholderUpdated:(BOOL)a0;
+- (void)notifySectionsRemoved:(id)a0;
+- (void)notifySectionsInserted:(id)a0;
+- (void)notifySectionsRefreshed:(id)a0;
+- (void)notifyBatchUpdate:(id /* block */)a0 complete:(id /* block */)a1;
+- (void)refreshContentsForDataType:(unsigned int)a0 userInfo:(id)a1 updateNotifier:(id)a2;
+- (id)indexPathsForItem:(id)a0;
+- (BOOL)item:(id)a0 matchesSearchTerms:(id)a1 inSection:(long long)a2;
+- (void)removeItemAtIndexPath:(id)a0 completionHandler:(id /* block */)a1;
+- (void)configureCollectionView:(id)a0;
+
+@end

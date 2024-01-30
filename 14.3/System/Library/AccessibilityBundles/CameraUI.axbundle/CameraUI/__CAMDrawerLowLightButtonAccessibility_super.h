@@ -1,0 +1,3 @@
+@interface __CAMDrawerLowLightButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

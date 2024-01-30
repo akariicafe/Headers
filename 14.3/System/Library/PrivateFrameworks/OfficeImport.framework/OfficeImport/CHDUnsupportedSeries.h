@@ -1,0 +1,3 @@
+@interface CHDUnsupportedSeries : CHDSeries
+
+@end

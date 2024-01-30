@@ -1,0 +1,3 @@
+@interface PLBBEurekaEventGPS : PLBBEurekaEventHandler
+
+@end

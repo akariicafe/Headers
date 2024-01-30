@@ -1,0 +1,3 @@
+@interface CIPhotoEffectProcess : CIPhotoEffect
+
+@end

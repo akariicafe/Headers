@@ -1,0 +1,3 @@
+@interface ExpressMode : NSObject
+
+@end

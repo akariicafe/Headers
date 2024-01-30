@@ -1,0 +1,3 @@
+@interface TITextInputCore : NSObject
+
+@end

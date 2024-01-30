@@ -1,0 +1,84 @@
+@class NSMutableArray, NSString, PXGSpriteDataStore, PXGMetalRenderTextureStore, PXGMetalTextureConverter, NSObject, MTKView;
+@protocol OS_dispatch_semaphore, MTLTexture, MTLBuffer, MTLDepthStencilState, PXGTextureConverter, MTLDevice, MTLLibrary, PXGRendererDelegate, OS_dispatch_queue, MTLCommandQueue, MTLSamplerState;
+
+@interface PXGMetalRenderer : NSObject <MTKViewDelegate, PXGMetalTextureConverterDelegate, PXGRenderer> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _metalLock;
+    id<MTLDevice> _device;
+    id<MTLLibrary> _library;
+    id<MTLCommandQueue> _commandQueue;
+    id<MTLBuffer> _squareGeometryBuffer;
+    id<MTLBuffer> _yCbCrMatricesBuffer;
+    unsigned long long _lastOffscreenRender;
+    id<MTLTexture> _offscreenTexture;
+    BOOL _isCreatingOffscreenTexture;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    id<MTLSamplerState> _mirrorRepeatSampler;
+    id<MTLSamplerState> _clampToZeroSampler;
+    id<MTLDepthStencilState> _depthStencil;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _pipelinesLock;
+    struct { int x0; unsigned long long x1; id x2; id x3; } *_pipelines;
+    long long _pipelinesCount;
+    long long _pipelinesCapacity;
+    NSObject<OS_dispatch_queue> *_compilationQueue;
+    NSObject<OS_dispatch_semaphore> *_inFlightSemaphore;
+    NSMutableArray *_reusableRenderStates;
+    PXGSpriteDataStore *_spriteRenderDataStore;
+    long long _frameId;
+    double _lastTime;
+    PXGMetalRenderTextureStore *_opaqueTextures;
+    PXGMetalRenderTextureStore *_translucentTextures;
+    PXGMetalTextureConverter *_textureConverter;
+    BOOL _didPerformFirstRender;
+}
+
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } visibleRectInRenderCoordinates;
+@property (readonly, nonatomic) struct { } camera;
+@property (readonly, nonatomic) unsigned long long destinationColorSpaceName;
+@property (readonly, nonatomic) MTKView *metalView;
+@property (nonatomic) BOOL isInvertColorsEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PXGRendererDelegate> delegate;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } visibleRect;
+@property (nonatomic) struct { long long scrollRegime; BOOL isAnimatingScroll; BOOL isScrubbing; BOOL isAnimatingContent; unsigned long long zoomBehavior; BOOL isViewBoundsChanging; BOOL isInitialLoad; BOOL isVisible; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } targetRect; } interactionState;
+@property (readonly, nonatomic) int presentationType;
+@property (readonly, nonatomic) id<PXGTextureConverter> textureConverter;
+@property (copy, nonatomic) id /* block */ test_renderSnapshotHandler;
+
+- (void)mtkView:(id)a0 drawableSizeWillChange:(struct CGSize { double x0; double x1; })a1;
+- (void)_parseSpriteTextures:(id)a0 willPerformOffscreenPass:(BOOL)a1 renderState:(id)a2;
+- (void)draw;
+- (void)_loadOffscreenTexture:(BOOL)a0;
+- (id)init;
+- (void)_clearPipelines;
+- (void)drawInMTKView:(id)a0;
+- (void)_render:(id)a0 withCompletionCompletion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)releaseResources;
+- (id)view;
+- (void)dealloc;
+- (void)renderSpritesWithTextures:(id)a0 dataStore:(id)a1 presentationDataStore:(id)a2 presentationMetadataStore:(id)a3 layout:(id)a4;
+- (struct { int x0; unsigned long long x1; id x2; id x3; })_pipelineForRenderTexture:(const struct { id x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; float x2; int x3; unsigned char x4; } *)a0 waitForCompilation:(BOOL)a1;
+- (void)_setupYCbCrMatrices;
+- (void)updateWithChangeDetails:(id)a0;
+- (struct { int x0; unsigned long long x1; id x2; id x3; })_handleCompiledRenderPipelineState:(id)a0 forColorProgram:(id)a1 shaderFlags:(int)a2 colorPixelFormat:(unsigned long long)a3 pipelineIndex:(long long)a4;
+- (void)_configureCaptureSpriteTextures:(id)a0 renderState:(id)a1 withOffscreenTexture:(id)a2;
+- (void)_pipelinesLock_resizePipelinesStorageIfNeeded;
+- (void)_configureMatricesInUniforms:(struct { struct { void /* unknown type, empty encoding */ x0[4]; } x0; struct { void /* unknown type, empty encoding */ x0[4]; } x1; struct { void /* unknown type, empty encoding */ x0[4]; } x2; struct { void /* unknown type, empty encoding */ x0[4]; } x3; float x4; } *)a0;
+- (id)_checkoutRenderState;
+- (void)setNeedsRender;
+- (long long)_drawRenderTexture:(struct { id x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; float x2; int x3; unsigned char x4; } *)a0 withCommandEncoder:(id)a1;
+- (void)_checkinRenderState:(id)a0;
+- (id)_createPipelineStateForColorProgram:(id)a0 shaderFlags:(int)a1 colorPixelFormat:(unsigned long long)a2;
+- (void)_setupConstantBuffers;
+- (void)_setupSquareGeometryBuffer;
+- (id)_currentOffscreenTexture;
+- (double)_screenScale;
+- (void)metalTextureConverter:(id)a0 didCreateTexture:(id)a1;
+- (void)_drawSpriteTextures:(id)a0 renderState:(id)a1 withCommandEncoder:(id)a2 passingTest:(id /* block */)a3;
+- (void)_setupMetalIfNeeded;
+- (void)_populateEffectSprites:(id)a0 spriteRenderDataStore:(id)a1 presentationDataStore:(id)a2 metadataStore:(id)a3;
+
+@end

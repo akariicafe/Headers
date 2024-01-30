@@ -1,0 +1,80 @@
+@class TSDLayoutGeometry, NSArray, NSMutableArray;
+
+@interface TSDAbstractLayout : NSObject {
+    struct CGPoint { double x; double y; } _interimPosition;
+    BOOL _interimPositionXSet;
+    BOOL _interimPositionYSet;
+    BOOL _lastInterimPositionXSet;
+    BOOL _lastInterimPositionYSet;
+}
+
+@property (copy, nonatomic) TSDLayoutGeometry *geometry;
+@property (readonly, nonatomic) struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } transform;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frame;
+@property (readonly, nonatomic) TSDLayoutGeometry *geometryInParent;
+@property (readonly, nonatomic) struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } transformInParent;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frameInParent;
+@property (readonly, nonatomic) TSDLayoutGeometry *geometryInRoot;
+@property (readonly, nonatomic) struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } transformInRoot;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frameInRoot;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } clipRect;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrameInParent;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrameInRoot;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrameForInlineLayout;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrameForInlineLayoutInRoot;
+@property (readonly, nonatomic) TSDLayoutGeometry *geometryForTransforming;
+@property (readonly, nonatomic) NSArray *visibleGeometries;
+@property (readonly, nonatomic) BOOL isAxisAlignedUnflippedInRoot;
+@property (nonatomic) TSDAbstractLayout *parent;
+@property (readonly, nonatomic) TSDAbstractLayout *root;
+@property (copy, nonatomic) NSMutableArray *children;
+@property (readonly, nonatomic) BOOL providesGuidesForChildLayouts;
+@property (readonly, nonatomic) BOOL exclusivelyProvidesGuidesForChildLayouts;
+@property (readonly, nonatomic) TSDAbstractLayout *parentLayoutForProvidingGuides;
+@property (readonly, nonatomic) NSArray *layoutsForProvidingGuidesForChildLayouts;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frameForCulling;
+@property (readonly, nonatomic) BOOL shouldBeIncludedInParentFrameForCulling;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } insertionFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } insertionFrameInRoot;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentFrameForProvidingGuidesInRoot;
+@property (readonly, nonatomic) BOOL shouldSnapWhileResizing;
+@property (nonatomic) double interimPositionX;
+@property (nonatomic) double interimPositionY;
+@property (readonly, nonatomic) struct CGPoint { double x; double y; } lastInterimPosition;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } alignmentFrameOriginForFixingInterimPosition;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } positionInRootForAttachmentPositioner;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } captionEdgeInsets;
+@property (readonly, nonatomic) BOOL shouldUseCaptionEdgeInsetsInInterimPosition;
+@property (readonly, nonatomic) BOOL isRootLayoutForInspectorGeometry;
+@property (readonly, nonatomic) BOOL isRootLevelForInlineGeometry;
+@property (readonly, nonatomic) BOOL supportsResize;
+@property (readonly, nonatomic) BOOL supportsInspectorPositioning;
+@property (readonly, nonatomic) BOOL supportsRotation;
+@property (readonly, nonatomic) BOOL supportsFlipping;
+@property (readonly, nonatomic) BOOL supportsCalloutAttributes;
+
+- (id)init;
+- (void)addChild:(id)a0;
+- (void)dealloc;
+- (void)insertChild:(id)a0 atIndex:(unsigned long long)a1;
+- (void)removeFromParent;
+- (void)fixTransformFromInterimPosition;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectInRoot:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)replaceChild:(id)a0 with:(id)a1;
+- (id)geometryInRoot:(id)a0;
+- (void)fixTransformFromLastInterimPosition;
+- (id)additionalDependenciesForChildLayout:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectInParent:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)addLayoutsInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toArray:(id)a1 deep:(BOOL)a2;
+- (void)p_fixTransformFromInterimPosition:(struct CGPoint { double x0; double x1; })a0 interimPositionXSet:(BOOL)a1 interimPositionYSet:(BOOL)a2;
+- (void)offsetGeometryBy:(struct CGPoint { double x0; double x1; })a0;
+- (void)insertChild:(id)a0 below:(id)a1;
+- (void)insertChild:(id)a0 above:(id)a1;
+- (void)exchangeChildAtIndex:(unsigned long long)a0 withChildAtIndex:(unsigned long long)a1;
+- (BOOL)canRotateChildLayout:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })clippedRectInRoot:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)childLayoutContainingPossibleDescendentLayout:(id)a0;
+- (void)p_clearParentPointerForDealloc;
+
+@end

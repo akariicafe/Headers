@@ -1,0 +1,49 @@
+@interface UIKBRenderFactoryiPadLandscape : UIKBRenderFactoryiPad
+
+- (struct CGPoint { double x0; double x1; })deleteKeyOffset;
+- (double)keyCornerRadius;
+- (id)deleteKeyImageName;
+- (id)deleteOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)shiftLockImageName;
+- (id)shiftOnKeyImageName;
+- (double)skinnyKeyThreshold;
+- (id)handwritingMoreKeyImageName;
+- (id)messagesWriteboardKeyImageName;
+- (id)globalEmojiKeyImageName;
+- (id)globalKeyImageName;
+- (id)dismissKeyImageName;
+- (id)dictationKeyImageName;
+- (id)multitapCompleteKeyImageName;
+- (id)muttitapReverseKeyImageName;
+- (id)ZWNJKeyImageName;
+- (double)shiftKeyFontSize;
+- (struct CGPoint { double x0; double x1; })shiftKeyOffset;
+- (double)deleteKeyFontSize;
+- (double)stringKeyFontSize;
+- (double)moreKeyFontSize;
+- (struct CGPoint { double x0; double x1; })dismissKeyOffset;
+- (double)zhuyinFirstToneKeyFontSize;
+- (id)tabKeyImageName;
+- (id)returnKeyImageName;
+- (id)capslockKeyImageName;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })shiftKeySymbolFrame;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })dismissKeySymbolFrame;
+- (double)smallKanaKeyFontSize;
+- (double)dualStringKeyFontSizeAdjustment;
+- (double)fontSizeAdjustmentForNonAlphanumericKeycaps;
+- (double)spaceKeyFontSize;
+- (double)bottomRowDefaultFontSize;
+- (double)tinyPunctuationGlyphFontSize;
+- (struct CGPoint { double x0; double x1; })tinyPunctuationGlyphOffset;
+- (double)messagesTypeKeyplanSwitchKeyFontSize;
+- (double)emailDotKeyFontSize;
+- (double)facemarkKeyFontSize;
+- (double)fallbackFontSize;
+- (double)defaultVariantSizeThreshold;
+- (struct CGPoint { double x0; double x1; })dualStringKeyOffset;
+- (double)internationalKeyFontSize;
+- (double)dictationKeyFontSize;
+- (double)dismissKeyFontSize;
+
+@end

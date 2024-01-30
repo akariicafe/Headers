@@ -1,0 +1,11 @@
+@interface PKPassAuxiliaryRegistrationDecryptionCSRMetadata : PKPassAuxiliaryRegistrationCSRMetadata
+
+@property (readonly, nonatomic) unsigned long long decryptionSchemeVersion;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)initWithCoder:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

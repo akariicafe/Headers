@@ -1,0 +1,3 @@
+@interface __UICollectionViewListCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

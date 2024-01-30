@@ -1,0 +1,85 @@
+@class NSError, NSString, NSArray, NSMutableDictionary, MFMailComposePlaceholderViewController, NSMutableArray, _UIAsyncInvocation, MFMailComposeRemoteViewController;
+@protocol MFMailComposeViewControllerDelegate;
+
+@interface MFMailComposeInternalViewController : UIViewController <MFMailComposeRemoteViewControllerDelegate, MFMailCompositionAdditionalDonating, MFMailCompositionShareSheetRecipients> {
+    MFMailComposePlaceholderViewController *_placeholderViewController;
+    MFMailComposeRemoteViewController *_serviceViewController;
+    _UIAsyncInvocation *_cancellationInvocation;
+    unsigned long long _defaultContentVariationIndex;
+    NSMutableArray *_contentVariations;
+    NSMutableDictionary *_compositionValues;
+    NSMutableArray *_attachments;
+    NSString *_placeholderSubject;
+    long long _composeResult;
+    NSError *_composeResultError;
+    double _presentationDelayBeganTimestamp;
+    unsigned char _hasDelayedPresentation : 1;
+    unsigned char _didEndDelayedPresentation : 1;
+    unsigned char _compositionValuesAreFinalized : 1;
+    unsigned char _remoteViewControllerIsConfigured : 1;
+    unsigned char _isAppearing : 1;
+    unsigned char _didAppear : 1;
+    unsigned char _didFinish : 1;
+    unsigned char _delegateRespondsToBodyFinishedLoadingWithResult : 1;
+}
+
+@property (weak, nonatomic) id<MFMailComposeViewControllerDelegate> mailComposeDelegate;
+@property (copy, nonatomic) NSArray *UTITypes;
+@property (copy, nonatomic) NSArray *photoIDs;
+@property (copy, nonatomic) NSArray *cloudPhotoIDs;
+@property (copy, nonatomic) NSArray *contentText;
+@property (copy, nonatomic) NSArray *contentURLs;
+@property (copy, nonatomic) NSString *shareSheetSessionID;
+
+- (void)willMoveToParentViewController:(id)a0;
+- (void)setContentVisible:(BOOL)a0;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (id)remoteViewController;
+- (void).cxx_destruct;
+- (void)autosaveWithHandler:(id /* block */)a0;
+- (void)setMessageBody:(id)a0 isHTML:(BOOL)a1;
+- (id)addAttachmentData:(id)a0 mimeType:(id)a1 fileName:(id)a2;
+- (void)setToRecipients:(id)a0;
+- (void)setAutosaveIdentifier:(id)a0;
+- (void)setSourceAccountManagement:(int)a0;
+- (void)dealloc;
+- (void)setCaretPosition:(unsigned long long)a0;
+- (void)loadView;
+- (void)setSubject:(id)a0;
+- (void)setURL:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_serviceViewControllerReady:(id)a0 error:(id)a1;
+- (void)_loadContentViewControllerForcingPlaceholder:(BOOL)a0;
+- (void)_cancelComposition:(id)a0;
+- (void)_notifyCompositionDidFinish;
+- (void)_beginDelayingCompositionPresenation;
+- (void)_didEndDelayingCompositionPresentation;
+- (void)_configureRemoteViewContoller;
+- (void)_finishServiceViewControllerRequestWithSuccess:(BOOL)a0;
+- (id)placeholderForFileName:(id)a0 fileSize:(long long)a1 mimeType:(id)a2 contentID:(id)a3 proxy:(id)a4;
+- (id)securityScopeForURL:(id)a0 proxy:(id)a1;
+- (void)setCcRecipients:(id)a0;
+- (void)_processAttachmentsViaProxy:(id)a0 withHandler:(id /* block */)a1;
+- (void)_notifyBodyDidFinishLoadingWithResult:(BOOL)a0;
+- (void)_setPlaceHolderSubject:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)setBccRecipients:(id)a0;
+- (void)compositionFinishedWithResult:(long long)a0 error:(id)a1;
+- (void)_endDelayingCompositionPresentation;
+- (void)_cancelRemoteServiceViewControllerRequest;
+- (void)_setCompositionValue:(id)a0 forKey:(id)a1;
+- (void)compositionRequestsSendWithBody:(id)a0 recipients:(id)a1 completion:(id /* block */)a2;
+- (void)compositionViewServiceTerminatedWithError:(id)a0;
+- (void)setPreferredSendingEmailAddress:(id)a0;
+- (id)addContentVariationWithName:(id)a0;
+- (void)setDefaultContentVariation:(id)a0;
+- (id)addAttachmentFileURL:(id)a0 mimeType:(id)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)addAttachmentItemProvider:(id)a0 mimeType:(id)a1 fileName:(id)a2;
+- (void)finalizeCompositionValues;
+- (void)requestFramesForAttachmentsWithIdentifiers:(id)a0 resultHandler:(id /* block */)a1;
+- (void)setShowKeyboardImmediately:(BOOL)a0;
+- (void)viewDidLoad;
+
+@end

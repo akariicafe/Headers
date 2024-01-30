@@ -1,0 +1,3 @@
+@interface ___UIDatePickerIOSCompactViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

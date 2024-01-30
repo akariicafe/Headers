@@ -1,0 +1,95 @@
+@class WFAction, WFRemoteQuarantinePolicyEvaluator, NSMapTable, WFWorkflowControllerState, WFContentCollection, NSDictionary, NSObject, WFWorkflowRunningContext, WFOutOfProcessWorkflowController, NSString, RBSAssertion, WFWorkflow, NSProgress;
+@protocol OS_dispatch_queue, WFWorkflowControllerDelegate;
+
+@interface WFWorkflowController : NSObject <WFRemoteQuarantinePolicyEvaluatorDelegate, WFVariableDataSource, WFActionParameterInputProvider> {
+    WFWorkflowController *_strongSelf;
+}
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *executionQueue;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (nonatomic) unsigned long long currentIndex;
+@property (nonatomic, getter=isRunning) BOOL running;
+@property (nonatomic, getter=isStepping) BOOL stepping;
+@property (nonatomic) BOOL resumed;
+@property (retain, nonatomic) NSProgress *progress;
+@property (retain, nonatomic) WFContentCollection *output;
+@property (retain, nonatomic) NSMapTable *variableTable;
+@property (retain, nonatomic) WFWorkflowControllerState *pendingState;
+@property (retain, nonatomic) NSDictionary *pendingProcessedParameters;
+@property (retain, nonatomic) WFContentCollection *pendingActionInput;
+@property (retain, nonatomic) WFRemoteQuarantinePolicyEvaluator *policyEvaluator;
+@property (retain, nonatomic) RBSAssertion *workflowRunAssertion;
+@property (retain, nonatomic) WFOutOfProcessWorkflowController *outOfProcessController;
+@property (readonly, nonatomic) WFAction *currentAction;
+@property (nonatomic) BOOL actionDidRunRemotely;
+@property (retain, nonatomic) WFWorkflow *workflow;
+@property (retain, nonatomic) WFContentCollection *input;
+@property (nonatomic) BOOL donateInteraction;
+@property (weak, nonatomic) id<WFWorkflowControllerDelegate> delegate;
+@property (retain, nonatomic) WFWorkflowControllerState *currentState;
+@property (retain, nonatomic) WFWorkflowRunningContext *runningContext;
+@property (copy, nonatomic) NSString *runSource;
+@property (copy, nonatomic) NSString *automationType;
+@property (nonatomic) BOOL isAutomationSuggestion;
+@property (copy, nonatomic) NSString *automationTrialID;
+@property (copy, nonatomic) NSDictionary *listenerEndpoints;
+@property (nonatomic) BOOL acquiresAssertionWhileRunning;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
+
+- (void)_run;
+- (void)run;
+- (id)init;
+- (void)setUpProgress;
+- (void).cxx_destruct;
+- (void)workflowControllerWillRun:(id)a0;
+- (void)reset;
+- (void)dealloc;
+- (void)stop;
+- (BOOL)canRun;
+- (void)_step;
+- (void)stopWithError:(id)a0;
+- (void)action:(id)a0 provideInputForParameters:(id)a1 withDefaultStates:(id)a2 completionHandler:(id /* block */)a3;
+- (BOOL)action:(id)a0 canProvideInputForParameter:(id)a1;
+- (BOOL)setContent:(id)a0 forVariableWithName:(id)a1;
+- (id)contentForVariableWithName:(id)a0;
+- (id)workflowInput;
+- (id)listenerEndpointWithIdentifier:(id)a0;
+- (id)userInterfaceToPresentAlertForEvaluator:(id)a0;
+- (void)queue_setWorkflow:(id)a0;
+- (id)stateWithActionIndex:(unsigned long long)a0 input:(id)a1 processedParameters:(id)a2;
+- (void)publishRunningState:(long long)a0;
+- (void)_finishStepWithError:(id)a0;
+- (void)queue_stopWithError:(id)a0;
+- (void)setFinishedRunningWithSuccess:(BOOL)a0;
+- (void)queue_reset;
+- (void)evaluateRemoteQuarantinePolicyWithCompletionHandler:(id /* block */)a0;
+- (void)retainSelf;
+- (void)autoreleaseSelf;
+- (void)acquireAssertionIfNeeded;
+- (void)invalidateAssertionIfNeeded;
+- (void)logStartEvent;
+- (void)logFinishRunEvent:(BOOL)a0;
+- (void)trackRunShortcutEventWithKey:(id)a0 completed:(BOOL)a1;
+- (void)logStartActionEventWithAction:(id)a0;
+- (void)logFinishActionEventWithAction:(id)a0 completed:(BOOL)a1;
+- (void)trackRunActionEventWithKey:(id)a0 action:(id)a1 completed:(BOOL)a2;
+- (void)didFinishRunningWithError:(id)a0 cancelled:(BOOL)a1;
+- (void)prepareToRunAction:(id)a0 withInput:(id)a1 completionHandler:(id /* block */)a2;
+- (void)runAction:(id)a0 withInput:(id)a1 completionHandler:(id /* block */)a2;
+- (void)didRunAction:(id)a0;
+- (id)parameterInputProviderForAction:(id)a0;
+- (id)userInterfaceForAction:(id)a0;
+- (void)handleError:(id)a0 fromAction:(id)a1 completionHandler:(id /* block */)a2;
+- (void)handleActionCompletion:(id)a0 actionGroupSkipped:(BOOL)a1;
+- (void)restorePendingStateIfNecessary;
+- (void)setUpRunState;
+- (void)resetEvaluationCriteriaForControlFlowActions;
+- (void)quarantineWorkflow;
+- (id)errorByAddingActionIndex:(long long)a0 toError:(id)a1;
+
+@end

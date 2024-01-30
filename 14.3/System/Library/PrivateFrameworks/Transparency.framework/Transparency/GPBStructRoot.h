@@ -1,0 +1,3 @@
+@interface GPBStructRoot : GPBRootObject
+
+@end

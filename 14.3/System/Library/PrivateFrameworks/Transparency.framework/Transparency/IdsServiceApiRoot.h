@@ -1,0 +1,3 @@
+@interface IdsServiceApiRoot : GPBRootObject
+
+@end

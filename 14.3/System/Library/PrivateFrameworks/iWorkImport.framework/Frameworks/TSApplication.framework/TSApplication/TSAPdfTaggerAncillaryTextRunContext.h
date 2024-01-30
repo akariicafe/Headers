@@ -1,0 +1,3 @@
+@interface TSAPdfTaggerAncillaryTextRunContext : TSAPdfTaggerSecondaryTextRunContext
+
+@end

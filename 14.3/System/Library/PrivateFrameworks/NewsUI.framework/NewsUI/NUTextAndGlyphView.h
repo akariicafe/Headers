@@ -1,0 +1,20 @@
+@class NSString, UIImageView, UILabel, NUTextAndGlyph;
+
+@interface NUTextAndGlyphView : UIView <NUCrossFadeViewAnimatable>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) UILabel *label;
+@property (readonly, nonatomic) UIImageView *imageView;
+@property (nonatomic) unsigned long long alignment;
+@property (retain, nonatomic) NUTextAndGlyph *textAndGlyph;
+
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (void)nu_crossFadeViewSetValue:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)nu_crossFadeViewClearVisibleState;
+
+@end

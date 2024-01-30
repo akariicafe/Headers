@@ -1,0 +1,3 @@
+@interface __SKUIDownloadsCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

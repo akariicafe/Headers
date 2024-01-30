@@ -1,0 +1,42 @@
+@interface UIApplicationSceneClientSettingsDiffInspector : FBSSceneClientSettingsDiffInspector
+
+- (void)observeControlCenterAmbiguousActivationMargin:(id /* block */)a0;
+- (void)observeWhitePointAdaptivityStyleWithBlock:(id /* block */)a0;
+- (void)observeInterfaceOrientationChangesDisabledWithBlock:(id /* block */)a0;
+- (void)observeBrightnessLevelWithBlock:(id /* block */)a0;
+- (void)observeStatusBarHiddenWithBlock:(id /* block */)a0;
+- (void)observeNotificationCenterRevealModeWithBlock:(id /* block */)a0;
+- (void)observeStatusBarContextIDWithBlock:(id /* block */)a0;
+- (void)observeIdleTimerDisabledWithBlock:(id /* block */)a0;
+- (void)observePreferredPointerLockStateWithBlock:(id /* block */)a0;
+- (void)observeStatusBarStyleWithBlock:(id /* block */)a0;
+- (void)observeDeviceOrientationEventsEnabledWithBlock:(id /* block */)a0;
+- (void)observeBackgroundStyleWithBlock:(id /* block */)a0;
+- (void)observeReachabilitySupportedWithBlock:(id /* block */)a0;
+- (void)observeProximityDetectionModesWithBlock:(id /* block */)a0;
+- (void)observeControlCenterRevealModeWithBlock:(id /* block */)a0;
+- (void)observeActivationConditionsDataWithBlock:(id /* block */)a0;
+- (void)observeWindowFocusedFrameWithBlock:(id /* block */)a0;
+- (void)observeVisibleMiniAlertCountWithBlock:(id /* block */)a0;
+- (void)observeSceneActivationBiasWithBlock:(id /* block */)a0;
+- (void)observeCompatibilityModeWithBlock:(id /* block */)a0;
+- (void)observeUserInterfaceStyleWithBlock:(id /* block */)a0;
+- (void)observeStatusBarModernStyleWithBlock:(id /* block */)a0;
+- (void)observeIdleModeVisualEffectsEnabledWithBlock:(id /* block */)a0;
+- (void)observeWindowOverlayInsetsWithBlock:(id /* block */)a0;
+- (void)observeStatusBarPartStylesWithBlock:(id /* block */)a0;
+- (void)observeStatusBarAlphaWithBlock:(id /* block */)a0;
+- (void)observeScreenEdgesDeferringSystemGesturesWithBlock:(id /* block */)a0;
+- (void)observeWantsExclusiveForegroundWithBlock:(id /* block */)a0;
+- (void)observeHomeIndicatorAutoHiddenWithBlock:(id /* block */)a0;
+- (void)observeAudioCategoriesDisablingVolumeHUDWithBlock:(id /* block */)a0;
+- (void)observeSupportedInterfaceOrientationsWithBlock:(id /* block */)a0;
+- (void)observeDefaultStatusBarStyleWithBlock:(id /* block */)a0;
+- (void)observeDefaultPNGNameWithBlock:(id /* block */)a0;
+- (void)observeInterfaceOrientationWithBlock:(id /* block */)a0;
+- (void)observeDefaultStatusBarHiddenWithBlock:(id /* block */)a0;
+- (void)observeDefaultPNGExpirationTimeWithBlock:(id /* block */)a0;
+- (void)observeCanvasTitleWithBlock:(id /* block */)a0;
+- (void)_observeOtherSetting:(unsigned long long)a0 withBlock:(id /* block */)a1;
+
+@end

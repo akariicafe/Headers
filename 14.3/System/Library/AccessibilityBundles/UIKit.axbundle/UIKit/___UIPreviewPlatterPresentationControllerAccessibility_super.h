@@ -1,0 +1,3 @@
+@interface ___UIPreviewPlatterPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

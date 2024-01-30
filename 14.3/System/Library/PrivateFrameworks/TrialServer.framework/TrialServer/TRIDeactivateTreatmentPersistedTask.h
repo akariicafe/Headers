@@ -1,0 +1,16 @@
+@class NSString, TRIPBTimestamp;
+
+@interface TRIDeactivateTreatmentPersistedTask : TRIPBMessage
+
+@property (copy, nonatomic) NSString *experimentId;
+@property (nonatomic) BOOL hasExperimentId;
+@property (nonatomic) BOOL failOnUnrecognizedExperiment;
+@property (nonatomic) BOOL hasFailOnUnrecognizedExperiment;
+@property (retain, nonatomic) TRIPBTimestamp *startTimestamp;
+@property (nonatomic) BOOL hasStartTimestamp;
+@property (nonatomic) int retryCount;
+@property (nonatomic) BOOL hasRetryCount;
+
++ (id)descriptor;
+
+@end

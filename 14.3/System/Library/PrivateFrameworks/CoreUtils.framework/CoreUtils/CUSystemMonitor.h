@@ -1,0 +1,80 @@
+@class NSString, NSArray, NSData, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CUSystemMonitor : NSObject {
+    BOOL _activateCalled;
+    BOOL _activateCompleted;
+    BOOL _invalidateCalled;
+    BOOL _invalidateCalled2;
+}
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (copy, nonatomic) id /* block */ invalidationHandler;
+@property (readonly) struct { unsigned char x0[6]; } bluetoothAddress48;
+@property (readonly, copy) NSData *bluetoothAddressData;
+@property (copy) id /* block */ bluetoothAddressChangedHandler;
+@property (readonly) int activeCallCount;
+@property (readonly) unsigned int callFlags;
+@property (readonly) int connectedCallCount;
+@property (copy) id /* block */ callChangedHandler;
+@property (readonly) BOOL clamshellMode;
+@property (copy) id /* block */ clamshellModeChangedHandler;
+@property (readonly) unsigned int consoleUserID;
+@property (readonly, copy) NSString *consoleUserName;
+@property (copy) id /* block */ consoleUserChangedHandler;
+@property (readonly, copy) NSArray *familyMembers;
+@property (copy) id /* block */ familyUpdatedHandler;
+@property (readonly) BOOL manateeAvailable;
+@property (copy) id /* block */ manateeChangedHandler;
+@property (copy) id /* block */ meDeviceChangedHandler;
+@property (readonly, copy) NSString *meDeviceFMFDeviceID;
+@property (readonly, copy) NSString *meDeviceIDSDeviceID;
+@property (readonly) BOOL meDeviceIsMe;
+@property (readonly, copy) NSString *meDeviceName;
+@property (readonly) BOOL meDeviceValid;
+@property (copy) id /* block */ netFlagsChangedHandler;
+@property (readonly) unsigned int netFlags;
+@property (copy) id /* block */ netInterfacesChangedHandler;
+@property (copy) id /* block */ primaryIPChangedHandler;
+@property (readonly, nonatomic) union { struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } x0; struct sockaddr_in { unsigned char x0; unsigned char x1; unsigned short x2; struct in_addr { unsigned int x0; } x3; char x4[8]; } x1; struct sockaddr_in6 { unsigned char x0; unsigned char x1; unsigned short x2; unsigned int x3; struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; } x4; unsigned int x5; } x2; } primaryIPv4Addr;
+@property (readonly, nonatomic) union { struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } x0; struct sockaddr_in { unsigned char x0; unsigned char x1; unsigned short x2; struct in_addr { unsigned int x0; } x3; char x4[8]; } x1; struct sockaddr_in6 { unsigned char x0; unsigned char x1; unsigned short x2; unsigned int x3; struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; } x4; unsigned int x5; } x2; } primaryIPv6Addr;
+@property (copy) id /* block */ primaryNetworkChangedHandler;
+@property (readonly, copy, nonatomic) NSString *primaryNetworkSignature;
+@property (copy) id /* block */ powerUnlimitedChangedHandler;
+@property (readonly) BOOL powerUnlimited;
+@property (copy) id /* block */ primaryAppleIDChangedHandler;
+@property (readonly, copy) NSString *primaryAppleID;
+@property (readonly) BOOL primaryAppleIDIsHSA2;
+@property (readonly, copy) NSString *regionISOCountryCode;
+@property (readonly, copy) NSString *regionMobileCountryCode;
+@property (readonly, copy) NSString *regionRoutineCountry;
+@property (readonly, copy) NSString *regionRoutineState;
+@property (copy) id /* block */ regionChangedHandler;
+@property (readonly) struct { unsigned char x0[6]; } rotatingIdentifier48;
+@property (readonly, copy) NSData *rotatingIdentifierData;
+@property (copy) id /* block */ rotatingIdentifierChangedHandler;
+@property (readonly) BOOL screenLocked;
+@property (copy) id /* block */ screenLockedChangedHandler;
+@property (readonly) BOOL screenLockedSync;
+@property (readonly) BOOL screenOn;
+@property (copy) id /* block */ screenOnChangedHandler;
+@property (readonly) BOOL screenSaverActive;
+@property (copy) id /* block */ screenSaverChangedHandler;
+@property (readonly, nonatomic) int systemLockState;
+@property (copy) id /* block */ systemLockStateChangedHandler;
+@property (readonly, nonatomic) int systemLockStateSync;
+@property (readonly, copy) NSString *systemName;
+@property (copy) id /* block */ systemNameChangedHandler;
+@property (readonly, nonatomic) BOOL firstUnlocked;
+@property (readonly, nonatomic) BOOL firstUnlockedSync;
+@property (copy) id /* block */ firstUnlockHandler;
+@property (readonly, nonatomic) unsigned int wifiFlags;
+@property (readonly, nonatomic) int wifiState;
+@property (copy) id /* block */ wifiStateChangedHandler;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)invalidate;
+
+@end

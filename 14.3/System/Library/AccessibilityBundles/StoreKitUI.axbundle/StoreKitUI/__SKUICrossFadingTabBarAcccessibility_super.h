@@ -1,0 +1,3 @@
+@interface __SKUICrossFadingTabBarAcccessibility_super : UIAccessibilitySafeCategory
+
+@end

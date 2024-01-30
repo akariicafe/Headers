@@ -1,0 +1,33 @@
+@class FARequestConfigurator, NSString, RUIStyle, UIViewController;
+
+@interface FACircleStateController : NSObject <FARemoteViewControllerDelegate, FACirclePresenterDelegate> {
+    FARequestConfigurator *_requestConfigurator;
+    id /* block */ _performOperationCompletion;
+}
+
+@property (weak, nonatomic) UIViewController *presenter;
+@property (copy, nonatomic) id /* block */ presentationHandler;
+@property (retain, nonatomic) RUIStyle *customRUIStyle;
+@property (nonatomic) long long modalPresentationStyle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)performWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)initWithPresenter:(id)a0;
+- (void)performOperationWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)_performOperationWithContext:(id)a0 viewController:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_contextRequiresRemoteService:(id)a0;
+- (BOOL)_processRequiresSpringBoardServices;
+- (void)_presentFlowUsingSpringBoardWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)_presentViewServiceWithContext:(id)a0 viewController:(id)a1 completion:(id /* block */)a2;
+- (void)_ensurePresenterWithCompletion:(id /* block */)a0;
+- (id)_whitelistedInProcessClients;
+- (void)remoteViewControllerDidStartFlow:(id)a0;
+- (void)circlePresenterDidPresent:(id)a0;
+
+@end

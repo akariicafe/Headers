@@ -1,0 +1,3 @@
+@interface ASDInstallAppsObserver : NSObject
+
+@end

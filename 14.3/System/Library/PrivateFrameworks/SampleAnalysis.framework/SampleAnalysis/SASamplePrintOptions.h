@@ -1,0 +1,79 @@
+@class NSSet;
+
+@interface SASamplePrintOptions : NSObject <NSCopying> {
+    BOOL _microstackshotsFormat;
+}
+
+@property (copy) NSSet *pidsToPrint;
+@property (copy) NSSet *uniquePidsToPrint;
+@property (copy) NSSet *processNamesToPrint;
+@property (copy) NSSet *processUUIDsToPrint;
+@property (copy) NSSet *tidsToPrint;
+@property BOOL printHeavyStacks;
+@property BOOL printJson;
+@property BOOL printSpinSignatureStack;
+@property BOOL printTargetThreadOnly;
+@property BOOL printTargetHIDEvent;
+@property BOOL forceOneBasedTimeIndexes;
+@property BOOL orderTasksBySampleCount;
+@property BOOL patchTruncatedStacks;
+@property BOOL tabDelineateBinaryImageSections;
+@property BOOL binaryImagesBeforeStacks;
+@property BOOL showThreadStateAsLeafFrame;
+@property BOOL aggregateStacksByThread;
+@property BOOL aggregateStacksByProcess;
+@property BOOL aggregateProcessesByExecutable;
+@property BOOL aggregateFramesByOffsetIntoBinary;
+@property BOOL microstackshotsFormat;
+@property BOOL systemstatsFormat;
+@property BOOL includeUserIdleAndBatteryStateInStacks;
+@property BOOL omitStacksOnBattery;
+@property BOOL omitStacksOnAC;
+@property BOOL omitStacksWithUserIdle;
+@property BOOL omitStacksWithUserActive;
+@property int omitStacksBelowBasePriority;
+@property int omitStacksAboveBasePriority;
+@property BOOL displayHeader;
+@property BOOL displayBody;
+@property BOOL displayFooter;
+@property char omitTasksBelowPercentOfTotalSamples;
+@property char omitStacksBelowPercentOfTaskSamples;
+@property char omitFramesBelowPercentOfStackSamples;
+@property long long omitTasksBelowSampleCount;
+@property long long omitStacksBelowSampleCount;
+@property long long omitFramesBelowSampleCount;
+@property long long omitFramesAfterLineCount;
+@property BOOL displayFrameAddresses;
+@property BOOL displayDetailedCpuTime;
+@property BOOL displayDetailedWallTime;
+@property BOOL displayOffsetsFromUnnamedSymbols;
+@property BOOL displaySymbolInformation;
+@property BOOL displayFullSourcePaths;
+@property BOOL displayBinaryImageAddresses;
+@property BOOL displayBinaryImagesLackingNameOrPath;
+@property BOOL displayRunningThreads;
+@property BOOL displayRunnableThreads;
+@property BOOL displayBlockedThreads;
+@property BOOL displayCPUNumForRunningThreads;
+@property BOOL displayCPUNumForNonRunningThreads;
+@property BOOL displayThreadRunningState;
+@property BOOL displayIdleWorkQueueThreads;
+@property BOOL displayAllBinaries;
+@property BOOL displayBlockedReasons;
+@property BOOL displayBlockedReasonsLackingProcessOwners;
+@property BOOL displayAddressesInBlockedReasons;
+@property BOOL displayEmptyBootArgs;
+@property BOOL displayAllHIDEvents;
+@property BOOL displayTasksWithZeroCount;
+@property BOOL displayStacksWithZeroCount;
+@property BOOL displayAllTaskSizeChanges;
+@property BOOL verbose;
+@property BOOL displayProcessFirstLastTimes;
+@property BOOL displaySub1MsCpuTime;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)debugDescription;
+
+@end

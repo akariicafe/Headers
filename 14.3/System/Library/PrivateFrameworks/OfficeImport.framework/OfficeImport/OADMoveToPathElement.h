@@ -1,0 +1,3 @@
+@interface OADMoveToPathElement : OADToPointPathElement
+
+@end

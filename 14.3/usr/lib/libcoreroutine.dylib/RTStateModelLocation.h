@@ -1,0 +1,20 @@
+@interface RTStateModelLocation : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) double Latitude_deg;
+@property (nonatomic) double Longitude_deg;
+@property (nonatomic) double uncertainty_m;
+@property (nonatomic) double confidence;
+@property (nonatomic) double timestamp_s;
+
+- (id)init;
+- (id)initWithCLLocation:(id)a0;
+- (id)initWithRTLocation:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (id)initWithLat:(double)a0 Lon:(double)a1 Uncertainty:(double)a2 confidence:(double)a3 andTimestamp_s:(double)a4;
+- (id)initWithLatitude:(double)a0 longitude:(double)a1 uncertainty:(double)a2;
+- (void)encodeWithCoder:(id)a0;
+
+@end

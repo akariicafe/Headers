@@ -1,0 +1,3 @@
+@interface __PUAlbumListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

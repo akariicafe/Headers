@@ -1,0 +1,18 @@
+@class NSString, SSHarvestedApplicationDocument, BSSettings;
+
+@interface SSEnvironmentElementDocumentUpdate : NSObject <BSXPCCoding, SSLoggable>
+
+@property (copy, nonatomic) NSString *environmentElementIdentifier;
+@property (retain, nonatomic) SSHarvestedApplicationDocument *document;
+@property (readonly, nonatomic) BSSettings *bsSettings;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSString *loggableDescription;
+
+- (id)initWithXPCDictionary:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithXPCDictionary:(id)a0;
+
+@end

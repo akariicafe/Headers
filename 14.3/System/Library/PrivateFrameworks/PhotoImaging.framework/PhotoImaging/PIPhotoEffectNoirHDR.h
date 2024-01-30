@@ -1,0 +1,3 @@
+@interface PIPhotoEffectNoirHDR : PIPhotoEffectBlackAndWhiteHDR
+
+@end

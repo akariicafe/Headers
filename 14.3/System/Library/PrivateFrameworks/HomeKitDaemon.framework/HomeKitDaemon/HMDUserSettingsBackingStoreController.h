@@ -1,0 +1,71 @@
+@class NSUUID, NSString, HMDCloudShareMessenger, HMDCloudShareParticipantsManager, HMDLogEventDispatcher, HMBCloudZone, NSObject, HMBLocalZone;
+@protocol HMDUserSettingsBackingStoreControllerDelegate, HMDDatabase, HMDAssistantAccessControlModelUpdateReceiver, HMDSettingTransactionReceiverProtocol, HMDMediaContentProfileAccessControlModelUpdateReceiver, OS_dispatch_queue, OS_os_log;
+
+@interface HMDUserSettingsBackingStoreController : NSObject <HMBLocalZoneModelObserver, HMFLogging, HMDCloudShareParticipantsManagerDataSource, HMDCloudShareParticipantsManagerDelegate, HMDCloudShareMessengerDelegate, HMDDatabaseDelegate, HMDSettingsBackingStoreController> {
+    NSObject<OS_os_log> *_logger;
+    unsigned long long _startupSignPost;
+}
+
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly, copy) NSString *zoneName;
+@property (readonly) id<HMDDatabase> database;
+@property (readonly) HMDLogEventDispatcher *logEventDispatcher;
+@property (readonly) HMDCloudShareMessenger *shareMessenger;
+@property (retain) HMDCloudShareParticipantsManager *participantsManager;
+@property (retain) HMBCloudZone *cloudZone;
+@property (retain) HMBLocalZone *localZone;
+@property long long runState;
+@property (weak) id<HMDSettingTransactionReceiverProtocol> transactionReceiver;
+@property (weak) id<HMDAssistantAccessControlModelUpdateReceiver> assistantAccessControlModelUpdateReceiver;
+@property (copy) NSUUID *assistantAccessControlModelID;
+@property (weak) id<HMDMediaContentProfileAccessControlModelUpdateReceiver> mediaContentProfileAccessControlModelUpdateReceiver;
+@property (copy) NSUUID *mediaContentProfileAccessControlModelID;
+@property (readonly, weak) id<HMDUserSettingsBackingStoreControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void).cxx_destruct;
+- (void)clearParticipants;
+- (void)_invalidate;
+- (void)start;
+- (id)logIdentifier;
+- (void)updateParticipants;
+- (id)localZone:(id)a0 didProcessModelDeletion:(id)a1;
+- (id)localZone:(id)a0 didProcessModelCreation:(id)a1;
+- (id)localZone:(id)a0 didProcessModelUpdate:(id)a1;
+- (BOOL)manager:(id)a0 shouldShareWithUser:(id)a1;
+- (void)_updateRunState:(long long)a0;
+- (void)_startWithOwnedZone;
+- (void)_startWithSharedZone;
+- (void)_didFetchZonesWithResult:(id)a0 isOwnedZone:(BOOL)a1 error:(id)a2;
+- (void)_localZone:(id)a0 updatedModel:(id)a1 previousModel:(id)a2 options:(id)a3 result:(id)a4;
+- (void)runTransaction:(id)a0 waitForCloudPush:(BOOL)a1 completion:(id /* block */)a2;
+- (void)manager:(id)a0 didRequestSendForInvitation:(id)a1 toUser:(id)a2;
+- (void)messenger:(id)a0 didReceiveInvitationData:(id)a1 completion:(id /* block */)a2;
+- (void)messengerDidReceiveInvitationRequest:(id)a0;
+- (void)database:(id)a0 didCreateZoneWithName:(id)a1 isPrivate:(BOOL)a2;
+- (void)database:(id)a0 didRemoveZoneWithName:(id)a1 isPrivate:(BOOL)a2;
+- (void)registerForSettingsTransactions:(id)a0;
+- (id)settingTransactionWithName:(id)a0;
+- (void)runSettingTransaction:(id)a0 completion:(id /* block */)a1;
+- (void)runSettingTransaction:(id)a0 waitForCloudPush:(BOOL)a1 completion:(id /* block */)a2;
+- (id)initWithDelegate:(id)a0 queue:(id)a1 zoneName:(id)a2 database:(id)a3 home:(id)a4 shareMessenger:(id)a5;
+- (id)loadPrivateUserDataModelWithError:(id *)a0;
+- (id)loadSharedUserDataModelWithError:(id *)a0;
+- (id)loadAssistantAccessControlModelWithModelID:(id)a0 error:(id *)a1;
+- (void)registerForAssistantAccessControlModelUpdates:(id)a0 modelID:(id)a1;
+- (id)loadMediaContentAccessControlModelWithModelID:(id)a0 error:(id *)a1;
+- (void)registerForMediaContentAccessControlModelUpdates:(id)a0 modelID:(id)a1;
+- (void)destroyZone;
+- (void)registerObserverDeviceIdentifier:(id)a0 observerPushToken:(id)a1 subActivity:(id)a2 subjectDeviceIdentifier:(id)a3;
+- (void)updateObserverDeviceIdentifier:(id)a0 observerPushToken:(id)a1;
+- (void)deregisterObserverDeviceIdentifier:(id)a0 observerPushToken:(id)a1 subActivity:(id)a2 subjectDeviceIdentifier:(id)a3;
+- (void)deregisterObserverDeviceIdentifier:(id)a0;
+- (id)queryPushTokensForDevicesObservingSubjectDevice:(id)a0 subActivity:(id)a1;
+- (id)loadUserSettings;
+
+@end

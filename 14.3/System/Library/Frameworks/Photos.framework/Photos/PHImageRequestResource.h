@@ -1,0 +1,26 @@
+@class NSString, PLPhotoLibrary;
+@protocol PLUniformTypeIdentifierIdentity;
+
+@interface PHImageRequestResource : NSObject <PLResourceIdentity> {
+    PLPhotoLibrary *_photoLibrary;
+}
+
+@property (readonly, nonatomic) unsigned int resourceType;
+@property (readonly, nonatomic) unsigned int version;
+@property (readonly, nonatomic) unsigned int recipeID;
+@property (readonly, nonatomic) id<PLUniformTypeIdentifierIdentity> uniformTypeIdentifierID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)imageRequestResourceForDataStoreKey:(id)a0 store:(id)a1 assetObjectID:(id)a2 context:(id)a3;
++ (id)possibleClassesInDictionaryRepresentation;
++ (id)dictionaryRepresentationFromResourceIdentity:(id)a0;
+
+- (id)initWithResource:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithResourceType:(unsigned int)a0 version:(unsigned int)a1 recipeID:(unsigned int)a2 uti:(id)a3 conformsToTypes:(long long)a4;
+- (id)initWithDictionary:(id)a0;
+
+@end

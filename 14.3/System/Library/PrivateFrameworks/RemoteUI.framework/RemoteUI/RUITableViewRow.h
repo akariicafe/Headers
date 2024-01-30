@@ -1,0 +1,94 @@
+@class NSData, NSDate, UIView, NSString, RemoteUITableViewCell, UISwitch, UIControl, RUIPage, NSDictionary, NSMutableArray, NSDateFormatter, RUIDetailButtonElement;
+@protocol RUITableViewRowDelegate, RUITextFieldChangeObserver;
+
+@interface RUITableViewRow : RUIElement <RUIWebContainerViewDelegate, UIPickerViewDelegate, UITextFieldDelegate> {
+    RemoteUITableViewCell *_tableCell;
+    NSMutableArray *_selectOptions;
+    UISwitch *_switchControl;
+    BOOL _switchValue;
+    float _cachedHeight;
+    NSDateFormatter *_datePickerFormatter;
+}
+
+@property (retain, nonatomic) NSDate *date;
+@property (retain, nonatomic) NSDate *dateMin;
+@property (retain, nonatomic) NSDate *dateMax;
+@property (weak, nonatomic) id<RUITableViewRowDelegate> delegate;
+@property (nonatomic) BOOL rowInvalid;
+@property (retain, nonatomic) NSDictionary *deleteAction;
+@property (retain, nonatomic) NSData *data;
+@property (readonly, nonatomic) long long selectedRow;
+@property (readonly, nonatomic) long long datePickerMode;
+@property (retain, nonatomic) UIView *pickerView;
+@property (nonatomic) double height;
+@property (nonatomic) BOOL configured;
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic, getter=isFocused) BOOL focused;
+@property (nonatomic, getter=isShowingProgressIndicator) BOOL showingProgressIndicator;
+@property (readonly, nonatomic) UIControl *control;
+@property (weak, nonatomic) id<RUITextFieldChangeObserver> textFieldChangeObserver;
+@property (weak, nonatomic) RUIPage *linkedPage;
+@property (retain, nonatomic) RUIDetailButtonElement *detailButton;
+@property (readonly, nonatomic) BOOL indentWhileEditing;
+@property (nonatomic) long long alignment;
+@property (readonly, nonatomic) BOOL isCopyable;
+@property (readonly, nonatomic) NSString *copyText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)resetLocale;
++ (void)initialize;
++ (id)_formatterForDateYMD;
++ (id)_timeZoneAdjustedDateFromDate:(id)a0;
++ (id)_formatterForMonthAndDay;
++ (id)_formatterForYearAndMonth;
++ (id)_formatterForShortDate;
+
+- (id)sourceURL;
+- (void).cxx_destruct;
+- (void)populatePostbackDictionary:(id)a0;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (id)tableCell;
+- (void)dealloc;
+- (BOOL)supportsAutomaticSelection;
+- (BOOL)textField:(id)a0 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (void)_datePickerChanged:(id)a0;
+- (void)setAttributes:(id)a0;
+- (long long)numberOfComponentsInPickerView:(id)a0;
+- (long long)pickerView:(id)a0 numberOfRowsInComponent:(long long)a1;
+- (id)pickerView:(id)a0 titleForRow:(long long)a1 forComponent:(long long)a2;
+- (void)pickerView:(id)a0 didSelectRow:(long long)a1 inComponent:(long long)a2;
+- (void)setImageSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateTextColors;
+- (void)setImage:(id)a0;
+- (void)setEnabled:(BOOL)a0;
+- (id)viewForElementIdentifier:(id)a0;
+- (Class)tableCellClass;
+- (id)radioGroupSelectedColor;
+- (void)webContainerView:(id)a0 didClickLinkWithURL:(id)a1;
+- (void)setValueFromString:(id)a0 notify:(BOOL)a1;
+- (id)selectOptions;
+- (void)clearCachedHeight;
+- (id)dateFormatterCalendarIdentifier;
+- (float)rowHeightWithMax:(float)a0 peggedHeight:(float)a1 tableView:(id)a2 indexPath:(id)a3;
+- (BOOL)rowSupportsLoadingIndicator;
+- (void)switchCanceled;
+- (id)textColorForAttributeName:(id)a0;
+- (long long)tableCellStyle;
+- (void)_updateContentForDisabledState;
+- (id)_checkmarkAccessoryViewWithSelected:(BOOL)a0;
+- (void)accessoryImageLoaded;
+- (void)setEditableTextFieldValue:(id)a0;
+- (void)_switchFlipped:(id)a0;
+- (id)_datePickerFormatter;
+- (void)setSelectRowValue:(id)a0;
+- (void)setDetailAndPlaceholderText;
+- (void)detailLabelActivatedLinkFromCell:(id)a0 completion:(id /* block */)a1;
+- (BOOL)loadAccessoryImage;
+- (void)setSelectedRowTextColor;
+- (BOOL)setSelectPageRowValue:(id)a0;
+- (void)setValueFromString:(id)a0;
+
+@end

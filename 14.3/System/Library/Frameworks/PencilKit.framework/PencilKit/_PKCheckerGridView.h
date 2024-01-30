@@ -1,0 +1,15 @@
+@class UIImageView, UIColor;
+
+@interface _PKCheckerGridView : UIView
+
+@property (retain, nonatomic) UIImageView *imageView;
+@property (nonatomic) double gridSize;
+@property (retain, nonatomic) UIColor *colorA;
+@property (retain, nonatomic) UIColor *colorB;
+
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)gridTileImage;
+
+@end

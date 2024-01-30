@@ -1,0 +1,86 @@
+@class UIView, NSTimer, UIWebSelection, UIWebSelectionNode, UIWebSelectionOutline, UIWebSelectionGraph, UIWebDocumentView, UIWebSelectionHandle, UIWebTextRangeView;
+
+@interface UIWebSelectionView : UIView {
+    UIView *_center;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _selectionFrame;
+    UIWebSelectionHandle *_top;
+    UIWebSelectionHandle *_right;
+    UIWebSelectionHandle *_bottom;
+    UIWebSelectionHandle *_left;
+    UIWebSelectionOutline *_outline;
+    UIWebTextRangeView *_textRangeView;
+    UIWebDocumentView *_documentView;
+    UIWebSelectionGraph *_selectionGraph;
+    double _growThreshold;
+    double _shrinkThreshold;
+    struct { UIWebSelectionHandle *scrollingHandle; double startTime; int direction; NSTimer *timer; } _autoscrollData;
+    struct { UIWebSelectionHandle *start; UIWebSelectionHandle *end; struct CGSize { double width; double height; } startingOffset; BOOL anchorAtStart; struct { BOOL flipPossible; BOOL rectsChanged; struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } originalSelectionRect; } flipData; } _rangedSelectionData;
+    int _nestedLayoutCalls;
+    BOOL _calloutBarIsHiddenBeforeRotation;
+    BOOL _rotating;
+    int _selectionInFixedPosition;
+}
+
+@property (retain, nonatomic) UIWebSelectionNode *selectionNode;
+@property (nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } selectionFrame;
+@property (readonly, nonatomic) UIWebSelection *selection;
+@property (nonatomic) BOOL creatingSelection;
+
+- (void)clearSelection;
+- (void)_didScroll;
+- (id)handles;
+- (BOOL)canFlip;
+- (void)didEndScrollingOverflow;
+- (void)dealloc;
+- (void)removeFromSuperview;
+- (id)activeHandle;
+- (id)initWithWebDocumentView:(id)a0;
+- (void)scaleChanged;
+- (void)hideControls;
+- (void)startSelectionCreationWithPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)resetSelection;
+- (void)updateSelectionCreationWithPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)endSelectionCreationWithPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)willStartScrollingOrZoomingPage;
+- (void)didEndScrollingOrZoomingPage;
+- (void)showControls;
+- (void)hideControlsBeforeRotation;
+- (void)showControlsAfterRotation;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })selectionBoundingRect;
+- (void)showRangeSelection;
+- (void)updateFrameAndHandlesWithAnimation:(BOOL)a0;
+- (id)handleWithPosition:(int)a0;
+- (BOOL)updateRectForCalloutBar:(id)a0 inWindow:(id)a1;
+- (void)onBeforeScrollOrZoomHidingSelection:(BOOL)a0;
+- (void)onAfterScrollOrZoomShowingSelection:(BOOL)a0;
+- (void)updateTextRangeViewSelectionRects;
+- (void)showCopyCalloutWithAnimation:(BOOL)a0;
+- (void)hideCopyCallout;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fetchSelectionBoundingTextSelectionRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fetchSelectionBoundingRect;
+- (void)considerFlipping;
+- (void)setOrientationOfMagnifier:(id)a0 forHandleInText:(id)a1;
+- (void)animateSloppyReleaseOfHandleInText:(id)a0 withMagnifier:(id)a1;
+- (BOOL)isHorizontalWritingMode;
+- (int)autoscrollDirectionsForHandle:(id)a0;
+- (void)touchChanged:(id)a0 forHandleInText:(id)a1;
+- (void)shiftWebRangeSelectionAnimationDidStop;
+- (id)nodeInPristineGraphAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)activelyManipulatingTextSelectionHandle;
+- (void)updateForChangedLayoutWhileManipulatingTextSelectionHandle;
+- (void)calloutBar:(id)a0 selectedCommand:(id)a1;
+- (void)setSelectionFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 animated:(BOOL)a1;
+- (void)updateAutoscrollForHandle:(id)a0;
+- (void)_subscribeToScrollNotificationsIfNecessary:(id)a0;
+- (id)scroller;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })visibleRect;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)selectionChanged;
+- (void)layoutChangedByScrolling:(BOOL)a0;
+- (void)willStartScrollingOverflow;
+- (void)stopAnyAutoscrolling;
+- (void)autoscrollTimerFired:(id)a0;
+- (id)tintView;
+- (void)updateSelectionRects;
+
+@end

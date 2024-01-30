@@ -1,0 +1,90 @@
+@class NSString, NSMutableArray, UITableView;
+
+@interface MPUTableViewController : MPUDataSourceViewController <MPStoreDownloadManagerObserver, MPUActionTableViewDataSource, UITableViewDelegate> {
+    BOOL _shouldUpdateVisibleCellsWhenVisible;
+    BOOL _hasAppearedOnce;
+    UITableView *_tableView;
+    long long _numberOfTopActionRows;
+    NSMutableArray *_visibleTopActionRows;
+    long long _numberOfBottomActionRows;
+    NSMutableArray *_visibleBottomActionRows;
+}
+
+@property (readonly, nonatomic) Class cellConfigurationClass;
+@property (nonatomic) BOOL shouldDeselectImmediately;
+@property (readonly, nonatomic) BOOL shouldScrollToFirstDataSourceSectionOnInitialAppearance;
+@property (readonly, nonatomic) UITableView *tableView;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } contentOffsetRevealingFirstDataSourceSection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)invalidationContextClass;
++ (id)viewControllerWithRestorationIdentifierPath:(id)a0 coder:(id)a1;
++ (BOOL)usesCellConfigurations;
++ (BOOL)wantsAutolayoutSizedTableViewRows;
++ (id)allActionCellConfigurationClasses;
++ (id)actionCellConfigurationClasses;
++ (id)actionCellConfigurationClassesForLocation:(unsigned long long)a0;
++ (Class)_tableViewClass;
+
+- (void)encodeRestorableStateWithCoder:(id)a0;
+- (void)reloadData;
+- (long long)tableView:(id)a0 sectionForSectionIndexTitle:(id)a1 atIndex:(long long)a2;
+- (id)sectionIndexTitlesForTableView:(id)a0;
+- (id)initWithDataSource:(id)a0;
+- (id)tableView:(id)a0 targetIndexPathForMoveFromRowAtIndexPath:(id)a1 toProposedIndexPath:(id)a2;
+- (void)setDataSource:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void)tableView:(id)a0 commitEditingStyle:(long long)a1 forRowAtIndexPath:(id)a2;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (void).cxx_destruct;
+- (void)downloadManager:(id)a0 downloadDidFinish:(id)a1;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void)dealloc;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (long long)_totalNumberOfSections;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 willBeginEditingRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didEndEditingRowAtIndexPath:(id)a1;
+- (void)downloadManager:(id)a0 didAddDownloads:(id)a1 removeDownloads:(id)a2;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)downloadManager:(id)a0 downloadPurchaseDidFinish:(id)a1;
+- (void)tableView:(id)a0 didEndDisplayingCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (BOOL)tableView:(id)a0 shouldHighlightRowAtIndexPath:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void)viewDidLoad;
+- (id)initWithDataSource:(id)a0 cellConfigurationClass:(Class)a1;
+- (void)reloadActionRowsAnimated:(BOOL)a0;
+- (void)_updateVisibleCellsForDownloads:(id)a0 updateAllCells:(BOOL)a1;
+- (void)_reloadActionRowsAnimated:(BOOL)a0 skipTableViewUpdates:(BOOL)a1;
+- (BOOL)isTableViewLoaded;
+- (Class)cellConfigurationForIndexPath:(id)a0;
+- (void)_configureCellsAfterScroll;
+- (long long)dataSourceIndexForIndexPath:(id)a0;
+- (Class)actionCellConfigurationClassForIndexPath:(id)a0;
+- (long long)numberOfTopActionRowsInTableView:(id)a0;
+- (long long)numberOfBottomActionRowsInTableView:(id)a0;
+- (id)reuseIdentifierForCellAtIndexPath:(id)a0;
+- (void)configureCell:(id)a0 atIndexPath:(id)a1 withEntity:(id)a2 invalidationContext:(id)a3;
+- (long long)dataSourceSectionForSection:(long long)a0;
+- (long long)indexOfFirstDataSourceSection;
+- (id)_createTableView;
+- (void)_loadCellConfiguration;
+- (BOOL)shouldShowActionCellConfiguration:(Class)a0;
+- (long long)numberOfActionRowsInTableView:(id)a0;
+- (id)indexPathForDataSourceIndex:(long long)a0;
+- (long long)sectionForDataSourceSection:(long long)a0;
+- (void)_recreateTableView;
+- (void)_setCellConfigurationClass:(Class)a0;
+
+@end

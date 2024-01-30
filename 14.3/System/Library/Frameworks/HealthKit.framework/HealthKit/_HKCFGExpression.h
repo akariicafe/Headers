@@ -1,0 +1,9 @@
+@interface _HKCFGExpression : NSObject
+
+@property (nonatomic) BOOL isPrivate;
+
+- (id)_label;
+- (void)_tryNodesWithContext:(id)a0 solutionTest:(id /* block */)a1;
+- (unsigned long long)_minimumLength;
+
+@end

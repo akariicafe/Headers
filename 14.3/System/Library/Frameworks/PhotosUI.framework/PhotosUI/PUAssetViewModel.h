@@ -1,0 +1,84 @@
+@class NSProgress, PUModelTileTransform, PUBrowsingVideoPlayer, PUBadgeInfoPromise, NSObject, PUAssetViewModelChange, PUBrowsingAnimatedImagePlayer, NSString, PUAssetSharedViewModel, NSNumber, PUBrowsingIrisPlayer, PUAssetReference, PUMediaProvider, PUOperationStatus;
+@protocol OS_dispatch_group, PUDisplayAsset;
+
+@interface PUAssetViewModel : PUViewModel <PUBrowsingIrisPlayerChangeObserver, PUAssetSharedViewModelChangeObserver, PUBrowsingVideoPlayerChangeObserver, PUBrowsingAnimatedImagePlayerChangeObserver> {
+    PUBrowsingVideoPlayer *_videoPlayer;
+    PUBrowsingIrisPlayer *_irisPlayer;
+    PUBrowsingAnimatedImagePlayer *_animatedImagePlayer;
+    struct { BOOL videoPlayersLoadingAllowed; } _isValid;
+}
+
+@property (readonly, nonatomic) PUAssetViewModelChange *currentChange;
+@property (readonly, nonatomic) PUAssetViewModelChange *currentChangeIfExists;
+@property (nonatomic, setter=_setNeedsUpdateVideoPlayers:) BOOL _needsUpdateVideoPlayers;
+@property (nonatomic, setter=_setFavorite:) BOOL isFavorite;
+@property (nonatomic, setter=_setCurrentFavoriteOverrideRequest:) long long _currentFavoriteOverrideRequest;
+@property (nonatomic, setter=_setLastAccessoryViewVisibilityChangeReason:) long long lastAccessoryViewVisibilityChangeReason;
+@property (nonatomic, setter=_setLastContentOffsetChangeReason:) long long lastContentOffsetChangeReason;
+@property (copy, nonatomic) PUOperationStatus *loadingStatus;
+@property (retain, nonatomic) NSProgress *saveProgress;
+@property (nonatomic) long long displayedContentUpdateCount;
+@property (nonatomic) BOOL isUpdatingDisplayedContent;
+@property (retain, nonatomic) NSObject<OS_dispatch_group> *displayedContentUpdateGroup;
+@property (retain, nonatomic) id<PUDisplayAsset> asset;
+@property (retain, nonatomic) PUMediaProvider *mediaProvider;
+@property (nonatomic) double focusValue;
+@property (copy, nonatomic) PUBadgeInfoPromise *badgeInfoPromise;
+@property (nonatomic) BOOL forceBadgesVisible;
+@property (nonatomic) long long importState;
+@property (copy, nonatomic) NSNumber *isFavoriteOverride;
+@property (retain, nonatomic) PUAssetReference *assetReference;
+@property (retain, nonatomic) PUAssetSharedViewModel *assetSharedViewModel;
+@property (copy, nonatomic) PUModelTileTransform *modelTileTransform;
+@property (nonatomic, setter=setUserTransformingTile:) BOOL isUserTransformingTile;
+@property (readonly, nonatomic) PUBrowsingVideoPlayer *videoPlayer;
+@property (readonly, nonatomic) PUBrowsingIrisPlayer *irisPlayer;
+@property (readonly, nonatomic) PUBrowsingAnimatedImagePlayer *animatedImagePlayer;
+@property (readonly, nonatomic) long long saveState;
+@property (nonatomic, getter=isAccessoryViewVisible) BOOL accessoryViewVisible;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } contentOffset;
+@property (nonatomic) struct CGPoint { double x; double y; } preferredContentOffset;
+@property (nonatomic) struct CGPoint { double x; double y; } overridingContentOffset;
+@property (nonatomic) double contentOffsetOverrideFactor;
+@property (readonly, nonatomic) BOOL isInEditMode;
+@property (readonly, nonatomic) long long editStyle;
+@property (readonly, nonatomic) long long lastEditStyleChangeReason;
+@property (readonly, nonatomic) BOOL lowMemoryMode;
+@property (nonatomic) BOOL toggleCTM;
+@property (nonatomic) long long flippingFullSizeRenderState;
+@property (nonatomic) BOOL revealsGainMapImage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)registerChangeObserver:(id)a0;
+- (void)unregisterChangeObserver:(id)a0;
+- (void)_handleBrowsingAnimatedImage:(id)a0 didChange:(id)a1;
+- (id)init;
+- (void)_handleBrowsingVideoPlayer:(id)a0 didChange:(id)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)didPerformChanges;
+- (void)viewModel:(id)a0 didChange:(id)a1;
+- (void)_pauseAndRewindVideoIfNeeded;
+- (void)resetContentOffset;
+- (void)_updateFavoriteState;
+- (void)_invalidateVideoPlayers;
+- (void)_updateVideoPlayersIfNeeded;
+- (void)_handleBrowsingIrisPlayer:(id)a0 didChange:(id)a1;
+- (void)_updateVideoPlayersLoadingAllowedIfNeeded;
+- (id)newViewModelChange;
+- (void)_updatePropertiesFromAssetSharedViewModel;
+- (void)willUpdateDisplayedContent;
+- (id)debugDetailedDescription;
+- (void)didUpdateDisplayedContent;
+- (void)setSaveState:(long long)a0;
+- (void)_handleAssetSharedViewModel:(id)a0 didChange:(id)a1;
+- (BOOL)_shouldPauseAndRewindVideo;
+- (void)setAccessoryViewVisible:(BOOL)a0 changeReason:(long long)a1;
+- (void)setEditStyle:(long long)a0 changeReason:(long long)a1;
+- (void)setPreferredContentOffset:(struct CGPoint { double x0; double x1; })a0 changeReason:(long long)a1;
+- (id)initWithLowMemoryMode:(BOOL)a0;
+
+@end

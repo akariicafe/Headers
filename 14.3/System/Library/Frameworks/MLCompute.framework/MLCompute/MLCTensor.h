@@ -1,0 +1,82 @@
+@class NSData, NSString, NSArray, MLCTensorDescriptor, MLCLayer, MLCDevice, NSMutableArray;
+
+@interface MLCTensor : NSObject <NSCopying>
+
+@property (nonatomic) unsigned long long tensorID;
+@property (copy, nonatomic) MLCTensorDescriptor *descriptor;
+@property (retain, nonatomic) NSMutableArray *parentLayers;
+@property (retain, nonatomic) NSMutableArray *childLayers;
+@property (retain, nonatomic) NSData *data;
+@property (retain, nonatomic) MLCDevice *device;
+@property (retain, nonatomic) NSMutableArray *deviceMemory;
+@property (retain, nonatomic) NSMutableArray *broadcastabledeviceMemory;
+@property (nonatomic) BOOL isTemporary;
+@property (nonatomic) unsigned long long readCount;
+@property (nonatomic) BOOL memorySharedWithAnotherTensor;
+@property (nonatomic) int multiDeviceReductionType;
+@property (retain, nonatomic) MLCTensor *sharedMemoryTensor;
+@property (nonatomic) unsigned long long concatOffset;
+@property (nonatomic) unsigned long long concatDimension;
+@property (nonatomic) unsigned long long splitOffset;
+@property (nonatomic) unsigned long long splitDimension;
+@property (nonatomic) unsigned long long rootSourceGradientTensorIndexStart;
+@property (nonatomic) unsigned long long rootSourceGradientTensorCount;
+@property (nonatomic) unsigned long long rootSourceGradientTensorIndex;
+@property (retain, nonatomic) MLCLayer *intermediateSumLayer;
+@property (nonatomic) unsigned long long interleave;
+@property (nonatomic) BOOL isLiveOutput;
+@property (copy, nonatomic) NSArray *optimizerData;
+@property (copy, nonatomic) NSArray *optimizerDeviceData;
+@property (nonatomic) BOOL isLayerParameter;
+@property (retain, nonatomic) id deviceDataSources;
+@property (nonatomic) BOOL skipWritingToDevice;
+@property (copy, nonatomic) NSString *label;
+@property (readonly, nonatomic) BOOL hasValidNumerics;
+
++ (void)initialize;
++ (id)tensorWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 randomInitializerType:(int)a4;
++ (id)tensorWithDescriptor:(id)a0 data:(id)a1;
++ (id)tensorWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 data:(id)a4;
++ (id)tensorWithDescriptor:(id)a0 randomInitializerType:(int)a1;
++ (id)tensorWithDescriptor:(id)a0;
++ (id)tensorWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3;
++ (id)newDataForTensorDescriptor:(id)a0 fillWithData:(id)a1;
++ (id)newRandomDataForWeightTensorDescriptor:(id)a0 randomInitializerType:(int)a1;
++ (id)tensorWithDescriptor:(id)a0 fillWithData:(id)a1;
++ (id)tensorWithSequenceLengths:(id)a0 sortedSequences:(BOOL)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 randomInitializerType:(int)a4;
++ (id)tensorWithSequenceLengths:(id)a0 sortedSequences:(BOOL)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 data:(id)a4;
++ (id)tensorWithShape:(id)a0;
++ (id)tensorWithShape:(id)a0 randomInitializerType:(int)a1;
++ (id)tensorWithShape:(id)a0 dataType:(int)a1;
++ (id)tensorWithShape:(id)a0 fillWithData:(id)a1 dataType:(int)a2;
++ (id)tensorWithShape:(id)a0 data:(id)a1 dataType:(int)a2;
++ (id)tensorWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 fillWithData:(float)a4 dataType:(int)a5;
++ (id)tensorWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 featureChannelCount:(unsigned long long)a2 batchSize:(unsigned long long)a3 data:(id)a4 dataType:(int)a5;
++ (id)tensorWithSequenceLength:(unsigned long long)a0 featureChannelCount:(unsigned long long)a1 batchSize:(unsigned long long)a2;
++ (id)tensorWithSequenceLength:(unsigned long long)a0 featureChannelCount:(unsigned long long)a1 batchSize:(unsigned long long)a2 randomInitializerType:(int)a3;
++ (id)tensorWithSequenceLength:(unsigned long long)a0 featureChannelCount:(unsigned long long)a1 batchSize:(unsigned long long)a2 data:(id)a3;
++ (BOOL)canConvertValue:(float)a0 toDataType:(int)a1;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (void)allocateDeviceMemory:(id)a0;
+- (void)writeTensorDataToAllDevices:(id)a0;
+- (unsigned long long)calculateBatchSizeToUse:(unsigned long long)a0;
+- (BOOL)bindOptimizerData:(id)a0 deviceData:(id)a1;
+- (BOOL)synchronizeData;
+- (BOOL)doesShapeMatchWithTensor:(id)a0;
+- (id)initWithTensorDescriptor:(id)a0 tensorData:(id)a1 parentLayers:(id)a2 childLayers:(id)a3 device:(id)a4 deviceMemory:(id)a5;
+- (BOOL)dataContainsScalarWhere:(id /* block */)a0;
+- (void)writeTensorDataToAllDevices:(id)a0 batchSize:(unsigned long long)a1;
+- (id)copyAndReplaceData:(id)a0;
+- (BOOL)copyDataFromDeviceMemoryToBytes:(void *)a0 length:(unsigned long long)a1 synchronizeWithDevice:(BOOL)a2;
+- (BOOL)bindAndWriteData:(id)a0 toDevice:(id)a1;
+- (BOOL)synchronizeOptimizerData;
+- (void)deallocateDeviceMemory:(id)a0;
+- (void)dispatchWriteTensorDataToAllDevices:(id)a0;
+- (void)dispatchWriteTensorDataToAllDevices:(id)a0 batchSize:(unsigned long long)a1;
+- (id)readTensorDataFromAnyOneDevice:(id)a0;
+- (id)readTensorDataFromAnyOneDevice:(id)a0 batchSize:(unsigned long long)a1;
+
+@end

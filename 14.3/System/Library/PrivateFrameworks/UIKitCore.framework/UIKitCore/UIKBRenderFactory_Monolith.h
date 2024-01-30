@@ -1,0 +1,53 @@
+@interface UIKBRenderFactory_Monolith : UIKBRenderFactory
+
+- (id)highlightedTextColor;
+- (id)disabledTextColor;
+- (double)shadowRadius;
+- (id)displayContentsForKey:(id)a0;
+- (id)backgroundTraitsForKeyplane:(id)a0;
+- (void)lowQualityTraits:(id)a0;
+- (id)_traitsForKey:(id)a0 onKeyplane:(id)a1;
+- (double)shadowYOffset;
+- (double)spaceKeyFontSize;
+- (id)highlightedKeyColor;
+- (double)textKeyFontSize;
+- (double)tldKeyFontSize;
+- (BOOL)preferGlyphForDelete;
+- (BOOL)preferGlyphForClear;
+- (double)textKeyFontWeight;
+- (BOOL)spaceKeyIsPressed;
+- (id)enabledTextColor;
+- (double)keyRoundRectRadius;
+- (id)_enabledTraitsForKey:(id)a0;
+- (double)letterKeyFontWeight;
+- (double)letterKeyFontSize;
+- (struct CGPoint { double x0; double x1; })_textOffsetForKey:(id)a0;
+- (double)letterKeySecondaryFontSize;
+- (double)tldKeyFontWeight;
+- (struct CGPoint { double x0; double x1; })_secondaryTextOffsetForKey:(id)a0;
+- (double)letterKeyTwoLineFontWeight;
+- (double)letterKeyTwoLineFontSize;
+- (BOOL)smallTextForSpaceAndClear;
+- (void)configureSymbolStyles:(id)a0 forLetterKey:(id)a1;
+- (id)_highlightedTraitsForKey:(id)a0;
+- (id)_activeTraitsForKey:(id)a0;
+- (id)_disabledTraitsForKey:(id)a0;
+- (void)configureSymbolStyle:(id)a0 forEnabledKeyplaneSwitchKey:(id)a1;
+- (void)configureCornersOnGeometry:(id)a0 forKey:(id)a1;
+- (BOOL)includeDeleteInVariants;
+- (id)_enabledTraitsForKeyplaneSwitchKey:(id)a0 onKeyplane:(id)a1;
+- (void)configureSymbolStyle:(id)a0 forActiveKeyplaneSwitchKey:(id)a1;
+- (BOOL)forceVariantsInsideKeyplane;
+- (id)variantKeyBackgroundColor;
+- (id)highlightedVariantKeyColor;
+- (id)_enabledTraitsForLetterKey:(id)a0;
+- (id)_variantTraitsForLetterKey:(id)a0 onKeyplane:(id)a1;
+- (id)_highlightedTraitsForKeyplaneSwitchKey:(id)a0 onKeyplane:(id)a1;
+- (id)_activeTraitsForLetterKey:(id)a0;
+- (id)_disabledTraitsForLetterKey:(id)a0;
+- (id)_activeTraitsForKeyplaneSwitchKey:(id)a0 onKeyplane:(id)a1;
+- (id)_disabledTraitsForKeyplaneSwitchKey:(id)a0 onKeyplane:(id)a1;
+- (id)variantKeyColor;
+- (id)_highlightedTraitsForLetterKey:(id)a0;
+
+@end

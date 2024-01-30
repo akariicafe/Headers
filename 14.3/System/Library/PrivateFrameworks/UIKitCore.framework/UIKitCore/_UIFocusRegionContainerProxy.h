@@ -1,0 +1,33 @@
+@class NSArray, NSString, UIView;
+@protocol UIFocusItemContainer, UIFocusEnvironment;
+
+@interface _UIFocusRegionContainerProxy : NSObject <_UIFocusRegionContainer>
+
+@property (retain, nonatomic) id<UIFocusItemContainer> itemContainer;
+@property (nonatomic) BOOL isFocusEnvironment;
+@property (nonatomic) BOOL areChildrenFocused;
+@property (readonly, nonatomic, getter=_isEligibleForFocusInteraction) BOOL eligibleForFocusInteraction;
+@property (readonly, nonatomic, getter=_preferredFocusMovementStyle) long long preferredFocusMovementStyle;
+@property (readonly, copy, nonatomic, getter=_linearFocusMovementSequences) NSArray *linearFocusMovementSequences;
+@property (readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
+@property (readonly, weak, nonatomic) id<UIFocusEnvironment> parentFocusEnvironment;
+@property (readonly, nonatomic) id<UIFocusItemContainer> focusItemContainer;
+@property (readonly, weak, nonatomic) UIView *preferredFocusedView;
+@property (readonly, copy, nonatomic) NSString *focusGroupIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)shouldUpdateFocusInContext:(id)a0;
+- (void)didUpdateFocusInContext:(id)a0 withAnimationCoordinator:(id)a1;
+- (void).cxx_destruct;
+- (void)_searchForFocusRegionsInContext:(id)a0;
+- (id)_preferredFocusRegionCoordinateSpace;
+- (id)_focusEnvironment;
+- (id)initWithItemContainer:(id)a0;
+- (void)updateFocusIfNeeded;
+- (void)setNeedsFocusUpdate;
+- (id)_regionForFocusedItem:(id)a0 inCoordinateSpace:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UISystemKeyboardDockControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

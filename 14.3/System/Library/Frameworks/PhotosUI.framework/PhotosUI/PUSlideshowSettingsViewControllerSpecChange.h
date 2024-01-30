@@ -1,0 +1,3 @@
+@interface PUSlideshowSettingsViewControllerSpecChange : PUViewControllerSpecChange
+
+@end

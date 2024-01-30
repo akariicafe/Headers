@@ -1,0 +1,32 @@
+@class NSString, PXSectionedDataSourceManager, PXSectionedDataSource, NSArray;
+@protocol PXDeferrableDataSourceManagerDelegate;
+
+@interface PXDeferrableDataSourceManager : PXSectionedDataSourceManager <PXSectionedDataSourceManagerObserver> {
+    PXSectionedDataSourceManager *_underlyingDataSourceManager;
+    BOOL _hasInitialDataSource;
+    BOOL _clientIsHandlingDataSourceTransition;
+    PXSectionedDataSource *_pendingDataSource;
+    NSArray *_pendingDataSourceChangeDetails;
+}
+
+@property (weak, nonatomic) id<PXDeferrableDataSourceManagerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (id)createInitialDataSource;
+- (void).cxx_destruct;
+- (id)changeDetailsFromDataSource:(id)a0 toDataSource:(id)a1;
+- (void)setDataSource:(id)a0 changeDetails:(id)a1;
+- (void)setDataSource:(id)a0 changeDetailsArray:(id)a1;
+- (void)_finishTransitionToDataSource:(id)a0 changeDetailsArray:(id)a1;
+- (void)_internal_setDataSource:(id)a0 changeDetailsArray:(id)a1;
+- (BOOL)_canAttemptDataSourceChanges;
+- (void)_setPendingDataSource:(id)a0 changeDetailsArray:(id)a1;
+- (void)resumeDataSourceChanges;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)initWithDataSourceManager:(id)a0;
+
+@end

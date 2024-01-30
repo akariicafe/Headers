@@ -1,0 +1,3 @@
+@interface CIPhotoEffectFade : CIPhotoEffect
+
+@end

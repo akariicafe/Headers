@@ -1,0 +1,27 @@
+@class TSCH3DVector;
+
+@interface TSCH3DChartSceneAreaLayoutItemCache : NSObject {
+    struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x; float r; float s; } ; union { float y; float g; float t; } ; union { float z; float b; float p; } ; union { float w; float a; float q; } ; } infoChartScale; struct tvec2<int> { union { int x; int r; int s; } ; union { int y; int g; int t; } ; } containingViewport; struct tvec2<float> { union { float x; float r; float s; } ; union { float y; float g; float t; } ; } chartBodyLayoutOffsetInChartAreaLayoutSpace; struct CGSize { double width; double height; } layoutSize; struct CGSize { double width; double height; } requestLayoutSize; struct CGSize { double width; double height; } chartBodyLayoutSize; struct CGSize { double width; double height; } requestChartBodyLayoutSize; struct tvec2<int> { union { int x; int r; int s; } ; union { int y; int g; int t; } ; } modelSize; struct { BOOL forceOmitLegend; BOOL forceOmitTitle; BOOL forceOmitAxisTitle; BOOL forceOmitLabelPlacement; BOOL forceTitleAtTop; BOOL enable3DTightBounds; BOOL enable3DScaledDepthBounds; long long maxDepthRatioType; unsigned long long max3DLimitingSeries; } layoutSettings; BOOL forcedValid; } mValues;
+}
+
+@property (readonly, nonatomic) struct tvec4<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; union { float x0; float x1; float x2; } x3; } infoChartScale;
+@property (readonly, nonatomic) struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } containingViewport;
+@property (readonly, nonatomic) TSCH3DVector *containingViewportVector;
+@property (readonly, nonatomic) struct tvec2<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; } chartBodyLayoutOffsetInChartAreaLayoutSpace;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } layoutSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } requestLayoutSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } chartBodyLayoutSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } requestChartBodyLayoutSize;
+@property (readonly, nonatomic) struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } modelSize;
+@property (readonly, nonatomic) struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; } layoutSettings;
+@property (readonly, nonatomic) BOOL forcedValid;
+
++ (id)cacheWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; union { float x0; float x1; float x2; } x3; } x0; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x1; struct tvec2<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; } x2; struct CGSize { double x0; double x1; } x3; struct CGSize { double x0; double x1; } x4; struct CGSize { double x0; double x1; } x5; struct CGSize { double x0; double x1; } x6; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x7; struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; } x8; BOOL x9; } *)a0;
+
+- (const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; union { float x0; float x1; float x2; } x3; } x0; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x1; struct tvec2<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; } x2; struct CGSize { double x0; double x1; } x3; struct CGSize { double x0; double x1; } x4; struct CGSize { double x0; double x1; } x5; struct CGSize { double x0; double x1; } x6; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x7; struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; } x8; BOOL x9; } *)values;
+- (id)init;
+- (id).cxx_construct;
+- (id)initWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; union { float x0; float x1; float x2; } x2; union { float x0; float x1; float x2; } x3; } x0; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x1; struct tvec2<float> { union { float x0; float x1; float x2; } x0; union { float x0; float x1; float x2; } x1; } x2; struct CGSize { double x0; double x1; } x3; struct CGSize { double x0; double x1; } x4; struct CGSize { double x0; double x1; } x5; struct CGSize { double x0; double x1; } x6; struct tvec2<int> { union { int x0; int x1; int x2; } x0; union { int x0; int x1; int x2; } x1; } x7; struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; } x8; BOOL x9; } *)a0;
+- (void)printDebug;
+
+@end

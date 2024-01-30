@@ -1,0 +1,3 @@
+@interface __CAMPreviewViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

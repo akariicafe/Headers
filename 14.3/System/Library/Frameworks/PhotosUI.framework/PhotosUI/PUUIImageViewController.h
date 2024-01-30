@@ -1,0 +1,87 @@
+@class NSString, NSURL, PHAsset, PHLivePhotoView, PUVideoPlayerView, PUPhotoPickerResizeTaskDescriptorViewModel, ISAnimatedImageView, PUBrowsingIrisPlayer;
+@protocol PUPhotoPicker, PUUIImageViewControllerFileResizingDelegate;
+
+@interface PUUIImageViewController : PLUIImageViewController <UIGestureRecognizerDelegate, PUVideoPlayerViewDelegate, PXChangeObserver, PUPhotoPickerServicesConsumer, PUPhotoPickerSelectionHandler> {
+    BOOL _isIris;
+    BOOL _isAutoloop;
+    BOOL _isAnimatedImage;
+    BOOL _wantsLivePhotoResult;
+    BOOL _wantsVideoURLResult;
+    BOOL _showFileResizingOption;
+    PHAsset *_asset;
+}
+
+@property (retain, nonatomic) PUBrowsingIrisPlayer *_irisPlayer;
+@property (retain, nonatomic, setter=_setLivePhotoView:) PHLivePhotoView *_livePhotoView;
+@property (retain, nonatomic, setter=_setAutoloopView:) PUVideoPlayerView *_autoloopView;
+@property (retain, nonatomic, setter=_setAnimatedImageView:) ISAnimatedImageView *_animatedImageView;
+@property (retain, nonatomic, setter=_setVideoAssetURL:) NSURL *_videoAssetURL;
+@property (retain, nonatomic, setter=_setAssetURL:) NSURL *_assetURL;
+@property (setter=_setImageManagerVideoRequestID:) int _imageManagerVideoRequestID;
+@property (setter=_setAnimatedImageRequestID:) int _animatedImageRequestID;
+@property (weak, nonatomic) id<PUUIImageViewControllerFileResizingDelegate> fileResizingDelegate;
+@property (weak, nonatomic) PUPhotoPickerResizeTaskDescriptorViewModel *resizeTaskDescriptorViewModel;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PUPhotoPicker> photoPicker;
+
+- (id)initWithPhoto:(id)a0 imagePickerProperties:(id)a1 expectsLivePhoto:(BOOL)a2;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)loadView;
+- (id)customBackgroundColor;
+- (void)performPhotoPickerSelection;
+- (BOOL)pu_wantsNavigationBarVisible;
+- (void)videoPlayerView:(id)a0 isReadyForDisplayDidChange:(BOOL)a1;
+- (void)setIrisPlayer:(id)a0;
+- (id)irisPlayerView:(id)a0 delegateForGestureRecognizer:(id)a1;
+- (id)irisPlayerViewViewHostingGestureRecognizers:(id)a0;
+- (void)_loadAnimatedImage;
+- (void)_handleAnimatedImageResult:(id)a0;
+- (void)_handleAnimatedImagePreviewResult:(id)a0;
+- (void)_loadAutoloopVideo;
+- (void)_handleAutoloopPreviewImageResult:(id)a0;
+- (void)_handleAutoloopVideoResult:(id)a0;
+- (void)_loadLivePhoto;
+- (void)_handleLivePhotoRequestResult:(id)a0 info:(id)a1;
+- (void)_fetchPreviewImageWithCompletion:(id /* block */)a0;
+- (void)_fetchVideoWithCompletion:(id /* block */)a0;
+- (void)_fetchLivePhotoWithCompletion:(id /* block */)a0;
+- (void)_fetchAnimatedImageWithCompletion:(id /* block */)a0;
+- (void)_generateGIFFromVideoURL:(id)a0 progressHandler:(id /* block */)a1 completionHandler:(id /* block */)a2;
+- (void)cropOverlayWasOKed:(id)a0;
+- (void)handleVideoSelectionWithURL:(id)a0 args:(id)a1;
+- (void)handleMediaSelectionUsingTile:(id)a0 managedAsset:(id)a1 args:(id)a2 includeEditing:(BOOL)a3;
+- (void)handleAutoloopSelected;
+- (void)_finishAutoloopDeliveryWithVideoURL:(id)a0 gifURL:(id)a1;
+- (BOOL)doNotTranscode;
+- (id)exportPreset;
+- (BOOL)viewImageBeforeSelecting;
+- (BOOL)disableVideoTrimMessage;
+- (BOOL)forceNativeScreenScale;
+- (BOOL)force1XCroppedImage;
+- (id)chooseButtonTitle;
+- (id)cancelButtonTitle;
+- (id)maxZoomScaleOverride;
+- (BOOL)imagePickerAllowsEditing;
+- (unsigned long long)imagePickerSavingOptions;
+- (BOOL)wantsAutoloopUI;
+- (BOOL)wantsLegacyImageUI;
+- (BOOL)uiipc_useTelephonyUI;
+- (BOOL)isDisplayedInPhotoPicker;
+- (int)cropOverlayMode;
+- (id)cropOverlayFileSizeMenuActions:(id)a0;
+- (BOOL)_isPhotosPickerExtensionAvailable;
+- (id)videoMaximumDuration;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)videoQuality;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)viewDidLoad;
+- (void)setPhotoPickerMediaTypes:(id)a0;
+
+@end

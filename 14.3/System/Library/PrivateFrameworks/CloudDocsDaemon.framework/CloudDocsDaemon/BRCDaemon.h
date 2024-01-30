@@ -1,0 +1,96 @@
+@class NSError, NSString, NSXPCListenerEndpoint, BRCVersionsFileProvider, NSDate, BRCAccountHandler, BRCAccountSession, NSMutableDictionary, NSObject, NSOperationQueue, NSXPCListener, UMUserSyncTask;
+@protocol OS_dispatch_source, OS_dispatch_queue;
+
+@interface BRCDaemon : NSObject <BRCReachabilityDelegate, NSXPCListenerDelegate, BRCAccountHandlerDelegate, UMUserSyncStakeholder> {
+    NSObject<OS_dispatch_source> *_sigIntSrc;
+    NSObject<OS_dispatch_source> *_sigQuitSrc;
+    NSObject<OS_dispatch_source> *_sigTermSrc;
+    NSXPCListener *_xpcListener;
+    NSXPCListener *_tokenListener;
+    BOOL _unitTestMode;
+    BOOL _resumed;
+    BOOL _deviceUnlocked;
+    NSObject<OS_dispatch_queue> *_xpcListenersReadyQueue;
+    NSObject<OS_dispatch_queue> *_accountReadyQueue;
+    NSObject<OS_dispatch_queue> *_accountResumedQueue;
+    NSObject<OS_dispatch_queue> *_startupQueue;
+    int _serverAvailabilityNotifyToken;
+    NSObject<OS_dispatch_queue> *_accountLoaderQueue;
+    UMUserSyncTask *_loginTask;
+    NSMutableDictionary *_dirPaths;
+    NSMutableDictionary *_shareAcceptOperationsByURL;
+    NSOperationQueue *_shareAcceptQueue;
+}
+
+@property (nonatomic) BOOL disableAccountChangesHandling;
+@property (nonatomic) BOOL disableAppsChangesHandling;
+@property (nonatomic) unsigned long long forceIsGreedyState;
+@property (retain, nonatomic) NSString *logsDirPath;
+@property (retain, nonatomic) NSString *appSupportDirPath;
+@property (retain, nonatomic) NSString *cacheDirPath;
+@property (readonly, nonatomic) BRCAccountHandler *accountHandler;
+@property (retain, nonatomic) BRCAccountSession *session;
+@property (retain, nonatomic) NSError *loggedOutError;
+@property (readonly, nonatomic) NSXPCListenerEndpoint *endpoint;
+@property (readonly, nonatomic) NSString *ubiquityTokenSalt;
+@property (readonly, nonatomic) NSDate *startupDate;
+@property (nonatomic) BOOL isInSyncBubble;
+@property (nonatomic) BOOL doesNotHaveEnoughDiskSpaceToBeFunctional;
+@property (retain, nonatomic) Class containerClass;
+@property (readonly, nonatomic) BRCVersionsFileProvider *versionsProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)daemon;
++ (BOOL)isDaemonRunning;
++ (id)UTIForExtension:(id)a0;
+
+- (void)restart;
+- (void)_resumeAccount;
+- (void)accountHandler:(id)a0 willChangeSessionFrom:(id)a1;
+- (void)networkReachabilityChanged:(BOOL)a0;
+- (id)init;
+- (void)resumeIPCAcceptation;
+- (unsigned long long)totalSize;
+- (void)dumpToContext:(id)a0;
+- (void)_setupCacheDelete;
+- (void)waitOnAccountResumedQueue;
+- (void).cxx_destruct;
+- (void)networkReachabilityFlagsChanged:(unsigned int)a0;
+- (void)waitForConfiguration;
+- (unsigned long long)recursivelySizeDirectoryAtPath:(id)a0;
+- (void)setUpAnonymousListener;
+- (void)handleExitSignal:(int)a0;
+- (void)loadAccount;
+- (unsigned long long)nonPurgeableSizeGivenPurgeableSize:(unsigned long long)a0;
+- (void)suspendIPCAcceptation;
+- (void)waitUntilDeviceIsUnlocked;
+- (void)uploadContent;
+- (BOOL)retrySyncBubbleLaterIfNeededWithError:(id)a0;
+- (void)loadAndResumeAccount;
+- (id)dirPathForSyncedFolderType:(unsigned long long)a0;
+- (void)accountHandler:(id)a0 didChangeSessionTo:(id)a1;
+- (void)_finishStartup;
+- (void)localeDidChange;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (id)registerShareAcceptOperation:(id)a0 forURL:(id)a1;
+- (void)_startupAndLoadAccount;
+- (BOOL)_shouldCacheDeleteForVolume:(id)a0;
+- (void)_initSignals;
+- (BOOL)_isDeviceUnlocked;
+- (void)setUpSandbox;
+- (void)_loadAccountIfNeeded;
+- (void)start;
+- (void)_setupVNodeRapidAging;
+- (BOOL)_haveRequiredKernelFeatures;
+- (void)_startXPCListeners;
+- (void)_createSyncBubbleTasks;
+- (void)setDirPath:(id)a0 forSyncedFolderType:(unsigned long long)a1;
+- (BOOL)checkEnoughDiskSpaceToBeFunctional;
+- (void)willSwitchUser;
+- (void)exitWithCode:(int)a0;
+- (BOOL)selfCheck:(struct __sFILE { char *x0; int x1; int x2; short x3; short x4; struct __sbuf { char *x0; int x1; } x5; int x6; void *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; struct __sbuf { char *x0; int x1; } x12; struct __sFILEX *x13; int x14; unsigned char x15[3]; unsigned char x16[1]; struct __sbuf { char *x0; int x1; } x17; int x18; long long x19; } *)a0;
+
+@end

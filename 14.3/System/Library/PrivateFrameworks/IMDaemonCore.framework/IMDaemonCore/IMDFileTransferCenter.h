@@ -1,0 +1,96 @@
+@class NSString, NSMutableDictionary, NSMutableSet, NSTimer, NSMutableArray;
+
+@interface IMDFileTransferCenter : NSObject <IMFileCopierDelegate> {
+    NSMutableDictionary *_guidToCopierMap;
+    NSMutableDictionary *_guidToSimpleCopierMap;
+    NSMutableDictionary *_guidToTransferMap;
+    NSMutableSet *_activeTransfers;
+    NSTimer *_transferTimer;
+    NSMutableArray *_transferringTransfers;
+}
+
+@property (retain, nonatomic) NSString *contextStamp;
+@property (readonly, nonatomic) BOOL hasActiveFileTransfers;
+
++ (id)sharedInstance;
+
+- (id)guidsForStoredAttachmentPayloadData:(id)a0 messageGUID:(id)a1;
+- (id)init;
+- (void)dealloc;
+- (void)_handleFileTransfer:(id)a0 updatedWithProperties:(id)a1;
+- (id)_transcodeControllerSharedInstance;
+- (void)_addActiveTransfer:(id)a0;
+- (void)_removeActiveTransfer:(id)a0;
+- (id)guidForNewOutgoingTransferWithLocalURL:(id)a0;
+- (id)_statsCollector;
+- (id)transferForGUID:(id)a0;
+- (void)fileCopierDidStart:(id)a0;
+- (void)fileCopierDidFinish:(id)a0;
+- (BOOL)markAttachment:(id)a0 sender:(id)a1 recipients:(id)a2 isIncoming:(BOOL)a3;
+- (id)guidForNewIncomingTransferWithFilename:(id)a0 isDirectory:(BOOL)a1 totalBytes:(unsigned long long)a2 hfsType:(unsigned int)a3 hfsCreator:(unsigned int)a4 hfsFlags:(unsigned short)a5;
+- (void)assignTransfer:(id)a0 toAccount:(id)a1 otherPerson:(id)a2;
+- (void)acceptTransfer:(id)a0 path:(id)a1;
+- (void)startFinalizingTransfer:(id)a0;
+- (void)failTransfer:(id)a0 error:(id)a1;
+- (void)startTransfer:(id)a0;
+- (void)endTransfer:(id)a0;
+- (void)updateTransfer:(id)a0 currentBytes:(unsigned long long)a1 totalBytes:(unsigned long long)a2;
+- (void)failTransfer:(id)a0 reason:(long long)a1;
+- (void)addDefaultGatekeeperPropertiesToDirectory:(id)a0;
+- (void)failTransferPreviewGeneration:(id)a0;
+- (void)updateTransfer:(id)a0 withPreviewSize:(id)a1 forConstraints:(struct IMPreviewConstraints { double x0; struct CGSize { double x0; double x1; } x1; double x2; BOOL x3; })a2;
+- (id)guidsForStoredAttachmentPayloadDataURLs:(id)a0 messageGUID:(id)a1;
+- (void)setRecoverableErrorForTransfer:(id)a0 error:(long long)a1;
+- (void)addTransfer:(id)a0 forGUID:(id)a1;
+- (void)resetTransferAndPostError:(id)a0 error:(id)a1;
+- (void)sizePreviewsForTransferGUIDs:(id)a0;
+- (void)makeNewIncomingTransferWithGUID:(id)a0 filename:(id)a1 isDirectory:(BOOL)a2 totalBytes:(unsigned long long)a3 hfsType:(unsigned int)a4 hfsCreator:(unsigned int)a5 hfsFlags:(unsigned short)a6;
+- (id)guidForNewOutgoingTransferWithFilename:(id)a0 isDirectory:(BOOL)a1 totalBytes:(unsigned long long)a2 hfsType:(unsigned int)a3 hfsCreator:(unsigned int)a4 hfsFlags:(unsigned short)a5;
+- (void)removeTransferForGUID:(id)a0;
+- (void)_handleFileTransfer:(id)a0 acceptedWithPath:(id)a1 autoRename:(BOOL)a2 overwrite:(BOOL)a3 postNotification:(BOOL)a4;
+- (void)markTransferAsNotSuccessfullyDownloadedFromCloud:(id)a0;
+- (BOOL)populateLocalURLsForTransfer:(id)a0 fromCKRecord:(id)a1;
+- (void)endTransfer:(id)a0 overrideFinalFileName:(id)a1;
+- (void)updateTransferAsWaitingForAccept:(id)a0;
+- (id)updateTransfersWithCKRecord:(id)a0 recordWasFetched:(BOOL)a1 downloadAsset:(BOOL *)a2;
+- (void)markTransferAsNotSyncedSuccessfully:(id)a0;
+- (void)resetSyncStateForRecord:(id)a0 toState:(long long)a1;
+- (void)_updateContextStamp;
+- (void)_postUpdated:(id)a0;
+- (void)_archiveFileTransfer:(id)a0;
+- (void)_addGatekeeperProperties:(id)a0 toFileAtPath:(id)a1;
+- (void)_transferTimerTick:(id)a0;
+- (void)makeNewOutgoingTransferWithGUID:(id)a0 filename:(id)a1 isDirectory:(BOOL)a2 totalBytes:(unsigned long long)a3 hfsType:(unsigned int)a4 hfsCreator:(unsigned int)a5 hfsFlags:(unsigned short)a6;
+- (id)_createWrapperForTransfer:(id)a0;
+- (void)resetTransfer:(id)a0 andPostReason:(long long)a1;
+- (void)_addTransferringTransfer:(id)a0;
+- (id)_attachmentStoreSharedInstance;
+- (id)_removeWrapperForTransfer:(id)a0;
+- (void)_removeTransferringTransfer:(id)a0;
+- (void)_addSpotlightPropertiesFromFileTransfer:(id)a0 toDirectory:(id)a1;
+- (void)_completeProgressForTransferGUID:(id)a0;
+- (void)_clearProgressForTransferGUID:(id)a0;
+- (id)_dictionaryRepresentationsForFileTransfers:(id)a0 toSave:(BOOL)a1;
+- (void)_handleFileTransferStopped:(id)a0;
+- (id)_getNewFileTransferForStoredAttachmentPayloadDataWithTransferGUID:(id)a0 messageGUID:(id)a1;
+- (void)broadcastTransfersWithGUIDs:(id)a0 atLocalPaths:(id)a1;
+- (BOOL)_transferRequiresPreviewSizing:(id)a0;
+- (struct IMPreviewConstraints { double x0; struct CGSize { double x0; double x1; } x1; double x2; BOOL x3; })_clientPreviewConstraints;
+- (id)_messageStoreSharedInstance;
+- (BOOL)_usingStingRay;
+- (BOOL)_shouldUpdateSyncStats:(id)a0 originalSyncState:(long long)a1;
+- (void)_updateSyncStatsForAttachments:(id)a0 incrementTotalAttachmentCount:(unsigned long long)a1;
+- (BOOL)_shouldDownloadAssetForTransfer:(id)a0 forMessageItem:(id)a1;
+- (id)_progressForTransferGUID:(id)a0 allowCreate:(BOOL)a1 path:(id)a2;
+- (void)archiveFileTransfer:(id)a0;
+- (void)_addGatekeeperProperties:(id)a0 toDirectory:(id)a1;
+- (void)removeUnassignedTransfers;
+- (void)updateTransfer:(id)a0;
+- (BOOL)isSafeToDeleteTransferAttachmentPath:(id)a0;
+- (id)_allFileTransfers;
+- (void)_handleSendFileTransfer:(id)a0;
+- (void)_handleFileTransfer:(id)a0 createdWithProperties:(id)a1 withAuditToken:(struct { unsigned int x0[8]; })a2;
+- (void)_handleFileTransferRemoved:(id)a0;
+- (BOOL)initiateHighQualityDownload:(id)a0;
+
+@end

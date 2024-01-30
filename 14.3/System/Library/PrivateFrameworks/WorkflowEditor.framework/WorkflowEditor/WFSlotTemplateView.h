@@ -1,0 +1,88 @@
+@class UIFont, WFTextAttachmentInteraction, NSArray, NSTextContainer, UIColor, WFSlotTemplateTypingTextView, WFSlotTemplateTextStorage, WFSlotIdentifier, NSString, NSParagraphStyle, WFSlotTemplateLayoutManager;
+@protocol WFSlotTemplateViewDelegate;
+
+@interface WFSlotTemplateView : UIView <WFSlotTemplateTextStorageDelegate, WFSlotTemplateTypingTextViewDelegate, UIGestureRecognizerDelegate, WFTextAttachmentInteractionDelegate>
+
+@property (retain, nonatomic) NSTextContainer *textContainer;
+@property (retain, nonatomic) WFSlotTemplateTextStorage *textStorage;
+@property (retain, nonatomic) WFSlotTemplateLayoutManager *layoutManager;
+@property (retain, nonatomic) WFTextAttachmentInteraction *attachmentInteraction;
+@property (retain, nonatomic) WFSlotTemplateTypingTextView *typingTextView;
+@property (retain, nonatomic) NSTextContainer *typingTextContainer;
+@property (retain, nonatomic) WFSlotTemplateLayoutManager *typingLayoutManager;
+@property (retain, nonatomic) WFSlotTemplateTextStorage *typingTextStorage;
+@property (retain, nonatomic) WFTextAttachmentInteraction *typingAttachmentInteraction;
+@property (nonatomic) BOOL typingAllowsMultipleLines;
+@property (nonatomic) unsigned long long lastLayoutManagerLineCount;
+@property (retain, nonatomic) NSArray *accessibilityElements;
+@property (weak, nonatomic) id<WFSlotTemplateViewDelegate> delegate;
+@property (retain, nonatomic) UIFont *font;
+@property (retain, nonatomic) UIFont *unpopulatedFont;
+@property (retain, nonatomic) UIColor *textColor;
+@property (copy, nonatomic) NSParagraphStyle *paragraphStyle;
+@property (nonatomic) double horizontalPadding;
+@property (nonatomic) BOOL extendSlotBackgroundOffEdges;
+@property (readonly, nonatomic) UIColor *disabledSlotTitleColor;
+@property (readonly, nonatomic) UIColor *disabledSlotBackgroundColor;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (readonly, nonatomic) WFSlotIdentifier *selectedSlotIdentifier;
+@property (readonly, nonatomic) WFSlotIdentifier *typingSlotIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)heightForWidth:(double)a0 withContents:(id)a1 horizontalPadding:(double)a2 font:(id)a3 unpopulatedFont:(id)a4 paragraphStyle:(id)a5;
+
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (BOOL)isAccessibilityElement;
+- (void)tintColorDidChange;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)touchesCancelled:(id)a0 withEvent:(id)a1;
+- (void)touchesMoved:(id)a0 withEvent:(id)a1;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)layoutSubviews;
+- (void)textViewDidBeginEditing:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)handleTouch:(id)a0;
+- (void)touchesEnded:(id)a0 withEvent:(id)a1;
+- (void)handleLongPressGesture:(id)a0;
+- (void)textViewDidEndEditing:(id)a0;
+- (void)textViewDidChange:(id)a0;
+- (BOOL)textView:(id)a0 shouldChangeTextInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementText:(id)a2;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)touchesBegan:(id)a0 withEvent:(id)a1;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)resetTextView;
+- (BOOL)textAttachmentInteraction:(id)a0 shouldRecognizeTapOnTextAttachment:(id)a1 inCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)textAttachmentInteraction:(id)a0 didTapTextAttachment:(id)a1 inCharacterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2;
+- (void)slotTemplateTypingTextViewDidDelete:(id)a0;
+- (void)slotTemplateTypingTextViewDidCut:(id)a0 withOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateTypingTextViewDidCopy:(id)a0 withOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateTypingTextViewDidPaste:(id)a0 withOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateStorageDidInvalidateDisplay:(id)a0;
+- (id)typingParagraphStyleForParagraphStyle:(id)a0;
+- (void)setDisabledSlotTitleColor:(id)a0 backgroundColor:(id)a1 animated:(BOOL)a2;
+- (void)setContents:(id)a0 animated:(BOOL)a1;
+- (BOOL)hasSlotWithIdentifier:(id)a0;
+- (id)slotWithIdentifier:(id)a0;
+- (id)firstSlotIdentifierWithParameterKey:(id)a0;
+- (id)selectedSlot;
+- (void)selectSlotWithIdentifier:(id)a0;
+- (void)_selectSlot:(id)a0 notifyDelegate:(BOOL)a1;
+- (void)deselectSlot;
+- (void)_deselectSlotAndNotifyDelegate:(BOOL)a0;
+- (void)performFadeTransition:(id /* block */)a0;
+- (id)slotAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })sourceRectForSlotWithIdentifier:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })sourceRectForSlot:(id)a0;
+- (void)updateTintColorInTextStorage;
+- (id)slotIdentifierForAttachmentInteraction:(id)a0 characterRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)beginTypingInSlotWithIdentifier:(id)a0;
+- (void)positionTypingAboveSlot:(id)a0;
+- (void)endTyping;
+- (void)updateAccessibilityElements;
+- (void)accessibilityShiftFocusBackToView;
+
+@end

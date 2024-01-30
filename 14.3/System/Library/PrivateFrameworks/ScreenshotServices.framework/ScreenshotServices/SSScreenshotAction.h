@@ -1,0 +1,3 @@
+@interface SSScreenshotAction : BSAction
+
+@end

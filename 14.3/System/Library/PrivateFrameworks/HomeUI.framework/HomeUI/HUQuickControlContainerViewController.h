@@ -1,0 +1,79 @@
+@class HUQuickControlPresentationContext, HFItem, UITapGestureRecognizer, HMHome, UILayoutGuide, NSString, UIPanGestureRecognizer, HUAnimationApplier, HUQuickControlViewControllerCoordinator, HUQuickControlContainerView, HUQuickControlViewController;
+@protocol HUOpenURLHandling, NSCopying, HUQuickControlContainerViewControllerDelegate, HUPresentationDelegate;
+
+@interface HUQuickControlContainerViewController : UIViewController <HUPresentationDelegate, HUQuickControlContainerViewDelegate, HUQuickControlViewControllerCoordinatorDelegate, HUQuickControlContentHosting, HUItemPresentationContainer, HUDetailsPresentationDelegateHost, HUViewControllerCustomDismissing, HUQuickControlTouchContinuing>
+
+@property (retain, nonatomic) UITapGestureRecognizer *dismissGestureRecognizer;
+@property (retain, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
+@property (retain, nonatomic) HUAnimationApplier *presentationApplier;
+@property (nonatomic) unsigned long long presentationState;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } sourceRect;
+@property (retain, nonatomic) HUQuickControlViewControllerCoordinator *viewControllerCoordinator;
+@property (retain, nonatomic) HUQuickControlViewController *activeControlViewController;
+@property (retain, nonatomic) HUQuickControlContainerView *controlContainerView;
+@property (retain, nonatomic) HUQuickControlPresentationContext *presentationContext;
+@property (nonatomic) BOOL presentedDetailView;
+@property (readonly, nonatomic) HFItem<NSCopying> *item;
+@property (readonly, nonatomic) HMHome *home;
+@property (weak, nonatomic) id<HUQuickControlContainerViewControllerDelegate> delegate;
+@property (retain, nonatomic) id<HUOpenURLHandling> detailViewURLHandler;
+@property (retain, nonatomic) UILayoutGuide *availableContentLayoutGuide;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) HFItem *hu_presentedItem;
+@property (nonatomic) BOOL requiresPresentingViewControllerDismissal;
+@property (weak, nonatomic) id<HUPresentationDelegate> presentationDelegate;
+
++ (id)_easeOutTimingFunction;
++ (id)_blurAnimationSettingsForPresenting:(BOOL)a0;
++ (id)_controlScaleAnimationSettingsForPresenting:(BOOL)a0;
++ (id)_controlAlphaAnimationSettingsForPresenting:(BOOL)a0;
++ (id)_detailChromeAnimationSettings;
++ (id)_sourceViewTransitionAnimationSettingsForPresenting:(BOOL)a0;
+
+- (void).cxx_destruct;
+- (void)viewWillDisappear:(BOOL)a0;
+- (id)viewForTouchContinuation;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)_backButtonPressed:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidLoad;
+- (id)finishPresentation:(id)a0 animated:(BOOL)a1;
+- (void)quickControlContentDidUpdateDesiredVisbilityState:(id)a0;
+- (id)hu_prepareForDismissalAnimated:(BOOL)a0;
+- (void)detailsButtonPressedInContainerView:(id)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })sourceViewTransformForPresentationProgress:(double)a0;
+- (void)_updateControlStatusText;
+- (void)_updateIconDescriptorAnimated:(BOOL)a0;
+- (BOOL)isConfiguredForNonHomeUser:(id)a0;
+- (void)controllerCoordinator:(id)a0 didUpdateIconDescriptor:(id)a1 showOffState:(BOOL)a2;
+- (void)controllerCoordinator:(id)a0 didUpdateStatusWithPrimaryText:(id)a1 secondaryText:(id)a2;
+- (void)controllerCoordinator:(id)a0 didUpdateReachability:(BOOL)a1;
+- (id)dismissControlAnimated:(BOOL)a0;
+- (id)_prepareDetailViewController;
+- (void)_updateUserInteractionEnabledForActiveControl;
+- (BOOL)isControlPresentedOrPresenting;
+- (id)presentDetailViewControllerAnimated:(BOOL)a0;
+- (void)_createControlContainerViewForMac;
+- (void)_createControlContainerViewWithSourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_performTransitionToPresentationState:(unsigned long long)a0 animated:(BOOL)a1 initialProgress:(double)a2 completion:(id /* block */)a3;
+- (id)_dismissDetailsViewControllerAnimated:(BOOL)a0 dismissControl:(BOOL)a1;
+- (void)_controlDidDismiss;
+- (void)_updateActiveControlViewController;
+- (void)_updateReachabilityStateForActiveControl;
+- (void)quickControlContent:(id)a0 requestDismissalOfType:(unsigned long long)a1;
+- (void)quickControlContent:(id)a0 showAuxiliaryView:(id)a1;
+- (void)hideAuxiliaryViewForQuickControlContent:(id)a0;
+- (id)initWithPresentationContext:(id)a0;
+- (void)_settingsButtonPressed:(id)a0;
+- (void)presentControlForMacAnimated:(BOOL)a0;
+- (void)presentControlFromSourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 animated:(BOOL)a1;
+- (BOOL)isControlDismissedOrDismissing;
+- (void)_dismissQuickControls;
+- (void)beginReceivingTouchesWithGestureRecognizer:(id)a0;
+
+@end

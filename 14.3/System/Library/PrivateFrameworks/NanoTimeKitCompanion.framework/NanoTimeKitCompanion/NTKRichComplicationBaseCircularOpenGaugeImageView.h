@@ -1,0 +1,14 @@
+@class NTKRichComplicationImageView;
+
+@interface NTKRichComplicationBaseCircularOpenGaugeImageView : NTKRichComplicationCircularOpenGaugeContentView
+
+@property (retain, nonatomic) NTKRichComplicationImageView *bottomImageView;
+
+- (void)setPaused:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)bottomView;
+- (void)transitionToMonochromeWithFraction:(double)a0;
+- (void)updateMonochromeColor;
+- (void)gaugeProvider:(id *)a0 andCenterTextProvider:(id *)a1 fromTemplate:(id)a2;
+
+@end

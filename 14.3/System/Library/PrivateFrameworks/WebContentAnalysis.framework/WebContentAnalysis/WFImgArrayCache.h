@@ -1,0 +1,17 @@
+@class NSMutableString;
+
+@interface WFImgArrayCache : NSObject {
+    NSMutableString *imageAlternativeDescriptions;
+    long long numberOfUnknownSizedImages;
+    long long numberOfKnownImagePixels;
+}
+
++ (id)imgArrayCacheWithArray:(id)a0;
+
+- (void)dealloc;
+- (id)initWithArray:(id)a0;
+- (long long)numberOfKnownImagePixels;
+- (id)imageAlternativeDescriptions;
+- (long long)numberOfUnknownSizedImages;
+
+@end

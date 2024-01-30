@@ -1,0 +1,77 @@
+@class _SYCountedSemaphore, NSMutableDictionary, NSMutableIndexSet, NSMutableArray, NSObject, SYMessageStatusRecord;
+@protocol OS_dispatch_source, OS_dispatch_queue, OS_os_activity;
+
+@interface SYSendingSession : SYSession {
+    NSObject<OS_dispatch_source> *_stateUpdateSource;
+    NSObject<OS_dispatch_source> *_sessionTimer;
+    NSObject<OS_dispatch_source> *_messageTimer;
+    NSObject<OS_dispatch_queue> *_changeFetcherQueue;
+    _SYCountedSemaphore *_changeConcurrencySemaphore;
+    NSObject<OS_os_activity> *_changeWaitActivity;
+    unsigned long long _batchIndex;
+    NSMutableIndexSet *_ackedBatchIndices;
+    NSObject<OS_os_activity> *_sessionActivity;
+    double _sessionStartTime;
+    NSMutableDictionary *_batchObjectIDsByBatchIndex;
+    SYMessageStatusRecord *_startMessageID;
+    SYMessageStatusRecord *_endMessageID;
+    NSMutableArray *_batchMessageIDs;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _flagsLock;
+    struct { unsigned char state : 4; unsigned char canRestart : 1; unsigned char canRollback : 1; unsigned char isResetSync : 1; unsigned char started : 1; unsigned char cancelled : 1; unsigned char completed : 1; unsigned char remoteStartSent : 1; unsigned char remoteStartConfirmed : 1; unsigned char remoteEndSent : 1; unsigned char remoteEndConfirmed : 1; unsigned char localErrorOccurred : 1; } _flags;
+}
+
+- (void)start:(id /* block */)a0;
+- (void).cxx_destruct;
+- (BOOL)_handleEndSessionResponse:(id)a0 error:(id *)a1;
+- (BOOL)isSending;
+- (id)_newMessageHeader;
+- (void)cancelWithError:(id)a0;
+- (BOOL)_handleStartSessionResponse:(id)a0 error:(id *)a1;
+- (void)_continue;
+- (void)setState:(unsigned int)a0;
+- (BOOL)wasCancelled;
+- (void)_fetchNextBatch;
+- (void)_sentEnd;
+- (BOOL)_handleSyncBatchResponse:(id)a0 error:(id *)a1;
+- (unsigned int)state;
+- (BOOL)_handleRestartSessionResponse:(id)a0 error:(id *)a1;
+- (BOOL)isResetSync;
+- (BOOL)canRestart;
+- (void)setCanRestart:(BOOL)a0;
+- (BOOL)canRollback;
+- (void)setCanRollback:(BOOL)a0;
+- (void)_sendSyncBatch:(id)a0 nextState:(unsigned int)a1;
+- (void)_setStateQuietly:(unsigned int)a0;
+- (void)_sendSyncCompleteAndRunBlock:(id /* block */)a0;
+- (void)_waitForMessageWindow;
+- (void)_sendSyncCancelled;
+- (void)_sendSyncRestart;
+- (void)_processNextState;
+- (void)_installStateListener;
+- (void)_installTimers;
+- (void)_setupChangeConcurrency;
+- (double)remainingSessionTime;
+- (void)_sentMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (BOOL)_hasSentEnd;
+- (void)_peerProcessedMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (id)initWithService:(id)a0 isReset:(BOOL)a1;
+- (void)_handleSyncBatch:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleRestartSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleEndSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_tweakMessageHeader:(id)a0;
+- (void)_setLocalErrorOccurred;
+- (BOOL)_localErrorOccurred;
+- (void)_sessionFinished;
+- (void)_setComplete;
+- (void)_sendEndSessionAndError:(id)a0;
+- (void)_notifyErrorAndShutdown;
+- (void)_sentStart;
+- (void)_startFailedForStateChangeWithError:(id)a0;
+- (void)_setCancelled;
+- (void)_confirmedStart;
+- (void)_confirmedEnd;
+- (void)_setMessageTimer;
+- (void)_resolvedIdentifierForRequest:(id)a0;
+- (void)_resolvedIdentifier:(id)a0 forResponse:(id)a1;
+
+@end

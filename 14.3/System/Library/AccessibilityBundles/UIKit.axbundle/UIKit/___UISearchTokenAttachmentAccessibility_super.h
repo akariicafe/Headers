@@ -1,0 +1,3 @@
+@interface ___UISearchTokenAttachmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

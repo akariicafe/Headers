@@ -1,0 +1,96 @@
+@class NSUUID, NSString, NSArray, NSDate, EMObjectID, EMMailDropMetadata, ECSubject, NSObject, ECMessageFlags, EMMessageRepository, NSIndexSet, EFFuture;
+@protocol OS_os_log, ECEmailAddressConvertible, EMCollectionItemID;
+
+@interface EMMessage : EMRepositoryObject <EFLoggable, EMMessageBuilder, EMExtendedContentItem, EMMutableMessageListItem, EMMessageListItem, EMContentItem> {
+    unsigned long long _isEditable;
+    NSArray *_mailboxes;
+    NSArray *_mailboxObjectIDs;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _mailboxesLock;
+}
+
+@property (class, readonly) NSString *UTType;
+@property (class, readonly) NSArray *externalDataTypeIdentifiers;
+@property (class, readonly) NSObject<OS_os_log> *log;
+
+@property (readonly, nonatomic) EMMessageRepository *repository;
+@property (retain, nonatomic) id<ECEmailAddressConvertible> senderAddress;
+@property (copy, nonatomic) NSArray *bccList;
+@property (copy, nonatomic) NSUUID *documentID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSArray *availableRepresentations;
+@property (nonatomic) BOOL isAvailableLocally;
+@property (copy, nonatomic) NSString *displayName;
+@property (copy, nonatomic) NSString *contentID;
+@property (copy, nonatomic) NSString *UTType;
+@property (nonatomic) BOOL isSinglePagePDF;
+@property (nonatomic) long long dataTransferByteCount;
+@property (nonatomic) long long storageByteCount;
+@property (copy, nonatomic) EMMailDropMetadata *mailDropMetadata;
+@property (nonatomic) int exchangeEventUID;
+@property (copy, nonatomic) id /* block */ loaderBlock;
+@property (readonly, copy, nonatomic) EMObjectID *objectID;
+@property (readonly, copy, nonatomic) NSString *ef_publicDescription;
+@property (retain) NSDate *date;
+@property (retain) ECSubject *subject;
+@property (copy) NSString *summary;
+@property (copy) NSArray *senderList;
+@property (copy) NSArray *toList;
+@property (copy) NSArray *ccList;
+@property BOOL isToMe;
+@property BOOL isCCMe;
+@property (retain) ECMessageFlags *flags;
+@property BOOL hasUnflagged;
+@property (copy) NSIndexSet *flagColors;
+@property BOOL isVIP;
+@property BOOL isBlocked;
+@property BOOL hasAttachments;
+@property long long conversationNotificationLevel;
+@property unsigned long long count;
+@property long long conversationID;
+@property (copy) NSArray *mailboxObjectIDs;
+@property (copy) NSArray *mailboxes;
+@property (retain) id<EMCollectionItemID> displayMessageItemID;
+@property long long _internalID;
+@property (readonly) EMObjectID *displayMessageObjectID;
+@property (readonly) EFFuture *displayMessage;
+@property (readonly) BOOL deleteMovesToTrash;
+@property (readonly) BOOL supportsArchiving;
+@property (readonly) BOOL shouldArchiveByDefault;
+@property (readonly) BOOL isEditable;
+@property (readonly, nonatomic) id<EMCollectionItemID> itemID;
+
++ (id)combinedFlagsForMessageListItems:(id)a0 forDisplay:(BOOL)a1;
++ (BOOL)isInternalMessageURL:(id)a0;
++ (id)internalIDFromInternalMessageURL:(id)a0;
++ (id)predicateForMessagesWithObjectIDs:(id)a0;
++ (id)predicateForMessageWithItemID:(id)a0 mailboxPredicate:(id)a1 mailboxTypeResolver:(id)a2;
++ (BOOL)supportsSecureCoding;
++ (id)predicateForExcludingMessagesWithObjectIDs:(id)a0;
++ (id)predicateForMessageWithInternalID:(long long)a0;
++ (id)_predicateForMessagesWithObjectIDConstantValue:(id)a0 operatorType:(unsigned long long)a1;
++ (id)messageIDHeaderFromMessageURL:(id)a0;
++ (id)combinedFlagsForMessageListItems:(id)a0;
++ (id)combinedFlagsForMessageListItemFlags:(id)a0 forDisplay:(BOOL)a1;
++ (id)predicateForMessageWithObjectID:(id)a0;
++ (BOOL)isMessageURL:(id)a0;
++ (id)predicateForExcludingMessageWithObjectID:(id)a0;
+
+- (void)setCachedMetadata:(id)a0 forKey:(id)a1;
+- (id)cachedMetadataOfClass:(Class)a0 forKey:(id)a1;
+- (BOOL)isInManagedAccountWithSourceMailboxScope:(id)a0;
+- (void)setRepository:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)requestRepresentationWithOptions:(id)a0 completionHandler:(id /* block */)a1;
+- (BOOL)isSinglePagePDF;
+- (id)requestRepresentationWithOptions:(id)a0 delegate:(id)a1 completionHandler:(id /* block */)a2;
+- (void)setIsSinglePagePDF:(BOOL)a0;
+- (id)initWithObjectID:(id)a0 builder:(id /* block */)a1;
+- (id)initWithObjectID:(id)a0;
+- (void)_commonInitWithBuilder:(id /* block */)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

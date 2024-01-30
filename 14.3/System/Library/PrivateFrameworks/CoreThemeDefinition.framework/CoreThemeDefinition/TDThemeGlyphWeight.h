@@ -1,0 +1,3 @@
+@interface TDThemeGlyphWeight : TDThemeConstant
+
+@end

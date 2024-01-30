@@ -1,0 +1,92 @@
+@class NSHashTable, NSString, IKDOMDocument, IKDOMNodeList, JSManagedValue, NSMutableDictionary, IKDOMNodeData, JSValue;
+
+@interface IKDOMNode : IKJSObject <NSObject, IKJSDOMNode, _IKJSDOMNodeProxy, _IKJSDOMNode, IKJSDOMEventTarget> {
+    struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *_nodePtr;
+    JSManagedValue *_managedDataItem;
+}
+
+@property (retain, nonatomic) JSManagedValue *managedOwnerDocument;
+@property (retain, nonatomic) JSManagedValue *managedParent;
+@property (retain, nonatomic) JSManagedValue *managedChildNodeList;
+@property (retain, nonatomic) NSMutableDictionary *eventListenersMap;
+@property (retain, nonatomic) NSHashTable *domObservers;
+@property (nonatomic) long long ITMLID;
+@property (readonly, retain, nonatomic) IKDOMNodeData *jsNodeData;
+@property (readonly, retain, nonatomic) JSManagedValue *managedSelf;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, retain, nonatomic) NSString *nodeName;
+@property (retain, nonatomic) NSString *nodeValue;
+@property (readonly, nonatomic) long long nodeType;
+@property (readonly, weak, nonatomic) IKDOMNode *parentNode;
+@property (readonly, retain, nonatomic) IKDOMNodeList *childNodes;
+@property (readonly, retain, nonatomic) IKDOMNode *firstChild;
+@property (readonly, retain, nonatomic) IKDOMNode *lastChild;
+@property (readonly, weak, nonatomic) IKDOMNode *previousSibling;
+@property (readonly, weak, nonatomic) IKDOMNode *nextSibling;
+@property (readonly, weak, nonatomic) IKDOMDocument *ownerDocument;
+@property (retain, nonatomic) NSString *textContent;
+@property (weak, nonatomic) JSValue *dataItem;
+
++ (void)load;
++ (id)ITMLIDStringforITMLID:(unsigned long long)a0;
++ (void)handleNodeParentDidChange:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0;
++ (id)nodeWithAppContext:(id)a0 nodePtr:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a1;
++ (id)nodeForNodePtr:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0;
++ (long long)ITMLIDForITMLIDString:(id)a0;
++ (id)_eventListenerMapKeyForType:(id)a0 useCapture:(BOOL)a1;
+
+- (id)firstElementChild;
+- (void).cxx_destruct;
+- (BOOL)dispatchEvent:(id)a0;
+- (void)dealloc;
+- (id)appendChild:(id)a0;
+- (BOOL)hasChildNodes;
+- (id)children;
+- (unsigned long long)childElementCount;
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)nodePtr;
+- (BOOL)clearUpdates;
+- (BOOL)contains:(id)a0;
+- (id)removeChild:(id)a0;
+- (BOOL)isSameNode:(id)a0;
+- (id)lastElementChild;
+- (void)addEventListener:(id)a0 :(id)a1 :(BOOL)a2;
+- (void)removeEventListener:(id)a0 :(id)a1 :(BOOL)a2;
+- (id)cloneNode:(BOOL)a0;
+- (BOOL)isEqualNode:(id)a0;
+- (id)insertBefore:(id)a0 :(id)a1;
+- (id)replaceChild:(id)a0 :(id)a1;
+- (id)childNodesAsArray;
+- (void)enumerateEventListernersForType:(id)a0 xmlAttribute:(id)a1 phase:(long long)a2 usingBlock:(id /* block */)a3;
+- (id)nodesForXPath:(id)a0 error:(id *)a1;
+- (id)initWithAppContext:(id)a0 xmlNode:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a1;
+- (void)childrenUpdatedWithUpdatedChildNodes:(id)a0 notify:(BOOL)a1;
+- (void)updatedAndMark:(BOOL)a0 notify:(BOOL)a1;
+- (id)performDOMOperation:(unsigned long long)a0 newNode:(id)a1 refNode:(id)a2;
+- (id)ik_nodeWithId:(long long)a0;
+- (id)ik_nodesWithIds:(id)a0;
+- (id)toStringWithError:(id *)a0;
+- (void)addDOMObserver:(id)a0;
+- (BOOL)_enumerateNodesWithBlock:(id /* block */)a0;
+- (id)ik_pathsForSearchQuery:(id)a0 compareOptions:(unsigned long long)a1 currentPath:(id)a2;
+- (id)ik_nodePath;
+- (void)adoptFeatureWithName:(id)a0 fromDOMNode:(id)a1;
+- (id)getFeature:(id)a0 :(id)a1;
+- (BOOL)_searchEventListener:(id)a0 key:(id)a1 destroy:(BOOL)a2;
+- (void)_linkManagedObjects;
+- (BOOL)_validateDOMOperation:(unsigned long long)a0 newNode:(id)a1 refNode:(id)a2;
+- (void)_notifyUpdatesToDOMObservers;
+- (void)_updatedAndMark:(BOOL)a0 withDocument:(id)a1;
+- (void)_childrenUpdatedWithUpdatedChildNodes:(id)a0 withDocument:(id)a1;
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)_appendNode:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0;
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)_insertNode:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0 refNode:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a1 operation:(unsigned long long)a2;
+- (void)_markSubtreeUpdatesForAncestorsOfNode:(id)a0;
+- (id)asPrivateIKJSDOMNode;
+- (void)enumerateEventListenersUsingBlock:(id /* block */)a0;
+- (void)removeDOMObserver:(id)a0;
+- (void)_unlinkManagedObjects;
+
+@end

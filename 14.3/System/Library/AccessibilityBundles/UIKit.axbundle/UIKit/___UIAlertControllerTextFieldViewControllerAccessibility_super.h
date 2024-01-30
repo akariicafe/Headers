@@ -1,0 +1,3 @@
+@interface ___UIAlertControllerTextFieldViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

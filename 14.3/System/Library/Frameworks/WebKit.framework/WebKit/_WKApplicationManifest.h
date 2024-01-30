@@ -1,0 +1,27 @@
+@class NSString, NSURL;
+
+@interface _WKApplicationManifest : NSObject <WKObject, NSSecureCoding> {
+    struct ObjectStorage<API::ApplicationManifest> { struct type { unsigned char __lx[128]; } data; } _applicationManifest;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *name;
+@property (readonly, copy, nonatomic) NSString *shortName;
+@property (readonly, copy, nonatomic) NSString *applicationDescription;
+@property (readonly, copy, nonatomic) NSURL *scope;
+@property (readonly, copy, nonatomic) NSURL *startURL;
+@property (readonly, nonatomic) long long displayMode;
+@property (readonly) struct Object { void /* function */ **x0; id x1; } *_apiObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)applicationManifestFromJSON:(id)a0 manifestURL:(id)a1 documentURL:(id)a2;
+
+- (void)dealloc;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIGestureKeyboardIntroductionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

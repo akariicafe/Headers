@@ -1,0 +1,67 @@
+@class UIView, NSString, UIFont, PXUIButton, UITextField, PUSharedAlbumAvatarView, PUStackView, UILabel;
+@protocol PUAlbumListCellDelegate;
+
+@interface PUAlbumListCellContentView : UIView <UITextFieldDelegate, UIGestureRecognizerDelegate>
+
+@property (retain, nonatomic, setter=_setStackView:) PUStackView *stackView;
+@property (retain, nonatomic) PUSharedAlbumAvatarView *avatarView;
+@property (nonatomic, setter=_setShowsTitleAndSubtitle:) BOOL _showsTitleAndSubtitle;
+@property (retain, nonatomic, setter=_setTitleTextField:) UITextField *_titleTextField;
+@property (retain, nonatomic, setter=_setTitleLabel:) UILabel *_titleLabel;
+@property (retain, nonatomic, setter=_setSubtitleLabel:) UILabel *_subtitleLabel;
+@property (retain, nonatomic, setter=_setDeleteButton:) PXUIButton *_deleteButton;
+@property (nonatomic) BOOL usesLabelForTitle;
+@property (weak, nonatomic) id<PUAlbumListCellDelegate> delegate;
+@property (readonly, nonatomic) UIView *springLoadingTargetView;
+@property (nonatomic) BOOL combinesPhotoDecorations;
+@property (nonatomic) BOOL topInsetEnabled;
+@property (nonatomic) BOOL showsAvatarView;
+@property (retain, nonatomic) UIView *customImageView;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *subtitle;
+@property (nonatomic) double xInset;
+@property (nonatomic) long long layout;
+@property (nonatomic) unsigned long long editCapabilities;
+@property (nonatomic, getter=isEditing) BOOL editing;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic) BOOL showsDeleteButtonWhenEditing;
+@property (retain, nonatomic) UIFont *titleFont;
+@property (retain, nonatomic) UIFont *subtitleFont;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setEnabled:(BOOL)a0 animated:(BOOL)a1;
+- (void)_updateSubviewOrdering;
+- (struct CGPoint { double x0; double x1; })_deleteButtonCenter;
+- (void)_updateAvatarView;
+- (void).cxx_destruct;
+- (void)setShowsTitle:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (double)_titleFieldAlpha;
+- (void)_updateTitleStyle;
+- (void)textFieldDidEndEditing:(id)a0;
+- (BOOL)textFieldShouldBeginEditing:(id)a0;
+- (void)_updateSubtitleLabelAnimated:(BOOL)a0;
+- (void)prepareForReuse;
+- (void)_deleteAction:(id)a0;
+- (void)_updateSubtitleLabelStyle;
+- (BOOL)textField:(id)a0 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (void)_updateTitleFieldAnimated:(BOOL)a0;
+- (void)layoutSubviews;
+- (void)_updateStackViewAnimated:(BOOL)a0;
+- (void)handleLabelTap:(id)a0;
+- (void)cancelPerformRetitleAction;
+- (long long)_titleTextFieldClearButtonModeForLayout:(long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setEditCapabilities:(unsigned long long)a0 animated:(BOOL)a1;
+- (void)setSubtitle:(id)a0 animated:(BOOL)a1;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)handleTransitionFade:(BOOL)a0 animate:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateDeleteButtonAnimated:(BOOL)a0;
+
+@end

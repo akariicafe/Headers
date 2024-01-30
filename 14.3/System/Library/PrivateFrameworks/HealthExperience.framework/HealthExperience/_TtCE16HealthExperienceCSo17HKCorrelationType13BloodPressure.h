@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo17HKCorrelationType13BloodPressure : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,20 @@
+@class NSString, NSArray, WLKMovieClipPreviewArtwork, WLKMovieClipAsset;
+
+@interface WLKMovieClip : NSObject
+
+@property (readonly, copy, nonatomic) NSString *title;
+@property (readonly, nonatomic) WLKMovieClipPreviewArtwork *previewArtwork;
+@property (readonly, copy, nonatomic) NSArray *assets;
+@property (readonly, nonatomic) WLKMovieClipAsset *preferredAsset;
+@property (readonly, copy, nonatomic) NSString *hlsUrl;
+
++ (id)movieClipsWithArray:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)_init;
+- (id)initWithDictionary:(id)a0;
+- (id)preferredURL;
+- (BOOL)_supportHD;
+
+@end

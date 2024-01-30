@@ -1,0 +1,3 @@
+@interface __SKUISegmentedTableHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,66 @@
+@interface MTLTextureDescriptorInternal : MTLTextureDescriptor {
+    struct MTLTextureDescriptorPrivate { unsigned long long textureType; unsigned long long pixelFormat; unsigned long long width; unsigned long long height; unsigned long long depth; unsigned long long mipmapLevelCount; unsigned long long sampleCount; unsigned long long arrayLength; BOOL zeroFill; unsigned long long rotation; BOOL framebufferOnly; BOOL isDrawable; unsigned int swizzle; BOOL writeSwizzleEnabled; unsigned long long compressionMode; union { unsigned long long textureUsage; unsigned long long usage; } ; unsigned long long resourceOptions; unsigned long long sparseSurfaceDefaultValue; BOOL allowGPUOptimizedContents; BOOL forceResourceIndex; unsigned long long resourceIndex; unsigned long long protectionOptions; unsigned long long resolvedUsage; unsigned long long cpuCacheMode; unsigned long long storageMode; } _private;
+}
+
+- (unsigned long long)depth;
+- (unsigned long long)resourceIndex;
+- (unsigned long long)usage;
+- (unsigned long long)width;
+- (BOOL)framebufferOnly;
+- (unsigned long long)textureType;
+- (id)formattedDescription:(unsigned long long)a0;
+- (void)setCpuCacheMode:(unsigned long long)a0;
+- (unsigned long long)rotation;
+- (unsigned long long)arrayLength;
+- (id)init;
+- (void)setResourceOptions:(unsigned long long)a0;
+- (void)setRotation:(unsigned long long)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)pixelFormat;
+- (void)setHeight:(unsigned long long)a0;
+- (BOOL)isDrawable;
+- (void)setResourceIndex:(unsigned long long)a0;
+- (void)setTextureUsage:(unsigned long long)a0;
+- (void)setSparseSurfaceDefaultValue:(unsigned long long)a0;
+- (unsigned long long)protectionOptions;
+- (void)setCompressionMode:(unsigned long long)a0;
+- (void)setDepth:(unsigned long long)a0;
+- (unsigned long long)hash;
+- (unsigned long long)cpuCacheMode;
+- (unsigned long long)resourceOptions;
+- (void)setSampleCount:(unsigned long long)a0;
+- (BOOL)forceResourceIndex;
+- (unsigned long long)height;
+- (void)setArrayLength:(unsigned long long)a0;
+- (id)description;
+- (BOOL)allowGPUOptimizedContents;
+- (void)setFramebufferOnly:(BOOL)a0;
+- (BOOL)writeSwizzleEnabled;
+- (void)setStorageMode:(unsigned long long)a0;
+- (void)setProtectionOptions:(unsigned long long)a0;
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)sampleCount;
+- (void)setUsage:(unsigned long long)a0;
+- (void)setSwizzle:(struct { unsigned char x0; unsigned char x1; unsigned char x2; unsigned char x3; })a0;
+- (struct { unsigned char x0; unsigned char x1; unsigned char x2; unsigned char x3; })swizzle;
+- (void)setPixelFormat:(unsigned long long)a0;
+- (unsigned long long)textureUsage;
+- (void)setWidth:(unsigned long long)a0;
+- (void)setSwizzleKey:(unsigned int)a0;
+- (unsigned long long)sparseSurfaceDefaultValue;
+- (BOOL)validateWithDevice:(id)a0;
+- (unsigned long long)mipmapLevelCount;
+- (void)setIsDrawable:(BOOL)a0;
+- (const struct MTLTextureDescriptorPrivate { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; BOOL x8; unsigned long long x9; BOOL x10; BOOL x11; unsigned int x12; BOOL x13; unsigned long long x14; union { unsigned long long x0; unsigned long long x1; } x15; unsigned long long x16; unsigned long long x17; BOOL x18; BOOL x19; unsigned long long x20; unsigned long long x21; unsigned long long x22; unsigned long long x23; unsigned long long x24; } *)descriptorPrivate;
+- (unsigned long long)compressionMode;
+- (void)setForceResourceIndex:(BOOL)a0;
+- (void)setAllowGPUOptimizedContents:(BOOL)a0;
+- (void)setMipmapLevelCount:(unsigned long long)a0;
+- (void)setTextureType:(unsigned long long)a0;
+- (void)setWriteSwizzleEnabled:(BOOL)a0;
+- (unsigned long long)storageMode;
+- (unsigned long long)hazardTrackingMode;
+- (unsigned int)swizzleKey;
+- (void)setHazardTrackingMode:(unsigned long long)a0;
+
+@end

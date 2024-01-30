@@ -1,0 +1,88 @@
+@class TSCHChartInfo, TSCHChartDrawableLayoutLegendResizer, NSArray, TSCHChartLayout, NSDictionary, TSCHChartModel, NSIndexSet, TSDLayoutGeometry;
+
+@interface TSCHChartDrawableLayout : TSWPTextHostLayout {
+    struct { unsigned char chartLayoutState : 1; unsigned char chartLayoutStructure : 1; } mChartInvalidFlags;
+    TSDLayoutGeometry *mLayoutGeometryWhileCallingSuperComputeLayoutGeometry;
+    struct CGSize { double width; double height; } mMinSizeCache;
+    BOOL mInResize;
+    BOOL mSuppressChartLayoutInvalidation;
+}
+
+@property (retain, nonatomic) TSCHChartLayout *p_chartLayoutNoCreate;
+@property (readonly, nonatomic) TSCHChartLayout *p_chartLayout;
+@property (retain, nonatomic) TSCHChartDrawableLayoutLegendResizer *p_legendResizer;
+@property (copy, nonatomic) TSDLayoutGeometry *p_lastPureGeometry;
+@property (copy, nonatomic) TSDLayoutGeometry *p_lastChartAreaGeometry;
+@property (copy, nonatomic) TSDLayoutGeometry *p_legendGeometryForResize;
+@property (readonly, weak, nonatomic) TSCHChartInfo *chartInfo;
+@property (readonly, retain, nonatomic) TSCHChartLayout *chartLayout;
+@property (readonly, nonatomic) BOOL is3DChart;
+@property (nonatomic) BOOL forceLayoutSettingsOmitLabelPlacement;
+@property (readonly, nonatomic) NSIndexSet *pieWedgeExplosionSeriesIndices;
+@property (copy, nonatomic) NSArray *pieWedgeExplosions;
+@property (copy, nonatomic) NSDictionary *seriesIndexedPieWedgeExplosions;
+@property (readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
+@property (readonly, nonatomic) TSCHChartModel *model;
+@property (nonatomic) unsigned long long dataSetIndex;
+@property (copy, nonatomic) TSDLayoutGeometry *legendGeometry;
+@property (copy, nonatomic) TSDLayoutGeometry *legendModelGeometry;
+
+- (struct CGSize { double x0; double x1; })minimumSize;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)validate;
+- (id)initWithInfo:(id)a0;
+- (void)invalidate;
+- (Class)repClassOverride;
+- (id)computeLayoutGeometry;
+- (void)invalidateSize;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsInfluencingExteriorWrap;
+- (int)wrapFitType;
+- (id)layoutGeometryFromInfo;
+- (id)i_computeWrapPath;
+- (void)processChangedProperty:(int)a0;
+- (void)processChanges:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsForStandardKnobs;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })alignmentFrame;
+- (void)willBeAddedToLayoutController:(id)a0;
+- (id)computeInfoGeometryDuringResize;
+- (void)offsetGeometryBy:(struct CGPoint { double x0; double x1; })a0;
+- (id)visibleGeometries;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })alignmentFrameForProvidingGuidesInRoot;
+- (BOOL)canRotateChildLayout:(id)a0;
+- (double)viewScaleForZoomingToSelectionPath:(id)a0 targetPointSize:(double)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForCaptionPositioning;
+- (id)propertiesThatInvalidateLayout;
+- (id)renderersWithRep:(id)a0;
+- (BOOL)p_isPrintingInBackground;
+- (BOOL)p_isRenderingForKPF;
+- (id)chartDrawableInfo;
+- (void)p_validateChartLayout;
+- (void)p_postLayoutPropertyValueDidChangeNotification;
+- (id)pieWedgeExplosionsForSeriesIndices:(id)a0;
+- (id)p_chartLayout2D;
+- (void)p_setLegendSize:(struct CGSize { double x0; double x1; })a0;
+- (void)p_setLegendGeometry:(id)a0 fromTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 onLayout:(id)a2 shouldUpdateLayoutItemSize:(BOOL)a3;
+- (void)p_clearChartLayout;
+- (void)invalidateChartLayoutState;
+- (void)p_forceValidateChartLayout;
+- (void)p_convertValidChartLayout:(id)a0 andInfoGeometry:(id)a1 toPureGeometry:(id *)a2 toChartAreaGeometry:(id *)a3 toShadowGeometry:(id *)a4;
+- (id)p_constrainAndResizePureGeometry:(id)a0 withValidChartLayout:(id)a1 toChartAreaGeometry:(id *)a2 toShadowGeometry:(id *)a3 toInfoGeometry:(id *)a4;
+- (BOOL)changesShouldClearLayout:(id)a0;
+- (void)invalidateChartLayoutStructure;
+- (BOOL)changesShouldSetNeedsLayout:(id)a0;
+- (struct CGSize { double x0; double x1; })p_calcMinSize;
+- (double)p_approximateMultiDataControlUnscaledHeight;
+- (double)p_approximatedAdditionalHeightForMultiDataControlWithMinimumAccommodatingScale:(double)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForCullingWithBaseFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 additionalTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
+- (double)p_approximateMultiDataControlUnscaledMinimumWidth;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })p_addMultiDataControlToInlineWrapBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setChartLayoutPropertyValue:(id)a0 forKey:(id)a1;
+- (id)computeInfoGeometryFromPureLayoutGeometry:(id)a0;
+- (void)p_addEdgeAlignmentGuidesForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 array:(id)a1;
+- (void)take3DDepth;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })insertionFrame;
+- (id)i_computeUnitedWrapPath;
+- (id)optimizedLabelRectsToPreventOverlapWithCheckTitle:(BOOL)a0;
+
+@end

@@ -1,0 +1,97 @@
+@class NSCache, NSString, NSMutableDictionary, NSMutableArray, NSObject;
+@protocol _PASSqliteErrorHandlerProtocol;
+
+@interface _PASSqliteDatabase : NSObject {
+    struct sqlite3 { } *_db;
+    int _transactionDepth;
+    BOOL _transactionRolledback;
+    struct atomic_flag { _Atomic BOOL _Value; } _isClosed;
+    NSObject<_PASSqliteErrorHandlerProtocol> *_errorHandler;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _lock;
+    NSMutableArray *_statementsToFinalizeAsync;
+    BOOL _currentExclusivity;
+    NSMutableDictionary *_explainedQueryForPlan;
+    NSCache *_explainedQueriesLogged;
+    struct __sFILE { char *x0; int x1; int x2; short x3; short x4; struct __sbuf { char *x0; int x1; } x5; int x6; void *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; struct __sbuf { char *x0; int x1; } x12; struct __sFILEX *x13; int x14; unsigned char x15[3]; unsigned char x16[1]; struct __sbuf { char *x0; int x1; } x17; int x18; long long x19; } *_explainedQueriesLogFile;
+}
+
+@property (readonly, nonatomic) struct sqlite3 { } *handle;
+@property (readonly, nonatomic) long long contentProtectionType;
+@property (readonly, nonatomic) NSString *filename;
+@property (readonly, nonatomic) BOOL isInMemory;
+
++ (id)initializeDatabase:(id)a0 withContentProtection:(long long)a1 newDatabaseCreated:(BOOL *)a2;
++ (id)sqliteDatabaseInMemoryWithError:(id *)a0 errorHandler:(id)a1;
++ (BOOL)isInMemoryPath:(id)a0;
++ (id)sqliteDatabaseWithFilename:(id)a0 error:(id *)a1;
++ (id)sqliteDatabaseWithFilename:(id)a0 flags:(int)a1 error:(id *)a2 errorHandler:(id)a3;
++ (void)runDebugCommand:(const char *)a0 onDbWithHandle:(id)a1;
++ (id)sqliteDatabaseWithFilename:(id)a0 contentProtection:(long long)a1 error:(id *)a2;
++ (id)recreateCorruptDatabase:(id)a0 withContentProtection:(long long)a1;
++ (id)initializeDatabase:(id)a0 withContentProtection:(long long)a1 newDatabaseCreated:(BOOL *)a2 errorHandler:(id)a3;
++ (void)truncateDatabaseAtPath:(id)a0;
++ (id)initializeDatabase:(id)a0 withProtection:(BOOL)a1 newDatabaseCreated:(BOOL *)a2;
++ (id)protectedDatabaseWithFilename:(id)a0 error:(id *)a1 errorHandler:(id)a2;
++ (id)protectedDatabaseWithFilename:(id)a0 error:(id *)a1;
++ (BOOL)contentProtectionTypeRequiresDeviceToBeUnlocked:(long long)a0;
++ (BOOL)contentProtectionTypeRequiresDeviceToHaveBeenUnlockedOnce:(long long)a0;
++ (id)sqliteDatabaseWithFilename:(id)a0 flags:(int)a1 error:(id *)a2;
++ (id)sqliteDatabaseWithFilename:(id)a0 contentProtection:(long long)a1 errorHandler:(id)a2 error:(id *)a3;
++ (id)sqliteDatabaseWithFilename:(id)a0 error:(id *)a1 errorHandler:(id)a2;
++ (id)sqliteDatabaseInMemoryWithError:(id *)a0;
++ (id)inMemoryPath;
++ (id)corruptionMarkerPathForPath:(id)a0;
++ (id)randomlyNamedInMemoryPathWithBaseName:(id)a0;
+
+- (unsigned int)userVersion;
+- (BOOL)setUserVersion:(unsigned int)a0;
+- (void)clearCaches;
+- (struct _PASDBTransactionCompletion_ { BOOL x0; })writeTransactionWithFailableBlock:(id /* block */)a0;
+- (struct _PASDBTransactionCompletion_ { BOOL x0; })readTransactionWithFailableBlock:(id /* block */)a0;
+- (id)initWithFilename:(id)a0 flags:(int)a1 error:(id *)a2 errorHandler:(id)a3;
+- (id)initWithFilename:(id)a0 flags:(int)a1 error:(id *)a2;
+- (BOOL)prepAndRunQuery:(id)a0 onPrep:(id /* block */)a1 onRow:(id /* block */)a2 onError:(id /* block */)a3;
+- (id)init;
+- (BOOL)handleError:(long long)a0 sqliteError:(int)a1 forQuery:(id)a2 onError:(id /* block */)a3;
+- (BOOL)runQuery:(id)a0 onRow:(id /* block */)a1;
+- (void)_logQueryPlanForQuery:(id)a0;
+- (BOOL)_isLikelySQLStatementContainedInString:(const char *)a0;
+- (BOOL)prepQuery:(id)a0 onPrep:(id /* block */)a1 onError:(id /* block */)a2;
+- (void)insertIntoTable:(id)a0 dictionary:(id)a1;
+- (void)_txnBegin;
+- (void)_txnBeginExclusive;
+- (void)_txnRollback;
+- (struct _PASDBTransactionCompletion_ { BOOL x0; })_transactionWithExclusivity:(BOOL)a0 transaction:(id /* block */)a1;
+- (void)withDbLockExecuteBlock:(id /* block */)a0;
+- (void)finalizeLater:(struct sqlite3_stmt { } *)a0;
+- (BOOL)enableQueryPlanLoggingWithPath:(id)a0;
+- (void)disableQueryPlanLogging;
+- (void).cxx_destruct;
+- (BOOL)hasColumnOnTable:(id)a0 named:(id)a1;
+- (id)freeSpace;
+- (id)languageForFTSTable:(id)a0;
+- (void)dealloc;
+- (id)selectColumns:(id)a0 fromTable:(id)a1 whereClause:(id)a2 onPrep:(id /* block */)a3 onError:(id /* block */)a4;
+- (void)simulateOnDiskDatabase;
+- (BOOL)runQuery:(id)a0 onRow:(id /* block */)a1 onError:(id /* block */)a2;
+- (id)tablesWithColumnNamed:(id)a0;
+- (id)dbErrorWithCode:(unsigned long long)a0 sqliteReturnValue:(int)a1 lastErrno:(int)a2 query:(id)a3;
+- (void)insertOrReplaceIntoTable:(id)a0 dictionary:(id)a1 onError:(id /* block */)a2;
+- (void)_txnEnd;
+- (id)description;
+- (void)placeCorruptionMarker;
+- (BOOL)frailWriteTransaction:(id /* block */)a0;
+- (void)writeTransaction:(id /* block */)a0;
+- (void)closePermanently;
+- (BOOL)hasTableNamed:(id)a0;
+- (unsigned long long)numberOfRowsInTable:(id)a0;
+- (void)readTransaction:(id /* block */)a0;
+- (void)_prepAndRunQuery:(id)a0 columns:(id)a1 dictionary:(id)a2 onError:(id /* block */)a3;
+- (BOOL)createSnapshot:(id)a0;
+- (long long)lastInsertRowId;
+- (BOOL)hasIndexNamed:(id)a0;
+- (BOOL)frailReadTransaction:(id /* block */)a0;
+- (void)updateTable:(id)a0 dictionary:(id)a1 whereClause:(id)a2 onError:(id /* block */)a3;
+- (BOOL)prepAndRunNonDataQueries:(id)a0 onError:(id /* block */)a1;
+
+@end

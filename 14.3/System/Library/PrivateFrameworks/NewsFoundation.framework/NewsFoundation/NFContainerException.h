@@ -1,0 +1,3 @@
+@interface NFContainerException : NSException
+
+@end

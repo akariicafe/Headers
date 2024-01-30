@@ -1,0 +1,3 @@
+@interface MPSCNNConvolutionStateNode : MPSNNStateNode
+
+@end

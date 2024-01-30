@@ -1,0 +1,87 @@
+@class UITapGestureRecognizer, UIDragInteraction, NSString, UIDragPreview, UILongPressGestureRecognizer;
+
+@interface PKSelectionView : PKAdornmentView <UIDragInteractionDelegate_Private, UIGestureRecognizerDelegate> {
+    UIDragPreview *_previewProvider;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _originalStrokeFrame;
+    struct CGPoint { double x; double y; } _initialDragPosition;
+    double _initialRotation;
+    double _rotation;
+    double _scale;
+    struct CGPoint { double x; double y; } _originalTranslation;
+    double _startRotation;
+    double _startScale;
+    BOOL _hasTranscription;
+    BOOL _menuVisible;
+    id /* block */ _finishDragToAttachmentBlock;
+}
+
+@property (nonatomic) struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } userTransform;
+@property (readonly, nonatomic) BOOL isDragging;
+@property (readonly, nonatomic) struct CGPoint { double x; double y; } offsetInTouchView;
+@property (nonatomic) struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } selectionDrawingTransform;
+@property (nonatomic) BOOL wantsDragPlatter;
+@property (readonly, nonatomic) UILongPressGestureRecognizer *dragGR;
+@property (readonly, nonatomic) UITapGestureRecognizer *editMenuGR;
+@property (readonly, nonatomic) UITapGestureRecognizer *doubleTapGR;
+@property (readonly, nonatomic) UIDragInteraction *dragInteraction;
+@property (nonatomic) long long selectionType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)cut:(id)a0;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (void)paste:(id)a0;
+- (id)dragInteraction:(id)a0 previewForLiftingItem:(id)a1 session:(id)a2;
+- (void)copy:(id)a0;
+- (void)delete:(id)a0;
+- (id)keyCommands;
+- (void).cxx_destruct;
+- (void)willMoveToWindow:(id)a0;
+- (void)_updateTransform;
+- (void)dragInteraction:(id)a0 sessionWillBegin:(id)a1;
+- (void)dealloc;
+- (id)dragInteraction:(id)a0 itemsForBeginningSession:(id)a1;
+- (long long)_dragInteraction:(id)a0 dataOwnerForSession:(id)a1;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (BOOL)canBecomeFirstResponder;
+- (void)dragInteraction:(id)a0 session:(id)a1 willEndWithOperation:(unsigned long long)a2;
+- (BOOL)dragInteraction:(id)a0 prefersFullSizePreviewsForSession:(id)a1;
+- (id)_accessibilityUserTestingChildren;
+- (id)targetForAction:(SEL)a0 withSender:(id)a1;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (long long)editingInteractionConfiguration;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 strokeSelection:(id)a1 selectionController:(id)a2 selectionType:(long long)a3;
+- (void)toggleEditMenu;
+- (void)didDoubleTap;
+- (void)dragSelection:(id)a0;
+- (void)_setupWindowNotificationsForScene:(id)a0;
+- (void)_clearSelection:(id)a0;
+- (BOOL)lassoContainsPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)duplicate:(id)a0;
+- (BOOL)supportsCopyAsText;
+- (void)copyTranscription:(id)a0;
+- (void)insertSpace:(id)a0;
+- (void)setupShapeMenuSupport;
+- (struct CGPoint { double x0; double x1; })_insertSpacePositionForMenuController:(id)a0;
+- (BOOL)canConvertToShapeWithAction:(SEL)a0 withSender:(id)a1 handled:(BOOL *)a2;
+- (BOOL)containsPoint:(struct CGPoint { double x0; double x1; })a0 forInputType:(long long)a1;
+- (void)_dragWillBegin;
+- (void)didBeginDraggingSelection;
+- (void)didEndGestureWithTranslation:(struct CGPoint { double x0; double x1; })a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
+- (void)_cleanupDragState;
+- (void)_commitDragToAttachment;
+- (id)_selectionViewGestures;
+- (void)generateStrokeImageForPasteAndDND;
+- (void)scaleSelection:(id)a0;
+- (void)rotateSelection:(id)a0;
+- (void)makeViewAliveAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)animateViewToOriginalPosition;
+- (void)updateLocationForDrop:(struct CGPoint { double x0; double x1; })a0;
+- (void)_didAddNewAttachment;
+- (void)_findTranscriptionWithCompletion:(id /* block */)a0;
+- (id)shapeSupportCache;
+- (void)convertToShapes:(id)a0;
+
+@end

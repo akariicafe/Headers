@@ -1,0 +1,3 @@
+@interface __PXContentFilterFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

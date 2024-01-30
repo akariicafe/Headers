@@ -1,0 +1,3 @@
+@interface NFLGenericCellNoImageProperties : NFLAbstractHeadlineProperties
+
+@end

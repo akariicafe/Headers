@@ -1,0 +1,3 @@
+@interface __UIEditingOverlayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

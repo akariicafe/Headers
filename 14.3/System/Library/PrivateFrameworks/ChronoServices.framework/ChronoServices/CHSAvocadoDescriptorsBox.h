@@ -1,0 +1,15 @@
+@class NSSet, NSDictionary;
+
+@interface CHSAvocadoDescriptorsBox : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSSet *descriptors;
+@property (readonly, copy, nonatomic) NSDictionary *descriptorsByExtensionIdentifier;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)initWithDescriptors:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

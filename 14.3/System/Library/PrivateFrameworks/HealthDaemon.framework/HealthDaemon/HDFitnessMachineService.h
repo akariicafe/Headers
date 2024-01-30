@@ -1,0 +1,18 @@
+@interface HDFitnessMachineService : HDHealthService
+
+@property (readonly, nonatomic) unsigned long long machineType;
+
++ (id)serviceUUID;
++ (long long)serviceType;
++ (id)implementedProperties;
++ (id)_characteristicsMap;
++ (id)_allCharacteristicClasses;
++ (unsigned long long)typeFromAdvertisementData:(id)a0;
+
+- (void)readProperty:(id)a0;
+- (void)peripheral:(id)a0 didDiscoverCharacteristic:(id)a1;
+- (void)peripheral:(id)a0 didUpdateValueForCharacteristic:(id)a1 updateTime:(id)a2 error:(id)a3;
+- (id)servicesInProfile;
+- (BOOL)processAdvertisementData:(id)a0;
+
+@end

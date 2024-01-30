@@ -1,0 +1,41 @@
+@interface UIKBRenderFactoryiPhoneLandscape : UIKBRenderFactoryiPhone
+
+- (BOOL)isTallPopup;
+- (id)variantGeometriesForGeometry:(id)a0 variantCount:(unsigned long long)a1 rowLimit:(long long)a2 annotationIndex:(unsigned long long)a3;
+- (struct CGPoint { double x0; double x1; })variantSymbolTextOffset;
+- (double)popupFontSize;
+- (struct CGPoint { double x0; double x1; })variantAnnotationTextOffset;
+- (struct CGPoint { double x0; double x1; })moreABCKeyOffset;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantSymbolFrameInsets;
+- (struct CGPoint { double x0; double x1; })popupSymbolTextOffset;
+- (double)moreABCKeyFontSize;
+- (double)emojiPopupDividerKeyOffset;
+- (id)_traitsForKey:(id)a0 onKeyplane:(id)a1;
+- (id)deleteKeyImageName;
+- (id)deleteOnKeyImageName;
+- (id)shiftKeyImageName;
+- (id)shiftLockImageName;
+- (id)shiftOnKeyImageName;
+- (double)skinnyKeyThreshold;
+- (id)globalEmojiKeyImageName;
+- (id)globalKeyImageName;
+- (id)dismissKeyImageName;
+- (id)dictationKeyImageName;
+- (id)leftArrowKeyImageName;
+- (id)cutKeyImageName;
+- (id)rightArrowKeyImageName;
+- (id)copyKeyImageName;
+- (id)pasteKeyImageName;
+- (id)undoKeyImageName;
+- (id)boldKeyImageName;
+- (id)biuKeyImageName;
+- (id)multitapCompleteKeyImageName;
+- (id)muttitapReverseKeyImageName;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantDisplayFrameInsets;
+- (double)_row4ControlSegmentWidthLeft;
+- (double)_row4ControlSegmentWidthRight;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantPaddedFrameInsets;
+- (struct CGPoint { double x0; double x1; })more123KeyOffset;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })wideShadowPaddleInsets;
+
+@end

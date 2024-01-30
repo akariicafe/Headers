@@ -1,0 +1,3 @@
+@interface __MPUHalfTintedTransportButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

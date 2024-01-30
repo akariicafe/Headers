@@ -1,0 +1,3 @@
+@interface SXFlexibleSpacerComponentView : SXComponentView
+
+@end

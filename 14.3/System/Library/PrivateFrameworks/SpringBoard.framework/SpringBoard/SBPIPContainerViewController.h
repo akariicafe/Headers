@@ -1,0 +1,80 @@
+@class NSHashTable, NSString, UIView, SBPIPInteractionController, FBDisplayLayoutElement, SBFFluidBehaviorSettings, PGPictureInPictureViewController, NSMutableArray, BSTimer;
+
+@interface SBPIPContainerViewController : UIViewController <PGPictureInPictureViewControllerContentContainer, SBPIPInteractionControllerDelegate> {
+    NSHashTable *_observerHashTable;
+    BOOL _interfaceOrientationLockAcquired;
+    UIView *_contentView;
+    struct UIEdgeInsets { double top; double left; double bottom; double right; } _contentViewPadding;
+    unsigned char _updateContentViewLayoutSettingsAndLayoutIfNeeded : 1;
+    SBPIPInteractionController *_interactionController;
+    SBFFluidBehaviorSettings *_interactiveAnimationSettings;
+    SBFFluidBehaviorSettings *_stashTabFluidBehavior;
+    BSTimer *_stashedStateReduceResourcesUsageTimer;
+    unsigned long long _inFlightAnimationCounter;
+    NSMutableArray *_waitInteractionAnimationsCompletionBlocks;
+    FBDisplayLayoutElement *_displayLayoutElement;
+    double _displayLayoutElementLevel;
+}
+
+@property (readonly, nonatomic) PGPictureInPictureViewController *pictureInPictureViewController;
+@property (readonly, nonatomic) long long requiredInterfaceOrientation;
+@property (nonatomic) double displayLayoutElementLevel;
+@property (nonatomic) BOOL animateSafeAreaInsetsChanges;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)removeObserver:(id)a0;
+- (long long)_currentInterfaceOrientation;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)addObserver:(id)a0;
+- (void)loadView;
+- (id)initWithCoder:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewSafeAreaInsetsDidChange;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)prepareStartAnimationWithInitialInterfaceOrientation:(long long)a0 initialLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (void)performRotateAnimationWithRotation:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)acquireInterfaceOrientationLock;
+- (void)relinquishInterfaceOrientationLock;
+- (BOOL)handleTapWhileStashedGesture;
+- (BOOL)handleDoubleTapGesture;
+- (void)setStashed:(BOOL)a0;
+- (void)preferredContentSizeDidChangeForPictureInPictureViewController;
+- (void)performStartAnimationWithCompletionHandler:(id /* block */)a0;
+- (void)_performStopAnimationWithFinalInterfaceOrientation:(long long)a0 finalLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (void)performStopAnimationWithFinalInterfaceOrientation:(long long)a0 finalLayerFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 completionHandler:(id /* block */)a2;
+- (void)interactionControllerDidUpdateEdgeInsets:(id)a0;
+- (void)interactionController:(id)a0 didUpdateStashProgress:(double)a1;
+- (void)interactionController:(id)a0 wantsStashTabHidden:(BOOL)a1 left:(BOOL)a2;
+- (void)interactionControllerDidBeginSizeChange:(id)a0 behavior:(int)a1;
+- (void)interactionControllerDidEndSizeChange:(id)a0;
+- (void)interactionControllerDidEndAllInteractions:(id)a0;
+- (void)interactionController:(id)a0 didSettleOnStashState:(BOOL)a1;
+- (void)setNeedsLayoutForInteractionController:(id)a0 traits:(unsigned long long)a1 withReason:(unsigned long long)a2 behavior:(int)a3 completion:(id /* block */)a4;
+- (id)initWithPictureInPictureViewController:(id)a0;
+- (void)_updateContentPadding;
+- (void)_updateContentViewFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 reason:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_contentViewFrameInDisplayReferenceSpace;
+- (void)_updateDisplayLayoutElementReferenceFrame;
+- (void)_setStashed:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_contentViewFrameFromInterfaceOrientation:(long long)a0 frameInFixedCoordinateSpace:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_requireInterfaceOrientation:(long long)a0;
+- (void)_acquireInterfaceOrientationLock;
+- (void)_relinquishInterfaceOrientationLock;
+- (void)_noteStashState:(BOOL)a0;
+- (void)setInteractionControllerEnabled:(BOOL)a0;
+- (void)setContentViewPadding:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+- (void)setInteractionsEnabled:(BOOL)a0;
+- (void)startResourcesUsageReductionAfterTimeout:(double)a0;
+- (void)stopResourcesUsageReduction;
+- (void)forcePictureInPictureToFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)SB_accessibilityContentViewScale;
+- (void)SB_accessibilitySetContentViewScale:(double)a0;
+
+@end

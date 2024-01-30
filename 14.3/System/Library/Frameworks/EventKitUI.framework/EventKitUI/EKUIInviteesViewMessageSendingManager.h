@@ -1,0 +1,29 @@
+@class UIViewController, EKEvent, NSString, NSArray, MFMailComposeViewController;
+
+@interface EKUIInviteesViewMessageSendingManager : NSObject <MFMailComposeViewControllerDelegate> {
+    NSArray *_recipients;
+    NSString *_subjectPrefix;
+    NSString *_bodyPrefix;
+}
+
+@property (retain, nonatomic) EKEvent *event;
+@property (retain, nonatomic) MFMailComposeViewController *composeViewController;
+@property (copy) id /* block */ messageSendingComplete;
+@property (readonly) UIViewController *viewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)canShowViewControllerForEvent:(id)a0 withRecipients:(id)a1;
++ (id)_recipientEmailAddressesToDisplayNames:(id)a0 recipients:(id)a1;
++ (id)_attendeesIgnorningMe:(id)a0;
+
+- (void).cxx_destruct;
+- (void)mailComposeController:(id)a0 didFinishWithResult:(long long)a1 error:(id)a2;
+- (id)initWithEvent:(id)a0;
+- (id)initWithEvent:(id)a0 recipients:(id)a1 subjectPrefix:(id)a2 bodyPrefix:(id)a3;
+- (void)initViewController;
+- (id)_htmlBodyForMailMessageWithNames:(id)a0;
+
+@end

@@ -1,0 +1,55 @@
+@interface RMErrorUtilities : NSObject
+
++ (id)createLicenseNotFound;
++ (id)createCouldNotInstallAppWithUnderlyingError:(id)a0;
++ (id)createInternalError;
++ (id)createInternalErrorWithUnderlyingError:(id)a0;
++ (id)createUnverifiedDownloadSizeErrorWithURL:(id)a0;
++ (id)createUnhandledContentTypeErrorWithContentType:(id)a0;
++ (id)createUnverifiedDownloadHashErrorWithURL:(id)a0;
++ (id)createHTTPErrorWithStatusCode:(long long)a0 reason:(id)a1;
++ (id)createServiceDiscoveryInvalidUserIdentifierWithReason:(id)a0;
++ (id)createServiceDiscoveryWellKnownFailedWithReason:(id)a0;
++ (id)createServiceDiscoveryWellKnownInvalidWithReason:(id)a0;
++ (id)_populateDescriptionInUserInfo:(id)a0 descriptionKey:(id)a1 arguments:(char *)a2;
++ (id)_localizedDescriptionFormatWithKey:(id)a0;
++ (id)_englishDescriptionFormatWithKey:(id)a0;
++ (id)_loadEnglishStringsByKey;
++ (id)createErrorWithCode:(long long)a0 userInfo:(id)a1 descriptionKey:(id)a2;
++ (id)_populateDescriptionInUserInfo:(id)a0 descriptionKey:(id)a1;
++ (id)createAccountAlreadyExistsErrorWithIdentifier:(id)a0;
++ (id)createAlreadyEnrolledInMDMv1Error;
++ (id)createBootstrapURINotFound;
++ (id)createCannotChangeValueErrorForPropertyNamed:(id)a0 onObject:(id)a1;
++ (id)createCMSDecodeErrorWithStatusCode:(int)a0 reason:(id)a1;
++ (id)createConnectionNotEntitledWithName:(id)a0;
++ (id)createCouldNotInstallApp;
++ (id)createCouldNotParseURLErrorWithString:(id)a0;
++ (id)createDeviceIdentityNotFoundError;
++ (id)createDisallowedStatusValueErrorWithKeyPath:(id)a0;
++ (id)createFeatureDisabledError:(id)a0;
++ (id)createIncorrectPayloadTypeErrorWithExpectedType:(id)a0 actualType:(id)a1;
++ (id)createInvalidPasscodeError;
++ (id)createManagementSourceNotFoundErrorWithAccountIdentifier:(id)a0;
++ (id)createManagementSourceNotFoundErrorWithIdentifier:(id)a0;
++ (id)createManagementSourceAlreadyExistsErrorWithURI:(id)a0;
++ (id)createMismatchedValuesErrorForPropertyNamed:(id)a0 onObject:(id)a1 expected:(id)a2 actual:(id)a3;
++ (id)createMissingMandatoryPropertyErrorWithPropertyNamed:(id)a0 onObject:(id)a1;
++ (id)createMissingReferralURLError;
++ (id)createMissingServerResponseItemErrorWithName:(id)a0;
++ (id)createMobileKeyBagErrorWithCode:(long long)a0;
++ (id)createMultipleErrorOrReturnTheSingleErrorWithErrors:(id)a0;
++ (id)createMultipleValidationErrorOrReturnTheSingleErrorWithErrors:(id)a0;
++ (id)createNotImplementedErrorForFeature:(id)a0;
++ (id)createOrganizationProofInvalidError;
++ (id)createStatePreventsSyncingError;
++ (id)createTooManyFailedAuthenticationsError;
++ (id)createTooManyReferralsError;
++ (id)createTooManyDeviceManagementSourcesError;
++ (id)createUnableToEvaluatePredicateErrorWithFormat:(id)a0 reason:(id)a1;
++ (id)createUnableToParsePredicateErrorWithFormat:(id)a0 reason:(id)a1;
++ (id)createUnableToParsePredicateErrorWithCustomOperator:(id)a0 predicateFormat:(id)a1;
++ (id)createUnsupportedAuthenticationSchemeErrorWithScheme:(id)a0;
++ (id)createUnsupportedStatusValueErrorWithKeyPath:(id)a0;
+
+@end

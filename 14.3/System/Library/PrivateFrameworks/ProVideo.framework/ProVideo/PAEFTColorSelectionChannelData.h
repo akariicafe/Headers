@@ -1,0 +1,3 @@
+@interface PAEFTColorSelectionChannelData : PAEColorSelectionChannelData
+
+@end

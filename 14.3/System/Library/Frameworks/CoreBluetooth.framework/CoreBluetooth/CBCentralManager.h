@@ -1,0 +1,94 @@
+@class NSMapTable, NSMutableArray;
+@protocol CBCentralManagerDelegate;
+
+@interface CBCentralManager : CBManager {
+    struct { unsigned char willRestoreState : 1; unsigned char didDiscoverPeripheral : 1; unsigned char didConnectPeripheral : 1; unsigned char didFailToConnectPeripheral : 1; unsigned char didDisconnectPeripheral : 1; unsigned char didUpdatePeripheralConnectionState : 1; unsigned char didFindPeripheral : 1; unsigned char didLosePeripheral : 1; unsigned char didLoseZone : 1; unsigned char didUpdateConnectionParameters : 1; unsigned char connectionEventDidOccur : 1; unsigned char didSendBytesToPeripheralWithError : 1; unsigned char didReceiveDataFromPeripheral : 1; unsigned char didDiscoverMultiplePeripherals : 1; unsigned char didUpdateANCSAuthorizationForPeripheral : 1; unsigned char canSendDataToPeripheral : 1; unsigned char didFailToStartScanWithError : 1; unsigned char didUpdateControllerBTClockForPeripheral : 1; } _delegateFlags;
+    BOOL _observingKeyPaths;
+}
+
+@property (nonatomic) BOOL isScanning;
+@property (readonly, retain, nonatomic) NSMapTable *peripherals;
+@property (retain) NSMutableArray *discoveredPeripherals;
+@property (weak, nonatomic) id<CBCentralManagerDelegate> delegate;
+
++ (BOOL)supportsFeatures:(unsigned long long)a0;
+
+- (id)peerWithInfo:(id)a0;
+- (void)stopScan;
+- (BOOL)isMsgAllowedWhenOff:(unsigned short)a0;
+- (id)retrievePeripheralWithAddress:(id)a0;
+- (void)handleSupportedFeatures:(id)a0;
+- (void)handleDidSendBytesToPeripheralwithError:(id)a0;
+- (void)handlePeripheralDisconnectionCompleted:(id)a0;
+- (unsigned short)getRemainingAdvancedMatchingRule;
+- (void)handlePeripheralCLReady:(id)a0;
+- (void)handlePeripheralTrackingUpdated:(id)a0;
+- (void)handleConnectionParametersUpdated:(id)a0;
+- (void)createOfflineLEPairing:(unsigned short)a0;
+- (id)init;
+- (void)sendData:(id)a0 toPeripheral:(id)a1;
+- (void).cxx_destruct;
+- (void)connectPeripheral:(id)a0 options:(id)a1;
+- (id)initWithDelegate:(id)a0 queue:(id)a1;
+- (void)forEachPeripheral:(id /* block */)a0;
+- (void)dealloc;
+- (void)cancelPeripheralConnection:(id)a0 options:(id)a1;
+- (void)randomizeAFHMapForPeripheral:(id)a0;
+- (id)retrieveConnectedPeripheralsWithServices:(id)a0 allowAll:(BOOL)a1;
+- (void)resumeScans;
+- (id)retrieveState;
+- (void)addAdvancedMatchingRule:(id)a0;
+- (void)retrieveConnectedPeripherals;
+- (id)stopConnectionEventCounterForPeripheral:(id)a0;
+- (void)setConnectionEventOptions:(id)a0;
+- (id)retrievePeripheralsWithIdentifiers:(id)a0;
+- (id)peripheralWithIdentifier:(id)a0;
+- (id)isApplicationConnectedToAnyPeripherals:(id)a0;
+- (void)handleAdvertisingAddressChanged:(id)a0;
+- (void)handleZoneLost:(id)a0;
+- (void)handlePeripheralConnectionStateUpdated:(id)a0;
+- (void)setMatchActionRules:(id)a0;
+- (id)retrieveConnectedPeripheralsWithServices:(id)a0;
+- (void)cancelPeripheralConnection:(id)a0;
+- (void)setDesiredConnectionLatency:(long long)a0 forPeripheral:(id)a1;
+- (void)setLESetPhy:(id)a0 options:(id)a1;
+- (id)createPeripheralWithAddress:(id)a0 andIdentifier:(id)a1;
+- (void)cancelPeripheralConnection:(id)a0 force:(BOOL)a1;
+- (unsigned short)getTotalSupportedAdvancedMatchingRules;
+- (void)setEnhancedScanEnable:(id)a0;
+- (void)handleApplicationConnectionEventDidOccur:(id)a0;
+- (void)handlePeripheralConnectionCompleted:(id)a0;
+- (void)setDataLengthChange:(id)a0 options:(id)a1;
+- (void)registerForConnectionEventsWithOptions:(id)a0;
+- (void)wipeDuplicateFilterList:(id)a0;
+- (void)handleRestoringState:(id)a0;
+- (void)pauseLeConnectionManager;
+- (void)removeSingleEntryDuplicateFilter:(id)a0;
+- (void)enablePrivateModeForSessionWithIdentifier:(id)a0 forDuration:(unsigned short)a1;
+- (void)stopTrackingPeripheral:(id)a0 options:(id)a1;
+- (id)peripheralWithInfo:(id)a0;
+- (void)handleAncsAuthChanged:(id)a0;
+- (void)handleMsg:(unsigned short)a0 args:(id)a1;
+- (void)handleScanFailedToStartWithError:(id)a0;
+- (void)scanForPeripheralsWithServices:(id)a0 options:(id)a1;
+- (void)HandleControllerBTClockUpdateMsg:(id)a0;
+- (void)handleApplicationActivityEvent:(id)a0;
+- (id)initWithDelegate:(id)a0 queue:(id)a1 options:(id)a2;
+- (void)resumeLeConnectionManager;
+- (void)retrievePeripherals:(id)a0;
+- (id)dataArrayToUUIDArray:(id)a0;
+- (void)setEnhancedSetScanParamtersMultiCore:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)enablePrivateModeForPeripheral:(id)a0 forDuration:(unsigned short)a1;
+- (void)handleReadyForUpdates:(id)a0;
+- (void)removeAdvancedMatchingRule:(id)a0;
+- (void)setLeAFHMap:(id)a0;
+- (void)handleDidReceiveDataFromPeripheral:(id)a0;
+- (void)orphanPeripherals;
+- (void)handlePeripheralDiscovered:(id)a0;
+- (void)pauseScans;
+- (BOOL)isMsgAllowedAlways:(unsigned short)a0;
+- (id)startConnectionEventCounterForPeripheral:(id)a0;
+- (void)startTrackingPeripheral:(id)a0 options:(id)a1;
+
+@end

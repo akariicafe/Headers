@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface ASKMobileGestalt : NSObject
+
+@property (class, readonly) BOOL hasSystemTelephonyOfAnyKind;
+@property (class, readonly) BOOL hasVenice;
+@property (class, readonly) BOOL wapiCapability;
+@property (class, readonly) NSString *deviceClass;
+@property (class, readonly) NSString *productType;
+@property (class, readonly) BOOL hasHEVCDecoding;
+@property (class, readonly) BOOL isStandaloneWatch;
+@property (class, readonly) BOOL isAppleSiliconMac;
+@property (class, readonly) BOOL isAppleSiliconDTK;
+@property (class, readonly) NSString *activePairedSystemVersion;
+
++ (BOOL)hasCapabilities:(id)a0;
+
+@end

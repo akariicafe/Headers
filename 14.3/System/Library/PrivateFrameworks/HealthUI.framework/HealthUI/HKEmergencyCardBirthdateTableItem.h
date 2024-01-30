@@ -1,0 +1,23 @@
+@class HKMedicalIDEditorDateCell, NSCalendar;
+
+@interface HKEmergencyCardBirthdateTableItem : HKEmergencyCardTableItem <HKMedicalIDEditorCellEditDelegate> {
+    HKMedicalIDEditorDateCell *_editableCell;
+    NSCalendar *_gregorianCalendar;
+}
+
+- (void).cxx_destruct;
+- (id)initInEditMode:(BOOL)a0;
+- (id)title;
+- (id)_cachedCalendar;
+- (void)timeZoneDidChange:(id)a0;
+- (void)medicalIDEditorCellDidChangeValue:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndex:(long long)a1;
+- (double)tableView:(id)a0 heightForRowAtIndex:(long long)a1;
+- (BOOL)shouldHighlightRowAtIndex:(long long)a0;
+- (BOOL)canEditRowAtIndex:(long long)a0;
+- (long long)editingStyleForRowAtIndex:(long long)a0;
+- (long long)commitEditingStyle:(long long)a0 forRowAtIndex:(long long)a1;
+- (void)didCommitEditingStyle:(long long)a0 forRowAtIndex:(long long)a1;
+- (id)_createEditableCell;
+
+@end

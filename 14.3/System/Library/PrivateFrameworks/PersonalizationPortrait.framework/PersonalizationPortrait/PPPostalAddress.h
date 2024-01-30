@@ -1,0 +1,34 @@
+@class NSString;
+
+@interface PPPostalAddress : NSObject <NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSString *thoroughfare;
+@property (readonly, nonatomic) NSString *subThoroughfare;
+@property (readonly, nonatomic) NSString *locality;
+@property (readonly, nonatomic) NSString *subLocality;
+@property (readonly, nonatomic) NSString *administrativeArea;
+@property (readonly, nonatomic) NSString *subAdministrativeArea;
+@property (readonly, nonatomic) NSString *postalCode;
+@property (readonly, nonatomic) NSString *country;
+
++ (id)postalAddressWithThoroughfare:(id)a0 subThoroughfare:(id)a1 locality:(id)a2 subLocality:(id)a3 administrativeArea:(id)a4 subAdministrativeArea:(id)a5 postalCode:(id)a6 country:(id)a7;
++ (id)normalizeAddressString:(id)a0;
+
+- (id)initWithFoundInAppsPostalAddress:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqualToPostalAddress:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithThoroughfare:(id)a0 subThoroughfare:(id)a1 locality:(id)a2 subLocality:(id)a3 administrativeArea:(id)a4 subAdministrativeArea:(id)a5 postalCode:(id)a6 country:(id)a7;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (id)toCNPostalAddress;
+- (id)_countryStringWithCountry:(id)a0 isoCode:(id)a1;
+- (id)initWithContactsPostalAddress:(id)a0;
+- (id)singleLineNormalizedAddressString;
+- (void)encodeWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UISearchDisplayControllerContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

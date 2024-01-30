@@ -1,0 +1,3 @@
+@interface UIStatusBarExternalTranslucentForegroundStyleAttributes : UIStatusBarExternalForegroundStyleAttributes
+
+@end

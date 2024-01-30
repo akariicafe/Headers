@@ -1,0 +1,3 @@
+@interface ___UIPreviewActionSheetViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

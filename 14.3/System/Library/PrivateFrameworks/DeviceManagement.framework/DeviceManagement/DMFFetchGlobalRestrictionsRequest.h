@@ -1,0 +1,3 @@
+@interface DMFFetchGlobalRestrictionsRequest : DMFFetchRestrictionsRequest
+
+@end

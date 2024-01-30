@@ -1,0 +1,3 @@
+@interface NTKPrideFace : NTKPrideDigitalFace
+
+@end

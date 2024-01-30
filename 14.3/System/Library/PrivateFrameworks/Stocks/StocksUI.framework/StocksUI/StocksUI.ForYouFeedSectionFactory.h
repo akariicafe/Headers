@@ -1,0 +1,6 @@
+@interface StocksUI.ForYouFeedSectionFactory : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ badgeProvider;
+    void /* unknown type, empty encoding */ bannerAdFactory;
+}
+
+@end

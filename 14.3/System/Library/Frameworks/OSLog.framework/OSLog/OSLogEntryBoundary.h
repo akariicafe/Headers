@@ -1,0 +1,3 @@
+@interface OSLogEntryBoundary : OSLogEntry
+
+@end

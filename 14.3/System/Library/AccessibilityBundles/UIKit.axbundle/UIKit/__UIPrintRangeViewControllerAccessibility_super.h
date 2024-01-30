@@ -1,0 +1,3 @@
+@interface __UIPrintRangeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

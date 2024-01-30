@@ -1,0 +1,75 @@
+@class NSDate, NSString, NSArray, HKDisplayTypeSectionedContextView, HKDisplayType, NSDateInterval, HKInteractiveChartOverlayViewController, NSObject, HKValueRange, HKOverlayContextLocation, HKOverlayRoomApplicationItems;
+@protocol OS_dispatch_queue, HKOverlayRoomViewControllerLayoutDelegate;
+
+@interface HKOverlayRoomViewController : HKViewController <HKDisplayTypeSectionedContextViewDelegate, HKInteractiveChartViewObserver, HKSampleTypeDateRangeControllerObserver, HKSampleTypeUpdateControllerObserver>
+
+@property (retain, nonatomic) HKOverlayRoomApplicationItems *applicationItems;
+@property (nonatomic) long long currentChartTimeScope;
+@property (copy, nonatomic) NSDateInterval *currentChartDateInterval;
+@property (retain, nonatomic) HKOverlayContextLocation *currentSelectedContextLocation;
+@property (nonatomic) long long controllerMode;
+@property (retain, nonatomic) HKInteractiveChartOverlayViewController *chartController;
+@property (retain, nonatomic) HKDisplayTypeSectionedContextView *sectionedContextView;
+@property (nonatomic) BOOL userHasOverriddenPreferredOverlay;
+@property (retain, nonatomic) HKDisplayType *primaryDisplayType;
+@property (retain, nonatomic) NSArray *overlayContextSections;
+@property (retain, nonatomic) HKOverlayContextLocation *initialSelectedContextLocation;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *contextUpdateQueue;
+@property (readonly, copy, nonatomic) NSDate *displayDate;
+@property (nonatomic) BOOL shouldSelectInitialOverlay;
+@property (retain, nonatomic) HKValueRange *initialVisibleDateRange;
+@property (weak, nonatomic) id<HKOverlayRoomViewControllerLayoutDelegate> layoutDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_currentIndexPath;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)initWithDisplayDate:(id)a0 applicationItems:(id)a1 mode:(long long)a2;
+- (BOOL)supportsShowAllFilters;
+- (id)createChartOverlayViewController;
+- (id)controllerTitleWithApplicationItems:(id)a0;
+- (id)primaryDisplayTypeWithApplicationItems:(id)a0;
+- (id)contextSectionsForMode:(long long)a0 applicationItems:(id)a1 overlayChartController:(id)a2;
+- (id)initialSelectedContextForMode:(long long)a0;
+- (id)createViewControllerForMode:(long long)a0 displayDate:(id)a1 applicationItems:(id)a2;
+- (void)viewDidLoad;
+- (void)didUpdateFromDateZoom:(long long)a0 toDateZoom:(long long)a1 newVisibleRange:(id)a2;
+- (void)didUpdateVisibleValueRange:(id)a0 changeContext:(long long)a1;
+- (void)didUpdateSeriesWithNewValueRange:(id)a0;
+- (void)updateController:(id)a0 didReceiveUpdateForType:(id)a1 samplesAdded:(id)a2 objectsRemoved:(id)a3;
+- (void)updateController:(id)a0 didReceiveHighFrequencyUpdateForType:(id)a1;
+- (void)_setupPrimaryDisplayType;
+- (void)_setupInterface;
+- (void)_setupOverlayContextItems;
+- (void)_refreshContextItemsAndUpdateChart:(BOOL)a0;
+- (void)_selectPreferredItem;
+- (void)_updateChartForOverlaySelection:(id)a0 previousSelection:(id)a1;
+- (id)_makeSeparatorView;
+- (id)_contextViewBackgroundColor;
+- (void)_layoutNoVerticalExpansion:(id)a0;
+- (id)showAllFiltersButtonTitle;
+- (void)_showAllFilters:(id)a0;
+- (void)_pinView:(id)a0 toSafeAreaOf:(id)a1;
+- (void)_updateContextTiles;
+- (id)_findNavigationController;
+- (id)_currentChartEffectiveVisibleRange;
+- (long long)_contextItemCount;
+- (void)didChangeFromContextItem:(id)a0 toContextItem:(id)a1;
+- (BOOL)_canSelectOverlayLocation:(id)a0;
+- (void)_selectContextItemAtLocation:(id)a0 animated:(BOOL)a1;
+- (void)fetchContextItemsIfNeededWithDateInterval:(id)a0 completion:(id /* block */)a1;
+- (void)_refreshUpdatedItemsWithChartUpdate:(BOOL)a0 invalidateChartItems:(BOOL)a1;
+- (BOOL)_shouldUpdateContextItemsForChanges:(id)a0;
+- (void)_invalidateContextItems;
+- (void)contextView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)contextView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)contextViewDidInvalidateLayout:(id)a0;
+- (BOOL)contextView:(id)a0 canSelectItemAtIndexPath:(id)a1;
+- (void)sampleTypeDateRangeController:(id)a0 didUpdateDateRanges:(id)a1;
+- (void)reloadOverlayContextItems;
+- (void)refreshOverlayContextItems;
+
+@end

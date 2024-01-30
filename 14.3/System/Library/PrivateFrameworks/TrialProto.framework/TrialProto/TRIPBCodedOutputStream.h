@@ -1,0 +1,85 @@
+@class NSMutableData, NSOutputStream;
+
+@interface TRIPBCodedOutputStream : NSObject {
+    struct TRIPBOutputBufferState { char *bytes; unsigned long long size; unsigned long long position; NSOutputStream *output; } state_;
+    NSMutableData *buffer_;
+}
+
++ (id)streamWithData:(id)a0;
++ (id)streamWithOutputStream:(id)a0;
+
+- (id)initWithData:(id)a0;
+- (void)dealloc;
+- (id)initWithOutputStream:(id)a0;
+- (void)flush;
+- (void)writeTag:(unsigned int)a0 format:(int)a1;
+- (void)writeRawVarintSizeTAs32:(unsigned long long)a0;
+- (void)writeBoolNoTag:(BOOL)a0;
+- (void)writeFloatNoTag:(float)a0;
+- (void)writeDoubleNoTag:(double)a0;
+- (void)writeInt32NoTag:(int)a0;
+- (void)writeSFixed32NoTag:(int)a0;
+- (void)writeSInt32NoTag:(int)a0;
+- (void)writeEnumNoTag:(int)a0;
+- (void)writeInt64NoTag:(long long)a0;
+- (void)writeSInt64NoTag:(long long)a0;
+- (void)writeSFixed64NoTag:(long long)a0;
+- (void)writeUInt32NoTag:(unsigned int)a0;
+- (void)writeFixed32NoTag:(unsigned int)a0;
+- (void)writeUInt64NoTag:(unsigned long long)a0;
+- (void)writeFixed64NoTag:(unsigned long long)a0;
+- (void)writeBytesNoTag:(id)a0;
+- (void)writeStringNoTag:(id)a0;
+- (void)writeMessageNoTag:(id)a0;
+- (void)writeGroupNoTag:(int)a0 value:(id)a1;
+- (void)writeBool:(int)a0 value:(BOOL)a1;
+- (void)writeFloat:(int)a0 value:(float)a1;
+- (void)writeDouble:(int)a0 value:(double)a1;
+- (void)writeInt32:(int)a0 value:(int)a1;
+- (void)writeSFixed32:(int)a0 value:(int)a1;
+- (void)writeSInt32:(int)a0 value:(int)a1;
+- (void)writeEnum:(int)a0 value:(int)a1;
+- (void)writeInt64:(int)a0 value:(long long)a1;
+- (void)writeSInt64:(int)a0 value:(long long)a1;
+- (void)writeSFixed64:(int)a0 value:(long long)a1;
+- (void)writeUInt32:(int)a0 value:(unsigned int)a1;
+- (void)writeFixed32:(int)a0 value:(unsigned int)a1;
+- (void)writeUInt64:(int)a0 value:(unsigned long long)a1;
+- (void)writeFixed64:(int)a0 value:(unsigned long long)a1;
+- (void)writeBytes:(int)a0 value:(id)a1;
+- (void)writeString:(int)a0 value:(id)a1;
+- (void)writeGroup:(int)a0 value:(id)a1;
+- (void)writeMessageSetExtension:(int)a0 value:(id)a1;
+- (void)writeMessage:(int)a0 value:(id)a1;
+- (void)writeBoolArray:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeFixed32Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeSFixed32Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeFloatArray:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeFixed64Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeSFixed64Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeDoubleArray:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeInt32Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeInt64Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeSInt32Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeSInt64Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeUInt32Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeUInt64Array:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeEnumArray:(int)a0 values:(id)a1 tag:(unsigned int)a2;
+- (void)writeBytesArray:(int)a0 values:(id)a1;
+- (void)writeStringArray:(int)a0 values:(id)a1;
+- (void)writeMessageArray:(int)a0 values:(id)a1;
+- (void)writeGroupArray:(int)a0 values:(id)a1;
+- (void)writeUnknownGroupArray:(int)a0 values:(id)a1;
+- (void)writeRawMessageSetExtension:(int)a0 value:(id)a1;
+- (id)initWithOutputStream:(id)a0 data:(id)a1;
+- (void)writeRawPtr:(const void *)a0 offset:(unsigned long long)a1 length:(unsigned long long)a2;
+- (void)writeRawData:(id)a0;
+- (void)writeUnknownGroupNoTag:(int)a0 value:(id)a1;
+- (void)writeUnknownGroup:(int)a0 value:(id)a1;
+- (void)writeRawByte:(unsigned char)a0;
+- (void)writeRawVarint32:(int)a0;
+- (void)writeRawVarint64:(long long)a0;
+- (void)writeRawLittleEndian32:(int)a0;
+- (void)writeRawLittleEndian64:(long long)a0;
+
+@end

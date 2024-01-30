@@ -1,0 +1,22 @@
+@class SBFAnimationSettings;
+
+@interface SBFWakeAnimationSettings : PTSettings
+
+@property (nonatomic) double backlightFadeDuration;
+@property (nonatomic) double speedMultiplierForWake;
+@property (nonatomic) double speedMultiplierForLiftToWake;
+@property (retain, nonatomic) SBFAnimationSettings *dateWakeSettings;
+@property (retain, nonatomic) SBFAnimationSettings *contentWakeSettings;
+@property (nonatomic) double awakeColorBrightness;
+@property (nonatomic) double awakeDateAlpha;
+@property (retain, nonatomic) SBFAnimationSettings *awakeWallpaperFilterSettings;
+@property (retain, nonatomic) SBFAnimationSettings *dateSleepSettings;
+@property (nonatomic) double sleepColorBrightness;
+@property (retain, nonatomic) SBFAnimationSettings *sleepWallpaperFilterSettings;
+
++ (id)settingsControllerModule;
+
+- (void).cxx_destruct;
+- (void)setDefaultValues;
+
+@end

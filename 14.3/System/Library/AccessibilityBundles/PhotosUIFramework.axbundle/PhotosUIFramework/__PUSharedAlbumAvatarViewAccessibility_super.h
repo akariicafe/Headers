@@ -1,0 +1,3 @@
+@interface __PUSharedAlbumAvatarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

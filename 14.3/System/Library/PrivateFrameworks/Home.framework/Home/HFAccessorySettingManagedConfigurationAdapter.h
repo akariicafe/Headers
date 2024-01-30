@@ -1,0 +1,38 @@
+@class MCProfileConnection, NSString, NSHashTable;
+
+@interface HFAccessorySettingManagedConfigurationAdapter : HFAccessorySettingAdapter <MCProfileConnectionObserver, HFAccessorySettingAdapterDisplayArbitrating>
+
+@property (nonatomic) BOOL isSettingUp;
+@property (retain, nonatomic) NSHashTable *profileObservers;
+@property (readonly, nonatomic) MCProfileConnection *profileConnectionForSynchronization;
+@property (readonly, nonatomic) unsigned long long numberOfProfiles;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)profiles;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)homeKitSettingWasUpdated:(id)a0 value:(id)a1;
+- (id)_beginMonitoringSettingsKeyPath:(id)a0;
+- (id)initWithHomeKitSettingsVendor:(id)a0 keyPaths:(id)a1 updateHandler:(id /* block */)a2;
+- (void)addProfileObserver:(id)a0;
+- (id)initWithHomeKitSettingsVendor:(id)a0 keyPaths:(id)a1 mode:(unsigned long long)a2 updateHandler:(id /* block */)a3;
+- (id)initWithHomeKitSettingsVendor:(id)a0 mode:(unsigned long long)a1;
+- (BOOL)shouldShowSettingsEntity:(id)a0;
+- (void)profileConnectionDidReceiveProfileListChangedNotification:(id)a0 userInfo:(id)a1;
+- (void)removeProfileObserver:(id)a0;
+- (void)_setupDebugHandler;
+- (id)_synchronizeHomeKitToManagedConfiguration;
+- (void)_dispatchWasUpdated;
+- (id)profilesSettingFuture;
+- (id)removeProfileFromHomeKit:(id)a0;
+- (id)_profilesSettingData;
+- (id)_installedProfileData;
+- (id)_removeProfileFromProfileManager:(id)a0;
+- (void)_rebootForReason:(id)a0;
+- (id)_synchronizeManagedConfigurationToHomeKit;
+- (id)removeProfileDataFromHomeKit:(id)a0;
+
+@end

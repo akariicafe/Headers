@@ -1,0 +1,3 @@
+@interface SHPartnerConfiguration : SHRemoteStore
+
+@end

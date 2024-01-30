@@ -1,0 +1,3 @@
+@interface _TtCV16SiriAudioSupport19ForegroundAppSignal9FakeStore : _TtCV16SiriAudioSupport19ForegroundAppSignal17KnowledgeProvider
+
+@end

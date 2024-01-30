@@ -1,0 +1,12 @@
+@interface HFValveActiveStateControlItem : HFPowerStateControlItem
+
+- (id)initWithValueSource:(id)a0 auxiliaryTargetValueTuples:(id)a1 additionalCharacteristicOptions:(id)a2 displayResults:(id)a3;
+- (id)writeValue:(id)a0;
+- (id)copyWithCharacteristicOptions:(id)a0 valueSource:(id)a1;
+- (id)resultsForBatchReadResponse:(id)a0;
+- (id)initWithValueSource:(id)a0 displayResults:(id)a1;
+- (id)servicePredicateForCharacteristicType:(id)a0 withUsage:(unsigned long long)a1;
+- (id)_iconDescriptorForServiceSubtype:(id)a0 inUse:(BOOL)a1 active:(BOOL)a2 hasFaucetAsParentService:(BOOL)a3;
+- (id)_faucetValveSubtypeToIconIdentifierMap;
+
+@end

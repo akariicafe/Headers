@@ -1,0 +1,81 @@
+@class AVTUsageTrackingRecordTimedEvent, NSString, AVTAvatarConfiguration, NSDate, NSObject, AVTAvatarRecord;
+@protocol AVTCoreAnalyticsClient, AVTAvatarConfigurationMetric, AVTAvatarStoreInternal, AVTDifferentialPrivacyRecorder, OS_dispatch_queue, AVTUILogger;
+
+@interface AVTUsageTrackingSession : NSObject <AVTUsageTrackingSession>
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly, nonatomic) id<AVTUILogger> logger;
+@property (readonly, nonatomic) id<AVTCoreAnalyticsClient> ntsCAClient;
+@property (readonly, nonatomic) NSString *keyBasePrefix;
+@property (readonly, nonatomic) NSString *bundleAppName;
+@property (readonly, nonatomic) id<AVTDifferentialPrivacyRecorder> ntsDPRecorder;
+@property (readonly, nonatomic) id<AVTAvatarConfigurationMetric> metric;
+@property (readonly, copy, nonatomic) id /* block */ recordTransformer;
+@property (readonly, nonatomic) AVTAvatarConfiguration *defaultConfiguration;
+@property (readonly, nonatomic) AVTAvatarRecord *avatarRecord;
+@property (readonly, copy, nonatomic) id /* block */ timeProvider;
+@property (nonatomic) BOOL expandedMode;
+@property (nonatomic) BOOL recordedVideo;
+@property (retain, nonatomic) NSDate *editorEnterDate;
+@property (retain, nonatomic) AVTUsageTrackingRecordTimedEvent *faceTrackingEvent;
+@property (retain, nonatomic) id<AVTAvatarStoreInternal> avatarStore;
+
++ (id)whitelistAppNameFromBundleID:(id)a0;
++ (id)dpKeyBasePrefix;
++ (id)keyBasePrefixForBundleIdentifier:(id)a0;
++ (id /* block */)defaultTimeProvider;
++ (id)makeDPKey:(id)a0;
++ (id)makeKeyAnalyticsCompliant:(id)a0;
++ (id)payloadForAvatarRecord:(id)a0;
++ (id)payloadForAvatarRecordIdentifier:(id)a0;
++ (void)getPresetDescription:(out id *)a0 usedCategoriesDescription:(out id *)a1 forAvatarConfiguration:(id)a2 defaultConfiguration:(id)a3;
++ (id /* block */)configurationDistanceClassifierWithMetric:(id)a0;
++ (id /* block */)likenessComparator;
++ (id /* block */)defaultRecordTransformerForCoreModel:(id)a0;
++ (id)colorPresetDescriptionForAvatarConfiguration:(id)a0;
+
+- (void)end;
+- (void).cxx_destruct;
+- (id)initWithCoreAnalyticsClient:(id)a0 dpRecorder:(id)a1 serialQueueProvider:(id /* block */)a2 recordTransformer:(id /* block */)a3 avatarRecord:(id)a4 defaultConfiguration:(id)a5 timeProvider:(id /* block */)a6 configurationMetric:(id)a7 logger:(id)a8 keyBasePrefix:(id)a9 bundleAppName:(id)a10;
+- (id)makeEventKeyForAction:(id)a0;
+- (void)performClientWork:(id /* block */)a0;
+- (id)makeCrossAppEventKeyForAction:(id)a0;
+- (id)payloadForCrossAppEvent;
+- (void)nts_reportAvatarDescription:(id)a0 dpRecorder:(id)a1;
+- (void)didResumeFaceTracking;
+- (void)sendEventForAction:(id)a0;
+- (void)sendCrossAppsEventForAction:(id)a0;
+- (void)nts_reportAvatarLikenessClustersWithClient:(id)a0;
+- (void)nts_reportAvatarComplexity:(id)a0 withClient:(id)a1;
+- (void)didPauseFaceTracking;
+- (void)nts_reportEditorTimeWithExitTime:(id)a0 client:(id)a1;
+- (void)nts_reportFaceTrackingTimeWithEndTime:(id)a0 client:(id)a1;
+- (void)sentStickerFromStickersApp:(id)a0 withAvatarRecord:(id)a1 action:(id)a2 peeled:(BOOL)a3;
+- (void)nts_reportAvatarCountWithClient:(id)a0;
+- (void)nts_reportExpandedModeWithClient:(id)a0;
+- (void)nts_loadDefaultConfigurationIfNeeded;
+- (void)beginWithStore:(id)a0;
+- (void)didShowExpandedMode;
+- (void)didEnterEditor;
+- (void)didLeaveEditor;
+- (void)didRecordVideo;
+- (void)didSendVideoWithAvatar:(id)a0 duration:(double)a1;
+- (void)didDiscardVideoWithDuration:(double)a0;
+- (void)didReplayVideo;
+- (void)didSendImageWithAvatar:(id)a0;
+- (void)didSendStickerWithAvatar:(id)a0;
+- (void)didStartFaceTrackingInCarouselWithAvatar:(id)a0;
+- (void)didChangeCurrentAvatarInCarousel:(id)a0;
+- (void)didStopFaceTrackingInCarousel;
+- (void)didChangeCurrentAvatarInStickers:(id)a0;
+- (id)initWithSerialQueueProvider:(id /* block */)a0 recordTransformer:(id /* block */)a1 logger:(id)a2;
+- (void)didDuplicateAvatar:(id)a0;
+- (void)didDeleteAvatar:(id)a0;
+- (void)didOpenStickersAppFromRecents;
+- (void)didTapStickerFromRecents:(id)a0 withAvatarIdentifier:(id)a1;
+- (void)didCreateAvatar:(id)a0;
+- (void)didEditAvatar:(id)a0;
+- (void)didPeelOffStickerFromStickersApp:(id)a0 withAvatar:(id)a1;
+- (void)didTapStickerFromStickersApp:(id)a0 withAvatar:(id)a1;
+
+@end

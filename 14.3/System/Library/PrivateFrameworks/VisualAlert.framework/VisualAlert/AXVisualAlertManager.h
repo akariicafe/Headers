@@ -1,0 +1,89 @@
+@class AXDispatchTimer, VISAXNotificationHandler, NSString, NSArray, DNDStateService, NSDictionary, AXCameraTorchManagerBackgroundAdapter, NSMutableArray;
+
+@interface AXVisualAlertManager : NSObject <DNDStateUpdateListener> {
+    unsigned long long _alertTypes;
+    AXDispatchTimer *_timer;
+    AXDispatchTimer *_torchForceShutdownTimer;
+    NSDictionary *_patterns;
+    unsigned long long _activePatternCursor;
+    BOOL _shouldRepeatPattern;
+    NSDictionary *_patternToUseForVisualAlertAfterCaptureSessionStopsRunning;
+    NSArray *_notificationHandlers;
+    VISAXNotificationHandler *_deviceLockStateChangedNotificationHandler;
+    VISAXNotificationHandler *_torchInControlCenterWasEnabledNotificationHandler;
+    BOOL _isDeviceLocked;
+    BOOL _isQuietModeEnabled;
+    BOOL _isRingerSwitchSilent;
+    BOOL _isTorchEnabledInControlCenter;
+    BOOL _captureSessionRunning;
+    BOOL _videoConferenceCallRinging;
+    BOOL _skipAutomaticStopOnUserInteraction;
+    NSMutableArray *_bulletins;
+}
+
+@property (readonly, nonatomic) NSDictionary *_patterns;
+@property (retain, nonatomic, setter=_setActivePattern:) NSDictionary *_activePattern;
+@property (nonatomic, setter=_setTypeToUseForVisualAlertAfterCaptureSessionStopsRunning:) unsigned long long _typeToUseForVisualAlertAfterCaptureSessionStopsRunning;
+@property (readonly, nonatomic, getter=_isTorchDeviceOpen) BOOL _torchDeviceOpen;
+@property (readonly, nonatomic, getter=_isTorchDeviceOn) BOOL _torchDeviceOn;
+@property (readonly, nonatomic) AXCameraTorchManagerBackgroundAdapter *_asyncManagerAdapter;
+@property (retain, nonatomic) DNDStateService *disturbanceService;
+@property (nonatomic) int ringerStateNotifyToken;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)sharedVisualAlertManager;
+
+- (void)stateService:(id)a0 didReceiveDoNotDisturbStateUpdate:(id)a1;
+- (void)_stop;
+- (id)init;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)stop;
+- (void)startForAlertTypes:(unsigned long long)a0 cameraTorchManager:(id)a1;
+- (void)removeBulletin:(id)a0;
+- (id)existingBulletinForBulletin:(id)a0;
+- (void)_handleVisualAlertForIncomingMessage;
+- (void)_handleBeginVisualAlertForAlarmWithSound:(BOOL)a0;
+- (void)_handleVisualAlertForRegularNotification:(id)a0;
+- (void)_handleEndVisualAlertForAlarm;
+- (void)addBulletin:(id)a0;
+- (void)_insertCustomLogicForSystemWideServer;
+- (void)_handleBeginVisualAlertForIncomingCall;
+- (void)_handleBeginVisualAlertForIncomingVideoConferenceCall;
+- (void)_handleEndVisualAlertForIncomingCall;
+- (void)_handleEndVisualAlertForIncomingVideoConferenceCall;
+- (void)_handleVisualAlertForExternalApplication;
+- (void)_springBoardLockButtonPress:(id)a0;
+- (void)_springBoardVolumeChange:(id)a0;
+- (void)_springBoardLockStateChange:(id)a0;
+- (void)_handleLockButtonPressed;
+- (void)_handleVolumeChanged;
+- (void)_handleDeviceWasLocked;
+- (void)_handleDeviceWasUnlocked;
+- (void)_handleQuietModeWasEnabled;
+- (void)_handleQuietModeWasDisabled;
+- (void)_handleTorchInControlCenterWasEnabled;
+- (void)_handleTorchInControlCenterWasDisabled;
+- (void)_handleCaptureSessionDidStartRunning;
+- (void)_handleCaptureSessionDidStopRunning;
+- (void)_handleSecondaryVisualAlertManagerDidStart;
+- (BOOL)_hasVideoConferenceCameraTorchManager;
+- (void)_handleVideoConferenceCallRinging;
+- (void)_handleRingerSwitchToggled;
+- (void)_endVisualAlert;
+- (void)_startForAlertTypes:(unsigned long long)a0 cameraTorchManager:(id)a1;
+- (void)_beginVisualAlertForType:(unsigned long long)a0 repeat:(BOOL)a1 skipAutomaticStopOnUserInteraction:(BOOL)a2 bundleId:(id)a3;
+- (id)_normalizedStrobePatternForOriginalPattern:(id)a0;
+- (void)_setTorchDeviceOpen:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)_processNextVisualAlertComponent;
+- (void)_setTorchDeviceOn:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)_beginVisualAlertForType:(unsigned long long)a0 repeat:(BOOL)a1;
+- (BOOL)_shouldHandleVisualAlertsForVideoConferenceCallsInConferenceFramework;
+- (BOOL)_supportsVisualAlertsForVideoConferenceCalls;
+- (BOOL)_isTorchEnabledInControlCenter;
+
+@end

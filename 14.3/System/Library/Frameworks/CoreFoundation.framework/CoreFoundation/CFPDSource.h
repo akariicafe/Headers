@@ -1,0 +1,73 @@
+@class CFPDDataBuffer, CFPrefsDaemon, NSObject;
+@protocol OS_xpc_object, OS_os_transaction;
+
+@interface CFPDSource : NSObject {
+    CFPrefsDaemon *_cfprefsd;
+    CFPDDataBuffer *_plist;
+    NSObject<OS_xpc_object> *_pendingChangesQueue;
+    unsigned long long _pendingChangesSize;
+    struct __CFString { } *_userName;
+    struct __CFString { } *_domain;
+    char *_actualPath;
+    struct __CFSet { } *_observingConnections;
+    NSObject<OS_os_transaction> *_dirtyTransaction;
+    struct __CFString { } *_uncanonicalizedPathCache;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _uncanonicalizedPathCacheLock;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _observingConnectionsLock;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _writeLock;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    unsigned int _lastEuid;
+    unsigned int _lastEgid;
+    int _fileProtectionClass;
+    short _generationShmemIndex;
+    BOOL _byHost;
+    BOOL _managed;
+    BOOL _managedUsesContainer;
+    BOOL _watchingParentDirectory;
+    unsigned char _handlingRequest : 1;
+    unsigned char _dirty : 1;
+    unsigned char _neverCache : 1;
+    unsigned char _checkedForNonPrefsPlist : 1;
+    unsigned char _restrictedReadability : 1;
+    unsigned char _waitingForDeviceUnlock : 1;
+    unsigned char _disableBackup : 1;
+}
+
+- (BOOL)managed;
+- (struct __CFString { } *)user;
+- (void)observingConnectionWasInvalidated:(id)a0;
+- (short)shmemIndex;
+- (void)cacheActualPath;
+- (void)setUncanonicalizedPathCached:(BOOL)a0;
+- (id /* block */)createDiskWriteShouldPerformSynchronously:(BOOL *)a0;
+- (void)setDirty:(BOOL)a0;
+- (id)acceptMessage:(id)a0;
+- (struct __CFString { } *)container;
+- (id)copyPropertyListValidatingPlist:(BOOL)a0;
+- (struct __CFString { } *)debugDump;
+- (void)dealloc;
+- (void)syncWriteToDisk;
+- (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(BOOL)a0;
+- (unsigned long long)hash;
+- (struct __CFString { } *)copyUncanonicalizedPath;
+- (BOOL)enqueueNewKey:(id)a0 value:(id)a1 encoding:(int)a2 inBatch:(BOOL)a3;
+- (struct __CFString { } *)domain;
+- (void)updateShmemEntry;
+- (id)description;
+- (void)respondToFileWrittenToBehindOurBack;
+- (void)lockedAsync:(id /* block */)a0;
+- (void)setManagedPreferencesUseContainer:(BOOL)a0;
+- (BOOL)byHost;
+- (BOOL)isEqual:(id)a0;
+- (void)syncWriteToDiskAndFlushCacheForReason:(struct __CFString { } *)a0;
+- (void)drainPendingChanges;
+- (void)asyncNotifyObserversOfWriteFromConnection:(id)a0 message:(id)a1;
+- (void)cleanUpAfterAcceptingMessage:(id)a0;
+- (id)initWithDomain:(struct __CFString { } *)a0 userName:(struct __CFString { } *)a1 byHost:(BOOL)a2 managed:(BOOL)a3 shmemIndex:(short)a4 daemon:(id)a5;
+- (void)finishedNonRequestWriteWithError:(int)a0;
+- (struct __CFString { } *)cloudConfigurationPath;
+- (int)validateMessage:(id)a0 withNewKey:(id)a1 newValue:(id)a2 plistIsAvailableToRead:(BOOL)a3 containerPath:(const char *)a4 diagnosticMessage:(const char **)a5;
+- (void)lockedSync:(id /* block */)a0;
+- (void)processEndOfMessageIntendingToRemoveSource:(BOOL *)a0;
+
+@end

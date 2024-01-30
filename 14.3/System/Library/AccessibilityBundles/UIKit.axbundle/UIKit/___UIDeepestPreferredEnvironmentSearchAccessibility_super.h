@@ -1,0 +1,3 @@
+@interface ___UIDeepestPreferredEnvironmentSearchAccessibility_super : UIAccessibilitySafeCategory
+
+@end

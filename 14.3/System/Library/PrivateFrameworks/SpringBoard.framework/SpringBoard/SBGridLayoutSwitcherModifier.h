@@ -1,0 +1,82 @@
+@class NSString;
+
+@interface SBGridLayoutSwitcherModifier : SBSwitcherModifier <PTSettingsKeyObserver> {
+    struct CGPoint { double x; double y; } _previousContentOffset;
+    BOOL _isScrollingForward;
+}
+
+@property (nonatomic) unsigned long long alignment;
+@property (nonatomic) unsigned long long layoutDirection;
+@property (nonatomic) unsigned long long scrollAxis;
+@property (nonatomic) unsigned long long fixedGroupingSize;
+@property (nonatomic) double cardScale;
+@property (nonatomic, getter=isUsingFixedCardSize) BOOL usesFixedCardSize;
+@property (nonatomic) struct CGSize { double width; double height; } fixedCardSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)visibleAppLayouts;
+- (struct CGSize { double x0; double x1; })_contentSize;
+- (double)opacityForIndex:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForIndex:(unsigned long long)a0;
+- (id)animationAttributesForLayoutElement:(id)a0;
+- (id)handleMainTransitionEvent:(id)a0;
+- (id)appLayoutsToCacheSnapshots;
+- (id)handleScrollEvent:(id)a0;
+- (double)_verticalSpacing;
+- (unsigned long long)numberOfRows;
+- (id)handleSwitcherSettingsChangedEvent:(id)a0;
+- (double)contentPageViewScaleForAppLayout:(id)a0;
+- (double)shadowOpacityForIndex:(unsigned long long)a0;
+- (double)titleAndIconOpacityForIndex:(unsigned long long)a0;
+- (BOOL)shouldBringCardToFrontDuringInsertionOrRemoval;
+- (BOOL)clipsToUnobscuredMarginAtIndex:(unsigned long long)a0;
+- (id)appLayoutsToCacheFullsizeSnapshots;
+- (double)snapshotScaleForAppLayout:(id)a0;
+- (struct UIRectCornerRadii { double x0; double x1; double x2; double x3; })cardCornerRadiiForIndex:(unsigned long long)a0;
+- (double)minimumTranslationToKillIndex:(unsigned long long)a0;
+- (unsigned long long)_numberOfColumns;
+- (BOOL)_isIndexVisible:(unsigned long long)a0;
+- (struct CGPoint { double x0; double x1; })adjustedOffsetForOffset:(struct CGPoint { double x0; double x1; })a0 translation:(struct CGPoint { double x0; double x1; })a1 startPoint:(struct CGPoint { double x0; double x1; })a2 locationInView:(struct CGPoint { double x0; double x1; })a3 horizontalVelocity:(inout double *)a4 verticalVelocity:(inout double *)a5;
+- (unsigned long long)indexToScrollToAfterRemovingIndex:(unsigned long long)a0;
+- (double)scaleForIndex:(unsigned long long)a0;
+- (double)rotationAngleForIndex:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fullyPresentedFrameForAppLayout:(id)a0;
+- (struct CGPoint { double x0; double x1; })contentOffsetForIndex:(unsigned long long)a0 centered:(BOOL)a1;
+- (double)visibleMarginForItemContainerAtIndex:(unsigned long long)a0;
+- (void)didMoveToParentModifier:(id)a0;
+- (struct CGPoint { double x0; double x1; })restingOffsetForScrollOffset:(struct CGPoint { double x0; double x1; })a0 velocity:(struct CGPoint { double x0; double x1; })a1;
+- (unsigned long long)_numberOfRows;
+- (double)shadowOffsetForIndex:(unsigned long long)a0;
+- (void)_applyPrototypeSettings;
+- (id)scrollViewAttributes;
+- (unsigned long long)indexToScrollToAfterInsertingAtIndex:(unsigned long long)a0;
+- (double)darkeningAlphaForIndex:(unsigned long long)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_visibleAppLayoutRangeForContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (double)_horizontalSpacing;
+- (double)contentViewScale;
+- (BOOL)shouldAnimateInsertionOrRemovalAtIndex:(unsigned long long)a0;
+- (double)titleOpacityForIndex:(unsigned long long)a0;
+- (void)resetAdjustedScrollingState;
+- (double)distanceToLeadingEdgeOfLeadingCardFromTrailingEdgeOfScreenWithVisibleIndexToStartSearch:(unsigned long long)a0;
+- (double)_cardCornerRadiusInSwitcher;
+- (void)_handleTransitionEvent:(id)a0;
+- (id)handleInlineTransitionEvent:(id)a0;
+- (id)initWithScrollAxis:(unsigned long long)a0 fixedGroupingSize:(unsigned long long)a1 cardScale:(double)a2 alignment:(unsigned long long)a3 layoutDirection:(unsigned long long)a4;
+- (unsigned long long)_indexOfLeadingCard;
+- (struct CGSize { double x0; double x1; })_fittedContentSize;
+- (double)_cardHeaderHeight;
+- (double)_gridSwitcherPageScale;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForIndex:(unsigned long long)a0 ignoringScrollOffset:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameWithScaleAppliedForIndex:(unsigned long long)a0 ignoringScrollOffset:(BOOL)a1;
+- (double)_trailingPadding;
+- (double)_leadingPadding;
+- (struct CGSize { double x0; double x1; })_scaledCardSize;
+- (unsigned long long)_firstTrailingIndexForContentOffset:(struct CGPoint { double x0; double x1; })a0;
+- (unsigned long long)_rowForIndex:(unsigned long long)a0;
+- (unsigned long long)_columnForIndex:(unsigned long long)a0;
+- (struct CGSize { double x0; double x1; })_cardSize;
+
+@end

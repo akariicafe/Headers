@@ -1,0 +1,3 @@
+@interface ___PXGSingleViewLayoutContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

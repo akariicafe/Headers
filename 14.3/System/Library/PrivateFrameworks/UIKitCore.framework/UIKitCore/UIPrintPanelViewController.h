@@ -1,0 +1,81 @@
+@class NSString, NSArray, UINavigationController, UIPrintPaper, UIWindow, UIPrintPanelTableViewController, PKPrinter, UIViewController, UIPrintInteractionController, UIPopoverController;
+
+@interface UIPrintPanelViewController : NSObject <UIPrinterBrowserOwner, UIPrintPanelAppearanceDelegate> {
+    UIPrintInteractionController *_printInteractionController;
+    int _lastUsedPrinterIndex;
+    UINavigationController *_navigationController;
+    UIPrintPanelTableViewController *_tableViewController;
+    UIViewController *_parentController;
+    UIPopoverController *_poverController;
+    UIWindow *_window;
+    BOOL _dismissed;
+    BOOL _animated;
+    BOOL _observingRotation;
+    BOOL _canShowColor;
+    id /* block */ _previewCompletionHandler;
+}
+
+@property (retain, nonatomic) PKPrinter *printer;
+@property (readonly, nonatomic) long long pageCount;
+@property (retain, nonatomic) NSArray *pageRanges;
+@property (nonatomic) BOOL duplex;
+@property (nonatomic) BOOL grayscale;
+@property (nonatomic) BOOL staple;
+@property (nonatomic) BOOL punch;
+@property (readonly, nonatomic) NSArray *paperList;
+@property (retain, nonatomic) UIPrintPaper *paper;
+@property (nonatomic) long long copies;
+@property (nonatomic) BOOL scaleUpDocument;
+@property (nonatomic) BOOL annotationsImaged;
+@property (retain, nonatomic) NSString *jobAccountID;
+@property (readonly, nonatomic) BOOL showDuplex;
+@property (readonly, nonatomic) BOOL showColor;
+@property (readonly, nonatomic) BOOL showPageRange;
+@property (readonly, nonatomic) BOOL showCopies;
+@property (readonly, nonatomic) BOOL showPaper;
+@property (readonly, nonatomic) BOOL showPaperSelection;
+@property (readonly, nonatomic) BOOL showPreview;
+@property (readonly, nonatomic) BOOL showMoreOptions;
+@property (readonly, nonatomic) BOOL showStaple;
+@property (readonly, nonatomic) BOOL showPunch;
+@property (readonly, nonatomic) BOOL showScaleUp;
+@property (readonly, nonatomic) BOOL contentLargerThanRollPaper;
+@property (readonly, nonatomic) BOOL showJobAccountID;
+@property (readonly, nonatomic) BOOL isJobAccountIDRequired;
+@property (readonly, nonatomic) BOOL hasJobAccountID;
+@property (readonly, nonatomic) BOOL showAnnotationSwitch;
+@property (retain) NSArray *lastUsedPrinterArray;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (id)initWithPrintInterationController:(id)a0 inParentController:(id)a1;
+- (void)presentPrintPanelFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1 animated:(BOOL)a2;
+- (void)presentPrintPanelFromBarButtonItem:(id)a0 animated:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)popoverControllerDidDismissPopover:(id)a0;
+- (id)printInfo;
+- (void)dismissAnimated:(BOOL)a0;
+- (void)printMoreOptionsViewDidDisappear;
+- (void)cancelPrinting;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)printPanelDidDisappear;
+- (id)localizedPageRangeText;
+- (void)startPrinting;
+- (void)printNavigationConrollerDidDismiss;
+- (void)lookupLastUsedPrinter;
+- (void)_keyWindowWillRotate:(id)a0;
+- (void)_presentInParentAnimated:(BOOL)a0;
+- (void)presentPrintPanelAnimated:(BOOL)a0 hostingScene:(id)a1;
+- (void)dismissPrintPanel:(BOOL)a0 animated:(BOOL)a1;
+- (id)_removeRollsFrom:(id)a0;
+- (BOOL)testIfContentLargerThanRollPaper:(id)a0;
+- (void)printerBrowserViewDidDisappear;
+- (BOOL)filtersPrinters;
+- (void)printPaperViewDidDisappear;
+- (void)printRangeViewDidDisappear;
+
+@end

@@ -1,0 +1,3 @@
+@interface NFLLocalization : NSObject
+
+@end

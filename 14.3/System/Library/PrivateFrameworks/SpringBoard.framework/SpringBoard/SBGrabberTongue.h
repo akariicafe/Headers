@@ -1,0 +1,82 @@
+@class BSMonotonicReferenceTime, NSString, SBIndirectPanGestureRecognizer, _UIBackdropView, UIView, UIPanGestureRecognizer, UIImageView;
+@protocol SBGrabberTongueDelegate, BSInvalidatable;
+
+@interface SBGrabberTongue : NSObject <SBSystemGestureRecognizerDelegate> {
+    BOOL _invalidated;
+    UIPanGestureRecognizer *_edgePullGestureRecognizer;
+    SBIndirectPanGestureRecognizer *_indirectEdgePullGestureRecognizer;
+    UIView *_tongueContainer;
+    _UIBackdropView *_tongueBackdropView;
+    UIImageView *_tongueChevron;
+    BOOL _tongueVisible;
+    BOOL _inPullGesture;
+    BOOL _inShowTongueGesture;
+    BOOL _inDismissTongueGesture;
+    BOOL _inAmbiguousGesture;
+    BOOL _beganAmbiguousPullGesture;
+    unsigned long long _screenEdge;
+    unsigned long long _systemGestureType;
+    UIView *_containingView;
+    BSMonotonicReferenceTime *_gestureStartReferenceTime;
+    id<BSInvalidatable> _deferOrientationUpdatesAssertion;
+}
+
+@property (readonly, weak, nonatomic) id<SBGrabberTongueDelegate> delegate;
+@property (readonly, nonatomic, getter=isVisible) BOOL visible;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)presentAnimated:(BOOL)a0;
+- (void)_updateCancelsTouchesWithRecognizer:(id)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })_transformForTongueContainer;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (id)init;
+- (void)installInView:(id)a0 withColorStyle:(long long)a1;
+- (id)_createEdgePullGestureRecognizerWithAction:(SEL)a0;
+- (void).cxx_destruct;
+- (void)_handlePullGesture:(id)a0;
+- (id)edgePullGestureRecognizer;
+- (void)dealloc;
+- (double)edgeLocationForTouch:(id)a0;
+- (double)distanceFromEdge;
+- (BOOL)dismissWithStyle:(long long)a0 animated:(BOOL)a1;
+- (BOOL)isEdgeLocationInGrabberRegion:(double)a0;
+- (void)_pullGestureCanceled:(id)a0;
+- (void)_didPresentInteractively:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForTongueWhenVisible:(BOOL)a0;
+- (BOOL)_shouldShowTongueOnFirstSwipeWithRecognizer:(id)a0;
+- (id)indirectEdgePullGestureRecognizer;
+- (id)initWithDelegate:(id)a0 edge:(unsigned long long)a1 type:(unsigned long long)a2;
+- (BOOL)_tongueOrPullEnabledForGestureRecognizer:(id)a0;
+- (void)_dismissTongue:(id)a0;
+- (BOOL)_shouldAllowSecondSwipeWithRecognizer:(id)a0;
+- (double)_ambiguousActivationMarginIfHonored;
+- (void)_pullGestureBegan:(id)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_grabberTongueScreenInsets;
+- (void)_willDismiss;
+- (void)_didDismiss;
+- (double)_edgeOrientedVelocityForRecognizer:(id)a0;
+- (id)_newChevronView;
+- (void)_pullGestureEnded:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chevronFrameForTongueBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)_willPresentInteractively:(id)a0;
+- (void)_cancelPendingTongueDismissRequests;
+- (void)_createTongueAndGestureRecognizersIfNecessaryWithColorStyle:(long long)a0;
+- (void)_pullGestureUpdated:(id)a0;
+- (BOOL)_shouldReceiveTouch:(id)a0;
+- (void)uninstall;
+- (id)viewForSystemGestureRecognizer:(id)a0;
+- (void)_presentTongueAnimated:(BOOL)a0;
+- (double)_ambiguousActivationMargin;
+- (void)invalidate;
+- (void)_dismissTongueWithStyle:(long long)a0 animated:(BOOL)a1;
+- (void)_willPresent;
+- (double)_centerOnScreenEdge;
+- (double)_distanceFromEdgeForRecognizer:(id)a0;
+- (double)edgeOrientedVelocity;
+- (id)_newBackdropViewWithColorStyle:(long long)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface SBCMusicLibraryPlaybackPositionDomain : SBCPlaybackPositionDomain
+
+@end

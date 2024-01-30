@@ -1,0 +1,3 @@
+@interface __PXCMMPosterHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

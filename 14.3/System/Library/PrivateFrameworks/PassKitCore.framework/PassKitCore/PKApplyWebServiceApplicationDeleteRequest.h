@@ -1,0 +1,15 @@
+@class NSString, NSURL;
+
+@interface PKApplyWebServiceApplicationDeleteRequest : PKApplyWebServiceRequest
+
+@property (copy, nonatomic) NSString *applicationIdentifier;
+@property (retain, nonatomic) NSURL *baseURL;
+
++ (BOOL)supportsSecureCoding;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)_urlRequestWithAppleAccountInformation:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

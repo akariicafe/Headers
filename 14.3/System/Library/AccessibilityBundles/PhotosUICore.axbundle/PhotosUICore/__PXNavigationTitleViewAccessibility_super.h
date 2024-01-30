@@ -1,0 +1,3 @@
+@interface __PXNavigationTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface GPBWrappersRoot : GPBRootObject
+
+@end

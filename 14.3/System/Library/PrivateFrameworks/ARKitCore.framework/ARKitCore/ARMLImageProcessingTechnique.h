@@ -1,0 +1,97 @@
+@class NSString, NSArray, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface ARMLImageProcessingTechnique : ARImageBasedTechnique <ARTechniqueBusyState> {
+    NSObject<OS_dispatch_queue> *_processingQueue;
+    NSObject<OS_dispatch_semaphore> *_processingSemaphore;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _prepLock;
+    double _espressoInputBufferTimestamp;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _espressoInputBufferLock;
+    void *_espressoContext;
+    void *_espressoPlan;
+    struct { void *plan; int network_index; } _espressoNetwork;
+    struct vector<espresso_buffer_t, std::__1::allocator<espresso_buffer_t> > { struct *__begin_; struct *__end_; struct __compressed_pair<espresso_buffer_t *, std::__1::allocator<espresso_buffer_t> > { struct *__value_; } __end_cap_; } _espressoOutputTensors;
+    struct vector<__CVPixelBufferPool *, std::__1::allocator<__CVPixelBufferPool *> > { struct __CVPixelBufferPool **__begin_; struct __CVPixelBufferPool **__end_; struct __compressed_pair<__CVPixelBufferPool **, std::__1::allocator<__CVPixelBufferPool *> > { struct __CVPixelBufferPool **__value_; } __end_cap_; } _espressoOutputBufferPools;
+    struct vector<espresso_buffer_t, std::__1::allocator<espresso_buffer_t> > { struct *__begin_; struct *__end_; struct __compressed_pair<espresso_buffer_t *, std::__1::allocator<espresso_buffer_t> > { struct *__value_; } __end_cap_; } _espressoInputTensors;
+    BOOL _hasBegunPrep;
+    struct __CVPixelBufferPool { } *_bgraPixelBufferPool;
+    NSString *_previous_network_configuration;
+    int _lockedOrientation;
+    BOOL _deterministic;
+}
+
+@property BOOL prepComplete;
+@property (retain, nonatomic) NSString *networkFilePath;
+@property (readonly, nonatomic) NSArray *inputTensorNames;
+@property (readonly, nonatomic) NSArray *outputTensorNames;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } networkInputScaleBeforeRotation;
+@property (nonatomic) struct CGSize { double width; double height; } allowedResamplingImageSize;
+@property BOOL networkHasConfigurations;
+@property (readonly, nonatomic) NSString *networkVersionString;
+@property (readonly, nonatomic) BOOL failedToLoadNetwork;
+@property (nonatomic) BOOL useEspressoZeroCopyOutput;
+@property (readonly, nonatomic) BOOL isBusy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isSupported;
+
+- (void).cxx_destruct;
+- (id)processData:(id)a0;
+- (void)dealloc;
+- (id).cxx_construct;
+- (void)prepare:(BOOL)a0;
+- (double)requiredTimeInterval;
+- (id)resultDataClasses;
+- (id)initWithDispatchQueue:(id)a0 inputTensorNames:(id)a1 outputTensorNames:(id)a2 networkInputScaleBeforeRotation:(struct CGSize { double x0; double x1; })a3 networkFilePath:(id)a4 useEspressoZeroCopyOutput:(BOOL)a5;
+- (struct { float x0; float x1; float x2; float x3; BOOL x4; })networkInputParams;
+- (void)_startLoadingMLModelSignpost;
+- (void)_endLoadingMLModelSignpost;
+- (void)_startMLProcessingSignpostWithTimestamp:(double)a0;
+- (void)_endMLProcessingSignpostWithTimestamp:(double)a0;
+- (void)_startMLRunNetworkSignpostWithTimestamp:(double)a0;
+- (void)_endMLRunNetworkSignpostWithTimestamp:(double)a0;
+- (void)_startMLCreateResultSignpostWithTimestamp:(double)a0 orientation:(long long)a1 outputSize:(struct CGSize { double x0; double x1; })a2;
+- (void)_endMLCreateResultSignpostWithTimestamp:(double)a0;
+- (id)initWithDispatchQueue:(id)a0 inputTensorNames:(id)a1 outputTensorNames:(id)a2 networkInputScaleBeforeRotation:(struct CGSize { double x0; double x1; })a3 networkFilePath:(id)a4;
+- (BOOL)ARMLVerifyLoadedModelVersion:(id)a0 deviceName:(id)a1 major:(int)a2 minor:(int)a3;
+- (BOOL)isLoadedModelVersionCorrect:(id)a0;
+- (void)changeEspressoConfig:(id)a0;
+- (id)createResultDataFromTensors:(struct { void *x0; void *x1; unsigned long long x2[4]; unsigned long long x3[4]; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned long long x11; unsigned long long x12; unsigned long long x13; int x14; } *)a0 numberOfOutputTensors:(unsigned long long)a1 imageDataForNeuralNetwork:(id)a2 inputImageData:(id)a3 rotationNeeded:(long long)a4 regionOfInterest:(struct CGSize { double x0; double x1; })a5;
+- (struct { void *x0; int x1; })espressoNetwork;
+- (void *)espressoPlan;
+- (struct { void *x0; void *x1; unsigned long long x2[4]; unsigned long long x3[4]; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned long long x11; unsigned long long x12; unsigned long long x13; int x14; } *)espressoOutputTensorsData;
+- (unsigned long long)requiredSensorDataTypes;
+- (id)processEspressoTensor:(id)a0;
+- (long long)captureBehavior;
+- (long long)_getDeviceOrientation;
+- (void)lockOrientation:(long long)a0;
+- (id)networkModesForOrientation:(long long)a0;
+- (BOOL)preProcessNetworkInputImage:(struct __CVBuffer { } *)a0;
+- (unsigned long long)espressoOutputTensorsSize;
+- (id)runNeuralNetworkWithImageData:(id)a0 originalImageData:(id)a1 regionOfInterest:(struct CGSize { double x0; double x1; })a2 rotationOfResultTensor:(long long)a3;
+- (struct { void *x0; void *x1; unsigned long long x2[4]; unsigned long long x3[4]; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned long long x11; unsigned long long x12; unsigned long long x13; int x14; } *)espressoInputTensorsData;
+- (int)bindInputBuffer:(unsigned long long)a0 withImage:(id)a1 andOriginalImageData:(id)a2 rotationOfResultTensor:(long long)a3;
+- (void)networkModeDidChange:(id)a0 toMode:(id)a1;
+- (int)prepareBindInputBuffer:(unsigned long long)a0 withName:(id)a1;
+- (void)_captureMLRunNetworkInputImageData:(double)a0 cameraType:(long long)a1 imageWidth:(unsigned long long)a2 imageHeight:(unsigned long long)a3;
+- (long long)numberOfInputChannelsToExpectInNetwork;
+- (BOOL)shouldUseSynchronizedUltraWide;
+- (int)defaultEngine;
+- (id)defaultEngineName;
+- (void)_bindOutputTensor;
+- (void)loadMLWithPath:(id)a0 networkMode:(id)a1;
+- (void)_asynchronousProcessDownSampledImage:(id)a0;
+- (void)waitForProcessingCompleteInDeterministicMode;
+- (void)_asynchronousProcessEspressoTensor:(id)a0;
+- (BOOL)networkProvidesConfigurationsForDeviceOrientation;
+- (id)_resampleImage:(id)a0 rotationOfResultTensor:(long long)a1 networkInputSize:(struct CGSize { double x0; double x1; })a2;
+- (void)_runNeuralNetworkAndPushResult:(id)a0 originalImageData:(id)a1 regionOfInterest:(struct CGSize { double x0; double x1; })a2 rotationOfResultTensor:(long long)a3;
+- (id)processImageDataThroughNeuralNetwork:(id)a0 originalImageData:(id)a1 regionOfInterest:(struct CGSize { double x0; double x1; })a2 rotationOfResultTensor:(long long)a3;
+- (id)processingSemaphore;
+- (unsigned long long)espressoInputTensorsSize;
+- (long long)orientationForInitializingEspresso;
+
+@end

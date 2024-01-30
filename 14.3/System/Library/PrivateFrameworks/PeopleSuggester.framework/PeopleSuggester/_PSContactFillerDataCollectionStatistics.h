@@ -1,0 +1,16 @@
+@class NSMutableArray;
+
+@interface _PSContactFillerDataCollectionStatistics : NSObject
+
+@property (retain, nonatomic) NSMutableArray *list;
+@property double min;
+@property double max;
+@property double avg;
+@property double stdev;
+
+- (void)addValue:(id)a0;
+- (void).cxx_destruct;
+- (void)calculateStats;
+- (id)initWithList:(id)a0;
+
+@end

@@ -1,0 +1,100 @@
+@class NSDate, NSString, NSError, PHImportAssetDataRequest, NSMutableDictionary, NSDictionary, PXImportAssetCollection, NSNumber, PHImportAsset;
+@protocol PXImportDisplayDelegate;
+
+@interface PXImportItemViewModel : PXObservable <PXDisplayAsset, NSCopying> {
+    NSString *_collectionIdentifier;
+}
+
+@property (class, readonly, nonatomic) NSString *alreadyImportedGroupIdentifier;
+
+@property (readonly, nonatomic) long long mediaType;
+@property (readonly, nonatomic) unsigned long long mediaSubtypes;
+@property (readonly, nonatomic) NSDate *creationDate;
+@property (readonly, nonatomic) NSDate *localCreationDate;
+@property (readonly, nonatomic, getter=isFavorite) BOOL favorite;
+@property (readonly, nonatomic) BOOL representsBurst;
+@property (readonly, nonatomic) BOOL isInCloud;
+@property (readonly, nonatomic) BOOL isEligibleForAutoPlayback;
+@property (readonly, nonatomic) unsigned long long pixelWidth;
+@property (readonly, nonatomic) unsigned long long pixelHeight;
+@property (readonly, nonatomic) Class defaultImageProviderClass;
+@property (readonly, nonatomic) double duration;
+@property (readonly, nonatomic) long long playbackStyle;
+@property (readonly, nonatomic) long long playbackVariation;
+@property (readonly, nonatomic) double aspectRatio;
+@property (readonly, nonatomic) unsigned long long thumbnailVersion;
+@property (readonly, nonatomic) NSString *uuid;
+@property (readonly, nonatomic) NSNumber *hdrGain;
+@property (readonly, nonatomic) unsigned long long burstSelectionTypes;
+@property (readonly, nonatomic) NSString *localizedGeoDescription;
+@property (readonly, nonatomic) NSDate *importDate;
+@property (readonly, nonatomic) BOOL isAutoPlaybackEligibilityEstimated;
+@property (readonly, nonatomic) unsigned long long thumbnailIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) NSMutableDictionary *imageRepresentationsBySize;
+@property (retain, nonatomic) NSMutableDictionary *assetRequestsBySize;
+@property (retain, nonatomic) NSMutableDictionary *thumbnailRequestsBySize;
+@property (readonly, nonatomic) id uuid;
+@property (readonly, nonatomic) NSString *fileName;
+@property (readonly, nonatomic) NSDate *fileCreationDate;
+@property (weak, nonatomic) id<PXImportDisplayDelegate> displayDelegate;
+@property (readonly, nonatomic) PHImportAsset *importAsset;
+@property (weak, nonatomic) PXImportAssetCollection *assetCollection;
+@property (readonly, nonatomic) long long badgeType;
+@property (readonly, nonatomic) BOOL isPanoramicImage;
+@property (readonly, nonatomic) NSString *kind;
+@property (readonly, nonatomic) BOOL isMediaAsset;
+@property (readonly, nonatomic) BOOL isNotYetImported;
+@property (nonatomic) struct CGSize { double width; double height; } largeThumbnailSize;
+@property (nonatomic) struct CGSize { double width; double height; } thumbnailSize;
+@property (readonly, nonatomic) NSString *debugDisplayName;
+@property (weak, nonatomic) PHImportAssetDataRequest *thumbnailRequest;
+@property (retain, nonatomic) NSError *thumbnailError;
+@property (nonatomic) double imageProcessingStartTime;
+@property (nonatomic) double imageProcessingEndTime;
+@property (readonly, nonatomic, getter=isSelected) BOOL selected;
+@property (readonly, nonatomic, getter=isSelectable) BOOL selectable;
+@property (readonly, nonatomic, getter=isDuplicate) BOOL duplicate;
+@property (readonly, nonatomic) long long state;
+@property (readonly, nonatomic) long long thumbnailIndex;
+@property (readonly, nonatomic) NSDate *importDate;
+@property (readonly, nonatomic) NSString *deleteSession;
+@property (readonly, nonatomic) BOOL isDeleted;
+@property (readonly, nonatomic) NSDictionary *imageRepresentations;
+
++ (id)dateFormatter;
++ (id)importAssetsFromModels:(id)a0;
++ (BOOL)hasPanoramaImageDimensions:(struct CGSize { double x0; double x1; })a0;
+
+- (id)initWithImportAsset:(id)a0;
+- (id)groupIdentifier;
+- (id)init;
+- (void)setIsDeleted:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setSelected:(BOOL)a0;
+- (void)performChanges:(id /* block */)a0;
+- (id)mutableChangeObject;
+- (id)accessibilityLabel;
+- (void)setDuplicate:(BOOL)a0;
+- (void)setSelectable:(BOOL)a0;
+- (id)initWithKind:(id)a0 selectable:(BOOL)a1;
+- (BOOL)isEqualToImportItemViewModel:(id)a0;
+- (void)addImageRepresentation:(id)a0;
+- (void)setDeleteSession:(id)a0;
+- (id)assetDataRequestForRequestSize:(unsigned long long)a0;
+- (void)setAssetDataRequest:(id)a0 forRequestSize:(unsigned long long)a1;
+- (void)removeAssetDataRequestForRequestSize:(unsigned long long)a0;
+- (id)thumbnailRequestsForRequestSize:(unsigned long long)a0;
+- (void)addThumbnailRequest:(id)a0;
+- (void)removeThumbnailRequest:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)setImportDate:(id)a0;
+- (void)setState:(long long)a0;
+- (long long)isContentEqualTo:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bestCropRectForAspectRatio:(double)a0;
+
+@end

@@ -1,0 +1,23 @@
+@class NSString;
+@protocol CALNInboxNotificationProvider, CALNEKCalendarNotificationReferenceProvider, CALNDataSourceEventRepresentationProvider, EKEventStoreProvider;
+
+@interface CALNEventInvitationResponseNotificationEKDataSource : NSObject <CALNEventInvitationResponseNotificationDataSource>
+
+@property (readonly, nonatomic) id<EKEventStoreProvider> eventStoreProvider;
+@property (readonly, nonatomic) id<CALNInboxNotificationProvider> inboxNotificationProvider;
+@property (readonly, nonatomic) id<CALNEKCalendarNotificationReferenceProvider> notificationReferenceProvider;
+@property (readonly, nonatomic) id<CALNDataSourceEventRepresentationProvider> dataSourceEventRepresentationProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)fetchEventInvitationResponseNotificationWithSourceClientIdentifier:(id)a0;
+- (id)initWithEventStoreProvider:(id)a0 inboxNotificationProvider:(id)a1 notificationReferenceProvider:(id)a2 dataSourceEventRepresentationProvider:(id)a3;
+- (void)clearEventInvitationResponseWithSourceClientIdentifier:(id)a0;
+- (id)fetchEventInvitationResponseNotificationSourceClientIdentifiers:(id)a0;
+- (id)fetchEventInvitationResponseNotifications;
+- (id)_notificationInfoFromNotification:(id)a0 inEventStore:(id)a1;
+
+@end

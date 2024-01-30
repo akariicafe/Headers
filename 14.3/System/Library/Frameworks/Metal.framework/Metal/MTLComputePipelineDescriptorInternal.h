@@ -1,0 +1,75 @@
+@class NSString, MTLStageInputOutputDescriptor, NSDictionary, NSArray, MTLLinkedFunctions, MTLPipelineBufferDescriptorArrayInternal;
+@protocol MTLFunction, MTLPipelineLibrary;
+
+@interface MTLComputePipelineDescriptorInternal : MTLComputePipelineDescriptor {
+    struct MTLComputePipelineDescriptorPrivate { NSString *label; id<MTLFunction> computeFunction; BOOL threadGroupSizeIsMultipleOfThreadExecutionWidth; unsigned short maxTotalThreadsPerThreadgroup; MTLStageInputOutputDescriptor *stageInputDescriptor; NSDictionary *driverCompilerOptions; MTLPipelineBufferDescriptorArrayInternal *buffers; NSArray *binaryArchives; NSArray *insertLibraries; id<MTLPipelineLibrary> pipelineLibrary; BOOL supportIndirectCommandBuffers; long long textureWriteRoundingMode; BOOL forceResourceIndex; unsigned long long resourceIndex; NSDictionary *pluginData; BOOL needsCustomBorderColorSamplers; unsigned char openGLMode : 1; unsigned char openCLMode : 1; unsigned int reserved : 30; NSArray *functionPointers; NSDictionary *functionPointerGroups; MTLLinkedFunctions *linkedFunctions; unsigned long long maxStackCallDepth; BOOL supportAddingBinaryFunctions; } _private;
+}
+
+- (unsigned long long)resourceIndex;
+- (BOOL)openCLModeEnabled;
+- (id)formattedDescription:(unsigned long long)a0;
+- (void)setSupportIndirectCommandBuffers:(BOOL)a0;
+- (const struct MTLComputePipelineDescriptorPrivate { id x0; id x1; BOOL x2; unsigned short x3; id x4; id x5; id x6; id x7; id x8; id x9; BOOL x10; long long x11; BOOL x12; unsigned long long x13; id x14; BOOL x15; unsigned char x16 : 1; unsigned char x17 : 1; unsigned int x18 : 30; id x19; id x20; id x21; unsigned long long x22; BOOL x23; } *)_descriptorPrivate;
+- (id)linkedFunctions;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)functionPointerGroups;
+- (void)reset;
+- (void)dealloc;
+- (long long)textureWriteFPRoundingMode;
+- (void)setOpenGLModeEnabled:(BOOL)a0;
+- (void)setDriverCompilerOptions:(id)a0;
+- (void)setSupportAddingBinaryFunctions:(BOOL)a0;
+- (id)driverCompilerOptions;
+- (long long)textureWriteRoundingMode;
+- (void)setInsertLibraries:(id)a0;
+- (id)newSerializedComputeData;
+- (void)setResourceIndex:(unsigned long long)a0;
+- (id)dynamicLibraries;
+- (void)setLabel:(id)a0;
+- (void)setFunctionPointers:(id)a0;
+- (id)pipelineLibrary;
+- (void)setLinkedFunctions:(id)a0;
+- (void)setMaxCallStackDepth:(unsigned long long)a0;
+- (void)setDynamicLibraries:(id)a0;
+- (unsigned long long)hash;
+- (void)setTextureWriteRoundingMode:(long long)a0;
+- (id)stageInputDescriptor;
+- (id)newSerializedComputeDataWithFlags:(unsigned long long)a0 options:(unsigned long long)a1;
+- (BOOL)validateWithDevice:(id)a0 error:(id *)a1;
+- (BOOL)forceResourceIndex;
+- (void)setPluginData:(id)a0;
+- (id)description;
+- (unsigned long long)maxStackCallDepth;
+- (void)setPipelineLibrary:(id)a0;
+- (void)setComputeFunction:(id)a0;
+- (void)setTextureWriteFPRoundingMode:(long long)a0;
+- (unsigned long long)maxCallStackDepth;
+- (void)setThreadGroupSizeIsMultipleOfThreadExecutionWidth:(BOOL)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)setStageInputDescriptor:(id)a0;
+- (id)buffers;
+- (id)label;
+- (void)setBinaryLibraries:(id)a0;
+- (void)validateWithDevice:(id)a0;
+- (void)setMaxTotalThreadsPerThreadgroup:(unsigned long long)a0;
+- (void)setFunctionPointerGroups:(id)a0;
+- (id)insertLibraries;
+- (void)setNeedsCustomBorderColorSamplers:(BOOL)a0;
+- (BOOL)threadGroupSizeIsMultipleOfThreadExecutionWidth;
+- (void)setForceResourceIndex:(BOOL)a0;
+- (id)binaryArchives;
+- (BOOL)openGLModeEnabled;
+- (BOOL)needsCustomBorderColorSamplers;
+- (BOOL)supportAddingBinaryFunctions;
+- (void)setBinaryArchives:(id)a0;
+- (id)functionPointers;
+- (unsigned long long)maxTotalThreadsPerThreadgroup;
+- (void)setMaxStackCallDepth:(unsigned long long)a0;
+- (BOOL)supportIndirectCommandBuffers;
+- (id)pluginData;
+- (void)setOpenCLModeEnabled:(BOOL)a0;
+- (id)computeFunction;
+- (id)binaryLibraries;
+
+@end

@@ -1,0 +1,71 @@
+@class SXLearnMoreButton, SXPlaybackCoordinator, SVKeyValueObserver, SXAdPrivacyButton, SXAutomaticFullscreenVideoPlaybackBehaviorManager, UIViewController, NSString, SXVideoVolumeObserver, UIGestureRecognizer, UIActivityIndicatorView, SXVideoAdSkipButton, AVPlayerViewController, SXVideoPlaybackQueue;
+@protocol SXVideoPlayerViewControllerDelegate, SXVolumeReporting, SXVideoAdProviding, SXVideoPlayerViewControllerDataSource;
+
+@interface SXVideoPlayerViewController : UIViewController <SXVideoPlaybackObserver, AVPlayerViewControllerDelegate_WebKitOnly, AVPlayerViewControllerDelegatePrivate, SXAutomaticFullscreenVideoPlaybackBehaviorManagerDelegate, UIGestureRecognizerDelegate, SXVideoAdViewControllerProviding>
+
+@property (retain, nonatomic) SXVideoPlaybackQueue *queue;
+@property (retain, nonatomic) SXPlaybackCoordinator *coordinator;
+@property (retain, nonatomic) id<SXVideoAdProviding> videoAd;
+@property (nonatomic) BOOL playButtonTapped;
+@property (retain, nonatomic) AVPlayerViewController *playerViewController;
+@property (retain, nonatomic) SXLearnMoreButton *learnMoreButton;
+@property (retain, nonatomic) SXVideoAdSkipButton *skipButton;
+@property (retain, nonatomic) SXAdPrivacyButton *adPrivacyButton;
+@property (retain, nonatomic) UIActivityIndicatorView *activityIndicatorView;
+@property (retain, nonatomic) SVKeyValueObserver *videoBoundsObserver;
+@property (readonly, nonatomic) SXAutomaticFullscreenVideoPlaybackBehaviorManager *fullscreenBehaviorManager;
+@property (nonatomic) unsigned long long mode;
+@property (nonatomic, getter=isFullscreen) BOOL fullscreen;
+@property (readonly, nonatomic) id<SXVolumeReporting> volumeReporter;
+@property (retain, nonatomic) SXVideoVolumeObserver *volumeObserver;
+@property (readonly, nonatomic) UIGestureRecognizer *tapGesture;
+@property (nonatomic) BOOL showsPlaybackControls;
+@property (weak, nonatomic) id<SXVideoPlayerViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<SXVideoPlayerViewControllerDataSource> dataSource;
+@property (readonly, nonatomic, getter=isPlaying) BOOL playing;
+@property (nonatomic) unsigned long long fullscreenBehavior;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) UIViewController *viewControllerForModalPresentation;
+
+- (void)finished;
+- (void)tapped;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)loadView;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)advance;
+- (void)updateViewConstraints;
+- (void)playerViewController:(id)a0 metricsCollectionEventOccured:(long long)a1;
+- (void)pause;
+- (void)playerViewController:(id)a0 willTransitionToVisibilityOfPlaybackControls:(BOOL)a1 withAnimationCoordinator:(id)a2;
+- (void)playerViewController:(id)a0 willBeginFullScreenPresentationWithAnimationCoordinator:(id)a1;
+- (void)playerViewController:(id)a0 willEndFullScreenPresentationWithAnimationCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (BOOL)playerViewController:(id)a0 shouldExitFullScreenWithReason:(long long)a1;
+- (void)viewDidLoad;
+- (void)learnMoreButtonTapped:(id)a0;
+- (void)playbackCoordinatorStartedPlayback:(id)a0;
+- (void)playbackCoordinatorResumedPlayback:(id)a0;
+- (void)playbackCoordinatorPausedPlayback:(id)a0;
+- (void)playbackCoordinatorFinishedPlayback:(id)a0;
+- (void)playbackCoordinator:(id)a0 playbackFailedWithError:(id)a1;
+- (void)playbackCoordinator:(id)a0 timeElapsed:(double)a1 duration:(double)a2;
+- (void)playbackCoordinatorStateChanged:(id)a0;
+- (void)fullscreenBehaviorManagerRequiresFullscreenPlayback:(id)a0;
+- (void)playWithButtonTapped:(BOOL)a0;
+- (id)initWithVolumeReporter:(id)a0;
+- (void)enterFullscreenWithCompletionBlock:(id /* block */)a0;
+- (void)adSkipButtonTapped:(id)a0;
+- (void)setupQueueIfNeeded;
+- (void)startPlaybackForCoordinatorIfAllowed:(id)a0;
+- (void)refreshControlsForPlaybackCoordinator:(id)a0;
+- (void)updateSkipButtonWithThreshold:(unsigned long long)a0 time:(double)a1;
+- (BOOL)playbackAllowedForPlaybackCoordinator:(id)a0;
+- (void)transitionToCoordinator:(id)a0;
+- (void)exitFullscreenWithCompletionBlock:(id /* block */)a0;
+
+@end

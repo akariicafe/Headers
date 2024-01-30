@@ -1,0 +1,96 @@
+@class PSTableCellHighlightContext, PSSpecifier, UIImageView, NSString, NSURLSession, NSURL, UILongPressGestureRecognizer;
+
+@interface PSTableCell : UITableViewCell {
+    id _value;
+    UIImageView *_checkedImageView;
+    BOOL _checked;
+    BOOL _shouldHideTitle;
+    NSString *_hiddenTitle;
+    int _alignment;
+    SEL _pAction;
+    id _pTarget;
+    BOOL _cellEnabled;
+    BOOL _lazyIcon;
+    BOOL _lazyIconDontUnload;
+    BOOL _lazyIconForceSynchronous;
+    NSString *_lazyIconAppID;
+    PSTableCellHighlightContext *_customHighlightContext;
+    NSURLSession *_urlSession;
+    NSURL *_lazyIconURL;
+}
+
+@property (nonatomic) BOOL isCopyable;
+@property (retain, nonatomic) UILongPressGestureRecognizer *longTapRecognizer;
+@property (nonatomic) long long type;
+@property (retain, nonatomic) PSSpecifier *specifier;
+@property (nonatomic) BOOL reusedCell;
+@property (nonatomic) BOOL forceHideDisclosureIndicator;
+
++ (double)defaultCellHeight;
++ (Class)cellClassForSpecifier:(id)a0;
++ (id)reuseIdentifierForSpecifier:(id)a0;
++ (long long)cellStyle;
++ (id)stringFromCellType:(long long)a0;
++ (id)reuseIdentifierForBasicCellTypes:(long long)a0;
++ (long long)cellTypeFromString:(id)a0;
++ (id)reuseIdentifierForClassAndType:(long long)a0;
+
+- (id)iconImageView;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (void)setHighlighted:(BOOL)a0 animated:(BOOL)a1;
+- (void)setCellEnabled:(BOOL)a0;
+- (void)setAlignment:(int)a0;
+- (void)copy:(id)a0;
+- (id)initWithStyle:(long long)a0 reuseIdentifier:(id)a1 specifier:(id)a2;
+- (void)refreshCellContentsWithSpecifier:(id)a0;
+- (void)reloadWithSpecifier:(id)a0 animated:(BOOL)a1;
+- (BOOL)canReload;
+- (id)_automationID;
+- (void)setSelected:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)canBeChecked;
+- (void).cxx_destruct;
+- (void)forceSynchronousIconLoadOnNextIconLoad;
+- (void)cellRemovedFromView;
+- (id)blankIcon;
+- (void)highlightCellForDuration:(double)a0 animateUnighlight:(BOOL)a1;
+- (double)textFieldOffset;
+- (id)getIcon;
+- (void)dealloc;
+- (id)cellTarget;
+- (id)value;
+- (SEL)cellAction;
+- (id)_checkmarkImage:(BOOL)a0;
+- (id)_disclosureChevronImage:(BOOL)a0;
+- (void)prepareForReuse;
+- (id)getLazyIcon;
+- (BOOL)cellEnabled;
+- (void)_invalidateHighlightContext;
+- (id)_copyableText;
+- (void)_updateAccessoryTypeForSpecifier:(id)a0;
+- (void)longPressed:(id)a0;
+- (void)setShouldHideTitle:(BOOL)a0;
+- (id)getLazyIconID;
+- (id)lazyIconQueue:(id)a0;
+- (void)setValueChangedTarget:(id)a0 action:(SEL)a1 specifier:(id)a2;
+- (void)setCellTarget:(id)a0;
+- (void)setCellAction:(SEL)a0;
+- (id)titleTextLabel;
+- (id)titleLabel;
+- (SEL)action;
+- (void)setIcon:(id)a0;
+- (BOOL)isChecked;
+- (BOOL)canBecomeFirstResponder;
+- (void)setChecked:(BOOL)a0;
+- (id)target;
+- (void)setTitle:(id)a0;
+- (void)layoutSubviews;
+- (void)setTarget:(id)a0;
+- (void)setAction:(SEL)a0;
+- (id)valueLabel;
+- (id)scriptingInfoWithChildren;
+- (id)_contentString;
+- (void)setValue:(id)a0;
+- (id)_urlSession;
+- (id)title;
+
+@end

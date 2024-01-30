@@ -1,0 +1,8 @@
+@interface WebCookieObserverAdapter : NSObject {
+    struct CookieStorageObserver { struct WeakPtrFactory<WebCore::CookieStorageObserver, WTF::EmptyCounter> { struct RefPtr<WTF::WeakPtrImpl<WTF::EmptyCounter>, WTF::DumbPtrTraits<WTF::WeakPtrImpl<WTF::EmptyCounter> > > { struct WeakPtrImpl<WTF::EmptyCounter> *x0; } x0; } x0; struct RetainPtr<NSHTTPCookieStorage> { void *x0; } x1; BOOL x2; struct RetainPtr<WebCookieObserverAdapter> { void *x0; } x3; struct Function<void ()> { struct unique_ptr<WTF::Detail::CallableWrapperBase<void>, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct __compressed_pair<WTF::Detail::CallableWrapperBase<void> *, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct CallableWrapperBase<void> *x0; } x0; } x0; } x4; } *observer;
+}
+
+- (id)initWithObserver:(struct CookieStorageObserver { struct WeakPtrFactory<WebCore::CookieStorageObserver, WTF::EmptyCounter> { struct RefPtr<WTF::WeakPtrImpl<WTF::EmptyCounter>, WTF::DumbPtrTraits<WTF::WeakPtrImpl<WTF::EmptyCounter> > > { struct WeakPtrImpl<WTF::EmptyCounter> *x0; } x0; } x0; struct RetainPtr<NSHTTPCookieStorage> { void *x0; } x1; BOOL x2; struct RetainPtr<WebCookieObserverAdapter> { void *x0; } x3; struct Function<void ()> { struct unique_ptr<WTF::Detail::CallableWrapperBase<void>, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct __compressed_pair<WTF::Detail::CallableWrapperBase<void> *, std::__1::default_delete<WTF::Detail::CallableWrapperBase<void> > > { struct CallableWrapperBase<void> *x0; } x0; } x0; } x4; } *)a0;
+- (void)cookiesChangedNotificationHandler:(id)a0;
+
+@end

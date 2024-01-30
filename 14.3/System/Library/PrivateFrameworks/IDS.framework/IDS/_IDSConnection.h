@@ -1,0 +1,80 @@
+@class NSString, NSMapTable, NSSet, IDSAccount, IMOrderedMutableDictionary;
+
+@interface _IDSConnection : NSObject <IDSDaemonListenerProtocol, IDSAccountDelegate> {
+    id _messageContext;
+    id _delegateContext;
+    unsigned char _incomingMessageLoggingSequence;
+    unsigned char _outgoingMessageLoggingSequence;
+    NSMapTable *_delegateToInfo;
+    IDSAccount *_account;
+    NSSet *_commands;
+    NSString *_serviceToken;
+    IMOrderedMutableDictionary *_pendingSends;
+    unsigned int _delegateCapabilities;
+    BOOL _indirectDelegateCallouts;
+}
+
+@property (nonatomic) unsigned int wakingDowngradeCount;
+@property (readonly, nonatomic) BOOL isActive;
+@property (readonly, nonatomic) IDSAccount *account;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)addDelegate:(id)a0 queue:(id)a1;
+- (void)removeDelegate:(id)a0;
+- (void)accessoryReportMessageReceived:(id)a0 accessoryID:(id)a1 controllerID:(id)a2 withGUID:(id)a3 forTopic:(id)a4 toIdentifier:(id)a5 fromID:(id)a6 context:(id)a7;
+- (id)initWithAccount:(id)a0 commands:(id)a1 indirectDelegateCallouts:(BOOL)a2 delegateContext:(id)a3;
+- (BOOL)sendProtobuf:(id)a0 toDestinations:(id)a1 priority:(long long)a2 options:(id)a3 identifier:(id *)a4 error:(id *)a5;
+- (BOOL)sendData:(id)a0 toDestinations:(id)a1 priority:(long long)a2 options:(id)a3 identifier:(id *)a4 error:(id *)a5;
+- (void)messageIdentifier:(id)a0 alternateCallbackID:(id)a1 forAccount:(id)a2 willSendToDestinations:(id)a3 skippedDestinations:(id)a4 registrationPropertyToDestinations:(id)a5;
+- (void).cxx_destruct;
+- (void)addDelegate:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_isDestinationSingleLocalAddress:(id)a0;
+- (id)_activeDevice;
+- (void)_replaceSentinelInSendParameters:(id)a0 withCurrentActiveDevice:(id)a1;
+- (id)_sendWithParameters:(id)a0 options:(id)a1 loggingType:(id)a2 loggingDataSize:(unsigned long long)a3;
+- (void)_resendPendingSends;
+- (void)_handleLastCallForPendingIdentifier:(id)a0 callbackID:(id)a1;
+- (BOOL)_shouldAcceptIncomingType:(id)a0 forTopic:(id)a1 localURI:(id)a2 remoteURI:(id)a3 validateAliases:(BOOL)a4 guid:(id)a5;
+- (BOOL)_isAccountInValidRegistrationStateToAcceptMessages;
+- (BOOL)_canServiceNameAcceptMessagesInTransientRegistrationState:(id)a0;
+- (BOOL)sendServerMessage:(id)a0 command:(id)a1;
+- (void)account:(id)a0 devicesChanged:(id)a1;
+- (void)account:(id)a0 nearbyDevicesChanged:(id)a1;
+- (void)account:(id)a0 connectedDevicesChanged:(id)a1;
+- (void)setDelegateCapabilities:(unsigned int)a0;
+- (void)dealloc;
+- (void)_callDelegatesWithBlock:(id /* block */)a0 group:(id)a1;
+- (BOOL)sendMessage:(id)a0 toDestinations:(id)a1 priority:(long long)a2 options:(id)a3 identifier:(id *)a4 error:(id *)a5;
+- (id)daemonController;
+- (void)_connect;
+- (void)_callDelegatesWithBlock:(id /* block */)a0;
+- (id)_init;
+- (id)daemonListener;
+- (void)_sendMissingMessageMetric:(id)a0;
+- (void)account:(id)a0 isActiveChanged:(BOOL)a1;
+- (void)daemonConnected;
+- (void)_callDelegatesRespondingToSelector:(SEL)a0 withPreCallbacksBlock:(id /* block */)a1 callbackBlock:(id /* block */)a2 postCallbacksBlock:(id /* block */)a3;
+- (void)_callDelegatesRespondingToSelector:(SEL)a0 withPreCallbacksBlock:(id /* block */)a1 callbackBlock:(id /* block */)a2 postCallbacksBlock:(id /* block */)a3 group:(id)a4;
+- (void)checkTransportLogWithReason:(long long)a0;
+- (void)updateDeviceIdentity:(id)a0 error:(id)a1;
+- (void)opportunisticDataReceived:(id)a0 withIdentifier:(id)a1 fromID:(id)a2 context:(id)a3;
+- (void)messageReceived:(id)a0 withGUID:(id)a1 withPayload:(id)a2 forTopic:(id)a3 toIdentifier:(id)a4 fromID:(id)a5 context:(id)a6;
+- (void)dataReceived:(id)a0 withGUID:(id)a1 forTopic:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 context:(id)a5;
+- (void)accessoryDataReceived:(id)a0 withGUID:(id)a1 forTopic:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 context:(id)a5;
+- (void)messageIdentifier:(id)a0 alternateCallbackID:(id)a1 forAccount:(id)a2 updatedWithResponseCode:(long long)a3 error:(id)a4 lastCall:(BOOL)a5 context:(id)a6;
+- (void)didSendOpportunisticDataWithIdentifier:(id)a0 onAccount:(id)a1 toIDs:(id)a2;
+- (void)messageIdentifier:(id)a0 forTopic:(id)a1 toIdentifier:(id)a2 fromIdentifier:(id)a3 hasBeenDeliveredWithContext:(id)a4;
+- (void)protobufReceived:(id)a0 withGUID:(id)a1 forTopic:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 context:(id)a5;
+- (void)pendingIncomingMessageWithGUID:(id)a0 forTopic:(id)a1 toIdentifier:(id)a2 fromID:(id)a3 context:(id)a4;
+- (void)groupShareReceived:(id)a0 withGUID:(id)a1 forTopic:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 context:(id)a5;
+- (void)engramDataReceived:(id)a0 withGUID:(id)a1 forTopic:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 context:(id)a5;
+- (void)didFlushCacheForService:(id)a0 remoteURI:(id)a1 fromURI:(id)a2 guid:(id)a3;
+- (void)sessionInvitationReceivedWithPayload:(id)a0 forTopic:(id)a1 sessionID:(id)a2 toIdentifier:(id)a3 fromID:(id)a4 transportType:(id)a5;
+- (void)receivedGroupSessionParticipantUpdate:(id)a0 forTopic:(id)a1 toIdentifier:(id)a2 fromID:(id)a3;
+- (void)receivedGroupSessionParticipantDataUpdate:(id)a0 forTopic:(id)a1 toIdentifier:(id)a2 fromID:(id)a3;
+- (void)_setTemporaryMessageContext:(id)a0;
+
+@end

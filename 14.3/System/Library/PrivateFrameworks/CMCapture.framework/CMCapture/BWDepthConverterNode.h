@@ -1,0 +1,86 @@
+@class NSDictionary, NSString, BWStillImageNodeConfiguration;
+@protocol DepthProcessor;
+
+@interface BWDepthConverterNode : BWNode {
+    NSDictionary *_sensorIDDictionary;
+    NSDictionary *_cameraInfoByPortType;
+    BOOL _forceCPath;
+    struct { int width; int height; } _inputDepthDimensions;
+    struct opaqueCMFormatDescription { } *_outputFormatDescription;
+    unsigned int _outputFormat;
+    struct { int width; int height; } _outputDimensions;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _identityExtrinsicMatrix;
+    struct { void /* unknown type, empty encoding */ columns[4]; } _infraredCameraExtrinsicMatrix;
+    int _depthAccuracy;
+    BOOL _depthLensDistortionCorrectionPolynomialsAvailable;
+    struct { float forwardOrders[8]; float inverseOrders[8]; } _depthLensDistortionCorrectionBasePolynomial;
+    struct { float forwardOrders[8]; float inverseOrders[8]; } _depthLensDistortionCorrectionDynamicPolynomial;
+    float _depthRelativePixelSizeInMicrons;
+    float _infraredCameraPixelSizeInMicrons;
+    int _baseRotationDegrees;
+    int _rotationDegrees;
+    BOOL _mirroringEnabled;
+    BOOL _streamingFilteringEnabled;
+    BOOL _stillFilteringEnabled;
+    int _horizontalSensorBinningFactor;
+    int _verticalSensorBinningFactor;
+    BOOL _depthIsAlwaysHighQuality;
+    BOOL _depthOriginatesFromNeuralNetwork;
+    struct __CVBuffer { } *_fixedPointScaledIntermediateBuffer;
+    struct __CVBuffer { } *_fixedPointRotatedIntermediateBuffer;
+    struct __CVBuffer { } *_filteringInputBuffer;
+    struct __CVBuffer { } *_streamingFilteringScaledDepthInputBuffer;
+    struct __CVBuffer { } *_streamingFilteringScaledDepthOutputBuffer;
+    struct __CVBuffer { } *_filteringScaledYUVBuffer;
+    struct __CVBuffer { } *_filteringOutputBuffer;
+    BOOL _conversionAfterFilteringRequired;
+    BOOL _depthFromInfrared;
+    NSString *_depthProcessorClassName;
+    struct FigPhotoScaleAndRotateSession { } *_scaler;
+    id<DepthProcessor> _depthProcessor;
+    int _depthBufferOriginalExifOrientation;
+    int _depthBufferFinalExifOrientation;
+    BOOL _workIntervalHintsEnabled;
+    struct work_interval { } *_workInterval;
+    BWStillImageNodeConfiguration *_nodeConfiguration;
+}
+
++ (void)initialize;
+
+- (void)prepareForCurrentConfigurationToBecomeLive;
+- (void)didSelectFormat:(id)a0 forInput:(id)a1 forAttachedMediaKey:(id)a2;
+- (void)setMirroringEnabled:(BOOL)a0;
+- (void)setOutputFormat:(unsigned int)a0;
+- (id)nodeType;
+- (int)verticalSensorBinningFactor;
+- (id)nodeSubType;
+- (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 forInput:(id)a1;
+- (void)dealloc;
+- (unsigned int)outputFormat;
+- (struct { int x0; int x1; })outputDimensions;
+- (void)_updateOutputRequirements;
+- (void)setOutputDimensions:(struct { int x0; int x1; })a0;
+- (int)_parseCameraInfo;
+- (int)_loadAndConfigureDepthProcessorClass:(id)a0;
+- (int)_computeConversionParametersFromSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 convertOptionsOut:(struct { unsigned int x0; float x1; float x2; unsigned int x3; BOOL x4; } *)a1;
+- (int)baseRotationDegrees;
+- (int)_convertDepthDisparityToFloat_NEON:(struct __CVBuffer { } *)a0 dst:(struct __CVBuffer { } *)a1 options:(struct { unsigned int x0; float x1; float x2; unsigned int x3; BOOL x4; } *)a2;
+- (int)_convertDepthDisparityToFloat_C:(struct __CVBuffer { } *)a0 dst:(struct __CVBuffer { } *)a1 options:(struct { unsigned int x0; float x1; float x2; unsigned int x3; BOOL x4; } *)a2;
+- (int)convertToFloatAndRotate:(struct opaqueCMSampleBuffer { } *)a0 inputSampleBuffer:(struct opaqueCMSampleBuffer { } *)a1 outputPixelBuffer:(struct __CVBuffer { } *)a2;
+- (int)filterBuffer:(struct __CVBuffer { } *)a0 outputPixelBuffer:(struct __CVBuffer { } *)a1 imageSampleBuffer:(struct opaqueCMSampleBuffer { } *)a2 depthSampleBuffer:(struct opaqueCMSampleBuffer { } *)a3;
+- (id)_depthMetadataDictionaryFromSampleBuffer:(struct opaqueCMSampleBuffer { } *)a0 orientation:(unsigned int)a1 stillFilteringRequested:(BOOL)a2;
+- (int)rotateAndScaleImagePixelBuffer:(struct __CVBuffer { } *)a0 depthPixelBuffer:(struct __CVBuffer { } *)a1 to:(struct __CVBuffer { } *)a2 rotationAngle:(int)a3 flip:(BOOL)a4;
+- (BOOL)streamingFilteringEnabled;
+- (void)setHorizontalSensorBinningFactor:(int)a0;
+- (BOOL)mirroringEnabled;
+- (void)setStreamingFilteringEnabled:(BOOL)a0;
+- (BOOL)stillFilteringEnabled;
+- (int)horizontalSensorBinningFactor;
+- (void)setVerticalSensorBinningFactor:(int)a0;
+- (void)setRotationDegrees:(int)a0;
+- (id)initWithNodeConfiguration:(id)a0 cameraInfoByPortType:(id)a1 sensorIDDictionary:(id)a2 rgbPersonSegmentationEnabled:(BOOL)a3 depthIsAlwaysHighQuality:(BOOL)a4 depthOriginatesFromNeuralNetwork:(BOOL)a5;
+- (void)setStillFilteringEnabled:(BOOL)a0;
+- (void)setBaseRotationDegrees:(int)a0;
+- (int)rotationDegrees;
+
+@end

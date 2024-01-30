@@ -1,0 +1,25 @@
+@class NSString, NSArray, NSData, NSURL;
+
+@interface CKCodeFunctionInvokeOperationInfo : CKDatabaseOperationInfo <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *serviceName;
+@property (copy, nonatomic) NSString *functionName;
+@property (copy, nonatomic) NSArray *requestLocalSerializations;
+@property (copy, nonatomic) NSArray *requestLocalEnvelopes;
+@property (copy, nonatomic) NSData *permittedRemoteMeasurement;
+@property (nonatomic) BOOL shouldSendRecordPCSKeys;
+@property (nonatomic) BOOL enqueuedOnContainerService;
+@property (copy, nonatomic) NSURL *clientRuntimeProvidedServiceURL;
+@property (nonatomic) BOOL legacyIsLocalBit;
+@property (copy, nonatomic) NSURL *resolvedBaseURL;
+@property (nonatomic) BOOL shouldFetchAssetContentInMemory;
+
++ (void)applyDefaultParametersToServiceURLComponents:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

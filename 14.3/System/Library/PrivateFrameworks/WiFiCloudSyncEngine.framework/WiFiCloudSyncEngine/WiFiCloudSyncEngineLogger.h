@@ -1,0 +1,3 @@
+@interface WiFiCloudSyncEngineLogger : NSObject
+
+@end

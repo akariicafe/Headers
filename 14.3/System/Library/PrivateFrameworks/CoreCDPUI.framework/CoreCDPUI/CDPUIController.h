@@ -1,0 +1,85 @@
+@class CDPRecoveryKeyEntryViewModel, NSString, NSArray, UINavigationController, CDPDevicePickerViewController, CDPRemoteDeviceSecretValidator, UIViewController, CDPContext, NSNumber;
+@protocol CDPUIDelegate;
+
+@interface CDPUIController : CDPUIBaseController <KeychainSyncViewControllerDelegate, CDPDevicePickerDelegate, CDPRemoteSecretEntryDelegate> {
+    NSArray *_devices;
+    UINavigationController *_navController;
+    CDPRemoteDeviceSecretValidator *_remoteSecretValidator;
+    CDPDevicePickerViewController *_devicePicker;
+    UIViewController *_rootViewController;
+    BOOL _isUsingMultipleICSC;
+    BOOL _isRandomICSC;
+    BOOL _isNumericICSC;
+    NSNumber *_icscNumericLength;
+    CDPContext *_activeContext;
+    CDPRecoveryKeyEntryViewModel *_recoveryKeyViewModel;
+}
+
+@property (weak, nonatomic) id<CDPUIDelegate> delegate;
+@property (nonatomic) BOOL forceInlinePresentation;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)cdpContext:(id)a0 presentRecoveryKeyWithValidator:(id)a1 completion:(id /* block */)a2;
+- (void)cdpContext:(id)a0 promptForRecoveryKeyWithValidator:(id)a1 completion:(id /* block */)a2;
+- (void)cdpContext:(id)a0 promptForRemoteSecretWithDevices:(id)a1 offeringRemoteApproval:(BOOL)a2 validator:(id)a3;
+- (void)cdpContext:(id)a0 promptForICSCWithIsNumeric:(BOOL)a1 numericLength:(id)a2 isRandom:(BOOL)a3 validator:(id)a4;
+- (void)cdpContext:(id)a0 promptForAdoptionOfMultipleICSC:(id /* block */)a1;
+- (void)cdpContext:(id)a0 promptForInteractiveAuthenticationWithCompletion:(id /* block */)a1;
+- (void)cdpContext:(id)a0 promptForLocalSecretWithCompletion:(id /* block */)a1;
+- (void)cdpContext:(id)a0 beginRemoteApprovalWithValidator:(id)a1;
+- (void)cdpContext:(id)a0 showError:(id)a1 withDefaultIndex:(long long)a2 withCompletion:(id /* block */)a3;
+- (void)dealloc;
+- (void)keychainSyncController:(id)a0 didFinishWithResult:(id)a1 error:(id)a2;
+- (void)cancelTapped:(id)a0;
+- (void)_dismissPresentedViewControllerCompletion:(id /* block */)a0;
+- (void)handleBackPopCompletion;
+- (void)backTappedFromRoot:(id)a0;
+- (void)_presentRootController:(id)a0 completion:(id /* block */)a1;
+- (id)_singleICSCEscapeOfferWithMask:(unsigned long long)a0 withController:(id)a1;
+- (void)_presentRemoteApprovalViewControllerWithEscapeOfferMask:(unsigned long long)a0;
+- (void)cdpContext:(id)a0 confirmRecoveryKeyWithValidator:(id)a1 completion:(id /* block */)a2;
+- (id)_recoveryKeyControllerWithContext:(id)a0 validator:(id)a1 completion:(id /* block */)a2;
+- (void)_presentRemoteSecretControllerWithNewestDevice:(id)a0;
+- (id)_remoteSecretControllerForDevice:(id)a0;
+- (id)_remoteSecretControllerForNewestDevice:(id)a0;
+- (id)_escapeOfferForDevice:(id)a0 withMask:(unsigned long long)a1;
+- (id)recoveryKeyEntryControllerForCircleJoinWithCancel:(BOOL)a0;
+- (id)_escapeOfferForMultiApprovalWithMask:(unsigned long long)a0;
+- (void)cancelRemoteApprovalTapped:(id)a0;
+- (id)_escapeOffersForgotAllWithMask:(unsigned long long)a0 presenter:(id)a1 devices:(id)a2;
+- (void)approveFromAnotherDevice:(BOOL)a0;
+- (void)dismissRecoveryFlow:(id)a0 completion:(id /* block */)a1;
+- (id)_deviceLimitOfferForDevice:(id)a0;
+- (void)_beginDevicePickerFlowFromEntryController:(id)a0;
+- (void)_replaceViewController:(id)a0 withNewController:(id)a1;
+- (void)_setupDevicePickerController:(id /* block */)a0;
+- (id)_localDeviceClass;
+- (id)_recoveryKeyEscapeOption;
+- (id)_enterSecretLaterEscapeOptionWithSecret:(unsigned long long)a0;
+- (id)_remoteApprovalEscapeOption;
+- (id)_resetAccountDataEscapeOption;
+- (id)_recoveryKeyEscapeOptionWithPresentationBlock:(id /* block */)a0;
+- (id)_waitingForApprovalEscapeOffer;
+- (id)_signInLaterEscapeOffer;
+- (void)_beginWaitingForApprovalFlow;
+- (void)_showResetKeychainConfirmationAlertWithViewController:(id)a0;
+- (id)_recoveryKeyEscapeOffer;
+- (id)_escapeOfferForSingleApprovalWithMask:(unsigned long long)a0;
+- (void)devicePicker:(id)a0 didSelectDevice:(id)a1;
+- (id)devicePicker:(id)a0 escapeOffersForDevices:(id)a1;
+- (void)remoteSecretEntry:(id)a0 didAcceptValidRemoteSecretForDevice:(id)a1;
+- (void)cancelledRemoteSecretEntry:(id)a0;
+- (void)exceededMaximumAttemptsForRemoteSecretEntry:(id)a0;
+- (void)remoteSecretEntry:(id)a0 depletedRemainingAttemptsForDevice:(id)a1;
+- (void)performRecoveryKeyRecovery:(id)a0;
+- (void)performRemoteApproval:(id)a0;
+- (void)performAccountReset:(id)a0;
+- (void)finishValidation:(id)a0 withError:(id)a1;
+- (BOOL)performingAccountRecovery;
+- (id)_signInLaterEscapeOption;
+
+@end

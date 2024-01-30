@@ -1,0 +1,96 @@
+@class NSXPCConnection, NSString, NSArray, RPCompanionLinkDevice, NSMutableDictionary, NSDictionary, NSObject, NSMutableSet, NSMutableOrderedSet;
+@protocol OS_dispatch_queue;
+
+@interface RPCompanionLinkClient : NSObject <NSSecureCoding, RPCompanionLinkXPCClientInterface, RPAuthenticatable, RPMessageable> {
+    BOOL _activateCalled;
+    NSMutableSet *_assertions;
+    NSMutableDictionary *_deviceDictionary;
+    NSMutableDictionary *_eventRegistrations;
+    BOOL _invalidateCalled;
+    BOOL _invalidateDone;
+    NSMutableOrderedSet *_registeredProfileIDs;
+    NSMutableDictionary *_requestRegistrations;
+    NSXPCConnection *_xpcCnx;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) unsigned int clientID;
+@property (readonly, nonatomic) unsigned int internalAuthFlags;
+@property (retain) RPCompanionLinkDevice *localDevice;
+@property (copy, nonatomic) NSString *appID;
+@property (nonatomic) long long bleClientUseCase;
+@property (copy, nonatomic) NSString *cloudServiceID;
+@property (nonatomic) unsigned long long controlFlags;
+@property (copy, nonatomic) id /* block */ disconnectHandler;
+@property (retain, nonatomic) RPCompanionLinkDevice *destinationDevice;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (nonatomic) unsigned int flags;
+@property (copy, nonatomic) id /* block */ interruptionHandler;
+@property (copy, nonatomic) id /* block */ invalidationHandler;
+@property (nonatomic) double awdlGuestDiscoveryTimeout;
+@property (copy, nonatomic) NSString *serviceType;
+@property (readonly, copy) NSArray *activeDevices;
+@property (readonly) RPCompanionLinkDevice *activePersonalCompanion;
+@property (copy, nonatomic) id /* block */ deviceFoundHandler;
+@property (copy, nonatomic) id /* block */ deviceLostHandler;
+@property (copy, nonatomic) id /* block */ deviceChangedHandler;
+@property (copy, nonatomic) id /* block */ localDeviceUpdatedHandler;
+@property (copy, nonatomic) NSDictionary *siriInfo;
+@property (nonatomic) unsigned int pairSetupFlags;
+@property (nonatomic) unsigned int pairVerifyFlags;
+@property (copy, nonatomic) NSString *password;
+@property (nonatomic) int passwordType;
+@property (readonly, nonatomic) int passwordTypeActual;
+@property (copy, nonatomic) id /* block */ authCompletionHandler;
+@property (copy, nonatomic) id /* block */ showPasswordHandler;
+@property (copy, nonatomic) id /* block */ hidePasswordHandler;
+@property (copy, nonatomic) id /* block */ promptForPasswordHandler;
+
+- (void)_ensureXPCStarted;
+- (void)deregisterProfileID:(id)a0 completion:(id /* block */)a1;
+- (void)_reregisterRequests;
+- (id)init;
+- (void)_registerProfileID:(id)a0 reregister:(BOOL)a1 completion:(id /* block */)a2;
+- (void)companionLinkReceivedRequestID:(id)a0 request:(id)a1 options:(id)a2 responseHandler:(id /* block */)a3;
+- (void).cxx_destruct;
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)_registerRequestID:(id)a0 options:(id)a1 reregister:(BOOL)a2;
+- (void)_lostAllDevices;
+- (void)companionLinkLocalDeviceUpdated:(id)a0;
+- (void)sendEventID:(id)a0 event:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (void)launchAppWithBundleID:(id)a0 destinationID:(id)a1 completion:(id /* block */)a2;
+- (void)registerRequestID:(id)a0 options:(id)a1 handler:(id /* block */)a2;
+- (void)deregisterRequestID:(id)a0;
+- (void)_activateWithCompletion:(id /* block */)a0 reactivate:(BOOL)a1;
+- (id)initWithCoder:(id)a0;
+- (void)_invalidated;
+- (void)companionLinkChangedDevice:(id)a0 changes:(unsigned int)a1;
+- (void)_invokeBlockActivateSafe:(id /* block */)a0;
+- (id)description;
+- (void)sendRequestID:(id)a0 request:(id)a1 destinationID:(id)a2 options:(id)a3 responseHandler:(id /* block */)a4;
+- (void)sendEventID:(id)a0 event:(id)a1 destinationID:(id)a2 options:(id)a3 completion:(id /* block */)a4;
+- (void)launchAppWithURL:(id)a0 destinationID:(id)a1 completion:(id /* block */)a2;
+- (void)_reregisterEvents;
+- (void)_reregisterAssertions;
+- (void)tryPassword:(id)a0;
+- (id)activateAssertionID:(id)a0 destinationID:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (void)_registerEventID:(id)a0 options:(id)a1 reregister:(BOOL)a2;
+- (void)companionLinkReceivedEventID:(id)a0 event:(id)a1 options:(id)a2;
+- (void)registerEventID:(id)a0 options:(id)a1 handler:(id /* block */)a2;
+- (BOOL)shouldReportDevice:(id)a0;
+- (void)companionLinkLostDevice:(id)a0;
+- (void)_reregisterProfileIDs;
+- (void)companionLinkPromptForPasswordType:(int)a0 flags:(unsigned int)a1 throttleSeconds:(int)a2;
+- (void)companionLinkAuthCompleted:(id)a0;
+- (void)deregisterEventID:(id)a0;
+- (void)registerProfileID:(id)a0 completion:(id /* block */)a1;
+- (void)companionLinkFoundDevice:(id)a0;
+- (void)_interrupted;
+- (void)companionLinkHandleDisconnect;
+- (void)invalidate;
+- (void)sendRequestID:(id)a0 request:(id)a1 options:(id)a2 responseHandler:(id /* block */)a3;
+- (void)encodeWithCoder:(id)a0;
+- (void)_invalidateAssertion:(id)a0;
+
+@end

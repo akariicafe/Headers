@@ -1,0 +1,103 @@
+@class HKVaccinationRecordType, NSUUID, NSString, NSArray, HKMedicalDate, NSLocale, HKConcept, HKMedicalCoding;
+
+@interface HKVaccinationRecord : HKMedicalRecord <HKConceptIndexable, NSSecureCoding, NSCopying> {
+    NSArray *_vaccinationCodings;
+    HKMedicalDate *_expirationDate;
+    NSString *_doseNumber;
+    NSString *_doseQuantity;
+    NSString *_performer;
+    NSArray *_bodySiteCodings;
+    NSString *_reaction;
+    BOOL _notGiven;
+    HKMedicalDate *_administrationDate;
+    HKMedicalCoding *_statusCoding;
+    BOOL _patientReported;
+    NSArray *_routeCodings;
+    NSArray *_reasonsCodings;
+    NSArray *_reasonsNotGivenCodings;
+    HKConcept *_vaccination;
+    HKConcept *_bodySite;
+    HKConcept *_status;
+    HKConcept *_route;
+    NSArray *_reasons;
+    NSArray *_reasonsNotGiven;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSUUID *UUID;
+@property (readonly, copy, nonatomic) NSLocale *locale;
+@property (readonly, copy, nonatomic) NSString *country;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) HKVaccinationRecordType *vaccinationRecordType;
+@property (readonly, copy) HKMedicalDate *administrationDate;
+@property (readonly, copy) HKConcept *bodySite;
+@property (readonly, copy) NSArray *bodySiteCodings;
+@property (readonly, copy) NSString *doseNumber;
+@property (readonly, copy) NSString *doseQuantity;
+@property (readonly, copy) HKMedicalDate *expirationDate;
+@property (readonly) BOOL notGiven;
+@property (readonly) BOOL patientReported;
+@property (readonly, copy) NSString *performer;
+@property (readonly, copy) NSString *reaction;
+@property (readonly, copy) NSArray *reasons;
+@property (readonly, copy) NSArray *reasonsCodings;
+@property (readonly, copy) NSArray *reasonsNotGiven;
+@property (readonly, copy) NSArray *reasonsNotGivenCodings;
+@property (readonly, copy) HKConcept *route;
+@property (readonly, copy) NSArray *routeCodings;
+@property (readonly, copy) HKConcept *status;
+@property (readonly, copy) HKMedicalCoding *statusCoding;
+@property (readonly, copy) HKConcept *vaccination;
+@property (readonly, copy) NSArray *vaccinationCodings;
+
++ (id)_newVaccinationRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 FHIRIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 vaccinationCodings:(id)a12 expirationDate:(id)a13 doseNumber:(id)a14 doseQuantity:(id)a15 performer:(id)a16 bodySiteCodings:(id)a17 reaction:(id)a18 notGiven:(BOOL)a19 administrationDate:(id)a20 statusCoding:(id)a21 patientReported:(BOOL)a22 routeCodings:(id)a23 reasonsCodings:(id)a24 reasonsNotGivenCodings:(id)a25 config:(id /* block */)a26;
++ (id)vaccinationRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 FHIRIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 country:(id)a9 state:(unsigned long long)a10 vaccinationCodings:(id)a11 expirationDate:(id)a12 doseNumber:(id)a13 doseQuantity:(id)a14 performer:(id)a15 bodySiteCodings:(id)a16 reaction:(id)a17 notGiven:(BOOL)a18 administrationDate:(id)a19 statusCoding:(id)a20 patientReported:(BOOL)a21 routeCodings:(id)a22 reasonsCodings:(id)a23 reasonsNotGivenCodings:(id)a24;
++ (id)vaccinationRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 FHIRIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 vaccinationCodings:(id)a12 expirationDate:(id)a13 doseNumber:(id)a14 doseQuantity:(id)a15 performer:(id)a16 bodySiteCodings:(id)a17 reaction:(id)a18 notGiven:(BOOL)a19 administrationDate:(id)a20 statusCoding:(id)a21 patientReported:(BOOL)a22 routeCodings:(id)a23 reasonsCodings:(id)a24 reasonsNotGivenCodings:(id)a25;
++ (BOOL)supportsEquivalence;
++ (id)indexableConceptKeyPaths;
++ (id)cachedConceptRelationshipKeyPaths;
++ (id)defaultDisplayString;
++ (BOOL)_isConcreteObjectClass;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isEquivalent:(id)a0;
+- (id)vaccinationCodingsCollection;
+- (id)routeCodingsCollection;
+- (void)_setVaccinationCodings:(id)a0;
+- (void)_setDoseNumber:(id)a0;
+- (void)_setDoseQuantity:(id)a0;
+- (void)_setPerformer:(id)a0;
+- (void)_setReaction:(id)a0;
+- (void)_setNotGiven:(BOOL)a0;
+- (void)_setAdministrationDate:(id)a0;
+- (void)_setPatientReported:(BOOL)a0;
+- (void)_setRouteCodings:(id)a0;
+- (void)_setReasonsCodings:(id)a0;
+- (void)_setReasonsNotGivenCodings:(id)a0;
+- (void)_setStatus:(id)a0;
+- (id)codingsForKeyPath:(id)a0 error:(id *)a1;
+- (BOOL)applyConcepts:(id)a0 forKeyPath:(id)a1 error:(id *)a2;
+- (id)initWithCoder:(id)a0;
+- (id)statusCodingCollection;
+- (id)_validateWithConfiguration:(struct HKObjectValidationConfiguration { unsigned long long x0; unsigned int x1; })a0;
+- (void)_setStatusCoding:(id)a0;
+- (id)bodySiteCodingsCollection;
+- (void)_setBodySiteCodings:(id)a0;
+- (void)_setExpirationDate:(id)a0;
+- (id)medicalRecordCodings;
+- (void)_setBodySite:(id)a0;
+- (id)reasonsCodingsCollections;
+- (void)_setVaccination:(id)a0;
+- (id)reasonsNotGivenCodingsCollections;
+- (void)_setRoute:(id)a0;
+- (void)_setReasons:(id)a0;
+- (void)_setReasonsNotGiven:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+
+@end

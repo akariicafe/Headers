@@ -1,0 +1,3 @@
+@interface HMExternalPersonManagerSettings : HMPhotosPersonManagerSettings
+
+@end

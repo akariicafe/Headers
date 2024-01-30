@@ -1,0 +1,3 @@
+@interface ASDDSPDevice : ASDDSPAudioDevice
+
+@end

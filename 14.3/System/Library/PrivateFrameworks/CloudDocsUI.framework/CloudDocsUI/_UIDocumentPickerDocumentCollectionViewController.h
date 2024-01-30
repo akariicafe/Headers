@@ -1,0 +1,80 @@
+@class UIView, NSString, NSArray, _UIDocumentPickerContainerModel, _UIDocumentPickerFlowLayout, _UIDocumentPickerTableLayout, _UIDocumentPickerSortOrderView, UIActivityIndicatorView, UIScrollView;
+@protocol UIViewControllerPreviewing, _UIDocumentPickerServiceViewController;
+
+@interface _UIDocumentPickerDocumentCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateTableLayout, UIViewControllerPreviewingDelegate, _UIDocumentPickerContainedViewController> {
+    BOOL _editing;
+    id<UIViewControllerPreviewing> _viewControllerPreviewContext;
+}
+
+@property (retain, nonatomic) _UIDocumentPickerContainerModel *model;
+@property (retain, nonatomic) NSArray *actions;
+@property (retain, nonatomic) _UIDocumentPickerFlowLayout *gridLayout;
+@property (retain, nonatomic) _UIDocumentPickerTableLayout *tableLayout;
+@property (nonatomic) BOOL monitoring;
+@property (nonatomic) BOOL shouldHideSortBar;
+@property (retain, nonatomic) _UIDocumentPickerSortOrderView *sortView;
+@property (retain, nonatomic) UIView *pinnedHeaderView;
+@property (copy, nonatomic) NSArray *modelObjects;
+@property (nonatomic) BOOL updatesMayAnimate;
+@property (retain, nonatomic) UIActivityIndicatorView *initialActivityView;
+@property (weak, nonatomic) id<_UIDocumentPickerServiceViewController> serviceViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) NSArray *indexPathsForSelectedItems;
+@property (readonly, nonatomic) UIScrollView *scrollView;
+@property (nonatomic) long long displayMode;
+@property (readonly, nonatomic) BOOL supportsActions;
+
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (void)willMoveToParentViewController:(id)a0;
+- (long long)collectionView:(id)a0 tableLayout:(id)a1 indentationLevelForRowAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 didEndDisplayingCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (BOOL)collectionView:(id)a0 shouldHighlightItemAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 shouldSelectItemAtIndexPath:(id)a1;
+- (long long)collectionView:(id)a0 tableLayout:(id)a1 editingStyleForRowAtIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didUnhighlightItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 tableLayout:(id)a1 accessoryButtonTappedForRowWithIndexPath:(id)a2;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 tableLayout:(id)a1 trailingSwipeActionsForRowAtIndexPath:(id)a2;
+- (void)willDismissSearchController:(id)a0;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didHighlightItemAtIndexPath:(id)a1;
+- (void)willPresentSearchController:(id)a0;
+- (id)initWithModel:(id)a0;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)presentViewController:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)didDismissSearchController:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)previewingContext:(id)a0 viewControllerForLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void)updateContentInset;
+- (void)setContentSizeAdjustment:(double)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)previewingContext:(id)a0 commitViewController:(id)a1;
+- (void)viewWillLayoutSubviews;
+- (void)_dynamicTypeSizeChanged:(id)a0;
+- (void)_updateRowHeight;
+- (void)_unlockAnimations;
+- (void)_updateIconSpacing;
+- (void)modelChanged:(id)a0;
+- (void)containersChangedWithSnapshot:(id)a0 differences:(id)a1;
+- (void)performAction:(long long)a0 forRow:(id)a1 view:(id)a2;
+- (void)_showMoreOptionsForRow:(id)a0 view:(id)a1;
+- (void)ensureSortViewInvisible;
+- (void)updatePinnedHeader;
+- (id)itemForLocation:(struct CGPoint { double x0; double x1; })a0;
+- (id)previewActionItemsForItem:(id)a0;
+- (void)setPinnedHeaderView:(id)a0 animated:(BOOL)a1;
+- (void)scrollSortViewToVisible;
+- (id)actionViewForLocation:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)_smallCells;
+
+@end

@@ -1,0 +1,81 @@
+@class UIFont, NSString, UIImage, UIView, _UIVibrantSettings, _UIBackdropView, UIImageView, UIPanGestureRecognizer, _UIActionSliderKnob, UIBezierPath, UILabel, UIColor;
+@protocol _UIActionSliderDelegate, _UIActionSliderLabel;
+
+@interface _UIActionSlider : UIControl <UIGestureRecognizerDelegate> {
+    UIView *_contentView;
+    UIView *_trackDodgeView;
+    UIView *_trackBackgroundView;
+    _UIBackdropView *_trackBlurView;
+    UIView *_trackSolidView;
+    UIImageView *_knobImageView;
+    UIView<_UIActionSliderLabel> *_trackLabel;
+    struct CGPoint { double x; double y; } _slideGestureInitialPoint;
+}
+
+@property (nonatomic) double trackWidthProportion;
+@property (nonatomic, getter=isShowingTrackLabel) BOOL showingTrackLabel;
+@property (nonatomic, getter=isAnimating) BOOL animating;
+@property (nonatomic) double cachedTrackMaskWidth;
+@property (readonly, nonatomic, getter=_knobView) _UIActionSliderKnob *knobView;
+@property (retain, nonatomic) _UIVibrantSettings *vibrantSettings;
+@property (nonatomic) long long style;
+@property (nonatomic) long long textStyle;
+@property (retain, nonatomic) UIImage *knobImage;
+@property (retain, nonatomic) UIColor *knobColor;
+@property (nonatomic) struct CGSize { double width; double height; } knobImageOffset;
+@property (copy, nonatomic) NSString *trackText;
+@property (retain, nonatomic) UIFont *trackFont;
+@property (nonatomic) struct CGSize { double width; double height; } trackSize;
+@property (nonatomic) double trackTextBaselineFromBottom;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } trackTextRect;
+@property (readonly, retain, nonatomic) UILabel *trackLabel;
+@property (readonly, nonatomic) UIPanGestureRecognizer *slideGestureRecognizer;
+@property (weak, nonatomic) id<_UIActionSliderDelegate> delegate;
+@property (nonatomic) double knobPosition;
+@property (nonatomic) double knobWidth;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } knobInsets;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } knobRect;
+@property (readonly, nonatomic) UIBezierPath *knobMaskPath;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)_hideTrackLabel:(BOOL)a0;
+- (double)_knobVerticalInset;
+- (void)_makeTrackLabel;
+- (void)_slideCompleted:(BOOL)a0;
+- (void)openTrackAnimated:(BOOL)a0;
+- (double)_knobMinX;
+- (double)_knobMaxX;
+- (void)_showTrackLabel;
+- (void)_knobPanGesture:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_trackFrame;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 vibrantSettings:(id)a1;
+- (double)_knobHorizontalPosition;
+- (void)updateAllTrackMasks;
+- (void)setMaskPath:(struct CGPath { } *)a0 onView:(id)a1;
+- (void)setBackgroundColor:(id)a0;
+- (void)setMaskFromImage:(id)a0 onView:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (BOOL)shouldHideTrackLabelForXPoint:(double)a0;
+- (BOOL)xPointIsWithinTrack:(double)a0;
+- (void)closeTrackAnimated:(BOOL)a0;
+- (void)didMoveToSuperview;
+- (void)didMoveToWindow;
+- (double)_knobWidth;
+- (void)layoutSubviews;
+- (id)backgroundColor;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)trackMaskPath;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (double)_knobMinXInset;
+- (double)_knobLeftMostX;
+- (double)_knobMaxXInset;
+- (id)trackMaskImage;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (double)_knobAvailableX;
+- (double)_knobRightMostX;
+
+@end

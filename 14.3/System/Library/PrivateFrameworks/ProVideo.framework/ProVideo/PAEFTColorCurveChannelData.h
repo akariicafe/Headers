@@ -1,0 +1,3 @@
+@interface PAEFTColorCurveChannelData : PAEColorCurveChannelData
+
+@end

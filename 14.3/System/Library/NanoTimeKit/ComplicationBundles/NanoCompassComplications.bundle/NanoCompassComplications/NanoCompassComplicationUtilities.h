@@ -1,0 +1,3 @@
+@interface NanoCompassComplicationUtilities : NSObject
+
+@end

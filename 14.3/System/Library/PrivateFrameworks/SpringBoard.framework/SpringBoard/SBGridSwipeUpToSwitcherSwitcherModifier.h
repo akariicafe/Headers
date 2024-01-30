@@ -1,0 +1,3 @@
+@interface SBGridSwipeUpToSwitcherSwitcherModifier : SBTransitionSwitcherModifier
+
+@end

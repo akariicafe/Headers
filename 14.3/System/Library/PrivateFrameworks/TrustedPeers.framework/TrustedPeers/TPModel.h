@@ -1,0 +1,82 @@
+@class NSMutableDictionary, NSArray, NSData, NSMutableSet;
+@protocol TPDecrypter;
+
+@interface TPModel : NSObject
+
+@property (retain, nonatomic) NSMutableDictionary *peersByID;
+@property (retain, nonatomic) NSMutableDictionary *policiesByVersion;
+@property (retain, nonatomic) NSMutableSet *uncheckedVouchers;
+@property (retain, nonatomic) NSMutableSet *vouchers;
+@property (retain, nonatomic) id<TPDecrypter> decrypter;
+@property (retain, nonatomic) NSData *recoverySigningPubKey;
+@property (retain, nonatomic) NSData *recoveryEncryptionPubKey;
+@property (retain, nonatomic) NSArray *cachedViableBottles;
+@property (retain, nonatomic) NSArray *cachedPartialViableBottles;
+
++ (id)preapprovalsFromKeys:(id)a0;
+
+- (void).cxx_destruct;
+- (id)allPeerIDs;
+- (id)allPeers;
+- (id)vectorClock;
+- (id)initWithDecrypter:(id)a0;
+- (unsigned long long)latestEpochAmongPeerIDs:(id)a0;
+- (void)registerPolicyDocument:(id)a0;
+- (id)policyWithVersion:(unsigned long long)a0;
+- (id)allVouchers;
+- (id)allPolicyVersions;
+- (void)registerPeerWithPermanentInfo:(id)a0;
+- (void)deletePeerWithID:(id)a0;
+- (BOOL)hasPeerWithID:(id)a0;
+- (id)peerWithID:(id)a0;
+- (id)actualPeerWithID:(id)a0 error:(id *)a1;
+- (id)allMachineIDs;
+- (id)viablePeerCountsByModelID;
+- (id)peerCountsByMachineID;
+- (BOOL)hasPotentiallyTrustedPeerPreapprovingKey:(id)a0;
+- (BOOL)hasPotentiallyTrustedPeerWithSigningKey:(id)a0;
+- (BOOL)validatePeerWithPreApproval:(id)a0 sponsor:(id)a1;
+- (unsigned long long)statusOfPeerWithID:(id)a0;
+- (BOOL)setWrappedPrivateKeys:(id)a0 forPeerWithID:(id)a1 error:(id *)a2;
+- (id)getStableInfoForPeerWithID:(id)a0;
+- (id)getDynamicInfoForPeerWithID:(id)a0;
+- (int)userViewSyncabilityConsensusAmongTrustedPeers:(id)a0;
+- (BOOL)updateStableInfo:(id)a0 forPeerWithID:(id)a1 error:(id *)a2;
+- (id)createStableInfoWithFrozenPolicyVersion:(id)a0 flexiblePolicyVersion:(id)a1 policySecrets:(id)a2 syncUserControllableViews:(int)a3 deviceName:(id)a4 serialNumber:(id)a5 osVersion:(id)a6 signingKeyPair:(id)a7 recoverySigningPubKey:(id)a8 recoveryEncryptionPubKey:(id)a9 error:(id *)a10;
+- (BOOL)updateDynamicInfo:(id)a0 forPeerWithID:(id)a1 error:(id *)a2;
+- (unsigned long long)maxClock;
+- (id)createDynamicInfoWithIncludedPeerIDs:(id)a0 excludedPeerIDs:(id)a1 dispositions:(id)a2 preapprovals:(id)a3 signingKeyPair:(id)a4 error:(id *)a5;
+- (BOOL)canTrustCandidate:(id)a0 inEpoch:(unsigned long long)a1;
+- (BOOL)canIntroduceCandidate:(id)a0 withSponsor:(id)a1 toEpoch:(unsigned long long)a2 underPolicy:(id)a3 disposition:(id)a4;
+- (BOOL)checkIntroductionForCandidate:(id)a0 stableInfo:(id)a1 withSponsorID:(id)a2 error:(id *)a3;
+- (id)createVoucherForCandidate:(id)a0 stableInfo:(id)a1 withSponsorID:(id)a2 reason:(unsigned long long)a3 signingKeyPair:(id)a4 error:(id *)a5;
+- (BOOL)validateVoucherForPeer:(id)a0 sponsor:(id)a1;
+- (void)registerVoucher:(id)a0;
+- (void)checkVouchers;
+- (id)considerCandidateID:(id)a0 withSponsorID:(id)a1 sponsorPermanentInfo:(id)a2 toExpandIncludedPeerIDs:(id)a3 andExcludedPeerIDs:(id)a4 dispositions:(id)a5 currentMachineIDs:(id)a6 forEpoch:(unsigned long long)a7;
+- (void)considerVouchersSponsoredByPeerID:(id)a0 sponsorPermanentInfo:(id)a1 toRecursivelyExpandIncludedPeerIDs:(id)a2 andExcludedPeerIDs:(id)a3 dispositions:(id)a4 currentMachineIDs:(id)a5 forEpoch:(unsigned long long)a6;
+- (void)considerPreapprovalsSponsoredByPeer:(id)a0 toRecursivelyExpandIncludedPeerIDs:(id)a1 andExcludedPeerIDs:(id)a2 dispositions:(id)a3 currentMachineIDs:(id)a4 forEpoch:(unsigned long long)a5;
+- (void)recursivelyExpandIncludedPeerIDs:(id)a0 andExcludedPeerIDs:(id)a1 dispositions:(id)a2 withPeersTrustedBySponsorID:(id)a3 currentMachineIDs:(id)a4 forEpoch:(unsigned long long)a5;
+- (id)calculateDynamicInfoForPeerWithID:(id)a0 addingPeerIDs:(id)a1 removingPeerIDs:(id)a2 preapprovedKeys:(id)a3 signingKeyPair:(id)a4 currentMachineIDs:(id)a5 error:(id *)a6;
+- (id)calculateDynamicInfoFromModel:(id)a0 peer:(id)a1 peerPermanentInfo:(id)a2 peerStableInfo:(id)a3 startingDynamicInfo:(id)a4 addingPeerIDs:(id)a5 removingPeerIDs:(id)a6 preapprovedKeys:(id)a7 signingKeyPair:(id)a8 currentMachineIDs:(id)a9 error:(id *)a10;
+- (id)filterPeerList:(id)a0 byMachineIDs:(id)a1 dispositions:(id)a2;
+- (id)peersWithMachineID:(id)a0;
+- (void)filterPreapprovals:(id)a0 forExistingPeers:(id)a1;
+- (id)dynamicInfoForJoiningPeerID:(id)a0 peerPermanentInfo:(id)a1 peerStableInfo:(id)a2 sponsorID:(id)a3 preapprovedKeys:(id)a4 signingKeyPair:(id)a5 currentMachineIDs:(id)a6 error:(id *)a7;
+- (id)policyForPeerIDs:(id)a0 candidatePeerID:(id)a1 candidateStableInfo:(id)a2 error:(id *)a3;
+- (BOOL)considerPolicyFromPeerID:(id)a0 stableInfo:(id)a1 secrets:(id)a2 newestPolicyDoc:(id *)a3 error:(id *)a4;
+- (id)getViewsForPeer:(id)a0 stableInfo:(id)a1 error:(id *)a2;
+- (id)getPeerIDsTrustedByPeerWithID:(id)a0 toAccessView:(id)a1 error:(id *)a2;
+- (id)getPeerIDsTrustedByPeerWithDynamicInfo:(id)a0 toAccessView:(id)a1 error:(id *)a2;
+- (id)bestRecoveryKeyForStableInfo:(id)a0 dynamicInfo:(id)a1;
+- (id)untrustedPeerIDs;
+- (id)peerIDThatTrustsRecoveryKeys:(id)a0;
+- (BOOL)isRecoveryKeyEnrolled;
+- (void)setRecoveryKeys:(id)a0;
+- (id)currentCachedViableBottlesSet;
+- (void)setViableBottles:(id)a0;
+- (void)clearViableBottles;
+- (id)recoverySigningPublicKey;
+- (id)recoveryEncryptionPublicKey;
+
+@end

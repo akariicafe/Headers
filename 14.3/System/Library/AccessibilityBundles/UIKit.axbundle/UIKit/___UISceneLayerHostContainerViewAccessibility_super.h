@@ -1,0 +1,3 @@
+@interface ___UISceneLayerHostContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

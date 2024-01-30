@@ -1,0 +1,3 @@
+@interface UIPlaceholderColor : UIColor
+
+@end

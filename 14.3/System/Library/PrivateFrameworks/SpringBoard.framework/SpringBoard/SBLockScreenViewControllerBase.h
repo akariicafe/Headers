@@ -1,0 +1,85 @@
+@class NSString, UIVisualEffectView, SBFLockScreenWakeAnimator, SBFLockScreenActionContext;
+@protocol SBBiometricUnlockBehaviorDelegate, SBIdleTimerCoordinating;
+
+@interface SBLockScreenViewControllerBase : UIViewController <SBApplicationHosting, SBAutoUnlockRule, SBBiometricUnlockBehavior, SBButtonEventsHandler, SBCoverSheetSlidingViewControllerContentViewController, SBIdleTimerProviding, SBLockScreenBacklightControlling, SBLockScreenBehaviorSuppressing, SBLockScreenBlockedStateObserving, SBLockScreenButtonObserving, SBLockScreenCallHandling, SBLockScreenContentStateProviding, SBLockScreenCustomActionStoring, SBLockScreenIdleTimerControlling, SBLockScreenLockingAndUnlocking, SBLockScreenMediaControlsPresenting, SBLockScreenPasscodeViewPresenting, SBLockScreenPluginPresenting, SBLockScreenProximityBehaviorProviding, SBLockScreenStatusBarTransitioning> {
+    SBFLockScreenActionContext *_customLockScreenActionContext;
+}
+
+@property (weak, nonatomic) UIVisualEffectView *wakeEffectView;
+@property (readonly, nonatomic) SBFLockScreenWakeAnimator *lockScreenWakeAnimator;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<SBBiometricUnlockBehaviorDelegate> biometricUnlockBehaviorDelegate;
+@property (readonly, nonatomic) BOOL contentOccludesBackground;
+@property (nonatomic) double backlightLevel;
+@property (retain, nonatomic, getter=_customLockScreenActionContext) SBFLockScreenActionContext *customLockScreenActionContext;
+@property (weak, nonatomic) id<SBIdleTimerCoordinating> idleTimerCoordinator;
+@property (nonatomic, getter=isAuthenticated) BOOL authenticated;
+@property (nonatomic, getter=isShowingMediaControls) BOOL showingMediaControls;
+@property (readonly, nonatomic) BOOL expectsFaceContact;
+@property (readonly, nonatomic) BOOL shouldShowLockStatusBarTime;
+
+- (BOOL)handleHomeButtonLongPress;
+- (void)noteResetRestoreStateUpdated;
+- (void)setInScreenOffMode:(BOOL)a0 forAutoUnlock:(BOOL)a1 fromUnlockSource:(int)a2;
+- (BOOL)handleHomeButtonDoublePress;
+- (void)jiggleLockIcon;
+- (void)updateStatusBarForLockScreenComeback;
+- (void)handleBiometricEvent:(unsigned long long)a0;
+- (void)setPasscodeLockVisible:(BOOL)a0 animated:(BOOL)a1;
+- (void)updateStatusBarForLockScreenTeardown;
+- (BOOL)isHostingAnApp;
+- (BOOL)suppressesControlCenter;
+- (BOOL)suppressesBanners;
+- (void)finishUIUnlockFromSource:(int)a0;
+- (void)hostedAppWillRotateToInterfaceOrientation:(long long)a0;
+- (BOOL)isPasscodeLockVisible;
+- (BOOL)handleHomeButtonPress;
+- (void)startLockScreenFadeInAnimationForSource:(int)a0;
+- (id)createHomeButtonSuppressAfterUnlockRecognizerForUnlockSource:(int)a0;
+- (BOOL)handleVolumeDownButtonPress;
+- (void)prepareForUILock;
+- (id)hostedAppSceneHandle;
+- (BOOL)canHostAnApp;
+- (BOOL)canBeDeactivatedForUIUnlockFromSource:(int)a0;
+- (BOOL)handleVolumeUpButtonPress;
+- (id)createHomeButtonShowPasscodeRecognizerForHomeButtonPress;
+- (BOOL)handleVoiceCommandButtonPress;
+- (BOOL)isInScreenOffMode;
+- (void)noteDeviceBlockedStatusUpdated;
+- (BOOL)handleHeadsetButtonPress:(BOOL)a0;
+- (BOOL)shouldUnlockUIOnKeyDownEvent;
+- (BOOL)handleLockButtonPress;
+- (void)setInScreenOffMode:(BOOL)a0;
+- (BOOL)isMainPageVisible;
+- (BOOL)willUIUnlockFromSource:(int)a0;
+- (void)conformsToSBApplicationHosting;
+- (BOOL)isMakingEmergencyCall;
+- (id)hostedAppSceneHandles;
+- (void)emergencyDialerExitedWithError:(id)a0;
+- (void).cxx_destruct;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescription;
+- (void)prepareForUIUnlock;
+- (void)setPasscodeLockVisible:(BOOL)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (BOOL)shouldDisableALS;
+- (void)launchEmergencyDialerAnimated:(BOOL)a0;
+- (id)succinctDescriptionBuilder;
+- (void)exitEmergencyDialerAnimated:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)noteMenuButtonDown;
+- (BOOL)isUnlockDisabled;
+- (id)coordinatorRequestedIdleTimerBehavior:(id)a0;
+- (BOOL)shouldAutoUnlockForSource:(int)a0;
+- (void)enableLockScreenPluginWithContext:(id)a0;
+- (void)noteMenuButtonUp;
+- (BOOL)suppressesScreenshots;
+- (void)disableLockScreenPluginWithContext:(id)a0;
+- (void)launchEmergencyDialer;
+- (void)viewDidLoad;
+- (void)conformsToSBCoverSheetSlidingViewControllerContentViewController;
+
+@end

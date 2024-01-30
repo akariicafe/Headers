@@ -1,0 +1,84 @@
+@class NSDate, NSString, NSArray, NSDictionary, NSSet, PKCurrencyAmount, PKInstallmentPlan, PKTransactionSource, PKMerchant, NSObject, NSDecimalNumber, PKPaymentPass;
+@protocol PKDashboardTransactionFetcherDelegate, PKPaymentDataProvider, OS_dispatch_queue;
+
+@interface PKDashboardTransactionFetcher : NSObject <PKPaymentDataProviderDelegate> {
+    PKTransactionSource *_transactionSource;
+    id<PKPaymentDataProvider> _paymentDataProvider;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    NSObject<OS_dispatch_queue> *_replyQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lockUpdate;
+    BOOL _pendingUpdate;
+    BOOL _hasMoreUpdates;
+    PKMerchant *_merchant;
+    long long _merchantCategory;
+    long long _transactionType;
+    PKInstallmentPlan *_installmentPlan;
+    NSArray *_regions;
+    NSArray *_types;
+    NSArray *_sources;
+    NSArray *_statuses;
+    PKCurrencyAmount *_amount;
+    long long _amountComparison;
+    NSSet *_tags;
+    NSDecimalNumber *_rewardsValue;
+    unsigned long long _rewardsValueUnit;
+    long long _subType;
+    unsigned long long _limit;
+    PKPaymentPass *_cashbackPass;
+    NSString *_cashbackPassUniqueID;
+    NSSet *_cashbackPassTransactionSourceIdentifiers;
+    BOOL _needsCashbackUniqueID;
+    NSDictionary *_cashbackGroups;
+    BOOL _needsInstantWithdrawalFees;
+    NSArray *_instantWithdrawalFeeGroups;
+}
+
+@property (weak, nonatomic) id<PKDashboardTransactionFetcherDelegate> delegate;
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic) NSDate *startDate;
+@property (readonly, nonatomic) NSDate *endDate;
+@property (readonly, nonatomic) NSSet *counterpartHandles;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_sortedTransactions:(id)a0 ascending:(BOOL)a1;
+- (id)cashbackGroupForDateComponents:(id)a0;
+- (void)paymentPassWithUniqueIdentifier:(id)a0 didEnableTransactionService:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)_processPaymentPassTransactionsWithTransactions:(id)a0 sendTransactionsBlock:(id /* block */)a1;
+- (id)_transactionRequestForCurrentFilters;
+- (id)_feeTotalForTransaction:(id)a0;
+- (void)_addCashbackTransactions:(id)a0 completion:(id /* block */)a1;
+- (void)_addInstantWidthdrawalTransactionsWithCompletion:(id /* block */)a0;
+- (void)_sendUpdatedTransactions;
+- (id)cashbackPass;
+- (void)transactionSourceIdentifier:(id)a0 didReceiveTransaction:(id)a1;
+- (id)initWithTransactionType:(long long)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (id)instantWithdrawalFeesTransactionGroups;
+- (void)transactionSourceIdentifier:(id)a0 didRemoveTransactionWithIdentifier:(id)a1;
+- (id)initWithRegions:(id)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (void)filterMerchant:(id)a0;
+- (void)filterCategory:(long long)a0;
+- (id)initWithMerchantCategory:(long long)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (void)filterRegions:(id)a0;
+- (id)initWithMerchant:(id)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (id)initWithInstallmentPlan:(id)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (void)_commonSetup;
+- (void)filterTags:(id)a0;
+- (void)reloadTransactionsWithCompletion:(id /* block */)a0;
+- (id)initWithCounterpartHandles:(id)a0 transactionSource:(id)a1 paymentDataProvider:(id)a2;
+- (void)setLimit:(unsigned long long)a0 startDate:(id)a1 endDate:(id)a2;
+- (void)filterTypes:(id)a0;
+- (void)filterSources:(id)a0;
+- (void)filterStatuses:(id)a0;
+- (void)filterAmount:(id)a0 comparison:(long long)a1;
+- (void)filterRewardsValue:(id)a0 unit:(unsigned long long)a1;
+- (void)filterPeerPaymentSubType:(long long)a0;
+- (id)initWithTransactionSource:(id)a0 paymentDataProvider:(id)a1;
+- (id)cashbackGroupForTransactionWithIdentifier:(id)a0;
+- (void)transactionsYearlyCountsWithCompletion:(id /* block */)a0;
+- (void)transactionsMonthlyAmountsWithCompletion:(id /* block */)a0;
+
+@end

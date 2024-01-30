@@ -1,0 +1,3 @@
+@interface __PXLivePhotoTrimScrubberAccessibility_super : UIAccessibilitySafeCategory
+
+@end

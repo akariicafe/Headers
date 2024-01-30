@@ -1,0 +1,3 @@
+@interface __ZoomUI_SBFluidSwitcherGestureManager_super : UIAccessibilitySafeCategory
+
+@end

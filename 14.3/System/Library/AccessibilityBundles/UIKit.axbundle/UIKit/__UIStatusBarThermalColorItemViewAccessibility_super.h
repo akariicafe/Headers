@@ -1,0 +1,3 @@
+@interface __UIStatusBarThermalColorItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

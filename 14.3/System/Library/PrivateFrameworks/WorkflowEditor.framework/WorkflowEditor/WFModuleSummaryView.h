@@ -1,0 +1,80 @@
+@class WFVariable, WFModuleSummaryTemplateBuilder, NSHashTable, NSString, NSSet, NSMutableDictionary, NSDictionary, UIFont, UIColor, WFModuleSummaryEditor, WFSlotIdentifier, WFSlotTemplateView;
+@protocol WFModuleSummaryViewDelegate, WFVariableProvider, WFVariableUIDelegate;
+
+@interface WFModuleSummaryView : UIView <WFSlotTemplateViewDelegate, WFModuleSummaryEditorDelegate, WFVariableDelegate>
+
+@property (weak, nonatomic) WFSlotTemplateView *templateView;
+@property (retain, nonatomic) NSMutableDictionary *mutableStagedParameterStates;
+@property (retain, nonatomic) WFModuleSummaryEditor *currentEditor;
+@property (retain, nonatomic) WFSlotIdentifier *currentlyEditingSlotIdentifier;
+@property (retain, nonatomic) WFModuleSummaryTemplateBuilder *templateBuilder;
+@property (retain, nonatomic) WFVariable *variableBeingEdited;
+@property (retain, nonatomic) NSHashTable *variablesBeingObserved;
+@property (readonly, copy, nonatomic) NSString *summaryFormatString;
+@property (readonly, copy, nonatomic) NSSet *parameters;
+@property (readonly, copy, nonatomic) NSSet *editableParameters;
+@property (readonly, copy, nonatomic) NSDictionary *parameterStates;
+@property (readonly, copy, nonatomic) NSDictionary *stagedParameterStates;
+@property (retain, nonatomic) UIFont *summaryFont;
+@property (retain, nonatomic) UIFont *summaryUnpopulatedFont;
+@property (nonatomic) double horizontalPadding;
+@property (nonatomic) long long textAlignment;
+@property (nonatomic) BOOL extendSlotBackgroundOffEdges;
+@property (readonly, nonatomic) UIColor *disabledSlotTitleColor;
+@property (readonly, nonatomic) UIColor *disabledSlotBackgroundColor;
+@property (copy, nonatomic) id /* block */ updateBlock;
+@property (nonatomic) BOOL processing;
+@property (weak, nonatomic) id<WFModuleSummaryViewDelegate> delegate;
+@property (weak, nonatomic) id<WFVariableProvider> variableProvider;
+@property (weak, nonatomic) id<WFVariableUIDelegate> variableUIDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)enumerateVariableAttachmentsInContents:(id)a0 withBlock:(id /* block */)a1;
++ (id)paragraphStyleWithAlignment:(long long)a0;
++ (id)parameterStatesByApplyingStaging:(id)a0 toOriginal:(id)a1;
++ (double)heightForWidth:(double)a0 withSummaryFormatString:(id)a1 parameters:(id)a2 editableParameters:(id)a3 parameterStates:(id)a4 stagedParameterStates:(id)a5 horizontalPadding:(double)a6 font:(id)a7 unpopulatedFont:(id)a8 textAlignment:(long long)a9;
+
+- (void)tintColorDidChange;
+- (void).cxx_destruct;
+- (id)parameterForKey:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)variableDidChange:(id)a0;
+- (void)cancelEditingWithCompletionHandler:(id /* block */)a0;
+- (void)setDisabledSlotTitleColor:(id)a0 backgroundColor:(id)a1 animated:(BOOL)a2;
+- (void)slotTemplateView:(id)a0 didEndTypingInSlotWithIdentifier:(id)a1;
+- (BOOL)slotTemplateView:(id)a0 shouldChangeText:(id)a1 forSlotWithIdentifier:(id)a2;
+- (void)slotTemplateViewDidInvalidateSize:(id)a0;
+- (void)slotTemplateView:(id)a0 didChangeText:(id)a1 forSlotWithIdentifier:(id)a2;
+- (void)slotTemplateView:(id)a0 willBeginTypingInSlotWithIdentifier:(id)a1 usingTextEntry:(id)a2 allowMultipleLines:(BOOL *)a3;
+- (void)slotTemplateView:(id)a0 didTapTextAttachment:(id)a1 inSlotWithIdentifier:(id)a2;
+- (BOOL)slotTemplateView:(id)a0 shouldTapTextAttachment:(id)a1 inSlotWithIdentifier:(id)a2;
+- (void)slotTemplateView:(id)a0 didLongPressSlotWithIdentifier:(id)a1 sourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 textAttachmentToSelect:(id)a3;
+- (BOOL)slotTemplateView:(id)a0 shouldLongPressSlotWithIdentifier:(id)a1;
+- (void)slotTemplateView:(id)a0 typingDidPasteWithOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateView:(id)a0 typingDidCopyWithOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateView:(id)a0 typingDidCutWithOriginalBlock:(id /* block */)a1;
+- (void)slotTemplateView:(id)a0 deletePressedOnUnpopulatedSlotWithIdentifier:(id)a1;
+- (void)slotTemplateView:(id)a0 didDeselectSlotWithIdentifier:(id)a1;
+- (void)slotTemplateView:(id)a0 didSelectSlotWithIdentifier:(id)a1 sourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)summaryEditor:(id)a0 willUpdateVariable:(id)a1;
+- (void)summaryEditor:(id)a0 didStageParameterState:(id)a1;
+- (void)summaryEditor:(id)a0 didCommitParameterState:(id)a1;
+- (void)summaryEditorDidRequestTextEntry:(id)a0;
+- (void)summaryEditorDidFinish:(id)a0 returnToKeyboard:(BOOL)a1 withTextAttachmentToEdit:(id)a2;
+- (void)updateTemplateContentsAnimated:(BOOL)a0;
+- (void)setSummaryFormatString:(id)a0 withParameters:(id)a1 editableParameters:(id)a2 parameterStates:(id)a3;
+- (id)currentParameterStateForParameterKey:(id)a0;
+- (Class)editorClassForParameter:(id)a0;
+- (void)beginEditingSlotWithIdentifier:(id)a0 sourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 fromLongPressGesture:(BOOL)a2 fromTextAttachment:(id)a3;
+- (id)addElementToArrayForParameterKey:(id)a0;
+- (void)removeElementFromArrayAtIndex:(unsigned long long)a0 forParameterKey:(id)a1;
+- (void)destroyCurrentEditor;
+- (void)startEditingForParameterKey:(id)a0;
+- (id)transformParameterStateForSerialization:(id)a0 inEditor:(id)a1;
+- (void)updateVariableObservationsWithContents:(id)a0;
+- (void)updateVariableAttachmentAppearanceInContents:(id)a0;
+
+@end

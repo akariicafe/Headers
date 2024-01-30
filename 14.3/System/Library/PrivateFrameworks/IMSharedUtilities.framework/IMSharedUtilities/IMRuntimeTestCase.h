@@ -1,0 +1,3 @@
+@interface IMRuntimeTestCase : IMRuntimeTest
+
+@end

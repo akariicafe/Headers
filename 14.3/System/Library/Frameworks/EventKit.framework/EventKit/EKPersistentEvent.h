@@ -1,0 +1,68 @@
+@interface EKPersistentEvent : EKPersistentCalendarItem
+
++ (id)defaultPropertiesToLoad;
++ (id)eventWithRandomUUID;
++ (id)relations;
++ (Class)meltedClass;
+
+- (unsigned long long)junkStatus;
+- (id)birthdayID;
+- (void)setActions:(id)a0;
+- (void)setDisallowProposeNewTime:(BOOL)a0;
+- (void)setInvitationStatus:(unsigned long long)a0;
+- (id)proposedStartDate;
+- (BOOL)disallowProposeNewTime;
+- (void)setBirthdayID:(id)a0;
+- (void)setJunkStatus:(unsigned long long)a0;
+- (id)actions;
+- (int)entityType;
+- (void)setTravelAdvisoryBehavior:(long long)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)recurrenceSet;
+- (unsigned long long)invitationStatus;
+- (void)setAvailability:(long long)a0;
+- (void)setStatus:(long long)a0;
+- (void)setBirthdayContactName:(id)a0;
+- (BOOL)firedTTL;
+- (id)endDateRaw;
+- (id)organizer;
+- (id)suggestionInfo;
+- (void)setOriginalStartDate:(id)a0;
+- (id)birthdayContactName;
+- (long long)availability;
+- (id)birthdayContactIdentifier;
+- (void)setExternalTrackingStatus:(int)a0;
+- (long long)locationPredictionState;
+- (void)setProposedStartDate:(id)a0;
+- (void)setParticipationStatusModifiedDate:(id)a0;
+- (int)externalTrackingStatus;
+- (id)travelTime;
+- (id)originalStartDate;
+- (void)setResponseComment:(id)a0;
+- (id)description;
+- (void)setEndDate:(id)a0;
+- (id)responseComment;
+- (long long)privacyLevel;
+- (void)setCanForward:(BOOL)a0;
+- (void)setRecurrenceSet:(id)a0;
+- (BOOL)canForward;
+- (long long)travelAdvisoryBehavior;
+- (void)setBirthdayContactIdentifier:(id)a0;
+- (void)setTravelTime:(id)a0;
+- (BOOL)pushDirtyProperties:(id *)a0;
+- (void)setConferenceURL:(id)a0;
+- (void)setInvitationChangedProperties:(unsigned int)a0;
+- (id)conferenceURL;
+- (long long)status;
+- (id)endDate;
+- (void)setFiredTTL:(BOOL)a0;
+- (void)setLocationPredictionState:(long long)a0;
+- (void)setPrivacyLevel:(long long)a0;
+- (unsigned int)invitationChangedProperties;
+- (void)setNeedsOccurrenceCacheUpdate:(BOOL)a0;
+- (void)setEndDateRaw:(id)a0;
+- (id)participationStatusModifiedDate;
+- (BOOL)needsOccurrenceCacheUpdate;
+- (void)setSuggestionInfo:(id)a0;
+
+@end

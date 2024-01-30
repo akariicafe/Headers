@@ -1,0 +1,3 @@
+@interface _TtCC16SiriDialogEngine17DialogTemperature7Builder : _TtCC16SiriDialogEngine25DialogAbstractMeasurement7Builder
+
+@end

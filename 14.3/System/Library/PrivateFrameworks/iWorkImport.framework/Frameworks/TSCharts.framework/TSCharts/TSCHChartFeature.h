@@ -1,0 +1,86 @@
+@class NSArray, TSCHChartType;
+
+@interface TSCHChartFeature : NSObject <TSCHUnretainedParent> {
+    TSCHChartType *mChartType;
+}
+
+@property (readonly, retain, nonatomic) NSArray *valueAxisIDs;
+@property (readonly, retain, nonatomic) NSArray *categoryAxisIDs;
+
+- (void)dealloc;
+- (BOOL)supportsEditing;
+- (BOOL)isHorizontal;
+- (BOOL)requiresStagesBuildingInReverse;
+- (BOOL)suppliesFinalTextures;
+- (BOOL)supportsSharedAndSeparateX;
+- (BOOL)supportsMultipleValuesPerSeries;
+- (unsigned long long)maxCellsToCheckForGridValueType;
+- (void)clearParent;
+- (id)valueLabelPositioner;
+- (id)categoryLabelPositioner;
+- (BOOL)supportsSeriesLabels;
+- (BOOL)supportsReferenceLines;
+- (double)maxDepthRatio;
+- (double)sageMaxDepthRatio;
+- (double)spiceMaxDepthRatio;
+- (Class)stageClass;
+- (BOOL)drawValueLabelsForZero;
+- (id)supportedAxisScales;
+- (BOOL)editableFormatForValueStrings;
+- (unsigned long long)styleIndexForAxisID:(id)a0;
+- (Class)valueAxisClassForID:(id)a0 scale:(long long)a1;
+- (BOOL)supportsMultipleSeriesTypes;
+- (BOOL)requiresYAxisOrdinal;
+- (id)defaultDataFileName;
+- (BOOL)supportsLabelExplosion;
+- (BOOL)supportsCalloutLines;
+- (id)genericToSpecificPropertyMap;
+- (BOOL)supportsValueLabels;
+- (int)stackingSignRule;
+- (id)initWithChartType:(id)a0;
+- (Class)presetImagerClass;
+- (id)supportedSeriesTypes;
+- (BOOL)supportsBorderFrame;
+- (BOOL)supportsEditingForAxisID:(id)a0;
+- (BOOL)reverseSingleColumnLegendOrder;
+- (BOOL)supportsGroupedShadows;
+- (BOOL)supportsBackgroundFill;
+- (BOOL)supportsTrendLines;
+- (BOOL)supportsErrorBars;
+- (BOOL)supportsElementSeriesNames;
+- (BOOL)supportsPercentNumberFormatting;
+- (BOOL)supportsSymbolOverhang;
+- (BOOL)supportsElementChunking;
+- (BOOL)supportsCategoryAxisMinorTickmarks;
+- (BOOL)supportsCategoryAxisSeriesNames;
+- (BOOL)supportsConnectingLines;
+- (BOOL)hasFixedFrameRatio;
+- (BOOL)rendersBackgroundAxis;
+- (BOOL)hasExplodableSeriesElements;
+- (BOOL)rendersUsingRadialGeometry;
+- (BOOL)supportsCategoryLabelsInChartRangeEditor;
+- (BOOL)supportsBubbleOptions;
+- (unsigned long long)gridOffsetToSeriesForScatterFormat:(int)a0;
+- (int)representativeGridValueAxisType;
+- (BOOL)supportsValueLabelSpacing;
+- (void)updateTitlesForExportingModel:(id)a0 info:(id)a1;
+- (BOOL)supportsShowLabelsInFrontOption;
+- (id)filteredStyleOwnersFromStyleOwners:(id)a0;
+- (float)defaultLabelExplosionPercentage;
+- (BOOL)supportsPlaceTitleAtCenter;
+- (double)minInnerRadiusPercentage;
+- (double)maxInnerRadiusPercentage;
+- (id)userInterfaceNameForPlaceTitleAtCenter:(BOOL)a0;
+- (BOOL)supportsIndividualShadowRendering;
+- (int)labelOrientation;
+- (BOOL)supportsColumnShape;
+- (id)columnShapeUIName;
+- (BOOL)supportsStartAngleRotation;
+- (id)initialSceneWithChartInfo:(id)a0 layoutSettings:(struct { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; long long x7; unsigned long long x8; })a1;
+- (BOOL)supportsInterSetDepthGap;
+- (int)deprecated3DBevelEdgesSpecificProperty;
+- (int)deprecated3DShadowSpecificProperty;
+- (void)p_initializeAxisIDs;
+- (Class)p_selectAxisClassForScale:(long long)a0 linearClass:(Class)a1 logClass:(Class)a2 percentClass:(Class)a3;
+
+@end

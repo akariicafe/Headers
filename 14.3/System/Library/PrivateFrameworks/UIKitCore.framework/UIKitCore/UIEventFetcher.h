@@ -1,0 +1,44 @@
+@class NSMutableDictionary, CADisplayLink, NSMutableSet, NSMutableArray;
+@protocol UIEventFetcherSink;
+
+@interface UIEventFetcher : NSObject {
+    NSMutableArray *_incomingHIDEvents;
+    NSMutableArray *_incomingHIDEventsFiltered;
+    struct __CFRunLoop { } *_cfRunLoop;
+    id /* block */ _receiveBlock;
+    id /* block */ _addToFilteredEventsBlock;
+    id /* block */ _gameControllerEventFilterGenerator;
+    id /* block */ _passiveObservationFilterGenerator;
+    id /* block */ _watchSystemAppFilter;
+    NSMutableArray *_eventFilters;
+    int _displayLinkIdleTicks;
+    CADisplayLink *_displayLink;
+    long long _countOfEventsReceivedSinceLastDisplayLinkCallback;
+    long long _countOfEventsReceivedInPreviousFrame;
+    BOOL _didSignalOneMoveEventSinceLastDisplayLinkCallback;
+    double _lastImportantEventTimestamp;
+    double _lastSignalTimestamp;
+    double _lastSignalEventTimestamp;
+    double _lastFilteredEventTimestamp;
+    double _estimatedDisplayLinkDrift;
+    long long _lastSignalType;
+    unsigned long long _lastSignalReason;
+    BOOL _needsSignalOnDisplayLink;
+    double _commitTimeForTouchEvents;
+    double _beginTimeForTouchEvents;
+    double _deadlineTimeForTouchEvents;
+    NSMutableDictionary *_latestMoveDragEventsBySessionID;
+    double _latestMoveDragEventTimestamp;
+    double _latestMoveDragEventResendTimestamp;
+    NSMutableSet *_contextIDsNeedingHoverEventResend;
+    NSMutableDictionary *_latestHoverEventsByContextID;
+    id<UIEventFetcherSink> _eventFetcherSink;
+}
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)displayLinkDidFire:(id)a0;
+- (void)_receiveHIDEvent:(struct __IOHIDEvent { } *)a0;
+- (void)threadMain;
+
+@end

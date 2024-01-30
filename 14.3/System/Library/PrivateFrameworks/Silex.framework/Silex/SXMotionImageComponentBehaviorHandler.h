@@ -1,0 +1,28 @@
+@class NSString, UIInterpolatingMotionEffect, UIView;
+
+@interface SXMotionImageComponentBehaviorHandler : SXComponentBehaviorHandler <SXViewportChangeListener>
+
+@property (retain, nonatomic) UIView *clippingView;
+@property (retain, nonatomic) UIView *motionContentView;
+@property (nonatomic) unsigned long long viewHierarchyIndex;
+@property (retain, nonatomic) UIInterpolatingMotionEffect *xMotionEffect;
+@property (retain, nonatomic) UIInterpolatingMotionEffect *yMotionEffect;
+@property (nonatomic) double amplitude;
+@property (nonatomic) BOOL windowed;
+@property (nonatomic) BOOL horizontal;
+@property (nonatomic) BOOL vertical;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewport:(id)a0 appearStateChangedFromState:(unsigned long long)a1;
+- (void).cxx_destruct;
+- (id)initWithComponentView:(id)a0 withBehavior:(id)a1;
+- (void)setupWithBehaviorController:(id)a0;
+- (void)destroyWithBehaviorController:(id)a0;
+- (void)setupMotionDetection;
+- (void)updateEdgeAntialiasingForViewport:(id)a0;
+- (void)destroyMotionDetection;
+
+@end

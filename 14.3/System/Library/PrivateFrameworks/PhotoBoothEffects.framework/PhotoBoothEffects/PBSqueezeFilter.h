@@ -1,0 +1,20 @@
+@interface PBSqueezeFilter : PBFilter {
+    float lastInputX;
+    float lastInputY;
+    float lastInputRadius;
+    float lastInputScale;
+    float _inputAmount;
+    BOOL firstTime;
+}
+
+@property struct CGPoint { double x; double y; } inputPoint;
+@property float inputAmount;
+
+- (void)setDefaults;
+- (float)inputAmount;
+- (void)setInputAmount:(float)a0;
+- (id)ciFilterName;
+- (BOOL)needsWrapMirror;
+- (void)applyParametersToCIFilter:(BOOL)a0 extent:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface CHRecognitionInsightRequest : NSObject
+
+@end

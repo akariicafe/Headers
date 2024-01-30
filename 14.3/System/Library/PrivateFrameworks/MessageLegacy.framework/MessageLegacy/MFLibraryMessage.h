@@ -1,0 +1,84 @@
+@class NSString, NSMutableDictionary, NSMutableSet, MFLock;
+
+@interface MFLibraryMessage : MFMailMessage {
+    unsigned int _libraryID;
+    NSString *_remoteID;
+    unsigned int _uid;
+    unsigned long long _uniqueRemoteId;
+    unsigned long long _size;
+    unsigned int _mailboxID;
+    unsigned int _originalMailboxID;
+    NSString *_messageID;
+    unsigned long long _conversationFlags;
+    NSMutableDictionary *_metadata;
+    NSMutableSet *_metadataChangedKeys;
+    MFLock *_metadataLock;
+}
+
++ (id)messageWithLibraryID:(unsigned int)a0;
+
+- (void)commit;
+- (void)setUid:(unsigned int)a0;
+- (unsigned int)uid;
+- (id)path;
+- (id)_privacySafeDescription;
+- (void)setSummary:(id)a0;
+- (void)dealloc;
+- (id)account;
+- (unsigned long long)conversationFlags;
+- (unsigned long long)hash;
+- (unsigned int)mailboxID;
+- (BOOL)isPartial;
+- (id)mailbox;
+- (id)initWithLibraryID:(unsigned int)a0;
+- (unsigned int)originalMailboxID;
+- (void)_updateUID;
+- (void)setRemoteID:(id)a0;
+- (void)setPreferredEncoding:(unsigned int)a0;
+- (BOOL)hasTemporaryUid;
+- (void)setMessageFlagsWithoutCommitting:(unsigned long long)a0;
+- (id)originalMailboxURL;
+- (void)setMailboxID:(unsigned int)a0;
+- (id)copyMessageInfo;
+- (id)_attachmentStorageLocation;
+- (void)_forceLoadOfMessageSummaryFromProtectedStore;
+- (void)loadCachedHeaderValuesFromHeaders:(id)a0;
+- (void)setOriginalMailboxID:(unsigned int)a0;
+- (unsigned long long)uniqueRemoteId;
+- (void)setUniqueRemoteId:(unsigned long long)a0;
+- (void)setIsPartial:(BOOL)a0;
+- (BOOL)isMessageContentsLocallyAvailable;
+- (void)setHasTemporaryUid:(BOOL)a0;
+- (id)mailboxName;
+- (long long)compareByUidWithMessage:(id)a0;
+- (void)setMessageFlags:(unsigned long long)a0;
+- (void)setMutableInfoFromMessage:(id)a0;
+- (id)dataPathForMimePart:(id)a0;
+- (void)markAsViewed;
+- (void)markAsNotViewed;
+- (void)markAsFlagged;
+- (void)markAsNotFlagged;
+- (void)markAsReplied;
+- (void)markAsForwarded;
+- (void)setConversationFlags:(unsigned long long)a0;
+- (void)setRemoteID:(const char *)a0 flags:(unsigned long long)a1 size:(unsigned int)a2 mailboxID:(unsigned int)a3 originalMailboxID:(unsigned int)a4;
+- (void)setMessageData:(id)a0 isPartial:(BOOL)a1;
+- (id)dataConsumerForMimePart:(id)a0;
+- (BOOL)isLibraryMessage;
+- (id)attachmentStorageLocation;
+- (void)setMessageSize:(unsigned long long)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)persistentID;
+- (id)remoteID;
+- (id)preferredEmailAddressToReplyWith;
+- (id)messageID;
+- (id)library;
+- (unsigned int)libraryID;
+- (unsigned long long)messageSize;
+- (void)setFlags:(unsigned long long)a0;
+- (void)setMetadataValue:(id)a0 forKey:(id)a1;
+- (id)messageStore;
+- (void)_initializeMetadata;
+- (id)metadataValueOfClass:(Class)a0 forKey:(id)a1;
+
+@end

@@ -1,0 +1,88 @@
+@class NSDictionary, UIViewController, UIBarButtonItem, UILabel, NSOrderedSet, PUAssetPickerSearchSuggestionsHeaderView, PXSelectionCoordinator, NSString, PUAlbumsGadgetViewController, UISegmentedControl, PXSearchComposableDataSource, PXGAnchor, PXPhotosUIViewController, UIButton, PXCachingCountManager, PXSearchQueryController, PXAssetsDataSourceManager, PXLoadingStatusManager, PUAssetPickerFilterOptions, PUAssetPickerViewController, PUPhotoPickerResizeTaskDescriptorViewModel, UISearchController, PUSessionInfo, PHCachingImageManager, NSHashTable;
+@protocol PUAssetPickerContainerControllerActionHandler, PUAssetPickerViewControllerActionHandler;
+
+@interface PUAssetPickerContainerController : UIViewController <UISearchResultsUpdating, UISearchBarDelegate, PXPhotosViewDelegate, PXScrollViewControllerObserver, PUAssetPickerSearchSuggestionsSelectionDelegate, PXChangeObserver>
+
+@property (readonly, nonatomic) unsigned long long viewOptions;
+@property (readonly, nonatomic) BOOL allowsMultipleSelection;
+@property (retain, nonatomic) PUAssetPickerFilterOptions *filterOptions;
+@property (copy, nonatomic) NSOrderedSet *selectedAssets;
+@property (copy, nonatomic) NSDictionary *downloadProgress;
+@property (readonly, weak, nonatomic) id<PUAssetPickerContainerControllerActionHandler> containerControllerActionHandler;
+@property (readonly, weak, nonatomic) id<PUAssetPickerViewControllerActionHandler> viewControllerActionHandler;
+@property (readonly, nonatomic) UISegmentedControl *navigationBarSegmentedControl;
+@property (nonatomic) long long previousNavigationBarSegmentedControlSelectedIndex;
+@property (readonly, nonatomic) UIBarButtonItem *navigationBarCancelButton;
+@property (readonly, nonatomic) UIBarButtonItem *navigationBarAddButton;
+@property (readonly, nonatomic) UIButton *toolbarSelectedItemsButton;
+@property (readonly, nonatomic) UILabel *fileSizeLabel;
+@property (readonly, nonatomic) UIBarButtonItem *toolbarSelectedItemsFileSizeStackView;
+@property (readonly, nonatomic) PHCachingImageManager *cachingImageManager;
+@property (readonly, nonatomic) PXCachingCountManager *cachingCountManager;
+@property (readonly, nonatomic) PXPhotosUIViewController *photosViewController;
+@property (retain, nonatomic) PXGAnchor *pinToTopAnchor;
+@property (readonly, nonatomic) PXAssetsDataSourceManager *photosDataSourceManager;
+@property (readonly, nonatomic) PUAssetPickerViewController *allAssetsViewController;
+@property (readonly, nonatomic) PXSearchQueryController *queryController;
+@property (readonly, nonatomic) UISearchController *searchController;
+@property (readonly, nonatomic) PXSearchComposableDataSource *searchSuggestionsCollectionViewDataSource;
+@property (readonly, nonatomic) PUAssetPickerSearchSuggestionsHeaderView *searchSuggestionsHeaderView;
+@property (readonly, nonatomic) PUAlbumsGadgetViewController *allAlbumsGadgetViewController;
+@property (readonly, nonatomic) PUAssetPickerViewController *allAlbumsViewController;
+@property (readonly, nonatomic) NSHashTable *pushedAssetPickerViewControllers;
+@property (readonly, nonatomic) PXLoadingStatusManager *loadingStatusManager;
+@property (readonly, nonatomic) PXSelectionCoordinator *selectionCoordinator;
+@property (readonly, nonatomic) UIViewController *unavailableViewController;
+@property (nonatomic) BOOL allowSafeAreaChangeAnchor;
+@property (retain, nonatomic) PUPhotoPickerResizeTaskDescriptorViewModel *resizeTaskDescriptorViewModel;
+@property (readonly, nonatomic) PUSessionInfo *sessionInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_useGadgetsAlbumsTab;
++ (BOOL)_usePXPhotosView;
++ (void)updateToolbarSelectedItemsButton:(id)a0 selectedAssets:(id)a1;
++ (BOOL)_hideSearchBarWhenScrolling;
++ (id)_setupSearchQueryControllerWithSuggestionsSectionProvider:(id)a0 photosDataSourceManager:(id)a1 suggestionsHeaderView:(id)a2 photosViewController:(id)a3;
+
+- (void)scrollViewControllerDidScroll:(id)a0;
+- (void)selectedAssetsDidChange:(id)a0;
+- (void)downloadProgressDidChange:(id)a0 changedAssetIdentifier:(id)a1;
+- (id)contentScrollView;
+- (void)presentAssetPickerViewControllerWithSectionDataItems:(id)a0 title:(id)a1;
+- (void)configurePromptTextForLimitedLibraryMode:(BOOL)a0 selectionLimit:(long long)a1;
+- (id)initWithViewOptions:(unsigned long long)a0 filterOptions:(id)a1 resizeTaskDescriptorViewModel:(id)a2 selectedAssets:(id)a3 selectionCoordinator:(id)a4 loadingStatusManager:(id)a5 downloadProgress:(id)a6 containerControllerActionHandler:(id)a7 viewControllerActionHandler:(id)a8;
+- (void).cxx_destruct;
+- (void)ppt_prepareForSearchTest:(id /* block */)a0;
+- (void)dealloc;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)didSelectSuggestionAtIndexPath:(id)a0 collectionView:(id)a1;
+- (BOOL)_isInPopover;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)updateSearchResultsForSearchController:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)switchFromViewController:(id)a0;
+- (BOOL)photosViewController:(id)a0 didPickAssetReference:(id)a1;
+- (id)photosViewController:(id)a0 animationForProposedAnimation:(id)a1;
+- (id)headerViewForPhotosViewController:(id)a0;
+- (void)switchToViewController:(id)a0;
+- (void)_updateNavigationBarButtonItemsForSelectedAssets:(id)a0;
+- (void)handleNavigationBarSegmentedControl:(id)a0;
+- (void)handleNavigationBarCancelButton:(id)a0;
+- (void)handleNavigationBarAddButton:(id)a0;
+- (void)handleToolbarSelectedItemsButton:(id)a0;
+- (id)_createSearchController;
+- (id)_setupCollectionViewLayoutWithSectionProviders:(id)a0;
+- (id)_sectionLayoutForSection:(long long)a0 environment:(id)a1;
+- (void)_updateSearchFieldWithSuggestion:(id)a0;
+- (unsigned long long)_searchSuggestionLimit;
+- (id)px_gridPresentation;
+- (void)searchBarSearchButtonClicked:(id)a0;
+- (void)ppt_switchToAlbumsTab;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidLoad;
+
+@end

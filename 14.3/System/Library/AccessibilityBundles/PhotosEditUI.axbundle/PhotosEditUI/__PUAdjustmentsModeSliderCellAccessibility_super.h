@@ -1,0 +1,3 @@
+@interface __PUAdjustmentsModeSliderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PUSearchResultsSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

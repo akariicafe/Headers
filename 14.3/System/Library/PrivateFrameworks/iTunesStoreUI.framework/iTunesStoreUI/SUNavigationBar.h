@@ -1,0 +1,3 @@
+@interface SUNavigationBar : UINavigationBar
+
+@end

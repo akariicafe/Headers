@@ -1,0 +1,96 @@
+@class NSDate, NSCalendar, UIView, CLKDevice, NSString, NTKColoringImageView, NSTimer, CALayer, NSTimeZone, NTKHandView, NSNumber, UIColor;
+
+@interface NTKAnalogHandsView : UIView <NTKTimeView> {
+    NTKColoringImageView *_colorTransitionSecondHandLowerView;
+    NTKColoringImageView *_colorTransitionSecondHandUpperView;
+    NTKColoringImageView *_colorTransitionSecondHandSmallCircleView;
+    NTKColoringImageView *_colorTransitionSecondHandLargeCircleView;
+    BOOL _animatingToNewDate;
+    NSNumber *_displayLinkToken;
+    NSTimer *_animationUpdateTimer;
+    double _timeOffset;
+    CALayer *_minuteHandTransitionBodyLayer;
+    CALayer *_minuteHandTransitionStemLayer;
+    CALayer *_minuteHandTransitionPegLayer;
+    CALayer *_hourHandTransitionBodyLayer;
+    CALayer *_hourHandTransitionStemLayer;
+    UIView *_hourShadowView;
+    UIView *_minuteShadowView;
+    UIView *_secondShadowView;
+    BOOL _shadowCompositingEnabled;
+    BOOL _useDirectionalShadows;
+    UIView *_directionalShadowContainerView;
+}
+
+@property (readonly, nonatomic) NTKHandView *hourHandView_clientSide;
+@property (readonly, nonatomic) NTKHandView *minuteHandView_clientSide;
+@property (readonly, nonatomic) NTKHandView *secondHandView_clientSide;
+@property (nonatomic) BOOL showDebugClientSideHands;
+@property (retain, nonatomic) NTKHandView *hourHandView;
+@property (retain, nonatomic) NTKHandView *minuteHandView;
+@property (retain, nonatomic) NTKHandView *secondHandView;
+@property (nonatomic) BOOL shouldRestoreSecondHandAfterScrubbing;
+@property (retain, nonatomic) NSTimeZone *timeZone;
+@property (readonly, nonatomic) CLKDevice *device;
+@property (readonly, nonatomic) UIView *secondHandDot;
+@property (readonly, nonatomic) UIView *minuteHandDot;
+@property (readonly, nonatomic) NSDate *overrideDate;
+@property (readonly, nonatomic) NSCalendar *calendar;
+@property (readonly, nonatomic) BOOL timeScrubbing;
+@property (nonatomic) long long dataMode;
+@property (nonatomic, getter=isFrozen) BOOL frozen;
+@property (retain, nonatomic) UIColor *inlayColor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)hourHandAngleForDate:(id)a0;
++ (double)minuteHandAngleForDate:(id)a0;
++ (long long)preferredCountOfInstancesToCache;
+
+- (void)_handleDisplayLink;
+- (void).cxx_destruct;
+- (void)setTimeOffset:(double)a0;
+- (void)dealloc;
+- (void)didMoveToWindow;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (id)initForDevice:(id)a0;
+- (void)setOverrideDate:(id)a0 duration:(double)a1;
+- (void)applySecondHandColor:(id)a0;
+- (id)createHourHandView;
+- (id)createMinuteHandView;
+- (id)createSecondHandView;
+- (void)applyHourMinuteHandsTransitionFraction:(double)a0 fromStrokeColor:(id)a1 fromFillColor:(id)a2 toStrokeColor:(id)a3 toFillColor:(id)a4;
+- (void)applySecondHandTransitionFraction:(double)a0 fromColor:(id)a1 toColor:(id)a2;
+- (double)_minuteHandDotDiameter;
+- (BOOL)useDirectionalShadows;
+- (BOOL)shadowCompositingEnabled;
+- (void)_enumerateHandViews:(id /* block */)a0;
+- (void)_enumerateShadowViews:(id /* block */)a0;
+- (void)layoutShadowViews;
+- (void)_significantTimeChanged;
+- (void)_deregisterFromDisplayLinkManager;
+- (void)_startNewTimeAnimation;
+- (id)hourHandConfiguration;
+- (id)minuteHandConfiguration;
+- (id)secondHandConfiguration;
+- (void)_stopTimeAnimation;
+- (id)displayTime;
+- (void)_repointDebugHandsToCurrentTime;
+- (BOOL)_canRunTimeAnimation;
+- (double)_timeAnimationFramesPerSecondForDevice:(id)a0;
+- (void)scrubToDate:(id)a0 animated:(BOOL)a1;
+- (void)_enumerateSecondHandViewsWithBlock:(id /* block */)a0;
+- (void)_removeHourMinuteHandsTransitionLayers;
+- (void)_addHourMinuteHandsTransitionLayers;
+- (void)_removeColorTransitionViews;
+- (BOOL)_dontRepointDebugHands;
+- (void)startScrubbingAnimated:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)endScrubbingAnimated:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)applyHourMinuteHandsStrokeColor:(id)a0 fillColor:(id)a1;
+- (void)setUseDirectionalShadows:(BOOL)a0;
+- (void)_accessibilityInvalidateElements;
+
+@end

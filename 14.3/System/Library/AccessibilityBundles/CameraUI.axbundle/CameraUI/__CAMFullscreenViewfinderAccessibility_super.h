@@ -1,0 +1,3 @@
+@interface __CAMFullscreenViewfinderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

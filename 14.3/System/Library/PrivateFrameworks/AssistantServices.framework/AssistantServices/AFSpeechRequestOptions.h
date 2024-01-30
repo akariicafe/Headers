@@ -1,0 +1,70 @@
+@class AFLanguageDetectionUserContext, NSString, NSXPCListenerEndpoint, NSFileHandle, AFMyriadContext, NSURL, NSDictionary, AFSpeechSynthesisRecord, NSUUID, AFSpeechRecordingAlertPolicy, CLLocation, NSNumber;
+
+@interface AFSpeechRequestOptions : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *applicationDisplayName;
+@property (copy, nonatomic) NSString *applicationBundleIdentifier;
+@property (nonatomic) long long activationEvent;
+@property (copy, nonatomic) NSString *activationDeviceIdentifier;
+@property (nonatomic) BOOL isEyesFree;
+@property (copy, nonatomic) NSString *serverCommandId;
+@property (nonatomic) BOOL useAutomaticEndpointing;
+@property (nonatomic) long long endpointerOperationMode;
+@property (copy, nonatomic) AFSpeechRecordingAlertPolicy *recordingAlertPolicy;
+@property (nonatomic) BOOL useStreamingDictation;
+@property (nonatomic) double homeButtonDownEventTime;
+@property (nonatomic) unsigned long long homeButtonDownEventMachAbsoluteTime;
+@property (nonatomic) double activationEventTime;
+@property (nonatomic) unsigned long long activationEventMachAbsoluteTime;
+@property (nonatomic) double expectedActivationEventTime;
+@property (nonatomic) unsigned long long stopRecordingHostTime;
+@property (nonatomic) BOOL isInitialBringUp;
+@property (copy, nonatomic) NSNumber *homeButtonUpFromBeep;
+@property (nonatomic) BOOL acousticIdEnabled;
+@property (nonatomic) long long audioFileType;
+@property (retain, nonatomic) NSFileHandle *audioFileHandle;
+@property (copy, nonatomic) NSDictionary *voiceTriggerEventInfo;
+@property (copy, nonatomic) AFMyriadContext *myriadContext;
+@property (nonatomic) BOOL releaseAudioSessionOnRecordingCompletion;
+@property (copy, nonatomic) NSString *recordDeviceIdentifier;
+@property (retain, nonatomic) NSXPCListenerEndpoint *speechRecordingEventListeningEndpoint;
+@property (nonatomic) BOOL usePrelisteningMode;
+@property (nonatomic) BOOL pendCallbacksUntilAfterContinuation;
+@property (nonatomic) BOOL useBorealisBuffer;
+@property (nonatomic) BOOL reloadSmartSiriVolume;
+@property (nonatomic) BOOL skipPersonalizedASR;
+@property (copy, nonatomic) NSNumber *notifyState;
+@property (copy, nonatomic) NSURL *audioFileURL;
+@property (nonatomic) BOOL suppressStartAlert;
+@property (nonatomic) BOOL suppressStopAlert;
+@property (nonatomic) BOOL hasPlayedStartAlert;
+@property (nonatomic) unsigned long long bargeInOptions;
+@property (copy, nonatomic) AFSpeechSynthesisRecord *speechSynthesisRecord;
+@property (copy, nonatomic) CLLocation *location;
+@property (copy, nonatomic) NSString *locationStatus;
+@property (copy, nonatomic) NSString *btDeviceAddress;
+@property (copy, nonatomic) NSDictionary *clientAnalyticsContext;
+@property (copy, nonatomic) NSDictionary *startContext;
+@property (copy, nonatomic) NSDictionary *stopContext;
+@property (nonatomic) BOOL isOnPhoneCall;
+@property (nonatomic) BOOL isMediaPlaying;
+@property (nonatomic) float mediaPlaybackVolume;
+@property (copy, nonatomic) AFLanguageDetectionUserContext *languageDetectionUserContext;
+@property (nonatomic) long long dictationInputOrigin;
+@property (copy, nonatomic) NSUUID *turnIdentifier;
+@property (nonatomic) long long presentationMode;
+@property (copy, nonatomic) NSString *preheatTestLanguage;
+@property (copy, nonatomic) NSURL *preheatTestModelPath;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithActivationEvent:(long long)a0;
+- (id)initWithCoder:(id)a0;
+- (id)description;
+- (BOOL)isRaiseToSpeak;
+- (BOOL)isVoiceTrigger;
+- (void)encodeWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXGadgetSectionHeaderUIViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

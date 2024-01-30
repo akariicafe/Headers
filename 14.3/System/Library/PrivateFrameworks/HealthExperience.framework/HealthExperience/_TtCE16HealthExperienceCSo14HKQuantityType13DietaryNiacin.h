@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType13DietaryNiacin : _TtCs12_SwiftObject
+
+@end

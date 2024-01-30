@@ -1,0 +1,3 @@
+@interface PSEvent : NSObject
+
+@end

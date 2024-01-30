@@ -1,0 +1,3 @@
+@interface _TtCV20SettingsUIKitPrivate26SUIKPThirdPartyAppListViewP33_862952B2CB96475C09D11F1E89D3505E23ListInsetBindingWrapper : _TtCs12_SwiftObject
+
+@end

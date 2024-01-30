@@ -1,0 +1,80 @@
+@class NSData, NSString, NSDate, NSTimer, GEODirectionsRequest, MNLocation, GEONavigationMapMatcher, NSMutableArray, MNEVChargingStateMonitor, MNArrivalUpdater;
+@protocol GEODirectionServiceTicket;
+
+@interface MNTurnByTurnLocationTracker : MNLocationTracker <MNArrivalUpdaterDelegate, MNEVChargingStateMonitorDelegate> {
+    GEONavigationMapMatcher *_mapMatcher;
+    MNArrivalUpdater *_arrivalUpdater;
+    unsigned long long _lastArrivalLegIndex;
+    NSDate *_startDate;
+    struct { double latitude; double longitude; } _originCoordinate;
+    id<GEODirectionServiceTicket> _rerouteTicket;
+    GEODirectionsRequest *_request;
+    unsigned long long _rerouteReason;
+    long long _responseErrorCode;
+    unsigned long long _responseErrorCount;
+    unsigned long long _recalculationNetworkUnreachableCount;
+    NSTimer *_recalculationRetryTimer;
+    MNLocation *_previousRerouteLocation;
+    NSMutableArray *_rerouteDates;
+    unsigned long long _consecutiveOffRouteCount;
+    MNLocation *_lastKnownGoodLocationOnRoute;
+    BOOL _isNavigatingInLowGuidance;
+    MNEVChargingStateMonitor *_evChargingStateMonitor;
+}
+
+@property (copy, nonatomic) NSData *serverSessionState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)updateLocation:(id)a0;
+- (void)stopTracking;
+- (void)startTracking;
+- (id)_matchedLocationForLocation:(id)a0;
+- (id)initWithNavigationSession:(id)a0;
+- (BOOL)isRerouting;
+- (void)updateDestination:(id)a0 finishedHandler:(id /* block */)a1;
+- (void)reroute:(id)a0 reason:(unsigned long long)a1;
+- (void)_setIsNavigatingInLowGuidance:(BOOL)a0;
+- (void)traceJumpedInTime;
+- (void)forceOnRoute:(id)a0 atLocation:(id)a1;
+- (void)evChargingStateMonitorShouldShowChargingInfo:(id)a0;
+- (void)evChargingStateMonitor:(id)a0 didReachTargetBatteryCharge:(id)a1;
+- (void)_updateForArrivalAtLegIndex:(unsigned long long)a0;
+- (id)_newMapMatcherForRoute:(id)a0;
+- (id)_overrideLocationForLocation:(id)a0;
+- (void)_updateForLocation:(id)a0;
+- (void)_updateForReroute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (int)_detectedMotionForLocation:(id)a0;
+- (BOOL)_allowSwitchToTransportType:(int)a0 forLocation:(id)a1;
+- (id)_alternateRouteForOffRouteLocation:(id)a0;
+- (id)_matchedLocationForMatchResult:(id)a0 originalLocation:(id)a1;
+- (void)arrivalUpdater:(id)a0 didArriveAtEndOfLegAtIndex:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 didEnterPreArrivalStateForLegIndex:(unsigned long long)a1;
+- (void)arrivalUpdaterDidTimeoutInArrivalRegion:(id)a0;
+- (void)_reroute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (void)_requestDirectionsForLocation:(id)a0 destination:(id)a1 transportType:(int)a2 handler:(id /* block */)a3;
+- (BOOL)_allowRerouteForLocation:(id)a0 outError:(out id *)a1;
+- (BOOL)_isRoadFeatureInOppositeDirection:(struct { struct { id x0; char *x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; unsigned int x6; unsigned long long x7; BOOL x8; unsigned long long x9; float x10; unsigned long long x11; id x12; int x13; } x0; unsigned long long x1; unsigned long long x2; int x3; int x4; int x5; unsigned long long x6; unsigned long long x7; unsigned int x8; unsigned int x9; union { struct { struct { float x0; float x1; } x0; struct { float x0; float x1; } x1; } x0; struct { float x0; float x1; float x2; float x3; } x1; } x10; struct *x11; struct { unsigned short x0[2]; unsigned short x1[2]; } x12; unsigned char x13; BOOL x14; unsigned char x15; BOOL x16; BOOL x17; unsigned char x18; BOOL x19; unsigned short x20; struct _NSRange { unsigned long long x0; unsigned long long x1; } x21; BOOL x22; unsigned int x23; } *)a0 ofCoordinate:(struct { double x0; double x1; })a1 course:(double)a2;
+- (BOOL)_shouldAdvanceGuidanceToRouteMatch:(id)a0;
+- (int)_routeHintTypeFromGEOTransportType:(int)a0;
+- (id)_evInfoForRoute:(id)a0;
+- (BOOL)_isCameraTestMode;
+- (void)_failedToRecalculateRouteWithError:(id)a0;
+- (id)_rerouteTicketForLocation:(id)a0 transportType:(int)a1;
+- (id)_ticketForNewDestination:(id)a0 fromLocation:(id)a1 transportType:(int)a2;
+- (void)_submitRerouteTicketWithHandler:(id /* block */)a0;
+- (void)_handleOffRouteForLocation:(id)a0;
+- (void)_retryLastRouteRecalculation;
+- (void)_recalculationRetryTimerFired:(id)a0;
+- (void)_sendRouteHintForLocation:(id)a0;
+- (BOOL)_hasArrivedAtFinalDestination;
+- (void)_updateStateForLocation:(id)a0;
+- (void)_updateSwitchTransportTypeForLocation:(id)a0;
+- (void)_updateForDepartureAtLegIndex:(unsigned long long)a0;
+- (id)initForTestingWithRoute:(id)a0;
+
+@end

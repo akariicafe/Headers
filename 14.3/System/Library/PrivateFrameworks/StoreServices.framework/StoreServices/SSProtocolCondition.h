@@ -1,0 +1,12 @@
+@interface SSProtocolCondition : NSObject {
+    long long _operator;
+    id _value;
+}
+
++ (id)newConditionWithDictionary:(id)a0;
+
+- (void)dealloc;
+- (BOOL)evaluateWithContext:(id)a0;
+- (id)initWithDictionary:(id)a0;
+
+@end

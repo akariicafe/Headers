@@ -1,0 +1,85 @@
+@class NTPBCategory, NSString, NTPBTopStoriesConfig, NTPBCoverArticlesConfig, NTPBVideoPlayerConfig, NSMutableArray;
+
+@interface NTPBLanguageConfig : PBCodable <NSCopying>
+
+@property (readonly, nonatomic) BOOL hasLanguageTag;
+@property (retain, nonatomic) NSString *languageTag;
+@property (readonly, nonatomic) BOOL hasHiddenFeedId;
+@property (retain, nonatomic) NSString *hiddenFeedId;
+@property (readonly, nonatomic) BOOL hasRootCategory;
+@property (retain, nonatomic) NTPBCategory *rootCategory;
+@property (retain, nonatomic) NSMutableArray *preSubscribedFeedIds;
+@property (retain, nonatomic) NSMutableArray *onboardingTagIds;
+@property (readonly, nonatomic) BOOL hasTopStoriesConfig;
+@property (retain, nonatomic) NTPBTopStoriesConfig *topStoriesConfig;
+@property (retain, nonatomic) NSMutableArray *preSubscribedNotificationsChannelIds;
+@property (retain, nonatomic) NSMutableArray *recommendedNotificationChannels;
+@property (readonly, nonatomic) BOOL hasCoverArticlesConfig;
+@property (retain, nonatomic) NTPBCoverArticlesConfig *coverArticlesConfig;
+@property (readonly, nonatomic) BOOL hasAppleEditorialChannelId;
+@property (retain, nonatomic) NSString *appleEditorialChannelId;
+@property (readonly, nonatomic) BOOL hasForYouConfigId;
+@property (retain, nonatomic) NSString *forYouConfigId;
+@property (readonly, nonatomic) BOOL hasBriefingsTagId;
+@property (retain, nonatomic) NSString *briefingsTagId;
+@property (readonly, nonatomic) BOOL hasTrendingTagId;
+@property (retain, nonatomic) NSString *trendingTagId;
+@property (readonly, nonatomic) BOOL hasFeaturedStoriesTagId;
+@property (retain, nonatomic) NSString *featuredStoriesTagId;
+@property (readonly, nonatomic) BOOL hasSavedStoriesTagId;
+@property (retain, nonatomic) NSString *savedStoriesTagId;
+@property (readonly, nonatomic) BOOL hasWidgetSectionConfigId;
+@property (retain, nonatomic) NSString *widgetSectionConfigId;
+@property (readonly, nonatomic) BOOL hasEditorialGemsSectionId;
+@property (retain, nonatomic) NSString *editorialGemsSectionId;
+@property (readonly, nonatomic) BOOL hasExploreArticleId;
+@property (retain, nonatomic) NSString *exploreArticleId;
+@property (readonly, nonatomic) BOOL hasBreakingNewsChannelId;
+@property (retain, nonatomic) NSString *breakingNewsChannelId;
+@property (retain, nonatomic) NSMutableArray *mediaSharingBlacklistedChannelIds;
+@property (readonly, nonatomic) BOOL hasSpecialEventsChannelId;
+@property (retain, nonatomic) NSString *specialEventsChannelId;
+@property (readonly, nonatomic) BOOL hasTopVideosChannelId;
+@property (retain, nonatomic) NSString *topVideosChannelId;
+@property (readonly, nonatomic) BOOL hasMoreVideosChannelId;
+@property (retain, nonatomic) NSString *moreVideosChannelId;
+@property (readonly, nonatomic) BOOL hasShareVideoPlayerConfig;
+@property (retain, nonatomic) NTPBVideoPlayerConfig *shareVideoPlayerConfig;
+
++ (Class)preSubscribedFeedIdsType;
++ (Class)onboardingTagIdsType;
++ (Class)preSubscribedNotificationsChannelIdsType;
++ (Class)recommendedNotificationChannelsType;
++ (Class)mediaSharingBlacklistedChannelIdsType;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)hash;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void)addPreSubscribedFeedIds:(id)a0;
+- (void)addOnboardingTagIds:(id)a0;
+- (void)addPreSubscribedNotificationsChannelIds:(id)a0;
+- (void)addRecommendedNotificationChannels:(id)a0;
+- (void)addMediaSharingBlacklistedChannelIds:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)clearPreSubscribedFeedIds;
+- (unsigned long long)preSubscribedFeedIdsCount;
+- (id)preSubscribedFeedIdsAtIndex:(unsigned long long)a0;
+- (void)clearOnboardingTagIds;
+- (unsigned long long)onboardingTagIdsCount;
+- (id)onboardingTagIdsAtIndex:(unsigned long long)a0;
+- (void)clearPreSubscribedNotificationsChannelIds;
+- (unsigned long long)preSubscribedNotificationsChannelIdsCount;
+- (void)clearRecommendedNotificationChannels;
+- (id)preSubscribedNotificationsChannelIdsAtIndex:(unsigned long long)a0;
+- (unsigned long long)recommendedNotificationChannelsCount;
+- (id)recommendedNotificationChannelsAtIndex:(unsigned long long)a0;
+- (void)clearMediaSharingBlacklistedChannelIds;
+- (unsigned long long)mediaSharingBlacklistedChannelIdsCount;
+- (id)mediaSharingBlacklistedChannelIdsAtIndex:(unsigned long long)a0;
+
+@end

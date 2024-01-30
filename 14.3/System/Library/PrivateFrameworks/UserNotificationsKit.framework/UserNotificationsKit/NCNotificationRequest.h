@@ -1,0 +1,85 @@
+@class NSDate, NSString, NSArray, NCNotificationContent, NSSet, NCNotificationOptions, NSDictionary, NCNotificationAction, NCNotificationSound, UNNotification;
+
+@interface NCNotificationRequest : NSObject <BSDescriptionProviding, NSCopying, NSMutableCopying>
+
+@property (readonly, copy, nonatomic) NSString *sectionIdentifier;
+@property (readonly, copy, nonatomic) NSString *notificationIdentifier;
+@property (readonly, copy, nonatomic) NSString *threadIdentifier;
+@property (readonly, copy, nonatomic) NSString *categoryIdentifier;
+@property (readonly, copy, nonatomic) NSSet *subSectionIdentifiers;
+@property (readonly, copy, nonatomic) NSString *highestPrioritySubSectionIdentifier;
+@property (readonly, copy, nonatomic) NSArray *intentIdentifiers;
+@property (readonly, copy, nonatomic) NSArray *peopleIdentifiers;
+@property (readonly, copy, nonatomic) NSString *parentSectionIdentifier;
+@property (readonly, nonatomic, getter=isUniqueThreadIdentifier) BOOL uniqueThreadIdentifier;
+@property (readonly, nonatomic) NSDate *timestamp;
+@property (readonly, copy, nonatomic) NSSet *requestDestinations;
+@property (readonly, nonatomic) NCNotificationContent *content;
+@property (readonly, nonatomic) NCNotificationOptions *options;
+@property (readonly, copy, nonatomic) NSDictionary *context;
+@property (readonly, copy, nonatomic) NSSet *settingsSections;
+@property (readonly, nonatomic) NCNotificationSound *sound;
+@property (readonly, nonatomic) NCNotificationAction *cancelAction;
+@property (readonly, nonatomic) NCNotificationAction *clearAction;
+@property (readonly, nonatomic) NCNotificationAction *closeAction;
+@property (readonly, nonatomic) NCNotificationAction *defaultAction;
+@property (readonly, nonatomic) NCNotificationAction *silenceAction;
+@property (readonly, copy, nonatomic) NSDictionary *supplementaryActions;
+@property (readonly, nonatomic) UNNotification *userNotification;
+@property (readonly, nonatomic) BOOL isCollapsedNotification;
+@property (readonly, nonatomic) unsigned long long collapsedNotificationsCount;
+@property (readonly, copy, nonatomic) NSDictionary *sourceInfo;
+@property (readonly, nonatomic, getter=isCriticalAlert) BOOL criticalAlert;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)notificationRequest;
++ (id)notificationRequestWithRequestDestination:(id)a0;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 threadId:(id)a2 title:(id)a3 message:(id)a4 timestamp:(id)a5 destinations:(id)a6;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 threadId:(id)a2 subSectionIds:(id)a3 title:(id)a4 message:(id)a5 timestamp:(id)a6 destinations:(id)a7 options:(id)a8;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 threadId:(id)a2 title:(id)a3 message:(id)a4 timestamp:(id)a5 destination:(id)a6;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 requestDestination:(id)a2;
++ (id)notificationRequestWithSectionId:(id)a0 threadId:(id)a1 notificationId:(id)a2 requestDestinations:(id)a3;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 threadId:(id)a2 timestamp:(id)a3;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 timestamp:(id)a2;
++ (id)notificationRequestWithThreadId:(id)a0 timestamp:(id)a1;
++ (id)notificationRequestWithNotificationId:(id)a0 threadId:(id)a1 timestamp:(id)a2;
++ (id)notificationRequestWithNotificationId:(id)a0 timestamp:(id)a1;
++ (id)notificationRequestWithTimestamp:(id)a0;
++ (id)notificationRequestWithNotificationId:(id)a0;
++ (id)notificationRequestWithNotificationId:(id)a0 lockScreenPriority:(unsigned long long)a1 lockScreenPersistence:(unsigned long long)a2;
++ (id)notificationRequestWithNotificationId:(id)a0 requestDestinations:(id)a1 isCritical:(BOOL)a2;
++ (id)notificationRequestWithSectionId:(id)a0 notificationId:(id)a1 subSectionIds:(id)a2 requestDestinations:(id)a3;
++ (id)notificationRequestWithSectionId:(id)a0 threadId:(id)a1 notificationId:(id)a2 requestDestination:(id)a3;
++ (id)notificationRequestWithRequestDestinations:(id)a0;
++ (id)notificationRequestWithSectionId:(id)a0 threadId:(id)a1;
++ (id)notificationRequestWithSectionId:(id)a0;
++ (id)notificationRequestWithThreadId:(id)a0;
++ (id)notificationRequestWithNotificationId:(id)a0 sectionId:(id)a1 threadId:(id)a2;
++ (id)notificationRequestWithNotificationId:(id)a0 threadId:(id)a1;
++ (id)notificationRequestWithActionWithId:(id)a0 runner:(id)a1;
++ (id)notificationRequestWithNotificationId:(id)a0 lockScreenPriority:(unsigned long long)a1;
++ (id)notificationRequestWithNotificationId:(id)a0 requestDestinations:(id)a1;
++ (id)notificationRequestWithSectionId:(id)a0 subSectionIds:(id)a1;
++ (id)notificationRequestWithNotificationId:(id)a0 requestDestinations:(id)a1 lockScreenPersistence:(unsigned long long)a2;
+
+- (id)loggingDescription;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)succinctDescription;
+- (BOOL)matchesRequest:(id)a0;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)succinctDescriptionBuilder;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithNotificationRequest:(id)a0;
+- (BOOL)matchesThreadForRequest:(id)a0;
+- (BOOL)isCollapsibleWithNotificationRequest:(id)a0;
+- (id)_actionsLoggingDescription;
+- (id)_actionsDescriptionForEnvironment:(id)a0;
+
+@end

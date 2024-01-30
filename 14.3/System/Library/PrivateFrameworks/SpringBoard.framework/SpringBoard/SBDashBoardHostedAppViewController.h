@@ -1,0 +1,80 @@
+@class _SBDashBoardHostedAppStatusBarStateProxy, NSString, SBAppViewController, SBMainDisplaySceneLayoutStatusBarView, NSSet, SBApplicationSceneView, SBFAuthenticationAssertion, UIApplicationSceneDeactivationAssertion, SBApplicationSceneHandle, UIApplicationSceneClientSettingsDiffInspector;
+@protocol SBDashBoardHostedAppViewControllerDelegate, SBScenePlaceholderContentContext, BSInvalidatable;
+
+@interface SBDashBoardHostedAppViewController : SBDashBoardViewExternalControllerBase <SBAppViewControllerDelegate, SBSceneHandleObserver, SBMainDisplaySceneLayoutStatusBarViewDataSource, SBDeviceApplicationSceneStatusBarStateObserver, SBApplicationSceneViewControllingStatusBarDelegate, SBApplicationHosting, BSInvalidatable> {
+    SBAppViewController *_appViewController;
+    UIApplicationSceneDeactivationAssertion *_resignActiveAssertion;
+    SBFAuthenticationAssertion *_authenticationAssertion;
+    id<BSInvalidatable> _deferOrientationUpdatesAssertion;
+    NSString *_cachedBasicPublicDescription;
+    BOOL _invalidated;
+    BOOL _wantsIdleTimerDisabled;
+    SBMainDisplaySceneLayoutStatusBarView *_statusBarView;
+    UIApplicationSceneClientSettingsDiffInspector *_appClientSettingsDiffInspector;
+}
+
+@property (readonly, nonatomic) _SBDashBoardHostedAppStatusBarStateProxy *statusBarDescriber;
+@property (weak, nonatomic) id<SBDashBoardHostedAppViewControllerDelegate> delegate;
+@property (readonly, nonatomic) SBApplicationSceneHandle *applicationSceneHandle;
+@property (readonly, nonatomic) SBApplicationSceneView *appView;
+@property (retain, nonatomic) id<SBScenePlaceholderContentContext> placeholderContentContext;
+@property (nonatomic) long long mode;
+@property (retain, nonatomic) NSSet *actionsToDeliver;
+@property (nonatomic) BOOL intentToTransitionFromSecureAppToFull;
+@property (nonatomic) BOOL placeholderContentEnabled;
+@property (nonatomic) BOOL interfaceOrientationLocked;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)willMoveToParentViewController:(id)a0;
+- (long long)statusBarOrientation;
+- (BOOL)isHostingAnApp;
+- (long long)presentationStyle;
+- (void)configureDisplayLayoutElement:(id)a0;
+- (void)hostedAppWillRotateToInterfaceOrientation:(long long)a0;
+- (id)hostedAppSceneHandle;
+- (BOOL)canHostAnApp;
+- (long long)presentationPriority;
+- (void)conformsToSBApplicationHosting;
+- (long long)contentInterfaceOrientation;
+- (id)displayLayoutElementIdentifier;
+- (id)statusBarDescriberForStatusBarPart:(id)a0;
+- (id)hostedAppSceneHandles;
+- (void)sceneWithIdentifier:(id)a0 didChangeSceneInterfaceOrientationTo:(long long)a1;
+- (void)aggregateBehavior:(id)a0;
+- (void)aggregateAppearance:(id)a0;
+- (long long)presentationType;
+- (id)appearanceIdentifier;
+- (void)setSupplementalActivationSettings:(id)a0;
+- (void).cxx_destruct;
+- (void)_updateStatusBarContainerOrientation;
+- (void)dealloc;
+- (void)appViewController:(id)a0 didTransitionFromMode:(long long)a1 toMode:(long long)a2;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)_setMode:(long long)a0 fromClient:(BOOL)a1 forReason:(id)a2;
+- (void)applicationSceneViewController:(id)a0 didUpdateStatusBarSettings:(id)a1;
+- (BOOL)handleEvent:(id)a0;
+- (id)_appViewController;
+- (void)_endShowingStatusBarView;
+- (id)initWithApplicationSceneEntity:(id)a0;
+- (id)statusBarDescribers;
+- (void)_setResignActiveAssertionEnabled:(BOOL)a0;
+- (void)sceneHandle:(id)a0 didUpdateClientSettingsWithDiff:(id)a1 transitionContext:(id)a2;
+- (BOOL)allowsConfiguringIndividualStatusBarParts;
+- (void)appViewControllerWillActivateApplication:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_beginShowingStatusBarView;
+- (id)_deviceApplicationSceneHandle;
+- (void)appViewControllerDidDeactivateApplication:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (BOOL)appViewControllerShouldBackgroundApplicationOnDeactivate:(id)a0;
+- (long long)containerInterfaceOrientation;
+- (void)invalidate;
+- (void)viewDidLoad;
+- (void)_addStatusBarViewIfNeeded;
+
+@end

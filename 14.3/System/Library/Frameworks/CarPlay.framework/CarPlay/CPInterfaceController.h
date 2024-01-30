@@ -1,0 +1,85 @@
+@class NSString, NSArray, CPTemplate, NSXPCConnection, CPWindow, NSMutableArray, UITraitCollection;
+@protocol CPInterfaceControllerDelegate, CPWindowProviding, CPTemplateProviding;
+
+@interface CPInterfaceController : NSObject <CPTemplateDelegate, CPTemplateServiceClientInterface>
+
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (retain, nonatomic) id<CPTemplateProviding> templateProvider;
+@property (retain, nonatomic) CPTemplate *rootTemplate;
+@property (retain, nonatomic) NSMutableArray *templateStack;
+@property (retain, nonatomic) CPTemplate *presentedTemplate;
+@property (retain, nonatomic) CPTemplate *lastPresentedTemplate;
+@property (retain, nonatomic) CPWindow *carWindow;
+@property (weak, nonatomic) id<CPWindowProviding> windowProvider;
+@property (weak, nonatomic) id<CPInterfaceControllerDelegate> delegate;
+@property (nonatomic) BOOL prefersDarkUserInterfaceStyle;
+@property (readonly, nonatomic) CPTemplate *topTemplate;
+@property (readonly, nonatomic) NSArray *templates;
+@property (readonly, nonatomic) UITraitCollection *carTraitCollection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_whitelistClassesForBaseTemplateProvider:(id)a0;
++ (id)_templateProvidingInterface;
++ (id)_templateClientInterface;
+
+- (void).cxx_destruct;
+- (id)_init;
+- (void)_invalidate;
+- (void)_connectionInvalidated;
+- (void)_connectionInterrupted;
+- (void)setRootTemplate:(id)a0 animated:(BOOL)a1;
+- (void)templateWillAppear:(id)a0 animated:(BOOL)a1;
+- (void)templateDidAppear:(id)a0 animated:(BOOL)a1;
+- (void)templateWillDisappear:(id)a0 animated:(BOOL)a1;
+- (void)templateDidDisappear:(id)a0 animated:(BOOL)a1;
+- (void)pushTemplate:(id)a0 animated:(BOOL)a1;
+- (void)setRootTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)templateDidDismiss:(id)a0;
+- (void)handleActionForControlIdentifier:(id)a0;
+- (BOOL)isCarPlayCanvasActive;
+- (void)_sceneConnect:(id)a0;
+- (void)_pushTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_handleCompletion:(id /* block */)a0 withSuccess:(BOOL)a1 error:(id)a2;
+- (void)_pushMapTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushGridTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushListTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushSearchTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushNowPlayingTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushTabBarTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_pushInformationTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_pushEntityTemplate:(id)a0 presentationStyle:(unsigned long long)a1 animated:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_presentActionSheetTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_presentAlertTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_pushVoiceControlTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (id)_synchronousTemplateProvider;
+- (void)presentTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)popToTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)pushTemplate:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)dismissTemplateAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)popTemplateAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)popToRootTemplateAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)updateTabBarTemplate:(id)a0;
+- (void)_connectToListenerEndpoint:(id)a0;
+- (void)bannerTappedWithIdentifier:(id)a0;
+- (void)bannerDidAppearWithIdentifier:(id)a0;
+- (void)bannerDidDisappearWithIdentifier:(id)a0;
+- (void)clientExceededHierarchyDepthLimit;
+- (void)clientPushedIllegalTemplateOfClass:(id)a0;
+- (void)clientExceededTabBarTabLimit;
+- (void)clientExceededAudioMetadataThrottleLimit;
+- (void)templateIdentifierDidPop:(id)a0;
+- (void)templateIdentifierDidDismiss:(id)a0;
+- (void)updateInterestingLayoutGuideWithInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+- (void)clientPushNowPlayingTemplateAnimated:(BOOL)a0;
+- (id)_activeMapTemplate;
+- (void)presentTemplate:(id)a0 animated:(BOOL)a1;
+- (void)popToTemplate:(id)a0 animated:(BOOL)a1;
+- (void)dismissTemplateAnimated:(BOOL)a0;
+- (void)popTemplateAnimated:(BOOL)a0;
+- (void)popToRootTemplateAnimated:(BOOL)a0;
+- (id)_listenerEndpointForSettings:(id)a0;
+
+@end

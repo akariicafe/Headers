@@ -1,0 +1,3 @@
+@interface _TtCV17WallpaperSettings18WSTopLevelListViewP33_ECA9D1AA29D762EEA4CAADCD006EE74123ListInsetBindingWrapper : _TtCs12_SwiftObject
+
+@end
