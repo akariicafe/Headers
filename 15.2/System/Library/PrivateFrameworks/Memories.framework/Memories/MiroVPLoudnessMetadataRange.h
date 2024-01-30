@@ -1,0 +1,3 @@
+@interface MiroVPLoudnessMetadataRange : MiroVPMetadataRange
+
+@end

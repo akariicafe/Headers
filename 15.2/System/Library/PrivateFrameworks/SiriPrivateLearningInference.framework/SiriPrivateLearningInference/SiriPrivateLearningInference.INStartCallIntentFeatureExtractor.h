@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.INStartCallIntentFeatureExtractor : _TtCs12_SwiftObject
+
+@end

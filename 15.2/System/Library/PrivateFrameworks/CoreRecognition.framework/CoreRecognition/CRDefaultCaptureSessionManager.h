@@ -1,0 +1,74 @@
+@class AVCaptureDeviceInput, AVCaptureSession, AVCaptureInputPort, NSString, CALayer, AVCaptureVideoPreviewLayer, AVCaptureVideoDataOutput;
+@protocol AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate;
+
+@interface CRDefaultCaptureSessionManager : NSObject <CRCaptureSessionManager>
+
+@property (retain, nonatomic) AVCaptureSession *captureSession;
+@property (retain, nonatomic) AVCaptureVideoPreviewLayer *avfPreviewLayer;
+@property (retain, nonatomic) AVCaptureDeviceInput *deviceInput;
+@property (retain, nonatomic) AVCaptureVideoDataOutput *captureVideoDataOutput;
+@property (retain) id inputPortFormatObserver;
+@property (weak, nonatomic) AVCaptureInputPort *inputPortFormatSender;
+@property float maxISO;
+@property float minISO;
+@property struct { long long value; int timescale; unsigned int flags; long long epoch; } highISOThresholdDuration;
+@property BOOL exposureAdjustmentInProgress;
+@property int exposureAdjustmentInProgressTimeoutCount;
+@property BOOL runningManualExposure;
+@property struct { struct *x0; int x1; double x2; double x3; } *exposure_table;
+@property (nonatomic) long long cameraPosition;
+@property (copy, nonatomic) NSString *cameraMode;
+@property (nonatomic) long long whiteBalanceMode;
+@property (nonatomic) long long focusMode;
+@property (nonatomic) long long exposureMode;
+@property (nonatomic) long long torchMode;
+@property (weak) id<AVCaptureVideoDataOutputSampleBufferDelegate> captureSessionDelegate;
+@property (weak) id<AVCaptureMetadataOutputObjectsDelegate> captureSessionMetadataDelegate;
+@property (readonly, nonatomic) CALayer *previewLayer;
+@property (retain) NSString *currentDeviceID;
+@property BOOL enableMetadataOutput;
+@property struct CGSize { double width; double height; } cameraResolution;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)isFocusPointOfInterestSupported;
+- (BOOL)isRunning;
+- (BOOL)isAdjustingFocus;
+- (void)stopRunning;
+- (struct CGPoint { double x0; double x1; })focusPointOfInterest;
+- (void)startRunning;
+- (void).cxx_destruct;
+- (id)frontFacingCamera;
+- (void)setPreviewOrientation:(long long)a0;
+- (BOOL)toggleCamera;
+- (void)setupCameraSession;
+- (void)changeCameraConfiguration;
+- (void)cameraSessionWasInterrupted:(id)a0;
+- (void)cacheCameraResolution:(id)a0;
+- (id)captureDeviceWithPosition:(long long)a0;
+- (void)setupCameraSessionWithCaptureDevice:(id)a0;
+- (int)targetVideoFormat;
+- (void)setupHighISO:(id)a0;
+- (BOOL)isRearCamera;
+- (BOOL)switchToCamera:(long long)a0;
+- (id)captureDeviceWithIdentifier:(id)a0;
+- (unsigned long long)cameraCount;
+- (id)backFacingCamera;
+- (void)refocusOnPoint:(struct CGPoint { double x0; double x1; })a0 exposure:(BOOL)a1;
+- (void)_refocusOnPoint:(struct CGPoint { double x0; double x1; })a0 focusMode:(long long)a1 exposure:(BOOL)a2;
+- (struct CGPoint { double x0; double x1; })convertCameraPoint:(struct CGPoint { double x0; double x1; })a0 toLayer:(id)a1 flipped:(BOOL)a2;
+- (void)teardownCameraSession;
+- (BOOL)switchToCameraWithDeviceID:(id)a0;
+- (void)refocusOnPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)resetFocus;
+- (struct CGPoint { double x0; double x1; })convertCameraPoint:(struct CGPoint { double x0; double x1; })a0 fromLayer:(id)a1;
+- (struct CGPoint { double x0; double x1; })convertCameraPoint:(struct CGPoint { double x0; double x1; })a0 toLayer:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertCameraRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromLayer:(id)a1;
+- (struct CGPoint { double x0; double x1; })convertCameraPointOCR:(struct CGPoint { double x0; double x1; })a0 toLayer:(id)a1 flipped:(BOOL)a2;
+- (void)highISOAdjustExposure;
+- (BOOL)isPreviewVideoMirrored;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })previewVisibleRect;
+
+@end

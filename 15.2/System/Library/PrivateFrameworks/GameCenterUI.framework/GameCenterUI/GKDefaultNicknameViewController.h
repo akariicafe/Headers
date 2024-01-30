@@ -1,0 +1,71 @@
+@class GKAvatarContainerView, GKReachability, GKNicknameController, UIVisualEffectView, UILabel, UIView, NSLayoutConstraint, NSString, UITextField, UIActivityIndicatorView, UIStackView, OBBoldTrayButton, UIImageView;
+
+@interface GKDefaultNicknameViewController : UIViewController <GKAvatarContainerViewDelegate, CNPhotoPickerViewControllerDelegate, GKNicknameControllerDelegate>
+
+@property (retain, nonatomic) GKAvatarContainerView *editAvatarView;
+@property (retain, nonatomic) UIView *avatarContainer;
+@property (retain, nonatomic) UIVisualEffectView *visualEffectView;
+@property (retain, nonatomic) UIStackView *mainStackView;
+@property (retain, nonatomic) UITextField *nickname;
+@property (retain, nonatomic) UIView *buttonContainer;
+@property (retain, nonatomic) UIImageView *bubbleImageView;
+@property (retain, nonatomic) OBBoldTrayButton *continueButton;
+@property (retain, nonatomic) NSLayoutConstraint *mainStackViewTrailingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *mainStackViewLeadingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *continueButtonEqualMainStackViewWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *continueButtonWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *continueButtonBottomConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *topMargin;
+@property (retain, nonatomic) UIStackView *middleStackView;
+@property (retain, nonatomic) UILabel *message;
+@property (retain, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (retain, nonatomic) UILabel *mainTitle;
+@property (retain, nonatomic) NSLayoutConstraint *avatarContainerLandscapeHeight;
+@property (retain, nonatomic) GKReachability *reachability;
+@property (readonly, nonatomic) BOOL isAvatarEditingSupported;
+@property (retain, nonatomic) GKNicknameController *nicknameController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)dismiss:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)reachabilityDidChange:(id)a0;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)keyboardWillHide:(id)a0;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)photoPickerDidCancel:(id)a0;
+- (void)photoPicker:(id)a0 didUpdatePhotoForContact:(id)a1 withContactImage:(id)a2;
+- (void)keyboardWillShow:(id)a0;
+- (void)setupNavigationBar;
+- (void)updateUIBasedOnTraitCollection;
+- (void)nicknameUpdateRequestCompletedWithStatus:(id)a0 error:(id)a1;
+- (BOOL)nicknameShouldBeginEditing;
+- (void)nicknameTextDidChangeWithMessage:(id)a0;
+- (void)nicknameDidBecomeFirstResponder;
+- (void)nicknameDidResignFirstResponder;
+- (void)nicknameUpdateAvatarImage:(id)a0;
+- (void)addEditAvatarContainerView;
+- (void)enableOrDisableNicknameEditing;
+- (void)cancelPressed:(id)a0;
+- (void)updateLeftBarButtonWithTitle:(id)a0;
+- (long long)getTopMargin;
+- (void)fadeNonEssentialViews:(BOOL)a0;
+- (void)animateNicknameTextFieldIntoView:(id)a0;
+- (void)refreshAvatarImage;
+- (void)presentAvatarPicker;
+- (void)presentDeleteAvatarImageAlert;
+- (void)avatarView:(id)a0 didSelectImageWithEditingEnabled:(BOOL)a1;
+- (void)settingsPressed:(id)a0;
+
+@end

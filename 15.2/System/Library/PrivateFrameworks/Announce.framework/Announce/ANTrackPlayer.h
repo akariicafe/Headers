@@ -1,0 +1,75 @@
+@class AVAudioSession, ANAudioSessionManager, NSString, NSURL, NSUUID, AVQueuePlayer, ANTimer, NSObject, NSMutableArray;
+@protocol OS_dispatch_group, OS_os_log, OS_dispatch_queue, ANTrackPlayerDelegate;
+
+@interface ANTrackPlayer : NSObject
+
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (nonatomic) unsigned long long playbackState;
+@property double interruptionStart;
+@property (readonly, nonatomic) unsigned long long options;
+@property (readonly, nonatomic) ANAudioSessionManager *audioSessionManager;
+@property (nonatomic) BOOL readyToPlay;
+@property (retain, nonatomic) ANTimer *interruptionTimer;
+@property (retain, nonatomic) ANTimer *playerTimer;
+@property (nonatomic) BOOL playbackPending;
+@property (copy, nonatomic) id /* block */ handler;
+@property (readonly, nonatomic) int numberActiveTracks;
+@property (weak) id<ANTrackPlayerDelegate> delegate;
+@property (weak) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (readonly, nonatomic) NSString *whatIsPlaying;
+@property (retain, nonatomic) AVQueuePlayer *queuePlayer;
+@property (retain, nonatomic) NSObject<OS_dispatch_group> *playerStartGroup;
+@property double silenceBetweenEachTrack;
+@property (retain, nonatomic) NSURL *audioFileAtStart;
+@property double trimStartTone;
+@property (retain, nonatomic) NSURL *audioFileTransition;
+@property double trimTransitionTone;
+@property double previousSkipGoesToPreviousTrackDelta;
+@property (readonly, nonatomic) AVAudioSession *audioSession;
+@property (readonly, nonatomic) NSMutableArray *playerItems;
+@property (readonly, nonatomic) NSUUID *endpointUUID;
+@property (readonly, nonatomic) NSObject<OS_os_log> *log;
+
+- (void)end;
+- (void)_callDelegateWithBlock:(id /* block */)a0;
+- (id)initWithOptions:(unsigned long long)a0;
+- (void)_configureAudioSession;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)dealloc;
+- (void)playWithCompletionHandler:(id /* block */)a0;
+- (id)prepareToPlay;
+- (void)stop;
+- (void)playInternalWithCompletionHandler:(id /* block */)a0;
+- (void)handleInterruptionDelay:(double)a0;
+- (void)_deregisterForNotificationsWithAudioSession:(id)a0;
+- (void)_registerForNotificationsWithAudioSession:(id)a0;
+- (void)audioSessionInterruptionHandler:(id)a0;
+- (void)playerRateChangedHandler:(id)a0;
+- (id)initWithOptions:(unsigned long long)a0 endpointUUID:(id)a1;
+- (void)_addObserverForPlayer:(id)a0;
+- (void)_removeObserverForPlayer:(id)a0;
+- (void)_removeItemObserverForPlayer:(id)a0;
+- (BOOL)_insertAudioBetween;
+- (BOOL)_add:(id)a0 announcementID:(id)a1 trackType:(long long)a2;
+- (BOOL)_addURL:(id)a0 announcementID:(id)a1 trackType:(long long)a2;
+- (void)_playWithCompletionHandler:(id /* block */)a0;
+- (void)_stopAndUpdatePlaybackState:(unsigned long long)a0;
+- (void)stopInternalSync;
+- (void)nextInternalSync;
+- (void)previousInternalSync;
+- (void)audioSessionMediaServicesLostHandler:(id)a0;
+- (void)audioSessionMediaServicesResetHandler:(id)a0;
+- (void)playerItemPlayedToEndHandler:(id)a0;
+- (id)_playerInfoForAVPlayerItem:(id)a0;
+- (id)_stringForTimeControlStatus:(long long)a0;
+- (id)_stringForPlayerStatus:(long long)a0;
+- (void)_stopPlaybackAndFailWithItem:(id)a0 error:(id)a1;
+- (id)_stringForPlayerItemStatus:(long long)a0;
+- (void)_resumePlaybackAfterInterruptionAtTimeInterval:(double)a0;
+- (void)_handleInterruptionEndedAndShouldResume:(BOOL)a0;
+- (BOOL)add:(id)a0 announcementID:(id)a1;
+- (void)nextWithCompletionHandler:(id /* block */)a0;
+- (void)previousWithCompletionHandler:(id /* block */)a0;
+
+@end

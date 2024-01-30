@@ -1,0 +1,92 @@
+@class NSObject, PKPeerPaymentWebService, PKPeerPaymentAccount, PKPeerPaymentRequestToken, PKPaymentAuthorizationCoordinator, NSString, PKPaymentPass, PKPeerPaymentRecipient, PKContactResolver, PKPeerPaymentPerformResponse, PKPeerPaymentQuote, NSError, PKPeerPaymentControllerInternalState;
+@protocol OS_dispatch_group, OS_dispatch_queue;
+
+@interface PKPeerPaymentController : NSObject <PKPaymentAuthorizationCoordinatorDelegate, PKPaymentAuthorizationCoordinatorPrivateDelegate> {
+    PKPeerPaymentControllerInternalState *_is;
+    PKPeerPaymentAccount *_account;
+    PKPaymentPass *_peerPaymentPass;
+    PKContactResolver *_contactResolver;
+    PKPaymentAuthorizationCoordinator *_performQuoteAuthorizationCoordinator;
+    NSObject<OS_dispatch_group> *_performQuoteGroup;
+    NSObject<OS_dispatch_queue> *_performQuoteCallbackQueue;
+    NSObject<OS_dispatch_queue> *_queue;
+    BOOL _performQuoteSuccess;
+    NSError *_performQuoteError;
+}
+
+@property (readonly, nonatomic) PKPeerPaymentWebService *webService;
+@property (readonly, nonatomic) unsigned long long state;
+@property (readonly, nonatomic) unsigned long long mode;
+@property (readonly, nonatomic) PKPeerPaymentAccount *account;
+@property (readonly, nonatomic) PKPaymentPass *peerPaymentPass;
+@property (readonly, copy, nonatomic) NSString *senderPhoneOrEmail;
+@property (readonly, copy, nonatomic) NSString *recipientPhoneOrEmail;
+@property (readonly, copy, nonatomic) PKPeerPaymentRecipient *recipient;
+@property (readonly, copy, nonatomic) NSString *recipientDisplayName;
+@property (readonly, nonatomic) PKPeerPaymentQuote *quote;
+@property (readonly, nonatomic) PKPeerPaymentPerformResponse *performQuoteResponse;
+@property (readonly, nonatomic) PKPeerPaymentRequestToken *requestToken;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)displayableErrorForError:(id)a0;
++ (BOOL)errorIsIdentityVerificationRequiredError:(id)a0;
++ (BOOL)errorIsTermsAcceptanceRequiredError:(id)a0;
++ (id)_displayableErrorOverrideForUnderlyingError:(id)a0;
++ (id)_displayNameForRecipientAddress:(id)a0 contactResolver:(id)a1 foundInContacts:(BOOL *)a2;
++ (unsigned long long)proposedResolutionForError:(id)a0;
++ (id)_peerPaymentPassURL;
++ (id)displayNameForAddress:(id)a0 contactResolver:(id)a1;
+
+- (id)internalState;
+- (void)quoteWithAmount:(id)a0 requestToken:(id)a1 alternateFundingSource:(id)a2 completion:(id /* block */)a3;
+- (void)identifyRecipientWithAddress:(id)a0 senderAddress:(id)a1 completion:(id /* block */)a2;
+- (void)formalRequestTokenForAmount:(id)a0 completion:(id /* block */)a1;
+- (void)performAction:(id)a0 withPaymentIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)selectMode:(unsigned long long)a0;
+- (void)_resetToState:(unsigned long long)a0;
+- (void)_handleAccountChanged:(id)a0;
+- (id)initWithPeerPaymentWebService:(id)a0 queue:(id)a1;
+- (id)displayableErrorForError:(id)a0;
+- (void)quoteWithAmount:(id)a0 requestToken:(id)a1 completion:(id /* block */)a2;
+- (id)_contactResolver;
+- (void)_requestQuoteWithRequest:(id)a0 withCompletion:(id /* block */)a1;
+- (id)contactForHandle:(id)a0;
+- (void)_refreshRecipientWithCompletion:(id /* block */)a0;
+- (void)_updateLastUsedAlternateFundingSource;
+- (void)performQuote:(id)a0 completion:(id /* block */)a1;
+- (void)_updatePreservePeerPaymentBalanceSetting:(BOOL)a0;
+- (id)displayNameForRecipientAddress:(id)a0 foundInContacts:(BOOL *)a1;
+- (BOOL)_contactInfoIsValidForAuthorizedQuote:(id)a0 errors:(id *)a1;
+- (void)aggDAuthorizedQuoteWithSuccess:(BOOL)a0 authorizedQuote:(id)a1;
+- (id)externalizedControllerState;
+- (BOOL)restoreStateWithExternalizedControllerState:(id)a0;
+- (void)identifyRecipientWithRoutingNumber:(id)a0 accountNumber:(id)a1 accountName:(id)a2 completion:(id /* block */)a3;
+- (void)identifyRecipientDebitCardWithCompletion:(id /* block */)a0;
+- (void)identifyRecipientSelf;
+- (void)quoteWithAmount:(id)a0 completion:(id /* block */)a1;
+- (void)performQuoteWithCompletion:(id /* block */)a0;
+- (void)statusForPaymentIdentifier:(id)a0 withCompletion:(id /* block */)a1;
+- (void)handleIdentityVerificationWithError:(id)a0 completion:(id /* block */)a1;
+- (void)handleTermsAcceptanceRequiredWithError:(id)a0 completion:(id /* block */)a1;
+- (void)identifyRecipientWithAddress:(id)a0 completion:(id /* block */)a1;
+- (void)requestTokenForAmount:(id)a0 completion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (void)paymentAuthorizationCoordinator:(id)a0 didAuthorizePayment:(id)a1 handler:(id /* block */)a2;
+- (void)paymentAuthorizationCoordinatorDidFinish:(id)a0;
+- (void)dealloc;
+- (void)paymentAuthorizationCoordinator:(id)a0 didSelectPaymentMethod:(id)a1 handler:(id /* block */)a2;
+- (void)paymentAuthorizationCoordinator:(id)a0 didAuthorizePeerPaymentQuote:(id)a1 handler:(id /* block */)a2;
+- (void)reset;
+- (id)initWithPeerPaymentWebService:(id)a0;
+- (id)displayNameForRecipientAddress:(id)a0;
+- (void)_setState:(unsigned long long)a0 notify:(BOOL)a1;
+- (id)_defaultAlternateFundingSourceForMode:(unsigned long long)a0;
+- (BOOL)_ensureState:(unsigned long long)a0;
+- (void)_setPerformQuoteSuccess:(BOOL)a0;
+- (id)summaryItemsForQuote:(id)a0;
+
+@end

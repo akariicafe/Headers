@@ -1,0 +1,3 @@
+@interface TRITrishadowEvaluationRoot : TRIPBRootObject
+
+@end

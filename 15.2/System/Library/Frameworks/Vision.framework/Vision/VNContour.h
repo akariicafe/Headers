@@ -1,0 +1,30 @@
+@class NSArray, NSIndexPath, VNContoursObservation;
+
+@interface VNContour : NSObject <NSCopying, VNRequestRevisionProviding> {
+    VNContoursObservation *_observation;
+    struct vector<float __attribute__((ext_vector_type(2))), std::allocator<float __attribute__((ext_vector_type(2)))>> { void *__begin_; void *__end_; struct __compressed_pair<float * __attribute__((ext_vector_type(2))), std::allocator<float __attribute__((ext_vector_type(2)))>> { void *__value_; } __end_cap_; } _contourPoints;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _pathLock;
+    struct CGPath { } *_normalizedPath;
+}
+
+@property (readonly) unsigned long long topLevelIndex;
+@property (readonly) NSIndexPath *indexPath;
+@property (readonly) long long childContourCount;
+@property (readonly) NSArray *childContours;
+@property (readonly) long long pointCount;
+@property (readonly) const void *normalizedPoints;
+@property (readonly) const struct CGPath { } *normalizedPath;
+@property (readonly) float aspectRatio;
+@property (readonly, nonatomic) unsigned long long requestRevision;
+
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id).cxx_construct;
+- (id)initWithPoints:(const void *)a0 topLevelIndex:(unsigned long long)a1 indexPath:(id)a2 aspectRatio:(float)a3;
+- (id)childContourAtIndex:(unsigned long long)a0 error:(id *)a1;
+- (id)polygonApproximationWithEpsilon:(float)a0 error:(id *)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface SBAWDMetricData : NSObject
+
+@end

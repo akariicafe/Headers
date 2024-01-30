@@ -1,0 +1,3 @@
+@interface __PXFocusableUIImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

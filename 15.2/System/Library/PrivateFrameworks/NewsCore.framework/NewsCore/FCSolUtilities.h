@@ -1,0 +1,3 @@
+@interface FCSolUtilities : NSObject
+
+@end

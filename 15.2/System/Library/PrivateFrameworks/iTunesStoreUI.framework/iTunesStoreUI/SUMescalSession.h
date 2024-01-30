@@ -1,0 +1,22 @@
+@class NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SUMescalSession : NSObject {
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    BOOL _complete;
+    struct FairPlayHWInfo_ { unsigned int IDLength; unsigned char ID[20]; } _hardwareInfo;
+    struct FPSAPContextOpaque_ { } *_session;
+}
+
+@property (readonly, getter=isComplete) BOOL complete;
+
+- (id)signData:(id)a0 error:(id *)a1;
+- (BOOL)verifyPrimeSignature:(id)a0 error:(id *)a1;
+- (id)exchangeData:(id)a0 error:(id *)a1;
+- (id)init;
+- (void)dealloc;
+- (void)_teardownSession;
+- (id)primeForAccountCreationWithData:(id)a0 error:(id *)a1;
+- (id)_newDataWithBytes:(char *)a0 length:(unsigned int)a1;
+
+@end

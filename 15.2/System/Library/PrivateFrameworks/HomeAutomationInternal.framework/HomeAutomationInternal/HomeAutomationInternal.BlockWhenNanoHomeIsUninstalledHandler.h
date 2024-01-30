@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockWhenNanoHomeIsUninstalledHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

@@ -1,0 +1,80 @@
+@class NSArray, CHPhoneBookIOSManager, NSPredicate, NSDate, NSString;
+@protocol SyncManagerProtocol;
+
+@interface CHManager : CHSynchronizedLoggable
+
+@property (readonly, nonatomic) CHPhoneBookIOSManager *phoneBookManager;
+@property (retain, nonatomic) NSArray *recentCalls;
+@property long long numberOfUnseenMissedCalls;
+@property (retain) id<SyncManagerProtocol> syncManager;
+@property BOOL cacheIsDirty;
+@property BOOL reCoalesce;
+@property (retain, nonatomic, getter=uncoalescedRecentCallsSync) NSArray *uncoalescedRecentCalls;
+@property (retain) NSArray *uncoalescedUnFilteredRecentCalls;
+@property (nonatomic) BOOL showsFaceTimeVideoCalls;
+@property (nonatomic) BOOL showsFaceTimeAudioCalls;
+@property (nonatomic) BOOL showsTelephonyCalls;
+@property (nonatomic) BOOL generateSyncTransactions;
+@property (nonatomic) unsigned int limitingCallTypes;
+@property (copy, nonatomic) NSDate *limitingStartDate;
+@property (copy, nonatomic) NSDate *limitingEndDate;
+@property (copy, nonatomic) NSArray *limitingCallKinds;
+@property (retain, nonatomic) NSPredicate *postFetchingPredicate;
+@property (copy, nonatomic) NSString *coalescingStrategy;
+
++ (id)limitingCallKindsForCallType:(unsigned int)a0;
++ (unsigned int)CHCallStatusForCallWithDuration:(double)a0 isOriginated:(BOOL)a1 isAnswered:(BOOL)a2;
+
+- (void)setInitialLimitingCallKinds:(id)a0;
+- (id)initWithContactStore:(id)a0 queue:(id)a1;
+- (void)flush;
+- (id)initWithQueue:(id)a0;
+- (void)setRead:(BOOL)a0 forCallsWithPredicate:(id)a1 completion:(id /* block */)a2;
+- (void)setDefaultInitValues;
+- (void)setLimitingCallTypesSync:(unsigned int)a0;
+- (void)deleteAllCalls;
+- (unsigned long long)coalescedCallCountWithPredicate:(id)a0;
+- (void)setOutgoingLocalParticipantUUID:(id)a0 forRecentCallsMatchingPredicate:(id)a1;
+- (id)getLimitsDictionary;
+- (void)deleteCallsWithPredicate:(id)a0 completion:(id /* block */)a1;
+- (void)handleCallHistoryContactStoreChangedInternalNotification:(id)a0;
+- (void)clearDatabase;
+- (id)callsWithPredicate:(id)a0 limit:(unsigned long long)a1 offset:(unsigned long long)a2 batchSize:(unsigned long long)a3;
+- (double)callTimersGetLifetime;
+- (long long)setRead:(BOOL)a0 forCallsWithPredicate:(id)a1;
+- (double)callTimersGetIncoming;
+- (void)deleteCallAtIndex:(unsigned long long)a0;
+- (id)latestRecentCallMatchingPredicate:(id)a0;
+- (void)callTimersReset;
+- (void).cxx_destruct;
+- (id)coalescedCallsWithPredicate:(id)a0 limit:(unsigned long long)a1 offset:(unsigned long long)a2 batchSize:(unsigned long long)a3;
+- (void)currentLocaleChanged:(id)a0;
+- (id)initWithContactStore:(id)a0;
+- (void)updateBytesOfDataUsedFor:(id)a0 with:(id)a1;
+- (id)init;
+- (id)unCoalesceCall:(id)a0;
+- (void)addMultipleCallsToCallHistory:(id)a0;
+- (void)markAllCallsAsReadWithPredicate:(id)a0;
+- (id)fetchRecentCallsSyncWithCoalescing:(BOOL)a0;
+- (long long)deleteCallsWithPredicate:(id)a0;
+- (void)deleteTheseCallsSync:(id)a0;
+- (unsigned long long)countCallsWithPredicateSync:(id)a0;
+- (double)callTimersGetOutgoing;
+- (void)setLimitingCallKindsSync:(id)a0;
+- (void)deleteTheseCalls:(id)a0;
+- (void)handleCallHistoryDatabaseChangedInternalNotification:(id)a0;
+- (id)callIdentifiersWithPredicate:(id)a0 limit:(unsigned long long)a1 offset:(unsigned long long)a2 batchSize:(unsigned long long)a3;
+- (id)initWithFetchingLimitsDictionary:(id)a0 andCoalescingStrategy:(id)a1 andPostFetchingPredicate:(id)a2 withQueue:(id)a3;
+- (unsigned long long)callCountWithPredicate:(id)a0;
+- (void)registerForNotifications;
+- (void)deleteCall:(id)a0;
+- (void)addToCallHistory:(id)a0;
+- (id)latestCallMatchingNormalizedRemoteParticipantHandleValues:(id)a0;
+- (id)recentCallsWithPredicate:(id)a0;
+- (void)dealloc;
+- (id)applyPredicate:(id)a0 toCalls:(id)a1;
+- (void)deleteAllCallsSync;
+- (id)coalescedCallsWithCalls:(id)a0 usingStrategy:(id)a1;
+- (unsigned long long)countCallsWithPredicate:(id)a0;
+
+@end

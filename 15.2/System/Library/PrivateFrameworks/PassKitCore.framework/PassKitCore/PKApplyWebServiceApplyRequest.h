@@ -1,0 +1,28 @@
+@class PKPaymentDeviceMetadata, NSString, NSArray, NSURL, PKFeatureApplicationInvitationDetails, PKApplyWebServiceRequestAuthenticationContext, PKPaymentInstallmentConfiguration;
+
+@interface PKApplyWebServiceApplyRequest : PKApplyWebServiceRequest
+
+@property (copy, nonatomic) NSString *applicationIdentifier;
+@property (nonatomic) unsigned long long featureIdentifier;
+@property (nonatomic) unsigned long long featureProduct;
+@property (copy, nonatomic) NSArray *certificates;
+@property (retain, nonatomic) NSURL *baseURL;
+@property (copy, nonatomic) NSString *coreIDVNextStepToken;
+@property (copy, nonatomic) NSString *previousContextIdentifier;
+@property (copy, nonatomic) NSString *actionIdentifier;
+@property (retain, nonatomic) PKPaymentInstallmentConfiguration *installmentConfiguration;
+@property (nonatomic) long long applicationType;
+@property (copy, nonatomic) NSString *accountIdentifier;
+@property (copy, nonatomic) NSString *referenceIdentifier;
+@property (retain, nonatomic) PKFeatureApplicationInvitationDetails *invitationDetails;
+@property (retain, nonatomic) PKPaymentDeviceMetadata *deviceMetadata;
+@property (retain, nonatomic) PKApplyWebServiceRequestAuthenticationContext *authenticationContext;
+
++ (BOOL)supportsSecureCoding;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)_urlRequestWithAppleAccountInformation:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

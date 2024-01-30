@@ -1,0 +1,3 @@
+@interface ___UIInteractiveHighlightEffectWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

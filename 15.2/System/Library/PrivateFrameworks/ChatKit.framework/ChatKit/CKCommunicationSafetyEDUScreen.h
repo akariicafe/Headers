@@ -1,0 +1,3 @@
+@interface CKCommunicationSafetyEDUScreen : OBWelcomeController
+
+@end

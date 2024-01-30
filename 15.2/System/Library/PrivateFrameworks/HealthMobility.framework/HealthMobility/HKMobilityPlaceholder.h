@@ -1,0 +1,3 @@
+@interface HKMobilityPlaceholder : NSObject
+
+@end

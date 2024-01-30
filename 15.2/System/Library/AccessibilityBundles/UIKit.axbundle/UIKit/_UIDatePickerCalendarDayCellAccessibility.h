@@ -1,0 +1,11 @@
+@interface _UIDatePickerCalendarDayCellAccessibility : ___UIDatePickerCalendarDayCellAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (BOOL)canBecomeFocused;
+- (void)prepareForReuse;
+- (id)accessibilityElements;
+
+@end

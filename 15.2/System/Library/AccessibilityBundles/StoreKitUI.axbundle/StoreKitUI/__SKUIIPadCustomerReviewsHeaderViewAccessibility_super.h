@@ -1,0 +1,3 @@
+@interface __SKUIIPadCustomerReviewsHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

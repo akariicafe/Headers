@@ -1,0 +1,22 @@
+@class NSString, NSDictionary, NSData, NSNumber;
+
+@interface SASVoiceSearchResult : AceObject <SAAceSerializable>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSDictionary *headers;
+@property (copy, nonatomic) NSData *result;
+@property (copy, nonatomic) NSString *searchType;
+@property (copy, nonatomic) NSNumber *statusCode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)voiceSearchResult;
++ (id)voiceSearchResultWithDictionary:(id)a0 context:(id)a1;
+
+- (id)encodedClassName;
+- (id)groupIdentifier;
+
+@end

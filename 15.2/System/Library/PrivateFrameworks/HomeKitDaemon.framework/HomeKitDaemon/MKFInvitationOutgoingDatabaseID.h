@@ -1,0 +1,3 @@
+@interface MKFInvitationOutgoingDatabaseID : MKFInvitationDatabaseID
+
+@end

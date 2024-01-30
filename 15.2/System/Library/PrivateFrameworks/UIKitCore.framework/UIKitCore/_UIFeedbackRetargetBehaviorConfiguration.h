@@ -1,0 +1,3 @@
+@interface _UIFeedbackRetargetBehaviorConfiguration : _UISelectionFeedbackGeneratorConfiguration
+
+@end

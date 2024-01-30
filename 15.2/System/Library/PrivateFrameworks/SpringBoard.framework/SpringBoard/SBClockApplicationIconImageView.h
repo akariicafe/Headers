@@ -1,0 +1,3 @@
+@interface SBClockApplicationIconImageView : SBHClockApplicationIconImageView
+
+@end

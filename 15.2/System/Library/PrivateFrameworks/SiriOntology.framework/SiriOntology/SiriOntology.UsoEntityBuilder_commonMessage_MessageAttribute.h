@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonMessage_MessageAttribute : SiriOntology.UsoEntityBuilder
+
+@end

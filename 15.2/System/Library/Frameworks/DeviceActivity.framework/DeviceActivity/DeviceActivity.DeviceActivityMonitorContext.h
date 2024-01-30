@@ -1,0 +1,20 @@
+@interface DeviceActivity.DeviceActivityMonitorContext : NSExtensionContext <USDeviceActivityMonitorExtension, DeviceActivity.DeviceActivityMonitorHost> {
+    void /* unknown type, empty encoding */ $__lazy_storage_$_monitor;
+}
+
++ (id)_extensionAuxiliaryVendorProtocol;
++ (id)_extensionAuxiliaryHostProtocol;
+
+- (id)initWithInputItems:(id)a0 contextUUID:(id)a1;
+- (id)initWithInputItems:(id)a0 listenerEndpoint:(id)a1 contextUUID:(id)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithInputItems:(id)a0;
+- (void)intervalDidStartForActivity:(id)a0 replyHandler:(id /* block */)a1;
+- (void)intervalDidEndForActivity:(id)a0 replyHandler:(id /* block */)a1;
+- (void)eventDidReachThreshold:(id)a0 activity:(id)a1 replyHandler:(id /* block */)a2;
+- (void)intervalWillStartWarningForActivity:(id)a0 replyHandler:(id /* block */)a1;
+- (void)intervalWillEndWarningForActivity:(id)a0 replyHandler:(id /* block */)a1;
+- (void)eventWillReachThresholdWarning:(id)a0 activity:(id)a1 replyHandler:(id /* block */)a2;
+
+@end

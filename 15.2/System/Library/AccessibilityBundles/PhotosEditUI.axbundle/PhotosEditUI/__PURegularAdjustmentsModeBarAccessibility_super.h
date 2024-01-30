@@ -1,0 +1,3 @@
+@interface __PURegularAdjustmentsModeBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

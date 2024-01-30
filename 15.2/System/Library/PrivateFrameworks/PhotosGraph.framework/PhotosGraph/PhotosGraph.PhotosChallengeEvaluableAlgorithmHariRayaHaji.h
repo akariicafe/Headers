@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmHariRayaHaji : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

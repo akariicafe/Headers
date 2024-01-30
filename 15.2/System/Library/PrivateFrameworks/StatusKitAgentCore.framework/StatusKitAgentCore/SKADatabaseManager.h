@@ -1,0 +1,82 @@
+@class NSString;
+@protocol SKADatabaseManagingDelegate, SKADatabaseProviding;
+
+@interface SKADatabaseManager : NSObject <SKADatabaseManaging>
+
+@property (readonly, nonatomic) id<SKADatabaseProviding> databaseProvider;
+@property (readonly, weak, nonatomic) id<SKADatabaseManagingDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logger;
+
+- (id)_existingInvitedUsersForDatabaseInvitedUser:(id)a0 databaseChannel:(id)a1 databaseContext:(id)a2;
+- (BOOL)copyInvitedUsersFromChannel:(id)a0 toChannel:(id)a1 databaseContext:(id)a2;
+- (id)_existingChannelsForDatabaseChannel:(id)a0 databaseContext:(id)a1;
+- (id)receivedInvitationsForChannel:(id)a0 databaseContext:(id)a1;
+- (id)_existingInvitedUsersForInvitedHandle:(id)a0 channel:(id)a1 databaseContext:(id)a2;
+- (id)existingStatusForChannel:(id)a0 databaseContext:(id)a1;
+- (id)_existingPendingPublishRequestsWithDatabaseContext:(id)a0;
+- (id)createInvitedUserWithHandle:(id)a0 senderHandle:(id)a1 invitationPayload:(id)a2 channel:(id)a3 databaseContext:(id)a4;
+- (BOOL)incrementPendingPublishRequestRetryCountWithUniqueIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)existingSubscriptionAssertionForSubscriptionIdentifier:(id)a0 applicationIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)existingChannelForSubscriptionIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)_existingTransientSubscriptionHistoryWithLimit:(long long)a0 orderedByLastSubscriptionDateAscending:(BOOL)a1 databaseContext:(id)a2;
+- (BOOL)decomissionAllPersonalChannelsWithStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)_existingPersonalChannelsForStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (BOOL)deletePendingPublishRequestWithWithUniqueIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)_existingSubscriptionAssertionsForStatusTypeIdentifier:(id)a0 applicationIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)allExistingChannelsForStatusTypeIdentifier:(id)a0 includingPersonalChannel:(BOOL)a1 databaseContext:(id)a2;
+- (id)existingPendingPublishRequestsWithDatabaseContext:(id)a0;
+- (void)cleanupOldChannelsForHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)_existingPersonalChannelForDatabaseChannel:(id)a0 databaseContext:(id)a1;
+- (BOOL)deletePersonalChannelForStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)existingRecentTransientSubscriptionHistoriesWithLimit:(long long)a0 databaseContext:(id)a1;
+- (id)existingInvitedUsersForInvitedHandle:(id)a0 onChannel:(id)a1 databaseContext:(id)a2;
+- (id)createPendingPublishRequestWithUniqueIdentifier:(id)a0 dateCreated:(id)a1 payloadData:(id)a2 statusTypeIdentifier:(id)a3 databaseContext:(id)a4;
+- (void)cleanupOldStatusUpdatesForChannelIdentifier:(id)a0 excludingStatusUniqueIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)_existingPendingPublishRequestForUniqueIdentifier:(id)a0 databaseContext:(id)a1;
+- (void)cleanupOldReceivedInvitationsForChannelIdentifier:(id)a0 excludingInvitation:(id)a1 databaseContext:(id)a2;
+- (id)generatedEncryptionKeysForPersonalChannel:(id)a0 databaseContext:(id)a1;
+- (id)_existingReceivedInvitationsForChannelIdentifier:(id)a0 sortedByDateReceived:(BOOL)a1 databaseContect:(id)a2;
+- (id)updateInvitationPayload:(id)a0 onExistingInvitedUser:(id)a1 channel:(id)a2 databaseContext:(id)a3;
+- (id)existingStatusForUniqueIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)createStatusWithUniqueIdentifier:(id)a0 dateCreated:(id)a1 datePublished:(id)a2 dateReceived:(id)a3 dateExpired:(id)a4 rawData:(id)a5 channelIdentifier:(id)a6 databaseContext:(id)a7;
+- (id)_existingChannelsForChannelIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)existingPendingPublishRequestForUniqueIdentifier:(id)a0 withDatabaseContext:(id)a1;
+- (id)createChannelForStatusTypeIdentifier:(id)a0 channelIdentifier:(id)a1 databaseContext:(id)a2;
+- (void).cxx_destruct;
+- (id)createGeneratedEncryptionKeyWithOriginalOutgoingRatchetState:(id)a0 personalChannel:(id)a1 databaseContext:(id)a2;
+- (id)existingInvitedUsersForPersonalChannel:(id)a0 databaseContext:(id)a1;
+- (id)_existingSubscriptionAssertionForSubscriptionIdentifier:(id)a0 applicationIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)createPersonalChannelForStatusTypeIdentifier:(id)a0 channelIdentifier:(id)a1 channelToken:(id)a2 databaseContext:(id)a3;
+- (id)_existingPersonalChannelForStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)_existingReceivedInvitationsForHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)_existingTransientSubscriptionHistoryForChannelIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)updatePersonalChannel:(id)a0 withCurrentOutgoingRatchetState:(id)a1 databaseContext:(id)a2;
+- (BOOL)deleteAllInvitedUsersForPersonalChannel:(id)a0 databaseContext:(id)a1;
+- (id)createSubscriptionAssertionForSubscriptionIdentifier:(id)a0 applicationIdentifier:(id)a1 statusTypeIdentifier:(id)a2 databaseContext:(id)a3;
+- (BOOL)deleteRemovedUserWithHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)createOrUpdateTransientSubscriptionHistoryForChannelIdentifier:(id)a0 lastSubscriptionDate:(id)a1 databaseContext:(id)a2;
+- (BOOL)deleteInvitedUserForHandle:(id)a0 personalChannel:(id)a1 databaseContext:(id)a2;
+- (id)existingRemovedUserWithHandle:(id)a0 statusTypeIdentifier:(id)a1 withDatabaseContext:(id)a2;
+- (id)allPersistentSubscriptionAssertionChannelIdentifiersWithDatabaseContext:(id)a0;
+- (id)createRemovedUserWithHandle:(id)a0 dateRemoved:(id)a1 statusTypeIdentifier:(id)a2 databaseContext:(id)a3;
+- (id)existingPersonalChannelForStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (id)initWithDatabaseProvider:(id)a0 delegate:(id)a1;
+- (id)existingChannelForHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)_existingDecomissionedPersonalChannelsWithDatabaseContext:(id)a0;
+- (void)cleanupDecommisionedChannelsWithDatabaseContext:(id)a0;
+- (id)_existingRemovedUsersForHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)newBackgroundContext;
+- (id)existingSubscriptionAssertionsForStatusTypeIdentifier:(id)a0 applicationIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)existingPendingPublishRequestsForStatusTypeIdentifier:(id)a0 withDatabaseContext:(id)a1;
+- (id)_existingPendingPublishRequestsForStatusTypeIdentifier:(id)a0 databaseContext:(id)a1;
+- (BOOL)deleteSubscriptionAssertionWithSubscriptionIdentifier:(id)a0 applicationIdentifier:(id)a1 databaseContext:(id)a2;
+- (id)allExistingChannelsForHandle:(id)a0 statusTypeIdentifier:(id)a1 databaseContext:(id)a2;
+- (void)deviceToDeviceEncryptedDatabaseCapableWithCompletion:(id /* block */)a0;
+- (id)createReceivedInvitationForChannel:(id)a0 senderHandle:(id)a1 invitedHandle:(id)a2 invitationIdentifier:(id)a3 dateInvitationCreated:(id)a4 incomingRatchetState:(id)a5 invitationPayload:(id)a6 databaseContext:(id)a7;
+
+@end

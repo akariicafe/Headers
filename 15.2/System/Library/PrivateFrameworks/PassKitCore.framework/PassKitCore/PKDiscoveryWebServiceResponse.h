@@ -1,0 +1,3 @@
+@interface PKDiscoveryWebServiceResponse : PKPaymentWebServiceResponse
+
+@end

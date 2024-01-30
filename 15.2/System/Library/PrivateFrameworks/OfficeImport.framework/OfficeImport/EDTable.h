@@ -1,0 +1,87 @@
+@class EDResources, NSString, EDCollection, EDReference;
+
+@interface EDTable : NSObject {
+    EDResources *mResources;
+    unsigned long long mStyleIndex;
+    unsigned long long mHeaderRowDxfIndex;
+    unsigned long long mTotalsRowDxfIndex;
+    unsigned long long mDataAreaDxfIndex;
+    unsigned long long mHeaderRowBorderDxfIndex;
+    unsigned long long mTotalsRowBorderDxfIndex;
+    unsigned long long mDataAreaBorderDxfIndex;
+    unsigned long long mTableBorderDxfIndex;
+    NSString *mName;
+    NSString *mDisplayName;
+    EDReference *mTableRange;
+    NSString *mStyleName;
+    unsigned long long mHeaderRowCount;
+    unsigned long long mTotalsRowCount;
+    BOOL mShowFirstColumn;
+    BOOL mShowLastColumn;
+    BOOL mShowRowStripes;
+    BOOL mShowColumnStripes;
+    EDCollection *mTableColumns;
+    EDCollection *mColumnFilters;
+}
+
++ (id)tableWithResources:(id)a0;
+
+- (id)displayName;
+- (id)style;
+- (id)initWithResources:(id)a0;
+- (id)styleName;
+- (void)setName:(id)a0;
+- (id)description;
+- (void)setStyle:(id)a0;
+- (void).cxx_destruct;
+- (id)name;
+- (void)setDisplayName:(id)a0;
+- (id)tableColumns;
+- (void)setStyleIndex:(unsigned long long)a0;
+- (unsigned long long)styleIndex;
+- (id)tableRange;
+- (id)headerRowBorderDxf;
+- (void)setHeaderRowBorderDxf:(id)a0;
+- (id)totalsRowBorderDxf;
+- (void)setTotalsRowBorderDxf:(id)a0;
+- (id)dataAreaBorderDxf;
+- (void)setDataAreaBorderDxf:(id)a0;
+- (void)setTableBorderDxf:(id)a0;
+- (unsigned long long)headerRowBorderDxfIndex;
+- (unsigned long long)totalsRowBorderDxfIndex;
+- (unsigned long long)dataAreaBorderDxfIndex;
+- (unsigned long long)tableBorderDxfIndex;
+- (id)headerRowDxf;
+- (void)setHeaderRowDxf:(id)a0;
+- (id)totalsRowDxf;
+- (void)setTotalsRowDxf:(id)a0;
+- (id)dataAreaDxf;
+- (void)setDataAreaDxf:(id)a0;
+- (unsigned long long)headerRowDxfIndex;
+- (void)setHeaderRowDxfIndex:(unsigned long long)a0;
+- (unsigned long long)totalsRowDxfIndex;
+- (void)setTotalsRowDxfIndex:(unsigned long long)a0;
+- (unsigned long long)dataAreaDxfIndex;
+- (void)setDataAreaDxfIndex:(unsigned long long)a0;
+- (BOOL)showRowStripes;
+- (BOOL)showColumnStripes;
+- (id)tableBorderDxf;
+- (BOOL)showFirstColumn;
+- (BOOL)showLastColumn;
+- (unsigned long long)headerRowCount;
+- (unsigned long long)totalsRowCount;
+- (void)setStyleName:(id)a0;
+- (void)setShowLastColumn:(BOOL)a0;
+- (void)setShowRowStripes:(BOOL)a0;
+- (void)setShowColumnStripes:(BOOL)a0;
+- (void)setTableRange:(id)a0;
+- (void)setTotalsRowCount:(unsigned long long)a0;
+- (void)setHeaderRowCount:(unsigned long long)a0;
+- (void)setHeaderRowBorderDxfIndex:(unsigned long long)a0;
+- (void)setDataAreaBorderDxfIndex:(unsigned long long)a0;
+- (void)setTotalsRowBorderDxfIndex:(unsigned long long)a0;
+- (void)setTableBorderDxfIndex:(unsigned long long)a0;
+- (id)columnFilters;
+- (void)setShowFirstColumn:(BOOL)a0;
+
+@end

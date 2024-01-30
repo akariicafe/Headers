@@ -1,0 +1,16 @@
+@interface AppStoreKitInternal.ErrorPresenter : NSObject <ASKAirplaneModeInquiryDelegate> {
+    void /* unknown type, empty encoding */ networkInquiry;
+    void /* unknown type, empty encoding */ airplaneModeInquiry;
+    void /* unknown type, empty encoding */ cellularDataInquiry;
+    void /* unknown type, empty encoding */ networkObservation;
+    void /* unknown type, empty encoding */ view;
+    void /* unknown type, empty encoding */ reasonForNoInternet;
+    void /* unknown type, empty encoding */ error;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (void)airplaneModeInquiryDidObserveChange:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface SKUIToolbarViewElement : SKUIViewElement
+
+@end

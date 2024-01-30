@@ -1,0 +1,82 @@
+@class NSLock, PowerUIBluetoothHandler, NSXPCListener, NSString, PowerUIMLAudioAccessoryModelPredictor, NSMutableDictionary, PowerUIWalletSignalMonitor, NSMutableArray, NSObject, UNUserNotificationCenter, NSNumber, NSDistributedNotificationCenter;
+@protocol OS_dispatch_queue, OS_os_log, OS_dispatch_semaphore;
+
+@interface PowerUIAudioAccessorySmartChargeManager : NSObject <NSXPCListenerDelegate, PowerUISmartChargeManagingAudioAccessoriesPrivate, PowerUISignalMonitorDelegate, PowerUISmartChargeManagingAudioAccessories>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) PowerUIMLAudioAccessoryModelPredictor *predictor;
+@property struct BTSessionImpl { } *session;
+@property (retain, nonatomic) NSObject<OS_os_log> *accessoryLog;
+@property (retain, nonatomic) NSMutableArray *deviceArray;
+@property (retain, nonatomic) NSLock *deviceArrayLock;
+@property (retain) NSMutableDictionary *accessoryStates;
+@property (retain, nonatomic) NSNumber *hardcodedTimeDelta;
+@property (retain, nonatomic) NSNumber *hardcodedTimeBetweenUpdates;
+@property (retain, nonatomic) NSDistributedNotificationCenter *notificationCenter;
+@property (retain) NSObject<OS_dispatch_semaphore> *btConnectionSemaphore;
+@property (retain, nonatomic) PowerUIWalletSignalMonitor *walletMonitor;
+@property (retain) NSMutableDictionary *acceptMessageFromRightBudForDevice;
+@property (retain) NSMutableDictionary *acceptMessageFromLeftBudForDevice;
+@property (retain) PowerUIBluetoothHandler *btHandler;
+@property (retain, nonatomic) UNUserNotificationCenter *unCenter;
+@property (nonatomic) BOOL firstNotificationDisplayed;
+@property (retain, nonatomic) NSMutableDictionary *latestAnalyticsForDevice;
+@property (retain, nonatomic) NSXPCListener *listener;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)setNumber:(id)a0 forPreferenceKeyPrefix:(id)a1 andDevice:(id)a2;
++ (void)bulkDeleteDefaultsEntries:(id)a0;
++ (id)readNumberForPreferenceKeyPrefix:(id)a0 andDevice:(id)a1;
++ (id)readStringForPreferenceKeyPrefix:(id)a0 andDevice:(id)a1;
++ (void)setString:(id)a0 forPreferenceKeyPrefix:(id)a1 andDevice:(id)a2;
++ (id)readArrayForPreferenceKey:(id)a0;
++ (void)setArray:(id)a0 forPreferenceKey:(id)a1;
+
+- (void)currentLeewayWithHandler:(id /* block */)a0;
+- (void)client:(id)a0 updateOBCDeadline:(id)a1 forDevice:(id)a2 withHandler:(id /* block */)a3;
+- (id)defaultDateToDisableUntilGivenDate:(id)a0;
+- (unsigned long long)sendTimeDeltaInSeconds:(unsigned int)a0 toAccessory:(struct BTDeviceImpl { } *)a1;
+- (void)isSmartChargingCurrentlyEnabledForDevice:(id)a0 withHandler:(id /* block */)a1;
+- (void)attachToBluetoothSession;
+- (void)startMockingBluetoothForFakeDevice:(id)a0;
+- (void)clearLastActionForDevice:(id)a0;
+- (void)setFakeConnectionStatusTo:(BOOL)a0;
+- (void)getStatusForDevice:(id)a0 withHandler:(id /* block */)a1;
+- (void)stopMockingBluetooth;
+- (void)timeSeriesForDevice:(id)a0;
+- (void)persistentlySetLastTimeseriesDate:(id)a0 forDevice:(id)a1;
+- (void)persistentlySetLastUnderchargeRecordedForPrediction:(id)a0 forDevice:(id)a1;
+- (void)recordBudMetricsLocallyForDevice:(id)a0 withTimeSpendAtLowerSoC:(unsigned short)a1 timeSpentAtHigherSoC:(unsigned short)a2 engagementEventsSinceLastReport:(unsigned char)a3 underchargeEventsSinceLastReport:(unsigned char)a4 chargingEventsSinceLastReport:(unsigned char)a5 budSocAtLastEngagement:(unsigned char)a6 successRatio:(unsigned short)a7;
+- (void)getAvailableDevicesWithHandler:(id /* block */)a0;
+- (void)reportDailyMetrics;
+- (id)stringFromState:(unsigned long long)a0;
+- (BOOL)runUpdateForDevice:(struct BTDeviceImpl { } *)a0 withHash:(id)a1 asInitialUpdate:(BOOL)a2;
+- (BOOL)setOBCState:(BOOL)a0 forDevice:(id)a1;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)fakeConnectionForDevice:(id)a0;
+- (BOOL)runUpdateForDevice:(struct BTDeviceImpl { } *)a0 withHash:(id)a1;
+- (void)persistentlyHandleSeeingDevice:(id)a0;
+- (void).cxx_destruct;
+- (void)deleteRecordsForDevices:(id)a0;
+- (void)reportSessionMetricsForSide:(unsigned char)a0 withTimeSpendAtLowerSoC:(unsigned short)a1 timeSpentAtHigherSoC:(unsigned short)a2 engagementEventsSinceLastReport:(unsigned char)a3 underchargeEventsSinceLastReport:(unsigned char)a4 chargingEventsSinceLastReport:(unsigned char)a5 budSocAtLastEngagement:(unsigned char)a6 successRatio:(unsigned short)a7;
+- (id)init;
+- (id)firsUseNotificationRequestForDeviceType:(unsigned int)a0;
+- (void)setTemporarilyDisabled:(BOOL)a0 until:(id)a1 forDevice:(id)a2;
+- (void)persistentlySetStatusForDevice:(id)a0 withCurrentState:(unsigned long long)a1 withEnabled:(BOOL)a2 withDisabledUntilDate:(id)a3 withTemporarilyDisabled:(BOOL)a4;
+- (void)fullChargeDeadlineForDevice:(id)a0 withHandler:(id /* block */)a1;
+- (void)engageUntil:(id)a0 forDevice:(id)a1 overrideAllSignals:(BOOL)a2 withHandler:(id /* block */)a3;
+- (void)monitor:(id)a0 maySuggestNewFullChargeDeadline:(id)a1;
+- (void)persistentlySetLastSentDate:(id)a0 forDevice:(id)a1;
+- (id)returnAccessoryStatusForDevice:(id)a0;
+- (void)client:(id)a0 connectAndDisableOBCforDevice:(id)a1 withHandler:(id /* block */)a2;
+- (void)client:(id)a0 setState:(unsigned long long)a1 forDevice:(id)a2 withHandler:(id /* block */)a3;
+- (void)unfilteredDeadlineForDevice:(id)a0 withHandler:(id /* block */)a1;
+- (void)addTimeSeriesDataToStream:(struct timeSeriesData { unsigned long long x0; unsigned char x1; BOOL x2; } *)a0 withStore:(id)a1 withLog:(id)a2;
+- (void)persistentlySetExpectedHash:(id)a0 forDevice:(id)a1;
+- (long long)secondsLeftInHourForDate:(id)a0;
+- (void)lastActionForDevice:(id)a0 withHandler:(id /* block */)a1;
+
+@end

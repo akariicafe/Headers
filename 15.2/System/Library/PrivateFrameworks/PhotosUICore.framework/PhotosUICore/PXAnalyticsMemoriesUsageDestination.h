@@ -1,0 +1,34 @@
+@class NSString;
+@protocol PXDisplayAssetCollection;
+
+@interface PXAnalyticsMemoriesUsageDestination : NSObject <CPAnalyticsDestinationProtocol> {
+    long long _defaultNavigationKind;
+    long long _currentURLNavigationKind;
+    long long _sessionInitialNavigationKind;
+    id<PXDisplayAssetCollection> _lastAppearedAssetCollection;
+    long long _lastAppearedAssetCollectionNavigationKind;
+    BOOL _isPXStoryEnabled;
+}
+
+@property (class, readonly, nonatomic) NSString *memoryOpenedEventName;
+@property (class, readonly, nonatomic) NSString *memoryPlayedEventName;
+@property (class, readonly, nonatomic) NSString *forYouTabOpenedEventName;
+@property (class, readonly, nonatomic) NSString *payloadLaunchTypeKey;
+@property (class, readonly, nonatomic) NSString *payloadSessionStartTypeKey;
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)forYouTabOpenedAppEventNameWithNavigationKind:(long long)a0;
++ (id)memoryPlayedAppEventNameWithNavigationKind:(long long)a0;
++ (id)memoryOpenedAppEventNameWithNavigationKind:(long long)a0;
+
+- (void)processEvent:(id)a0;
+- (void)_userDidPlayMovieOfAssetCollection:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)_userDidViewContentsOfAssetCollection:(id)a0;
+
+@end

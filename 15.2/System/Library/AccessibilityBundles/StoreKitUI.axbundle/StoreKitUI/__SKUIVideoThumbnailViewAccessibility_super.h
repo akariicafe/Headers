@@ -1,0 +1,3 @@
+@interface __SKUIVideoThumbnailViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

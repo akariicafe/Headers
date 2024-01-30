@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.PlusContactSuggestionGenerator : _TtCs12_SwiftObject
+
+@end

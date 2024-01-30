@@ -1,0 +1,19 @@
+@interface NewsFeed.FeaturedIssueHeadlineView : UIView {
+    void /* unknown type, empty encoding */ titleLabel;
+    void /* unknown type, empty encoding */ excerptLabel;
+    void /* unknown type, empty encoding */ thumbnailImageView;
+    void /* unknown type, empty encoding */ issueCoverView;
+    void /* unknown type, empty encoding */ publisherLogoImageView;
+    void /* unknown type, empty encoding */ publisherLabel;
+    void /* unknown type, empty encoding */ dateLabel;
+    void /* unknown type, empty encoding */ premiumBadgeView;
+    void /* unknown type, empty encoding */ debugButton;
+    void /* unknown type, empty encoding */ segmentedColorView;
+    void /* unknown type, empty encoding */ cardView;
+}
+
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

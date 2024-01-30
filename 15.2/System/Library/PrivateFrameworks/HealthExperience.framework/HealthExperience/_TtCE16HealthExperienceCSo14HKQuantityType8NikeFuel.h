@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType8NikeFuel : _TtCs12_SwiftObject
+
+@end

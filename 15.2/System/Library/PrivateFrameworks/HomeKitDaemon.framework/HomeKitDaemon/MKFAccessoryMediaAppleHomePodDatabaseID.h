@@ -1,0 +1,3 @@
+@interface MKFAccessoryMediaAppleHomePodDatabaseID : MKFAccessoryMediaAppleDatabaseID
+
+@end

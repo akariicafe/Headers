@@ -1,0 +1,3 @@
+@interface __CAMPanoramaArrowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

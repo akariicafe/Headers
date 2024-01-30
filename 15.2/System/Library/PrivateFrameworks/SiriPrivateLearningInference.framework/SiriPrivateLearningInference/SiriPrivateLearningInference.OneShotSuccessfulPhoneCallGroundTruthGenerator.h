@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.OneShotSuccessfulPhoneCallGroundTruthGenerator : _TtCs12_SwiftObject
+
+@end

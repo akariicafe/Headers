@@ -1,0 +1,3 @@
+@interface IPAVideoAdjustment : IPAAdjustment
+
+@end

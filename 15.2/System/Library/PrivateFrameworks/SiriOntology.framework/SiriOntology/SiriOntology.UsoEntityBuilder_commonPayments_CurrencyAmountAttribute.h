@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonPayments_CurrencyAmountAttribute : SiriOntology.UsoEntityBuilder
+
+@end

@@ -1,0 +1,41 @@
+@interface UIKBRenderFactoryiPhoneLandscape : UIKBRenderFactoryiPhone
+
+- (double)popupFontSize;
+- (id)variantGeometriesForGeometry:(id)a0 variantCount:(unsigned long long)a1 rowLimit:(long long)a2 annotationIndex:(unsigned long long)a3;
+- (struct CGPoint { double x0; double x1; })variantSymbolTextOffset;
+- (BOOL)isTallPopup;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantSymbolFrameInsets;
+- (double)emojiPopupDividerKeyOffset;
+- (id)cutKeyImageName;
+- (id)_traitsForKey:(id)a0 onKeyplane:(id)a1;
+- (id)shiftKeyImageName;
+- (id)deleteKeyImageName;
+- (id)deleteOnKeyImageName;
+- (id)shiftLockImageName;
+- (id)shiftOnKeyImageName;
+- (double)skinnyKeyThreshold;
+- (id)globalEmojiKeyImageName;
+- (id)globalKeyImageName;
+- (id)dismissKeyImageName;
+- (id)dictationKeyImageName;
+- (id)pasteKeyImageName;
+- (id)leftArrowKeyImageName;
+- (id)rightArrowKeyImageName;
+- (id)copyKeyImageName;
+- (id)undoKeyImageName;
+- (id)boldKeyImageName;
+- (id)biuKeyImageName;
+- (id)multitapCompleteKeyImageName;
+- (id)muttitapReverseKeyImageName;
+- (struct CGPoint { double x0; double x1; })popupSymbolTextOffset;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantDisplayFrameInsets;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })wideShadowPaddleInsets;
+- (double)_row4ControlSegmentWidthLeft;
+- (double)_row4ControlSegmentWidthRight;
+- (double)moreABCKeyFontSize;
+- (struct CGPoint { double x0; double x1; })variantAnnotationTextOffset;
+- (struct CGPoint { double x0; double x1; })more123KeyOffset;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })variantPaddedFrameInsets;
+- (struct CGPoint { double x0; double x1; })moreABCKeyOffset;
+
+@end

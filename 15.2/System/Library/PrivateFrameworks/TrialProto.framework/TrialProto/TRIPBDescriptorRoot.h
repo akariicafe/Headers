@@ -1,0 +1,3 @@
+@interface TRIPBDescriptorRoot : TRIPBRootObject
+
+@end

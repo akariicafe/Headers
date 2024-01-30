@@ -1,0 +1,90 @@
+@class NSString, NSMutableArray;
+
+@interface AWDEasyConfigCompleted : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char channelOfDestinationAP : 1; unsigned char channelOfSWAP : 1; unsigned char easyConfigStoppedReasonError : 1; unsigned char enterSetupCodeMs : 1; unsigned char rssiOfDestinationAP : 1; unsigned char rssiOfSWAP : 1; unsigned char secondsToApplyConfig : 1; unsigned char secondsToCompleteFullConfig : 1; unsigned char secondsToCompleteMFiSAPAuth : 1; unsigned char secondsToCompletePostConfigCheck : 1; unsigned char secondsToFindPostConfigDevice : 1; unsigned char secondsToFindPreConfigDevice : 1; unsigned char secondsToGetLinkUpOnDestination : 1; unsigned char secondsToGetLinkUpOnSWAP : 1; unsigned char snrOfDestinationAP : 1; unsigned char snrOfSWAP : 1; unsigned char wifiJoinDestinationAPError : 1; unsigned char wifiJoinSWAPError : 1; unsigned char adminPasswordSet : 1; unsigned char destinationNetworkPSKInKeychain : 1; unsigned char destinationNetworkRecommendationUsed : 1; unsigned char hitJoiningDestinationAPTimeout : 1; unsigned char hitJoiningTargetSWAPTimeout : 1; unsigned char pauseAfterApply : 1; unsigned char playPasswordSet : 1; unsigned char userChangedFriendlyName : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasUserChangedFriendlyName;
+@property (nonatomic) BOOL userChangedFriendlyName;
+@property (nonatomic) BOOL hasPlayPasswordSet;
+@property (nonatomic) BOOL playPasswordSet;
+@property (nonatomic) BOOL hasAdminPasswordSet;
+@property (nonatomic) BOOL adminPasswordSet;
+@property (nonatomic) BOOL hasDestinationNetworkRecommendationUsed;
+@property (nonatomic) BOOL destinationNetworkRecommendationUsed;
+@property (nonatomic) BOOL hasSecondsToCompleteFullConfig;
+@property (nonatomic) float secondsToCompleteFullConfig;
+@property (nonatomic) BOOL hasSecondsToGetLinkUpOnSWAP;
+@property (nonatomic) float secondsToGetLinkUpOnSWAP;
+@property (nonatomic) BOOL hasWifiJoinSWAPError;
+@property (nonatomic) int wifiJoinSWAPError;
+@property (nonatomic) BOOL hasHitJoiningTargetSWAPTimeout;
+@property (nonatomic) BOOL hitJoiningTargetSWAPTimeout;
+@property (nonatomic) BOOL hasRssiOfSWAP;
+@property (nonatomic) int rssiOfSWAP;
+@property (nonatomic) BOOL hasSnrOfSWAP;
+@property (nonatomic) unsigned int snrOfSWAP;
+@property (nonatomic) BOOL hasChannelOfSWAP;
+@property (nonatomic) unsigned int channelOfSWAP;
+@property (nonatomic) BOOL hasSecondsToGetLinkUpOnDestination;
+@property (nonatomic) float secondsToGetLinkUpOnDestination;
+@property (nonatomic) BOOL hasWifiJoinDestinationAPError;
+@property (nonatomic) int wifiJoinDestinationAPError;
+@property (nonatomic) BOOL hasDestinationNetworkPSKInKeychain;
+@property (nonatomic) BOOL destinationNetworkPSKInKeychain;
+@property (nonatomic) BOOL hasHitJoiningDestinationAPTimeout;
+@property (nonatomic) BOOL hitJoiningDestinationAPTimeout;
+@property (nonatomic) BOOL hasRssiOfDestinationAP;
+@property (nonatomic) int rssiOfDestinationAP;
+@property (nonatomic) BOOL hasSnrOfDestinationAP;
+@property (nonatomic) unsigned int snrOfDestinationAP;
+@property (nonatomic) BOOL hasChannelOfDestinationAP;
+@property (nonatomic) unsigned int channelOfDestinationAP;
+@property (nonatomic) BOOL hasSecondsToFindPreConfigDevice;
+@property (nonatomic) float secondsToFindPreConfigDevice;
+@property (nonatomic) BOOL hasSecondsToCompleteMFiSAPAuth;
+@property (nonatomic) float secondsToCompleteMFiSAPAuth;
+@property (nonatomic) BOOL hasSecondsToApplyConfig;
+@property (nonatomic) float secondsToApplyConfig;
+@property (nonatomic) BOOL hasSecondsToFindPostConfigDevice;
+@property (nonatomic) float secondsToFindPostConfigDevice;
+@property (nonatomic) BOOL hasSecondsToCompletePostConfigCheck;
+@property (nonatomic) float secondsToCompletePostConfigCheck;
+@property (nonatomic) BOOL hasPauseAfterApply;
+@property (nonatomic) BOOL pauseAfterApply;
+@property (nonatomic) BOOL hasEasyConfigStoppedReasonError;
+@property (nonatomic) int easyConfigStoppedReasonError;
+@property (readonly, nonatomic) BOOL hasEaBundleSeedID;
+@property (retain, nonatomic) NSString *eaBundleSeedID;
+@property (retain, nonatomic) NSMutableArray *eaProtocolStrings;
+@property (readonly, nonatomic) BOOL hasEaManufacturerName;
+@property (retain, nonatomic) NSString *eaManufacturerName;
+@property (readonly, nonatomic) BOOL hasEaModelName;
+@property (retain, nonatomic) NSString *eaModelName;
+@property (readonly, nonatomic) BOOL hasEaFirmwareRevision;
+@property (retain, nonatomic) NSString *eaFirmwareRevision;
+@property (readonly, nonatomic) BOOL hasEaHardwareRevision;
+@property (retain, nonatomic) NSString *eaHardwareRevision;
+@property (nonatomic) BOOL hasEnterSetupCodeMs;
+@property (nonatomic) unsigned int enterSetupCodeMs;
+
++ (Class)eaProtocolStringsType;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+- (void)clearEaProtocolStrings;
+- (void)addEaProtocolStrings:(id)a0;
+- (unsigned long long)eaProtocolStringsCount;
+- (id)eaProtocolStringsAtIndex:(unsigned long long)a0;
+
+@end

@@ -1,0 +1,82 @@
+@class WFFileType, PHAsset;
+
+@interface WFPhotoMediaContentItem : WFGenericFileContentItem <WFContentItemClass>
+
+@property (retain, nonatomic) WFFileType *preferredFileType;
+@property (nonatomic) long long library;
+@property (readonly, nonatomic) PHAsset *asset;
+
++ (id)typeDescription;
++ (id)itemWithAssetIdentifier:(id)a0;
++ (id)ownedPasteboardTypes;
++ (id)itemWithSerializedItem:(id)a0 forType:(id)a1 named:(id)a2 attributionSet:(id)a3 cachingIdentifier:(id)a4;
++ (BOOL)supportedTypeMustBeDeterminedByInstance:(id)a0;
++ (id)propertyBuilders;
++ (id)ownedTypes;
++ (id)outputTypes;
++ (id)contentCategories;
++ (id)pluralTypeDescription;
++ (id)filterDescription;
++ (id)pluralFilterDescription;
++ (id)countDescription;
++ (id)stringConversionBehavior;
++ (void)runQuery:(id)a0 withItems:(id)a1 completionHandler:(id /* block */)a2;
++ (BOOL)hasLibrary;
++ (id)itemWithRepresentation:(id)a0 forType:(id)a1 attributionSet:(id)a2 cachingIdentifier:(id)a3;
++ (id)itemWithAssetIdentifier:(id)a0 assetFile:(id)a1;
++ (id)itemWithAssetIdentifier:(id)a0 library:(long long)a1;
++ (id)itemWithAssetIdentifier:(id)a0 library:(long long)a1 assetFile:(id)a2;
++ (id)itemWithAssetIdentifier:(id)a0 library:(long long)a1 assetFile:(id)a2 nameIfKnown:(id)a3;
++ (id)itemWithAssetIdentifier:(id)a0 library:(long long)a1 assetFile:(id)a2 nameIfKnown:(id)a3 attributionSet:(id)a4 cachingIdentifier:(id)a5;
++ (id)itemsWithBurstIdentifier:(id)a0;
++ (id)fetchOptionsForLibrary:(long long)a0;
++ (id)photoAlbums;
++ (id)remoteItemWithAssetIdentifier:(id)a0 named:(id)a1;
++ (BOOL)isAvailableOnPlatform:(long long)a0;
+
+- (id)make;
+- (id)mediaType;
+- (id)height;
+- (struct CGSize { double x0; double x1; })size;
+- (id)isBurst;
+- (id)isFavorite;
+- (id)width;
+- (id)orientation;
+- (id)model;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)duration;
+- (id)imageManager;
+- (unsigned long long)hash;
+- (BOOL)isScreenshot;
+- (id)isHidden;
+- (id)isLivePhoto;
+- (id)generateObjectRepresentationForClass:(Class)a0 options:(id)a1 error:(id *)a2;
+- (void)generateObjectRepresentation:(id /* block */)a0 options:(id)a1 forClass:(Class)a2;
+- (void)generateFileRepresentation:(id /* block */)a0 options:(id)a1 forType:(id)a2;
+- (void)getPreferredFileExtension:(id /* block */)a0;
+- (void)getPreferredFileSize:(id /* block */)a0;
+- (id)additionalRepresentationsForSerialization;
+- (BOOL)canGenerateRepresentationForType:(id)a0;
+- (void)copyStateToItem:(id)a0;
+- (id)outputTypes;
+- (id)defaultSourceForRepresentation:(id)a0;
+- (BOOL)getListSubtitle:(id /* block */)a0;
+- (BOOL)getListAltText:(id /* block */)a0;
+- (BOOL)getListThumbnail:(id /* block */)a0 forSize:(struct CGSize { double x0; double x1; })a1;
+- (void)getMetadata:(id /* block */)a0;
+- (void)getFrameRate:(id /* block */)a0;
+- (id)assetResourceManager;
+- (id)metadataIfLocallyAvailable;
+- (BOOL)isPhotoType:(id)a0;
+- (id)photoTypes;
+- (void)getThumbnail:(id /* block */)a0 ofSize:(struct CGSize { double x0; double x1; })a1;
+- (void)retrieveAssetResource:(id)a0 withNetworkAccess:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)retrieveFileWithImageManager:(id /* block */)a0 forType:(id)a1;
+- (id)preferredAssetResourceForType:(id)a0;
+- (void)generateAVAsset:(id /* block */)a0 networkAccessAllowed:(BOOL)a1;
+- (id)fullSizeAssetResourcesInResources:(id)a0;
+- (id)assetRepresentationTypes;
+- (id)intermediaryTypesForCoercionToItemClass:(Class)a0;
+
+@end

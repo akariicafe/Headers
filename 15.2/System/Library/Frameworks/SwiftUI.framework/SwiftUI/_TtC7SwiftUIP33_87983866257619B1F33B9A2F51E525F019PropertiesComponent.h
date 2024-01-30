@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_87983866257619B1F33B9A2F51E525F019PropertiesComponent : _TtCs12_SwiftObject
+
+@end

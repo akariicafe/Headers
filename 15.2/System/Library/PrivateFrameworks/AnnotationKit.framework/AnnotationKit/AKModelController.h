@@ -1,0 +1,25 @@
+@class NSArray, AKSparseMutableControllerArray;
+
+@interface AKModelController : NSObject {
+    AKSparseMutableControllerArray *_mutablePageModelControllers;
+}
+
+@property (readonly) NSArray *pageModelControllers;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)deselectAllAnnotations;
+- (id)pageModelControllerForAnnotation:(id)a0;
+- (id)allSelectedAnnotations;
+- (id)pageModelControllerForPage:(unsigned long long)a0;
+- (void)deleteAllSelectedAnnotations;
+- (void)insertObject:(id)a0 inPageModelControllersAtIndex:(unsigned long long)a1;
+- (void)replaceObjectInPageModelControllersAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (void)insertPageModelControllers:(id)a0 atIndexes:(id)a1;
+- (void)removeObjectFromPageModelControllersAtIndex:(unsigned long long)a0;
+- (void)removePageModelControllersAtIndexes:(id)a0;
+- (void)replacePageModelControllersAtIndexes:(id)a0 withPageModelControllers:(id)a1;
+- (id)archivedPageModelControllers;
+- (void)populateFromArchivedPageModelControllers:(id)a0;
+
+@end

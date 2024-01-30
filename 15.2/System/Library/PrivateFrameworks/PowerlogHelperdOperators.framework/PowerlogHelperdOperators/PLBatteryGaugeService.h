@@ -1,0 +1,80 @@
+@class NSDate, PLDTCostElement, NSTimer, NSSet, NSMutableDictionary, NSMutableArray, PLXPCResponderOperatorComposition, PLSemaphore;
+
+@interface PLBatteryGaugeService : PLService
+
+@property (retain) PLXPCResponderOperatorComposition *xpcResponderBatteryGaugeDT;
+@property double startTime;
+@property double stopTime;
+@property (retain) NSMutableDictionary *measurements;
+@property (retain) NSMutableDictionary *bundleIDandPidMap;
+@property (retain) NSMutableDictionary *requestTime;
+@property (retain) NSMutableDictionary *returnTime;
+@property (retain) NSMutableDictionary *responseTime;
+@property (retain) NSMutableDictionary *entrykeyCallBackMapping;
+@property (retain) NSMutableDictionary *entrykeyCallBackOnceMapping;
+@property (retain) PLSemaphore *responseSemaphore;
+@property (retain) NSDate *curQueryTime;
+@property (retain) NSDate *lastQueryTime;
+@property BOOL isTestingRunning;
+@property (retain) id costElement;
+@property int lastQueryCount;
+@property int curQueryCount;
+@property (retain) NSMutableArray *trackedProcesses;
+@property (retain) NSMutableDictionary *results;
+@property (retain) NSMutableDictionary *reported;
+@property (retain) NSMutableDictionary *processMonitorResults;
+@property (retain) NSMutableDictionary *reportedProcessMonitor;
+@property (retain) NSMutableDictionary *processNetworkResults;
+@property (retain) NSMutableDictionary *reportedProcessNetwork;
+@property (retain) NSMutableDictionary *locationResults;
+@property (retain) NSMutableDictionary *reportedLocation;
+@property (retain) NSMutableDictionary *applicationResults;
+@property (retain) NSMutableDictionary *reportedApplication;
+@property (readonly) NSSet *scoringEntities;
+@property (retain) PLDTCostElement *networkingCostElement;
+@property (retain) NSTimer *exitTimer;
+@property (retain) NSTimer *thermalStateTimer;
+
++ (void)load;
+
+- (void)listAllRunningPidsWithBuffer:(int *)a0 withSizeOfBuffer:(int)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (int)matchingPidWithProcessName:(id)a0 withBundleID:(id)a1;
+- (void)initOperatorDependancies;
+- (void)selfExit:(id)a0;
+- (void)parseThermalStateCallback:(id)a0;
+- (id)DTQueryResponse:(id)a0;
+- (void)parseProcessMonitorResults:(id)a0;
+- (void)registerNotificationWithAgent:(id)a0 withType:(id)a1 withTableName:(id)a2 withCallBackType:(BOOL)a3 withBlock:(id /* block */)a4;
+- (void)parseProcessNetworkResults:(id)a0;
+- (void)parseLocationResults:(id)a0;
+- (void)parseApplicationResults:(id)a0;
+- (void)parseCoalitionResults:(id)a0;
+- (void)parseDisplayResults:(id)a0;
+- (void)dataReceivedFrom:(id)a0;
+- (double)computeNetworkingCostWithWifiIn:(int)a0 withWifiOut:(int)a1 withCellIn:(int)a2 withCellOut:(int)a3;
+- (double)computeLocationCostWithWifiCost:(int)a0 withGpsCost:(int)a1 withCellCost:(int)a2 withSkyhookCost:(int)a3;
+- (void)setLastActiveStartTimeAndLastSuspendTimeWithPid:(int)a0 withAppState:(int)a1 withCurrentTime:(id)a2;
+- (double)computeGPUCostWithGPUSec:(id)a0;
+- (double)computeDisplayCostWithAvgRed:(int)a0 withAvgGreen:(int)a1 withAvgBlue:(int)a2;
+- (id)extractAndSetProcessIdentifierWithPayload:(id)a0;
+- (void)translateProcessIdentifierWithInput:(id)a0;
+- (id)extractAndTranslateProcessIdentifier:(id)a0;
+- (void)requestDataFrom:(id)a0 withType:(int)a1;
+- (id)convertRawUsageToScore:(id)a0;
+- (id)startRoutineWithPayload:(id)a0;
+- (id)stopRoutineWithPayload:(id)a0;
+- (id)pauseRoutineWithPayload:(id)a0;
+- (id)resumeRoutineWithPayload:(id)a0;
+- (id)clearStateRoutine:(id)a0;
+- (void)triggerAllData;
+- (void)initResponseSemaphore;
+- (id)compileSnapshotResponse;
+- (void)resetExitTimer;
+- (void)testGaugeServiceSingleInstance:(id)a0;
+- (id)getObjectInMeasurementsWithPid:(int)a0 withCategory:(id)a1 withKey:(id)a2;
+- (void)setObjectInMeasurementsWithObject:(id)a0 withPid:(int)a1 withCategory:(id)a2 withKey:(id)a3;
+- (void)testGaugeService;
+
+@end

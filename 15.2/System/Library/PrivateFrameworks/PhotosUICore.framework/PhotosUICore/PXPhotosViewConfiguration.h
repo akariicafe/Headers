@@ -1,0 +1,63 @@
+@class PXLoadingStatusManager, NSString, PXAssetsDataSourceManager, PXSectionedSelectionManager, PXFooterViewModel, PXStatusViewModel, PXAssetActionManager, PXMediaProvider, PXAssetCollectionActionManager;
+@protocol PXAssetImportStatusManager, PXPhotosViewDelegate, PXPhotosGridOptionsController, PXTapbackStatusManager;
+
+@interface PXPhotosViewConfiguration : NSObject <NSCopying>
+
+@property (readonly, nonatomic) PXAssetsDataSourceManager *dataSourceManager;
+@property (readonly, nonatomic) PXMediaProvider *mediaProvider;
+@property (readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
+@property (readonly, nonatomic) PXAssetActionManager *assetActionManager;
+@property (readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
+@property (weak, nonatomic) id<PXPhotosViewDelegate> delegate;
+@property (nonatomic) BOOL wantsTabBarHidden;
+@property (nonatomic) BOOL prefersActionsInToolbar;
+@property (nonatomic) long long footerVisibilityStyle;
+@property (retain, nonatomic) PXFooterViewModel *footerViewModel;
+@property (copy, nonatomic) NSString *footerSubtitle;
+@property (nonatomic) BOOL wantsCPLStatus;
+@property (nonatomic) BOOL wantsRenderingStatus;
+@property (nonatomic) BOOL wantsContentFilterVisible;
+@property (nonatomic) long long navBarStyle;
+@property (nonatomic) BOOL shouldOptOutOfChromelessBars;
+@property (nonatomic) BOOL wantsModernNavBarButtons;
+@property (nonatomic) long long sectionHeaderStyle;
+@property (nonatomic) long long sectionBodyStyle;
+@property (nonatomic) long long summaryStyle;
+@property (nonatomic) long long gridStyle;
+@property (nonatomic) long long backgroundStyle;
+@property (nonatomic) BOOL allowsCaptions;
+@property (nonatomic) BOOL startsInSelectMode;
+@property (nonatomic) BOOL wantsDimmedSelectionStyle;
+@property (nonatomic) BOOL wantsNumberedSelectionStyle;
+@property (nonatomic) long long noContentPlaceholderType;
+@property (nonatomic) unsigned long long allowedActions;
+@property (nonatomic) unsigned long long allowedBehaviors;
+@property (nonatomic) unsigned long long forbiddenBadges;
+@property (nonatomic) BOOL allowsInteractiveFavoriteBadges;
+@property (nonatomic) BOOL allowsGridAppearanceActions;
+@property (nonatomic) BOOL allowsDragAndDrop;
+@property (nonatomic) BOOL allowsDragOutOnly;
+@property (nonatomic) BOOL allowsSwipeToSelect;
+@property (nonatomic) BOOL allowsUserDefaults;
+@property (copy, nonatomic) NSString *title;
+@property (nonatomic) BOOL lowMemoryMode;
+@property (nonatomic) long long contentMode;
+@property (nonatomic) long long oneUpPresentationOrigin;
+@property (nonatomic) BOOL providesOneUpActionManager;
+@property (nonatomic) BOOL wantsOneUpShowInLibraryButton;
+@property (retain, nonatomic) id<PXPhotosGridOptionsController> optionsController;
+@property (copy, nonatomic) id /* block */ infoActionHandler;
+@property (retain, nonatomic) PXLoadingStatusManager *loadingStatusManager;
+@property (retain, nonatomic) id<PXAssetImportStatusManager> assetImportStatusManager;
+@property (nonatomic) long long contentStartingPosition;
+@property (retain, nonatomic) Class decorationViewClass;
+@property (retain, nonatomic) id<PXTapbackStatusManager> tapbackStatusManager;
+@property (nonatomic) BOOL isEmbedded;
+@property (retain, nonatomic) PXStatusViewModel *emptyPlaceholderStatusViewModel;
+
+- (id)initWithDataSourceManager:(id)a0 mediaProvider:(id)a1 selectionManager:(id)a2 assetActionManager:(id)a3 assetCollectionActionManager:(id)a4;
+- (void).cxx_destruct;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

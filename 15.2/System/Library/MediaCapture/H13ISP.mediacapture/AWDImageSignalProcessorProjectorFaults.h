@@ -1,0 +1,26 @@
+@interface AWDImageSignalProcessorProjectorFaults : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char numMbFaults : 1; unsigned char numRglFaults : 1; unsigned char numRglUVLOFaults : 1; unsigned char numYgFaults : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasNumRglFaults;
+@property (nonatomic) unsigned int numRglFaults;
+@property (nonatomic) BOOL hasNumRglUVLOFaults;
+@property (nonatomic) unsigned int numRglUVLOFaults;
+@property (nonatomic) BOOL hasNumMbFaults;
+@property (nonatomic) unsigned int numMbFaults;
+@property (nonatomic) BOOL hasNumYgFaults;
+@property (nonatomic) unsigned int numYgFaults;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

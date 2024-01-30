@@ -1,0 +1,85 @@
+@class _DKKnowledgeStorage, APSConnection, NSObject, _DKSync2State, NSMutableArray, NSString, _DKDataProtectionStateMonitor, _DKSyncType, _CDMutablePerfMetric, NSMutableSet, _DKSyncToggle, _DKThrottledActivity, _CDPeriodicSchedulerJob, NSUUID;
+@protocol _DKSyncRemoteKnowledgeStorage, OS_xpc_object, _DKSyncLocalKnowledgeStorage, _DKKeyValueStore, NSObject;
+
+@interface _DKSync2Coordinator : _DKSyncContextObject <APSConnectionDelegate, _DKKnowledgeStorageEventNotificationDelegate, _DKSyncRemoteKnowledgeStorageFetchDelegate, _DKSyncCoordinator> {
+    _DKThrottledActivity *_activityThrottler;
+    id<NSObject> _observerToken;
+    NSMutableSet *_busyTransactions;
+    NSMutableArray *_insertedSyncedEvents;
+    NSMutableArray *_deletedSyncedEvents;
+    NSMutableSet *_activatedPeers;
+    _DKDataProtectionStateMonitor *_dataProtectionMonitor;
+    BOOL _hasRegisteredOptionalObservers;
+    BOOL _isEnabled;
+    NSString *_triggeredSyncDelayActivityName;
+    NSString *_syncActivityName;
+    _DKSync2State *_syncState;
+    double _periodicJobInterval;
+    BOOL _databaseObserversRegistered;
+    BOOL _cloudDeviceCountChangedObserverRegistered;
+    BOOL _cloudSyncAvailablityObserverRegistered;
+    BOOL _rapportAvailablityObserverRegistered;
+    BOOL _siriSyncEnabledObserverRegistered;
+    BOOL _syncPolicyChangedObserverRegistered;
+    APSConnection *_connection;
+    NSMutableSet *_streamNamesObservedForAdditions;
+    NSMutableSet *_streamNamesObservedForDeletions;
+    _CDMutablePerfMetric *_perfMetric;
+    struct _CDPerfEvent { double startTime; double endTime; } _perfEvent;
+    _DKSyncToggle *_syncEnabledToggler;
+    _DKSyncToggle *_someTransportIsAvailableToggler;
+    _DKSyncToggle *_cloudIsAvailableToggler;
+    _DKSyncToggle *_rapportIsAvailableToggler;
+    _CDPeriodicSchedulerJob *_periodicJob;
+    BOOL _triggeredSyncActivityRegistered;
+    NSObject<OS_xpc_object> *_triggeredSyncActivity;
+    BOOL _isBusy;
+    BOOL _hasSyncedUpHistoryToCloud;
+    _DKKnowledgeStorage *_storage;
+    id<_DKKeyValueStore> _keyValueStore;
+    id<_DKSyncLocalKnowledgeStorage> _localStorage;
+    id<_DKSyncRemoteKnowledgeStorage> _transportCloudDown;
+    id<_DKSyncRemoteKnowledgeStorage> _transportCloudUp;
+    id<_DKSyncRemoteKnowledgeStorage> _transportRapport;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) _DKSyncType *syncType;
+@property (readonly, nonatomic) NSUUID *deviceUUID;
+
+- (void)connection:(id)a0 didReceivePublicToken:(id)a1;
+- (id)initWithContext:(id)a0;
+- (id)sortedEventsFromSyncWindows:(id)a0 streamNames:(id)a1 limit:(unsigned long long)a2 fetchOrder:(long long)a3 error:(id *)a4;
+- (id)sortedEventsFromSyncWindows:(id)a0 streamNames:(id)a1 compatibility:(id)a2 limit:(unsigned long long)a3 fetchOrder:(long long)a4 error:(id *)a5;
+- (void)setupStorage;
+- (void)_syncEnabledToggle;
+- (void)start;
+- (void)deleteRemoteStateWithReply:(id /* block */)a0;
+- (void).cxx_destruct;
+- (id)policyForSyncTransportType:(long long)a0;
+- (void)syncWithReply:(id /* block */)a0;
+- (void)_someTransportIsAvailableToggle;
+- (void)_noTransportIsAvailableToggle;
+- (void)_cloudIsAvailableToggle;
+- (void)_cloudIsUnavailableToggle;
+- (void)_rapportIsAvailableToggle;
+- (void)_rapportIsUnavailableToggle;
+- (void)_syncPolicyDidChange:(id)a0;
+- (void)synchronizeWithUrgency:(unsigned long long)a0 client:(id)a1 reply:(id /* block */)a2;
+- (void)_databaseDidDeleteFromStreamNameCounts:(id)a0;
+- (void)knowledgeStorage:(id)a0 didInsertSyncedEvents:(id)a1;
+- (void)knowledgeStorage:(id)a0 didHaveInsertsAndDeletesWithCount:(unsigned long long)a1;
+- (void)knowledgeStorage:(id)a0 didDeleteSyncedEvents:(id)a1;
+- (id)deletedEventIDsSinceDate:(id)a0 streamNames:(id)a1 limit:(unsigned long long)a2 endDate:(id *)a3 error:(id *)a4;
+- (void)_syncDisabledToggle;
+- (void)knowledgeStorage:(id)a0 didInsertEventsWithStreamNameCounts:(id)a1;
+- (void)knowledgeStorage:(id)a0 didDeleteEventsWithStreamNameCounts:(id)a1;
+- (void)dealloc;
+- (void)connection:(id)a0 didReceiveIncomingMessage:(id)a1;
+- (void)_cloudSyncAvailabilityDidChange:(id)a0;
+- (void)handleStatusChangeForPeer:(id)a0 previousTransports:(long long)a1;
+
+@end

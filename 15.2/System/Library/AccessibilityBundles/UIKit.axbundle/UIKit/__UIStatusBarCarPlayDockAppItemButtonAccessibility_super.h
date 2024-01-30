@@ -1,0 +1,3 @@
+@interface __UIStatusBarCarPlayDockAppItemButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

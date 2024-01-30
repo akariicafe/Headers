@@ -1,0 +1,78 @@
+@class NSURL, HUHomeControlServiceContext, UILabel, UIVisualEffectView, HMHome, UIBlurEffect, UITapGestureRecognizer, ANAnnounce, UIButton, UIView, NSLayoutConstraint, NSString, HUWaveformView, HURecordingButton, HFAudioRecorder, UIImpactFeedbackGenerator;
+
+@interface HUAnnounceRecordingViewController : UIViewController <HFAudioRecorderDelegate, HFAccessoryObserver, HFMediaObjectObserver, UIGestureRecognizerDelegate>
+
+@property (retain, nonatomic) HUHomeControlServiceContext *serviceContext;
+@property (retain, nonatomic) HFAudioRecorder *audioRecorder;
+@property (retain, nonatomic) UILabel *dismissLabel;
+@property (retain, nonatomic) UIVisualEffectView *dismissLabelVisualEffectView;
+@property (retain, nonatomic) UILabel *largeTitleLabel;
+@property (retain, nonatomic) UILabel *subTitleLabel;
+@property (retain, nonatomic) UIVisualEffectView *closeButtonVisualEffectView;
+@property (retain, nonatomic) UIButton *closeButton;
+@property (retain, nonatomic) HUWaveformView *audioWaveformView;
+@property (retain, nonatomic) UILabel *announcementDeliveryFailureLabel;
+@property (retain, nonatomic) HURecordingButton *recordButton;
+@property (retain, nonatomic) UILabel *recordingStateChangeLabel;
+@property (retain, nonatomic) UILabel *errorStatusLabel;
+@property (nonatomic) double recordedDuration;
+@property (retain, nonatomic) NSURL *recordedAnnouncementURL;
+@property (retain, nonatomic) UIBlurEffect *blurEffect;
+@property (retain, nonatomic) UIImpactFeedbackGenerator *feedbackGenerator;
+@property (retain, nonatomic) UIView *contentView;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewHeightConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewWidthConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *closeButtonTopConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewTopConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *dismissLabelTopConstraint;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic) BOOL recordingDismissedByUser;
+@property (retain, nonatomic) ANAnnounce *announce;
+@property (retain, nonatomic) HMHome *currentHome;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)prefersStatusBarHidden;
+- (void)viewDidLoad;
+- (void)_didTap:(id)a0;
+- (void)accessoryDidUpdateControllable:(id)a0;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)_commonInit;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)dealloc;
+- (void)accessoryDidUpdateReachableTransports:(id)a0;
+- (void)accessoryDidUpdateReachability:(id)a0;
+- (void)_didPan:(id)a0;
+- (BOOL)_shouldRemoveViewFromHierarchyOnDisappear;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)didUpdateAveragePower:(float)a0;
+- (void)audioRecorderDidStartRecording:(id)a0;
+- (void)audioRecorderFailedToStartRecording:(id)a0;
+- (void)audioRecorderFailedToFinishRecording:(id)a0;
+- (void)audioRecorderFinishedRecording:(id)a0 audioFile:(id)a1;
+- (id)_stringForDuration:(double)a0;
+- (id)_waveformColor;
+- (void)_updateUIBasedOnReachabilityStatus;
+- (void)_dismissDownRecordingView:(id)a0;
+- (id)_contentViewBackgroundColor;
+- (id)_largeTitleTextColor;
+- (void)beginRecording:(id)a0;
+- (BOOL)_areAllHomePodsOffline;
+- (BOOL)_isRoomContext;
+- (BOOL)_isHomeContext;
+- (void)_deleteAudioFile;
+- (void)_dismissViewOrDisplayError:(id)a0;
+- (void)_submitAnalyticsForAnnounceRecordingCompletdSuccessfully:(BOOL)a0 interruptedByUser:(BOOL)a1;
+- (void)_dismissUpRecordingView:(id)a0;
+- (void)_restoreRecordingUI;
+- (void)_hideRecordingUI;
+- (void)stopRecordAndSend:(id)a0;
+- (void)sendAnnouncement:(id)a0;
+- (void)_deleteRecording:(id)a0;
+- (id)initWithServiceContext:(id)a0 blurEffectStyle:(long long)a1;
+- (id)_fontForTimeCodeLabel;
+
+@end

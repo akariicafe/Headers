@@ -1,0 +1,87 @@
+@class NSMutableDictionary, ASContactsManager, HDProfile, NSDictionary, NSObject, ASGatewayManager, ASActivityDataManager, ASAsyncTransactionQueue, ASFriendInviteBulletinManager, ASAchievementManager, NSString, CNContactStore, ASFriendListManager, ASCloudKitManager;
+@protocol OS_dispatch_queue, ASBulletinPostingManager;
+
+@interface ASRelationshipManager : NSObject <ASIDSMessageCenterDelegate, ASCloudKitManagerChangesObserver, ASGatewayManagerChangesObserver, ASFriendInviteBulletinManagerDelegate, ASActivitySharingManagerReadyObserver> {
+    HDProfile *_profile;
+    ASAchievementManager *_achievementManager;
+    ASActivityDataManager *_activityDataManager;
+    ASCloudKitManager *_cloudKitManager;
+    ASContactsManager *_contactsManager;
+    ASFriendInviteBulletinManager *_friendInviteBulletinManager;
+    ASFriendListManager *_friendListManager;
+    ASGatewayManager *_gatewayManager;
+    id<ASBulletinPostingManager> _bulletinPostingManager;
+    ASAsyncTransactionQueue *_transactionQueue;
+    NSDictionary *_messageCenters;
+    CNContactStore *_contactStore;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+    NSMutableDictionary *_relationshipRecordsToReconcile;
+    NSMutableDictionary *_remoteRelationshipRecordsToProcess;
+    NSMutableDictionary *_placeholderFriendshipBeganTokens;
+    long long _currentFetchType;
+    BOOL _hasPendingContactsReconcile;
+    BOOL _isWatch;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL isReadyToProcessChanges;
+
+- (void)acceptInviteRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)removeFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)ignoreInviteRequestFromFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)setActivityDataVisible:(BOOL)a0 toFriendWithUUID:(id)a1 completion:(id /* block */)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (void)setMuteEnabled:(BOOL)a0 forFriendWithUUID:(id)a1 completion:(id /* block */)a2;
+- (void)sendWithdrawInviteRequestToFriendWithUUID:(id)a0 completion:(id /* block */)a1;
+- (void)activitySharingManagerReady:(id)a0;
+- (void)_processPersistedMessagesIfNeeded;
+- (void)beginReceivingMessages;
+- (void)_contactStoreDidChangeNotification:(id)a0;
+- (void)endReceivingMessages;
+- (id)insertPlaceholderRelationshipEvent:(unsigned short)a0 friendUUID:(id)a1;
+- (void)_queue_saveRelationship:(id)a0 contact:(id)a1 withExtraRecords:(id)a2 completion:(id /* block */)a3;
+- (void)_performBlockWaitingForFriendshipBeganForFriendWithUUID:(id)a0 block:(id /* block */)a1;
+- (void)_queue_saveRelationship:(id)a0 contact:(id)a1 completion:(id /* block */)a2;
+- (void)_queue_removeFriendWithUUID:(id)a0 eventType:(unsigned short)a1 completion:(id /* block */)a2;
+- (void)_insertInviteForContact:(id)a0 destination:(id)a1 serviceIdentifier:(id)a2;
+- (id)_currentActivityDataPreview;
+- (void)_queue_saveRelationshipAndFetchOrCreateShares:(id)a0 contact:(id)a1 completion:(id /* block */)a2;
+- (id)_queue_insertPlaceholderFriendshipDidBeginForContactWithUUID:(id)a0;
+- (void)_queue_removePlaceholderRelationshipBeganForContactWithUUID:(id)a0 success:(BOOL)a1;
+- (void)_queue_addPersonWithCloudKitAddress:(id)a0 toShares:(id)a1 completion:(id /* block */)a2;
+- (void)_queue_fetchSharesForRelationship:(id)a0 completion:(id /* block */)a1;
+- (id)_contactWithInviteRequest:(id)a0 fromSender:(id)a1;
+- (void)_processActivityDataPreview:(id)a0 friendUUID:(id)a1;
+- (id)_contactWithOutgoingHandshakeToken:(id)a0;
+- (void)_queue_acceptShares:(id)a0 forRelationship:(id)a1 contact:(id)a2 completion:(id /* block */)a3;
+- (id)_contactWithIncomingHandshakeToken:(id)a0;
+- (void)_queue_reconcileCloudKitRelationships:(id)a0;
+- (void)_queue_processRemoteRelationships:(id)a0 completion:(id /* block */)a1;
+- (id)_contactWithUUIDPreferringPlaceholders:(id)a0;
+- (id)_queue_handleSavedRecords:(id)a0 forContact:(id)a1;
+- (id)_queue_allRelationshipsByRecordID;
+- (void)_queue_reconcileAddressBookAgainstRelationships:(id)a0;
+- (id)_queue_allContactsByRecordID;
+- (id)_contactWithRemoteRelationshipRecordZoneID:(id)a0;
+- (void)messageCenter:(id)a0 didReceiveInviteRequest:(id)a1 fromSenderAddress:(id)a2 messageHandledCompletion:(id /* block */)a3;
+- (void)messageCenter:(id)a0 didReceiveInviteResponse:(id)a1 fromSenderAddress:(id)a2 messageHandledCompletion:(id /* block */)a3;
+- (void)messageCenter:(id)a0 didReceiveFinalizeHandshake:(id)a1 fromSenderAddress:(id)a2 messageHandledCompletion:(id /* block */)a3;
+- (void)messageCenter:(id)a0 didReceiveWithdrawInviteRequest:(id)a1 fromSenderAddress:(id)a2 messageHandledCompletion:(id /* block */)a3;
+- (void)cloudKitManager:(id)a0 didBeginUpdatesForFetchWithType:(long long)a1;
+- (void)cloudKitManager:(id)a0 didRecieveNewRelationships:(id)a1 fromRecordZoneWithID:(id)a2 moreComing:(BOOL)a3 changesProcessedHandler:(id /* block */)a4;
+- (void)cloudKitManager:(id)a0 didRecieveNewRemoteRelationships:(id)a1 fromRecordZoneWithID:(id)a2 moreComing:(BOOL)a3 changesProcessedHandler:(id /* block */)a4;
+- (void)gatewayManagerStatusDidChange;
+- (void)friendInviteBulletinManagerDidReceiveActionResponse:(long long)a0 fromContactWithUUID:(id)a1;
+- (void)processRetryMessages;
+- (void)updateRelationshipWithCompetitionEvent:(unsigned short)a0 friendUUID:(id)a1 completion:(id /* block */)a2;
+- (void)updateRelationshipsForCurrentFeatureSupportWithCompletion:(id /* block */)a0;
+- (void)sendInviteToPersonWithDestination:(id)a0 callerID:(id)a1 serviceIdentifier:(id)a2 completion:(id /* block */)a3;
+- (void)notificationManager:(id)a0 didReceiveActionResponse:(long long)a1 fromContactWithUUID:(id)a2;
+- (void)removePlaceholderRelationshipEventWithToken:(id)a0;
+
+@end

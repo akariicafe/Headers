@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType18HighHeartRateEvent : _TtCs12_SwiftObject
+
+@end

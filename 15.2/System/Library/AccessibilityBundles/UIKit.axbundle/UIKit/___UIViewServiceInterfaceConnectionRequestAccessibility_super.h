@@ -1,0 +1,3 @@
+@interface ___UIViewServiceInterfaceConnectionRequestAccessibility_super : UIAccessibilitySafeCategory
+
+@end

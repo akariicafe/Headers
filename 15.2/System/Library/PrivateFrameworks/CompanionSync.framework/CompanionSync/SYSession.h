@@ -1,0 +1,96 @@
+@class NSError, NSString, NSMutableDictionary, PBCodable, NSDictionary, NSObject, NSMutableSet, SYService;
+@protocol OS_os_transaction, SYSessionDelegate, OS_dispatch_queue, SYChangeSerializer;
+
+@interface SYSession : NSObject <SYChangeSerializer, SYStateLoggable> {
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    _Atomic BOOL _inTransaction;
+    NSObject<OS_os_transaction> *_transaction;
+    _Atomic BOOL _paused;
+    NSMutableSet *_pendingMessageIDs;
+    BOOL _rejectedNewSessionFromSamePeer;
+    BOOL _sessionStarted;
+    NSMutableDictionary *_stateResponders;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _setDelegateLock;
+}
+
+@property (readonly) NSObject<OS_dispatch_queue> *queue;
+@property unsigned int state;
+@property (copy, nonatomic) NSString *identifier;
+@property (nonatomic) double birthDate;
+@property (readonly, nonatomic) NSDictionary *wrappedUserContext;
+@property (readonly, nonatomic) double remainingSessionTime;
+@property (nonatomic) unsigned long long sessionSignpost;
+@property (copy, nonatomic) NSMutableDictionary *peerGenerationIDs;
+@property (readonly, nonatomic) unsigned long long protocolVersion;
+@property (nonatomic) long long priority;
+@property (weak, nonatomic) id<SYSessionDelegate> delegate;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *targetQueue;
+@property (retain, nonatomic) id<SYChangeSerializer> serializer;
+@property (readonly, weak, nonatomic) SYService *service;
+@property (retain, nonatomic) NSString *reason;
+@property (nonatomic) double perMessageTimeout;
+@property (nonatomic) double fullSessionTimeout;
+@property (copy, nonatomic) NSDictionary *options;
+@property (nonatomic) long long maxConcurrentMessages;
+@property (retain, nonatomic) NSError *error;
+@property BOOL canRestart;
+@property BOOL canRollback;
+@property (readonly, nonatomic) BOOL isSending;
+@property (readonly) BOOL isResetSync;
+@property (readonly) BOOL wasCancelled;
+@property (retain, nonatomic) NSDictionary *userContext;
+@property (copy, nonatomic) NSDictionary *sessionMetadata;
+@property (readonly, nonatomic) unsigned long long sentChangeByteCount;
+@property (readonly, nonatomic) unsigned long long sentChangeCount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) PBCodable *stateForLogging;
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (id)unarchiveMetadata:(id)a0;
+
+- (void)start:(id /* block */)a0;
+- (id)initWithService:(id)a0;
+- (BOOL)_handleEndSessionResponse:(id)a0 error:(id *)a1;
+- (BOOL)_handleStartSessionResponse:(id)a0 error:(id *)a1;
+- (void)_handleError:(id)a0;
+- (id)CPSafeDescription;
+- (void).cxx_destruct;
+- (BOOL)_handleSyncBatchResponse:(id)a0 error:(id *)a1;
+- (void)cancelWithError:(id)a0;
+- (void)_pause;
+- (BOOL)_endTransaction;
+- (BOOL)_handleRestartSessionResponse:(id)a0 error:(id *)a1;
+- (BOOL)_beginTransaction;
+- (void)dealloc;
+- (void)cancel;
+- (id)dataFromChange:(id)a0;
+- (id)changeFromData:(id)a0 ofType:(long long)a1;
+- (id)encodeSYChangeForBackwardCompatibility:(id)a0 protocolVersion:(long long)a1;
+- (id)decodeChangeData:(id)a0 fromProtocolVersion:(long long)a1 ofType:(long long)a2;
+- (void)_continue;
+- (id)combinedEngineOptions:(id)a0;
+- (void)didCompleteSession;
+- (void)_setStateQuietly:(unsigned int)a0;
+- (void)didStartSession;
+- (void)_sentMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (void)_peerProcessedMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (BOOL)hasRejectedPeerSession;
+- (void)setHasRejectedPeerSession:(BOOL)a0;
+- (BOOL)_willAcquiesceToNewSessionFromPeer:(id)a0;
+- (void)_clearOutgoingMessageUUID:(id)a0;
+- (void)_recordOutgoingMessageUUID:(id)a0;
+- (BOOL)_readyToProcessIncomingMessages;
+- (void)_onSessionStateChangedTo:(unsigned int)a0 do:(id /* block */)a1;
+- (void)_handleSyncBatch:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleRestartSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleEndSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_supercededWithSession:(id)a0;
+- (id)stateResponders;
+- (id)_cancelPendingMessagesReturningFailures;
+- (void)_resolvedIdentifierForRequest:(id)a0;
+- (void)_resolvedIdentifier:(id)a0 forResponse:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface __PUAlbumListTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

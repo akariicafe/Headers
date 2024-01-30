@@ -1,0 +1,3 @@
+@interface MKFAccessoryHAPDatabaseID : MKFAccessoryDatabaseID
+
+@end

@@ -1,0 +1,14 @@
+@interface WBSTabDialogCancellationExemption : NSObject {
+    id /* block */ _cancellationExemptionHandler;
+}
+
++ (id)provisionalNavigationExemption;
++ (id)committedNavigationExemption;
++ (id)sameOriginNavigationExemption:(id)a0;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCancellationHandler:(id /* block */)a0;
+- (BOOL)isExemptFromCancellationInContext:(id)a0;
+
+@end

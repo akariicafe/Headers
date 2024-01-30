@@ -1,0 +1,3 @@
+@interface CHDRadarType : CHDUnsupportedType
+
+@end

@@ -1,0 +1,95 @@
+@class PBDataReader, NSString, GEOLocalTime, GEOAbAssignInfo, NSMutableArray, PBUnknownFields;
+
+@interface GEOPDAnalyticMetadata : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _sessionId;
+    GEOAbAssignInfo *_abAssignInfo;
+    NSString *_appIdentifier;
+    NSString *_appMajorVersion;
+    NSString *_appMinorVersion;
+    NSString *_hardwareModel;
+    NSString *_loggedAbExperiment;
+    NSString *_osVersion;
+    NSString *_productName;
+    double _relativeTimestamp;
+    GEOLocalTime *_requestTime;
+    NSMutableArray *_serviceTags;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _requestSource;
+    unsigned int _sequenceNumber;
+    BOOL _isFromApi;
+    BOOL _isInternalInstall;
+    BOOL _isInternalTool;
+    BOOL _isSiriOriginalRequest;
+    struct { unsigned char has_sessionId : 1; unsigned char has_relativeTimestamp : 1; unsigned char has_requestSource : 1; unsigned char has_sequenceNumber : 1; unsigned char has_isFromApi : 1; unsigned char has_isInternalInstall : 1; unsigned char has_isInternalTool : 1; unsigned char has_isSiriOriginalRequest : 1; unsigned char read_unknownFields : 1; unsigned char read_abAssignInfo : 1; unsigned char read_appIdentifier : 1; unsigned char read_appMajorVersion : 1; unsigned char read_appMinorVersion : 1; unsigned char read_hardwareModel : 1; unsigned char read_loggedAbExperiment : 1; unsigned char read_osVersion : 1; unsigned char read_productName : 1; unsigned char read_requestTime : 1; unsigned char read_serviceTags : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) BOOL hasAppIdentifier;
+@property (retain, nonatomic) NSString *appIdentifier;
+@property (readonly, nonatomic) BOOL hasAppMajorVersion;
+@property (retain, nonatomic) NSString *appMajorVersion;
+@property (readonly, nonatomic) BOOL hasAppMinorVersion;
+@property (retain, nonatomic) NSString *appMinorVersion;
+@property (readonly, nonatomic) BOOL hasHardwareModel;
+@property (retain, nonatomic) NSString *hardwareModel;
+@property (readonly, nonatomic) BOOL hasOsVersion;
+@property (retain, nonatomic) NSString *osVersion;
+@property (nonatomic) BOOL hasIsInternalTool;
+@property (nonatomic) BOOL isInternalTool;
+@property (nonatomic) BOOL hasIsInternalInstall;
+@property (nonatomic) BOOL isInternalInstall;
+@property (nonatomic) BOOL hasSessionId;
+@property (nonatomic) struct GEOSessionID { unsigned long long x0; unsigned long long x1; } sessionId;
+@property (nonatomic) BOOL hasSequenceNumber;
+@property (nonatomic) unsigned int sequenceNumber;
+@property (nonatomic) BOOL hasRequestSource;
+@property (nonatomic) int requestSource;
+@property (nonatomic) BOOL hasIsFromApi;
+@property (nonatomic) BOOL isFromApi;
+@property (retain, nonatomic) NSMutableArray *serviceTags;
+@property (readonly, nonatomic) BOOL hasProductName;
+@property (retain, nonatomic) NSString *productName;
+@property (readonly, nonatomic) BOOL hasLoggedAbExperiment;
+@property (retain, nonatomic) NSString *loggedAbExperiment;
+@property (readonly, nonatomic) BOOL hasAbAssignInfo;
+@property (retain, nonatomic) GEOAbAssignInfo *abAssignInfo;
+@property (readonly, nonatomic) BOOL hasRequestTime;
+@property (retain, nonatomic) GEOLocalTime *requestTime;
+@property (nonatomic) BOOL hasRelativeTimestamp;
+@property (nonatomic) double relativeTimestamp;
+@property (nonatomic) BOOL hasIsSiriOriginalRequest;
+@property (nonatomic) BOOL isSiriOriginalRequest;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (Class)serviceTagType;
++ (BOOL)isValid:(id)a0;
+
+- (id)initWithTraits:(id)a0;
+- (void)clearServiceTags;
+- (void)readAll:(BOOL)a0;
+- (int)StringAsRequestSource:(id)a0;
+- (id)initWithData:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (id)jsonRepresentation;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)serviceTagAtIndex:(unsigned long long)a0;
+- (id)init;
+- (id)initWithJSON:(id)a0;
+- (unsigned long long)serviceTagsCount;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void)addServiceTag:(id)a0;
+- (unsigned long long)hash;
+- (id)requestSourceAsString:(int)a0;
+- (id)dictionaryRepresentation;
+
+@end

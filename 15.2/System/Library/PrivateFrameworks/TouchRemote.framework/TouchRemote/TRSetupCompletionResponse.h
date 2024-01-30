@@ -1,0 +1,3 @@
+@interface TRSetupCompletionResponse : TRResponseMessage
+
+@end

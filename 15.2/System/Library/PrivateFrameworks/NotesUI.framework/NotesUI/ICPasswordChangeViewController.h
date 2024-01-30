@@ -1,0 +1,77 @@
+@class UISwitch, UIBarButtonItem, ICLearnMoreTextView, UILabel, ICAccount, UIView, NSLayoutConstraint, NSString, UIScrollView, ICScrollViewKeyboardResizer, ICPasswordUtilities, UITextField, NSArray;
+
+@interface ICPasswordChangeViewController : UIViewController <ICScrollViewKeyboardResizerDelegate, UITextFieldDelegate>
+
+@property (retain, nonatomic) ICAccount *account;
+@property (retain, nonatomic) NSArray *textBackgroundViews;
+@property (weak, nonatomic) UIView *headerBackground;
+@property (retain, nonatomic) ICScrollViewKeyboardResizer *scrollViewResizer;
+@property (weak, nonatomic) UIScrollView *scrollView;
+@property (retain, nonatomic) ICPasswordUtilities *passwordUtilities;
+@property (weak, nonatomic) UILabel *headerLabel;
+@property (weak, nonatomic) UILabel *oldPasswordLabel;
+@property (weak, nonatomic) UILabel *passwordLabel;
+@property (weak, nonatomic) UILabel *verifyLabel;
+@property (weak, nonatomic) UILabel *hintLabel;
+@property (weak, nonatomic) UILabel *warningLabel;
+@property (weak, nonatomic) ICLearnMoreTextView *disclaimerLabel;
+@property (weak, nonatomic) UITextField *oldPasswordTextField;
+@property (weak, nonatomic) UITextField *passwordTextField;
+@property (weak, nonatomic) UITextField *verifyTextField;
+@property (weak, nonatomic) UITextField *hintTextField;
+@property (retain, nonatomic) NSArray *orderedTextFields;
+@property (weak, nonatomic) UILabel *useBiometricIDLabel;
+@property (weak, nonatomic) UISwitch *useBiometricIDSwitch;
+@property (weak, nonatomic) UIBarButtonItem *doneButton;
+@property (weak, nonatomic) UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) NSLayoutConstraint *oldPasswordHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *disclaimerHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *biometricIDZeroHeightConstraint;
+@property (weak, nonatomic) NSLayoutConstraint *biometricIDTopConstraint;
+@property (nonatomic) BOOL isSetupForChangePassword;
+@property (nonatomic) long long incorrectPasswordAttempts;
+@property (weak, nonatomic) UIView *biometricIDContainer;
+@property (readonly, nonatomic) BOOL passwordAndVerifyTextFieldsMatch;
+@property (nonatomic) BOOL didAttemptToSubmitWithoutHint;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) BOOL usingLargerAXSizes;
+@property (retain, nonatomic) NSArray *defaultConstraints;
+@property (retain, nonatomic) NSArray *alternateConstraintsForAXLargerTextSizes;
+@property (readonly, nonatomic) UITextField *firstResponderTextField;
+@property (nonatomic) BOOL isInSettings;
+@property (nonatomic) BOOL isSettingInitialPassword;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithCompletionHandler:(id /* block */)a0;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)cancelButtonPressed:(id)a0;
+- (void)updateFonts;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)doneButtonPressed:(id)a0;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)dealloc;
+- (void)contentSizeCategoryDidChange;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (BOOL)validateInput;
+- (void)setUpNavigationBar;
+- (double)consumedBottomAreaForResizer:(id)a0;
+- (id)keyboardResizerScrollView;
+- (void)resetTextFields;
+- (id)disclaimerAttributedString;
+- (void)showOldPasswordIsNotCorrectAlert;
+- (void)showEnterAPasswordAlert;
+- (void)showPasswordsDoNotMatchAlert;
+- (void)dismissKeyboardIfNeeded;
+- (void)showUnableToSetPasswordAlert;
+- (void)showSimpleAlertWithTitle:(id)a0 message:(id)a1;
+- (void)setupAccessibility;
+- (void)setUpForAddingPasswordWithAccount:(id)a0;
+- (void)setUpForChangePasswordWithAccount:(id)a0;
+
+@end

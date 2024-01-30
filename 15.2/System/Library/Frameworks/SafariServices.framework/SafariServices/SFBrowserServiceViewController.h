@@ -1,0 +1,95 @@
+@class NSDate, NSString, _SFWebViewUsageMonitor, NSTimer, WKProcessPool, SFSystemAlert, _SFSafariViewControllerPrewarmingRequestThrottler, SFBrowserPersonaAnalyticsHelper;
+
+@interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, _SFLinkPreviewHeaderDelegate, SFServiceViewControllerProtocol> {
+    id /* block */ _activityViewControllerInfoFetchCompletionHandler;
+    _SFWebViewUsageMonitor *_usageMonitor;
+    NSDate *_lastHostApplicationSuspendDate;
+    WKProcessPool *_processPool;
+    BOOL _canNotifyHostApplicationOfRedirects;
+    BOOL _touchEventsShouldStopRedirectNotifications;
+    BOOL _isExpectingClientRedirect;
+    BOOL _hasBegunFirstNavigation;
+    BOOL _hasConnectedToHostApplication;
+    SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
+    NSTimer *_redirectNotificationTimer;
+    BOOL _hostApplicationIsForeground;
+    _SFSafariViewControllerPrewarmingRequestThrottler *_prewarmingRequestThrottler;
+}
+
+@property (retain, nonatomic) SFSystemAlert *webAuthenticationDataSharingConfirmation;
+@property (copy, nonatomic) NSString *hostApplicationCallbackURLScheme;
+@property (nonatomic) BOOL _isUsedForAuthentication;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_exportedInterface;
++ (id)_remoteViewControllerInterface;
+
+- (void)loadURL:(id)a0;
+- (id)processPool;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)setDisplayMode:(long long)a0;
+- (void)_dismiss;
+- (unsigned long long)_persona;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)prepareForDisplayWithCompletionHandler:(id /* block */)a0;
+- (void)_willAppearInRemoteViewController;
+- (void)_hostApplicationDidEnterBackground;
+- (void)_hostApplicationWillEnterForeground;
+- (void)startResolveRedirectionForURL:(id)a0;
+- (void)setDismissButtonStyle:(long long)a0;
+- (void)browserViewDidReceiveTouchEvent:(id)a0;
+- (void)linkPreviewHeader:(id)a0 didEnableLinkPreview:(BOOL)a1;
+- (void)decideCookieSharingForURL:(id)a0 callbackURLScheme:(id)a1;
+- (void)setPreferredBarTintColor:(id)a0 controlTintColor:(id)a1;
+- (void)repostNotificationInViewService:(id)a0;
+- (void)didFetchCustomActivities:(id)a0 excludedActivityTypes:(id)a1;
+- (void)setIsRunningTransitionAnimation:(BOOL)a0;
+- (void)didDetectRemoteViewControllerViewIsHidden;
+- (void)didDetectUserInteractionFromHostApp;
+- (void)openCurrentURLInSafariFromPreviewAction;
+- (void)updateScrollViewIndicatorVerticalInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0 horizontalInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (void)didRequestShowLinkPreviews:(BOOL)a0;
+- (void)requestPrewarmingWithTokens:(id)a0;
+- (void)invalidatePrewarmingTokenWithID:(unsigned long long)a0;
+- (void)addClickAttribution:(id)a0;
+- (id)websiteDataStoreConfiguration;
+- (void)closeDatabasesOnBackgroundingOrDismissal;
+- (id)_analyticsHelper;
+- (void)_updateRemoteSwipeGestureState;
+- (id)processPoolConfiguration;
+- (BOOL)_shouldAcceptMessage:(id)a0;
+- (id)_trustedReportEndpoint;
+- (void)_prewarmConnectionsToURLs:(id)a0;
+- (void)_openCurrentURLInSafari;
+- (id)_webDataStoreRootURL;
+- (id)_websiteDataStoreURL;
+- (BOOL)_ensureWebsiteDataStoreURL:(id)a0 cookieStoreURL:(id)a1;
+- (BOOL)_redirectToHostAppWithExpectedCallbackSchemeIfPossible:(id)a0;
+- (id)_applicationPayloadForOpeningInSafari;
+- (void)webViewController:(id)a0 didReceiveServerRedirectForProvisionalNavigation:(id)a1;
+- (void)webViewControllerDidCancelClientRedirect:(id)a0;
+- (void)webViewController:(id)a0 willPerformClientRedirectToURL:(id)a1 withDelay:(double)a2;
+- (void)webViewController:(id)a0 didStartProvisionalNavigation:(id)a1;
+- (void)webViewController:(id)a0 didFinishDocumentLoadForNavigation:(id)a1;
+- (void)webViewController:(id)a0 didChangeFullScreen:(BOOL)a1;
+- (void)webViewControllerWebProcessDidCrash:(id)a0;
+- (void)_updateMaxVisibleHeightPercentageUserDriven:(BOOL)a0;
+- (void)safariActivity:(id)a0 didFinish:(BOOL)a1;
+- (void)_didResolveDestinationURL:(id)a0 pendingAppLinkCheck:(BOOL)a1;
+- (void)_getSafariDataSharingModeWithCompletion:(id /* block */)a0;
+- (void)_fetchActivityViewControllerInfoForURL:(id)a0 title:(id)a1 completion:(id /* block */)a2;
+- (BOOL)_notifyInitialLoadDidFinish:(BOOL)a0;
+- (BOOL)_redirectToHostAppWithNavigationResult:(id)a0 options:(id)a1;
+- (void)_didLoadWebView;
+- (id)bundleIdentifierForProfileInstallation;
+- (id)_hostAppBundleId;
+- (BOOL)_shouldReloadImmediatelyAfterPageLoadError;
+
+@end

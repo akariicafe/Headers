@@ -1,0 +1,87 @@
+@class COAlarmReadRequest, NSArray, NSDictionary, MTAlarmManager, COHomeHubAdapter, COHomeKitAdapter;
+@protocol COMeshAlarmAddOnDelegate;
+
+@interface COMeshAlarmAddOn : COMeshAddOn {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (readonly, nonatomic) BOOL performsLocalActions;
+@property (readonly, nonatomic) COHomeKitAdapter *homekit;
+@property (readonly, nonatomic) COHomeHubAdapter *homehub;
+@property (copy, nonatomic) NSArray *deletes;
+@property (copy, nonatomic) NSArray *mergingNodes;
+@property (retain, nonatomic) COAlarmReadRequest *mergeRequest;
+@property (retain, nonatomic) NSDictionary *mergeResponses;
+@property (copy, nonatomic) NSArray *queuedCommands;
+@property (readonly, nonatomic) MTAlarmManager *observedAlarmManager;
+@property (weak, nonatomic) id<COMeshAlarmAddOnDelegate> delegate;
+@property (readonly, nonatomic) MTAlarmManager *alarmManager;
+
+- (id)initWithAlarmManager:(id)a0;
+- (id)removeAlarm:(id)a0;
+- (id)alarms;
+- (id)_filteredAlarmsList:(id)a0 forAccessory:(id)a1;
+- (id)addAlarm:(id)a0;
+- (id)updateAlarm:(id)a0;
+- (id)dismissAlarmWithIdentifier:(id)a0;
+- (void)handleAlarmsRemovedNotification:(id)a0;
+- (id)alarmsForAccessory:(id)a0;
+- (id)snoozeAlarmWithIdentifier:(id)a0;
+- (void)_addCompletionsToFuture:(id)a0 withXPCCallback:(id /* block */)a1 transactionDescription:(const char *)a2;
+- (void)meshController:(id)a0 didTransitionToState:(unsigned long long)a1;
+- (void)handleAlarmsUpdatedNotification:(id)a0;
+- (void)handleAlarmDeleteRequest:(id)a0 callback:(id /* block */)a1;
+- (id)_sendRequest:(id)a0;
+- (void)dismissAlarmWithIdentifier:(id)a0 cluster:(id)a1 withCallback:(id /* block */)a2;
+- (void)snoozeAlarmWithIdentifier:(id)a0 cluster:(id)a1 withCallback:(id /* block */)a2;
+- (void)canDispatchForAccessoryUniqueIdentifier:(id)a0 categoryType:(id)a1 asInstance:(id)a2 cluster:(id)a3 reply:(id /* block */)a4;
+- (void)_alarmManagerAlarmFired:(id)a0;
+- (void)handleAlarmsChangedNotification:(id)a0;
+- (void)willStartMeshController:(id)a0;
+- (void)_alarmManagerAlarmsAdded:(id)a0;
+- (void)_alarmManagerFiringAlarmDismissed:(id)a0;
+- (void)removeAlarm:(id)a0 forAccessoryUniqueIdentifier:(id)a1 categoryType:(id)a2 fromConnection:(id)a3 cluster:(id)a4 withCallback:(id /* block */)a5;
+- (void)_alarmManagerAlarmsChanged:(id)a0;
+- (void)_primeMerge:(id)a0 withNodes:(id)a1;
+- (void)didChangeNodesForMeshController:(id)a0;
+- (id)initWithAlarmManager:(id)a0 homekitAdapter:(id)a1 hubAdapter:(id)a2;
+- (BOOL)_isAlarm:(id)a0 targetingAccessoryIdentifiers:(id)a1;
+- (void)_significantHomeChange:(id)a0;
+- (void)updateAlarm:(id)a0 forAccessoryUniqueIdentifier:(id)a1 categoryType:(id)a2 fromConnection:(id)a3 cluster:(id)a4 withCallback:(id /* block */)a5;
+- (void)handleAlarmsAddedNotification:(id)a0;
+- (void)_startMerge;
+- (void)_alarmManagerAlarmsUpdated:(id)a0;
+- (void)_accessorySettingValueUpdated:(id)a0;
+- (void)handleAlarmDismissRequest:(id)a0 callback:(id /* block */)a1;
+- (void)_alarmManagerAlarmsRemoved:(id)a0;
+- (void)didStopMeshController:(id)a0;
+- (BOOL)_isAlarm:(id)a0 targetingAccessory:(id)a1;
+- (void)handleAlarmFiredNotification:(id)a0;
+- (void).cxx_destruct;
+- (void)_replicateToMobileTimerFromHomeKit;
+- (void)handleAlarmReadRequest:(id)a0 callback:(id /* block */)a1;
+- (id)_commandsForReconciling:(id)a0 toTruth:(id)a1 forNode:(id)a2;
+- (void)handleAlarmManagerStateResetNotification:(id)a0;
+- (id)init;
+- (void)handleAlarmFiringAlarmDismissedNotification:(id)a0;
+- (void)handleAlarmCreateRequest:(id)a0 callback:(id /* block */)a1;
+- (void)_alarmManagerStateReset:(id)a0;
+- (void)_processQueuedCommands;
+- (void)willRemoveFromMeshController:(id)a0;
+- (id)_currentAccessoryForConnection:(id)a0;
+- (void)handleAlarmSnoozeNotification:(id)a0;
+- (void)addAlarm:(id)a0 forAccessoryUniqueIdentifier:(id)a1 categoryType:(id)a2 fromConnection:(id)a3 cluster:(id)a4 withCallback:(id /* block */)a5;
+- (void)_alarmManagerFiringAlarmChanged:(id)a0;
+- (void)_addAlarmDeleteEvent:(id)a0;
+- (void)_withLock:(id /* block */)a0;
+- (void)_continueMerge:(id)a0 withResponse:(id)a1 fromNode:(id)a2;
+- (void)didAddToMeshController:(id)a0;
+- (id)_alarmsForAccessoryIdentifier:(id)a0 allowLocalStorage:(BOOL)a1 usingLeader:(BOOL)a2;
+- (void)_abandonMerge;
+- (void)alarmsforAccessoryUniqueIdentifier:(id)a0 categoryType:(id)a1 fromConnection:(id)a2 cluster:(id)a3 withCallback:(id /* block */)a4;
+- (void)handleAlarmSnoozeRequest:(id)a0 callback:(id /* block */)a1;
+- (void)handleAlarmUpdateRequest:(id)a0 callback:(id /* block */)a1;
+- (void)_concludeMerge:(id)a0 usingLocalAlarms:(id)a1;
+- (void)_finishMerge;
+
+@end

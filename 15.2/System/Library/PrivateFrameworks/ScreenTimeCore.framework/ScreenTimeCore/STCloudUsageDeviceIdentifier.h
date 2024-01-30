@@ -1,0 +1,3 @@
+@interface STCloudUsageDeviceIdentifier : NSManagedObject
+
+@end

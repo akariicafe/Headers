@@ -1,0 +1,88 @@
+@class MPModelSong, NSString, MPModelArtist, NSDate, NSDateComponents, MPModelGenre;
+
+@interface MPModelAlbum : MPModelObject
+
+@property (copy, nonatomic) NSString *title;
+@property (retain, nonatomic) MPModelArtist *artist;
+@property (retain, nonatomic) MPModelGenre *genre;
+@property (nonatomic) long long trackCount;
+@property (nonatomic) long long maximumItemTrackNumber;
+@property (nonatomic) long long discCount;
+@property (nonatomic) BOOL hasCleanContent;
+@property (nonatomic) BOOL hasExplicitContent;
+@property (nonatomic, getter=isCompilation) BOOL compilation;
+@property (nonatomic, getter=isClassical) BOOL classical;
+@property (nonatomic, getter=isLibraryAdded) BOOL libraryAdded;
+@property (copy, nonatomic) NSDate *libraryAddedDate;
+@property (nonatomic, getter=isLibraryAddEligible) BOOL libraryAddEligible;
+@property (nonatomic) float volumeNormalization;
+@property (copy, nonatomic) NSDateComponents *releaseDateComponents;
+@property (retain, nonatomic) MPModelSong *representativeSong;
+@property (nonatomic) long long year;
+@property (copy, nonatomic) id /* block */ artworkCatalogBlock;
+@property (copy, nonatomic) NSString *copyrightText;
+@property (nonatomic) long long keepLocalEnableState;
+@property (nonatomic) long long keepLocalManagedStatus;
+@property (copy, nonatomic) NSDate *lastDevicePlaybackDate;
+@property (nonatomic, getter=isPreorder) BOOL preorder;
+@property (copy, nonatomic) NSString *editorNotes;
+@property (copy, nonatomic) NSString *shortEditorNotes;
+@property (copy, nonatomic) NSString *versionHash;
+@property (nonatomic) unsigned long long traits;
+@property (copy, nonatomic) id /* block */ songPopularityBlock;
+@property (readonly, copy, nonatomic) NSDate *downloadedDate;
+
++ (id)__artworkCatalogBlock_KEY;
++ (id)__shortEditorNotes_KEY;
++ (id)kindWithSongKind:(id)a0;
++ (id)kindWithSongKind:(id)a0 options:(unsigned long long)a1;
++ (id)kindWithVariants:(unsigned long long)a0 songKind:(id)a1;
++ (id)__representativeSong_KEY;
++ (id)__maximumItemTrackNumber_KEY;
++ (id)__discCount_KEY;
++ (id)__compilation_KEY;
++ (id)__classical_KEY;
++ (id)__preorder_KEY;
++ (id)__songPopularityBlock_KEY;
++ (id)__hasExplicitContent_KEY;
++ (id)__title_KEY;
++ (long long)genericObjectType;
++ (id)__genre_KEY;
++ (id)__copyrightText_KEY;
++ (id)__trackCount_KEY;
++ (id)__volumeNormalization_KEY;
++ (id)__keepLocalEnableState_KEY;
++ (id)__keepLocalManagedStatus_KEY;
++ (id)__libraryAdded_KEY;
++ (id)__libraryAddedDate_KEY;
++ (id)__lastDevicePlaybackDate_KEY;
++ (id)__libraryAddEligible_KEY;
++ (id)__downloadedDate_KEY;
++ (BOOL)supportsLibraryAddStatusObservation;
++ (id)requiredLibraryAddStatusObservationProperties;
++ (id)requiredLibraryRemovalProperties;
++ (BOOL)supportsLibraryRemoval;
++ (id)requiredKeepLocalStatusObservationProperties;
++ (BOOL)supportsKeepLocalStatusObservation;
++ (id)__traits_KEY;
++ (id)__hasCleanContent_KEY;
++ (id)__releaseDateComponents_KEY;
++ (id)__versionHash_KEY;
++ (id)__artist_KEY;
++ (id)__editorNotes_KEY;
++ (id)requiredStoreLibraryPersonalizationProperties;
++ (id)__year_KEY;
++ (id)kindWithVariants:(unsigned long long)a0 songKind:(id)a1 options:(unsigned long long)a2;
+
+- (id)artworkCatalog;
+- (id)humanDescription;
+- (id)personalizationScopedPropertiesForProperties:(id)a0;
+- (id)relativeModelObjectForStoreLibraryPersonalization;
+- (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)a0;
+- (id)songPopularityForIdentifiers:(id)a0;
+- (struct MPLibraryAddStatusObserverConfiguration { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; })libraryAddStatusObserverConfiguration;
+- (long long)libraryRemovalSupportedOptions;
+- (id)newKeepLocalStatusObserverConfiguration;
+- (id)contentItemCollectionInfo;
+
+@end

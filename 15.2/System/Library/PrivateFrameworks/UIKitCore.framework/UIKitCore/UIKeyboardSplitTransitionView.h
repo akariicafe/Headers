@@ -1,0 +1,53 @@
+@class NSArray, UIKeyboardSliceSet, CADisplayLink;
+@protocol UIKeyboardKeyplaneTransitionDelegate, UIKeyboardSplitTransitionDataSource;
+
+@interface UIKeyboardSplitTransitionView : UIView {
+    double _currentProgress;
+    double _liftOffProgress;
+    double _finishProgress;
+    double _finishDuration;
+    double _finalTransitionStartTime;
+    CADisplayLink *_displayLink;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _startFrame;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _endFrame;
+    BOOL _centerFilled;
+    BOOL _isRebuilding;
+    BOOL _isSplitTranslation;
+    UIKeyboardSliceSet *_sliceSet;
+}
+
+@property (copy) id /* block */ completionBlock;
+@property (nonatomic) id<UIKeyboardKeyplaneTransitionDelegate> splitTransitionDelegate;
+@property (nonatomic) id<UIKeyboardSplitTransitionDataSource> splitTransitionDataSource;
+@property (readonly) NSArray *shadowLayers;
+@property (readonly) NSArray *backgroundLayers;
+
+- (void)rebuildFromKeyplane:(id)a0 toKeyplane:(id)a1 startToken:(id)a2 endToken:(id)a3 keyboardType:(long long)a4 orientation:(long long)a5;
+- (void)updateWithProgress:(double)a0;
+- (void)finishWithProgress:(double)a0 completionBlock:(id /* block */)a1;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)finalizeTransition;
+- (void)transitionToFinalState:(id)a0;
+- (void)rebuildTransitionForSplitStyleChange:(id)a0;
+- (id)centerDropShadow;
+- (BOOL)showIntlKey;
+- (id)bottomDropShadow;
+- (id)outerCenterDropShadow;
+- (id)colorsForBackgroundLayer:(int)a0;
+- (BOOL)shouldAllowRubberiness;
+- (BOOL)transitionIsVisible;
+- (void)transformForProgress:(double)a0;
+- (struct CGImage { } *)defaultKeyboardImage;
+- (struct CGImage { } *)splitKeyboardImage;
+- (void)initializeLayers;
+- (struct CGSize { double x0; double x1; })sizeForShadowLayer:(int)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectEnclosingKeyplane:(id)a0;
+- (struct CGImage { } *)keyImageWithToken:(id)a0;
+- (BOOL)showDictationKey;
+- (void)dealloc;
+- (void)didMoveToWindow;
+- (id)topDropShadow;
+- (void)rebuildControlKeys:(unsigned long long)a0;
+- (BOOL)canDisplayTransition;
+
+@end

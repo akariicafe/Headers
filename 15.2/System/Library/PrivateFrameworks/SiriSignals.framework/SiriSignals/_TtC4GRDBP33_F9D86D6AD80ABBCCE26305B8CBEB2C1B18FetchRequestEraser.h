@@ -1,0 +1,3 @@
+@interface _TtC4GRDBP33_F9D86D6AD80ABBCCE26305B8CBEB2C1B18FetchRequestEraser : _TtCs12_SwiftObject
+
+@end

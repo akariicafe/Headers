@@ -1,0 +1,3 @@
+@interface SXOEmbedLinkResponse : SXOEmbedResponse
+
+@end

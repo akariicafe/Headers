@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType20DietaryCarbohydrates : _TtCs12_SwiftObject
+
+@end

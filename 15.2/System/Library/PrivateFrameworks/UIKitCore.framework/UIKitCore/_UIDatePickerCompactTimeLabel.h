@@ -1,0 +1,86 @@
+@class _UIDatePickerCalendarTime, UIView, NSString, NSDateFormatter, NSDictionary, _UIPassthroughScrollInteraction, _UIDatePickerOverlayPresentation, UILabel, UIPointerInteraction;
+@protocol _UIDatePickerCompactTimeLabelDelegate;
+
+@interface _UIDatePickerCompactTimeLabel : _UIDatePickerCalendarTimeLabel <UIPointerInteractionDelegate, _UIDatePickerCalendarTimeLabelDelegate, _UIPassthroughScrollInteractionDelegate, _UIControlEventsGestureRecognizerDelegate, UIGestureRecognizerDelegateInternal> {
+    struct { unsigned char needsLabelUpdateOnResignFirstResponder : 1; unsigned char deferringHoverStateUpdate : 1; unsigned char highlightedForTouch : 1; } _flags;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _hourRect;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _minuteRect;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _timeOfDayRect;
+    NSDateFormatter *_formatter;
+    long long _highlightedScope;
+    UIView *_touchHighlightedView;
+}
+
+@property (readonly, nonatomic) UIPointerInteraction *pointerInteraction;
+@property (readonly, nonatomic) UILabel *label;
+@property (readonly, nonatomic) UILabel *hourLabel;
+@property (readonly, nonatomic) UILabel *minuteLabel;
+@property (readonly, nonatomic) UILabel *timeOfDayLabel;
+@property (readonly, nonatomic) UIView *inputBackgroundView;
+@property (readonly, nonatomic) unsigned long long currentState;
+@property (readonly, nonatomic) _UIPassthroughScrollInteraction *passthroughInteraction;
+@property (nonatomic, getter=isPassthroughInteractionEnabled) BOOL passthroughInteractionEnabled;
+@property (weak, nonatomic) id<_UIDatePickerCompactTimeLabelDelegate> selectionDelegate;
+@property (retain, nonatomic) _UIDatePickerOverlayPresentation *overlayPresentation;
+@property (readonly, nonatomic) _UIDatePickerCalendarTime *selectedTime;
+@property (nonatomic) double minimumScaleFactor;
+@property (nonatomic) BOOL adjustsFontSizeToFitWidth;
+@property (nonatomic) BOOL tapInteractionControlledExternally;
+@property (retain, nonatomic) NSDictionary *overrideAttributes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setFont:(id)a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)setEnabled:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })hourRect;
+- (BOOL)passthroughScrollInteractionDidRecognize:(id)a0;
+- (void)applyTextAttributesForState:(unsigned long long)a0 inputScope:(long long)a1 updater:(id /* block */)a2;
+- (void)pointerInteraction:(id)a0 willEnterRegion:(id)a1 animator:(id)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })minuteRect;
+- (BOOL)timeLabelShouldSuppressSoftwareKeyboard:(id)a0;
+- (void)timeLabelDidFailToBecomeFirstResponder:(id)a0;
+- (void)stateMachineUpdateFromState:(unsigned long long)a0 toState:(unsigned long long)a1;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)controlEventsGestureRecognizer:(id)a0 recognizedControlEvent:(unsigned long long)a1 withEvent:(id)a2;
+- (void)willBeginWritingInScribbleInteraction;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })timeOfDayRect;
+- (BOOL)timeLabelCanBecomeFirstResponder:(id)a0;
+- (void)timeLabelDidBecomeFirstResponder:(id)a0;
+- (void)timeLabelDidResignFirstResponder:(id)a0;
+- (void)pointerInteraction:(id)a0 willExitRegion:(id)a1 animator:(id)a2;
+- (id)initWithTimeFormat:(id)a0 minuteInterval:(long long)a1;
+- (void)timeLabelWillBecomeFirstResponder:(id)a0;
+- (void)pushCurrentStateIntoUIAndNotify;
+- (void).cxx_destruct;
+- (void)timeLabel:(id)a0 didUpdateText:(id)a1;
+- (void)timeLabelDidBeginEditing:(id)a0;
+- (long long)keyboardTypeForTimeLabel:(id)a0;
+- (BOOL)timeLabel:(id)a0 didReceiveText:(id)a1;
+- (void)didTapInputLabel:(id)a0;
+- (void)activateLabel;
+- (void)pushCurrentStateIntoUI;
+- (BOOL)passthroughScrollInteraction:(id)a0 shouldInteractAtLocation:(struct CGPoint { double x0; double x1; })a1 withEvent:(id)a2;
+- (void)_updateEnabledStyling;
+- (id)pointerInteraction:(id)a0 regionForRequest:(id)a1 defaultRegion:(id)a2;
+- (void)timeLabelDidEndEditing:(id)a0;
+- (id)font;
+- (void)_gestureRecognizerFailed:(id)a0;
+- (long long)_inputScopeForPointerLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_updateHoverStateLabelsIfNeeded;
+- (id)updateHoverLabelForAttributedString:(id)a0 ranges:(struct { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; struct _NSRange { unsigned long long x0; unsigned long long x1; } x2; struct _NSRange { unsigned long long x0; unsigned long long x1; } x3; })a1;
+- (void)_updateTimeFormatIfNeeded;
+- (void)_updateLayoutRectsForRanges:(struct { struct _NSRange { unsigned long long x0; unsigned long long x1; } x0; struct _NSRange { unsigned long long x0; unsigned long long x1; } x1; struct _NSRange { unsigned long long x0; unsigned long long x1; } x2; struct _NSRange { unsigned long long x0; unsigned long long x1; } x3; })a0;
+- (void)_updateInputFieldLayoutForCurrentState;
+- (void)_reloadWithDate:(id)a0 notify:(BOOL)a1;
+- (void)_updateInputFieldFromSelectedDateComponents;
+- (id)_currentDateForInput;
+- (void)_updateSelectedDateComponentsFromInput;
+- (void)reloadWithDate:(id)a0;
+- (id)pointerInteraction:(id)a0 styleForRegion:(id)a1;
+- (void)reloadWithCalendar:(id)a0 locale:(id)a1 displaysTimeZone:(BOOL)a2;
+- (void)setHighlightedForTouch:(BOOL)a0;
+
+@end

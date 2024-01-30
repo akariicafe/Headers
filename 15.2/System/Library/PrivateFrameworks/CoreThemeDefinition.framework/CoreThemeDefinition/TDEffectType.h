@@ -1,0 +1,3 @@
+@interface TDEffectType : TDThemeConstant
+
+@end

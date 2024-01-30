@@ -1,0 +1,3 @@
+@interface PFCloudKitContainerProvider : NSObject
+
+@end

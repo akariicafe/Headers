@@ -1,0 +1,80 @@
+@class SKUIMutableIntegerValue, NSString, SKUIViewElementLayoutContext, SKUIGridComponent, SKUIGridViewElementPageSectionConfiguration, NSMutableDictionary, SKUIDynamicPageSectionIndexMapper, SKUIViewElementTextLayoutCache, CPLRUDictionary, SKUIViewElement, _SKUIDynamicGridSizeCacheKey;
+@protocol SKUIEntityProviding;
+
+@interface SKUIDynamicGridViewElementPageSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIGridViewElementPageSectionConfigurationDataSource, SKUICollectionDOMFeatureTargetting> {
+    SKUIViewElementLayoutContext *_cellLayoutContext;
+    SKUIGridViewElementPageSectionConfiguration *_configuration;
+    SKUIDynamicPageSectionIndexMapper *_dynamicPageSectionIndexMapper;
+    BOOL _editing;
+    id<SKUIEntityProviding> _entityProvider;
+    CPLRUDictionary *_globalIndexToEntityValueProviderValueCache;
+    CPLRUDictionary *_globalIndexToTemplateViewElementCache;
+    SKUIViewElement *_independentlySizedViewElement;
+    SKUIViewElementTextLayoutCache *_labelLayoutCache;
+    long long _minimumEntityCountForSections;
+    _SKUIDynamicGridSizeCacheKey *_reusableSizeCacheKey;
+    SKUIMutableIntegerValue *_reusableGlobalIndexIntegerValue;
+    unsigned long long *_sectionHeaderGlobalIndices;
+    unsigned long long _numberOfSections;
+    BOOL _showsSectionHeaders;
+    NSMutableDictionary *_sizeCacheKeyToCachedCellSize;
+    NSMutableDictionary *_templateViewElementsCache;
+    BOOL _usesSizingEntityValueProvider;
+    struct { unsigned char respondsToSectionEntityValueProviderAtIndex : 1; } _entityProviderFlags;
+}
+
+@property (readonly, nonatomic) SKUIGridComponent *pageComponent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic, getter=isEditing) BOOL editing;
+
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })sectionContentInset;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void).cxx_destruct;
+- (long long)numberOfCells;
+- (void)_setContext:(id)a0;
+- (void)dealloc;
+- (void)artworkRequest:(id)a0 didLoadImage:(id)a1;
+- (id)initWithPageComponent:(id)a0;
+- (void)_reloadViewElementProperties;
+- (long long)applyUpdateType:(long long)a0;
+- (id)backgroundColorForIndexPath:(id)a0;
+- (void)collectionViewWillApplyLayoutAttributes:(id)a0;
+- (void)deselectItemsAnimated:(BOOL)a0;
+- (void)invalidateCachedLayoutInformation;
+- (id)relevantEntityProviders;
+- (void)willAppearInContext:(id)a0;
+- (void)collectionViewDidConfirmButtonElement:(id)a0 withClickInfo:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)cellForIndexPath:(id)a0;
+- (struct CGSize { double x0; double x1; })cellSizeForIndexPath:(id)a0;
+- (void)entityProvider:(id)a0 didInvalidateWithContext:(id)a1;
+- (id)indexPathsForPinningItems;
+- (BOOL)updateCellWithIndexPath:(id)a0 itemState:(id)a1 animated:(BOOL)a2;
+- (void)reloadVisibleCellsWithReason:(long long)a0;
+- (void)reloadCellWithIndexPath:(id)a0 reason:(long long)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })pinningContentInsetForItemAtIndexPath:(id)a0;
+- (long long)pinningStyleForItemAtIndexPath:(id)a0;
+- (void)collectionViewDidSelectItemAtIndexPath:(id)a0;
+- (void)willTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)targetScrollingIndexPathForElementWithIndexBarEntryID:(id)a0 relativeSectionIndex:(long long)a1;
+- (void)_enumerateVisibleCellsUsingBlock:(id /* block */)a0;
+- (void)_invalidateCellSizeCache;
+- (void)_resetLayoutProperties;
+- (id)_viewElementAtGlobalIndex:(long long)a0;
+- (id)_dynamicGridViewElement;
+- (long long)_entityGlobalIndexForGlobalIndex:(long long)a0 returningSection:(out long long *)a1;
+- (id)_templateViewElementsForType:(id)a0 mode:(id)a1;
+- (void)_reloadEntityProperties;
+- (void)_updateStyleProperties;
+- (void)_reloadVisibleCellsAnimated:(BOOL)a0;
+- (id)_entityValueProviderForGlobalIndex:(long long)a0 sectionIndex:(long long *)a1;
+- (id)_sectionTemplateViewElementForEntityValueProvider:(id)a0;
+- (long long)_globalIndexForEntityGlobalIndex:(long long)a0;
+- (BOOL)_updateShowsSectionHeaders;
+- (id)_itemTemplateViewElementForEntityValueProvider:(id)a0;
+- (id)gridViewElementPageSectionConfiguration:(id)a0 viewElementForIndexPath:(id)a1;
+- (void)gridViewElementPageSectionConfiguration:(id)a0 configurePosition:(inout long long *)a1 forItemAtIndexPath:(id)a2;
+
+@end

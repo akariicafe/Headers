@@ -1,0 +1,3 @@
+@interface __UIWebSelectMultiplePickerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType16OxygenSaturation : _TtCs12_SwiftObject
+
+@end

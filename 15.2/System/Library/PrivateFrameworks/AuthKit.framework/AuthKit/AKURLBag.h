@@ -1,0 +1,81 @@
+@class NSString, NSSet, NSURL, NSDictionary, NSArray;
+@protocol AKURLBagDictionaryProvider;
+
+@interface AKURLBag : NSObject
+
+@property (copy, nonatomic) NSString *altDSID;
+@property (readonly, nonatomic) NSURL *escapeHatchURL;
+@property (retain, nonatomic) id<AKURLBagDictionaryProvider> bagProvider;
+@property (readonly, nonatomic) NSURL *basicAuthURL;
+@property (readonly, nonatomic) NSURL *startProvisioningURL;
+@property (readonly, nonatomic) NSURL *endProvisioningURL;
+@property (readonly, nonatomic) NSURL *syncAnisetteURL;
+@property (readonly, nonatomic) NSURL *upgradeEligibilityCheckURL;
+@property (readonly, nonatomic) NSURL *upgradeUIURL;
+@property (readonly, nonatomic) NSURL *validateCodeURL;
+@property (readonly, nonatomic) NSURL *checkInURL;
+@property (readonly, nonatomic) NSURL *notificationAckURL;
+@property (readonly, nonatomic) NSURL *iForgotURL;
+@property (readonly, nonatomic) NSURL *iForgotContinuationURL;
+@property (readonly, nonatomic) NSURL *createAppleIDURL;
+@property (readonly, nonatomic) NSURL *deviceListURL;
+@property (readonly, nonatomic) NSURL *trustedDevicesURL;
+@property (readonly, nonatomic) NSURL *trustedDevicesSummaryURL;
+@property (readonly, nonatomic) NSURL *absintheCertURL;
+@property (readonly, nonatomic) NSURL *absintheSessionURL;
+@property (readonly, nonatomic) NSURL *tokenUpgradeURL;
+@property (readonly, nonatomic) NSURL *configurationInfoURL;
+@property (readonly, nonatomic) NSURL *fetchConfigDataURL;
+@property (readonly, nonatomic) NSURL *changePasswordURL;
+@property (readonly, nonatomic) NSURL *validateVettingTokenURL;
+@property (readonly, nonatomic) NSURL *renewRecoveryTokenURL;
+@property (readonly, nonatomic) NSURL *circleURL;
+@property (readonly, nonatomic) NSURL *fetchFollowUps;
+@property (readonly, nonatomic) NSURL *fetchUserInfoURL;
+@property (readonly, nonatomic) NSURL *fetchAppInfoURL;
+@property (readonly, nonatomic) NSURL *fetchPrimaryBundleIDURL;
+@property (readonly, nonatomic) NSURL *fetchAuthenticationModeURL;
+@property (readonly, nonatomic) NSURL *storeModernRecoveryURL;
+@property (readonly, nonatomic) NSURL *acsURL;
+@property (readonly, nonatomic) NSURL *repairURL;
+@property (readonly, nonatomic) NSURL *userVerificationURL;
+@property (readonly, nonatomic) NSURL *appleIDAuthorizeHTMLResponseURL;
+@property (readonly, nonatomic) NSURL *createChildAccountURL;
+@property (readonly, nonatomic) NSURL *deleteAuthorizedAppURL;
+@property (readonly, nonatomic) NSURL *privateEmailManageURL;
+@property (readonly, nonatomic) NSSet *appleOwnedDomains;
+@property (readonly, nonatomic) NSSet *appleIDAuthorizationURLs;
+@property (readonly, nonatomic) NSDictionary *custodianCodeConfiguration;
+@property (readonly, nonatomic) NSString *APSEnvironment;
+@property (readonly, nonatomic) unsigned long long IDMSEnvironment;
+@property (readonly, nonatomic) unsigned long long lastKnownIDMSEnvironment;
+@property (readonly, nonatomic, getter=isPhoneNumberSupportedConfig) BOOL phoneNumberSupportedConfig;
+@property (readonly, nonatomic, getter=IsInlineFlowSupportedConfig) BOOL inlineFlowSupportedConfig;
+@property (readonly, nonatomic) NSString *continuationHeaderPrefix;
+@property (readonly, nonatomic) NSArray *securityUpgradeServiceNames;
+
++ (unsigned long long)IDMSEnvironmentFromBag:(id)a0;
++ (BOOL)looksLikeiForgotURLKey:(id)a0;
++ (id)_currentBags;
++ (id)keyForEscapeHatchURL;
++ (unsigned long long)_IDMSEnvironmentFromString:(id)a0;
++ (id)bagForAltDSID:(id)a0;
++ (id)sharedBag;
++ (id)_requestEnvironmentsWithBag:(id)a0;
+
+- (id)configurationAtKey:(id)a0 fromCache:(BOOL)a1;
+- (id)_urlBagFromCache:(BOOL)a0 withError:(id *)a1;
+- (void)_fetchURLBagWithCompletion:(id /* block */)a0;
+- (id)_requestNewURLBagIfNecessaryWithError:(id *)a0;
+- (id)initWithAltDSID:(id)a0;
+- (id)_requestEnvironmentsWithError:(id *)a0;
+- (id)urlAtKey:(id)a0;
+- (id)_urlAtKey:(id)a0;
+- (void).cxx_destruct;
+- (void)forceUpdateBagWithUrlSwitchData:(id)a0 completion:(id /* block */)a1;
+- (BOOL)requestNewURLBagIfNecessaryWithError:(id *)a0;
+- (id)_configurationsFromCache:(BOOL)a0 withError:(id *)a1;
+- (id)configurationAtKey:(id)a0;
+- (void)requestNewURLBagIfNecessaryWithCompletion:(id /* block */)a0;
+
+@end

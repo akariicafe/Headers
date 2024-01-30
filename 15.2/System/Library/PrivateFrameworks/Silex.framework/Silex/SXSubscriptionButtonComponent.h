@@ -1,0 +1,3 @@
+@interface SXSubscriptionButtonComponent : SXButtonComponent
+
+@end

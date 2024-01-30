@@ -1,0 +1,3 @@
+@interface MPAVCompanionProxiedEndpointRoutingDataSource : MPAVEndpointRoutingDataSource
+
+@end

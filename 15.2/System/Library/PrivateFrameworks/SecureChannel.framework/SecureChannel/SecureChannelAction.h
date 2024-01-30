@@ -1,0 +1,17 @@
+@class NSString, NSURL;
+
+@interface SecureChannelAction : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *title;
+@property (readonly, copy, nonatomic) NSString *message;
+@property (readonly, copy, nonatomic) NSURL *url;
+
+- (void)performWithCompletionHandler:(id /* block */)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)initWithURL:(id)a0 title:(id)a1 message:(id)a2;
+
+@end

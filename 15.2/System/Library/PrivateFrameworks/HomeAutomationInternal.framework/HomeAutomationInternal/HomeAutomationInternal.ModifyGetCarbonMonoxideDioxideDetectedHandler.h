@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.ModifyGetCarbonMonoxideDioxideDetectedHandler : _TtCs12_SwiftObject
+
+@end

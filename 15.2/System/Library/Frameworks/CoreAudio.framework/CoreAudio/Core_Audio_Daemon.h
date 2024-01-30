@@ -1,0 +1,64 @@
+@class NSString, NSMutableSet, NSObject;
+@protocol OS_dispatch_object;
+
+@interface Core_Audio_Daemon : NSObject <Core_Audio_Hardware, XPC_IO_Gateway, NSXPCListenerDelegate>
+
+@property (nonatomic) struct shared_ptr<std::shared_mutex> { struct shared_mutex *__ptr_; struct __shared_weak_count *__cntrl_; } creation_mutex;
+@property (nonatomic) BOOL is_alive;
+@property (nonatomic) struct shared_ptr<Daemon_Guts> { struct Daemon_Guts *__ptr_; struct __shared_weak_count *__cntrl_; } guts;
+@property (retain, nonatomic) NSMutableSet *remote_connections;
+@property (retain, nonatomic) NSMutableSet *property_listener_connections;
+@property (retain, nonatomic) NSMutableSet *io_listener_connections;
+@property (nonatomic) struct shared_ptr<Server_Side_Client_IO_Host> { struct Server_Side_Client_IO_Host *__ptr_; struct __shared_weak_count *__cntrl_; } host;
+@property (nonatomic) struct shared_ptr<AMCP::Utility::Settings_Storage> { struct Settings_Storage *__ptr_; struct __shared_weak_count *__cntrl_; } settings_storage;
+@property (nonatomic) struct shared_ptr<HAL::Default_Device::Manager> { struct Manager *__ptr_; struct __shared_weak_count *__cntrl_; } default_device_manager;
+@property (nonatomic) struct shared_ptr<HAL::Aggregate::Manager> { struct Manager *__ptr_; struct __shared_weak_count *__cntrl_; } aggregate_device_manager;
+@property (nonatomic) struct shared_ptr<HAL::Object_State::Manager> { struct Manager *__ptr_; struct __shared_weak_count *__cntrl_; } object_state_manager;
+@property (nonatomic) struct shared_ptr<AMCP::System::All_Control_Value_Observer> { struct All_Control_Value_Observer *__ptr_; struct __shared_weak_count *__cntrl_; } default_device_all_control_value_observer;
+@property (nonatomic) struct queue { struct object { NSObject<OS_dispatch_object> *fObj; } fObj; } scratch_queue;
+@property (nonatomic) struct function<int ()> { struct __value_func<int ()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } client_pid_getter;
+@property (nonatomic) BOOL allow_connection_free_requests;
+@property (nonatomic) struct shared_ptr<HALS_PowerManager::System_Interface> { struct System_Interface *__ptr_; struct __shared_weak_count *__cntrl_; } power_manager_interface;
+@property (nonatomic) struct function<std::unique_ptr<HALIO::Client_Power_Settings_Base> ()> { struct __value_func<std::unique_ptr<HALIO::Client_Power_Settings_Base> ()> { struct type { unsigned char __lx[24]; } __buf_; void *__f_; } __f_; } powerSettingsFactory;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (id).cxx_construct;
+- (void)create_aggregate_device:(id)a0 reply:(id /* block */)a1;
+- (void)destroy_aggregate_device:(unsigned int)a0 reply:(id /* block */)a1;
+- (void)audio_object_get_property_info:(unsigned int)a0 token:(struct Device_Token { unsigned int x0; })a1 at:(struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; })a2 reply:(id /* block */)a3;
+- (void)audio_object_get_property_data:(unsigned int)a0 token:(struct Device_Token { unsigned int x0; })a1 at:(struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; })a2 with:(id)a3 reply:(id /* block */)a4;
+- (void)release_resources;
+- (void)audio_object_set_property_data:(unsigned int)a0 token:(struct Device_Token { unsigned int x0; })a1 at:(struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; })a2 with:(id)a3 value:(id)a4 reply:(id /* block */)a5;
+- (void)add_property_listener:(id)a0 reply:(id /* block */)a1;
+- (void)create_io_client_for_endpoint:(id)a0 reply:(id /* block */)a1;
+- (void)create_device_for_client_io:(struct Transport_Token { unsigned int x0; })a0 with:(unsigned int)a1 reply:(id /* block */)a2;
+- (void)handle_io_message:(struct Transport_Token { unsigned int x0; })a0 with:(struct Device_Token { unsigned int x0; })a1 incoming:(id)a2 reply:(id /* block */)a3;
+- (id)send_io_message:(struct XPC_Message_Payload { struct Transport_Token { unsigned int x0; } x0; struct Device_Token { unsigned int x0; } x1; id x2; })a0;
+- (void)call_all_remote_listeners_async:(id)a0;
+- (void)ping:(int)a0 reply:(id /* block */)a1;
+- (void)handle_io_message:(struct Transport_Token { unsigned int x0; })a0 with:(struct Device_Token { unsigned int x0; })a1 incoming:(id)a2;
+- (id)initWithMCPType:(long long)a0;
+- (void)add_device_token_to_user_info:(struct Device_Token { unsigned int x0; })a0 user_info:(id)a1;
+- (struct Device_Token { unsigned int x0; })device_token_from_user_info_item:(id)a0;
+- (void)stop_all_client_io:(const void *)a0;
+- (void)start_all_client_io;
+- (struct function<void (unsigned int, bool, const std::tuple<std::vector<unsigned int>, std::vector<unsigned int>, boost::container::flat_map<unsigned int, std::tuple<boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>>>> &)> { struct __value_func<void (unsigned int, bool, const std::tuple<std::vector<unsigned int>, std::vector<unsigned int>, boost::container::flat_map<unsigned int, std::tuple<boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>>>> &)> { struct type { unsigned char x0[24]; } x0; void *x1; } x0; })get_begin_continuing_config_change_observer_proc:(BOOL)a0;
+- (struct function<void (unsigned int, bool, const std::tuple<std::vector<unsigned int>, std::vector<unsigned int>, boost::container::flat_map<unsigned int, std::tuple<boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>>>> &)> { struct __value_func<void (unsigned int, bool, const std::tuple<std::vector<unsigned int>, std::vector<unsigned int>, boost::container::flat_map<unsigned int, std::tuple<boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>, boost::container::flat_map<AMCP::Address, AMCP::Thing, AMCP::Address::Is_Exact_Before>>>> &)> { struct type { unsigned char x0[24]; } x0; void *x1; } x0; })get_end_config_change_observer_proc;
+- (void)create_config_change_observers;
+- (void)create_property_observer;
+- (id)create_listener_connection:(id)a0;
+- (id)create_io_listener_connection:(id)a0;
+- (int)get_client_pid;
+- (void)sendPropertiesChanged:(unsigned int)a0 count:(unsigned long long)a1 addresses:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a2;
+- (void)call_all_remote_listeners:(id)a0;
+- (void *)get_portal;
+- (void)create_power_manager:(struct shared_ptr<HALS_PowerManager::System_Interface> { struct System_Interface *x0; struct __shared_weak_count *x1; })a0;
+
+@end

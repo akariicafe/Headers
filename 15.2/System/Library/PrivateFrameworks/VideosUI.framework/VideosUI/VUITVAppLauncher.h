@@ -1,0 +1,93 @@
+@class VUIBootURLController, NSArray, VUIStateMachine, NSString, UIWindow, NSDictionary, VUITVApplicationController, ATAParsedOpenURL, UIViewController;
+@protocol VUITabBarProtocol, VUIRootSplitViewController, VUITVAppRootViewController;
+
+@interface VUITVAppLauncher : NSObject <VUITVApplicationControllerDelegate, UIGestureRecognizerDelegate, VUITVAppLaunchProtocol> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _isStillProcessingStartupItemsLock;
+    BOOL _isStillProcessingStartupItems;
+}
+
+@property (copy, nonatomic) NSDictionary *launchOptions;
+@property (retain, nonatomic) ATAParsedOpenURL *deferredParsedOpenURL;
+@property (retain, nonatomic) VUIBootURLController *bootURLController;
+@property (retain, nonatomic) UIWindow *appWindow;
+@property (retain, nonatomic) id<VUIRootSplitViewController> splitViewController;
+@property (retain, nonatomic) NSArray *tabBarItems;
+@property (retain, nonatomic) VUIStateMachine *stateMachine;
+@property (nonatomic) BOOL overrideOrientation;
+@property (nonatomic) BOOL appWasForegrounded;
+@property (nonatomic) BOOL startupPrewarmSubscriptionDataCompleted;
+@property (nonatomic) BOOL startupOfferProcessingCompleted;
+@property (retain, nonatomic) VUITVApplicationController *appController;
+@property (copy, nonatomic) id /* block */ switchTabHandler;
+@property (retain, nonatomic) UIViewController<VUITabBarProtocol, VUITVAppRootViewController> *tabBarController;
+@property (nonatomic) BOOL isStillProcessingStartupItems;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (BOOL)_isDeeplinkTVButton:(id)a0;
++ (id)_libraryOnlyTabBarItem;
+
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)_accountsChanged:(id)a0;
+- (void)_applicationDidEnterBackgroundNotification:(id)a0;
+- (void)cleanUp;
+- (void).cxx_destruct;
+- (void)preWarm:(id)a0;
+- (id)init;
+- (void)_applicationWillResignActiveNotification:(id)a0;
+- (void)_applicationDidBecomeActiveNotification:(id)a0;
+- (void)_applicationWillEnterForeground:(id)a0;
+- (void)registerForApplicationNotifications;
+- (void)_registerStateMachineHandlers;
+- (void)_startApplicationControllerWithBootURL:(id)a0;
+- (void)appController:(id)a0 evaluateAppJavaScriptInContext:(id)a1;
+- (void)appController:(id)a0 didFinishLaunchingWithOptions:(id)a1;
+- (void)appController:(id)a0 didFailWithError:(id)a1;
+- (void)appController:(id)a0 didStopWithOptions:(id)a1;
+- (id)rootViewControllerForAppController:(id)a0;
+- (void)_applicationWillTerminateNotification:(id)a0;
+- (BOOL)openURL:(id)a0 options:(id)a1;
+- (void)selectTabBarItem:(id)a0;
+- (void)_handleDebugUIGesture:(BOOL)a0;
+- (void)_configureStateMachine;
+- (void)_handlePrewarmSubscriptionDataNotification:(id)a0;
+- (void)_handleOfferProcessingDidStartNotification:(id)a0;
+- (void)_handleOfferProcessingDidFinishNotification:(id)a0;
+- (void)_showLoadingView;
+- (void)_presentSyndicationOnboardingIfNeeded;
+- (void)_finishAppLoading;
+- (BOOL)_isActiveMediaLibraryTheDeviceMediaLibrary;
+- (void)_updateDeviceMediaLibraryFromCloud;
+- (void)_syncBookmarkServiceIfRequired;
+- (void)_finishJavascriptSetupWithTabBarItems:(id)a0 setSelectedIndexFromDefaults:(BOOL)a1;
+- (void)_updateTabControllerWithTabBarItems:(id)a0 setSelectedIndexFromDefaults:(BOOL)a1;
+- (void)_startJavascriptSetup;
+- (void)_initializeMediaLibrary;
+- (void)_initializeBookmarkService;
+- (void)_initializePlayer;
+- (void)_handleNetworkReachabilityDidChangeNotification:(id)a0;
+- (void)_showJavascriptUnavailableUIWithNetworkAvailable:(BOOL)a0;
+- (void)_handleParsedOpenURL:(id)a0;
+- (void)_fetchFullFeatureFlag:(id)a0;
+- (void)_handleDeferredParsedOpenURLIfNeeded;
+- (void)_resetJavascriptState;
+- (void)_resetDeferredParsedOpenURL;
+- (void)_fetchApplicationControllerBootURL;
+- (void)_setupDebugUI;
+- (void)processStartupItems;
+- (void)_hideLoadingView;
+- (void)refreshTabBarItems;
+- (void)_javascriptSetTabBarItems:(id)a0;
+- (void)_notifyInAppMessagingIfComplete;
+- (BOOL)applicationWillFinishLaunchingWithOptions:(id)a0;
+- (BOOL)applicationDidFinishLaunchingWithOptions:(id)a0;
+- (void)didFailToLaunch:(id)a0;
+- (void)setMainWindow:(id)a0;
+- (void)didShowGDPRWelcome;
+- (void)didAcceptGDPRWelcome;
+- (void)_stopApplicationController;
+
+@end

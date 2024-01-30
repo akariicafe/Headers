@@ -1,0 +1,22 @@
+@class NSURL, NSData;
+
+@interface PHASESoundAsset : PHASEAsset {
+    struct unique_ptr<Phase::Controller::SoundAssetInfo, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct __compressed_pair<Phase::Controller::SoundAssetInfo *, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct SoundAssetInfo *__value_; } __ptr_; } _soundAssetInfo;
+}
+
+@property (readonly) long long normalizationMode;
+@property (readonly) NSURL *url;
+@property (readonly) NSData *data;
+@property (readonly) long long type;
+
++ (id)new;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id).cxx_construct;
+- (id)initWithUID:(id)a0 assetRegistry:(id)a1;
+- (id)initWithURL:(id)a0 uid:(id)a1 assetType:(long long)a2 normalizationMode:(long long)a3 soundAssetInfo:(struct unique_ptr<Phase::Controller::SoundAssetInfo, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct __compressed_pair<Phase::Controller::SoundAssetInfo *, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct SoundAssetInfo *x0; } x0; })a4 assetRegistry:(id)a5;
+- (id)initWithData:(id)a0 uid:(id)a1 normalizationMode:(long long)a2 soundAssetInfo:(struct unique_ptr<Phase::Controller::SoundAssetInfo, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct __compressed_pair<Phase::Controller::SoundAssetInfo *, std::default_delete<Phase::Controller::SoundAssetInfo>> { struct SoundAssetInfo *x0; } x0; })a3 assetRegistry:(id)a4;
+- (struct SoundAssetInfo { void /* function */ **x0; long long x1; unsigned long long x2; long long x3; int x4; unsigned int x5; } *)getAssetInfo;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UITextFieldAccessibility__PhotoLibrary__UIKit_super : UIAccessibilitySafeCategory
+
+@end

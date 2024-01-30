@@ -1,0 +1,3 @@
+@interface Heart.CardioFitnessNotificationsDataTypeDetailDataSourceProvider : _TtCs12_SwiftObject
+
+@end

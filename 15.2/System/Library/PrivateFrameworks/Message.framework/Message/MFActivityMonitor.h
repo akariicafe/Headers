@@ -1,0 +1,104 @@
+@class MFMailboxUid, NSString, NSThread, MFError, MFInvocationQueue, NSMutableSet;
+
+@interface MFActivityMonitor : EFPriorityDesignator <EFCancelable> {
+    NSThread *_runningThread;
+    NSString *_displayName;
+    NSString *_statusMessage;
+    NSString *_descriptionString;
+    MFInvocationQueue *_ourQueue;
+    double _percentDone;
+    unsigned short _key : 13;
+    unsigned char _canCancel : 1;
+    unsigned char _shouldCancel : 1;
+    unsigned char _isActive : 1;
+    unsigned char _changeCount : 8;
+    id _delegate;
+    id _target;
+    MFError *_error;
+    unsigned long long _expectedLength;
+    unsigned long long _maxCount;
+    unsigned long long _currentCount;
+    double _currentItemPercentDone;
+    unsigned char _supportsPerItemProgress : 1;
+    double _lastTime;
+    double _startTime;
+    unsigned long long _gotNewMessagesState;
+    unsigned long long _bytesRead;
+    unsigned long long _bytesWritten;
+    NSMutableSet *_reasons;
+    NSMutableSet *_associatedCancelables;
+}
+
+@property (class, readonly) MFActivityMonitor *currentMonitor;
+
+@property (retain) MFMailboxUid *mailbox;
+@property (copy) id /* block */ startedFetch;
+@property (copy, nonatomic) NSString *displayName;
+@property (nonatomic) unsigned long long gotNewMessagesState;
+@property (retain, nonatomic) id activityTarget;
+@property (retain, nonatomic) id primaryTarget;
+@property (readonly, nonatomic) int changeCount;
+@property (readonly, nonatomic) double startTime;
+@property (nonatomic) double percentDone;
+@property (nonatomic) unsigned long long expectedLength;
+@property (copy, nonatomic) NSString *statusMessage;
+@property (nonatomic) BOOL canBeCancelled;
+@property (nonatomic) BOOL shouldCancel;
+@property (nonatomic) BOOL isRemoteSearch;
+@property (readonly, nonatomic) unsigned long long bytesRead;
+@property (readonly, nonatomic) unsigned long long bytesWritten;
+@property (readonly, nonatomic) long long transportType;
+@property (retain, nonatomic) MFError *error;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)pushNewMonitor;
++ (void)destroyMonitor;
+
+- (void)setMaxCount:(unsigned long long)a0;
+- (void)startActivity;
+- (void)setInvocationQueue:(id)a0;
+- (BOOL)isActive;
+- (void)setDelegate:(id)a0;
+- (void).cxx_destruct;
+- (void)addReason:(id)a0;
+- (id)init;
+- (void)_didChange;
+- (id)reasons;
+- (void)addCancelable:(id)a0;
+- (void)cancel;
+- (void)reset;
+- (void)resetConnectionStats;
+- (void)postActivityStarting;
+- (void)postActivityFinished:(id)a0;
+- (id)userInfoForNotification;
+- (void)postDidChangeWithUserInfo:(id)a0;
+- (id)_ntsThrottledUserInfoDict;
+- (void)setSupportsPerItemProgress:(BOOL)a0;
+- (void)setStatusMessage:(id)a0 percentDone:(double)a1;
+- (void)setStatusMessage:(id)a0 percentDone:(double)a1 withKey:(int)a2;
+- (void)setPercentDone:(double)a0 withKey:(int)a1;
+- (void)setDisplayName:(id)a0 maxCount:(unsigned long long)a1;
+- (void)addActivityTarget:(id)a0;
+- (BOOL)_lockedAddActivityTarget:(id)a0;
+- (void)removeActivityTarget:(id)a0;
+- (void)_cancelAssociatedCancelables;
+- (void)cancelMessage;
+- (void)setStatusMessage:(id)a0 withKey:(int)a1;
+- (void)finishedActivity:(id)a0;
+- (void)notifyConnectionEstablished;
+- (void)setCurrentCount:(unsigned long long)a0;
+- (void)setPercentDoneOfCurrentItem:(double)a0;
+- (BOOL)hasReason:(id)a0;
+- (void)addActivityTargets:(id)a0;
+- (id)activityTargets;
+- (void)removeCancelable:(id)a0;
+- (int)acquireExclusiveAccessKey;
+- (void)relinquishExclusiveAccessKey:(int)a0;
+- (void)recordBytesRead:(unsigned long long)a0;
+- (void)recordBytesWritten:(unsigned long long)a0;
+- (void)recordTransportType:(long long)a0;
+
+@end

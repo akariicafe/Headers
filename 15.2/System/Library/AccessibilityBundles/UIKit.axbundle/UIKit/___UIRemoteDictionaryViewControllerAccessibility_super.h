@@ -1,0 +1,3 @@
+@interface ___UIRemoteDictionaryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

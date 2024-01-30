@@ -1,0 +1,15 @@
+@class IPAPhotoAdjustmentPipeline;
+
+@interface IPAPhotoAdjustmentStack : IPAAdjustmentStack
+
+@property (nonatomic) struct PFIntSize_st { unsigned long long width; unsigned long long height; } inputSize;
+@property (nonatomic) long long orientation;
+@property (retain, nonatomic) IPAPhotoAdjustmentPipeline *pipeline;
+
+- (id)maskUUIDs;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)minimumVersionForFormat:(id)a0;
+- (id)_debugDescriptionSuffix;
+
+@end

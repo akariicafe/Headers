@@ -1,0 +1,77 @@
+@class UIView, NUMediaView, NSTimer, NSString, NSDictionary, PXCinematicEditController, PTCinematographyFrame, NSNumber;
+@protocol PXSubjectTrackingViewDelegate, PXSubjectTrackingLayoutDelegate;
+
+@interface PXSubjectTrackingView : UIView <PTCinematographyScriptChanges>
+
+@property (retain, nonatomic) id playbackTimeObserver;
+@property (retain, nonatomic) NSDictionary *detectionViewCache;
+@property (retain, nonatomic) UIView *inProgressTrackingView;
+@property (nonatomic) long long inProgressTrackID;
+@property (retain, nonatomic) PTCinematographyFrame *cinematographyFrame;
+@property (retain, nonatomic) NSNumber *primaryKey;
+@property (nonatomic) BOOL needsUpdateFrame;
+@property (nonatomic) BOOL needsUpdateFrameTime;
+@property (nonatomic) BOOL needsUpdateViewCache;
+@property (retain, nonatomic) UIView *focusStateBadge;
+@property (retain, nonatomic) NSTimer *hideFocusStateBadgeTimer;
+@property (readonly, nonatomic) long long focusState;
+@property (nonatomic) BOOL isAnimating;
+@property (nonatomic) double lastLayoutTime;
+@property (nonatomic) BOOL badgeVisibleAndWillAutoClose;
+@property (readonly, nonatomic) NUMediaView *mediaView;
+@property (readonly, nonatomic) PXCinematicEditController *cineController;
+@property (weak, nonatomic) id<PXSubjectTrackingViewDelegate> delegate;
+@property (weak, nonatomic) id<PXSubjectTrackingLayoutDelegate> layoutDelegate;
+@property (nonatomic) BOOL viewEnabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)layoutSubviews;
+- (id)initWithMediaView:(id)a0 cineController:(id)a1;
+- (void)renderDidChange:(BOOL)a0;
+- (void)scriptDidUpdate;
+- (void)showTrackingInformationalString:(id)a0;
+- (void)setNeedsUpdateFrame;
+- (void).cxx_destruct;
+- (void)framesDidChangeInScript:(id)a0 timeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1;
+- (void)decisionsDidChangeInScript:(id)a0 timeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1;
+- (void)setFocusState:(long long)a0 detection:(id)a1;
+- (BOOL)_isValidTrackingRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)_smoothenFromValue:(double)a0 toNewValue:(double)a1 forTime:(double)a2 tolerance:(double)a3;
+- (void)setNeedsUpdateFrameTime;
+- (void)_playbackTimeDidUpdate;
+- (void)_updateCinematographyFrameWithTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setCinematographyFrame:(id)a0 animate:(BOOL)a1;
+- (void)_updateDetectionViewCache;
+- (void)_updateFocusStateAnimated:(BOOL)a0;
+- (void)_setPrimaryDetection:(id)a0 focusState:(long long)a1 animated:(BOOL)a2;
+- (void)setFocusStateBadgeVisible:(BOOL)a0 autoHide:(BOOL)a1;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })_currentCinematographyTime;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })viewFrameForNormalizedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForDetection:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_reframeWithinVideo:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 isFixedFocus:(BOOL)a1;
+- (struct CGPoint { double x0; double x1; })normalizedPointForViewPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)_hitDetectionAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)handleSingleSelectOnPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)handleDoubleSelectOnPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)handleLongSelectOnPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)handleInteractionBegan;
+- (BOOL)focusOnTrack:(id)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 strong:(BOOL)a2;
+- (BOOL)_focusOnTrackWithID:(long long)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 strong:(BOOL)a2;
+- (BOOL)_focusOnGroup:(long long)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 strong:(BOOL)a2;
+- (BOOL)focusOnDetection:(id)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 strong:(BOOL)a2;
+- (void)_newTrackWasAddedAndFocusedAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (BOOL)_focusOnFixedLocationAtDetection:(id)a0 strong:(BOOL)a1;
+- (BOOL)_focusOnFixedLocationAtPoint:(struct CGPoint { double x0; double x1; })a0 strong:(BOOL)a1;
+- (void)_disparitySampleFinishedWithResponse:(id)a0 time:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 strong:(BOOL)a3;
+- (void)_trackAndFocusObjectAtPoint:(struct CGPoint { double x0; double x1; })a0 strong:(BOOL)a1;
+- (void)_objectTrackingStartedAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)_trackedObjectWasUpdatedAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 trackedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 confidence:(float)a2 shouldStop:(BOOL *)a3;
+- (void)_finishedProcessingTrackedObject:(id)a0;
+- (void)_trackedObjectAtPoint:(struct CGPoint { double x0; double x1; })a0 failedWithError:(id)a1;
+- (void)_trackedObjectAtPoint:(struct CGPoint { double x0; double x1; })a0 finishedWithResponse:(id)a1 trackStartTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 strongTrack:(BOOL)a3;
+- (long long)addFocusTrack:(id)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 strong:(BOOL)a2;
+
+@end

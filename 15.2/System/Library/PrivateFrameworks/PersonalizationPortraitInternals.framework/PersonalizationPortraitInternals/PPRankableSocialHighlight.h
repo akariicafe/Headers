@@ -1,0 +1,93 @@
+@class NSSet, NSString, NSMutableArray, PPSocialHighlightContact;
+
+@interface PPRankableSocialHighlight : PBCodable <MLFeatureProvider, BMStoreData, NSCopying> {
+    struct { unsigned char contentCreationSecondsSinceReferenceDate : 1; unsigned char firstPassScore : 1; unsigned char rankingSecondsSinceReferenceDate : 1; unsigned char score : 1; unsigned char syndicationSecondsSinceReferenceDate : 1; unsigned char topKScore : 1; unsigned char highlightType : 1; unsigned char rank : 1; unsigned char isConversationAutoDonating : 1; unsigned char isPrimary : 1; unsigned char isTopKResult : 1; } _has;
+}
+
+@property (readonly, nonatomic) NSSet *featureNames;
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL hasHighlightIdentifier;
+@property (retain, nonatomic) NSString *highlightIdentifier;
+@property (nonatomic) BOOL hasHighlightType;
+@property (nonatomic) int highlightType;
+@property (nonatomic) BOOL hasSyndicationSecondsSinceReferenceDate;
+@property (nonatomic) double syndicationSecondsSinceReferenceDate;
+@property (readonly, nonatomic) BOOL hasSourceBundleId;
+@property (retain, nonatomic) NSString *sourceBundleId;
+@property (retain, nonatomic) NSMutableArray *applicationIdentifiers;
+@property (readonly, nonatomic) BOOL hasResourceUrl;
+@property (retain, nonatomic) NSString *resourceUrl;
+@property (readonly, nonatomic) BOOL hasSender;
+@property (retain, nonatomic) PPSocialHighlightContact *sender;
+@property (readonly, nonatomic) BOOL hasDomainIdentifier;
+@property (retain, nonatomic) NSString *domainIdentifier;
+@property (readonly, nonatomic) BOOL hasBatchIdentifier;
+@property (retain, nonatomic) NSString *batchIdentifier;
+@property (retain, nonatomic) NSMutableArray *calculatedFeatures;
+@property (readonly, nonatomic) BOOL hasClientIdentifier;
+@property (retain, nonatomic) NSString *clientIdentifier;
+@property (nonatomic) BOOL hasContentCreationSecondsSinceReferenceDate;
+@property (nonatomic) double contentCreationSecondsSinceReferenceDate;
+@property (readonly, nonatomic) BOOL hasGroupPhotoPathDigest;
+@property (retain, nonatomic) NSString *groupPhotoPathDigest;
+@property (readonly, nonatomic) BOOL hasDisplayName;
+@property (retain, nonatomic) NSString *displayName;
+@property (nonatomic) BOOL hasIsPrimary;
+@property (nonatomic) BOOL isPrimary;
+@property (readonly, nonatomic) BOOL hasAttributionIdentifier;
+@property (retain, nonatomic) NSString *attributionIdentifier;
+@property (nonatomic) BOOL hasRank;
+@property (nonatomic) unsigned int rank;
+@property (nonatomic) BOOL hasScore;
+@property (nonatomic) double score;
+@property (nonatomic) BOOL hasIsConversationAutoDonating;
+@property (nonatomic) BOOL isConversationAutoDonating;
+@property (readonly, nonatomic) BOOL hasOriginatingDeviceId;
+@property (retain, nonatomic) NSString *originatingDeviceId;
+@property (nonatomic) BOOL hasRankingSecondsSinceReferenceDate;
+@property (nonatomic) double rankingSecondsSinceReferenceDate;
+@property (readonly, nonatomic) BOOL hasResolvedUrl;
+@property (retain, nonatomic) NSString *resolvedUrl;
+@property (readonly, nonatomic) BOOL hasVariant;
+@property (retain, nonatomic) NSString *variant;
+@property (nonatomic) BOOL hasIsTopKResult;
+@property (nonatomic) BOOL isTopKResult;
+@property (nonatomic) BOOL hasTopKScore;
+@property (nonatomic) double topKScore;
+@property (nonatomic) BOOL hasFirstPassScore;
+@property (nonatomic) double firstPassScore;
+
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
++ (Class)applicationIdentifiersType;
++ (Class)calculatedFeaturesType;
+
+- (id)features;
+- (id)featureValueForName:(id)a0;
+- (id)serialize;
+- (BOOL)readFrom:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (id)json;
+- (id)dictionaryRepresentation;
+- (void)addApplicationIdentifiers:(id)a0;
+- (void)addCalculatedFeatures:(id)a0;
+- (unsigned long long)applicationIdentifiersCount;
+- (void)clearApplicationIdentifiers;
+- (id)applicationIdentifiersAtIndex:(unsigned long long)a0;
+- (unsigned long long)calculatedFeaturesCount;
+- (void)clearCalculatedFeatures;
+- (id)calculatedFeaturesAtIndex:(unsigned long long)a0;
+- (id)highlightTypeAsString:(int)a0;
+- (int)StringAsHighlightType:(id)a0;
+- (id)calculatedFeatureValueForKey:(id)a0;
+- (void)setCalculatedFeaturesFromDictionary:(id)a0;
+
+@end

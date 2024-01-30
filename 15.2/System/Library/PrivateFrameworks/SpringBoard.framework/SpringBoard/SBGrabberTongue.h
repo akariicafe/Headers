@@ -1,0 +1,87 @@
+@class SBIndirectPanGestureRecognizer, NSString, UIView, UITapGestureRecognizer, UIImageView, _UIBackdropView, UIPanGestureRecognizer, BSMonotonicReferenceTime;
+@protocol SBGrabberTongueDelegate, BSInvalidatable;
+
+@interface SBGrabberTongue : NSObject <SBSystemGestureRecognizerDelegate> {
+    BOOL _invalidated;
+    UIPanGestureRecognizer *_edgePullGestureRecognizer;
+    UITapGestureRecognizer *_tapGestureRecognizer;
+    SBIndirectPanGestureRecognizer *_indirectEdgePullGestureRecognizer;
+    UIView *_tongueContainer;
+    _UIBackdropView *_tongueBackdropView;
+    UIImageView *_tongueChevron;
+    BOOL _tongueVisible;
+    BOOL _inPullGesture;
+    BOOL _inShowTongueGesture;
+    BOOL _inDismissTongueGesture;
+    BOOL _inAmbiguousGesture;
+    BOOL _beganAmbiguousPullGesture;
+    unsigned long long _screenEdge;
+    unsigned long long _systemGestureType;
+    UIView *_containingView;
+    BSMonotonicReferenceTime *_gestureStartReferenceTime;
+    id<BSInvalidatable> _deferOrientationUpdatesAssertion;
+}
+
+@property (readonly, weak, nonatomic) id<SBGrabberTongueDelegate> delegate;
+@property (readonly, nonatomic, getter=isVisible) BOOL visible;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_createTongueAndGestureRecognizersIfNecessaryWithColorStyle:(long long)a0;
+- (void)_handlePullGesture:(id)a0;
+- (double)_edgeOrientedVelocityForRecognizer:(id)a0;
+- (void)_pullGestureCanceled:(id)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_grabberTongueScreenInsets;
+- (void)_willPresentInteractively:(id)a0;
+- (void)_pullGestureEnded:(id)a0;
+- (void)_willDismiss;
+- (id)_createTapGestureRecognizerWithAction:(SEL)a0;
+- (void)_handleTapped:(id)a0;
+- (double)edgeOrientedVelocity;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })_transformForTongueContainer;
+- (id)initWithDelegate:(id)a0 edge:(unsigned long long)a1 type:(unsigned long long)a2;
+- (void)presentAnimated:(BOOL)a0 autoDismiss:(BOOL)a1;
+- (void)_didDismiss;
+- (void)uninstall;
+- (void)installInView:(id)a0 withColorStyle:(long long)a1;
+- (double)_ambiguousActivationMarginIfHonored;
+- (void)_pullGestureUpdated:(id)a0;
+- (BOOL)_shouldReceiveTouch:(id)a0;
+- (void)_updateCancelsTouchesWithRecognizer:(id)a0;
+- (void).cxx_destruct;
+- (double)edgeLocationForTouch:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForTongueWhenVisible:(BOOL)a0;
+- (id)init;
+- (void)_pullGestureBegan:(id)a0;
+- (double)_ambiguousActivationMargin;
+- (id)indirectEdgePullGestureRecognizer;
+- (void)_willPresent;
+- (void)_cancelPendingTongueDismissRequests;
+- (void)invalidate;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (BOOL)isEdgeLocationInGrabberRegion:(double)a0;
+- (BOOL)_shouldAllowSecondSwipeWithRecognizer:(id)a0;
+- (BOOL)_shouldShowTongueOnFirstSwipeWithRecognizer:(id)a0;
+- (double)_distanceFromEdgeForRecognizer:(id)a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (id)viewForSystemGestureRecognizer:(id)a0;
+- (id)_createEdgePullGestureRecognizerWithAction:(SEL)a0;
+- (void)presentAnimated:(BOOL)a0;
+- (void)dealloc;
+- (double)distanceFromEdge;
+- (BOOL)dismissWithStyle:(long long)a0 animated:(BOOL)a1;
+- (id)edgePullGestureRecognizer;
+- (id)_newBackdropViewWithColorStyle:(long long)a0;
+- (BOOL)_shouldSecondSwipeDismissTongueWithRecognizer:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_chevronFrameForTongueBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_didPresentInteractively:(id)a0;
+- (void)_presentTongueAnimated:(BOOL)a0 autoDismiss:(BOOL)a1;
+- (BOOL)_tongueOrPullEnabledForGestureRecognizer:(id)a0;
+- (void)_dismissTongue:(id)a0;
+- (void)_dismissTongueWithStyle:(long long)a0 animated:(BOOL)a1;
+- (double)_centerOnScreenEdge;
+- (id)_newChevronView;
+
+@end

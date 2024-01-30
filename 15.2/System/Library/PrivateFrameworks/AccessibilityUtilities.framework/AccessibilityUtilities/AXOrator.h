@@ -1,0 +1,85 @@
+@class AXDispatchTimer, NSString, NSArray, AXLanguageTag, AXLanguageTaggedContent, AVSpeechUtterance, AVSpeechSynthesizer, NSMutableArray;
+@protocol AXOratorDelegate;
+
+@interface AXOrator : NSObject <AVSpeechSynthesizerDelegate> {
+    AVSpeechUtterance *_statusUtterance;
+    BOOL _contentIsSpeakable;
+    AXDispatchTimer *_audioSessionTimer;
+}
+
+@property (retain, nonatomic) AXLanguageTaggedContent *selectedContent;
+@property (retain, nonatomic) AXLanguageTaggedContent *speakingContent;
+@property (retain, nonatomic) NSArray *speakingContentTokenRanges;
+@property (nonatomic) unsigned long long numberOfTokensToSkip;
+@property (retain, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
+@property (retain, nonatomic) NSMutableArray *speechSequenceItems;
+@property (retain, nonatomic) NSString *lastUtteranceLanguageCode;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } lastUtteranceSubstringRange;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } lastSpokenSubstringRange;
+@property (retain, nonatomic) AVSpeechUtterance *lastUtterance;
+@property (retain, nonatomic) AXLanguageTag *lastUtteranceLanguageTag;
+@property (nonatomic) BOOL shouldSpeakNextItemOnResume;
+@property (retain, nonatomic) NSString *currentLanguageCode;
+@property (nonatomic) BOOL preferredLanguageWasSpecified;
+@property (nonatomic) BOOL isProcessingContentForSpeech;
+@property (retain, nonatomic) NSMutableArray *additionalContentToProcess;
+@property (weak, nonatomic) id<AXOratorDelegate> delegate;
+@property (copy, nonatomic) NSString *content;
+@property (nonatomic) long long speakingContext;
+@property (nonatomic) BOOL spellOutContent;
+@property (nonatomic) BOOL supportsAccurateWordCallbacks;
+@property (nonatomic) BOOL skipLuthorRules;
+@property (nonatomic) double audioSessionInactiveTimeout;
+@property (readonly, nonatomic) NSString *currentVoiceIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)pauseSpeaking:(id *)a0;
+- (id)_speechSequenceItemsStartingAtContentLocation:(unsigned long long)a0;
+- (void)_tokenizeContentIfNeeded;
+- (long long)_currentTokenIndex:(BOOL)a0;
+- (void)_speakNextTokenFromCurrentTokenIndex:(long long)a0 forward:(BOOL)a1 boundary:(unsigned long long)a2;
+- (BOOL)isSpeaking;
+- (float)speechRate;
+- (void)speechSynthesizer:(id)a0 didStartSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didPauseSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didContinueSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 didCancelSpeechUtterance:(id)a1;
+- (void)speechSynthesizer:(id)a0 willSpeakRangeOfSpeechString:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 utterance:(id)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (void)addAdditionalContentToSpeechQueue:(id)a0;
+- (BOOL)stopSpeaking:(id *)a0;
+- (BOOL)setSpeakingRate:(double)a0;
+- (void)_respeakUtteranceIfNeeded;
+- (BOOL)_canSpeakTaggedContent:(id)a0;
+- (id)_getLangCodeForItem:(id)a0;
+- (BOOL)isPaused;
+- (BOOL)startSpeakingWithPreferredLanguage:(id)a0 delayBeforeStart:(double)a1 error:(id *)a2;
+- (void)_updateAudioSessionCategory;
+- (BOOL)startSpeakingWithPreferredLanguage:(id)a0 error:(id *)a1;
+- (BOOL)speakFaster;
+- (BOOL)speakSlower;
+- (BOOL)fastForwardWithBoundary:(unsigned long long)a0;
+- (BOOL)rewindWithBoundary:(unsigned long long)a0;
+- (void)speakStatusWithLanguage:(id)a0 rate:(id)a1;
+- (BOOL)contentIsSpeakable;
+- (BOOL)canResumeWithContent:(id)a0;
+- (void)clearSelectedContent;
+- (BOOL)resumeSpeaking:(id *)a0;
+- (void)_startSpeakingSequence;
+- (BOOL)_successWithCode:(long long)a0 error:(id *)a1;
+- (void)_clearAllContentState;
+- (BOOL)resumeSpeakingAfterDelay:(double)a0 error:(id *)a1;
+- (void)_speakNextItemInSequence;
+- (BOOL)_useLanguageSpecificSpeakingRate;
+- (BOOL)_changeSpeakingSpeed:(double)a0 usingLanugageSpecificRate:(BOOL)a1;
+- (double)currentSpeechRateForAdjustment;
+- (BOOL)_skipByUnit:(BOOL)a0 boundary:(unsigned long long)a1;
+- (void)speechSynthesizer:(id)a0 didFinishSpeechUtterance:(id)a1;
+- (void)_updateSequenceForSpellOutBehavior;
+- (void)_processAdditionalContentInPreparationForSpeech;
+
+@end

@@ -1,0 +1,3 @@
+@interface SBCalendarApplicationIcon : SBHCalendarApplicationIcon
+
+@end

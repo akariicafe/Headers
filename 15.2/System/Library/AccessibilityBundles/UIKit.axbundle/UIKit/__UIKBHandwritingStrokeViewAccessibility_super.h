@@ -1,0 +1,3 @@
+@interface __UIKBHandwritingStrokeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

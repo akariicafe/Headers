@@ -1,0 +1,3 @@
+@interface Summaries.ElectrocardiogramCurrentValueSummarySharableModelGenerator : Summaries.MostRecentSampleCurrentValueSummarySharableModelGenerator
+
+@end

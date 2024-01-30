@@ -1,0 +1,20 @@
+@interface VideosUI.DocumentEventMonitorController : NSObject <VUIAppDocumentUpdateEventMonitorObserving> {
+    void /* unknown type, empty encoding */ isDocumentDirty;
+    void /* unknown type, empty encoding */ templateViewModel;
+    void /* unknown type, empty encoding */ controllerName;
+    void /* unknown type, empty encoding */ eventEligibleViewModels;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_updateEventStore;
+    void /* unknown type, empty encoding */ documentEventIterable;
+    void /* unknown type, empty encoding */ lastMonitoringReason;
+    void /* unknown type, empty encoding */ hasRefreshEvents;
+    void /* unknown type, empty encoding */ isDocumentDirtyForRefreshEvents;
+    void /* unknown type, empty encoding */ registrationHandler;
+    void /* unknown type, empty encoding */ isSuspended;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)appDocumentDidReceiveEvent:(id)a0;
+- (void)appDocumentHasBecomeActive;
+
+@end

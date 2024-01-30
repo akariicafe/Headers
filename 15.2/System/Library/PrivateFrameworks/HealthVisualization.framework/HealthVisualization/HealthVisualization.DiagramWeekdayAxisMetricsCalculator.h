@@ -1,0 +1,3 @@
+@interface HealthVisualization.DiagramWeekdayAxisMetricsCalculator : HealthVisualization.DiagramDateAxisMetricsCalculator
+
+@end

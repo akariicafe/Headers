@@ -1,0 +1,8 @@
+@interface CAChameleonLayer : CALayer
+
++ (BOOL)_hasRenderLayerSubclass;
++ (BOOL)CA_automaticallyNotifiesObservers:(Class)a0;
+
+- (void *)_copyRenderLayer:(void *)a0 layerFlags:(unsigned int)a1 commitFlags:(unsigned int *)a2;
+
+@end

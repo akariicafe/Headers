@@ -1,0 +1,3 @@
+@interface __SKUISectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

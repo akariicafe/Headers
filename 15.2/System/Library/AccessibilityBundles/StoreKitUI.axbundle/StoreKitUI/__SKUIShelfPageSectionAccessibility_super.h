@@ -1,0 +1,3 @@
+@interface __SKUIShelfPageSectionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

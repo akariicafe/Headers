@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo23HKElectrocardiogramType17Electrocardiogram : _TtCs12_SwiftObject
+
+@end

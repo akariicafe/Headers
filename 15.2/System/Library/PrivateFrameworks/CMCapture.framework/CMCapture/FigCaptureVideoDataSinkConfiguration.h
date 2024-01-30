@@ -1,0 +1,14 @@
+@interface FigCaptureVideoDataSinkConfiguration : FigCaptureSinkConfiguration
+
+@property (nonatomic) BOOL discardsLateVideoFrames;
+@property (nonatomic) BOOL derivedFromPreview;
+@property (nonatomic) BOOL sceneStabilityMetadataEnabled;
+
+- (int)sinkType;
+- (id)description;
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

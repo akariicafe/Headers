@@ -1,0 +1,76 @@
+@class ASProtocolCapabilities;
+
+@interface ASProtocol : NSObject
+
+@property (retain, nonatomic) ASProtocolCapabilities *capabilities;
+
+- (id)protocolVersion;
+- (id)initWithVersion:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (BOOL)sendUID;
+- (BOOL)supportsAttachments;
+- (int)supportsMailboxSearch;
+- (int)supportsEmailFlagging;
+- (int)supportsUniqueServerId;
+- (int)supportsDraftFolderSync;
+- (int)supportsConversations;
+- (BOOL)useSmartMailTasks;
+- (BOOL)useEventIdsInMeetingResponse;
+- (BOOL)includeCommentInMeetingResponse;
+- (BOOL)supportsProposeNewTime;
+- (void)_setCapabilitiesVersion:(id)a0;
+- (id)_initWithVersion:(id)a0 capabilitiesVersion:(id)a1;
+- (id)_requestLinePrefixWithTask:(id)a0;
+- (id)_usernameOnlyPortionOfUserString:(id)a0;
+- (BOOL)supportsSettingsCommand;
+- (BOOL)supportsItemOperationsCommand;
+- (BOOL)serverUpdatesAttendeeStatusOnEvents;
+- (id)calendarConstraintsPath;
+- (id)addressBookConstraintsPath;
+- (BOOL)supportsNoteSyncing;
+- (BOOL)supportsFreeBusyLookup;
+- (id)initWithCachedVersion:(id)a0;
+- (BOOL)versionChangeRequiresAccountUpgrade:(id)a0;
+- (id)requestURLStringWithTask:(id)a0;
+- (BOOL)headerNeedsUserAgent;
+- (BOOL)headerNeedsPolicyKey;
+- (BOOL)headerNeedsProtocolVersion;
+- (BOOL)commandStringNeedsSaveInSent;
+- (BOOL)shouldUseWBXMLProvisioning;
+- (BOOL)usesAirSyncBaseNamespace;
+- (BOOL)sendAttendeeRole;
+- (BOOL)shouldSendClassForFolderItemsSync;
+- (BOOL)shouldSendFullContactInfo;
+- (BOOL)requiresExplicitlyFalseGetChanges;
+- (BOOL)useBooleanFolderItemsSyncDeletesAsMoves;
+- (BOOL)sendEmailInWBXML;
+- (BOOL)usesTopLevelStatusCodes;
+- (BOOL)fetchAttachmentsWithItemOperations;
+- (BOOL)allAttachmentsAreBase64ed;
+- (BOOL)sendCalendarInfoInRecurrence;
+- (BOOL)serverCreatesEventChangesForInvitations;
+- (BOOL)allowsReminderOnCompletedTasks;
+- (BOOL)sendFirstDayOfWeekInRecurrence;
+- (BOOL)sendDeviceInfoOnProvision;
+- (BOOL)sendUserAgentInDeviceInfo;
+- (BOOL)supportsGALPhotos;
+- (BOOL)supportsAttendeesInExceptions;
+- (BOOL)sendEmailForMeetingInvitationAndResponse;
+- (BOOL)processFullMeetingInvitationData;
+- (BOOL)sendDTStamp;
+- (BOOL)useStructuredLocation;
+- (BOOL)alwaysSendAttendeeRole;
+- (BOOL)includeExceptionsInParent;
+- (BOOL)useInstanceIdForException;
+- (BOOL)useFloatingTimeForAllDayEvents;
+- (BOOL)useEmptyRecurrence;
+- (BOOL)useEmptyReminderMinutes;
+- (BOOL)useEmptyLocation;
+- (BOOL)syncSnoozeEvents;
+- (BOOL)alwaysSendTimezone;
+- (BOOL)supportsMailboxEnhancedSearch;
+- (BOOL)supportsForwarderTracking;
+- (BOOL)useEmptyAttendees;
+
+@end

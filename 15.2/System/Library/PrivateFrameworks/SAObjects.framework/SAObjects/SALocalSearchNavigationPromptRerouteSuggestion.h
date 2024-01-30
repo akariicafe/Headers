@@ -1,0 +1,10 @@
+@interface SALocalSearchNavigationPromptRerouteSuggestion : SADomainCommand
+
++ (id)navigationPromptRerouteSuggestion;
++ (id)navigationPromptRerouteSuggestionWithDictionary:(id)a0 context:(id)a1;
+
+- (id)encodedClassName;
+- (id)groupIdentifier;
+- (BOOL)requiresResponse;
+
+@end

@@ -1,0 +1,3 @@
+@interface MXMVirtualMachineProbe : MXMProbe
+
+@end

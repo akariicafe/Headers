@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__PhotoLibrary__UIKit_super : UIAccessibilitySafeCategory
+
+@end

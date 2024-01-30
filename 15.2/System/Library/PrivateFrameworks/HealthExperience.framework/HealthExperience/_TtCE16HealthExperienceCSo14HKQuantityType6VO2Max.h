@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType6VO2Max : _TtCs12_SwiftObject
+
+@end

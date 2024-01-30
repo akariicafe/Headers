@@ -1,0 +1,77 @@
+@class CNContactPickerViewController, UIView, NSArray, GKDashboardMultiplayerPickerDataSourceObsolete, GKPickerSearchTextFieldObsolete, NSString, UIButton, UITextField, NSLayoutConstraint, UIVisualEffectView, UILabel;
+@protocol GKDashboardNearbyBrowserDelegate, GKDashboardMultiplayerPickerDelegateObsolete;
+
+@interface GKDashboardMultiplayerPickerViewControllerObsolete : GKDashboardCollectionViewController <UITextFieldDelegate, GKDashboardMultiplayerPickerDatasourceDelegateObsolete, CNContactPickerDelegate>
+
+@property (retain, nonatomic) NSArray *initiallySelectedPlayers;
+@property (nonatomic) BOOL shouldIgnoreClearSelection;
+@property (retain, nonatomic) UILabel *descriptionLabel;
+@property (retain, nonatomic) UIButton *sendButton;
+@property (retain, nonatomic) UIButton *customizeMessageButton;
+@property (retain, nonatomic) UITextField *messageField;
+@property (retain, nonatomic) NSLayoutConstraint *customizeMessageBottomConstraint;
+@property (nonatomic) double initialCustomizeMessageBottomConstraintConstant;
+@property (readonly, nonatomic) GKDashboardMultiplayerPickerDataSourceObsolete *pickerDataSource;
+@property (retain, nonatomic) CNContactPickerViewController *contactPicker;
+@property (retain, nonatomic) UIView *searchBackgroundView;
+@property (retain, nonatomic) UIVisualEffectView *backgroundEffectView;
+@property (retain, nonatomic) GKPickerSearchTextFieldObsolete *searchTextField;
+@property (retain, nonatomic) UIButton *showContactPickerButton;
+@property (copy, nonatomic) NSString *message;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (nonatomic) BOOL supportsNearby;
+@property (readonly, nonatomic) BOOL nearbyOnly;
+@property (nonatomic) id<GKDashboardNearbyBrowserDelegate> nearbyDelegate;
+@property (weak, nonatomic) id<GKDashboardMultiplayerPickerDelegateObsolete> multiplayerPickerDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)clearSelection;
+- (void)willTransitionToTraitCollection:(id)a0 withTransitionCoordinator:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)send:(id)a0;
+- (void)cancel:(id)a0;
+- (void)viewDidLoad;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)textFieldDidBeginEditing:(id)a0;
+- (void)setSearchText:(id)a0;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)contactPicker:(id)a0 didSelectContact:(id)a1;
+- (void)contactPickerDidCancel:(id)a0;
+- (void)addMessage:(id)a0;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)textFieldDidEndEditing:(id)a0;
+- (id)preferredFocusEnvironments;
+- (BOOL)textFieldShouldReturn:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (BOOL)hasData;
+- (BOOL)textField:(id)a0 shouldChangeCharactersInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (void)_updateCollectionView;
+- (id)initWithMaxSelectable:(long long)a0 hiddenPlayers:(id)a1 nearbyOnly:(BOOL)a2;
+- (void)setSupportsNearby:(BOOL)a0;
+- (BOOL)supportsNearby;
+- (void)pickerDatasourceDidSelectAddFriend:(id)a0;
+- (void)pickerDatasource:(id)a0 didPickPlayers:(id)a1;
+- (id)createSortPickerMenu;
+- (void)adjustCustomizeMessageConstraint;
+- (void)_updateButtonEnableState;
+- (void)dataUpdated:(BOOL)a0 withError:(id)a1;
+- (void)setupNoContentView:(id)a0 withError:(id)a1;
+- (id)blurEffectForTraitCollection:(id)a0;
+- (void)didEndSearchTextEditing;
+- (void)handleSearchTextFieldReturn:(id)a0;
+- (void)didBeginSearchTextEditing;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionSectionInset;
+- (void)didPressShowContactPickerButton:(id)a0;
+- (void)selectPlayersAtIndexPaths:(id)a0 askDelegateFirst:(BOOL)a1;
+
+@end

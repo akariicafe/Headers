@@ -1,0 +1,3 @@
+@interface __UISearchDisplayControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

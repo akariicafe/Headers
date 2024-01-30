@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo12HKSampleType13ActivityCache : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXPeopleScalableAvatarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

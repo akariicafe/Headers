@@ -1,0 +1,23 @@
+@class NSString, DMFControlGroupIdentifier, NSData, NSNumber;
+
+@interface CRKSetUserPropertiesRequest : CATTaskRequest
+
+@property (copy, nonatomic) NSString *userIdentifier;
+@property (retain, nonatomic) DMFControlGroupIdentifier *courseIdentifier;
+@property (copy, nonatomic) NSString *displayName;
+@property (copy, nonatomic) NSString *givenName;
+@property (copy, nonatomic) NSString *familyName;
+@property (copy, nonatomic) NSString *phoneticGivenName;
+@property (copy, nonatomic) NSString *phoneticFamilyName;
+@property (copy, nonatomic) NSString *userSource;
+@property (copy, nonatomic) NSData *imageData;
+@property (retain, nonatomic) NSNumber *useMeCardIfAvailable;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)initWithUser:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface MiroVPCompositionMetadataRange : MiroVPMetadataRange
+
+@end

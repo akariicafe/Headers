@@ -1,0 +1,13 @@
+@class NSMutableDictionary;
+
+@interface LSCGainsPlist : NSObject {
+    NSMutableDictionary *_lscGainsByPortType;
+}
+
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0 metal:(id)a1;
+- (id)getTextureForPortType:(id)a0;
+- (id)getTextureMaxValueForPortType:(id)a0;
+- (int)fillLSCGainsTextureFrom:(struct { int x0; union { struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; float x10[0]; } x0; } x1; } *)a0 tex:(id)a1 maxValuesRGBA:(float *)a2;
+
+@end

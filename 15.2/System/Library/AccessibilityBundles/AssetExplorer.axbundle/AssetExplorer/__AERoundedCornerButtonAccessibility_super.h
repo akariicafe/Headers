@@ -1,0 +1,3 @@
+@interface __AERoundedCornerButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType10BreastPain : _TtCs12_SwiftObject
+
+@end

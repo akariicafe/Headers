@@ -1,0 +1,3 @@
+@interface __AEMessagesShelfRoundButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

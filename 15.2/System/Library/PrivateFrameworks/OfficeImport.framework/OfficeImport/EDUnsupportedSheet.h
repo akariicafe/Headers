@@ -1,0 +1,3 @@
+@interface EDUnsupportedSheet : EDSheet
+
+@end

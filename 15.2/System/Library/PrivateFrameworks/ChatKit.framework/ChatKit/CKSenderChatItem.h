@@ -1,0 +1,14 @@
+@interface CKSenderChatItem : CKChatItem
+
+- (unsigned long long)layoutType;
+- (id)cellIdentifier;
+- (BOOL)isEditable;
+- (struct CGSize { double x0; double x1; })loadSizeThatFits:(struct CGSize { double x0; double x1; })a0 textAlignmentInsets:(out struct UIEdgeInsets { double x0; double x1; double x2; double x3; } *)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contentInsets;
+- (char)transcriptOrientation;
+- (BOOL)wantsDrawerLayout;
+- (id)layoutItemSpacingWithEnvironment:(id)a0 datasourceItemIndex:(long long)a1 allDatasourceItems:(id)a2 supplementryItems:(id)a3;
+- (id)loadTranscriptText;
+- (Class)cellClass;
+
+@end

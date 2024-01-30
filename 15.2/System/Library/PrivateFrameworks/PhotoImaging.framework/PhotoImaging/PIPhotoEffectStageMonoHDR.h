@@ -1,0 +1,3 @@
+@interface PIPhotoEffectStageMonoHDR : PIPhotoEffectBlackAndWhiteHDR
+
+@end

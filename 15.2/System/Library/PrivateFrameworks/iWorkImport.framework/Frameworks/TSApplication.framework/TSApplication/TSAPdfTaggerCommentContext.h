@@ -1,0 +1,3 @@
+@interface TSAPdfTaggerCommentContext : TSAPdfTaggerContext
+
+@end

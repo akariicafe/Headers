@@ -1,0 +1,3 @@
+@interface __PXAssetUIImageViewTileAccessibility_super : UIAccessibilitySafeCategory
+
+@end

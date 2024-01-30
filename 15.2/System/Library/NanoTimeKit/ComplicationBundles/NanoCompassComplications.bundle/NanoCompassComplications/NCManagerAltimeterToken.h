@@ -1,0 +1,3 @@
+@interface NCManagerAltimeterToken : NCManagerToken
+
+@end

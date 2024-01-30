@@ -1,0 +1,64 @@
+@class NSMutableIndexSet, NSObject;
+@protocol OS_dispatch_source, OS_os_activity, OS_dispatch_group;
+
+@interface SYReceivingSession : SYSession {
+    NSObject<OS_dispatch_source> *_stateUpdateSource;
+    NSObject<OS_dispatch_source> *_sessionTimer;
+    NSMutableIndexSet *_receivedBatchIndices;
+    NSObject<OS_os_activity> *_sessionActivity;
+    NSObject<OS_dispatch_group> *_asyncResetGroupToWaitOn;
+    id /* block */ _weakBlockWaitingForReset;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _flagsLock;
+    struct { unsigned char state : 4; unsigned char canRestart : 1; unsigned char canRollback : 1; unsigned char isResetSync : 1; unsigned char started : 1; unsigned char cancelled : 1; unsigned char completed : 1; unsigned char changedMetadata : 1; } _flags;
+}
+
+@property (readonly, nonatomic) BOOL metadataModified;
+
+- (void)start:(id /* block */)a0;
+- (BOOL)_handleEndSessionResponse:(id)a0 error:(id *)a1;
+- (BOOL)_hasStarted;
+- (BOOL)wasCancelled;
+- (BOOL)isSending;
+- (void)setState:(unsigned int)a0;
+- (id)_newMessageHeader;
+- (BOOL)_handleStartSessionResponse:(id)a0 error:(id *)a1;
+- (unsigned int)state;
+- (void)setDelegate:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)_handleSyncBatchResponse:(id)a0 error:(id *)a1;
+- (void)cancelWithError:(id)a0;
+- (BOOL)_handleRestartSessionResponse:(id)a0 error:(id *)a1;
+- (void)_continue;
+- (BOOL)_hasCompleted;
+- (BOOL)isResetSync;
+- (BOOL)canRestart;
+- (void)setCanRestart:(BOOL)a0;
+- (BOOL)canRollback;
+- (void)setCanRollback:(BOOL)a0;
+- (void)_setStateQuietly:(unsigned int)a0;
+- (void)_processNextState;
+- (void)_installStateListener;
+- (void)_installTimers;
+- (void)_sentMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (void)_peerProcessedMessageWithIdentifier:(id)a0 userInfo:(id)a1;
+- (id)initWithService:(id)a0 isReset:(BOOL)a1 metadata:(id)a2;
+- (void)_handleSyncBatch:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleRestartSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_handleEndSession:(id)a0 response:(id)a1 completion:(id /* block */)a2;
+- (void)_tweakMessageHeader:(id)a0;
+- (void)_sessionFinished;
+- (void)_sendEndSessionAndError:(id)a0;
+- (void)_notifyErrorAndShutdown;
+- (void)_setCancelled;
+- (void)setSessionMetadata:(id)a0;
+- (void)_resolvedIdentifierForRequest:(id)a0;
+- (void)_resolvedIdentifier:(id)a0 forResponse:(id)a1;
+- (void)_setCompleted;
+- (void)_sessionCancelled;
+- (void)_sessionRestarted;
+- (BOOL)_postAsyncResetRequestReturningError:(id *)a0;
+- (void)_setStarted;
+- (void)_midStreamErrorHandled;
+- (BOOL)_isMissingSyncBatches;
+
+@end

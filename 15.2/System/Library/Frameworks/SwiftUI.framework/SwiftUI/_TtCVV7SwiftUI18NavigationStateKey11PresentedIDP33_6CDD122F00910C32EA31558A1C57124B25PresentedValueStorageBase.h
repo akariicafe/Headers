@@ -1,0 +1,3 @@
+@interface _TtCVV7SwiftUI18NavigationStateKey11PresentedIDP33_6CDD122F00910C32EA31558A1C57124B25PresentedValueStorageBase : _TtCs12_SwiftObject
+
+@end

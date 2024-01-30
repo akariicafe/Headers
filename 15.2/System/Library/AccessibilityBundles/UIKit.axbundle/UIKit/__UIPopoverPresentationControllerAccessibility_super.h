@@ -1,0 +1,3 @@
+@interface __UIPopoverPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

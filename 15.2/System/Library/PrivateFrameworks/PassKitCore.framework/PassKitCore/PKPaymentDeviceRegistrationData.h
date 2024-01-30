@@ -1,0 +1,25 @@
+@class NSString, NSDictionary, NSArray, NSData;
+
+@interface PKPaymentDeviceRegistrationData : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) NSString *authorizationHeader;
+@property (copy, nonatomic) NSString *signedAuthToken;
+@property (copy, nonatomic) NSDictionary *secureElementStateInformation;
+@property (copy, nonatomic) NSString *secureElementIdentifier;
+@property (copy, nonatomic) NSString *deviceSerialNumber;
+@property (copy, nonatomic) NSArray *additionalDeviceSerialNumbers;
+@property (copy, nonatomic) NSString *companionSerialNumber;
+@property (copy, nonatomic) NSString *productType;
+@property (copy, nonatomic) NSData *platformData;
+@property (copy, nonatomic) NSData *platformDataSignature;
+@property (nonatomic) BOOL devSigned;
+@property (readonly, nonatomic) NSArray *legacyStateInformation;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

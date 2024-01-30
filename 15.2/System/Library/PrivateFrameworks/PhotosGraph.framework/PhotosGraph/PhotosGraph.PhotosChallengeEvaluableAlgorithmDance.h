@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmDance : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

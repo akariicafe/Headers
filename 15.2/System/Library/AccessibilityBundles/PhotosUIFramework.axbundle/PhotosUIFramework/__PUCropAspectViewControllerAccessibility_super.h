@@ -1,0 +1,3 @@
+@interface __PUCropAspectViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

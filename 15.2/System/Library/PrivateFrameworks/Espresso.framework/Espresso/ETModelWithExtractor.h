@@ -1,0 +1,3 @@
+@interface ETModelWithExtractor : ETModelDef
+
+@end

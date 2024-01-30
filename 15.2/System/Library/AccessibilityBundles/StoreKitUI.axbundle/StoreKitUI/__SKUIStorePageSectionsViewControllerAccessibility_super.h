@@ -1,0 +1,3 @@
+@interface __SKUIStorePageSectionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

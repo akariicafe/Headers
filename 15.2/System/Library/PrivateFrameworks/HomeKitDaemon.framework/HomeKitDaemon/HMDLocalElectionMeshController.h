@@ -1,0 +1,3 @@
+@interface HMDLocalElectionMeshController : COMeshController
+
+@end

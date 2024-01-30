@@ -1,0 +1,10 @@
+@interface VNVideoProcessorFrameRateCadence : VNVideoProcessorCadence
+
+@property (readonly) long long frameRate;
+
+- (BOOL)isEqual:(id)a0;
+- (unsigned long long)hash;
+- (void)populateVCPVideoProcessorRequestConfiguration:(id)a0;
+- (id)initWithFrameRate:(long long)a0;
+
+@end

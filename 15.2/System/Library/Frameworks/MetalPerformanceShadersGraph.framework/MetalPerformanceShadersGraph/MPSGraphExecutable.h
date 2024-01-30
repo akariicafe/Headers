@@ -1,0 +1,84 @@
+@class NSArray, MPSGraph, NSDictionary, NSString, NSFileManager;
+
+@interface MPSGraphExecutable : NSObject {
+    MPSGraph *_graph;
+    struct shared_ptr<mlir::MLIRContext> { struct MLIRContext *__ptr_; struct __shared_weak_count *__cntrl_; } _executableContext;
+    void *_builder;
+    struct OwningModuleRef { struct ModuleOp { struct Operation *state; } op; } _originalModule;
+    void *_symbolTable;
+    unsigned long long _compilerOptions;
+    unsigned long long _aneCompilerSpatialSplitting;
+    struct unordered_map<std::string, std::unique_ptr<GPURuntime>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::unique_ptr<GPURuntime>>>> { struct __hash_table<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, std::hash<std::string>, std::equal_to<std::string>, true>, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, std::equal_to<std::string>, std::hash<std::string>, true>, std::allocator<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, std::hash<std::string>, std::equal_to<std::string>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::unique_ptr<GPURuntime>>, std::equal_to<std::string>, std::hash<std::string>, true>> { float __value_; } __p3_; } __table_; } _runtimeCache;
+    struct unordered_map<std::string, std::unique_ptr<BaseRuntime>, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::unique_ptr<BaseRuntime>>>> { struct __hash_table<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, std::hash<std::string>, std::equal_to<std::string>, true>, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, std::equal_to<std::string>, std::hash<std::string>, true>, std::allocator<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, std::hash<std::string>, std::equal_to<std::string>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::unique_ptr<BaseRuntime>>, std::equal_to<std::string>, std::hash<std::string>, true>> { float __value_; } __p3_; } __table_; } _newRuntimeCache;
+    struct unordered_map<std::string, mlir::OwningModuleRef, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, mlir::OwningModuleRef>>> { struct __hash_table<std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::hash<std::string>, std::equal_to<std::string>, true>, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::equal_to<std::string>, std::hash<std::string>, true>, std::allocator<std::__hash_value_type<std::string, mlir::OwningModuleRef>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::hash<std::string>, std::equal_to<std::string>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::equal_to<std::string>, std::hash<std::string>, true>> { float __value_; } __p3_; } __table_; } _optimizedModuleCache;
+    struct unordered_map<std::string, mlir::OwningModuleRef, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, mlir::OwningModuleRef>>> { struct __hash_table<std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::hash<std::string>, std::equal_to<std::string>, true>, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::equal_to<std::string>, std::hash<std::string>, true>, std::allocator<std::__hash_value_type<std::string, mlir::OwningModuleRef>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<std::string, mlir::OwningModuleRef>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::hash<std::string>, std::equal_to<std::string>, true>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, mlir::OwningModuleRef>, std::equal_to<std::string>, std::hash<std::string>, true>> { float __value_; } __p3_; } __table_; } _optimizedNoDeviceModuleCache;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _executableMutex;
+    NSArray *_targetOperations;
+    NSDictionary *_feeds;
+    unsigned long long _modelUID;
+    unsigned long long _compilationID;
+    unsigned long long _evDumpModuleFlag;
+    unsigned long long _sharedEventSignalValue;
+    NSString *_evDumpModulePath;
+    NSString *_modelFileArchivePath;
+    NSFileManager *_fileManager;
+    BOOL _useScratchPadContext;
+    BOOL _useLegacyRuntime;
+    BOOL _enableCommitAndContinue;
+    BOOL _forceANERuntimeHack;
+    BOOL _compileANEInMemory;
+    BOOL _enableProfilingOpNames;
+}
+
+@property unsigned long long options;
+@property (readonly) NSArray *feedTensors;
+@property (readonly) NSArray *targetTensors;
+
+- (void)dump;
+- (id)initWithMILProgram:(void *)a0 executableDescriptor:(id)a1;
+- (id)getIR;
+- (id)runAsyncWithMTLCommandQueue:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id).cxx_construct;
+- (id)debugDescription;
+- (BOOL)isExecutableForFeeds:(id)a0 targetTensors:(id)a1 targetOperations:(id)a2 compilationDescriptor:(id)a3;
+- (id)initWithGraph:(id)a0 feeds:(id)a1 targetTensors:(id)a2 targetOperations:(id)a3 executableDescriptor:(id)a4;
+- (id)runInternalWithDevice:(id)a0 commandBuffer:(id)a1 feedsDictionary:(id)a2 resultsDictionary:(id)a3 executionDescriptor:(id)a4 executableExecutionDescriptor:(id)a5 mpsGraphOwnedCommandBuffer:(BOOL)a6;
+- (void)initializeMLIR;
+- (void)fileBackModule:(const void *)a0 withPath:(id)a1;
+- (void)commonPreInit;
+- (struct OwningModuleRef { struct ModuleOp { struct Operation *x0; } x0; })cloneForFeeds:(id)a0 targetTensors:(id)a1 targetOperations:(id)a2;
+- (void)commonPostInit:(void *)a0;
+- (void)specializeWithDevice:(id)a0 inputShapes:(id)a1 compilationDescriptor:(id)a2;
+- (id)initializeWithMLIRModule:(struct ModuleOp { struct Operation *x0; })a0 executableDescriptor:(id)a1;
+- (id)initWithMLIRSource:(id)a0 executableDescriptor:(id)a1;
+- (void)recurseOperation:(id)a0 operationsRecursed:(id)a1 tensorToValueMap:(void *)a2;
+- (id)getOperationsToVisitForOperation:(id)a0 visitedOperations:(id)a1;
+- (struct OwningModuleRef { struct ModuleOp { struct Operation *x0; } x0; })optimizationPassesWithDevice:(id)a0 sourceModule:(void *)a1 fileToStoreName:(id)a2;
+- (struct ModuleOp { struct Operation *x0; })specializedModuleWithDevice:(id)a0 inputShapes:(id)a1 compilationDescriptor:(id)a2;
+- (struct ModuleOp { struct Operation *x0; })specializeWithDevice:(id)a0 inputsArray:(id)a1 compilationDescriptor:(id)a2;
+- (void *)getRuntimeForDevice:(id)a0 module:(struct ModuleOp { struct Operation *x0; })a1;
+- (id)allocateTensorDataTargetsForDevice:(id)a0 inputsArray:(id)a1;
+- (id)allocateTargetsForDevice:(id)a0 inputsArray:(id)a1;
+- (id)runWithMTLCommandQueue:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (id)runAsyncWithDevice:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (id)runInternalWithDevice:(id)a0 commandBuffer:(id)a1 feeds:(id)a2 results:(id)a3 executionDescriptor:(id)a4 executableExecutionDescriptor:(id)a5 mpsGraphOwnedCommandBuffer:(BOOL)a6;
+- (id)encodeWithMPSCommandBuffer:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (void)encodeInternalWithMPSCommandBuffer:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3 executableExecutionDescriptor:(id)a4;
+- (void *)getNewRuntimeForDevice:(id)a0 module:(struct ModuleOp { struct Operation *x0; })a1;
+- (id)getTensorDataArraysWithDevice:(id)a0 feedsDictionary:(id)a1 resultsDictionary:(id)a2 inputsArray:(id)a3 resultsArray:(id)a4 newRuntime:(BOOL)a5;
+- (id)initWithMLIRModule:(struct ModuleOp { struct Operation *x0; })a0 executableDescriptor:(id)a1;
+- (id)initWithMLIRSourceFromURL:(id)a0 executableDescriptor:(id)a1;
+- (void)sanitizeExternalModuleWithVariableFetchHandler:(id /* block */)a0;
+- (void)recurseFeeds:(id)a0 targetTensors:(id)a1 targetOperations:(id)a2;
+- (void)specializeWithDevice:(id)a0 inputTypes:(id)a1 compilationDescriptor:(id)a2;
+- (id)getInputShapes;
+- (id)getOutputShapes;
+- (id)getTargetShapesForDevice:(id)a0 inputsArray:(id)a1;
+- (id)runWithMTLCommandQueue:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2;
+- (id)runWithDevice:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (id)runAsyncWithCommandQueue:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+- (id)encodeToCommandBuffer:(id)a0 inputsArray:(id)a1 resultsArray:(id)a2 executionDescriptor:(id)a3;
+
+@end

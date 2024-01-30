@@ -1,0 +1,3 @@
+@interface __UITextField_QSExtrasAccessibility_super : UIAccessibilitySafeCategory
+
+@end

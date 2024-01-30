@@ -1,0 +1,3 @@
+@interface WFAQIScaleCategoryIMECA : WFAQIScaleCategory
+
+@end

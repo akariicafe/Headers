@@ -1,0 +1,3 @@
+@interface OADTextSpacing : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC11SiriKitFlowP33_06CFB811C97A7BDF2BAA152E1CFF16DB35DefaultSharingModeCheckFlowStrategy : _TtCs12_SwiftObject
+
+@end

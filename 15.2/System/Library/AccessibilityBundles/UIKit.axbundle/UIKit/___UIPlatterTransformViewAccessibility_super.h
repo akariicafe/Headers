@@ -1,0 +1,3 @@
+@interface ___UIPlatterTransformViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface BRCALRowID : NSNumber
+
+@end

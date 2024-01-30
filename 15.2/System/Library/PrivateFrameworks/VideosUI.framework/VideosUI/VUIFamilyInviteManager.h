@@ -1,0 +1,18 @@
+@class NSString, ACAccountStore, AIDAAccountManager;
+
+@interface VUIFamilyInviteManager : NSObject <AIDAAccountManagerDelegate>
+
+@property (readonly, nonatomic) ACAccountStore *store;
+@property (readonly, nonatomic) AIDAAccountManager *accountManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)accountsForAccountManager:(id)a0;
+- (void)presentFamilySetupScreenIfEligible:(id)a0 checkEligibility:(BOOL)a1;
+- (void)presentFamilySetupScreenWithBuyParams:(id)a0;
+
+@end

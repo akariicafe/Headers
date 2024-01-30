@@ -1,0 +1,3 @@
+@interface __UINavigationButtonAccessibility__PhotoLibrary__UIKit_super : UIAccessibilitySafeCategory
+
+@end

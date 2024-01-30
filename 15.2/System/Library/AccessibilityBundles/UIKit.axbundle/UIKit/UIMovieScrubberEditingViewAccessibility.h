@@ -1,0 +1,9 @@
+@interface UIMovieScrubberEditingViewAccessibility : __UIMovieScrubberEditingViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (void)setEnabled:(BOOL)a0;
+
+@end

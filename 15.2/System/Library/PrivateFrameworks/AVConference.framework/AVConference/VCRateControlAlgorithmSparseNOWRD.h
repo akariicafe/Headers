@@ -1,0 +1,62 @@
+@interface VCRateControlAlgorithmSparseNOWRD : VCRateControlAlgorithmBase {
+    double _pauseStartTime;
+    unsigned short _previousTimestamp;
+    unsigned int _timestampWrapAroundCounter;
+    double _statisticsArrivalTime;
+    double _previousStatisticsArrivalTime;
+    double _lastCongestionTime;
+    double _lastRampUpTime;
+    double _lastAllowRampUpTime;
+    BOOL _isFirstTimestampArrived;
+    unsigned int _actualSendBitrate;
+    unsigned int _expectedBitrate;
+    int _recentTierWindow[256];
+    unsigned int _recentTierWindowSize;
+    unsigned int _recentTierWindowIndex;
+    unsigned int _totalTierNumbersInWindow;
+    double _recentAverageTier;
+    double _lastTimeDetectNoOscillation;
+    BOOL _isTargetBitrateOscillating;
+    int _deviationChangeCount;
+    unsigned int _totalPacketSent;
+    unsigned int _roundTripTimeTick;
+    double _averageRoundTripTime;
+    double _basebandNotificationArrivalTime;
+    unsigned int _basebandAverageBitrate;
+    unsigned int _basebandTotalQueueDepth;
+    double _basebandExpectedQueuingDelay;
+    double _basebandNormalizedBDCD;
+    double _basebandNormalizedQueuingDelay;
+    BOOL _isWaitingForBasebandRampDown;
+    double _lastBasebandRampDownTime;
+    double _lastHighNBDCDTime;
+    double _lastEmergencyBasebandRampDownTime;
+    int _basebandAdditionalTiersForRampUp;
+    BOOL _basebandAdaptationEnabled;
+}
+
+- (id)init;
+- (void)configure:(struct VCRateControlAlgorithmConfig { unsigned int x0; unsigned int *x1; int x2; int x3; int x4; int x5; int x6; int x7; int x8; int x9; int x10; int x11; int x12; int x13; int x14; int x15; double x16; double x17; double x18; double x19; double x20; double x21; double x22; double x23; double x24; double x25; double x26; double x27; double x28; double x29; int x30; int x31; double x32; double x33; double x34; double x35; double x36; double x37; double x38; double x39; double x40; unsigned int x41; unsigned int x42; unsigned int x43; unsigned int x44; unsigned int x45; BOOL x46; BOOL x47; BOOL x48; BOOL x49; BOOL x50; BOOL x51; BOOL x52; BOOL x53; BOOL x54; BOOL x55; BOOL x56; int x57; BOOL x58; double x59; double x60; int x61; double x62; int x63; double x64; double x65; double x66; int x67; double x68; int x69; int x70; double x71; double x72; int x73; double x74; double x75; double x76; double x77; double x78; double x79; double x80; double x81; double x82; double x83; double x84; double x85; double x86; double x87; double x88; double x89; double x90; BOOL x91; double x92; int x93; int x94; BOOL x95; int x96; double x97; double x98; })a0 restartRequired:(BOOL)a1;
+- (BOOL)doRateControlWithStatistics:(struct { int x0; int x1; double x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; union { struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; double x6; double x7; double x8; double x9; double x10; char x11[64]; int x12; } x0; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; unsigned int x11; double x12; double x13; unsigned int x14; unsigned int x15; double x16; unsigned int x17; BOOL x18; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x19; struct { unsigned short x0; BOOL x1; BOOL x2; unsigned int x3; } x20; } x1; struct { double x0; double x1; double x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; unsigned int x9; } x2; struct { unsigned int x0; BOOL x1; BOOL x2; BOOL x3; unsigned int x4; unsigned int x5; double x6; unsigned int x7; BOOL x8; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x9; } x3; struct { unsigned char x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; double x10; double x11; double x12; unsigned int x13; unsigned int x14; unsigned int x15; } x4; struct { unsigned int x0; unsigned int x1; unsigned int x2; double x3; } x5; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x6; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x7; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; BOOL x6; unsigned int x7; } x8; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; float x4; BOOL x5; BOOL x6; double x7; double x8; unsigned int x9; unsigned int x10; unsigned int x11; unsigned long long x12; } x9; struct { unsigned char x0; unsigned char x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; int x9; unsigned int x10; unsigned char x11; unsigned char x12; unsigned short x13; unsigned short x14; unsigned char x15; unsigned char x16; unsigned char x17; unsigned char x18; unsigned char x19; unsigned char x20; float x21; BOOL x22; } x10; } x7; })a0;
+- (BOOL)doRateControlWithBasebandStatistics:(struct { int x0; int x1; double x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; union { struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; double x6; double x7; double x8; double x9; double x10; char x11[64]; int x12; } x0; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; unsigned int x11; double x12; double x13; unsigned int x14; unsigned int x15; double x16; unsigned int x17; BOOL x18; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x19; struct { unsigned short x0; BOOL x1; BOOL x2; unsigned int x3; } x20; } x1; struct { double x0; double x1; double x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; unsigned int x9; } x2; struct { unsigned int x0; BOOL x1; BOOL x2; BOOL x3; unsigned int x4; unsigned int x5; double x6; unsigned int x7; BOOL x8; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x9; } x3; struct { unsigned char x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; double x10; double x11; double x12; unsigned int x13; unsigned int x14; unsigned int x15; } x4; struct { unsigned int x0; unsigned int x1; unsigned int x2; double x3; } x5; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x6; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x7; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; BOOL x6; unsigned int x7; } x8; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; float x4; BOOL x5; BOOL x6; double x7; double x8; unsigned int x9; unsigned int x10; unsigned int x11; unsigned long long x12; } x9; struct { unsigned char x0; unsigned char x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; int x9; unsigned int x10; unsigned char x11; unsigned char x12; unsigned short x13; unsigned short x14; unsigned char x15; unsigned char x16; unsigned char x17; unsigned char x18; unsigned char x19; unsigned char x20; float x21; BOOL x22; } x10; } x7; })a0;
+- (BOOL)noServerStatsActivityDetected;
+- (BOOL)shouldRampDown;
+- (int)rampDownTier;
+- (BOOL)shouldRampUp;
+- (int)rampUpTier;
+- (void)resetRampingStatus;
+- (void)resetOscillationDetection;
+- (BOOL)doRateControlWithVCRCStatistics:(struct { int x0; int x1; double x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; union { struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; double x6; double x7; double x8; double x9; double x10; char x11[64]; int x12; } x0; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; unsigned int x11; double x12; double x13; unsigned int x14; unsigned int x15; double x16; unsigned int x17; BOOL x18; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x19; struct { unsigned short x0; BOOL x1; BOOL x2; unsigned int x3; } x20; } x1; struct { double x0; double x1; double x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; unsigned int x9; } x2; struct { unsigned int x0; BOOL x1; BOOL x2; BOOL x3; unsigned int x4; unsigned int x5; double x6; unsigned int x7; BOOL x8; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x9; } x3; struct { unsigned char x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; double x10; double x11; double x12; unsigned int x13; unsigned int x14; unsigned int x15; } x4; struct { unsigned int x0; unsigned int x1; unsigned int x2; double x3; } x5; struct { int x0; unsigned int x1; unsigned int x2; unsigned int x3; double x4; double x5; double x6; unsigned int x7; unsigned int x8; } x6; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x7; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; BOOL x6; unsigned int x7; } x8; struct { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; float x4; BOOL x5; BOOL x6; double x7; double x8; unsigned int x9; unsigned int x10; unsigned int x11; unsigned long long x12; } x9; struct { unsigned char x0; unsigned char x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned long long x8; int x9; unsigned int x10; unsigned char x11; unsigned char x12; unsigned short x13; unsigned short x14; unsigned char x15; unsigned char x16; unsigned char x17; unsigned char x18; unsigned char x19; unsigned char x20; float x21; BOOL x22; } x10; } x7; })a0;
+- (void)checkActualBitrates;
+- (void)checkCongestionStatus;
+- (void)checkTargetBitrateOscillation;
+- (void)printRateControlInfoToLogDump;
+- (BOOL)shouldRampDownDueToBaseband;
+- (int)rampDownTierDueToBaseband;
+- (BOOL)shouldRampUpDueToBaseband;
+- (BOOL)shouldUnblockRampUpAfterTimeOut;
+- (void)updateLastEmergencyBasebandRampDownTimeWithTierIndex:(int)a0;
+- (BOOL)updateRecentTierWindow;
+- (int)countDeviationChangeInTierWindow;
+
+@end

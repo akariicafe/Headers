@@ -1,0 +1,3 @@
+@interface SBUICAPackageView : BSUICAPackageView
+
+@end

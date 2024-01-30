@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType31EnvironmentalAudioExposureEvent : _TtCs12_SwiftObject
+
+@end

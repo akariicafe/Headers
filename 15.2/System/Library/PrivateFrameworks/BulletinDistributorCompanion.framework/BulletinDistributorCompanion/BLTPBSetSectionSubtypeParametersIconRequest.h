@@ -1,0 +1,27 @@
+@class NSString, BLTPBSectionIcon;
+
+@interface BLTPBSetSectionSubtypeParametersIconRequest : PBRequest <NSCopying> {
+    struct { unsigned char subtypeID : 1; unsigned char defaultSubtype : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasSectionID;
+@property (retain, nonatomic) NSString *sectionID;
+@property (nonatomic) BOOL hasSubtypeID;
+@property (nonatomic) unsigned long long subtypeID;
+@property (nonatomic) BOOL hasDefaultSubtype;
+@property (nonatomic) BOOL defaultSubtype;
+@property (readonly, nonatomic) BOOL hasIcon;
+@property (retain, nonatomic) BLTPBSectionIcon *icon;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

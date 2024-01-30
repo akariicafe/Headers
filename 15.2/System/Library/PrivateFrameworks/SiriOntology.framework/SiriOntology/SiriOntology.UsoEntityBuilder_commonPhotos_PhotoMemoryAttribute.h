@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonPhotos_PhotoMemoryAttribute : SiriOntology.UsoEntityBuilder
+
+@end

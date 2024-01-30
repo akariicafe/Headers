@@ -1,0 +1,10 @@
+@interface SASettingSetAssistiveTouch : SASettingSetBool
+
++ (id)setAssistiveTouch;
++ (id)setAssistiveTouchWithDictionary:(id)a0 context:(id)a1;
+
+- (id)encodedClassName;
+- (id)groupIdentifier;
+- (BOOL)requiresResponse;
+
+@end

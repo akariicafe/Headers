@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AsyncFailedPolledStateResponseHandler : HomeAutomationInternal.BaseAsyncResponseHandler
+
+@end

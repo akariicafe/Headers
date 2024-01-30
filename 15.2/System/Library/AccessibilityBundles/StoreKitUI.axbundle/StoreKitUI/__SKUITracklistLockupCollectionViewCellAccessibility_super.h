@@ -1,0 +1,3 @@
+@interface __SKUITracklistLockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

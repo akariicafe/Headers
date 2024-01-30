@@ -1,0 +1,9 @@
+@interface _UIContextMenuListViewAccessibility : ___UIContextMenuListViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
++ (void)_accessibilityPerformValidations:(id)a0;
+
+- (void)_configureCell:(id)a0 forElement:(id)a1 section:(id)a2;
+
+@end

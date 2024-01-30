@@ -1,0 +1,80 @@
+@class GEOMapServiceTraits, CLLocation, MKPointOfInterestFilter, GEOSortPriorityMapping, NSMutableArray, GEORetainedSearchMetadata, NSString, GEOClientRankingModel, GEOPDPlaceSummaryLayoutMetadata, MKLocalSearchCompletion, NSTimer, NSArray, GEOSearchCategory, GEOAutocompleteSessionData;
+@protocol MKLocalSearchCompleterDelegate, MKAutocompleteAnalyticsProvider, MKLocationManagerOperation;
+
+@interface MKLocalSearchCompleter : NSObject {
+    NSArray *_filters;
+    double _lastRequestTime;
+    BOOL _dirty;
+    BOOL _resultsAreCurrent;
+    NSArray *_results;
+    NSTimer *_timer;
+    int _source;
+    id<MKLocationManagerOperation> _singleLocationUpdate;
+    unsigned long long _maxNumberOfConcurrentRequests;
+    NSMutableArray *_inFlightTickets;
+    NSMutableArray *_pendingTickets;
+    BOOL _statefulQueriesEnabled;
+    GEOAutocompleteSessionData *_autocompleteSessionData;
+}
+
+@property (nonatomic) struct { struct CLLocationCoordinate2D { double x0; double x1; } x0; struct { double x0; double x1; } x1; } boundingRegion;
+@property (copy, nonatomic) NSString *fragment;
+@property (nonatomic) long long entriesType;
+@property (retain, nonatomic) id<MKAutocompleteAnalyticsProvider> analyticsProvider;
+@property (retain, nonatomic) GEOSearchCategory *categoryFilter;
+@property (retain, nonatomic) CLLocation *deviceLocation;
+@property (retain, nonatomic) GEORetainedSearchMetadata *retainedSearchMetadata;
+@property (weak, nonatomic) id context;
+@property (copy, nonatomic) NSString *identifier;
+@property (nonatomic) long long listType;
+@property (nonatomic) double timeSinceLastInBoundingRegion;
+@property (nonatomic) unsigned long long mapType;
+@property (retain, nonatomic) GEOMapServiceTraits *traits;
+@property (readonly, nonatomic, getter=_shouldDisplayNoResults) BOOL shouldDisplayNoResults;
+@property (readonly, nonatomic, getter=_shouldEnableRAPForNoResults) BOOL shouldEnableRAPForNoResults;
+@property (readonly, nonatomic, getter=_clientRankingModel) GEOClientRankingModel *clientRankingModel;
+@property (readonly, nonatomic, getter=_sortPriorityMapping) GEOSortPriorityMapping *sortPriorityMapping;
+@property (readonly, nonatomic, getter=_autocompleteTopSectionIsQuerySuggestions) BOOL autocompleteTopSectionIsQuerySuggestions;
+@property (retain, nonatomic, getter=_tappedQuerySuggestionCompletion, setter=_setTappedQuerySuggestionCompletion:) MKLocalSearchCompletion *tappedQuerySuggestionCompletion;
+@property (readonly, nonatomic, getter=_showAutocompleteClientSource) BOOL showAutocompleteClientSource;
+@property (nonatomic, getter=_shouldPreloadTransitInfo, setter=_setShouldPreloadTransitInfo:) BOOL shouldPreloadTransitInfo;
+@property (readonly, nonatomic, getter=_sections) NSArray *sections;
+@property (nonatomic, getter=_privateFilterType, setter=_setPrivateFilterType:) long long privateFilterType;
+@property (nonatomic) BOOL statefulQueriesEnabled;
+@property (readonly, nonatomic, getter=_shouldEnableGrayscaleHighlighting) BOOL shouldEnableGrayscaleHighlighting;
+@property (readonly, nonatomic, getter=_shouldUseDistanceFeatureServerResults) BOOL shouldUseDistanceFeatureServerResults;
+@property (readonly, nonatomic, getter=_placeSummaryLayoutMetadata) GEOPDPlaceSummaryLayoutMetadata *placeSummaryLayoutMetadata;
+@property (readonly, nonatomic, getter=_highlightType) long long highlightType;
+@property (copy, nonatomic) NSString *queryFragment;
+@property (nonatomic) struct { struct CLLocationCoordinate2D { double latitude; double longitude; } center; struct { double latitudeDelta; double longitudeDelta; } span; } region;
+@property (nonatomic) long long filterType;
+@property (nonatomic) unsigned long long resultTypes;
+@property (copy, nonatomic) MKPointOfInterestFilter *pointOfInterestFilter;
+@property (weak, nonatomic) id<MKLocalSearchCompleterDelegate> delegate;
+@property (readonly, nonatomic) NSArray *results;
+@property (readonly, nonatomic, getter=isSearching) BOOL searching;
+
+- (void)_cancelTimer;
+- (void)retry;
+- (int)source;
+- (void)_fireRequest;
+- (void)_notifyDelegatesWithResults:(id)a0 sections:(id)a1 shouldDisplayNoResults:(BOOL)a2 shouldEnableRAPForNoResults:(BOOL)a3 ticket:(id)a4;
+- (void)_handleCompletion:(id)a0 shouldDisplayNoResults:(BOOL)a1 shouldEnableRAPForNoResults:(BOOL)a2 forTicket:(id)a3;
+- (id)_completionTicketForPrivateFilterType:(long long)a0 traits:(id)a1;
+- (id)_completionTicketForFilterTypeWithTraits:(id)a0;
+- (void)_schedulePendingRequest;
+- (void)_handleError:(id)a0 forTicket:(id)a1;
+- (double)timeToNextRequest;
+- (void)_scheduleRequestWithTimeToNextRequest:(double)a0;
+- (void)_markDirtyAndScheduleRequestWithTimeToNextRequest:(double)a0;
+- (void)clearQueryState;
+- (void).cxx_destruct;
+- (id)init;
+- (void)setSource:(int)a0;
+- (BOOL)resultsAreCurrent;
+- (void)dealloc;
+- (void)cancel;
+- (void)_updateFilters;
+- (void)_markDirty;
+
+@end

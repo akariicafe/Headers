@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_22A1D162CC670E67558243600080F90E11AnyStyleBox : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType15DistanceCycling : _TtCs12_SwiftObject
+
+@end

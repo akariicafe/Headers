@@ -1,0 +1,80 @@
+@class NSString, NSArray, UITapGestureRecognizer, DDDelegateMultiplexer, RVQuery, DDScannerResult, NSDictionary, _UIRemoteViewController, DDParsecRemoteCollectionViewController;
+@protocol DDParsecCollectionDelegate;
+
+@interface DDParsecCollectionViewController : UINavigationController <DDParsecHostVCInterface, UINavigationControllerDelegate, UIAdaptivePresentationControllerDelegate, _UIRemoteViewControllerContaining> {
+    DDParsecRemoteCollectionViewController *_remoteViewController;
+    BOOL _previewMode;
+    BOOL _sheetMode;
+    BOOL _popoverMode;
+    BOOL _needsBackground;
+    BOOL _dismissed;
+    NSString *_queryString;
+    struct _NSRange { unsigned long long location; unsigned long long length; } _queryRange;
+    DDScannerResult *_result;
+    NSDictionary *_context;
+    RVQuery *_query;
+    BOOL _showingError;
+    BOOL _showingFTE;
+    UITapGestureRecognizer *_tapGesture;
+    long long _previousStatusBarStyle;
+    DDDelegateMultiplexer *_presentationDelegateProxy;
+    BOOL _requestingPopoverPresentationController;
+    DDDelegateMultiplexer *_presentationDelegateMultiplexer;
+}
+
+@property (copy) NSArray *actions;
+@property (weak) id<DDParsecCollectionDelegate> parsecDelegate;
+@property (copy) id /* block */ dismissCompletionHandler;
+@property (nonatomic) long long style;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) _UIRemoteViewController *_containedRemoteViewController;
+
+- (BOOL)presentationControllerShouldDismiss:(id)a0;
+- (long long)modalPresentationStyle;
+- (void)presentationController:(id)a0 willPresentWithAdaptiveStyle:(long long)a1 transitionCoordinator:(id)a2;
+- (void)_presentationController:(id)a0 prepareAdaptivePresentationController:(id)a1;
+- (id)presentationController;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)presentationControllerDidDismiss:(id)a0;
+- (id)overrideTraitCollectionForChildViewController:(id)a0;
+- (struct CGSize { double x0; double x1; })preferredContentSize;
+- (id)initWithQuery:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)popoverPresentationController;
+- (id)initWithString:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (BOOL)_allowsStylingSheetsAsCards;
+- (void)_interactionEnded;
+- (void)doneButtonPressed:(id)a0;
+- (void)setTitle:(id)a0;
+- (long long)_preferredModalPresentationStyle;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)appWillEnterForeground;
+- (void)appDidEnterBackground;
+- (void)setPreviewMode:(BOOL)a0;
+- (void)showSpinner;
+- (void)showError:(id)a0;
+- (void)interactionEndedWithPunchout:(BOOL)a0;
+- (void)adaptForPresentationInPopover:(BOOL)a0;
+- (void)setSheetMode:(BOOL)a0;
+- (void)showingErrorView:(BOOL)a0;
+- (void)showingFTE:(BOOL)a0;
+- (void)openParsecURL:(id)a0;
+- (void)getStatusBarHidden:(id /* block */)a0;
+- (void)openTrailerPunchout:(id)a0;
+- (void)performClientQueryWithServerAccessPermitted:(BOOL)a0 localSearchPermitted:(BOOL)a1;
+- (void)remoteVCIsReady;
+- (void)fetchRemoteViewControllerWithValidInput:(BOOL)a0;
+- (void)updateVisualMode;
+- (void)updateDelegateOfPresentationController:(id)a0;
+- (void)doneButtonPressed:(id)a0 punchout:(BOOL)a1;
+- (void)presentRemoteCollection:(id)a0;
+- (void)replaceControllerWithController:(id)a0;
+- (id)initWithResult:(struct __DDResult { } *)a0 context:(id)a1;
+
+@end

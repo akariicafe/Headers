@@ -1,0 +1,95 @@
+@class NSObject, VideosExtrasMainTemplateViewController, UIButton, UIView, NSLayoutConstraint, VideosExtrasContext, NSString, IKAppContext, UITraitCollection, UIStackView, VideosExtrasNavigationController, NSArray, VideosExtrasFeatureContainerViewController, VideosExtrasArtworkDataSource;
+@protocol IKAppDataStoring, VideosExtrasRootViewControllerDelegate, IKAppUserDefaultsStoring, OS_dispatch_queue;
+
+@interface VideosExtrasRootViewController : UIViewController <IKApplication, IKAppContextDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, IKAppDeviceConfig> {
+    NSLayoutConstraint *_bottomConstraint;
+    NSObject<OS_dispatch_queue> *_imageRequestQueue;
+    BOOL _didAttemptRestartAfterAppContextFailure;
+}
+
+@property (retain, nonatomic) VideosExtrasFeatureContainerViewController *featureContainer;
+@property (retain, nonatomic) IKAppContext *applicationContext;
+@property (retain, nonatomic) NSArray *lastSelectedSnapshotViewControllers;
+@property (retain, nonatomic) UIView *extrasMenuBarView;
+@property (retain, nonatomic) UIStackView *extrasMenuButtonsStackView;
+@property (retain, nonatomic) UIButton *backButton;
+@property (retain, nonatomic) NSLayoutConstraint *extrasScrollViewLeadingConstraint;
+@property (retain, nonatomic) id<IKAppDataStoring> localStorage;
+@property (retain, nonatomic) id<IKAppDataStoring> vendorStorage;
+@property (retain, nonatomic) id<IKAppUserDefaultsStoring> userDefaultsStorage;
+@property (retain, nonatomic) VideosExtrasArtworkDataSource *artworkDataSource;
+@property (readonly, nonatomic) VideosExtrasNavigationController *navigationController;
+@property (retain, nonatomic) VideosExtrasMainTemplateViewController *mainTemplateViewController;
+@property (readonly, nonatomic) UIView *mainMenuBar;
+@property (copy, nonatomic) UITraitCollection *overrideTraitCollection;
+@property (readonly, weak, nonatomic) VideosExtrasContext *context;
+@property (nonatomic) struct CGSize { double width; double height; } initialPresentationSize;
+@property (weak, nonatomic) id<VideosExtrasRootViewControllerDelegate> delegate;
+@property (readonly, nonatomic) NSArray *mainMenuItemElements;
+@property (nonatomic) BOOL showsMenuBar;
+@property (nonatomic) BOOL showsBuiltInNavigationControls;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)currentController;
+
+- (BOOL)prefersStatusBarHidden;
+- (id)navigationController:(id)a0 interactionControllerForAnimationController:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)appIdentifier;
+- (void)_backButtonPressed:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (id)initWithContext:(id)a0;
+- (id)timeZone;
+- (id)systemLanguage;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
+- (void)start;
+- (void).cxx_destruct;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)vendorIdentifier;
+- (struct CGSize { double x0; double x1; })screenSize;
+- (id)navigationController:(id)a0 animationControllerForOperation:(long long)a1 fromViewController:(id)a2 toViewController:(id)a3;
+- (unsigned long long)preferredVideoFormat;
+- (void)dealloc;
+- (BOOL)shouldAutorotate;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)appJSURL;
+- (void)_setNavigationController:(id)a0;
+- (id)storeFrontCountryCode;
+- (void)appContext:(id)a0 evaluateAppJavaScriptInContext:(id)a1;
+- (void)showExtrasMenuBarInFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setClearsStackOnNextPush;
+- (void)appContext:(id)a0 didStartWithOptions:(id)a1;
+- (void)appContext:(id)a0 didFailWithError:(id)a1;
+- (void)appContext:(id)a0 didStopWithOptions:(id)a1;
+- (BOOL)shouldIgnoreJSValidation;
+- (id)appLaunchParams;
+- (void)_stopOldContextIfNeeded;
+- (id)_createDataStorageForIdentifier:(id)a0;
+- (void)_playbackWillEndNotification:(id)a0;
+- (void)_setUpForApplication;
+- (void)_attemptRestart;
+- (void)_adjustExtrasVisibilityForViewSize:(struct CGSize { double x0; double x1; })a0;
+- (BOOL)shouldExtrasBeVisibleForViewSize:(struct CGSize { double x0; double x1; })a0;
+- (BOOL)_areExtrasVisible;
+- (void)_showExtrasBar:(BOOL)a0;
+- (void)_extrasMenuItemSelected:(id)a0;
+- (id)_extrasMenuBarViewForElements:(id)a0;
+- (BOOL)_setMainDocumentWithViewController:(id)a0;
+- (BOOL)appIsTrusted;
+- (id)viewElementRegistry;
+- (BOOL)appUsesDefaultStyleSheets;
+- (id)deviceConfigForContext:(id)a0;
+- (id)navigationControllerForContext:(id)a0;
+- (unsigned long long)preferredVideoPreviewFormat;
+- (BOOL)isTimeZoneSet;
+- (void)popToFeatureOrMain;
+- (void)updateMenuButtonForSelectionAtIndex:(unsigned long long)a0 deselectedIndex:(unsigned long long)a1;
+- (id)detectMainDocument:(id)a0;
+
+@end

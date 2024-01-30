@@ -1,0 +1,88 @@
+@class NSString, FLLoggingContext, NSDate, NSObject;
+@protocol OS_os_log;
+
+@interface FLSQLitePersistence : NSObject
+
+@property (readonly, copy, nonatomic) NSString *databasePath;
+@property (nonatomic) struct sqlite3 { } *db;
+@property (retain, nonatomic) NSObject<OS_os_log> *log;
+@property (retain, nonatomic) FLLoggingContext *context;
+@property (nonatomic) struct sqlite3_stmt { } *insertRecordsStatement;
+@property (nonatomic) struct sqlite3_stmt { } *iteratePayloadStatement;
+@property (readonly, copy, nonatomic) NSString *storeIdentifier;
+@property (nonatomic) _Atomic BOOL configured;
+@property (nonatomic) unsigned long long maxBatchPayloadInBytes;
+@property (nonatomic) unsigned long long maxAllowedDatabaseSizeInBytes;
+@property (copy, nonatomic) NSString *currentBatchIdentifier;
+@property (copy, nonatomic) NSDate *currentBatchCreationDate;
+@property (nonatomic) unsigned long long currentBatchPayloadSize;
+@property (nonatomic) double batchMaximumDuration;
+
++ (id)uploadStatusDescription:(int)a0;
++ (id)batchStatusDescription:(int)a0;
+
+- (BOOL)closeAllBatches;
+- (BOOL)getBatchMetadata:(id)a0 batchMetadata:(inout id *)a1;
+- (int)getDataVersion;
+- (BOOL)isSchemaReady;
+- (BOOL)recoverOrphanedProcessingUploads;
+- (BOOL)iterateUploadsWithCodeblock:(id /* block */)a0;
+- (id)persist:(id)a0;
+- (long long)maxRowId;
+- (long long)cleanupPurgableUploads;
+- (BOOL)_updateStatusHelperForUpload:(id)a0 toStatus:(int)a1;
+- (BOOL)executeSQLStatement:(const char *)a0 usingTransaction:(BOOL)a1;
+- (BOOL)iteratePayloadForBatch:(id)a0 codeblock:(id /* block */)a1;
+- (BOOL)open;
+- (id)getBatchIdsWithStatus:(int)a0;
+- (id)getUploadIdsWithStatus:(int)a0;
+- (BOOL)__deleteStatementHelper:(const char *)a0 forUploadId:(id)a1;
+- (BOOL)_updateStatusHelperForBatch:(id)a0 toStatus:(int)a1;
+- (id)getPurgableBatchIds;
+- (id)getUploadsRangeStart:(long long)a0 end:(long long)a1;
+- (BOOL)updateSchema;
+- (id)getBatchIdsWithAllStatuses;
+- (id)registerInsertionObserver:(id /* block */)a0;
+- (BOOL)updateStatusForBatch:(id)a0 toStatus:(int)a1;
+- (unsigned long long)getCurrentDatabaseSize;
+- (BOOL)closeOpenBatch;
+- (BOOL)forceCloseOpenBatches;
+- (BOOL)prepareSchema;
+- (BOOL)executeInTransactionMultipleSQLStatements:(id)a0;
+- (long long)doUploadHousekeeping;
+- (void).cxx_destruct;
+- (int)getSchemaVersion;
+- (id)getUploadIdsWithAllStatuses;
+- (BOOL)tryPrepare:(const char *)a0 preparedStatement:(inout struct sqlite3_stmt **)a1;
+- (BOOL)executeSQLStatement:(const char *)a0;
+- (BOOL)deleteAllUploads;
+- (id)getRecordsRangeStart:(long long)a0 end:(long long)a1;
+- (BOOL)initializeNewBatch;
+- (BOOL)_updateMetadataHelperForBatch:(id)a0 query:(const char *)a1;
+- (id)persistUploadPayload:(id)a0;
+- (id)getPurgableUploadIds;
+- (BOOL)createDatabase;
+- (BOOL)getIntValueForPragma:(id)a0 into:(inout int *)a1;
+- (BOOL)deleteUploadWithIdentifier:(id)a0;
+- (BOOL)purgeBatch:(id)a0;
+- (id)initWithStoreId:(id)a0 loggingContext:(id)a1;
+- (BOOL)tryRolloverBatchIfNecessary:(unsigned long long)a0;
+- (BOOL)__purgeStatementHelper:(const char *)a0 forBatchId:(id)a1;
+- (BOOL)recoverOrphanedProcessingBatches;
+- (BOOL)initializeConnectionForUseBy:(int)a0;
+- (BOOL)updateStatusForUpload:(id)a0 toStatus:(int)a1;
+- (id)_getUploadIdsHelper:(struct sqlite3_stmt { } *)a0;
+- (BOOL)deleteDatabase;
+- (void)dealloc;
+- (BOOL)purgeAllBatches;
+- (long long)doBatchesHousekeeping;
+- (void)observeInsertionAtRow:(long long)a0 observer:(id /* block */)a1;
+- (id)getUploadRecordWithId:(id)a0;
+- (id)_getBatchIdsHelper:(struct sqlite3_stmt { } *)a0;
+- (BOOL)markUploadsForPurge;
+- (BOOL)setDatabaseSizeLimit;
+- (BOOL)closeOrphanedBatches;
+- (BOOL)_updateMetadataHelperForUpload:(id)a0 query:(const char *)a1;
+- (BOOL)markBatchesforPurge;
+
+@end

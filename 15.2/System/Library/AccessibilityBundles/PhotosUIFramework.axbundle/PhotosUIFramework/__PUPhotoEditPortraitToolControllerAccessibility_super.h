@@ -1,0 +1,3 @@
+@interface __PUPhotoEditPortraitToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType10UVExposure : _TtCs12_SwiftObject
+
+@end

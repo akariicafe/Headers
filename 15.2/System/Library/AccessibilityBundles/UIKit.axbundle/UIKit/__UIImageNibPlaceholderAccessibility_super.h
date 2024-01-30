@@ -1,0 +1,3 @@
+@interface __UIImageNibPlaceholderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

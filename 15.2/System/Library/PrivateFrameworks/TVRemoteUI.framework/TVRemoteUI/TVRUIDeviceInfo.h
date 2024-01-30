@@ -1,0 +1,21 @@
+@interface TVRUIDeviceInfo : NSObject
+
+@property (class, retain, nonatomic) TVRUIDeviceInfo *currentDeviceInfo;
+
+@property (nonatomic) double volumeButtonHeight;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } volumeButtonsRect;
+@property (readonly, nonatomic, getter=isPad) BOOL pad;
+@property (readonly, nonatomic, getter=hasHomeButton) BOOL homeButton;
+
+
+- (id)description;
+- (id)init;
+- (id)hardwareInfoForOrientation:(long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_userIntentButtonRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_volumeUpButtonRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_volumeDownButtonRect;
+- (void)_readPlistForParametersIfNeeded;
+- (double)_volumeButtonsX;
+- (id)_volumeButtonsDictionaryForSpecificHardaware;
+
+@end

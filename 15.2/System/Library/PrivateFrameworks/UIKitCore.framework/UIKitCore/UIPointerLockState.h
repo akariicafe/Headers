@@ -1,0 +1,22 @@
+@class UIScene, NSString;
+
+@interface UIPointerLockState : NSObject <_UISceneComponentProviding> {
+    long long _status;
+}
+
+@property (readonly, nonatomic, getter=isLocked) BOOL locked;
+@property (weak, nonatomic, getter=_scene, setter=_setScene:) UIScene *_scene;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithScene:(id)a0;
+- (id)_windowScene;
+- (id)_settingsDiffActionsForScene:(id)a0;
+- (void)_preferredPointerLockStatusUpdated;
+- (void).cxx_destruct;
+- (void)_pointerLockStatusUpdated;
+- (id)windowHostingScene;
+
+@end

@@ -1,0 +1,3 @@
+@interface CHUISAvocadoRequestLaunchAction : BSAction
+
+@end

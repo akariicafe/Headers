@@ -1,0 +1,20 @@
+@class NSArray, SHJSONLCustomCatalogTransformer;
+@protocol SHCustomCatalogStorage;
+
+@interface SHCustomCatalogContainer : NSObject
+
+@property (readonly, nonatomic) id<SHCustomCatalogStorage> container;
+@property (readonly, nonatomic) SHJSONLCustomCatalogTransformer *transformer;
+@property (readonly, nonatomic) NSArray *referenceSignatures;
+
++ (id)customCatalogURLFromURL:(id)a0 error:(id *)a1;
+
+- (void).cxx_destruct;
+- (id)init;
+- (BOOL)writeToURL:(id)a0 error:(id *)a1;
+- (BOOL)loadFromURL:(id)a0 error:(id *)a1;
+- (id)mediaItemsForReferenceSignature:(id)a0;
+- (id)referenceSignatureForTrackID:(unsigned long long)a0;
+- (void)addSignature:(id)a0 representingMediaItems:(id)a1;
+
+@end

@@ -1,0 +1,85 @@
+@class NSString, NSManagedObject, NSMutableOrderedSet;
+
+@interface _NSNotifyingWrapperMutableOrderedSet : NSMutableOrderedSet {
+    NSManagedObject *_container;
+    NSString *_key;
+    NSMutableOrderedSet *_mutableOrderedSet;
+}
+
++ (Class)classForKeyedUnarchiver;
+
+- (id)firstObject;
+- (id)set;
+- (id)lastObject;
+- (unsigned long long)indexOfObject:(id)a0 inSortedRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 options:(unsigned long long)a2 usingComparator:(id /* block */)a3;
+- (void)intersectOrderedSet:(id)a0;
+- (void)removeObjectsAtIndexes:(id)a0;
+- (void)replaceObjectAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (void)replaceObjectsAtIndexes:(id)a0 withObjects:(id)a1;
+- (void)moveObjectsAtIndexes:(id)a0 toIndex:(unsigned long long)a1;
+- (BOOL)intersectsOrderedSet:(id)a0;
+- (BOOL)isSubsetOfOrderedSet:(id)a0;
+- (unsigned long long)indexOfObjectPassingTest:(id /* block */)a0;
+- (id)indexesOfObjectsPassingTest:(id /* block */)a0;
+- (id)reverseObjectEnumerator;
+- (id)reversedOrderedSet;
+- (id)objectEnumerator;
+- (id)valueForKey:(id)a0;
+- (void)removeObjectsInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)enumerateObjectsUsingBlock:(id /* block */)a0;
+- (id)objectAtIndex:(unsigned long long)a0;
+- (BOOL)containsObject:(id)a0;
+- (id)objectsAtIndexes:(id)a0;
+- (void)setObject:(id)a0 atIndex:(unsigned long long)a1;
+- (void)removeAllObjects;
+- (void)removeObjectsInArray:(id)a0;
+- (void)getObjects:(id *)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (unsigned long long)indexOfObjectWithOptions:(unsigned long long)a0 passingTest:(id /* block */)a1;
+- (id)sortedArrayWithOptions:(unsigned long long)a0 usingComparator:(id /* block */)a1;
+- (id)descriptionWithLocale:(id)a0 indent:(unsigned long long)a1;
+- (unsigned long long)countByEnumeratingWithState:(struct { unsigned long long x0; id *x1; unsigned long long *x2; unsigned long long x3[5]; } *)a0 objects:(id *)a1 count:(unsigned long long)a2;
+- (id)allObjects;
+- (void)exchangeObjectAtIndex:(unsigned long long)a0 withObjectAtIndex:(unsigned long long)a1;
+- (void)setValue:(id)a0 forKey:(id)a1;
+- (void)addObjectsFromArray:(id)a0;
+- (void)sortUsingComparator:(id /* block */)a0;
+- (void)replaceObjectsInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 withObjects:(const id *)a1 count:(unsigned long long)a2;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (void)minusSet:(id)a0;
+- (id)description;
+- (BOOL)isSubsetOfSet:(id)a0;
+- (void)insertObjects:(id *)a0 count:(unsigned long long)a1 atIndex:(unsigned long long)a2;
+- (void)minusOrderedSet:(id)a0;
+- (void)intersectSet:(id)a0;
+- (void)insertObject:(id)a0 atIndex:(unsigned long long)a1;
+- (BOOL)isEqualToOrderedSet:(id)a0;
+- (id)_orderedObjectsAndKeys;
+- (id)descriptionWithLocale:(id)a0;
+- (BOOL)_reorderObjectsToLocationsByOrderKey:(id)a0 error:(id *)a1;
+- (Class)classForCoder;
+- (void)sortWithOptions:(unsigned long long)a0 usingComparator:(id /* block */)a1;
+- (void)enumerateObjectsWithOptions:(unsigned long long)a0 usingBlock:(id /* block */)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)addObject:(id)a0;
+- (unsigned long long)count;
+- (id)initWithContainer:(id)a0 key:(id)a1 mutableOrderedSet:(id)a2;
+- (id)array;
+- (id)indexesOfObjectsAtIndexes:(id)a0 options:(unsigned long long)a1 passingTest:(id /* block */)a2;
+- (void)getObjects:(id *)a0;
+- (id)sortedArrayUsingComparator:(id /* block */)a0;
+- (id)indexesOfObjectsWithOptions:(unsigned long long)a0 passingTest:(id /* block */)a1;
+- (void)unionOrderedSet:(id)a0;
+- (void)dealloc;
+- (void)removeObject:(id)a0;
+- (unsigned long long)indexOfObjectAtIndexes:(id)a0 options:(unsigned long long)a1 passingTest:(id /* block */)a2;
+- (void)unionSet:(id)a0;
+- (void)addObjects:(const id *)a0 count:(unsigned long long)a1;
+- (void)sortRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 options:(unsigned long long)a1 usingComparator:(id /* block */)a2;
+- (void)removeObjectAtIndex:(unsigned long long)a0;
+- (void)insertObjects:(id)a0 atIndexes:(id)a1;
+- (id)valueForKeyPath:(id)a0;
+- (BOOL)intersectsSet:(id)a0;
+- (void)enumerateObjectsAtIndexes:(id)a0 options:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (unsigned long long)indexOfObject:(id)a0;
+
+@end

@@ -1,0 +1,22 @@
+@interface HealthExperienceUI.MedicalIDDataSourceItem : NSObject <HKMedicalIDViewControllerDelegate> {
+    void /* unknown type, empty encoding */ uniqueIdentifier;
+    void /* unknown type, empty encoding */ text;
+    void /* unknown type, empty encoding */ detailText;
+    void /* unknown type, empty encoding */ showDisclosureIndicator;
+    void /* unknown type, empty encoding */ reuseIdentifier;
+    void /* unknown type, empty encoding */ medicalIDViewController;
+    void /* unknown type, empty encoding */ healthStore;
+    void /* unknown type, empty encoding */ medicalIDCache;
+    void /* unknown type, empty encoding */ presentingViewController;
+    void /* unknown type, empty encoding */ currentMedicalIDDataResultCancellable;
+    void /* unknown type, empty encoding */ currentMedicalIDDataResultPresented;
+}
+
+- (void)medicalIDViewControllerDidCancel:(id)a0;
+- (void)medicalIDViewControllerDidSave:(id)a0;
+- (void)medicalIDViewControllerDidDelete:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)medicalIDUpdatedWithNotification:(id)a0;
+
+@end

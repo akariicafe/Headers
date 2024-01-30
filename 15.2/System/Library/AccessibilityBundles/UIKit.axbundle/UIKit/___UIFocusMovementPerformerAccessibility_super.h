@@ -1,0 +1,3 @@
+@interface ___UIFocusMovementPerformerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

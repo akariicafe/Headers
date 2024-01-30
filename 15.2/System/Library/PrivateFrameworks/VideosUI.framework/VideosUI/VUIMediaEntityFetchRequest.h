@@ -1,0 +1,87 @@
+@class NSString, NSSet, NSPredicate, NSArray, NSDictionary;
+
+@interface VUIMediaEntityFetchRequest : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) NSSet *mediaEntityTypes;
+@property (readonly, nonatomic) BOOL _isItemsFetch;
+@property (readonly, nonatomic) BOOL _isCollectionsFetch;
+@property (readonly, nonatomic) BOOL _isShowsFetch;
+@property (readonly, nonatomic) BOOL _isSeasonsFetch;
+@property (copy, nonatomic) NSPredicate *predicate;
+@property (copy, nonatomic) NSArray *sortDescriptors;
+@property (copy, nonatomic) NSSet *properties;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } range;
+@property (copy, nonatomic) NSString *groupingKeyPath;
+@property (copy, nonatomic) id /* block */ groupingSortComparator;
+@property (copy, nonatomic) NSDictionary *options;
+
++ (id)_identifierPredicateWithIdentifier:(id)a0;
++ (id)_minimalPropertiesFetchRequestWithType:(id)a0;
++ (id)_minimalMoviesPropertiesFetchRequest;
++ (id)_minimalMovieRentalsPropertiesFetchRequest;
++ (id)_minimalShowsPropertiesFetchRequest;
++ (id)_seasonsFetchRequestWithShowIdentifier:(id)a0;
++ (id)_seasonsFetchRequestWithSeasonIdentifier:(id)a0;
++ (id)_episodesFetchRequestWithSeasonIdentifier:(id)a0 showIdentifier:(id)a1;
++ (id)_addedDateSortDescriptor;
++ (id)_addedToDateSortDescriptor;
++ (id)_anyHDRColorCapabilityPredicate;
++ (id)_any4KResolutionPredicate;
++ (id)_predicateWithSubpredicates:(id)a0 compoundPredicateType:(unsigned long long)a1;
++ (id)_isLocalPredicate;
++ (id)_isInPredicateWithAdamId:(id)a0;
++ (id)_isEqualPredicateWithAdamId:(id)a0;
++ (id)_includeSortIndexesOptions;
++ (id)_titleSortDescriptor;
++ (id)_showIdentifierPredicateWithIdentifier:(id)a0;
++ (id)_seasonNumberSortDescriptor;
++ (id)_seasonIdentifierPredicateWithIdentifier:(id)a0;
++ (id)_episodeNumberSortDescriptor;
++ (id)_fractionalEpisodeNumberSortDescriptor;
++ (id)_resolutionPredicateWithResolution:(id)a0;
++ (id)_HLSResolutionPredicateWithResolution:(id)a0;
++ (id)mediaEntityFetchRequestWithIdentifier:(id)a0;
++ (id)homeVideosFetchRequest;
++ (id)moviesFetchRequest;
++ (id)movieRentalsFetchRequest;
++ (id)showsFetchRequest;
++ (id)seasonsFetchRequest;
++ (id)seasonsFetchRequestWithShowIdentifier:(id)a0;
++ (id)seasonsFetchRequestWithSeasonIdentifier:(id)a0;
++ (id)episodesFetchRequest;
++ (id)episodesFetchRequestWithSeasonIdentifier:(id)a0;
++ (id)episodesGroupedBySeasonIdentifierFetchRequestWithShowIdentifier:(id)a0;
++ (id)_releaseYearSortDescriptor;
++ (id)_releaseDateSortDescriptor;
++ (id)_showTitleSortDescriptor;
++ (id)_finalizedSortDescriptorsFromSortDescriptors:(id)a0 mediaEntityKind:(id)a1;
++ (id)_finalizedSortDescriptorFromSortDescriptor:(id)a0 mediaEntityKind:(id)a1;
+
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)_manualSortDescriptorsWithMediaEntityKind:(id)a0 propertiesRequiredForSort:(id *)a1;
+- (id)_sortIndexPropertyKeyWithMediaEntityKind:(id)a0;
+- (BOOL)_shouldGenerateSortIndexes;
+- (BOOL)_shouldGenerateGroupingSortIndexes;
+- (id)initWithMediaEntityType:(id)a0;
+- (void)_addPredicate:(id)a0;
+- (void)addSortIndexesOption;
+- (void)addGroupingSortIndexesOption;
+- (void)addRecentlyAddedSortDescriptorWithLimit:(unsigned long long)a0;
+- (void)addHDRColorCapabilityPredicate;
+- (void)add4KResolutionPredicate;
+- (void)addHDRColorCapabilityOr4KResolutionPredicate;
+- (void)addIsLocalPredicate;
+- (void)addIsLocalOrHasExpiredDownloadPredicate;
+- (void)addDownloadStatePredicateForStates:(unsigned long long)a0;
+- (void)addAdamIdPredicate:(id)a0;
+- (void)addAdamIdsPredicate:(id)a0;
+- (id)initWithMediaEntityTypes:(id)a0;
+- (void)_didUpdateRequestProperties;
+
+@end

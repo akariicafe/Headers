@@ -1,0 +1,3 @@
+@interface MenstrualCyclesAppPlugin.HistoricalAnalysisHeaderDataSource : MenstrualCyclesAppPlugin.RoomDataSource
+
+@end

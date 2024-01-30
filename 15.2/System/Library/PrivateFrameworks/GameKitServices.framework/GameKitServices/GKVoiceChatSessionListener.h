@@ -1,0 +1,17 @@
+@class GKRWLock, NSMutableArray, GKSessionInternal;
+
+@interface GKVoiceChatSessionListener : NSObject {
+    NSMutableArray *_conferenceList;
+    GKSessionInternal *_gkSession;
+    GKRWLock *_rwlock;
+}
+
+- (id)initWithSession:(id)a0;
+- (void)session:(id)a0 peer:(id)a1 didChangeState:(unsigned int)a2;
+- (void)removeSession:(id)a0;
+- (void)dealloc;
+- (void)receivedNewVoiceChatOOBMessage:(id)a0 fromPeerID:(id)a1;
+- (void)registerNewGKVoiceChatSession:(id)a0;
+- (id)currentSessions;
+
+@end

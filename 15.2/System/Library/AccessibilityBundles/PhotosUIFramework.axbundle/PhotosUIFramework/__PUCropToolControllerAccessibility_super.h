@@ -1,0 +1,3 @@
+@interface __PUCropToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

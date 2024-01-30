@@ -1,0 +1,3 @@
+@interface UISwitchCarPlayVisualElement : UISwitchModernVisualElement
+
+@end

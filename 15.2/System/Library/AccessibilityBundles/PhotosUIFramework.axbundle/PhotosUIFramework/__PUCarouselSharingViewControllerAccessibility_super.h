@@ -1,0 +1,3 @@
+@interface __PUCarouselSharingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

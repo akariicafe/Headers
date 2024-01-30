@@ -1,0 +1,3 @@
+@interface OKTransitionParallaxMoveIn : OKTransitionParallaxPush
+
+@end

@@ -1,0 +1,106 @@
+@class NSURL, SFQueueingServiceViewControllerProxy, NSMutableDictionary, _UIRemoteViewController, _UIAsyncInvocation, _SFURLTextPreviewViewController, UIView, _WKActivatedElementInfo, NSString, UIColor, SFSafariLaunchPlaceholderView, NSArray, SFSafariViewControllerConfiguration, SFBrowserRemoteViewController, SFInteractiveDismissController;
+@protocol SFSafariViewControllerDelegate, SFServiceViewControllerProtocol;
+
+@interface SFSafariViewController : UIViewController <SFBrowserRemoteViewControllerDelegate, SFInteractiveDismissControllerDelegate, SFQueueingServiceViewControllerProxyDelegate, _SFLinkPreviewHeaderDelegate, _UIRemoteViewControllerContaining> {
+    SFBrowserRemoteViewController *_remoteViewController;
+    _UIAsyncInvocation *_cancelViewServiceRequest;
+    BOOL _hasBeenDisplayedAtLeastOnce;
+    BOOL _remoteViewControllerHasBeenAdded;
+    BOOL _hasNotifiedDelegateAboutInitialLoadCompleted;
+    BOOL _hasRestartedViewService;
+    UIView *_nanoHeaderView;
+    NSArray *_previewActions;
+    _WKActivatedElementInfo *_activatedElementInfo;
+    NSArray *_customActivities;
+    NSMutableDictionary *_activitiesMap;
+    NSArray *_activityItemsForCustomActivities;
+    BOOL _swipeGestureEnabled;
+    SFInteractiveDismissController *_interactiveDismissController;
+    SFSafariLaunchPlaceholderView *_launchPlaceholderView;
+    long long _displayMode;
+    SFSafariViewControllerConfiguration *_configuration;
+    BOOL _viewSizeIsTransitioning;
+    struct UIEdgeInsets { double top; double left; double bottom; double right; } _verticalScrollIndicatorBaseInsets;
+    struct UIEdgeInsets { double top; double left; double bottom; double right; } _horizontalScrollIndicatorBaseInsets;
+    _SFURLTextPreviewViewController *_textPreviewViewController;
+    UIView *_linkPreviewHitTestView;
+}
+
+@property (class, readonly, nonatomic) BOOL _supportsPrewarming;
+
+@property (nonatomic, setter=_setShowingLinkPreview:) BOOL _showingLinkPreview;
+@property (nonatomic, setter=_setShowingLinkPreviewWithMinimalUI:) BOOL _showingLinkPreviewWithMinimalUI;
+@property (retain, nonatomic, setter=_setPreviewActions:) NSArray *_previewActions;
+@property (retain, nonatomic, setter=_setActivatedElementInfo:) _WKActivatedElementInfo *_activatedElementInfo;
+@property (readonly, nonatomic) SFQueueingServiceViewControllerProxy<SFServiceViewControllerProtocol> *serviceProxy;
+@property (readonly, nonatomic) NSURL *initialURL;
+@property (nonatomic) BOOL defersAddingRemoteViewController;
+@property (weak, nonatomic) id<SFSafariViewControllerDelegate> delegate;
+@property (readonly, copy, nonatomic) SFSafariViewControllerConfiguration *configuration;
+@property (retain, nonatomic) UIColor *preferredBarTintColor;
+@property (retain, nonatomic) UIColor *preferredControlTintColor;
+@property (nonatomic) long long dismissButtonStyle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) _UIRemoteViewController *_containedRemoteViewController;
+
++ (BOOL)_preventsAppearanceProxyCustomization;
++ (id)prewarmConnectionsToURLs:(id)a0;
+
+- (void)_boundingPathMayHaveChangedForView:(id)a0 relativeToBoundsOriginOnly:(BOOL)a1;
+- (id)childViewControllerForStatusBarStyle;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)initWithURL:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)loadView;
+- (BOOL)_allowsUserInteractionWhenPreviewedInContextMenu;
+- (id)childViewControllerForHomeIndicatorAutoHidden;
+- (id)previewActionItems;
+- (void).cxx_destruct;
+- (void)setTransitioningDelegate:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)_addRemoteView;
+- (void)dealloc;
+- (void)setModalPresentationStyle:(long long)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)_connectToService;
+- (id)initWithURL:(id)a0 configuration:(id)a1;
+- (void)_addRemoteViewControllerIfNeeded;
+- (void)remoteViewControllerWillDismiss:(id)a0;
+- (void)remoteViewController:(id)a0 viewServiceDidTerminateWithError:(id)a1;
+- (void)linkPreviewHeader:(id)a0 didEnableLinkPreview:(BOOL)a1;
+- (void)_restartServiceViewController;
+- (void)remoteViewController:(id)a0 hostApplicationOpenURL:(id)a1;
+- (void)serviceProxyWillQueueInvocation:(id)a0;
+- (void)remoteViewController:(id)a0 didFinishInitialLoad:(BOOL)a1;
+- (void)remoteViewControllerDidLoadWebView:(id)a0;
+- (void)remoteViewController:(id)a0 fetchActivityViewControllerInfoForURL:(id)a1 title:(id)a2;
+- (void)remoteViewController:(id)a0 executeCustomActivityProxyID:(id)a1;
+- (void)remoteViewController:(id)a0 setSwipeGestureEnabled:(BOOL)a1;
+- (void)remoteViewController:(id)a0 initialLoadDidRedirectToURL:(id)a1;
+- (void)remoteViewController:(id)a0 didDecideShouldShowLinkPreviews:(BOOL)a1;
+- (void)remoteViewControllerWillOpenCurrentPageInBrowser:(id)a0;
+- (void)_setUpWithURL:(id)a0 configuration:(id)a1;
+- (void)_didLoadRemoteViewController:(id)a0;
+- (void)_addLaunchPlaceholderView;
+- (void)_updateScrollViewIndicatorInsets;
+- (void)_forwardNotificationToViewService:(id)a0;
+- (void)_updatePreviewViewControllerWithLinkPreviewEnabled:(BOOL)a0 animated:(BOOL)a1;
+- (void)_removeLaunchPlaceholderView;
+- (void)_removeRemoteViewController;
+- (id)_fetchCustomActivitiesForURL:(id)a0 title:(id)a1;
+- (id)_fetchExcludedActivityTypesForURL:(id)a0 title:(id)a1;
+- (void)_setEdgeSwipeDismissalEnabled:(BOOL)a0;
+- (void)interactiveDismissControllerDidBegin:(id)a0;
+- (void)interactiveDismissControllerDidEnd:(id)a0;
+- (void)interactiveDismissControllerDidCancel:(id)a0;
+- (id)initWithURL:(id)a0 entersReaderIfAvailable:(BOOL)a1;
+- (void)_updateLinkPreviewHitTestView;
+- (id)_defaultPreviewActionItems;
+
+@end

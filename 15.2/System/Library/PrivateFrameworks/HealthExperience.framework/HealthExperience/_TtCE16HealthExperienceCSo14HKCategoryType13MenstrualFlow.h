@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType13MenstrualFlow : _TtCs12_SwiftObject
+
+@end

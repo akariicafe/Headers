@@ -1,0 +1,77 @@
+@class HUGridHomeCell, NSString, HUMosaicLayoutGeometry, HFHomeKitDispatcher, HUGridLayoutOptions, HUMosaicLayout, UICollectionViewCell, HUCCSmartGridItemManager;
+@protocol HUOpenURLHandling, HUCCSmartGridViewControllerDelegate;
+
+@interface HUCCSmartGridViewController : HUControllableItemCollectionViewController <HUMosaicLayoutDelegate, HUCCMosaicLayoutDelegate, HFHomeManagerObserver>
+
+@property (retain, nonatomic) HUMosaicLayoutGeometry *mosaicLayoutGeometry;
+@property (nonatomic, getter=isViewVisible) BOOL viewVisible;
+@property (nonatomic) BOOL needsLayoutOptionsUpdate;
+@property (retain, nonatomic) HUGridLayoutOptions *singleCellLayoutOptions;
+@property (retain, nonatomic) HUGridLayoutOptions *expandedCellLayoutOptions;
+@property (readonly, nonatomic) HFHomeKitDispatcher *dispatcher;
+@property (weak, nonatomic) HUGridHomeCell *homeCell;
+@property (weak, nonatomic) UICollectionViewCell *pressedTile;
+@property (nonatomic) BOOL isBoundsChangeUpdate;
+@property (nonatomic) unsigned long long sizeSubclass;
+@property (readonly, nonatomic) unsigned long long itemType;
+@property (weak, nonatomic) id<HUCCSmartGridViewControllerDelegate> delegate;
+@property (retain, nonatomic) id<HUOpenURLHandling> URLHandler;
+@property (retain, nonatomic) HUMosaicLayout *mosaicLayout;
+@property (readonly, nonatomic) HUCCSmartGridItemManager *itemManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)collectionView:(id)a0 shouldHighlightItemAtIndexPath:(id)a1;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (struct { unsigned long long x0; unsigned long long x1; })_gridLayout;
+- (void)configureCell:(id)a0 forItem:(id)a1;
+- (void)homeKitDispatcher:(id)a0 manager:(id)a1 didChangeHome:(id)a2;
+- (void)homeManagerDidFinishInitialDatabaseLoad:(id)a0;
+- (void)homeManagerDidFinishUnknownChange:(id)a0;
+- (id)itemManager:(id)a0 futureToUpdateItems:(id)a1 itemUpdateOptions:(id)a2;
+- (void)itemManager:(id)a0 performUpdateRequest:(id)a1;
+- (BOOL)presentationCoordinator:(id)a0 shouldBeginInteractivePresentationWithTouchLocation:(struct CGPoint { double x0; double x1; })a1;
+- (id)_performTapActionForItem:(id)a0;
+- (Class)cellClassForItem:(id)a0 indexPath:(id)a1;
+- (BOOL)shouldOverrideTraitCollectionForPresentationCoordinator:(id)a0;
+- (id)traitCollectionForPresentationCoordinator:(id)a0;
+- (BOOL)hasDetailsActionForPresentationCoordinator:(id)a0 item:(id)a1;
+- (id)detailsViewControllerForPresentationCoordinator:(id)a0 item:(id)a1;
+- (BOOL)presentationCoordinator:(id)a0 shouldBeginPresentationWithContext:(id)a1;
+- (id)layoutGeometry;
+- (unsigned long long)cellSizeForItemAtIndexPath:(id)a0;
+- (id)prepareToPerformToggleActionForItem:(id)a0 sourceItem:(id)a1;
+- (BOOL)_hasTapActionForItem:(id)a0;
+- (id)detailViewURLHandlerForPresentationCoordinator:(id)a0;
+- (void)presentationCoordinator:(id)a0 didEndPresentationWithContext:(id)a1;
+- (long long)preferredModalPresentationStyleForPresentationCoordinator:(id)a0;
+- (BOOL)presentationCoordinatorShouldDisablePullToUnlockSettings:(id)a0;
+- (void)presentationCoordinatorWillBeginTransition:(id)a0 presenting:(BOOL)a1;
+- (void)presentationCoordinatorWillEndTransition:(id)a0 presenting:(BOOL)a1;
+- (id)dismissQuickControlAnimated:(BOOL)a0 wasDismissed:(BOOL *)a1;
+- (id)arranger;
+- (void)itemManagerDidChangeMosaicLayout:(id)a0;
+- (void)itemManagerDidChangeNumberOfPlaceholderItems:(id)a0;
+- (void)_enqueueLayoutOptionsUpdate;
+- (void)_updateLayoutOptions;
+- (void)_restorePressedTileIfNeeded;
+- (id)_cellLayoutOptionsForItem:(id)a0;
+- (BOOL)_shouldShowHomeNameInHomeCell;
+- (void)_showDashboardControllerForHome:(id)a0;
+- (void)_checkForCollectionViewAssertions:(id)a0;
+- (void)_performItemConsistencyCheckForIndexPaths:(id)a0 withUpdateRequest:(id)a1;
+- (void)_updateHomeCell;
+- (void)_preloadItemsForPossiblePresentation;
+- (id)initWithItemType:(unsigned long long)a0 delegate:(id)a1;
+- (BOOL)canDismissQuickControl;
+- (struct HUGridSize { long long x0; long long x1; })occupiedGridSizeForOrientation:(long long)a0;
+
+@end

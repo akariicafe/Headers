@@ -1,0 +1,26 @@
+@class NSDictionary, NSMutableDictionary;
+
+@interface HDLab : NSObject {
+    NSMutableDictionary *_experiments;
+    NSMutableDictionary *_analyses;
+    NSMutableDictionary *_diagnostics;
+}
+
+@property (class, readonly, nonatomic) HDLab *defaultLab;
+
+@property (readonly, nonatomic) NSDictionary *availableExperiments;
+@property (readonly, nonatomic) NSDictionary *availableAnalyses;
+@property (readonly, nonatomic) NSDictionary *availableDiagnostics;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)addDiagnosticWithName:(id)a0 experimentName:(id)a1 analysisName:(id)a2 block:(id /* block */)a3;
+- (id)experimentWithName:(id)a0;
+- (id)analysisWithName:(id)a0;
+- (void)addDiagnosticWithName:(id)a0 block:(id /* block */)a1;
+- (void)addExperimentWithName:(id)a0 block:(id /* block */)a1;
+- (void)addAnalysisWithName:(id)a0 block:(id /* block */)a1;
+- (void)addDiagnosticWithName:(id)a0 summary:(id)a1 experimentName:(id)a2 analysisName:(id)a3;
+- (id)diagnosticWithName:(id)a0;
+
+@end

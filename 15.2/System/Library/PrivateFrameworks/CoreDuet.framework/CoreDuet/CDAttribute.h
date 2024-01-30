@@ -1,0 +1,80 @@
+@class NSString, NSMutableDictionary, CDSession, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CDAttribute : NSObject {
+    CDSession *_session;
+    NSMutableArray *resourceCallbackList;
+    NSMutableArray *revocationCallbackList;
+    NSObject<OS_dispatch_queue> *resourceCallbackQueue;
+    int resourceCallToken;
+    int focalAppToken;
+    int conditionChangeToken;
+    int systemConditionChangeToken;
+    int localFocalInfoToken;
+    int revocationToken;
+    unsigned short _admissionMask;
+    NSMutableDictionary *costCache;
+    BOOL delayedUpdatePending;
+    NSMutableDictionary *tokenCache;
+    NSMutableDictionary *dateCache;
+    NSMutableArray *activeReports;
+    NSObject<OS_dispatch_queue> *_deferredRequestsQ;
+    NSObject<OS_dispatch_queue> *admissionCacheQueue;
+    NSMutableDictionary *admissionCache;
+    CDSession *_sessionStrong;
+    CDSession *_sessionWeak;
+}
+
+@property (readonly) unsigned long long integerId;
+@property (readonly) NSString *name;
+@property (readonly) NSString *fullName;
+@property (readonly) long long type;
+
+- (id)peerForecastOfValue:(id)a0 forHistoryWindow:(id)a1 device:(id)a2 forecastType:(long long)a3 temporalLeeway:(double)a4 maximumElements:(unsigned long long)a5 error:(id *)a6;
+- (id)temporalForecastOfValue:(id)a0 forHistoryWindow:(id)a1 device:(id)a2 forecastType:(long long)a3 temporalLeeway:(double)a4 maximumElements:(unsigned long long)a5 error:(id *)a6;
+- (BOOL)setCategory:(long long)a0 error:(id *)a1;
+- (id)description;
+- (BOOL)reset:(long long)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (id)fullNameFromString:(id)a0 clientId:(unsigned long long)a1 error:(id *)a2;
+- (id)histogramForHistoryWindow:(id)a0 error:(id *)a1;
+- (BOOL)associateToBudget:(id)a0 error:(id *)a1;
+- (BOOL)admissionCheckOfValue:(id)a0 type:(long long)a1 options:(id)a2 error:(id *)a3 handler:(id /* block */)a4;
+- (BOOL)occurredWithValue:(id)a0 cost:(long long)a1 error:(id *)a2;
+- (BOOL)resetAdmissionBitMask:(unsigned long long)a0 error:(id *)a1;
+- (id)temporalForecastOfValue:(id)a0 forHistoryWindow:(id)a1 forecastType:(long long)a2 maximumElements:(unsigned long long)a3 error:(id *)a4;
+- (id)repeatedStatistic:(long long)a0 forHistoryWindow:(id)a1 error:(id *)a2;
+- (id)peerForecastOfValue:(id)a0 forHistoryWindow:(id)a1 forecastType:(long long)a2 maximumElements:(unsigned long long)a3 error:(id *)a4;
+- (id)initWithSession:(id)a0 name:(id)a1 type:(long long)a2 integerId:(unsigned long long)a3 error:(id *)a4;
+- (id)initWithMySession:(id)a0 name:(id)a1 type:(long long)a2 integerId:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)backgroundLaunchStartedWithValue:(id)a0 error:(id *)a1;
+- (BOOL)backgroundLaunchStoppedWithValue:(id)a0 error:(id *)a1;
+- (BOOL)activityStartedWithValue:(id)a0 cost:(long long)a1 error:(id *)a2;
+- (BOOL)activityStartedWithValue:(id)a0 cost:(long long)a1 onDate:(id)a2 error:(id *)a3;
+- (BOOL)activityStoppedWithValue:(id)a0 cost:(long long)a1 error:(id *)a2;
+- (BOOL)activityStoppedWithValue:(id)a0 cost:(long long)a1 onDate:(id)a2 error:(id *)a3;
+- (BOOL)activityWithValue:(id)a0 cost:(long long)a1 error:(id *)a2 block:(id /* block */)a3;
+- (BOOL)occurredWithValue:(id)a0 cost:(long long)a1 onDate:(id)a2 error:(id *)a3;
+- (double)correlationOfValue:(id)a0 toAttribute:(id)a1 withValue:(id)a2 temporalLeeway:(double)a3 error:(id *)a4;
+- (BOOL)setAdmissionBitMask:(unsigned long long)a0 error:(id *)a1;
+- (id)distinctValuesForHistoryWindow:(id)a0 error:(id *)a1;
+- (id)statistic:(long long)a0 forHistoryWindow:(id)a1 error:(id *)a2;
+- (BOOL)admissionCheckOfValue:(id)a0 andStartedWithValue:(id)a1 cost:(long long)a2 type:(long long)a3 options:(id)a4 error:(id *)a5 handler:(id /* block */)a6;
+- (BOOL)admissionCheckOfValue:(id)a0 andOccurredWithValue:(id)a1 cost:(long long)a2 type:(long long)a3 options:(id)a4 error:(id *)a5 handler:(id /* block */)a6;
+- (void)admissionCheckOfValueAsync:(id)a0 type:(long long)a1 options:(id)a2 handleQueue:(id)a3 handler:(id /* block */)a4;
+- (BOOL)setTrendBlockForValue:(id)a0 withConfig:(id)a1 error:(id *)a2 handler:(id /* block */)a3;
+- (id)statistic:(long long)a0 forHistoryWindow:(id)a1 device:(id)a2 error:(id *)a3;
+- (BOOL)setAdmissionRevocationBlockWithError:(id *)a0 handler:(id /* block */)a1;
+- (BOOL)setResourceAvailabilityBlockWithError:(id *)a0 handler:(id /* block */)a1;
+- (unsigned long long)meteringStartedWithValue:(id)a0 costDictionary:(id)a1 onDate:(id)a2 error:(id *)a3;
+- (BOOL)meteringStoppedWithValue:(id)a0 costDictionary:(id)a1 onDate:(id)a2 meteringToken:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)meteringUpdateWithValue:(id)a0 costDictionary:(id)a1 onDate:(id)a2 meteringToken:(unsigned long long)a3 error:(id *)a4;
+- (id)repeatedStatistic:(long long)a0 forHistoryWindow:(id)a1 device:(id)a2 error:(id *)a3;
+- (id)historyOfValue:(id)a0 forWindow:(id)a1 filter:(long long)a2 maximumElements:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)requestTemporalForecastFromDevice:(id)a0 withValue:(id)a1 forHistoryWindow:(id)a2 forecastType:(long long)a3 error:(id *)a4 handler:(id /* block */)a5;
+- (BOOL)requestPeerForecastFromDevice:(id)a0 withValue:(id)a1 forHistoryWindow:(id)a2 forecastType:(long long)a3 error:(id *)a4 handler:(id /* block */)a5;
+- (BOOL)requestStatisticFromDevice:(id)a0 statistic:(long long)a1 forHistoryWindow:(id)a2 error:(id *)a3 handler:(id /* block */)a4;
+- (void)dealloc;
+- (BOOL)destroyWithError:(id *)a0;
+
+@end

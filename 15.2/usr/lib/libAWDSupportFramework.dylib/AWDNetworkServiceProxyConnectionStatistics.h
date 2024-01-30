@@ -1,0 +1,78 @@
+@interface AWDNetworkServiceProxyConnectionStatistics : PBCodable <NSCopying> {
+    struct { unsigned int *list; unsigned long long count; unsigned long long size; } _connectionDurationBuckets;
+    struct { unsigned char captivePresentCount : 1; unsigned char connectionCount : 1; unsigned char mptcpSuccessCount : 1; unsigned char restrictedNetworkCount : 1; unsigned char resultConnectionResetCount : 1; unsigned char resultNetworkUnavailableCount : 1; unsigned char resultResponseTimeoutCount : 1; unsigned char resultSendFailureCount : 1; unsigned char resultServerBusyCount : 1; unsigned char resultServerDetachedCount : 1; unsigned char resultServerInterruptCount : 1; unsigned char resultServerOfflineCount : 1; unsigned char resultServerOrphanedCount : 1; unsigned char resultServerSessionExpiredCount : 1; unsigned char resultServerUnreachableCount : 1; unsigned char resultSuccessCount : 1; unsigned char resultUnknownErrorCount : 1; unsigned char tfoSuccessCount : 1; unsigned char timestamp : 1; unsigned char alternatePathCount : 1; unsigned char captivePresentFailedCount : 1; unsigned char exceededMssCount : 1; unsigned char interfaceType : 1; unsigned char protocolType : 1; unsigned char restrictedNetworkFailedCount : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasInterfaceType;
+@property (nonatomic) int interfaceType;
+@property (nonatomic) BOOL hasConnectionCount;
+@property (nonatomic) unsigned long long connectionCount;
+@property (nonatomic) BOOL hasTfoSuccessCount;
+@property (nonatomic) unsigned long long tfoSuccessCount;
+@property (nonatomic) BOOL hasMptcpSuccessCount;
+@property (nonatomic) unsigned long long mptcpSuccessCount;
+@property (nonatomic) BOOL hasRestrictedNetworkCount;
+@property (nonatomic) unsigned long long restrictedNetworkCount;
+@property (nonatomic) BOOL hasCaptivePresentCount;
+@property (nonatomic) unsigned long long captivePresentCount;
+@property (nonatomic) BOOL hasResultSuccessCount;
+@property (nonatomic) unsigned long long resultSuccessCount;
+@property (nonatomic) BOOL hasResultNetworkUnavailableCount;
+@property (nonatomic) unsigned long long resultNetworkUnavailableCount;
+@property (nonatomic) BOOL hasResultServerUnreachableCount;
+@property (nonatomic) unsigned long long resultServerUnreachableCount;
+@property (nonatomic) BOOL hasResultSendFailureCount;
+@property (nonatomic) unsigned long long resultSendFailureCount;
+@property (nonatomic) BOOL hasResultResponseTimeoutCount;
+@property (nonatomic) unsigned long long resultResponseTimeoutCount;
+@property (nonatomic) BOOL hasResultConnectionResetCount;
+@property (nonatomic) unsigned long long resultConnectionResetCount;
+@property (nonatomic) BOOL hasResultServerBusyCount;
+@property (nonatomic) unsigned long long resultServerBusyCount;
+@property (nonatomic) BOOL hasResultServerOfflineCount;
+@property (nonatomic) unsigned long long resultServerOfflineCount;
+@property (nonatomic) BOOL hasResultServerDetachedCount;
+@property (nonatomic) unsigned long long resultServerDetachedCount;
+@property (nonatomic) BOOL hasResultServerInterruptCount;
+@property (nonatomic) unsigned long long resultServerInterruptCount;
+@property (nonatomic) BOOL hasResultServerSessionExpiredCount;
+@property (nonatomic) unsigned long long resultServerSessionExpiredCount;
+@property (nonatomic) BOOL hasResultUnknownErrorCount;
+@property (nonatomic) unsigned long long resultUnknownErrorCount;
+@property (nonatomic) BOOL hasRestrictedNetworkFailedCount;
+@property (nonatomic) unsigned int restrictedNetworkFailedCount;
+@property (nonatomic) BOOL hasCaptivePresentFailedCount;
+@property (nonatomic) unsigned int captivePresentFailedCount;
+@property (nonatomic) BOOL hasAlternatePathCount;
+@property (nonatomic) unsigned int alternatePathCount;
+@property (nonatomic) BOOL hasExceededMssCount;
+@property (nonatomic) unsigned int exceededMssCount;
+@property (readonly, nonatomic) unsigned long long connectionDurationBucketsCount;
+@property (readonly, nonatomic) unsigned int *connectionDurationBuckets;
+@property (nonatomic) BOOL hasProtocolType;
+@property (nonatomic) int protocolType;
+@property (nonatomic) BOOL hasResultServerOrphanedCount;
+@property (nonatomic) unsigned long long resultServerOrphanedCount;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id)dictionaryRepresentation;
+- (id)interfaceTypeAsString:(int)a0;
+- (int)StringAsInterfaceType:(id)a0;
+- (void)clearConnectionDurationBuckets;
+- (unsigned int)connectionDurationBucketsAtIndex:(unsigned long long)a0;
+- (void)addConnectionDurationBuckets:(unsigned int)a0;
+- (void)setConnectionDurationBuckets:(unsigned int *)a0 count:(unsigned long long)a1;
+- (id)protocolTypeAsString:(int)a0;
+- (int)StringAsProtocolType:(id)a0;
+
+@end

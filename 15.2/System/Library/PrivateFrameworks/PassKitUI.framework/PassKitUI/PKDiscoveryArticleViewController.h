@@ -1,0 +1,84 @@
+@class UIScreenEdgePanGestureRecognizer, NSString, NSObject, PKDiscoveryCardView, PKDiscoveryDismissButton, NSMutableDictionary, PKDiscoveryCardViewTemplateInformation, UIPanGestureRecognizer, UICollectionView, PKDiscoveryArticleLayout, UILabel, UIActivityIndicatorView;
+@protocol OS_dispatch_queue;
+
+@interface PKDiscoveryArticleViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate, PKDiscoveryCardViewDelegate, PKPaymentSetupDelegate> {
+    PKDiscoveryArticleLayout *_articleLayout;
+    struct UIEdgeInsets { double top; double left; double bottom; double right; } _contentInsets;
+    PKDiscoveryDismissButton *_dismissButton;
+    BOOL _isDownloading;
+    UIActivityIndicatorView *_activityIndicator;
+    UILabel *_downloadingLabel;
+    NSString *_referrerIdentifierOverride;
+    NSString *_callToActionIdentifier;
+    id /* block */ _callToActionTappedOverride;
+    UIPanGestureRecognizer *_panGestureRecognizer;
+    UIScreenEdgePanGestureRecognizer *_screenEdgePanGestureRecognizer;
+    NSMutableDictionary *_cellImageCache;
+    NSMutableDictionary *_imageDownloads;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lockDownloads;
+    NSObject<OS_dispatch_queue> *_loadImageQueue;
+    BOOL _scrolledToBottom;
+    BOOL _reportedScrolledToBottom;
+    PKDiscoveryCardViewTemplateInformation *_cardTemplateInformation;
+}
+
+@property (nonatomic) BOOL shouldHideStatusBar;
+@property (readonly, nonatomic) PKDiscoveryCardView *cardView;
+@property (readonly, nonatomic) UICollectionView *collectionView;
+@property (nonatomic) BOOL hasSafeAreaInsetOverride;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } safeAreaOverrideInsets;
+@property (nonatomic, getter=isAnimatingCard) BOOL animatingCard;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForHeaderInSection:(long long)a2;
+- (BOOL)prefersStatusBarHidden;
+- (long long)modalPresentationStyle;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)presentationControllerForPresentedViewController:(id)a0 presentingViewController:(id)a1 sourceViewController:(id)a2;
+- (void)viewWillLayoutSubviews;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForFooterInSection:(long long)a2;
+- (void)loadView;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)_applicationWillResignActive;
+- (void)scrollViewDidScroll:(id)a0;
+- (long long)modalTransitionStyle;
+- (long long)preferredStatusBarUpdateAnimation;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)_handlePanGesture:(id)a0;
+- (void)_applicationWillTerminate;
+- (void)_systemTextSizeChanged;
+- (void)paymentSetupDidFinish:(id)a0;
+- (id)_paymentSetupNavigationControllerForProvisioningController:(id)a0;
+- (void)discoveryCardViewCTATapped:(id)a0 callToAction:(id)a1 itemIdentifier:(id)a2;
+- (void)setCallToActionTappedOverride:(id /* block */)a0;
+- (id)initWithArticleLayout:(id)a0 referrerIdentifier:(id)a1 cardTemplateInformation:(id)a2;
+- (void)setArticleLayout:(id)a0 animated:(BOOL)a1;
+- (void)setIsDownloading:(BOOL)a0;
+- (BOOL)isScrollable;
+- (void)_reportScolledToBottomIfNecessary;
+- (void)_dismissButtonTapped;
+- (long long)_dismissButtonStyleForCard;
+- (void)_leftScreenEdgePanSwipeGesture:(id)a0;
+- (void)_updateDismissButtonIfNecessary;
+- (void)_dismissForActionCompleted:(BOOL)a0 withRelevantPassUniqueIdentifier:(id)a1;
+- (id)_shelfForIndexPath:(id)a0;
+- (void)_performProvisioningCTATapped:(id)a0 callToAction:(id)a1;
+- (void)_performAccountUserInvitationFlowWithCTATapped:(id)a0 callToAction:(id)a1;
+- (void)_showActivityIndicator:(BOOL)a0 view:(id)a1;
+- (void)_configureInlineMediaShelfView:(id)a0 forInlineMediaShelf:(id)a1 atIndexPath:(id)a2;
+- (void)_configureCallToActionShelfView:(id)a0 forCallToActionShelf:(id)a1 atIndexPath:(id)a2;
+- (void)_loadMedia:(id)a0 forShelfViewAtIndexPath:(id)a1 completion:(id /* block */)a2;
+- (id)initWithItemIdentifier:(id)a0 referrerIdentifier:(id)a1;
+- (BOOL)_hasCardInGalleryView;
+
+@end

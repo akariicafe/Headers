@@ -1,0 +1,3 @@
+@interface MKFActionShortcutDatabaseID : MKFActionDatabaseID
+
+@end

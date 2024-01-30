@@ -1,0 +1,3 @@
+@interface _TtC9WidgetKitP33_4EED76D0401824B32C7CAD5F3379DA3F26TightLeadingFontDefinition : _TtCs12_SwiftObject
+
+@end

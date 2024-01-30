@@ -1,0 +1,3 @@
+@interface HPXPCUtility : NSObject
+
+@end

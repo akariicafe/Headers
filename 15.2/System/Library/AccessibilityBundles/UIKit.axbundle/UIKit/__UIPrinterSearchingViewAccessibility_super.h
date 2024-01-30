@@ -1,0 +1,3 @@
+@interface __UIPrinterSearchingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface CIDepthEffect : CIDepthBlurEffect
+
+@end

@@ -1,0 +1,87 @@
+@class NSTimer, NSString, NSArray, NSMutableArray, UITapGestureRecognizer, NSDictionary, UIHoverGestureRecognizer, SBSetupManager, CSCoverSheetViewController, SBSetupRegulatoryInfoViewController, SBSetupWiFiScanner, SBActivationInfoViewController;
+
+@interface SBDashBoardSetupViewController : CSCoverSheetViewControllerBase <STTelephonyStateObserver, CSEventHandling, UIGestureRecognizerDelegate> {
+    SBSetupWiFiScanner *_wifiScanner;
+    SBActivationInfoViewController *_activationInfoViewController;
+    SBSetupRegulatoryInfoViewController *_regulatoryInfoViewController;
+    SBSetupManager *_setupManager;
+    CSCoverSheetViewController *_coverSheetViewController;
+    NSString *_configureKey;
+    NSString *_wifiPrimaryLanguage;
+    NSString *_telephonyPrimaryLanguage;
+    NSTimer *_cycleStartTimer;
+    NSDictionary *_localizedStrings;
+    NSDictionary *_storeRestrictedStrings;
+    NSDictionary *_activationLockStrings;
+    NSString *_maskedAppleID;
+    NSArray *_stringsOrdering;
+    NSMutableArray *_currentStringsOrdering;
+    unsigned long long _currentStringsIndex;
+    BOOL _shouldResetOrderingOnNextCycle;
+    BOOL _isCyclingComponents;
+    unsigned long long _componentsToCycle;
+    double _customDelayDuration;
+    BOOL _isStoreRestricted;
+    BOOL _isActivationLocked;
+    UITapGestureRecognizer *_pointerClickGestureRecognizer;
+    UIHoverGestureRecognizer *_hoverGestureRecognizer;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithCoverSheetViewController:(id)a0;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)subscriptionInfoDidChangeForStateProvider:(id)a0 slot:(long long)a1;
+- (long long)presentationPriority;
+- (void)loadView;
+- (BOOL)handleEvent:(id)a0;
+- (long long)presentationType;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)setupView;
+- (void).cxx_destruct;
+- (BOOL)_isSecurityResearchDevice;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)_infoButtonTapped:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)aggregateBehavior:(id)a0;
+- (void)aggregateAppearance:(id)a0;
+- (void)_startWifiScan;
+- (void)_updateStringOrderingForLanguageChange;
+- (void)_checkIfActivationLocked;
+- (void)_didClickHomeAffordance:(id)a0;
+- (void)_handleHoverEvent:(id)a0;
+- (void)_updateLanguageFromTelephony;
+- (unsigned long long)_componentsRelevantToPointerSuppression;
+- (BOOL)isCyclingComponents:(unsigned long long)a0;
+- (void)_stopCyclingComponents:(unsigned long long)a0;
+- (void)_startCyclingComponents:(unsigned long long)a0 withDelay:(double)a1;
+- (unsigned long long)_componentsToStartCycling;
+- (void)_cancelWifiScan;
+- (void)_resetDisplayedLocalizedStringsImmediately:(BOOL)a0;
+- (void)_animateComponentsForNewCycle;
+- (void)_updateDisplayedStrings;
+- (void)_incrementLocalizedStringsForNewCycle;
+- (id)_importantLanguageIdentifiers;
+- (id)_currentLanguageIdentifier;
+- (id)_applicableIdentifierForDictionary:(id)a0 identifier:(id)a1;
+- (id)_displayStringForLocalizedString:(id)a0 fallbackString:(id)a1;
+- (id)_alignedMarketingOrdering;
+- (id)_subscriptionInfoForSubscriptionDataSource:(long long)a0;
+- (id)firstSupportedLanguageIdentifierInRegionalLanguageIdentifiers:(id)a0 countryCode:(id)a1;
+- (id)_subcriptionDataSourceDescription:(long long)a0;
+- (void)_updateLanguageFromSubscriptionDataSource:(long long)a0;
+- (id)_supportedLanguageIdentifierFromRegionalLanguageIdentifier:(id)a0 countryCode:(id)a1;
+- (void)_updateForLockInfo:(id)a0;
+- (void)_regulatoryInfoButtonTapped:(id)a0;
+- (void)_updateWifiPrimaryLanguageFromDiscoveredCountryCodes:(id)a0;
+- (id)_currentStringsDictionary;
+- (id)_currentStoreRestrictedStringsDictionary;
+- (id)_currentActivationLockStringsDictionary;
+
+@end

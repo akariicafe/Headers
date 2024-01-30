@@ -1,0 +1,87 @@
+@class SBUICallToActionLabel, SBUILegibilityLabel, UILabel, SBFTouchPassThroughView, CSHomeAffordanceView, NSObject, _UILegibilitySettings, UIButton, UIView, NSString, UIStackView, NSArray, SBCursiveTextView, CADisplayLink, UIImageView;
+@protocol OS_dispatch_source;
+
+@interface SBDashBoardSetupView : UIView <CAAnimationDelegate> {
+    UILabel *_titleLabel;
+    UIStackView *_activationLockStackView;
+    UIImageView *_activationLockImage;
+    UILabel *_activationLockWarningLabel;
+    UILabel *_activationLockDetailLabel;
+    UILabel *_storeRestrictedTitleLabel;
+    UILabel *_storeRestrictedBodyLabel;
+    UILabel *_storeRestrictedLinkLabel;
+    UIView *_storeRestrictedContainer;
+    UILabel *_securityResearchDeviceTitleLabel;
+    UIView *_securityResearchDeviceContainer;
+    UIImageView *_securityResearchHeaderIcon;
+    UILabel *_securityResearchSubtitleLabel;
+    SBFTouchPassThroughView *_homeAffordanceContainer;
+    UIView *_homeAffordanceCallToActionContainer;
+    SBUILegibilityLabel *_homeAffordanceCallToActionLabel;
+    SBUICallToActionLabel *_homeButtonCallToActionLabel;
+    NSObject<OS_dispatch_source> *_homeButtonCallToActionTimer;
+    NSArray *_activationInfoViewConstraints;
+    NSString *_currentLanguage;
+    SBCursiveTextView *_cursiveTextView;
+    double _startTime;
+    double _customDelayDuration;
+    CADisplayLink *_displayLink;
+    BOOL _isStoreRestricted;
+    BOOL _isSecurityResearchDevice;
+}
+
+@property (retain, nonatomic) CSHomeAffordanceView *homeAffordanceView;
+@property (retain, nonatomic) UIView *activationInfoView;
+@property (retain, nonatomic) UIView *regulatoryInfoView;
+@property (retain, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property (readonly, nonatomic) UIButton *infoButton;
+@property (nonatomic, getter=isActivationLocked) BOOL activationLocked;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)layoutSubviews;
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)_onDisplayLink:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_setupConstraints;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)_addTitleLabel;
+- (void)_removeDisplayLink;
+- (void)setInfoButtonVisible:(BOOL)a0 animated:(BOOL)a1 withDelay:(double)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 usingHomeAffordance:(BOOL)a1 isStoreRestricted:(BOOL)a2 isSecurityResearchDevice:(BOOL)a3;
+- (void)animateComponents:(unsigned long long)a0 toActive:(BOOL)a1 withCompletion:(id /* block */)a2;
+- (double)setTitleString:(id)a0 forLanguage:(id)a1;
+- (void)setCallToActionString:(id)a0 forLanguage:(id)a1;
+- (void)setStoreRestrictedStrings:(id)a0 bodyString:(id)a1 linkString:(id)a2 forLanguage:(id)a3;
+- (void)setActivationLockWarningString:(id)a0 detailString:(id)a1 forLanguage:(id)a2;
+- (BOOL)_actsLikeStoreRestricted;
+- (void)_addActivationLockLabels;
+- (void)_addSecurityResearchLabels;
+- (void)_addInfoButton;
+- (void)_addStoreRestrictedLabels;
+- (void)_addHomeAffordanceCallToAction;
+- (void)_addHomeAffordance;
+- (void)_addHomeButtonCallToAction;
+- (void)_adjustTitleVisibilityForInfoViews;
+- (void)_setupActivationInfoConstraintsIfNeeded;
+- (void)_updateLegibilitySettings;
+- (void)_createDisplayLink;
+- (void)_animateView:(id)a0 toActive:(BOOL)a1 withDispatchGroup:(id)a2;
+- (void)_animateCursiveForTimePassed;
+- (BOOL)_isShowingModalTakeoverUI;
+- (void)_animateHomeButtonCallToActionToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_animateHomeAffordanceCallToActionToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_animateHomeAffordanceToActive:(BOOL)a0 withDispatchGroup:(id)a1;
+- (void)_layoutRegulatoryInfo;
+- (void)_layoutActivationInfoView;
+- (void)_layoutHomeButtonCallToAction;
+- (void)_layoutHomeAffordanceCallToAction;
+- (void)_layoutHomeAffordance;
+- (void)_removeResetAnimationForKeyPath:(id)a0 onLayer:(id)a1;
+- (void)_removeNormalAnimationForKeyPath:(id)a0 onLayer:(id)a1;
+- (void)_addResetAnimationForKeyPath:(id)a0 onLayer:(id)a1 dispatchGroup:(id)a2;
+
+@end

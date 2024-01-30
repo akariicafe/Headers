@@ -1,0 +1,71 @@
+@class NSObject;
+@protocol OS_dispatch_io, OS_dispatch_data, OS_dispatch_source, OS_dispatch_queue;
+
+@interface NSConcreteFileHandle : NSFileHandle {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    _Atomic int _error;
+    _Atomic int _resultSocket;
+    NSObject<OS_dispatch_source> *_dsrc;
+    NSObject<OS_dispatch_data> *_resultData;
+    NSObject<OS_dispatch_queue> *_fhQueue;
+    NSObject<OS_dispatch_io> *_readChannel;
+    id /* block */ _readabilityHandler;
+    id /* block */ _writeabilityHandler;
+    NSObject<OS_dispatch_source> *_readMonitoringSource;
+    NSObject<OS_dispatch_source> *_writeMonitoringSource;
+    NSObject<OS_dispatch_queue> *_monitoringQueue;
+    int _fd;
+    _Atomic unsigned short _flags;
+}
+
+- (BOOL)seekToOffset:(unsigned long long)a0 error:(out id *)a1;
+- (void)writeData:(id)a0;
+- (void)truncateFileAtOffset:(unsigned long long)a0;
+- (void)readToEndOfFileInBackgroundAndNotifyForModes:(id)a0;
+- (BOOL)synchronizeAndReturnError:(out id *)a0;
+- (void)_locked_clearHandler:(id /* block */ *)a0 forSource:(id *)a1;
+- (id /* block */)writeabilityHandler;
+- (void)synchronizeFile;
+- (id)initWithFileDescriptor:(int)a0 closeOnDealloc:(BOOL)a1;
+- (int)fileDescriptor;
+- (void)_cancelDispatchSources;
+- (id)availableData;
+- (void)readInBackgroundAndNotifyForModes:(id)a0;
+- (void)_closeOnDealloc;
+- (void)seekToFileOffset:(unsigned long long)a0;
+- (unsigned long long)readDataOfLength:(unsigned long long)a0 buffer:(char *)a1;
+- (id)initWithFileDescriptor:(int)a0;
+- (void)acceptConnectionInBackgroundAndNotify;
+- (void)waitForDataInBackgroundAndNotify;
+- (id /* block */)readabilityHandler;
+- (BOOL)seekToEndReturningOffset:(out unsigned long long *)a0 error:(out id *)a1;
+- (id)initWithURL:(id)a0 flags:(long long)a1 createMode:(long long)a2 error:(id *)a3;
+- (BOOL)closeAndReturnError:(out id *)a0;
+- (id)initWithPath:(id)a0 flags:(long long)a1 createMode:(long long)a2 error:(id *)a3;
+- (id)_monitor:(int)a0;
+- (BOOL)writeData:(id)a0 error:(out id *)a1;
+- (void)closeFile;
+- (unsigned long long)seekToEndOfFile;
+- (void)readInBackgroundAndNotify;
+- (void)waitForDataInBackgroundAndNotifyForModes:(id)a0;
+- (BOOL)getOffset:(out unsigned long long *)a0 error:(out id *)a1;
+- (id)initWithPath:(id)a0 flags:(long long)a1 createMode:(long long)a2;
+- (id)readDataOfLength:(unsigned long long)a0;
+- (id)readDataToEndOfFileAndReturnError:(out id *)a0;
+- (unsigned long long)offsetInFile;
+- (id)readDataToEndOfFile;
+- (BOOL)truncateAtOffset:(unsigned long long)a0 error:(out id *)a1;
+- (void)readToEndOfFileInBackgroundAndNotify;
+- (void)performActivity:(long long)a0 modes:(id)a1;
+- (void)setWriteabilityHandler:(id /* block */)a0;
+- (void)acceptConnectionInBackgroundAndNotifyForModes:(id)a0;
+- (id)readDataUpToLength:(unsigned long long)a0 error:(out id *)a1;
+- (void)setReadabilityHandler:(id /* block */)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)port;
+- (void)dealloc;
+- (void)setPort:(id)a0;
+
+@end

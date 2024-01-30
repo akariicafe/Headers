@@ -1,0 +1,3 @@
+@interface __PUCropAspectFlipperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

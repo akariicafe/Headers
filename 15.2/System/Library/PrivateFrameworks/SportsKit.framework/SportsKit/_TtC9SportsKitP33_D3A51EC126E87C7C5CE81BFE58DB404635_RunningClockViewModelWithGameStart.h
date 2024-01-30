@@ -1,0 +1,3 @@
+@interface _TtC9SportsKitP33_D3A51EC126E87C7C5CE81BFE58DB404635_RunningClockViewModelWithGameStart : SportsKit.RunningClockViewModel
+
+@end

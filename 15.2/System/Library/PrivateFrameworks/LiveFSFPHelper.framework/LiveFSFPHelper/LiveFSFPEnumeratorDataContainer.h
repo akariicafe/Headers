@@ -1,0 +1,57 @@
+@class NSString, LiveFSFPItemHelper, NSPointerArray, LiveFSRBTree, NSObject, LiveFSFPExtensionHelper;
+@protocol OS_dispatch_queue;
+
+@interface LiveFSFPEnumeratorDataContainer : NSObject <NSFileProviderLiveItemClientUpdate> {
+    LiveFSFPExtensionHelper *ext;
+    BOOL historyReset;
+    BOOL isActive;
+    NSPointerArray *ourEnumerators;
+    NSObject<OS_dispatch_queue> *updateQueue;
+}
+
+@property (readonly) BOOL hasPersistentIDs;
+@property (readonly) BOOL isDir;
+@property BOOL addedToExtension;
+@property BOOL addParent;
+@property int state;
+@property (readonly) BOOL isVolumeWide;
+@property (readonly, retain) NSString *containerID;
+@property (readonly) LiveFSFPItemHelper *enumeratedItem;
+@property (retain) NSString *enumeratedItemID;
+@property (readonly, retain) LiveFSRBTree *contentsSortedByDate;
+@property (readonly, retain) LiveFSRBTree *contentsSortedByName;
+
+- (id)loadContents;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (void)dealloc;
+- (void)LIUpdateUpdatedItem:(id)a0 name:(id)a1 interestedItem:(id)a2;
+- (void)LIUpdateUpdatedName:(id)a0 interestedItem:(id)a1;
+- (void)LIUpdateDeletedItem:(id)a0 name:(id)a1 how:(int)a2 interestedItem:(id)a3;
+- (void)LIUpdateDeletedName:(id)a0 item:(id)a1 how:(int)a2 interestedItem:(id)a3;
+- (void)LIUpdateRenameFrom:(id)a0 fromName:(id)a1 fromID:(id)a2 intoItem:(id)a3 toName:(id)a4 overID:(id)a5;
+- (void)LIUpdateVolumeWideUpdatedName:(id)a0 interestedItem:(id)a1;
+- (void)LIUpdateVolumeWideDeletedName:(id)a0 interestedItem:(id)a1;
+- (void)LIUpdateHistoryResetItem:(id)a0 interestedItem:(id)a1;
+- (void)LIUpdateHistoryResetName:(id)a0 interestedItem:(id)a1;
+- (void)LIUpdateDone:(id)a0;
+- (id)initForExtension:(id)a0 item:(id)a1;
+- (id)ensureConnectedForUpdates;
+- (void)dropInterestForEnumeratedItem:(id)a0;
+- (void)doShutdown;
+- (id)readDirBuffersForBufferBlock:(id /* block */)a0 andEntryBlock:(id /* block */)a1;
+- (void)applyDeleteAcrossEnumerators:(id)a0 newTombstone:(id)a1 toSelf:(BOOL)a2;
+- (void)doProcessItemDeleted:(id)a0;
+- (void)handleEnumeratedItemChanged;
+- (void)makeAllEnumeratorsDead;
+- (void)resetAllEnumerators;
+- (void)doShutdownOnEnumeratorHelperQueue;
+- (void)applyAddAcrossEnumerators:(id)a0 newName:(id)a1 forSelf:(BOOL)a2;
+- (id)initWithEnumeratedItem:(id)a0 fileHandle:(id)a1 extension:(id)a2;
+- (void)addEnumerator:(id)a0;
+- (void)dropEnumerator:(id)a0;
+- (void)dispatchOntoUpdateQueue:(id /* block */)a0;
+- (void)doProcessItemUpdated:(id)a0;
+- (void)applyParentUpdateAcrossEnumerators;
+
+@end

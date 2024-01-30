@@ -1,0 +1,41 @@
+@class NSMutableArray;
+
+@interface SYVectorClock : PBCodable <NSCopying>
+
+@property (retain, nonatomic) NSMutableArray *clocks;
+
++ (void)initialize;
++ (Class)clocksType;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (id)jsonRepresentation;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+- (id)initWithJSONRepresentation:(id)a0;
+- (unsigned long long)clocksCount;
+- (void)incrementClockForPeerID:(id)a0;
+- (BOOL)hasClockForPeer:(id)a0;
+- (id)clockForPeer:(id)a0;
+- (void)addClocks:(id)a0;
+- (unsigned long long)clockValueForPeerID:(id)a0;
+- (unsigned long long)clockValueForPeer:(id)a0;
+- (void)setClockValue:(unsigned long long)a0 forPeer:(id)a1;
+- (void)increaseClockForPeerID:(id)a0 by:(unsigned long long)a1;
+- (BOOL)_setTheory_isEqual:(id)a0;
+- (BOOL)hasClockForPeerID:(id)a0;
+- (id)clockForPeerID:(id)a0;
+- (void)setClockValue:(unsigned long long)a0 forPeerID:(id)a1;
+- (id)compactDictionaryRepresentation;
+- (void)increaseClockForPeer:(id)a0 by:(unsigned long long)a1;
+- (void)incrementClockForPeer:(id)a0;
+- (void)clearClocks;
+- (id)clocksAtIndex:(unsigned long long)a0;
+
+@end

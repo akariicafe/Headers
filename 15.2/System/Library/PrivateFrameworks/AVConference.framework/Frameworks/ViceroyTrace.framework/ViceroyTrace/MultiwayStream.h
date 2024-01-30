@@ -1,0 +1,85 @@
+@class NSString;
+
+@interface MultiwayStream : NSObject {
+    NSString *_streamID;
+    int _interval;
+    int _frequency;
+    double _lastReceivedVideoStallTime;
+    double _totalVideoStallTime;
+    double _maxVideoStallTime;
+    unsigned short _significantVideoStallCount;
+    unsigned short _maxVideoStallCount;
+    unsigned short _minVideoFrameRate;
+    unsigned short _audioErasureCount;
+    unsigned short _maxAudioErasureCount;
+    double _averageFramerateSum;
+    unsigned short _averageFramerateReportCounter;
+    double _averageVideoJitterLengthSum;
+    unsigned short _averageVideoJitterReportCounter;
+    double _averageJitterBufferDelay;
+    unsigned short _totalJitterBufferDelayCnt;
+    unsigned short _targetJBSizeAccumulation;
+    unsigned short _targetJBSizeChngCnt;
+    unsigned short _maxTargetJBSizeChanges;
+    int _totalVideoPacketsReceived;
+    int _oooPacketCount;
+    unsigned int _totalFIRDemandCounter;
+    unsigned int _totalFIRCounter;
+    unsigned int _videoFrameDecodedButSkippedCounter;
+    unsigned int _videoFrameIncompleteNextTSCounter;
+    unsigned int _videoFrameTotalIncompleteCounter;
+    unsigned int _decodedVideoFrameEnqueueCounter;
+    unsigned int _evictedFramesLikelyRecoverableCount;
+    unsigned int _evictedFramesTrackedCount;
+    unsigned int _evictedFramesAnalysisValidIntervals;
+    unsigned int _lateFramesScheduledCount;
+    double _evictedFramesAverageLatePacketDelay;
+    unsigned int _decodeNoShowFrameCount;
+    int _maxAVSyncOffset;
+    int _minAVSyncOffset;
+    int _averageAVSyncOffsetSum;
+    unsigned int _averageAVSyncOffsetCounter;
+}
+
+@property (readonly) double currentStallTime;
+@property (readonly) double totalAudioErasureTime;
+
+- (void)dealloc;
+- (unsigned int)RTPeriod;
+- (unsigned int)totalFIRDemandCounter;
+- (unsigned int)totalFIRCounter;
+- (unsigned int)videoFrameDecodedButSkippedCounter;
+- (unsigned int)videoFrameIncompleteNextTSCounter;
+- (unsigned int)videoFrameTotalIncompleteCounter;
+- (unsigned int)decodedVideoFrameEnqueueCounter;
+- (unsigned int)evictedFramesLikelyRecoverableCount;
+- (unsigned int)evictedFramesTrackedCount;
+- (double)evictedFramesAnalysisValidIntervals;
+- (double)evictedFramesAverageLatePacketDelay;
+- (unsigned int)lateFramesScheduledCount;
+- (int)minAVSyncOffset;
+- (int)maxAVSyncOffset;
+- (void)updateMinimumAndMaximumAVSyncOffset:(id)a0;
+- (id)initStreamWithID:(id)a0;
+- (void)processData:(id)a0 algosScorer:(id)a1;
+- (unsigned short)significantVideoStallCount;
+- (double)videoStallTotalTime;
+- (unsigned short)audioErasureCount;
+- (double)audioErasureTotalTime;
+- (unsigned short)maxAudioErasureCount;
+- (unsigned short)maxVideoStallCount;
+- (double)averageJitterBufferDelay;
+- (double)averageJBTargetSizeChanges;
+- (unsigned short)maxJBTargetSizeChanges;
+- (unsigned short)minVideoFrameRate;
+- (double)averageFramerateSum;
+- (unsigned short)averageFramerateReportCounter;
+- (double)averageVideoJitterLengthSum;
+- (unsigned short)averageVideoJitterReportCounter;
+- (unsigned int)oooPacketCount;
+- (unsigned int)totalVideoPacketsReceived;
+- (int)averageAVSyncOffsetSum;
+- (unsigned int)averageAVSyncOffsetCounter;
+- (unsigned int)decodeNoShowFrameCount;
+
+@end

@@ -1,0 +1,98 @@
+@class MFMailCompositionValues, NSString, NSArray, MFMailComposeViewController, NSError, MFMailComposePlaceholderViewController, NSMutableArray, NSXPCListener, _UIAsyncInvocation, MFMailComposeRemoteViewController;
+@protocol MFMailComposeViewControllerDelegate;
+
+@interface MFMailComposeInternalViewController : UIViewController <MSDOpenComposeProtocolDelegate, NSXPCListenerDelegate, MFMailComposeRemoteViewControllerDelegate, MFMailCompositionAdditionalDonating, MFMailCompositionShareSheetRecipients> {
+    NSXPCListener *_listener;
+    MFMailComposeViewController *_composeViewController;
+    MFMailComposePlaceholderViewController *_placeholderViewController;
+    MFMailComposeRemoteViewController *_serviceViewController;
+    _UIAsyncInvocation *_cancellationInvocation;
+    unsigned long long _defaultContentVariationIndex;
+    NSMutableArray *_contentVariations;
+    MFMailCompositionValues *_compositionValues;
+    NSMutableArray *_attachments;
+    NSString *_placeholderSubject;
+    long long _composeResult;
+    NSError *_composeResultError;
+    double _presentationDelayBeganTimestamp;
+    unsigned char _hasDelayedPresentation : 1;
+    unsigned char _didEndDelayedPresentation : 1;
+    unsigned char _compositionValuesAreFinalized : 1;
+    unsigned char _remoteViewControllerIsConfigured : 1;
+    unsigned char _isAppearing : 1;
+    unsigned char _didAppear : 1;
+    unsigned char _didFinish : 1;
+    unsigned char _delegateRespondsToBodyFinishedLoadingWithResult : 1;
+    id /* block */ _sceneDismissal;
+}
+
+@property (weak, nonatomic) id<MFMailComposeViewControllerDelegate> mailComposeDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSArray *UTITypes;
+@property (copy, nonatomic) NSArray *photoIDs;
+@property (copy, nonatomic) NSArray *cloudPhotoIDs;
+@property (copy, nonatomic) NSArray *contentText;
+@property (copy, nonatomic) NSArray *contentURLs;
+@property (copy, nonatomic) NSString *shareSheetSessionID;
+
++ (BOOL)_canSendMailInNewScene;
+
+- (void)setContentVisible:(BOOL)a0;
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(long long)a0;
+- (void)willMoveToParentViewController:(id)a0;
+- (void)loadView;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)setURL:(id)a0;
+- (void)autosaveWithHandler:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)setMessageBody:(id)a0 isHTML:(BOOL)a1;
+- (id)addAttachmentData:(id)a0 mimeType:(id)a1 fileName:(id)a2;
+- (void)setToRecipients:(id)a0;
+- (void)setAutosaveIdentifier:(id)a0;
+- (void)setSubject:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)setSourceAccountManagement:(int)a0;
+- (id)remoteViewController;
+- (void)setCcRecipients:(id)a0;
+- (void)setBccRecipients:(id)a0;
+- (void)setCaretPosition:(unsigned long long)a0;
+- (void)setPreferredSendingEmailAddress:(id)a0;
+- (void)setShowKeyboardImmediately:(BOOL)a0;
+- (void)_serviceViewControllerReady:(id)a0 error:(id)a1;
+- (void)_loadContentViewControllerForcingPlaceholder:(BOOL)a0;
+- (void)_cancelComposition:(id)a0;
+- (void)_notifyCompositionDidFinish;
+- (void)_beginDelayingCompositionPresenation;
+- (void)_didEndDelayingCompositionPresentation;
+- (void)_configureRemoteViewContoller;
+- (void)_finishServiceViewControllerRequestWithSuccess:(BOOL)a0;
+- (id)placeholderForFileName:(id)a0 fileSize:(long long)a1 mimeType:(id)a2 contentID:(id)a3 proxy:(id)a4;
+- (id)securityScopeForURL:(id)a0 proxy:(id)a1;
+- (void)_processAttachmentsViaProxy:(id)a0 withHandler:(id /* block */)a1;
+- (void)_notifyBodyDidFinishLoadingWithResult:(BOOL)a0;
+- (void)compositionFinishedWithResult:(long long)a0 error:(id)a1;
+- (void)_endDelayingCompositionPresentation;
+- (void)_cancelRemoteServiceViewControllerRequest;
+- (void)_setPlaceHolderSubject:(id)a0;
+- (id)addContentVariationWithName:(id)a0;
+- (void)_presentComposeInNewWindowFromComposeViewController:(id)a0 completion:(id /* block */)a1 dissmisal:(id /* block */)a2;
+- (void)composeFinishedWithResult:(long long)a0;
+- (void)compositionRequestsSendWithBody:(id)a0 recipients:(id)a1 completion:(id /* block */)a2;
+- (void)compositionViewServiceTerminatedWithError:(id)a0;
+- (void)setDefaultContentVariation:(id)a0;
+- (id)addAttachmentFileURL:(id)a0 mimeType:(id)a1;
+- (id)addAttachmentItemProvider:(id)a0 mimeType:(id)a1 fileName:(id)a2;
+- (void)finalizeCompositionValues;
+- (void)_presentComposeInNewWindowFromComposeViewController:(id)a0 completion:(id /* block */)a1;
+- (void)composeShouldSendMail:(id)a0 toRecipients:(id)a1 completion:(id /* block */)a2;
+- (void)requestFramesForAttachmentsWithIdentifiers:(id)a0 resultHandler:(id /* block */)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKClinicalType13AllergyRecord : _TtCs12_SwiftObject
+
+@end

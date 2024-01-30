@@ -1,0 +1,3 @@
+@interface __UIStatusBarLiquidDetectionItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

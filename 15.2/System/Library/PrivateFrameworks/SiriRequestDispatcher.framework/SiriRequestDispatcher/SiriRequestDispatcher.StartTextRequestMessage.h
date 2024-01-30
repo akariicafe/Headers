@@ -1,0 +1,3 @@
+@interface SiriRequestDispatcher.StartTextRequestMessage : SiriRequestDispatcher.StartRequestMessageBase
+
+@end

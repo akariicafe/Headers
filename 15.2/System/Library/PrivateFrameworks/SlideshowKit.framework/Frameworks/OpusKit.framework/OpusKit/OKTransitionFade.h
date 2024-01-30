@@ -1,0 +1,3 @@
+@interface OKTransitionFade : OKTransitionDissolve
+
+@end

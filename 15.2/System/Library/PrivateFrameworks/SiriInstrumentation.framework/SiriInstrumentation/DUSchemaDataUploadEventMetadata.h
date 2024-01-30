@@ -1,0 +1,3 @@
+@interface DUSchemaDataUploadEventMetadata : DUSchemaDUEventMetadata
+
+@end

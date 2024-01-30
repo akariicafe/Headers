@@ -1,0 +1,92 @@
+@class NSDate, NSString, NSArray, UIImage, PXCuratedLibrarySectionHeaderLayoutSpec, UIImageView, UIView, PXCuratedLibraryOverlayButton, UIVisualEffectView, UILabel;
+@protocol PXPhotosSectionHeaderViewDelegate, NSCopying;
+
+@interface PXPhotosSectionHeaderView : UICollectionReusableView <PXGReusableView> {
+    UILabel *_titleLabel;
+    UILabel *_locationsLabel;
+    UILabel *_separatorLabel;
+    UILabel *_dateLabel;
+    UIImageView *_disclosureIconView;
+    PXCuratedLibraryOverlayButton *_actionButton;
+    BOOL _highlightViewVisible;
+    BOOL _inLayoutTransition;
+    BOOL _performingBatchDateDependentUpdate;
+    BOOL _dateDependentPropertiesDidChange;
+    UIVisualEffectView *_visualEffectView;
+    UIImageView *_backgroundImageView;
+    UIView *_highlightView;
+    BOOL _useYearOnlyForDefaultTitle;
+}
+
+@property (copy, nonatomic) id<NSCopying> userData;
+@property (nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } clippingRect;
+@property (readonly, nonatomic) BOOL shouldReuseWhenInvisible;
+@property (weak, nonatomic) id<PXPhotosSectionHeaderViewDelegate> delegate;
+@property (nonatomic) long long style;
+@property (nonatomic) unsigned long long backgroundStyle;
+@property (nonatomic) BOOL wantsBackground;
+@property (retain, nonatomic) UIImage *backgroundImage;
+@property (nonatomic) double backgroundImageOverhang;
+@property (nonatomic) double backgroundImageAlpha;
+@property (nonatomic) long long sectionIndex;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } contentInsets;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } highlightInsets;
+@property (copy, nonatomic) NSString *sectionTitle;
+@property (readonly, nonatomic) NSString *synthesizedSectionTitle;
+@property (retain, nonatomic) NSArray *sectionLocations;
+@property (readonly, nonatomic) NSDate *sectionStartDate;
+@property (readonly, nonatomic) NSDate *sectionEndDate;
+@property (nonatomic) BOOL showsActionButton;
+@property (copy, nonatomic) NSString *actionButtonTitle;
+@property (retain, nonatomic) PXCuratedLibrarySectionHeaderLayoutSpec *buttonSpec;
+@property (nonatomic) BOOL allowsPhotosDetailsInteraction;
+@property (nonatomic) BOOL useYearOnlyForDefaultTitle;
+@property (copy, nonatomic) NSString *backdropViewGroupName;
+@property (readonly, nonatomic) double baselineToBottomSpacing;
+
++ (BOOL)shouldUsePhoneLayoutWithTraitCollection:(id)a0;
++ (BOOL)shouldUseAccessibilityLargeTextLayoutWithTraitCollecton:(id)a0;
++ (BOOL)_hasAccessibilityLargeText;
+
+- (void)layoutSubviews;
+- (void)becomeReusable;
+- (void)touchesEnded:(id)a0 withEvent:(id)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)touchesMoved:(id)a0 withEvent:(id)a1;
+- (void)didEndDisplaying;
+- (void)_updateBackgroundAnimated:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)_updateTitleLabel;
+- (void)_updateActionButton;
+- (void)prepareForReuse;
+- (void)touchesCancelled:(id)a0 withEvent:(id)a1;
+- (void)willTransitionFromLayout:(id)a0 toLayout:(id)a1;
+- (void)didTransitionFromLayout:(id)a0 toLayout:(id)a1;
+- (void)touchesBegan:(id)a0 withEvent:(id)a1;
+- (BOOL)_disableRasterizeInAnimations;
+- (void)applyLayoutAttributes:(id)a0;
+- (void)_contentSizeCategoryDidChangeNotification:(id)a0;
+- (void)performBatchUpdateOfDateDependentPropertiesWithBlock:(id /* block */)a0;
+- (void)setSectionStartDate:(id)a0 endDate:(id)a1;
+- (void)_updateBackdropViewGroupName;
+- (void)_handleActionButton:(id)a0;
+- (void)setWantsBackground:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)_usingDateAsTitle;
+- (void)_updateLabelsForTextStyle;
+- (void)_handleSignificantDateChange:(id)a0;
+- (void)_updateDateDependentLabels;
+- (void)_updateDisclosureIcon;
+- (void)_updateLocationsLabelVisibility;
+- (void)_updateDateLabel;
+- (id)_dateRangeCompactFormatter;
+- (id)_dateRangeLongFormatter;
+- (id)_dateRangeYearFormatter;
+- (void)_dateRangeFormatterChanged:(id)a0;
+- (void)_layoutSubviewsForCurentStyle;
+- (BOOL)allowLocationTapForTouch:(id)a0;
+- (void)_setHighlightViewVisible:(BOOL)a0;
+- (void)_updateHighlightView;
+- (void)_hideHighlightView;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCV16PreviewsShellKit23AnyNonUIContentProviderP33_E268808521CCC4763655A1F0FF9E3DE73Box : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmMuseum : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

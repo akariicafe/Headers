@@ -1,0 +1,80 @@
+@class NSXPCConnection, NSString, WFDialogAttributions, WFWorkflowRunningContext, WFWorkflowReference, WFTimer, WFDebouncer, WFWorkflowRunRequest, WFSandboxExtensionManager, WFDatabase;
+@protocol WFDatabaseProvider, WFUserInterfaceHost, WFOutOfProcessWorkflowControllerVendor, WFOutOfProcessWorkflowControllerDelegate;
+
+@interface WFOutOfProcessWorkflowController : NSObject <WFOutOfProcessWorkflowControllerHost, WFTimerHandler>
+
+@property (retain, nonatomic) id<WFOutOfProcessWorkflowControllerVendor> runner;
+@property (readonly, nonatomic) long long environment;
+@property (retain, nonatomic) NSXPCConnection *serviceConnection;
+@property (retain, nonatomic) id<WFUserInterfaceHost> userInterfaceHost;
+@property (retain, nonatomic) WFWorkflowReference *workflowReference;
+@property (retain, nonatomic) WFWorkflowRunRequest *runRequest;
+@property (nonatomic) long long state;
+@property (copy, nonatomic) NSString *currentWorkflowName;
+@property (copy, nonatomic) WFDialogAttributions *currentDialogAttributions;
+@property (retain, nonatomic) WFTimer *timer;
+@property (readonly, nonatomic) WFDatabase *database;
+@property (readonly, nonatomic) id<WFDatabaseProvider> databaseProvider;
+@property (nonatomic) BOOL isPersonalAutomation;
+@property (readonly, nonatomic) WFSandboxExtensionManager *sandboxExtensionManager;
+@property (weak, nonatomic) id<WFOutOfProcessWorkflowControllerDelegate> delegate;
+@property (nonatomic) long long presentationMode;
+@property (readonly, copy, nonatomic) WFWorkflowRunningContext *runningContext;
+@property (readonly, nonatomic, getter=isRunning) BOOL running;
+@property (readonly, nonatomic) WFDebouncer *sleepModeStopDebouncer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)contextualActionsForContext:(id)a0 error:(id *)a1;
++ (id)sleepControllerWithDatabaseProvider:(id)a0;
++ (id)computeFinderResizedSizesForImages:(id)a0 inSizes:(id)a1 error:(id *)a2;
++ (id)filteredContextualActions:(id)a0 forContext:(id)a1 error:(id *)a2;
+
+- (void)tearDown;
+- (void)timerDidFire:(id)a0;
+- (void)createSleepWorkflow:(id)a0 completion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)handleXPCConnectionInterruption;
+- (void)dealloc;
+- (void)reset;
+- (void)stop;
+- (void)updateAppDescriptor:(id)a0 atKey:(id)a1 actionUUID:(id)a2 actionIndex:(id)a3 actionIdentifier:(id)a4 workflowID:(id)a5;
+- (id)initWithEnvironment:(long long)a0 runningContext:(id)a1 databaseProvider:(id)a2 presentationMode:(long long)a3;
+- (void)populateSleepWorkflowsFromWorkflowReferences:(id)a0 completion:(id /* block */)a1;
+- (void)getCurrentProgressCompletedWithCompletionHandler:(id /* block */)a0;
+- (void)pauseWorkflowAndWriteStateToDisk;
+- (BOOL)resumeRunningWithRequest:(id)a0 error:(out id *)a1;
+- (BOOL)runWorkflowWithRequest:(id)a0 error:(out id *)a1;
+- (void)getSortedVisibleWorkflowsByNameWithCompletion:(id /* block */)a0;
+- (void)getSortedVisibleWorkflowsInCollection:(id)a0 completion:(id /* block */)a1;
+- (void)getSortedVisibleFoldersWithCompletion:(id /* block */)a0;
+- (void)getReferenceForWorkflowID:(id)a0 completion:(id /* block */)a1;
+- (void)getUniqueVisibleReferenceForWorkflowName:(id)a0 completion:(id /* block */)a1;
+- (void)getWorkflowRecordDataForWorkflowReference:(id)a0 completion:(id /* block */)a1;
+- (void)getCollectionWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)getFolderForWorkflowReference:(id)a0 completion:(id /* block */)a1;
+- (void)getConfiguredTriggersForWorkflowID:(id)a0 completion:(id /* block */)a1;
+- (void)createWorkflowWithWorkflowData:(id)a0 name:(id)a1 nameCollisionBehavior:(unsigned long long)a2 completion:(id /* block */)a3;
+- (void)getIsReference:(id)a0 allowedToRunOnDomain:(id)a1 completion:(id /* block */)a2;
+- (void)setTrustedToRunScripts:(BOOL)a0 forReference:(id)a1 onDomain:(id)a2 completion:(id /* block */)a3;
+- (void)approvalResultForContentAttributionSet:(id)a0 contentDestination:(id)a1 actionUUID:(id)a2 actionIdentifier:(id)a3 actionIndex:(unsigned long long)a4 reference:(id)a5 allowedOnceStates:(id)a6 completion:(id /* block */)a7;
+- (void)currentDeletionAuthorizationStatusWithContentItemClassName:(id)a0 actionUUID:(id)a1 actionIdentifier:(id)a2 actionIndex:(unsigned long long)a3 count:(unsigned long long)a4 reference:(id)a5 completion:(id /* block */)a6;
+- (void)workflowDidStartFromWorkflowReference:(id)a0 attributions:(id)a1;
+- (void)quarantineWorkflowWithReference:(id)a0;
+- (void)requestSandboxExtensionForAccessResources:(id)a0 completion:(id /* block */)a1;
+- (void)getVaultItemsAccessWithCompletion:(id /* block */)a0;
+- (void)runnerWillExit;
+- (void)handleIncomingFileForRemoteExecutionWithURL:(id)a0 withIdentifier:(id)a1;
+- (BOOL)timerShouldStart:(id)a0;
+- (BOOL)runActionWithRunRequestData:(id)a0 error:(out id *)a1;
+- (id)asynchronousRunnerWithError:(out id *)a0;
+- (id)synchronousRunnerWithError:(out id *)a0;
+- (id)runnerWithError:(out id *)a0 synchronous:(BOOL)a1;
+- (void)reportFinishToDelegateWithResult:(id)a0 reference:(id)a1 dialogAttributions:(id)a2;
+- (void)workflowDidFinishRunningWithResult:(id)a0 reference:(id)a1;
+- (id)localizedXPCInterruptionErrorDescription;
+- (id)localizedTimeoutErrorDescription;
+
+@end

@@ -1,0 +1,93 @@
+@class UIView, NSString, UITapGestureRecognizer, NSArray, UIDragInteraction, SFTabHoverPreviewController, UIHoverGestureRecognizer, ReorderingAutoscroller, NSMutableArray, UIVisualEffectView, UIPanGestureRecognizer, UIScrollView;
+@protocol TabBarDelegate;
+
+@interface TabBar : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate, TabCollectionView> {
+    NSMutableArray *_tabBarItemViewReuseStack;
+    UIScrollView *_scrollView;
+    UITapGestureRecognizer *_tapRecognizer;
+    UIView *_leadingContainer;
+    UIView *_trailingContainer;
+    UIVisualEffectView *_leadingVibrancyEffectView;
+    UIVisualEffectView *_trailingVibrancyEffectView;
+    UIPanGestureRecognizer *_reorderRecognizer;
+    UIDragInteraction *_dragInteraction;
+    UIHoverGestureRecognizer *_hoverRecognizer;
+    BOOL _newTabVisibleInTabBar;
+}
+
+@property (weak, nonatomic) id<TabBarDelegate> delegate;
+@property (copy, nonatomic) NSArray *items;
+@property (nonatomic) long long tintStyle;
+@property (nonatomic) BOOL hidesTitles;
+@property (readonly, nonatomic) double itemWidth;
+@property (readonly, nonatomic) double minimumTabWidth;
+@property (readonly, nonatomic) SFTabHoverPreviewController *tabHoverPreviewController;
+@property (readonly, nonatomic) unsigned long long indexOfCenterItem;
+@property (readonly, nonatomic) unsigned long long maxNumberOfVisibleTabs;
+@property (nonatomic, getter=isDraggingItem) BOOL draggingItem;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) ReorderingAutoscroller *reorderingAutoscroller;
+@property (readonly, nonatomic) BOOL supportsSystemDrag;
+@property (readonly, nonatomic) unsigned long long layoutAxes;
+@property (readonly, nonatomic) BOOL supportsDropTransitionToItemView;
+@property (readonly, nonatomic) BOOL canDragOntoActiveTab;
+@property (readonly, nonatomic) BOOL hidesInactiveTabs;
+@property (readonly, nonatomic) BOOL lastDecelerationWasInterrupted;
+
++ (double)defaultHeight;
+
+- (void)_tap:(id)a0;
+- (void)layoutSubviews;
+- (void)_didReceiveMemoryWarning:(id)a0;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)_didCompleteScrolling;
+- (void)activateItem:(id)a0;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (void)_updateBackground;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_hover:(id)a0;
+- (id)viewForItem:(id)a0;
+- (id)itemAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForItem:(id)a0;
+- (id)targetedDragPreviewForLiftingItem:(id)a0;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void).cxx_destruct;
+- (double)_itemWidth;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)addInteraction:(id)a0;
+- (id)targetItemForDropAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)dealloc;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameForItemAtIndex:(unsigned long long)a0;
+- (BOOL)_isScrollable;
+- (void)scrollToItem:(id)a0 animated:(BOOL)a1;
+- (void)_activateItemIfNeeded:(id)a0;
+- (void)_itemDidPressCloseButton:(id)a0;
+- (void)_toggleMediaStateMutedForItem:(id)a0;
+- (id)_requestReusableTabBarItemView;
+- (void)_relinquishReusableTabBarItemView:(id)a0;
+- (unsigned long long)contextMenuOptionsForItem:(id)a0;
+- (void)_reorder:(id)a0;
+- (double)_scrollableWidth;
+- (void)_scrollToItemIfNeeded:(id)a0;
+- (unsigned int)_edgeToAlignWithPreviewForItem:(id)a0;
+- (id)_itemAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (double)_horizontalPositionForItemAtIndex:(unsigned long long)a0 withSlowingFactor:(double)a1;
+- (double)_horizontalPositionForItemAtIndex:(unsigned long long)a0;
+- (unsigned long long)_effectiveIndexForIndex:(unsigned long long)a0 ofItems:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_initialFrameForItemAtIndex:(unsigned long long)a0;
+- (void)_layoutItem:(id)a0 atIndex:(unsigned long long)a1 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 itemCount:(unsigned long long)a3 beforeActiveItem:(BOOL)a4;
+- (void)_layoutContainers;
+- (void)_updateReorderRecognizer;
+- (void)_layoutIndexes:(id)a0 ofItems:(id)a1;
+- (void)_scrollTowardItem:(id)a0 byAmount:(double)a1;
+- (id)_itemForTouch:(id)a0;
+- (unsigned long long)_maximumTruncationIndexForTitle:(id)a0;
+
+@end

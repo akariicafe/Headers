@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo30HKVerifiableClinicalRecordType24VerifiableClinicalRecord : _TtCs12_SwiftObject
+
+@end

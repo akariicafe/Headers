@@ -1,0 +1,3 @@
+@interface MKFAccessorySettingConstraintDatabaseID : MKFModelDatabaseID
+
+@end

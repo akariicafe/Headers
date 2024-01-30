@@ -1,0 +1,3 @@
+@interface MKFElementTimePeriodDatabaseID : MKFModelDatabaseID
+
+@end

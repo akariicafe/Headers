@@ -1,0 +1,83 @@
+@class NSSet, NSString, NSMutableSet, NSDate, ISLivePhotoVitalityFilter;
+
+@interface ISLivePhotoPlayer : ISBasePlayer <ISLivePhotoSettleBehaviorDelegate, ISChangeObserver> {
+    NSMutableSet *_playbackFilters;
+    _Atomic int _fadeInRequestID;
+    struct { BOOL scale; BOOL apertureMode; } _isValid;
+    double _lastAppliedScale;
+}
+
+@property (nonatomic, setter=_setCurrentPlaybackStyle:) long long currentPlaybackStyle;
+@property (nonatomic, setter=_setStyleToPlayWhenReady:) long long _styleToPlayWhenReady;
+@property (nonatomic, setter=_setIsAttemptingToPlayback:) BOOL isAttemptingToPlayback;
+@property (nonatomic, setter=_setSettleAutomaticallyWhenReady:) BOOL _settleAutomaticallyWhenReady;
+@property (nonatomic, setter=_setShouldPrepareForVitalityWhenReady:) BOOL _shouldPrepareForVitalityWhenReady;
+@property (nonatomic, setter=_setShouldPlayVitalityWhenReady:) BOOL _shouldPlayVitalityWhenReady;
+@property (nonatomic, setter=_setShouldPrepareForHintWhenReady:) BOOL _shouldPrepareForHintWhenReady;
+@property (nonatomic, getter=isPlayingVitality, setter=_setPlayingVitality:) BOOL playingVitality;
+@property (nonatomic, getter=isHinting, setter=_setHinting:) BOOL hinting;
+@property (retain, nonatomic, setter=_setVitalityTimeoutDate:) NSDate *_vitalityTimeoutDate;
+@property (readonly, nonatomic) BOOL _canPlayVitality;
+@property (readonly, nonatomic) NSSet *playbackFilters;
+@property (retain, nonatomic) ISLivePhotoVitalityFilter *vitalityFilter;
+@property (nonatomic) BOOL immediatelyShowsPhotoWhenPlaybackEnds;
+@property (nonatomic, getter=isPlaybackAllowed) BOOL playbackAllowed;
+@property (nonatomic) long long targetReadiness;
+@property (readonly, nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } seekTime;
+@property (nonatomic) struct { struct { long long value; int timescale; unsigned int flags; long long epoch; } start; struct { long long value; int timescale; unsigned int flags; long long epoch; } duration; } trimTimeRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)startPlaybackWithStyle:(long long)a0;
+- (void)livePhotoPlaybackBehaviorDidFinish:(id)a0;
+- (void)setSeekTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 completion:(id /* block */)a1;
+- (void)playerItemDidChange;
+- (void)_configurePlaybackFilters;
+- (void)didPerformChanges;
+- (double)_photoTransitionDuration;
+- (void)_invalidateApertureMode;
+- (void)_handlePlaybackFilterDidChange;
+- (void)startPlaybackWithStyle:(long long)a0 settleAutomatically:(BOOL)a1;
+- (void)configurePlayerItem;
+- (void)prepareForHintWhenReady;
+- (void)statusDidChange;
+- (void)stopPlaybackAnimated:(BOOL)a0;
+- (void)_updatePlayerItemLoadingTarget;
+- (void)playVitality;
+- (void)livePhotoSettleBehaviorDidFinish:(id)a0;
+- (id)_createVitalityBehavior;
+- (void)removePlaybackFilter:(id)a0;
+- (void)_prepareForVitalityIfNeeded;
+- (void)stopPlayback;
+- (void)prepareForVitality;
+- (void)livePhotoPlaybackBehaviorWillTransitionToPhoto:(id)a0;
+- (void).cxx_destruct;
+- (void)addPlaybackFilter:(id)a0;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)init;
+- (void)activeBehaviorDidChange;
+- (void)livePhotoPlaybackBehaviorDidBeginPlaying:(id)a0;
+- (void)startPlaybackWithStyleWhenReady:(long long)a0;
+- (void)startPlaybackWithStyleWhenReady:(long long)a0 settleAutomatically:(BOOL)a1;
+- (double)lastAppliedScale;
+- (double)_coalescedPlaybackFilterHintProgress;
+- (void)_updateApertureModeIfNeeded;
+- (void)_handleVitalityFilterDidChange:(id)a0;
+- (double)videoWillPlayToPhotoInterval;
+- (void)_updateHintingAndVitality;
+- (void)_updateScaleIfNeeded;
+- (void)_playIfNeeded;
+- (BOOL)vitalityBehaviorShouldEndPlayingAtPhoto:(id)a0;
+- (void)setIsAttemptingToPlayback:(BOOL)a0;
+- (long long)_coalescedPlaybackFilterState;
+- (void)vitalityBehaviorDidBeginPlaying:(id)a0;
+- (void)_resetPlaybackFilters;
+- (void)_fadeInAudio;
+- (void)vitalityBehaviorDidEndPlaying:(id)a0;
+- (void)_configurePlaybackFilter:(id)a0;
+- (void)_invalidateScale;
+- (void)playHintWhenReady;
+
+@end

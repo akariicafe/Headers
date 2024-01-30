@@ -1,0 +1,3 @@
+@interface __UITabBarCustomizeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

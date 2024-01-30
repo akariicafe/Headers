@@ -1,0 +1,21 @@
+@class NSString;
+
+@interface _SRDeviceUsageActivityLevel : NSObject <SRSampleExporting, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property long long activityLevel;
+@property double duration;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)activityLevelWithLevel:(long long)a0 duration:(double)a1;
+
+- (id)sr_dictionaryRepresentation;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

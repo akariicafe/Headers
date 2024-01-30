@@ -1,0 +1,65 @@
+@interface MXTestCore : MXTestSessionFactory {
+    unsigned char mIsInterruptionResumable;
+    int mInterruptionError;
+    struct __CFBoolean { } *mMutePolicyForMXSessionIsMuted;
+    int mMutePolicyError;
+    BOOL mNotificationReceived;
+    unsigned int mNotificationCount;
+    float mNotificationFloatData;
+}
+
+- (int)testCPMS;
+- (int)testSimultaneousPlaybackOfMixableAndNonMixableSessions:(struct opaqueCMSession { } *)a0 nonMixableSession:(struct opaqueCMSession { } *)a1;
+- (int)testIsRecording:(struct opaqueCMSession { } *)a0;
+- (int)testInterruption:(struct opaqueCMSession { } *)a0 andInterruptor:(struct opaqueCMSession { } *)a1 interruptionTypeResumable:(unsigned char)a2;
+- (int)testMXSessionInterruptionNotification;
+- (int)testIsActive:(struct opaqueCMSession { } *)a0;
+- (int)testIsPlaying:(struct opaqueCMSession { } *)a0;
+- (int)testSimultaneousPlaybackOfMixableSessions:(struct opaqueCMSession { } *)a0 otherSession:(struct opaqueCMSession { } *)a1;
+- (int)testDeactivationOfActiveAndNonPlayingSessions;
+- (int)testMultipleRecordingClients;
+- (int)testNavigationApp:(struct opaqueCMSession { } *)a0;
+- (int)testPreIntegrate;
+- (int)testSystemSoundsAndHapticsAudioHWControlBehaviors;
+- (int)testDucking;
+- (int)testSecureMicrophone;
+- (int)testSourceFormatInfo;
+- (int)testPreviewInterruptionDuringSharePlay;
+- (int)testFaceTimeInsufficientPriorityError;
+- (int)testPriorityBasedInterruption;
+- (int)testNowPlayingApp;
+- (int)testHDMILatencyManager;
+- (int)testPrefersNoInterruptionsByRingtonesAndAlerts;
+- (int)testMXSession;
+- (int)testAudioQueueOptionsForMXSession;
+- (int)testMutePriority;
+- (int)testPiPPolicies;
+- (int)testMXSessionMutedNotificationForMutePriority;
+- (int)testPiPMixingPolicies;
+- (int)testMXSessionRefresh;
+- (int)testShadowingAudioSessionID;
+- (int)testSomeOtherPrimaryAudioCategoryClientIsPlaying;
+- (int)testSystemSounds;
+- (int)testIsAllowedRecordingFromBackground;
+- (int)testCreateSidekickSession;
+- (int)testCreateSidekickMXSession;
+- (int)testSidekickPlist;
+- (int)testHomePodHubMultipleNowPlayers;
+- (int)testMXSystemController;
+- (int)testSharedMXSystemController;
+- (int)testLowLatencyVADConfiguration;
+- (int)testPlaybackHandoff;
+- (int)testConsolidateAudioHardwareFlags;
+- (int)testAvailableOutputStreamFormats;
+- (int)testSharePlay;
+- (int)testSharePlayVolumePolicies;
+- (int)testMXSessionClientType;
+- (int)testAllowSystemSoundsWhileRecording;
+- (int)testMXSystemControllerInvalidSubscription;
+- (int)testHeadphoneVolumeReduction;
+- (int)testNowPlayingEligibleSessionAndSSAHSessionForSamePID;
+- (int)testRemoteInterruptionHandover;
+- (int)testVoiceOverVolume;
+- (int)interruptAndResumeSharePlayMediaSession:(struct opaqueCMSession { } *)a0 duringSharePlayCallSession:(struct opaqueCMSession { } *)a1 withPreviewSession:(struct opaqueCMSession { } *)a2;
+
+@end

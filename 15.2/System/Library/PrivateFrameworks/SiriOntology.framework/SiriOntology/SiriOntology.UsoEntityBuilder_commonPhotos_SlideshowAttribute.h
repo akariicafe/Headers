@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonPhotos_SlideshowAttribute : SiriOntology.UsoEntityBuilder
+
+@end

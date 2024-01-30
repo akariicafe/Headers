@@ -1,0 +1,3 @@
+@interface __CAMLivePhotoStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

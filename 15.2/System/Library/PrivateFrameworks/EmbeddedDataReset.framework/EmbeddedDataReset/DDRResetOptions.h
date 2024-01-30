@@ -1,0 +1,12 @@
+@interface DDRResetOptions : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) BOOL hideProgress;
+@property (nonatomic) BOOL eraseDataPlan;
+@property (nonatomic) BOOL disallowProximitySetup;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

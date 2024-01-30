@@ -1,0 +1,3 @@
+@interface __CAMSemanticStyleSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

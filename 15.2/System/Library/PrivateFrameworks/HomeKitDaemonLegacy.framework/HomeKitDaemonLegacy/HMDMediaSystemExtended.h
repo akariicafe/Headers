@@ -1,0 +1,3 @@
+@interface HMDMediaSystemExtended : HMDMediaSystem
+
+@end

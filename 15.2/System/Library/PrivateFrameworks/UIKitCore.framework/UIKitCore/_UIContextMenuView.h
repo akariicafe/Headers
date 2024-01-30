@@ -1,0 +1,70 @@
+@class NSDate, _UIContextMenuNode, _UIContextMenuSelectionDelayGestureRecognizer, UICollectionViewDiffableDataSource, _UIContextMenuLinkedList, UISelectionFeedbackGenerator, _UIContextMenuListView, NSString, UIHoverGestureRecognizer, _UIContextMenuSelectionGestureRecognizer, NSTimer, NSArray, NSIndexPath;
+@protocol _UIContextMenuViewDelegate;
+
+@interface _UIContextMenuView : UIView <UIGestureRecognizerDelegate>
+
+@property (readonly, nonatomic) _UIContextMenuListView *currentListView;
+@property (retain, nonatomic) _UIContextMenuNode *departingNode;
+@property (retain, nonatomic) UICollectionViewDiffableDataSource *collectionViewDataSource;
+@property (retain, nonatomic) _UIContextMenuSelectionGestureRecognizer *selectionGestureRecognizer;
+@property (retain, nonatomic) _UIContextMenuSelectionDelayGestureRecognizer *selectionDelayGestureRecognizer;
+@property (retain, nonatomic) NSDate *appearanceDate;
+@property (retain, nonatomic) UIHoverGestureRecognizer *highlightHoverGestureRecognizer;
+@property (retain, nonatomic) UISelectionFeedbackGenerator *feedbackGenerator;
+@property (retain, nonatomic) _UIContextMenuLinkedList *submenus;
+@property (nonatomic) BOOL isComputingPreferredSize;
+@property (nonatomic) BOOL retainHighlightOnMenuNavigation;
+@property (retain, nonatomic) NSTimer *autoNavigationTimer;
+@property (retain, nonatomic) NSTimer *autoUnhighlightTimer;
+@property (copy, nonatomic) NSIndexPath *unselectableIndexPath;
+@property (nonatomic) BOOL hasTrackingTouch;
+@property (weak, nonatomic) id<_UIContextMenuViewDelegate> delegate;
+@property (nonatomic) BOOL showsShadow;
+@property (nonatomic) BOOL reversesActionOrder;
+@property (nonatomic) BOOL scrubbingEnabled;
+@property (nonatomic) struct CGSize { double width; double height; } visibleContentSize;
+@property (nonatomic) unsigned long long hierarchyStyle;
+@property (nonatomic) unsigned long long attachmentEdge;
+@property (readonly, nonatomic) NSArray *visibleMenus;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_handleMenuPressGesture:(id)a0;
+- (void)layoutSubviews;
+- (void)_setAutoNavigationTimerIfNecessaryForElement:(id)a0;
+- (void)flashScrollIndicators;
+- (void)displayMenu:(id)a0 updateType:(unsigned long long)a1 alongsideAnimations:(id /* block */)a2;
+- (id)keyCommands;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)_handleSelectionGesture:(id)a0;
+- (BOOL)_allowsChangingFirstResponderForFocusUpdateWithContext:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_performActionForElement:(id)a0;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRequireFailureOfGestureRecognizer:(id)a1;
+- (void)_handleSelectionForElement:(id)a0;
+- (void)_handleRightArrowKey:(id)a0;
+- (void)_testing_tapAnAction;
+- (void)_handleSelectPressGesture:(id)a0;
+- (void).cxx_destruct;
+- (void)_handleEscapeKey:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_rectOfNodeParentElement:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })activeSubmenuFrameInCoordinateSpace:(id)a0;
+- (void)scrollToFirstSignificantAction;
+- (BOOL)canBecomeFirstResponder;
+- (id)_newListViewWithMenu:(id)a0 position:(unsigned long long)a1;
+- (struct CGSize { double x0; double x1; })preferredContentSizeWithWidth:(double)a0;
+- (BOOL)kickstartActionScrubbingWithGesture:(id)a0;
+- (void)_setHighlightedIndexPath:(id)a0 playFeedback:(BOOL)a1;
+- (void)_handleLeftArrowKey:(id)a0;
+- (id)preferredFocusEnvironments;
+- (void)_handleHoverGestureRecognizer:(id)a0;
+- (void)setUserInteractionEnabled:(BOOL)a0;
+- (void)_updateSelectionGestureAllowableMovement;
+- (void)replaceVisibleMenu:(id)a0 withMenu:(id)a1 alongsideAnimations:(id /* block */)a2;
+- (void)_displayMenu:(id)a0 inPlaceOfMenu:(id)a1 updateType:(unsigned long long)a2 alongsideAnimations:(id /* block */)a3;
+- (void)_clearAutoNavigationTimer;
+
+@end

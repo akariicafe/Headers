@@ -1,0 +1,3 @@
+@interface SBFBokehImageArbiter : NSObject
+
+@end

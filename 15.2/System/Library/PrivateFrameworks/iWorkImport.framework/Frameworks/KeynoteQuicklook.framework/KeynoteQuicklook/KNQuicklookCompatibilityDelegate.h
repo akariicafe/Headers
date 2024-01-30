@@ -1,0 +1,3 @@
+@interface KNQuicklookCompatibilityDelegate : KNBaseCompatibilityDelegate
+
+@end

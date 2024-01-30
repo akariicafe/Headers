@@ -1,0 +1,96 @@
+@class NSDate, NSString, NSArray, NSURL, NSMutableArray, UARPAssetTag, NSObject, NSNumber;
+@protocol OS_os_log;
+
+@interface UARPAssetID : NSObject <NSCopying, NSSecureCoding> {
+    NSString *_remoteBuildManifestPlistPath;
+    NSNumber *_deploymentDay;
+    NSNumber *_deploymentPercent;
+    BOOL _signatureValidationNeeded;
+    long long _validationStatus;
+    NSString *_firmwareHash;
+    NSMutableArray *_activeAccessoriesForStaging;
+    NSObject<OS_os_log> *_log;
+    BOOL _reportProgressToDelegates;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) long long type;
+@property (copy) NSString *remotePath;
+@property (readonly, copy) NSString *assetVersion;
+@property (readonly, copy) NSString *localPath;
+@property (readonly) long long downloadStatus;
+@property (readonly) long long updateAvailabilityStatus;
+@property (readonly) long long releaseNotesDownloadStatus;
+@property (readonly) NSString *releaseNotesRemotePath;
+@property (readonly) NSString *releaseNotesLocalPath;
+@property (readonly) long long releaseNotesAvailabilityStatus;
+@property (readonly) NSString *releaseDate;
+@property (readonly) NSDate *assetReleaseDate;
+@property (readonly) NSNumber *releaseNotesFileSize;
+@property (readonly) NSNumber *firmwareFileSize;
+@property (readonly) NSArray *deploymentRules;
+@property (readonly) BOOL deploymentAllowed;
+@property (readonly, copy) UARPAssetTag *tag;
+@property (copy) NSURL *remoteURL;
+@property (readonly, copy) NSURL *localURL;
+@property (readonly) NSURL *releaseNotesRemoteURL;
+@property (readonly) NSURL *releaseNotesLocalURL;
+@property (readonly, copy) NSString *firmwareHash;
+@property (readonly) BOOL isDynamicAsset;
+
+- (void)setTag:(id)a0;
+- (void)setReleaseDate:(id)a0;
+- (long long)validationStatus;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (const char *)typeString;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)setLocalURL:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setAssetVersion:(id)a0;
+- (void)setDownloadStatus:(long long)a0;
+- (id)initWithLocationType:(long long)a0 remoteURL:(id)a1 releaseNotesRemoteURL:(id)a2;
+- (id)initWithLocationType:(long long)a0 remoteURL:(id)a1;
+- (void)setDeploymentDay:(id)a0;
+- (id)deploymentDay;
+- (void)setDeploymentPercent:(id)a0;
+- (id)deploymentPercent;
+- (void)dumpWithTabDepth:(unsigned long long)a0 dumpString:(id)a1;
+- (BOOL)analyticsIsEqual:(id)a0;
+- (id)rawDescription;
+- (BOOL)isStagingInProgressOnAccessoryID:(id)a0;
+- (void)stagingCompleteOnAccessoryID:(id)a0;
+- (void)stagingStartedOnAccessoryID:(id)a0;
+- (BOOL)reportProgressToDelegates;
+- (id)initWithLocationType:(long long)a0 assetTag:(id)a1 url:(id)a2;
+- (id)initWithLocationType:(long long)a0 remotePath:(id)a1;
+- (void)setRemoteBuildManifestPlistPath:(id)a0;
+- (void)setUpdateAvailabilityStatus:(long long)a0;
+- (void)setReleaseNotesLocalURL:(id)a0;
+- (void)setReleaseNotesRemoteURL:(id)a0;
+- (void)setReleaseNotesDownloadStatus:(long long)a0;
+- (void)setReleaseNotesAvailabilityStatus:(long long)a0;
+- (void)setReleaseNotesFileSize:(id)a0;
+- (void)setFirmwareFileSize:(id)a0;
+- (void)setAssetReleaseDate:(id)a0;
+- (void)setDeploymentRules:(id)a0;
+- (void)setDeploymentAllowed:(BOOL)a0;
+- (void)setSignatureValidationNeeded:(BOOL)a0;
+- (void)setFirmwareHash:(id)a0;
+- (id)remoteBuildManifestPlistPath;
+- (id)_createUARPDeploymentRules:(id)a0;
+- (BOOL)isDeploymentAllowed;
+- (id)initWithLocationType:(long long)a0 assetTag:(id)a1 filePath:(id)a2;
+- (id)initWithLocationType:(long long)a0 remotePath:(id)a1 releaseNotesRemotePath:(id)a2;
+- (void)setReleaseNotesRemotePath:(id)a0;
+- (void)setReleaseNotesLocalPath:(id)a0;
+- (void)setLocalPath:(id)a0;
+- (BOOL)signatureValidationNeeded;
+- (void)setValidationStatus:(long long)a0;
+- (void)processUARPDeploymentRules:(id)a0;
+- (void)setReportProgressToDelegates:(BOOL)a0;
+
+@end

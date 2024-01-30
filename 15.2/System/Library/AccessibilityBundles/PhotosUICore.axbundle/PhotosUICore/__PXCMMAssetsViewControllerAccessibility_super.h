@@ -1,0 +1,3 @@
+@interface __PXCMMAssetsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

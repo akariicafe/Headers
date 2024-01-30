@@ -1,0 +1,16 @@
+@class NSDictionary, PTTimedRenderingMetadata;
+
+@interface PIPortraitVideoMetadataSample : NSObject
+
+@property (retain, nonatomic) PTTimedRenderingMetadata *timedMetadata;
+@property (readonly, nonatomic) double focusedDisparity;
+@property (readonly, nonatomic) double aperture;
+@property (readonly, nonatomic) NSDictionary *cameraInfo;
+
+- (void).cxx_destruct;
+- (id)initWithMetadataGroup:(id)a0 majorVersion:(unsigned int)a1 minorVersion:(unsigned int)a2 error:(out id *)a3;
+- (void)applyToRenderRequest:(id)a0;
+- (id)valueWithIdentifier:(id)a0 inGroup:(id)a1 ofClass:(Class)a2;
+- (id)_cameraInfoFromMetadataGroup:(id)a0;
+
+@end

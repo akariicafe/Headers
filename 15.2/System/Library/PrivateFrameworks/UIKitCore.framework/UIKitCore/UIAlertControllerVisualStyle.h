@@ -1,0 +1,80 @@
+@class UITraitCollection, UIAlertControllerDescriptor, UIInterfaceActionVisualStyle;
+
+@interface UIAlertControllerVisualStyle : NSObject <NSCopying>
+
+@property (nonatomic) long long forcedInterfaceIdiom;
+@property (readonly, nonatomic) UIInterfaceActionVisualStyle *interfaceActionVisualStyle;
+@property (retain, nonatomic) UITraitCollection *traitCollection;
+@property (retain, nonatomic) UIAlertControllerDescriptor *descriptor;
+
++ (void)positionContentsOfAlertController:(id)a0 alertContentView:(id)a1 availableSpaceView:(id)a2 visualStyle:(id)a3 updatableConstraints:(id)a4;
++ (long long)interfaceActionPresentationStyle;
+
+- (void)animateRevealOfAlertControllerView:(id)a0 alertController:(id)a1 inContainerView:(id)a2 duration:(double)a3 completionBlock:(id /* block */)a4;
+- (double)_scaledMarginAboveTitleLabelFirstBaselineInAlertControllerView:(id)a0 titleText:(id)a1;
+- (void)animateAlertControllerView:(id)a0 ofAlertController:(id)a1 forPresentation:(BOOL)a2 inContainerView:(id)a3 descendantOfContainerView:(id)a4 duration:(double)a5 completionBlock:(id /* block */)a6;
+- (double)_scaledSafeBaselineHeightForLabelFont:(id)a0 inAlertControllerView:(id)a1;
+- (double)_scaledTitleLabelSafeBaselineHeightInAlertControllerView:(id)a0;
+- (Class)interfaceActionVisualStyleClassForManagingConcreteVisualStyle;
+- (id)interactionProgressForTransitionOfType:(long long)a0 forAlertController:(id)a1;
+- (double)_scaledMessageSafeBaselineHeightInAlertControllerView:(id)a0;
+- (BOOL)transitionOfType:(long long)a0 shouldBeInteractiveForAlertController:(id)a1;
+- (double)minimumWidth;
+- (double)transitionDurationForPresentation:(BOOL)a0 ofAlertController:(id)a1;
+- (id)preferredActionForActions:(id)a0 suggestedPreferredAction:(id)a1;
+- (id)textFieldContainingViewWithTextField:(id)a0 position:(long long)a1;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })actionSequenceEdgeInsets;
+- (double)_scaledMarginAboveDetailMessageFirstBaseline;
+- (double)maximumWidthForTitleAndMessageContentView;
+- (double)_scaledMarginBelowMessageLabelLastBaseline;
+- (double)_scaledMarginBelowTitleLabelLastBaseline;
+- (double)_scaledMarginBelowLastLabelLastBaseline;
+- (double)_scaledMarginAboveMessageLabelFirstBaseline;
+- (double)marginAboveMessageLabelFirstBaseline;
+- (BOOL)shouldPreserveRespondersAcrossWindows;
+- (double)_spacingBetweenDismissButtonAndContent;
+- (double)_marginAboveDetailMessageFirstBaseline;
+- (id)vibrancyEffectForTitleAndMessageLabel;
+- (double)maximumWidth;
+- (void)configureAttributesForImageView:(id)a0 imageProperty:(id)a1 actionViewState:(id)a2;
+- (double)marginBelowTitleLabelLastBaseline;
+- (double)marginBelowLastLabelLastBaseline;
+- (long long)maximumNumberOfLinesInTitleLabel;
+- (double)actionWidthForMinimumActionWidth:(double)a0;
+- (void)_reloadInterfaceActionVisualStyle;
+- (double)maximumHeightForDisplayOnScreen:(id)a0;
+- (BOOL)shouldOccludeDuringPresentation;
+- (double)marginAboveTitleLabelFirstBaseline;
+- (long long)maximumNumberOfLinesInMessageLabel;
+- (double)marginBelowMessageLabelLastBaseline;
+- (BOOL)hideCancelAction:(id)a0 inAlertController:(id)a1;
+- (id)_keyCommandInputForCancelAction;
+- (id)titleLabelFont;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contentInsetsForContainerView:(id)a0;
+- (struct CGSize { double x0; double x1; })minimumActionContentSize;
+- (id)dimmingViewForAlertController:(id)a0;
+- (void).cxx_destruct;
+- (double)textFieldHorizontalMargin;
+- (BOOL)isEqual:(id)a0;
+- (id)messageLabelFont;
+- (id)titleLabelColor;
+- (id)init;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })actionImageMarginForAction;
+- (double)_marginAroundActionGroup;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })textFieldContentInset;
+- (struct CGSize { double x0; double x1; })collectionViewOutsetSize;
+- (BOOL)_shouldReverseActions;
+- (id)messageLabelColor;
+- (id)regularActionFont;
+- (id)defaultActionFont;
+- (double)contentVerticalMargin;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_detailMessageFont;
+- (id)tintColorForAlertController:(id)a0;
+- (BOOL)placementAvoidsKeyboard;
+- (double)contentHorizontalMargin;
+- (id)preferredActionFont;
+- (long long)permittedActionLayoutDirection;
+- (void)configureAttributesForTitleLabel:(id)a0 classificationLabel:(id)a1 actionViewState:(id)a2;
+
+@end

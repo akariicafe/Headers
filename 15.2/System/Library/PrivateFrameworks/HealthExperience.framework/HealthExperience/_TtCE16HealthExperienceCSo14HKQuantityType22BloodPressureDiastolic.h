@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType22BloodPressureDiastolic : _TtCs12_SwiftObject
+
+@end

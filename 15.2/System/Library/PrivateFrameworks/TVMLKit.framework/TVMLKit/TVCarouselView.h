@@ -1,0 +1,82 @@
+@class NSDate, NSString, NSArray, CADisplayLink, NSDictionary, NSObject, _TVCarouselCollectionView, NSIndexPath;
+@protocol TVCarouselViewDataSource, OS_dispatch_source, TVCarouselViewDelegate;
+
+@interface TVCarouselView : UIView <UICollectionViewDataSource, UICollectionViewDelegate> {
+    NSObject<OS_dispatch_source> *_autoScrollTimer;
+    _TVCarouselCollectionView *_collectionView;
+    unsigned long long _indexToDeque;
+    NSIndexPath *_focusedIndexPath;
+    unsigned long long _numberOfRealItemsForDataSource;
+    double _originalSelectionDuration;
+    double _originalUnselectionDuration;
+    long long _numFocusChangesInInterval;
+}
+
+@property (retain, nonatomic) NSDictionary *collectionToDatasourceIndexMap;
+@property (retain, nonatomic) CADisplayLink *displayLink;
+@property (nonatomic) double previousDisplayLinkTimestamp;
+@property (nonatomic) struct CGPoint { double x; double y; } targetContentOffset;
+@property (nonatomic) double offsetChangePerSecond;
+@property (retain, nonatomic) NSDate *firstFocusChangeInInterval;
+@property (weak, nonatomic) id<TVCarouselViewDataSource> dataSource;
+@property (weak, nonatomic) id<TVCarouselViewDelegate> delegate;
+@property (nonatomic) struct CGSize { double width; double height; } itemSize;
+@property (nonatomic) double interitemSpacing;
+@property (nonatomic) unsigned long long scrollMode;
+@property (nonatomic) double autoScrollInterval;
+@property (nonatomic) double continuousScrollVelocity;
+@property (readonly, copy, nonatomic) NSArray *visibleCells;
+@property (nonatomic) struct CGPoint { double x; double y; } focusDirection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_collectionView;
+- (void)reloadData;
+- (void)layoutSubviews;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (BOOL)collectionView:(id)a0 canFocusItemAtIndexPath:(id)a1;
+- (void)didMoveToSuperview;
+- (id)indexPathForPreferredFocusedViewInCollectionView:(id)a0;
+- (void)registerClass:(Class)a0 forCellWithReuseIdentifier:(id)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (void)_applicationDidEnterBackgroundNotification:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)displayLinkDidFire:(id)a0;
+- (id)focusedCell;
+- (void)setSemanticContentAttribute:(long long)a0;
+- (void)_updateCollectionViewLayout;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)_applicationWillEnterForegroundNotification:(id)a0;
+- (id)preferredFocusedView;
+- (void)dealloc;
+- (void)didMoveToWindow;
+- (void)didUpdateFocusInContext:(id)a0 withAnimationCoordinator:(id)a1;
+- (id)dequeueReusableCellWithReuseIdentifier:(id)a0 forIndex:(unsigned long long)a1;
+- (unsigned long long)indexForCell:(id)a0;
+- (long long)_numberOfCells;
+- (void)_handlePlayGesture:(id)a0;
+- (long long)_centerCollectionViewCellIndex;
+- (void)_setContentOffsetForCollectionViewIndex:(long long)a0;
+- (double)_contentOffsetXForCollectionViewIndex:(long long)a0;
+- (void)_stopContinuousScroll;
+- (BOOL)_canScrollCarouselView;
+- (void)_adjustCarouselForDirectionShift:(long long)a0;
+- (void)_prepareIndexMap:(long long)a0;
+- (void)_updateAutoScrollTimer;
+- (void)_updateIdleModeLayoutAttributes;
+- (void)_updateContentOffsetForFocusedIndex:(long long)a0 animated:(BOOL)a1;
+- (id)_cellForItemAtIndex:(unsigned long long)a0;
+- (void)setInteritemSpacing:(double)a0 animated:(BOOL)a1;
+- (void)_updateCollectionViewLayoutAnimated:(BOOL)a0;
+- (void)_updateCarouselWithCenterIndex:(long long)a0 indexToRemove:(long long)a1 indexToAdd:(long long)a2;
+- (void)_startAutoScrollTimer;
+- (void)_startContinuousScroll;
+- (void)_stopAutoScrollTimer;
+
+@end

@@ -1,0 +1,3 @@
+@interface RTSourceMapsSupportHistoryEntryPlaceDisplay : RTSourceMapsSupportHistoryEntry
+
+@end

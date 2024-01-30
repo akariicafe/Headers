@@ -1,0 +1,16 @@
+@class NSSet, NSPredicate;
+
+@interface SignpostSupportUniquePIDFilter : NSObject <SignpostPredicateProducer>
+
+@property (readonly, nonatomic) unsigned long long _compoundPredicateType;
+@property (readonly, nonatomic) BOOL _wantsNotEqual;
+@property (readonly, nonatomic) NSSet *uniquePidSet;
+@property (readonly, nonatomic) NSPredicate *predicateEquivalent;
+
+- (void).cxx_destruct;
+- (id)init;
+- (BOOL)passesUniquePIDNumber:(id)a0;
+- (void)addUniquePIDNumber:(id)a0;
+- (void)addUniquePIDNumberSet:(id)a0;
+
+@end

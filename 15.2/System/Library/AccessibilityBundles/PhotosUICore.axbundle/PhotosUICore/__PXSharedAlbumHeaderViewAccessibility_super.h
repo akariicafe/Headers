@@ -1,0 +1,3 @@
+@interface __PXSharedAlbumHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

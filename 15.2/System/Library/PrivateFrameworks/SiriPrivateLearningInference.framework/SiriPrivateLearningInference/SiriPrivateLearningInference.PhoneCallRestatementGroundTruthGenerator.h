@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.PhoneCallRestatementGroundTruthGenerator : _TtCs12_SwiftObject
+
+@end

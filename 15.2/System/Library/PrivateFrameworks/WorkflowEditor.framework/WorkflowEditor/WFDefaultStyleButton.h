@@ -1,0 +1,3 @@
+@interface WFDefaultStyleButton : UIButton
+
+@end

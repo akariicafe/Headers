@@ -1,0 +1,83 @@
+@class NSString, NSURL, NSURLSession, SUCoreEvent, NSOperationQueue, SUCoreEventReporterDelegate, NSMutableDictionary, NSMutableArray, NSObject, SUCorePersistedState, NSURLSessionConfiguration;
+@protocol OS_dispatch_queue;
+
+@interface SUCoreEventReporter : NSObject
+
+@property (retain, nonatomic) NSMutableArray *awaitingRetry;
+@property (retain, nonatomic) NSURL *splunkURL;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *splunkStateQueue;
+@property (retain, nonatomic) NSURLSessionConfiguration *inProcessConfig;
+@property (retain, nonatomic) NSOperationQueue *inProcessOperationQueue;
+@property (retain, nonatomic) NSURLSession *inProcessSession;
+@property (retain, nonatomic) SUCoreEventReporterDelegate *reporterDelegate;
+@property (retain, nonatomic) NSString *storeToPath;
+@property (retain, nonatomic) NSString *persistedStatePath;
+@property (nonatomic) long long accessControl;
+@property (retain, nonatomic) SUCorePersistedState *activeEventsState;
+@property (retain, nonatomic) SUCoreEvent *lastErrorEvent;
+@property (nonatomic) BOOL splunkAccessCreated;
+@property (nonatomic) BOOL eventExtensionsDetermined;
+@property (retain, nonatomic) NSMutableDictionary *eventExtensions;
+@property (nonatomic) int activeSendTaskCount;
+@property (nonatomic) BOOL dropEventsOnSendFailure;
+@property (copy, nonatomic) id /* block */ onceIdleCompletion;
+
++ (id)sharedReporter;
++ (id)accessControlSummary:(long long)a0;
++ (id)initSharedReporterStoringToPath:(id)a0;
++ (id)_sharedReporter:(id)a0 withAccessControl:(long long)a1;
++ (id)buildSplunkServerURLFromBase:(id)a0;
++ (id)_errorDomainAbbreviation:(id)a0;
++ (id)initSharedReporterStoringToPath:(id)a0 withAccessControl:(long long)a1;
++ (void)augmentEvent:(id)a0 withError:(id)a1;
++ (id)_nsURLSessionTaskNameForState:(long long)a0;
+
+- (BOOL)sendEvent:(id)a0;
+- (id)_getSplunkServerURL:(id)a0;
+- (void)_determineEventExtensions;
+- (void)_synchronizeWithNSURLSessionExpecting:(id)a0;
+- (void)_decrementActiveSendCount;
+- (id)_synchonizeDiscoveredRunning:(id)a0 forActiveEvent:(id)a1 withFileUUIDsToRetry:(id)a2;
+- (void)dropOnSendFailure:(BOOL)a0;
+- (void)_sendSplunkEvents:(id)a0 forEventUUID:(id)a1 toServerURL:(id)a2;
+- (void)indicateOnceIdle:(id /* block */)a0;
+- (id)initStoringToPath:(id)a0 withAccessControl:(long long)a1;
+- (id)_newExistingFileUUIDs;
+- (id)_buildContextFromNVRAMBootArgs;
+- (id)_removeFileUUID:(id)a0 fromFilesToRetry:(id)a1;
+- (void)_sendInterruptedFromStorage:(id)a0;
+- (void)_sendAllAwaitingRetry;
+- (void)handleSendFinishedWithFileUUID:(id)a0 sendSucceeded:(BOOL)a1 withStatusCode:(long long)a2 withError:(id)a3;
+- (id)_activeEventForFileUUID:(id)a0;
+- (BOOL)sendEvent:(id)a0 toServerURL:(id)a1;
+- (id)_copyEscapeStringsForEventData:(id)a0;
+- (id)initStoringToPath:(id)a0;
+- (void)_adoptLastErrorEvent:(id)a0;
+- (void)_removeActiveEventForFileUUID:(id)a0;
+- (id)_newScrubbedEvents:(id)a0;
+- (id)_synchonizeDiscoveredSuspended:(id)a0 forActiveEvent:(id)a1 withFileUUIDsToRetry:(id)a2;
+- (BOOL)_storeServerURLMetadata:(id)a0 toFileUUID:(id)a1;
+- (void)_uploadFromFile:(id)a0 withFileUUID:(id)a1 forEventUUID:(id)a2 toServerURL:(id)a3;
+- (void).cxx_destruct;
+- (void)_awaitRetryingFileUUID:(id)a0;
+- (id)_synchonizeDiscoveredUnknown:(id)a0 forActiveEvent:(id)a1 withFileUUIDsToRetry:(id)a2;
+- (id)_getJSONDataFromPayload:(id)a0 withFileUUID:(id)a1 forEventUUID:(id)a2;
+- (id)_synchonizeDiscoveredCanceling:(id)a0 forActiveEvent:(id)a1 withFileUUIDsToRetry:(id)a2;
+- (id)_synchonizeDiscoveredCompleted:(id)a0 forActiveEvent:(id)a1 withFileUUIDsToRetry:(id)a2;
+- (void)_removeFileUUID:(id)a0 loggingError:(BOOL)a1 forReason:(id)a2;
+- (void)_sendCoreEvent:(id)a0;
+- (long long)currentAccessControl;
+- (id)_alignPersistedStateWithExistingFileUUIDs:(id)a0;
+- (void)_checkWhetherIdle:(id)a0;
+- (void)_splunkAccessSetup;
+- (void)_sendCoreEvents:(id)a0 secondEvent:(id)a1;
+- (void)_incrementActiveSendCount:(id)a0;
+- (void)_updateActiveEvent:(id)a0 forFileUUID:(id)a1;
+- (void)handleSendFinishedInvalidFileUUID:(id)a0 withError:(id)a1;
+- (id)_storeJSONData:(id)a0 withFileUUID:(id)a1 forEventUUID:(id)a2;
+- (BOOL)_sendFirstAwaitingRetry;
+- (void)flushEvent;
+- (id)_getSplunkRequestForURL:(id)a0;
+- (id)sendEventReturningAugmented:(id)a0 toServerURL:(id)a1;
+
+@end

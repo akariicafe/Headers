@@ -1,0 +1,3 @@
+@interface __PXPeopleCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

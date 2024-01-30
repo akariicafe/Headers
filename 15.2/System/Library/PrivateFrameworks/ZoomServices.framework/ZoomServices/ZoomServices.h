@@ -1,0 +1,91 @@
+@class NSString, AXUIClient, NSMutableDictionary, NSMutableArray;
+
+@interface ZoomServices : NSObject <AXUIClientDelegate> {
+    NSMutableArray *_zoomListeners;
+    NSMutableDictionary *_zoomAttributeListeners;
+}
+
+@property (readonly, nonatomic, getter=isShowingZoomLens) BOOL showingZoomLens;
+@property (retain, nonatomic) AXUIClient *zoomWindowClient;
+@property (nonatomic, getter=isShowingZoomLens) BOOL showingZoomLens;
+@property (nonatomic) BOOL springBoardReady;
+@property (nonatomic) BOOL triedToShowLensBeofreSBReady;
+@property (nonatomic) BOOL registeredForZoomListener;
+@property (nonatomic) BOOL registeredForZoomAttributeListeners;
+@property (nonatomic) BOOL shouldRegisterForZoomListeners;
+@property (nonatomic) double zoomLevel;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (BOOL)notifyZoomAppSwitcherRevealAnimationWillBegin;
+- (double)appActivationAnimationStartDelay;
+- (void)showZoomLens;
+- (BOOL)notifyZoomFluidSwitcherGestureDidFinish;
+- (id)activeZoomMode;
+- (void)panRight;
+- (BOOL)notifyZoomDeviceWillWake;
+- (BOOL)notifyZoomReturnedToClockFaceAtIdle;
+- (id)userInterfaceClient:(id)a0 accessQueueForProcessingMessageWithIdentifier:(unsigned long long)a1;
+- (void)registerInterestInZoomAttributes;
+- (void)_checkSpringBoardStarted;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })zoomFrame;
+- (void)startMagnifierChangeTripleClickMenu:(BOOL)a0;
+- (BOOL)notifyZoomIdleSlugOpacityChangedTo:(double)a0;
+- (BOOL)notifyZoomCarouselLockBegan;
+- (void)panLeft;
+- (void)hideZoomLens;
+- (BOOL)notifyZoomLockButtonWasPressed;
+- (void)panUp;
+- (void)removeZoomAttributesChangedHandler:(id)a0;
+- (BOOL)notifyZoomFluidSwitcherGestureWillBegin;
+- (BOOL)inStandbyMode;
+- (void)startMagnifier;
+- (void)_panWithDirection:(id)a0;
+- (BOOL)notifyZoomAppDeactivationAnimationWillBegin;
+- (BOOL)notifyZoomFluidSwitcherGestureDidFinishWithDock;
+- (BOOL)notifyZoomDragWillEnd;
+- (double)appSwitcherRevealAnimationStartDelay;
+- (BOOL)shouldSuppressKeyCommandHUD;
+- (void)showMagnifier;
+- (BOOL)notifyZoomDockPositionWasChangedInSettingsTo:(id)a0;
+- (BOOL)notifyZoomLensModeWasChangedInSettingsTo:(id)a0;
+- (BOOL)notifyZoomWillHideBrailleInputUI;
+- (void).cxx_destruct;
+- (BOOL)_isAllowedMagnifierClient;
+- (id)init;
+- (void)notifyZoomSOSMedicalIDShown;
+- (BOOL)notifyZoomWillShowBrailleInputUI;
+- (void)_applicationWillSuspend:(id)a0;
+- (void)removeCoalescedZoomAttributesChangedHandler:(id)a0;
+- (id)userInterfaceClient:(id)a0 processMessageFromServer:(id)a1 withIdentifier:(unsigned long long)a2 error:(id *)a3;
+- (double)reachabilityScaleFactor;
+- (void)panDown;
+- (BOOL)notifyZoomHomeButtonWasPressed;
+- (double)appDeactivationAnimationStartDelay;
+- (BOOL)notifyZoomKeyboardDidHideInAppWithBundleID:(id)a0;
+- (BOOL)notifyZoomAppActivationAnimationDidFinish;
+- (BOOL)notifyZoomCarouselLockEnded;
+- (void)autoPanZoomUsingLocation:(struct CGPoint { double x0; double x1; })a0 withPanningStyle:(unsigned long long)a1;
+- (BOOL)notifyZoomDeviceWasUnlocked;
+- (BOOL)notifyZoomKeyboardWillBecomeVisibleWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inAppWithBundleID:(id)a1;
+- (BOOL)notifyZoomFocusDidChangeWithType:(long long)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 contextId:(unsigned int)a2;
+- (void)dealloc;
+- (BOOL)notifyZoomDragWillStart;
+- (BOOL)_isPrimaryZoomWindowClient;
+- (void)isMagnifierVisibleWithCompletion:(id /* block */)a0;
+- (void)connectionWithServiceWasInterruptedForUserInterfaceClient:(id)a0;
+- (BOOL)notifyZoomAppActivationAnimationWillBegin;
+- (BOOL)notifyZoomKeyboardWillHideInAppWithBundleID:(id)a0;
+- (void)_zoomChanged:(id)a0;
+- (BOOL)notifyZoomAppDidBecomeActive:(id)a0 keyboardFrameIfVisible:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (id)registerForCoalescedZoomAttributesWithChangedHandler:(id /* block */)a0;
+- (BOOL)notifyZoomFocusDidChangeWithType:(long long)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 contextId:(unsigned int)a2 keyboardFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3;
+- (id)registerForZoomAttributes:(id)a0 updatesImmediatelyWithChangedHandler:(id /* block */)a1;
+- (BOOL)notifyZoomAppDidEnterBackground:(id)a0;
+- (void)_handleChangedAttributes:(id)a0;
+
+@end

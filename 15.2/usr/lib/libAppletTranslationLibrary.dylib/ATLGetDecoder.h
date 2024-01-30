@@ -1,0 +1,3 @@
+@interface ATLGetDecoder : NSObject
+
+@end

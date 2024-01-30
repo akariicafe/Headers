@@ -1,0 +1,3 @@
+@interface _TtC10SiriFindMyP33_981FEC5A7AD53156F79806D42D3A1C5310SiriFindMy : _TtCs12_SwiftObject
+
+@end

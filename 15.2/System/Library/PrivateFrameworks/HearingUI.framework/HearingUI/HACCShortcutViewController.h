@@ -1,0 +1,81 @@
+@class NSMutableDictionary, HACCContentViewController, CCUIContentModuleDetailTransitioningDelegate, CCUILabeledRoundButtonViewController, AXRemoteHearingAidDevice, UIView, NSString, CCUIContentModuleContext, AXDispatchTimer, MediaControlsBluetoothListeningModeButton, UIScrollView, HACCStackView, HACCShortcutViewBackgroundController;
+@protocol AXHAShortcutUpdateProtocol;
+
+@interface HACCShortcutViewController : UIViewController <UIGestureRecognizerDelegate, HACCShortcutViewBackgroundDelegate, HACCContentModuleDelegate> {
+    double _moduleHeight;
+    double _dismissalGestureYOffset;
+    struct CGPoint { double x; double y; } _backgroundViewDismissalOrigin;
+    struct CGPoint { double x; double y; } _mainModuleOrigin;
+    CCUIContentModuleDetailTransitioningDelegate *_detailTransitioningDelegate;
+    AXDispatchTimer *_bluetoothAvailabilityTimer;
+    AXDispatchTimer *_noiseControlUpdateTimer;
+    MediaControlsBluetoothListeningModeButton *_listeningModeButton;
+    BOOL _mediaIsPlaying;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *moduleToViewControllerMap;
+@property (retain, nonatomic) UIScrollView *scrollView;
+@property (retain, nonatomic) HACCStackView *stackView;
+@property (retain, nonatomic) UIView *platterView;
+@property (retain, nonatomic) CCUILabeledRoundButtonViewController *otherDevicesButtonViewController;
+@property (retain, nonatomic) AXRemoteHearingAidDevice *currentHearingDevice;
+@property (retain, nonatomic) NSString *currentOtherDeviceName;
+@property (retain, nonatomic) NSString *currentOtherDeviceType;
+@property (nonatomic) BOOL bluetoothAvailable;
+@property (nonatomic) BOOL listeningForHearingAidUpdates;
+@property (nonatomic) BOOL listeningForHeadphoneUpdates;
+@property (nonatomic) BOOL headphoneAudioAvailable;
+@property (retain, nonatomic) HACCContentViewController *expandedController;
+@property (nonatomic) BOOL shouldDisplayOtherDevice;
+@property (weak, nonatomic) id<AXHAShortcutUpdateProtocol> delegate;
+@property (retain, nonatomic) HACCShortcutViewBackgroundController *backgroundController;
+@property (retain, nonatomic) CCUIContentModuleContext *contentModuleContext;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (double)preferredExpandedContentHeight;
+- (BOOL)isExpanded;
+- (void)mediaServerDied;
+- (id)initWithDelegate:(id)a0;
+- (id)listeningMode;
+- (void)registerNotifications;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillLayoutSubviews;
+- (BOOL)_canShowWhileLocked;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)updateView;
+- (void)viewDidAppear:(BOOL)a0;
+- (BOOL)setListeningMode:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (double)preferredContentWidth;
+- (void)mediaPlaybackDidChange:(id)a0;
+- (void)bluetoothAvailabilityDidChange:(id)a0;
+- (id)backgroundUpdateQueue;
+- (void)controlDidActivate:(id)a0;
+- (void)updateViewForProperties:(id)a0;
+- (void)updateViewForModule:(unsigned long long)a0;
+- (void)viewController:(id)a0 didExpand:(BOOL)a1;
+- (void)updateNoiseControl:(id)a0;
+- (BOOL)shouldDisplayQuickToggleFor:(unsigned long long)a0;
+- (void)otherDeviceButtonTapped:(id)a0;
+- (void)listeningModeButtonDidUpdateValue:(id)a0;
+- (void)quickToggle:(unsigned long long)a0 stateChanged:(BOOL)a1;
+- (void)updateRoutes;
+- (void)contentCategoryDidChange:(id)a0;
+- (void)updateAvailableControls;
+- (void)listenForHearingAidUpdates;
+- (void)startListeningForHeadphoneUpdates;
+- (void)stopListeningForHeadphoneUpdates;
+- (BOOL)shouldDisplayDeviceToggle;
+- (BOOL)shouldDisplayControlForModule:(unsigned long long)a0;
+- (BOOL)addPartialSeparatorAboveModule:(unsigned long long)a0;
+- (BOOL)addSeparatorAboveModule:(unsigned long long)a0;
+- (double)moduleHeight;
+- (void)_logLiveListenAnalytics;
+- (BOOL)shouldShowNoiseControl;
+
+@end

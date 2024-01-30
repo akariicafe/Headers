@@ -1,0 +1,106 @@
+@class NSUUID, NSString, NSArray, NSLocale, HKMedicalCodingCollection, HKConcept, HKMedicalDate, HKProcedureRecordType, HKMedicalCoding;
+
+@interface HKProcedureRecord : HKMedicalRecord <HKConceptIndexable, NSSecureCoding, NSCopying> {
+    HKMedicalCodingCollection *_procedureCodingCollection;
+    NSArray *_performers;
+    HKMedicalDate *_executionStartDate;
+    HKMedicalDate *_executionEndDate;
+    BOOL _notPerformed;
+    HKMedicalCoding *_statusCoding;
+    HKMedicalCodingCollection *_categoryCodingCollection;
+    NSArray *_reasonCodingCollections;
+    NSArray *_reasonsNotPerformedCodingCollections;
+    HKMedicalCodingCollection *_outcomeCodingCollection;
+    NSArray *_complicationsCodingCollections;
+    NSArray *_followUpsCodingCollections;
+    NSArray *_bodySitesCodingCollections;
+    HKConcept *_procedure;
+    HKConcept *_status;
+    HKConcept *_category;
+    NSArray *_reason;
+    NSArray *_reasonsNotPerformed;
+    HKConcept *_outcome;
+    NSArray *_complications;
+    NSArray *_followUps;
+    NSArray *_bodySites;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSUUID *UUID;
+@property (readonly, copy, nonatomic) NSLocale *locale;
+@property (readonly, copy, nonatomic) NSString *country;
+@property (readonly, nonatomic) long long recordCategoryType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) HKProcedureRecordType *procedureRecordType;
+@property (readonly, copy) NSArray *bodySites;
+@property (readonly, copy) NSArray *bodySitesCodingCollections;
+@property (readonly, copy) HKConcept *category;
+@property (readonly, copy) HKMedicalCodingCollection *categoryCodingCollection;
+@property (readonly, copy) NSArray *complications;
+@property (readonly, copy) NSArray *complicationsCodingCollections;
+@property (readonly, copy) HKMedicalDate *executionEndDate;
+@property (readonly, copy) HKMedicalDate *executionStartDate;
+@property (readonly, copy) NSArray *followUps;
+@property (readonly, copy) NSArray *followUpsCodingCollections;
+@property (readonly) BOOL notPerformed;
+@property (readonly, copy) HKConcept *outcome;
+@property (readonly, copy) HKMedicalCodingCollection *outcomeCodingCollection;
+@property (readonly, copy) NSArray *performers;
+@property (readonly, copy) HKConcept *procedure;
+@property (readonly, copy) HKMedicalCodingCollection *procedureCodingCollection;
+@property (readonly, copy) NSArray *reason;
+@property (readonly, copy) NSArray *reasonCodingCollections;
+@property (readonly, copy) NSArray *reasonsNotPerformed;
+@property (readonly, copy) NSArray *reasonsNotPerformedCodingCollections;
+@property (readonly, copy) HKConcept *status;
+@property (readonly, copy) HKMedicalCoding *statusCoding;
+
++ (id)procedureRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 procedureCodingCollection:(id)a12 performers:(id)a13 executionStartDate:(id)a14 executionEndDate:(id)a15 notPerformed:(BOOL)a16 statusCoding:(id)a17 categoryCodingCollection:(id)a18 reasonCodingCollections:(id)a19 reasonsNotPerformedCodingCollections:(id)a20 outcomeCodingCollection:(id)a21 complicationsCodingCollections:(id)a22 followUpsCodingCollections:(id)a23 bodySitesCodingCollections:(id)a24;
++ (id)procedureRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 country:(id)a9 state:(unsigned long long)a10 procedureCodingCollection:(id)a11 performers:(id)a12 executionStartDate:(id)a13 executionEndDate:(id)a14 notPerformed:(BOOL)a15 statusCoding:(id)a16 categoryCodingCollection:(id)a17 reasonCodingCollections:(id)a18 reasonsNotPerformedCodingCollections:(id)a19 outcomeCodingCollection:(id)a20 complicationsCodingCollections:(id)a21 followUpsCodingCollections:(id)a22 bodySitesCodingCollections:(id)a23;
++ (id)_newProcedureRecordWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 procedureCodingCollection:(id)a12 performers:(id)a13 executionStartDate:(id)a14 executionEndDate:(id)a15 notPerformed:(BOOL)a16 statusCoding:(id)a17 categoryCodingCollection:(id)a18 reasonCodingCollections:(id)a19 reasonsNotPerformedCodingCollections:(id)a20 outcomeCodingCollection:(id)a21 complicationsCodingCollections:(id)a22 followUpsCodingCollections:(id)a23 bodySitesCodingCollections:(id)a24 config:(id /* block */)a25;
++ (BOOL)supportsEquivalence;
++ (BOOL)_isConcreteObjectClass;
++ (id)indexableConceptKeyPaths;
++ (id)cachedConceptRelationshipKeyPaths;
++ (BOOL)groupsByUserDomainConcept;
++ (id)defaultDisplayString;
+
+- (void)_setPerformers:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void)_setStatus:(id)a0;
+- (void)_setProcedureCodingCollection:(id)a0;
+- (void)_setExecutionStartDate:(id)a0;
+- (void)_setExecutionEndDate:(id)a0;
+- (void)_setNotPerformed:(BOOL)a0;
+- (void)_setCategoryCodingCollection:(id)a0;
+- (void)_setReasonsNotPerformedCodingCollections:(id)a0;
+- (void)_setOutcomeCodingCollection:(id)a0;
+- (void)_setComplicationsCodingCollections:(id)a0;
+- (void)_setFollowUpsCodingCollections:(id)a0;
+- (BOOL)isEquivalent:(id)a0;
+- (void)_setOutcome:(id)a0;
+- (void)_setProcedure:(id)a0;
+- (void)_setReasonsNotPerformed:(id)a0;
+- (void)_setComplications:(id)a0;
+- (void)_setFollowUps:(id)a0;
+- (id)_validateWithConfiguration:(struct HKObjectValidationConfiguration { unsigned long long x0; unsigned int x1; })a0;
+- (id)codingsForKeyPath:(id)a0 error:(id *)a1;
+- (BOOL)applyConcepts:(id)a0 forKeyPath:(id)a1 error:(id *)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (id)statusCodingCollection;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)_setStatusCoding:(id)a0;
+- (void)_setReasonCodingCollections:(id)a0;
+- (void)_setReason:(id)a0;
+- (void)_setCategory:(id)a0;
+- (void)_setBodySites:(id)a0;
+- (void)_setBodySitesCodingCollections:(id)a0;
+- (id)medicalRecordCodings;
+
+@end

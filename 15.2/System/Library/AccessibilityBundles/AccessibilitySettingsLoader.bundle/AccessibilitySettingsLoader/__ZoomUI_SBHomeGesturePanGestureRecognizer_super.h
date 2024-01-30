@@ -1,0 +1,3 @@
+@interface __ZoomUI_SBHomeGesturePanGestureRecognizer_super : UIAccessibilitySafeCategory
+
+@end

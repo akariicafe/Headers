@@ -1,0 +1,12 @@
+@interface MenstrualCyclesAppPlugin.ManualEntryItem : NSObject <UIPickerViewDelegate, UIPickerViewDataSource> {
+    void /* unknown type, empty encoding */ dataSource;
+}
+
+- (void).cxx_destruct;
+- (id)init;
+- (long long)numberOfComponentsInPickerView:(id)a0;
+- (long long)pickerView:(id)a0 numberOfRowsInComponent:(long long)a1;
+- (id)pickerView:(id)a0 titleForRow:(long long)a1 forComponent:(long long)a2;
+- (void)pickerView:(id)a0 didSelectRow:(long long)a1 inComponent:(long long)a2;
+
+@end

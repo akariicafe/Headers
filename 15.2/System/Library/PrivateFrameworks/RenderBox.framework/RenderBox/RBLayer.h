@@ -1,0 +1,55 @@
+@class RBDevice, NSString, NSDictionary, NSTimer, RBImageQueueLayer;
+
+@interface RBLayer : CALayer <_RBDrawableDelegate, RBDrawableStatistics> {
+    struct spin_lock { struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock; } _lock;
+    struct objc_ptr<RBDevice *> { RBDevice *_p; } _device;
+    NSTimer *_collectionTimer;
+    struct refcounted_ptr<RB::Drawable> { struct Drawable *_p; } _drawable;
+    struct objc_ptr<RBImageQueueLayer *> { RBImageQueueLayer *_p; } _queueLayer;
+    unsigned long long _statistics_mask;
+    double _statistics_alpha;
+    struct objc_ptr<void (^)(id<RBDrawableStatistics>)> { id /* block */ _p; } _statistics_handler;
+    struct atomic<bool> { struct __cxx_atomic_impl<bool, std::__cxx_atomic_base_impl<bool>> { _Atomic BOOL __a_value; } __a_; } _deallocating;
+    BOOL _visible;
+    BOOL _needs_display_on_visible;
+    BOOL _pending_visible_callback;
+}
+
+@property (retain, nonatomic) RBDevice *device;
+@property (nonatomic) BOOL rendersAsynchronously;
+@property (nonatomic) int colorMode;
+@property (nonatomic) BOOL promotesFramebuffer;
+@property (nonatomic) unsigned long long pixelFormat;
+@property (nonatomic) BOOL clearsBackground;
+@property (nonatomic) struct { float red; float green; float blue; float alpha; } clearColor;
+@property (nonatomic) long long maxDrawableCount;
+@property (readonly, nonatomic, getter=isDrawableAvailable) BOOL drawableAvailable;
+@property (nonatomic) BOOL needsSynchronousUpdate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSDictionary *statistics;
+@property (copy, nonatomic) id /* block */ statisticsHandler;
+
++ (id)defaultValueForKey:(id)a0;
+
+- (void)layerDidBecomeVisible:(BOOL)a0;
+- (void)setContents:(id)a0;
+- (id)initWithLayer:(id)a0;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)waitUntilAsyncRenderingCompleted;
+- (BOOL)displayWithBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 callback:(id /* block */)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (void)_renderForegroundInContext:(struct CGContext { } *)a0;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+- (void)display;
+- (id).cxx_construct;
+- (void)_RBDrawableStatisticsDidChange;
+- (void)resetStatistics:(unsigned long long)a0 alpha:(double)a1;
+- (void)drawInDisplayList:(id)a0;
+- (void)copyImageInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 options:(id)a1 completionQueue:(id)a2 handler:(id /* block */)a3;
+
+@end

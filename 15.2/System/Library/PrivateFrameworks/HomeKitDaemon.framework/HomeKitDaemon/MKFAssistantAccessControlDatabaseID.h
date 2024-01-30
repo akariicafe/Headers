@@ -1,0 +1,3 @@
+@interface MKFAssistantAccessControlDatabaseID : MKFModelDatabaseID
+
+@end

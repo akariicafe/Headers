@@ -1,0 +1,5 @@
+@interface NPKPaymentProvisioningFlowControllerLocalDeviceManualEntryStepContext : NPKPaymentProvisioningFlowControllerSecondaryManualEntryStepContext
+
+- (id)initWithRequestContext:(id)a0;
+
+@end

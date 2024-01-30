@@ -1,0 +1,3 @@
+@interface KNObjectPlaceholderRep : KNPlaceholderRep
+
+@end

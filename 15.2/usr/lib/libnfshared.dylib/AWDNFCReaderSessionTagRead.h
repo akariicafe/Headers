@@ -1,0 +1,25 @@
+@class NSData;
+
+@interface AWDNFCReaderSessionTagRead : PBCodable <NSCopying> {
+    unsigned long long _duration;
+    unsigned long long _timeDeltaFromReference;
+    unsigned long long _timestamp;
+    unsigned int _payloadSize;
+    unsigned int _rawCommandCount;
+    unsigned int _resultCode;
+    unsigned int _tagType;
+    unsigned int _type;
+    NSData *_uuidReference;
+    struct { unsigned char duration : 1; unsigned char timeDeltaFromReference : 1; unsigned char timestamp : 1; unsigned char payloadSize : 1; unsigned char rawCommandCount : 1; unsigned char resultCode : 1; unsigned char tagType : 1; unsigned char type : 1; } _has;
+}
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

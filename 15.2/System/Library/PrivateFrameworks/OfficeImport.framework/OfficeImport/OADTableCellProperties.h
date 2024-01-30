@@ -1,0 +1,76 @@
+@class OADStroke, OADTableCell3DProperties, OADFill;
+
+@interface OADTableCellProperties : NSObject {
+    OADStroke *mLeftStroke;
+    OADStroke *mRightStroke;
+    OADStroke *mTopStroke;
+    OADStroke *mBottomStroke;
+    OADStroke *mTopLeftToBottomRightStroke;
+    OADStroke *mBottomLeftToTopRightStroke;
+    OADTableCell3DProperties *mThreeDProperties;
+    OADFill *mFill;
+    float mLeftMargin;
+    BOOL mIsLeftMarginOverridden;
+    float mRightMargin;
+    BOOL mIsRightMarginOverridden;
+    float mTopMargin;
+    BOOL mIsTopMarginOverridden;
+    float mBottomMargin;
+    BOOL mIsBottomMarginOverridden;
+    unsigned char mTextFlow;
+    BOOL mIsTextFlowOverridden;
+    unsigned char mTextAnchor;
+    BOOL mIsTextAnchorOverridden;
+    BOOL mTextAnchorCenter;
+    BOOL mIsTextAnchorCenterOverridden;
+    unsigned char mTextHorizontalOverflow;
+    BOOL mIsTextHorizontalOverflowOverridden;
+}
+
+- (float)topMargin;
+- (float)bottomMargin;
+- (id)fill;
+- (id)description;
+- (unsigned char)textFlow;
+- (void)setTextFlow:(unsigned char)a0;
+- (void).cxx_destruct;
+- (void)setLeftMargin:(float)a0;
+- (void)setTopMargin:(float)a0;
+- (void)setBottomMargin:(float)a0;
+- (void)setRightMargin:(float)a0;
+- (float)rightMargin;
+- (id)stroke:(int)a0;
+- (float)leftMargin;
+- (void)setFill:(id)a0;
+- (void)setLeftStroke:(id)a0;
+- (void)setRightStroke:(id)a0;
+- (void)setTopStroke:(id)a0;
+- (void)setBottomStroke:(id)a0;
+- (void)setTopLeftToBottomRightStroke:(id)a0;
+- (void)setBottomLeftToTopRightStroke:(id)a0;
+- (void)setTextAnchor:(unsigned char)a0;
+- (void)setTextAnchorCenter:(BOOL)a0;
+- (void)setTextHorizontalOverflow:(unsigned char)a0;
+- (id)leftStroke;
+- (id)rightStroke;
+- (id)topStroke;
+- (id)bottomStroke;
+- (id)topLeftToBottomRightStroke;
+- (id)bottomLeftToTopRightStroke;
+- (void)setStrokeOfType:(int)a0 toValue:(id)a1;
+- (id)strokeNormalToDir:(int)a0 bound:(int)a1;
+- (id)threeDProperties;
+- (void)setThreeDProperties:(id)a0;
+- (BOOL)isLeftMarginOverridden;
+- (BOOL)isRightMarginOverridden;
+- (BOOL)isTopMarginOverridden;
+- (BOOL)isBottomMarginOverridden;
+- (BOOL)isTextFlowOverridden;
+- (unsigned char)textAnchor;
+- (BOOL)isTextAnchorOverridden;
+- (BOOL)textAnchorCenter;
+- (BOOL)isTextAnchorCenterOverridden;
+- (unsigned char)textHorizontalOverflow;
+- (BOOL)isTextHorizontalOverflowOverridden;
+
+@end

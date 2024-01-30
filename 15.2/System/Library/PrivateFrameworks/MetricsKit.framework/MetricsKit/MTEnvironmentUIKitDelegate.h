@@ -1,0 +1,3 @@
+@interface MTEnvironmentUIKitDelegate : MTEnvironmentDeviceDelegate
+
+@end

@@ -1,0 +1,84 @@
+@class NSData, NSString, NSDate, NSTimer, GEODirectionsRequest, MNLocation, GEONavigationMapMatcher, NSMutableArray, GEOPathMatcher, MNEVChargingStateMonitor, MNArrivalUpdater;
+@protocol GEODirectionServiceTicket;
+
+@interface MNTurnByTurnLocationTracker : MNLocationTracker <MNArrivalUpdaterDelegate, MNEVChargingStateMonitorDelegate> {
+    GEONavigationMapMatcher *_mapMatcher;
+    MNArrivalUpdater *_arrivalUpdater;
+    unsigned long long _lastArrivalLegIndex;
+    NSDate *_startDate;
+    struct { double latitude; double longitude; } _originCoordinate;
+    id<GEODirectionServiceTicket> _rerouteTicket;
+    GEODirectionsRequest *_request;
+    unsigned long long _rerouteReason;
+    long long _responseErrorCode;
+    unsigned long long _responseErrorCount;
+    unsigned long long _recalculationNetworkUnreachableCount;
+    NSTimer *_recalculationRetryTimer;
+    MNLocation *_previousRerouteLocation;
+    NSMutableArray *_rerouteDates;
+    unsigned long long _consecutiveOffRouteCount;
+    MNLocation *_lastKnownGoodLocationOnRoute;
+    BOOL _isNavigatingInLowGuidance;
+    MNEVChargingStateMonitor *_evChargingStateMonitor;
+    GEOPathMatcher *_pathMatcher;
+}
+
+@property (copy, nonatomic) NSData *serverSessionState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)forceReroute;
+- (void)updateLocation:(id)a0;
+- (void)stopTracking;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)startTracking;
+- (id)_matchedLocationForLocation:(id)a0;
+- (id)initWithNavigationSession:(id)a0;
+- (BOOL)isRerouting;
+- (void)updateDestination:(id)a0 finishedHandler:(id /* block */)a1;
+- (void)reroute:(id)a0 reason:(unsigned long long)a1;
+- (void)_setIsNavigatingInLowGuidance:(BOOL)a0;
+- (void)traceJumpedInTime;
+- (void)forceOnRoute:(id)a0 atLocation:(id)a1;
+- (void)evChargingStateMonitorShouldShowChargingInfo:(id)a0;
+- (void)evChargingStateMonitor:(id)a0 didChangeChargingState:(BOOL)a1;
+- (void)evChargingStateMonitor:(id)a0 didReachTargetBatteryCharge:(id)a1;
+- (void)_updateForArrivalAtLegIndex:(unsigned long long)a0;
+- (id)_newMapMatcherForRoute:(id)a0;
+- (id)_overrideLocationForLocation:(id)a0;
+- (void)_updateForLocation:(id)a0;
+- (void)_updateForReroute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (int)_detectedMotionForLocation:(id)a0;
+- (BOOL)_allowSwitchToTransportType:(int)a0 forLocation:(id)a1;
+- (id)_alternateRouteForOffRouteLocation:(id)a0;
+- (void)arrivalUpdater:(id)a0 isApproachingEndOfLegAtIndex:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 didArriveAtEndOfLegAtIndex:(unsigned long long)a1;
+- (void)arrivalUpdater:(id)a0 didEnterPreArrivalStateForLegIndex:(unsigned long long)a1;
+- (void)arrivalUpdaterDidTimeoutInArrivalRegion:(id)a0;
+- (void)_reroute:(id)a0 rerouteReason:(unsigned long long)a1 request:(id)a2 response:(id)a3;
+- (void)_requestDirectionsForLocation:(id)a0 destination:(id)a1 transportType:(int)a2 handler:(id /* block */)a3;
+- (BOOL)_allowRerouteForLocation:(id)a0 outError:(out id *)a1;
+- (BOOL)_isRoadFeatureInOppositeDirection:(id)a0 ofCoordinate:(struct { double x0; double x1; })a1 course:(double)a2;
+- (BOOL)_shouldAdvanceGuidanceToRouteMatch:(id)a0;
+- (int)_routeHintTypeForTransportType:(int)a0;
+- (BOOL)_isCameraTestMode;
+- (void)_failedToRecalculateRouteWithError:(id)a0;
+- (id)_rerouteTicketForLocation:(id)a0 transportType:(int)a1;
+- (id)_ticketForNewDestination:(id)a0 fromLocation:(id)a1 transportType:(int)a2;
+- (void)_submitRerouteTicketWithHandler:(id /* block */)a0;
+- (id)_matchedLocationForMatchResult:(id)a0 originalLocation:(id)a1;
+- (void)_handleOffRouteForLocation:(id)a0;
+- (void)_retryLastRouteRecalculation;
+- (void)_recalculationRetryTimerFired:(id)a0;
+- (void)_sendRouteHintForLocation:(id)a0;
+- (BOOL)_hasArrivedAtFinalDestination;
+- (void)_updateStateForLocation:(id)a0;
+- (void)_updateSwitchTransportTypeForLocation:(id)a0;
+- (void)_updateForDepartureAtLegIndex:(unsigned long long)a0;
+- (void)_startMonitoringBatteryChargeForLegIndex:(unsigned long long)a0;
+- (id)initForTestingWithRoute:(id)a0;
+
+@end

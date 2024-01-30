@@ -1,0 +1,15 @@
+@class UIViewController, UIView;
+
+@interface _UIQueuingScrollViewState : _UITransitionState {
+    UIViewController *_viewController;
+}
+
+@property (readonly, nonatomic) UIView *view;
+@property (readonly, nonatomic, getter=isManual) BOOL manual;
+
+- (id)initWithTransitionDirection:(long long)a0 view:(id)a1 manual:(BOOL)a2 completion:(id /* block */)a3;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isCompatibleWithTransitionInDirection:(long long)a0;
+
+@end

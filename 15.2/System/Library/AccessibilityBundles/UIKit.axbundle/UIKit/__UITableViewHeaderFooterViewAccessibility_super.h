@@ -1,0 +1,3 @@
+@interface __UITableViewHeaderFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

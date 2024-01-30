@@ -1,0 +1,18 @@
+@class NSString, TPDocumentRoot;
+
+@interface TPOrphanPageGenerator : NSObject <TPPageGenerator> {
+    TPDocumentRoot *_documentRoot;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithDocumentRoot:(id)a0;
+- (BOOL)wantsPageInSectionHint:(id)a0 withState:(id)a1;
+- (void)createOrUpdatePageHintInSectionHint:(id)a0 withState:(id)a1;
+
+@end

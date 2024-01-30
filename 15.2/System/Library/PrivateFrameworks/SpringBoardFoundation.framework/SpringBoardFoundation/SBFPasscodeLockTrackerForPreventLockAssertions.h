@@ -1,0 +1,3 @@
+@interface SBFPasscodeLockTrackerForPreventLockAssertions : SBFAuthenticationAssertionTracker
+
+@end

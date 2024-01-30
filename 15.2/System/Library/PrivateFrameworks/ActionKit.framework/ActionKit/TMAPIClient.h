@@ -1,0 +1,87 @@
+@class NSString, JXHTTPOperationQueue, NSDictionary, NSOperationQueue, NSURL;
+
+@interface TMAPIClient : NSObject
+
+@property (retain, nonatomic) JXHTTPOperationQueue *queue;
+@property (copy, nonatomic) NSString *OAuthConsumerKey;
+@property (copy, nonatomic) NSString *OAuthConsumerSecret;
+@property (copy, nonatomic) NSString *OAuthToken;
+@property (copy, nonatomic) NSString *OAuthTokenSecret;
+@property (copy, nonatomic) NSDictionary *customHeaders;
+@property (nonatomic) double timeoutInterval;
+@property (retain, nonatomic) NSOperationQueue *defaultCallbackQueue;
+@property (retain, nonatomic) NSURL *baseURL;
+
++ (id)sharedInstance;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)userInfo:(id /* block */)a0;
+- (BOOL)handleOpenURL:(id)a0;
+- (void)authenticate:(id)a0 urlBlock:(id /* block */)a1 callback:(id /* block */)a2;
+- (void)xAuth:(id)a0 password:(id)a1 callback:(id /* block */)a2;
+- (id)userInfoRequest;
+- (id)dashboardRequest:(id)a0;
+- (void)dashboard:(id)a0 callback:(id /* block */)a1;
+- (id)likesRequest:(id)a0;
+- (void)likes:(id)a0 callback:(id /* block */)a1;
+- (id)followingRequest:(id)a0;
+- (void)following:(id)a0 callback:(id /* block */)a1;
+- (id)followRequest:(id)a0;
+- (void)follow:(id)a0 callback:(id /* block */)a1;
+- (id)unfollowRequest:(id)a0;
+- (void)unfollow:(id)a0 callback:(id /* block */)a1;
+- (id)likeRequest:(id)a0 reblogKey:(id)a1;
+- (void)like:(id)a0 reblogKey:(id)a1 callback:(id /* block */)a2;
+- (id)unlikeRequest:(id)a0 reblogKey:(id)a1;
+- (void)unlike:(id)a0 reblogKey:(id)a1 callback:(id /* block */)a2;
+- (void)avatar:(id)a0 size:(unsigned long long)a1 callback:(id /* block */)a2;
+- (void)avatar:(id)a0 size:(unsigned long long)a1 queue:(id)a2 callback:(id /* block */)a3;
+- (id)blogInfoRequest:(id)a0;
+- (void)blogInfo:(id)a0 callback:(id /* block */)a1;
+- (id)followersRequest:(id)a0 parameters:(id)a1;
+- (void)followers:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)postsRequest:(id)a0 type:(id)a1 parameters:(id)a2;
+- (void)posts:(id)a0 type:(id)a1 parameters:(id)a2 callback:(id /* block */)a3;
+- (id)queueRequest:(id)a0 parameters:(id)a1;
+- (void)queue:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)draftsRequest:(id)a0 parameters:(id)a1;
+- (void)drafts:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)submissionsRequest:(id)a0 parameters:(id)a1;
+- (void)submissions:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)likesRequest:(id)a0 parameters:(id)a1;
+- (void)likes:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)postRequest:(id)a0 type:(id)a1 parameters:(id)a2;
+- (void)post:(id)a0 type:(id)a1 parameters:(id)a2 callback:(id /* block */)a3;
+- (id)editPostRequest:(id)a0 parameters:(id)a1;
+- (void)editPost:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)reblogPostRequest:(id)a0 parameters:(id)a1;
+- (void)reblogPost:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)deletePostRequest:(id)a0 id:(id)a1;
+- (void)deletePost:(id)a0 id:(id)a1 callback:(id /* block */)a2;
+- (id)textRequest:(id)a0 parameters:(id)a1;
+- (void)text:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)quoteRequest:(id)a0 parameters:(id)a1;
+- (void)quote:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)linkRequest:(id)a0 parameters:(id)a1;
+- (void)link:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)chatRequest:(id)a0 parameters:(id)a1;
+- (void)chat:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)photoRequest:(id)a0 filePathArray:(id)a1 contentTypeArray:(id)a2 fileNameArray:(id)a3 parameters:(id)a4;
+- (void)photo:(id)a0 filePathArray:(id)a1 contentTypeArray:(id)a2 fileNameArray:(id)a3 parameters:(id)a4 callback:(id /* block */)a5;
+- (id)videoRequest:(id)a0 filePath:(id)a1 contentType:(id)a2 fileName:(id)a3 parameters:(id)a4;
+- (void)video:(id)a0 filePath:(id)a1 contentType:(id)a2 fileName:(id)a3 parameters:(id)a4 callback:(id /* block */)a5;
+- (id)audioRequest:(id)a0 filePath:(id)a1 contentType:(id)a2 fileName:(id)a3 parameters:(id)a4;
+- (void)audio:(id)a0 filePath:(id)a1 contentType:(id)a2 fileName:(id)a3 parameters:(id)a4 callback:(id /* block */)a5;
+- (id)taggedRequest:(id)a0 parameters:(id)a1;
+- (void)tagged:(id)a0 parameters:(id)a1 callback:(id /* block */)a2;
+- (id)getRequestWithPath:(id)a0 parameters:(id)a1;
+- (id)postRequestWithPath:(id)a0 parameters:(id)a1;
+- (id)multipartPostRequest:(id)a0 type:(id)a1 parameters:(id)a2 filePathArray:(id)a3 contentTypeArray:(id)a4 fileNameArray:(id)a5;
+- (id)multipartBodyForParameters:(id)a0 filePathArray:(id)a1 contentTypeArray:(id)a2 fileNameArray:(id)a3;
+- (void)signRequest:(id)a0 withParameters:(id)a1;
+- (void)sendRequest:(id)a0 callback:(id /* block */)a1;
+- (void)sendRequest:(id)a0 queue:(id)a1 callback:(id /* block */)a2;
+- (id)URLWithPath:(id)a0;
+
+@end

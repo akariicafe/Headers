@@ -1,0 +1,24 @@
+@class NSMutableDictionary;
+
+@interface PGROISceneMatcher : NSObject {
+    NSMutableDictionary *_confidenceThresholdByWhitelistedSceneIdentifierByROILabel;
+    NSMutableDictionary *_confidenceThresholdByBlockedSceneIdentifierByROILabel;
+}
+
++ (id)confidenceThresholdBySceneIdentifierWithSceneNames:(id)a0 blocked:(BOOL)a1;
++ (id)blockedSceneNamesByROILabel;
++ (id)whitelistedSceneNamesByROILabel;
++ (id)sharedROISceneMatcher;
++ (id)beachSceneNames;
++ (id)mountainSceneNames;
++ (id)natureSceneNames;
++ (id)nonNatureSceneNames;
++ (id)waterSceneNames;
++ (id)nonWaterSceneNames;
++ (id)urbanSceneNames;
+
+- (void).cxx_destruct;
+- (id)confidenceThresholdByWhitelistedSceneIdentifierForROILabel:(id)a0;
+- (id)confidenceThresholdByBlockedSceneIdentifierForROILabel:(id)a0;
+
+@end

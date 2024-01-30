@@ -1,0 +1,3 @@
+@interface _TtCC22HomeAutomationInternal20CarbonOxideResponses7Builder : _TtCC22HomeAutomationInternal22NumericEntityResponses7Builder
+
+@end

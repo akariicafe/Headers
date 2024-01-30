@@ -1,0 +1,3 @@
+@interface __SKUIEditProfileSettingDescriptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

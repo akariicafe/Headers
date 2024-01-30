@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType19BloodAlcoholContent : _TtCs12_SwiftObject
+
+@end

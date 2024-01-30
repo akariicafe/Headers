@@ -1,0 +1,3 @@
+@interface __PUAdjustmentsModePickerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

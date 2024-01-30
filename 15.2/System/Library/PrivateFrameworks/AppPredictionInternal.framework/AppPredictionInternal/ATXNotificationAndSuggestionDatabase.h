@@ -1,0 +1,44 @@
+@interface ATXNotificationAndSuggestionDatabase : ATXAbstractVersionedDatabase
+
+- (BOOL)migrate;
+- (id)messageNotificationsPerAppFromStartTime:(double)a0 toEndTime:(double)a1;
+- (id)engagementStatusOfActiveAndProminentAndMessageNotificationsSinceTimestamp:(double)a0;
+- (void)updateSuggestionFromEvent:(id)a0;
+- (id)mostRecentActiveNotifications;
+- (id)appSortedByNumOfNotificationsSinceTimestamp:(double)a0;
+- (id)currentActiveSuggestions;
+- (id)getTopOfProminentStackNotificationsWithLimit:(unsigned long long)a0;
+- (id)allNotificationsBetweenStartTimestamp:(id)a0 endTimestamp:(id)a1 limit:(unsigned long long)a2;
+- (void)setAllNotificationsToModified;
+- (void)insertSuggestion:(id)a0;
+- (long long)latestVersion;
+- (id)totalNotificationsPerAppFromStartTime:(double)a0 toEndTime:(double)a1;
+- (id)deleteAllData;
+- (id)engagementStatusOfActiveAndProminentNotificationsSinceTimestamp:(double)a0;
+- (id)feedbackHistoriesForKeys:(id)a0;
+- (id)numProminentActiveNotificationsByGroupingColumn:(id)a0;
+- (id)pruneSuggestionsBeforeTimestamp:(double)a0;
+- (id)engagementStatusOfActiveAndProminentNotificationsWithUrgency:(long long)a0 sinceTimestamp:(double)a1;
+- (id)init;
+- (id)getSmartPauseFeaturesForBundleIds:(id)a0 sinceTimestamp:(double)a1 positiveEngagementEnums:(id)a2;
+- (id)suggestionEventTypeShownForEntityId:(id)a0 suggestionType:(long long)a1 scope:(long long)a2 sinceTimestamp:(double)a3;
+- (id)metricsForSuggestionsSinceCompletionTimestamp:(double)a0;
+- (id)pruneNotificationsBeforeTimestamp:(double)a0;
+- (id)vacuumDatabase;
+- (BOOL)_runMigrationSteps:(id)a0;
+- (id)getBookmarkDataFromName:(id)a0;
+- (void)setAllNotificationsToClearedExceptProminent;
+- (id)resolutionsForNotifications:(id)a0;
+- (void)numberOfActiveNotificationsWithCompletionHandler:(id /* block */)a0;
+- (void)insertNotificationFromEvent:(id)a0 deliveryMethod:(long long)a1 modeIdentifier:(id)a2 deliveryReason:(id)a3;
+- (double)receiveTimeStampOfFirstNotification;
+- (void)updateNotificationFromEvent:(id)a0;
+- (id)telemetryDataForNotificationsFromTimestamp:(double)a0 endTimestamp:(double)a1;
+- (id)timeSensitiveNonmessageNotificationsPerAppFromStartTime:(double)a0 toEndTime:(double)a1;
+- (BOOL)hasSuggestionBeenShownForEntityId:(id)a0 suggestionType:(long long)a1 scope:(long long)a2 sinceTimestamp:(double)a3;
+- (id)getTopOfNonProminentStackNotificationsWithLimit:(unsigned long long)a0;
+- (id)_countNotificationsPerAppWithFilters:(id)a0 stmtBinder:(id /* block */)a1;
+- (void)setBookmarkData:(id)a0 forName:(id)a1;
+- (void)updateNotificationUIForNotifications:(id)a0 nextUI:(unsigned long long)a1;
+
+@end

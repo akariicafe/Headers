@@ -1,0 +1,76 @@
+@class NSMutableSet, SBRootFolder, SBFolderController, NSString, SBHIconModel, SBHIconManager, NSHashTable;
+
+@interface SBHHomeScreenUsageMonitor : NSObject <SBFolderObserver, SBLeafIconObserver, BSDescriptionProviding> {
+    NSHashTable *_observers;
+    NSMutableSet *_visibleHomeScreenWidgetIcons;
+}
+
+@property (retain, nonatomic) SBHIconModel *iconModel;
+@property (retain, nonatomic) SBRootFolder *rootFolder;
+@property (retain, nonatomic) SBFolderController *rootFolderController;
+@property (nonatomic) BOOL delayedLayoutDidChangeNotification;
+@property (nonatomic) unsigned long long homeScreenDisappearanceReasons;
+@property (nonatomic) BOOL currentPageIndexDidChangeWhileScrolling;
+@property (readonly, weak, nonatomic) SBHIconManager *iconManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)folder:(id)a0 didAddList:(id)a1;
+- (void)noteIconManagerOverlayTodayViewDidAppear;
+- (id)initWithIconManager:(id)a0;
+- (void)folder:(id)a0 didAddIcons:(id)a1 removedIcons:(id)a2;
+- (void)noteCurrentPageIndexChanged:(unsigned long long)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (void)folder:(id)a0 didMoveList:(id)a1 fromIndex:(unsigned long long)a2 toIndex:(unsigned long long)a3;
+- (void)noteIconManagerRootFolderControllerViewWillAppear;
+- (void)folder:(id)a0 listHiddenDidChange:(id)a1;
+- (void)noteLayoutChanged;
+- (void)noteWidgetIconStack:(id)a0 changedActiveWidget:(id)a1;
+- (void)resetRootFolderController;
+- (void)addObserver:(id)a0;
+- (void)noteIconManagerRootFolderControllerViewDidDisappear;
+- (void)removeObserver:(id)a0;
+- (void)noteIconManagerCoverSheetTodayViewDidAppear;
+- (void)noteUserDislikedSiriSuggestionOnWidgetIconStackSuggestion:(id)a0;
+- (void)noteIconManagerOverlayTodayViewDidDisappear;
+- (void)leafIcon:(id)a0 didRemoveIconDataSource:(id)a1;
+- (id)succinctDescription;
+- (void)iconModelDidLayOut:(id)a0;
+- (void)leafIcon:(id)a0 didChangeActiveDataSource:(id)a1;
+- (void)folder:(id)a0 didReplaceIcon:(id)a1 withIcon:(id)a2;
+- (void)noteWidgetDiscoverabilityDidRejectSuggestion:(id)a0;
+- (void)resetIconModel;
+- (void)notifyRootFolderControllerViewWillAppear;
+- (BOOL)isContentVisible;
+- (void).cxx_destruct;
+- (void)noteIconManagerContentOccludedChanged;
+- (void)noteUserTappedWidgetIcon:(id)a0 withURL:(id)a1;
+- (void)updateVisibleWidgetIcons;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (void)noteIconManagerCoverSheetTodayViewDidDisappear;
+- (void)updateVisibilityReasons;
+- (void)iconManagerDidChangeIconModel:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (void)noteWidgetDiscoverabilityDidAcceptSuggestion:(id)a0;
+- (void)noteWidgetIconAdded:(id)a0;
+- (void)noteUserDislikedWidgetIconStackSuggestion:(id)a0;
+- (void)iconManagerDidChangeRootViewController:(id)a0;
+- (void)leafIcon:(id)a0 didAddIconDataSource:(id)a1;
+- (void)noteUserAddedWidgetIconStackSuggestion:(id)a0;
+- (void)rootFolderControllerCurrentPageIndexDidChange:(id)a0;
+- (unsigned long long)listModelIndexForRootFolderController:(id)a0;
+- (void)noteUserConfiguredIcon:(id)a0;
+- (void)dealloc;
+- (void)noteWidgetDiscoverabilityStarted;
+- (void)iconManagerEditingDidChange:(id)a0;
+- (void)rootFolderControllerDidEndScrolling:(id)a0;
+- (void)notifyForEveryHomeScreenWidgetVisibility;
+- (void)noteIconManagerTodayViewAtLocation:(long long)a0 didScrollToRevealIcons:(id)a1;
+- (void)noteWidgetIconRemoved:(id)a0;
+- (void)notifyForEveryTodayViewWidgetVisibilityOnCoverSheet:(BOOL)a0;
+- (void)folder:(id)a0 didRemoveLists:(id)a1 atIndexes:(id)a2;
+- (void)noteWidgetDiscoverabilityDidEnterEditingMode;
+
+@end

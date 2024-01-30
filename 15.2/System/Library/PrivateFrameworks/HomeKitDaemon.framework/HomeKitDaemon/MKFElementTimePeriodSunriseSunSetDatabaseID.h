@@ -1,0 +1,3 @@
+@interface MKFElementTimePeriodSunriseSunSetDatabaseID : MKFElementTimePeriodDatabaseID
+
+@end

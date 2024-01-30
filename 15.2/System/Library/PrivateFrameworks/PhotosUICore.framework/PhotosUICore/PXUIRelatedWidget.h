@@ -1,0 +1,88 @@
+@class PXUITapGestureRecognizer, NSObject, _PXUIRelatedPreviewOrbContext, PXAssetActionManager, PXReusableObjectPool, PXWidgetSpec, NSString, PXTilingController, PXPhotosDetailsContext, PXPhotoKitUIMediaProvider, NSMutableSet, PXOneUpPresentation, PXSectionedSelectionManager, PXTouchingUIGestureRecognizer;
+@protocol PXWidgetEditingDelegate, PXWidgetDelegate, PXWidgetUnlockDelegate, PXWidgetInteractionDelegate, PXAnonymousView;
+
+@interface PXUIRelatedWidget : PXRelatedWidget <PXReusableObjectPoolDelegate, UIGestureRecognizerDelegate, PXScrollViewControllerObserver, PXTilingControllerZoomAnimationCoordinatorDelegate, PXTilingControllerPreheatHandler, PXUIWidget, PXDiagnosticsEnvironment> {
+    PXUITapGestureRecognizer *_tapGestureRecognizer;
+    PXUITapGestureRecognizer *_pressGestureRecognizer;
+    PXTouchingUIGestureRecognizer *_touchGestureRecognizer;
+}
+
+@property (readonly, nonatomic) PXReusableObjectPool *_tileReusePool;
+@property (readonly, nonatomic) NSMutableSet *_tilesInUse;
+@property (readonly, nonatomic) PXPhotoKitUIMediaProvider *_mediaProvider;
+@property (retain, nonatomic, setter=_setPreviewOrbContext:) _PXUIRelatedPreviewOrbContext *_previewOrbContext;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) PXOneUpPresentation *oneUpPresentation;
+@property (readonly, nonatomic) BOOL cursorInteractionEnabled;
+@property (weak, nonatomic) id<PXWidgetDelegate> widgetDelegate;
+@property (weak, nonatomic) id<PXWidgetInteractionDelegate> widgetInteractionDelegate;
+@property (weak, nonatomic) id<PXWidgetUnlockDelegate> widgetUnlockDelegate;
+@property (weak, nonatomic) id<PXWidgetEditingDelegate> widgetEditingDelegate;
+@property (retain, nonatomic) PXPhotosDetailsContext *context;
+@property (retain, nonatomic) PXWidgetSpec *spec;
+@property (readonly, nonatomic) BOOL hasContentForCurrentInput;
+@property (readonly, nonatomic) double extraSpaceNeededAtContentBottom;
+@property (readonly, nonatomic) BOOL hasLoadedContentData;
+@property (readonly, nonatomic) NSObject<PXAnonymousView> *contentView;
+@property (readonly, nonatomic) long long contentViewAnchoringType;
+@property (readonly, nonatomic) PXTilingController *contentTilingController;
+@property (readonly, nonatomic) long long contentLayoutStyle;
+@property (readonly, nonatomic) NSString *localizedTitle;
+@property (readonly, nonatomic) NSString *localizedSubtitle;
+@property (readonly, nonatomic) NSString *localizedCaption;
+@property (readonly, nonatomic) NSString *localizedDisclosureTitle;
+@property (readonly, nonatomic) BOOL allowUserInteractionWithSubtitle;
+@property (nonatomic, getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
+@property (readonly, nonatomic) BOOL supportsSelection;
+@property (nonatomic, getter=isSelecting) BOOL selecting;
+@property (readonly, nonatomic) BOOL supportsFaceMode;
+@property (nonatomic, getter=isFaceModeEnabled) BOOL faceModeEnabled;
+@property (readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
+@property (readonly, nonatomic) PXAssetActionManager *assetActionManager;
+@property (readonly, nonatomic) BOOL wantsFocus;
+@property (readonly, nonatomic) NSString *snappableWidgetIdentifier;
+@property (readonly, nonatomic) BOOL isInEditMode;
+@property (nonatomic) struct CGSize { double x0; double x1; } maxVisibleSizeInEditMode;
+
+- (void)commitPreviewViewController:(id)a0;
+- (void)_handleTapGestureRecognizer:(id)a0;
+- (id)extendedTraitCollection;
+- (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint { double x0; double x1; })a0 inCoordinateSpace:(id)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (id)previewViewControllerAtLocation:(struct CGPoint { double x0; double x1; })a0 fromSourceView:(id)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (void)prepareForInteractiveTransition:(id)a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)installGestureRecognizers;
+- (id)_scrollViewController;
+- (void)loadContentData;
+- (void)environmentDidUpdateFocusInContext:(id)a0;
+- (id)regionOfInterestForContext:(id)a0;
+- (id)zoomAnimationCoordinatorForContext:(id)a0;
+- (BOOL)containsPoint:(struct CGPoint { double x0; double x1; })a0 forCoordinateSpace:(id)a1;
+- (id)imageViewBasicTileForPreviewingAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)startPreheatingTilesForIdentifiers:(const struct PXTileIdentifier { unsigned long long x0; unsigned long long x1[10]; } *)a0 withGeometries:(const struct PXTileGeometry { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGPoint { double x0; double x1; } x1; struct CGSize { double x0; double x1; } x2; struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } x3; double x4; double x5; BOOL x6; struct CGSize { double x0; double x1; } x7; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x8; void *x9; } *)a1 count:(unsigned long long)a2 context:(void *)a3;
+- (void)stopPreheatingTilesForIdentifiers:(const struct PXTileIdentifier { unsigned long long x0; unsigned long long x1[10]; } *)a0 withGeometries:(const struct PXTileGeometry { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGPoint { double x0; double x1; } x1; struct CGSize { double x0; double x1; } x2; struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } x3; double x4; double x5; BOOL x6; struct CGSize { double x0; double x1; } x7; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x8; void *x9; } *)a1 count:(unsigned long long)a2 context:(void *)a3;
+- (void)tilingControllerZoomAnimationCoordinator:(id)a0 enumerateTilesToAnimateInLayerWithType:(long long)a1 layout:(id)a2 zoomAnimationContext:(id)a3 usingBlock:(id /* block */)a4;
+- (void)reusableObjectPool:(id)a0 didCreateReusableObject:(id)a1;
+- (void)reusableObjectPool:(id)a0 objectBecameReusable:(id)a1;
+- (void)reusableObjectPool:(id)a0 objectPreparedForReuse:(id)a1;
+- (void)reusableObjectPool:(id)a0 didEvictReusableObject:(id)a1;
+- (id)createTileAnimator;
+- (void)_registerTileClass:(Class)a0 forReuseIdentifier:(long long)a1;
+- (id)_photosDetailsViewControllerForRelatedEntry:(id)a0 options:(unsigned long long)a1;
+- (void)_handleTouchGestureRecognizer:(id)a0;
+- (id)_relatedEntryAtLocationOfGestureRecognizer:(id)a0;
+- (id)_relatedEntryAtPoint:(struct CGPoint { double x0; double x1; })a0 inCoordinateSpace:(id)a1;
+- (struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })_assetIndexPathAtLocation:(struct CGPoint { double x0; double x1; })a0 padding:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a1;
+- (void *)checkOutTileForIdentifier:(struct PXTileIdentifier { unsigned long long x0; unsigned long long x1[10]; })a0 layout:(id)a1;
+- (void)_getImageRequester:(id *)a0 title:(id *)a1 subtitle:(id *)a2 forRelatedEntry:(id)a3 mediaProvider:(id)a4;
+- (void)checkInTile:(void *)a0 withIdentifier:(struct PXTileIdentifier { unsigned long long x0; unsigned long long x1[10]; })a1;
+- (void)scrollViewControllerDidBeginScrolling:(id)a0;
+- (id)_assetsBySizeWithTileIdentifiers:(const struct PXTileIdentifier { unsigned long long x0; unsigned long long x1[10]; } *)a0 withGeometries:(const struct PXTileGeometry { struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x0; struct CGPoint { double x0; double x1; } x1; struct CGSize { double x0; double x1; } x2; struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } x3; double x4; double x5; BOOL x6; struct CGSize { double x0; double x1; } x7; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x8; void *x9; } *)a1 count:(unsigned long long)a2;
+
+@end

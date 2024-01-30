@@ -1,0 +1,82 @@
+@class UIImageView, MKPlacePhotoGalleryViewController, MUPlaceSectionView, MUPlacePhotoSectionControllerConfiguration, MUPlaceSectionHeaderViewModel, MKMuninView, MUPunchoutViewModel, UIViewController, UIView, UIButton, NSString, MKUGCCallToActionViewAppearance, MKMuninContainerView, MUPhotoSliderTileProvider, MUPlaceSectionFooterViewModel, MUPlacePhotoSliderView;
+@protocol MUPlacePhotoSectionControllerDelegate, MUInfoCardAnalyticsDelegate, MUPlacePhotoSectionControllerLookAroundDelegate;
+
+@interface MUPlacePhotoSectionController : MUPlaceSectionController <MUPlacePhotoSliderDataSource, MUPlacePhotoSliderDelegate, MKPlacePhotoGalleryViewControllerDelegate, UIViewControllerTransitioningDelegate, MKPhotoGalleryTransitionAnimator, MUScrollAnalyticActionObserving, MKMuninContainerViewDelegate, MUPlaceSectionControlling> {
+    MUPhotoSliderTileProvider *_photoTileProvider;
+    MUPlacePhotoSliderView *_photoSliderView;
+    MKPlacePhotoGalleryViewController *_photoGalleryViewController;
+    UIImageView *_imageViewForTransition;
+    MUPunchoutViewModel *_attributionViewModel;
+    MUPunchoutViewModel *_addPhotoViewModel;
+    MUPlaceSectionView *_sectionView;
+    UIButton *_floatingAttributionView;
+    MKMuninContainerView *_muninContainerView;
+    MUPlacePhotoSectionControllerConfiguration *_configuration;
+}
+
+@property (readonly, nonatomic) UIViewController *presentingViewController;
+@property (nonatomic) long long contentVisibility;
+@property (weak, nonatomic) id<MUPlacePhotoSectionControllerLookAroundDelegate> lookAroundDelegate;
+@property (weak, nonatomic) id<MUPlacePhotoSectionControllerDelegate> photoSectionControllerDelegate;
+@property (readonly, nonatomic) MKMuninView *lookAroundView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL hasContent;
+@property (readonly, nonatomic) UIView *sectionView;
+@property (readonly, nonatomic) MUPlaceSectionHeaderViewModel *sectionHeaderViewModel;
+@property (readonly, nonatomic) MUPlaceSectionFooterViewModel *sectionFooterViewModel;
+@property (retain, nonatomic) MKUGCCallToActionViewAppearance *submissionStatus;
+@property (nonatomic, getter=isActive) BOOL active;
+@property (weak, nonatomic) id<MUInfoCardAnalyticsDelegate> analyticsDelegate;
+@property (readonly, nonatomic) UIViewController *sectionViewController;
+
+- (BOOL)isFirstParty;
+- (id)animationControllerForDismissedController:(id)a0;
+- (id)animationControllerForPresentedController:(id)a0 presentingController:(id)a1 sourceController:(id)a2;
+- (BOOL)dismissPhotoGalleryIfNecessary:(id)a0;
+- (void)_setContentVisibility:(long long)a0;
+- (id)placePhotoGalleryImageViewForPhotoAtIndex:(unsigned long long)a0;
+- (void)placePhotoGallery:(id)a0 willCloseAtIndex:(unsigned long long)a1;
+- (void)placePhotoGalleryDidCloseAtIndex:(unsigned long long)a0;
+- (void)placePhotoGalleryAdditionalViewTapped:(id)a0;
+- (void)placePhotoGallery:(id)a0 attributionViewTappedAtIndex:(unsigned long long)a1;
+- (void)placePhotoGalleryDidScrollLeftToIndex:(unsigned long long)a0;
+- (void)placePhotoGalleryDidScrollRightToIndex:(unsigned long long)a0;
+- (void)placePhotoGallery:(id)a0 openButtonTappedAtIndex:(unsigned long long)a1;
+- (void)placePhotoGallery:(id)a0 didSelectReportImageAtIndex:(unsigned long long)a1;
+- (void)placePhotoGalleryDidSelectAddPhoto:(id)a0;
+- (void)photoGalleryTransitionAnimatorDidFinishAnimation;
+- (void)muninContainerView:(id)a0 didAddMuninView:(id)a1;
+- (void).cxx_destruct;
+- (void)_update;
+- (id)infoCardChildPossibleActions;
+- (id)draggableContent;
+- (void)updateForAttributionChange;
+- (int)analyticsModuleType;
+- (void)updateWithContentVisibility:(long long)a0;
+- (id)initWithMapItem:(id)a0 configuration:(id)a1;
+- (void)_setupSectionView;
+- (void)performInstrumentationForScrollLeft;
+- (void)performInstrumentationForScrollRight;
+- (void)_captureSliderInstrumentationWithAction:(int)a0 eventValue:(id)a1;
+- (void)_routeFlatListTapWithIndex:(unsigned long long)a0;
+- (void)_routeAlbumTapWithIndex:(unsigned long long)a0;
+- (void)_captureSliderInstrumentationWithAction:(int)a0;
+- (void)_addPhotoButtonTappedWithPresentationOptions:(id)a0;
+- (void)_addPhotoButtonTapped;
+- (void)_capturePhotoGallerySwipeUserAction:(int)a0 atIndex:(unsigned long long)a1;
+- (void)photoSliderView:(id)a0 didTapAttribution:(id)a1;
+- (unsigned long long)numberOfTilesForPhotoSliderView:(id)a0;
+- (id)photoSliderView:(id)a0 photoViewModelAtIndex:(unsigned long long)a1;
+- (id)photoSliderView:(id)a0 photoOverlayAtIndex:(unsigned long long)a1;
+- (id)photoSliderViewHeaderViewForPhotoSlider:(id)a0;
+- (id)attributionViewModelsForPhotoSliderView:(id)a0;
+- (unsigned long long)numberOfAttributionsForPhotoSliderView:(id)a0;
+- (id)floatingViewForPhotoSliderView:(id)a0;
+- (void)photoSliderView:(id)a0 didTapPhotoAtIndex:(unsigned long long)a1;
+- (void)photoSliderViewDidScroll:(id)a0;
+- (void)photoSliderViewDidTapHeaderView:(id)a0;
+
+@end

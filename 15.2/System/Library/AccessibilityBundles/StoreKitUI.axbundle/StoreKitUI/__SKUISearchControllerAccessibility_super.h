@@ -1,0 +1,3 @@
+@interface __SKUISearchControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

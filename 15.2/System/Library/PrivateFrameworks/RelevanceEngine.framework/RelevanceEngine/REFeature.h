@@ -1,0 +1,94 @@
+@class NSString;
+
+@interface REFeature : NSObject <REFeatureProperties, NSCopying>
+
+@property (class, readonly, nonatomic) REFeature *sectionFeature;
+@property (class, readonly, nonatomic) REFeature *dataSourceFeature;
+@property (class, readonly, nonatomic) REFeature *dateFeature;
+@property (class, readonly, nonatomic) REFeature *dateOccursTodayFeature;
+@property (class, readonly, nonatomic) REFeature *locationFeature;
+@property (class, readonly, nonatomic) REFeature *geofenceFeature;
+@property (class, readonly, nonatomic) REFeature *priorityFeature;
+@property (class, readonly, nonatomic) REFeature *interactionFeature;
+@property (class, readonly, nonatomic) REFeature *appUsageFeature;
+@property (class, readonly, nonatomic) REFeature *currentTimeFeature;
+@property (class, readonly, nonatomic) REFeature *dayOfWeekFeature;
+@property (class, readonly, nonatomic) REFeature *isWeekendFeature;
+@property (class, readonly, nonatomic) REFeature *noContentFeature;
+@property (class, readonly, nonatomic) REFeature *conditionalFeature;
+@property (class, readonly, nonatomic) REFeature *siriDomainFeature;
+@property (class, readonly, nonatomic) REFeature *dailyRoutineFeature;
+@property (class, readonly, nonatomic) REFeature *isInDailyRoutineFeature;
+@property (class, readonly, nonatomic) REFeature *sessionFeature;
+@property (class, readonly, nonatomic) REFeature *recentSiriActionFeature;
+@property (class, readonly, nonatomic) REFeature *sentimentAnalysisFeature;
+@property (class, readonly, nonatomic) REFeature *negativeSentimentAnalysisFeature;
+@property (class, readonly, nonatomic) REFeature *sentimentAnalysisCertaintyFeature;
+@property (class, readonly, nonatomic) REFeature *portraitFeature;
+@property (class, readonly, nonatomic) REFeature *relevanceThresholdFeature;
+@property (class, readonly, nonatomic) REFeature *locationOfInterestFeature;
+@property (class, readonly, nonatomic) REFeature *knownLocationOfInterestFeature;
+@property (class, readonly, nonatomic) REFeature *travelingFeature;
+@property (class, readonly, nonatomic) REFeature *isStationaryFeature;
+@property (class, readonly, nonatomic) REFeature *deviceMotionFeature;
+@property (class, readonly, nonatomic) REFeature *motionFeature;
+@property (class, readonly, nonatomic) REFeature *bulletinFeature;
+@property (class, readonly, nonatomic) REFeature *companionAppUsageFeature;
+@property (class, readonly, nonatomic) REFeature *itemIdentifierFeature;
+@property (class, readonly, nonatomic) REFeature *isSiriActionFeature;
+@property (class, readonly, nonatomic) REFeature *siriActionHasRelevanceProvidersFeature;
+@property (class, readonly, nonatomic) REFeature *isDeveloperDonationFeature;
+@property (class, readonly, nonatomic) REFeature *siriActionDailyAveragePerformedCountFeature;
+@property (class, readonly, nonatomic) REFeature *siriActionPerformedCountFeature;
+@property (class, readonly, nonatomic) REFeature *nowPlayingStateFeature;
+@property (class, readonly, nonatomic) REFeature *currentlyPlayingMediaDonationFeature;
+@property (class, readonly, nonatomic) REFeature *currentlyPlayingFromAppFeature;
+@property (class, readonly, nonatomic) REFeature *siriActionRoleFeature;
+@property (class, readonly, nonatomic) REFeature *activeWorkoutFeature;
+@property (class, readonly, nonatomic) REFeature *workoutStateFeature;
+@property (class, readonly, nonatomic) REFeature *dailyAverageWorkoutCountFeature;
+@property (class, readonly, nonatomic) REFeature *performedWorkoutCountFeature;
+@property (class, readonly, nonatomic) REFeature *activeEnergyCompletionFeature;
+@property (class, readonly, nonatomic) REFeature *exerciseTimeCompletionFeature;
+@property (class, readonly, nonatomic) REFeature *standHourCompletionFeature;
+@property (class, readonly, nonatomic) REFeature *activitySummaryFeature;
+@property (class, readonly, nonatomic) REFeature *isConnectedToCarFeature;
+@property (class, readonly, nonatomic) REFeature *isConnectedToBluetoothSpeakerFeature;
+@property (class, readonly, nonatomic) REFeature *bluetoothDeviceFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorShortcutTypeFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorEventIdentifierHashFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorAppIdentifierHashFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorTimePredictionFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorTimeCoarsePredictionFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorDayPredictionFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorDayCoarsePredictionFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorLocationPredictionFeature;
+@property (class, readonly, nonatomic) REFeature *coreBehaviorLocationCoarsePredictionFeature;
+
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) unsigned long long featureType;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) unsigned long long featureType;
+
++ (id)featureWithName:(id)a0 featureType:(unsigned long long)a1;
++ (id)systemFeatureNames;
++ (id)featuresFromSource:(id)a0 withNames:(id)a1;
++ (id)featuresFromSource:(id)a0;
++ (id)forcedFeature;
++ (id)groupFeature;
++ (id)featuresFromSourceAtPath:(id)a0;
++ (id)featuresFromSourceAtPath:(id)a0 withNames:(id)a1;
++ (id)transformedFeatureWithTransformer:(id)a0 features:(id)a1;
++ (id)crossedFeatureWithFeatures:(id)a0;
+
+- (long long)_bitCount;
+- (id)_dependentFeatures;
+- (void)_replaceDependentFeature:(id)a0 withFeature:(id)a1;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)_rootFeatures;
+- (id)featureByUsingTransformer:(id)a0;
+
+@end

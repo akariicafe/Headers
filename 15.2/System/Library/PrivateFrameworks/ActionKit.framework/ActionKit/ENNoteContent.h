@@ -1,0 +1,17 @@
+@class NSString;
+
+@interface ENNoteContent : NSObject
+
+@property (copy, nonatomic) NSString *emml;
+
++ (id)noteContentWithString:(id)a0;
++ (id)noteContentWithContentArray:(id)a0;
++ (id)noteContentWithSanitizedHTML:(id)a0;
++ (id)noteContentWithENML:(id)a0;
+
+- (id)enml;
+- (void).cxx_destruct;
+- (id)enmlWithNote:(id)a0;
+- (id)initWithENML:(id)a0;
+
+@end

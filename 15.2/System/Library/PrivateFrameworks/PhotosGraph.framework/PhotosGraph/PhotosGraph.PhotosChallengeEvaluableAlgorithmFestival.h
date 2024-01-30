@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmFestival : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

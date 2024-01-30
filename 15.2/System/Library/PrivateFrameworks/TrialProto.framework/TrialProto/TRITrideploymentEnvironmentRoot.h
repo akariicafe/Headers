@@ -1,0 +1,3 @@
+@interface TRITrideploymentEnvironmentRoot : TRIPBRootObject
+
+@end

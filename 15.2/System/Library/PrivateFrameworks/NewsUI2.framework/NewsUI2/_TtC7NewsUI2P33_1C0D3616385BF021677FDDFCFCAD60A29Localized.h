@@ -1,0 +1,3 @@
+@interface _TtC7NewsUI2P33_1C0D3616385BF021677FDDFCFCAD60A29Localized : _TtCs12_SwiftObject
+
+@end

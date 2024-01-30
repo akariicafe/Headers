@@ -1,0 +1,3 @@
+@interface ___UIDatePickerCalendarDayCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

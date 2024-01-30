@@ -1,0 +1,21 @@
+@class SBAssistantRootViewController;
+
+@interface SBAssistantActiveInterfaceOrientationWindow : SBSecureMainScreenActiveInterfaceOrientationWindow
+
+@property (nonatomic) BOOL touchesPassThroughToSpringBoard;
+@property (readonly, nonatomic) SBAssistantRootViewController *assistantRootViewController;
+
++ (BOOL)_isSecure;
++ (BOOL)sb_autorotates;
++ (id)defaultLayoutStrategy;
++ (id)_traitsArbiterOrientationActuationRole;
+
+- (id)assistantRootViewController;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (BOOL)_canBecomeKeyWindow;
+- (id)_hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1 windowServerHitTestWindow:(id)a2;
+- (BOOL)isOpaque;
+- (id)initWithRole:(id)a0 debugName:(id)a1;
+- (BOOL)_usesWindowServerHitTesting;
+
+@end

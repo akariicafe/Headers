@@ -1,0 +1,3 @@
+@interface __PXCaptionHashtagsEntryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

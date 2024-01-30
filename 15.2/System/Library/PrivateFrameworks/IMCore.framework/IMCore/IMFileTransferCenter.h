@@ -1,0 +1,97 @@
+@class NSArray, NSDictionary, NSString, NSMutableDictionary, NSMutableArray, NSMutableSet;
+
+@interface IMFileTransferCenter : NSObject <IMFileTransferCenter> {
+    NSMutableDictionary *_guidToTransferMap;
+    NSMutableDictionary *_guidToRemovedTransferMap;
+    NSMutableDictionary *_accountIDToTransferGUIDsMap;
+    NSMutableArray *_preauthorizedInfos;
+    NSMutableArray *_preauthorizedGUIDs;
+    NSMutableSet *_activeTransfers;
+    NSMutableSet *_pendingTransfers;
+    BOOL _disconnectionListenerSetUp;
+    NSMutableDictionary *_fetchHighQualityVariantCompletionHandlers;
+    NSMutableDictionary *_localFileURLRetrievalCompletionHandlers;
+    NSMutableDictionary *_localFileURLRetrievalWithGuidCompletionHandlers;
+}
+
+@property (readonly, nonatomic) NSDictionary *transfers;
+@property (readonly, nonatomic) NSArray *activeTransferGUIDs;
+@property (readonly, nonatomic) NSArray *orderedTransfersGUIDs;
+@property (readonly, nonatomic) BOOL hasActiveFileTransfers;
+@property (readonly, nonatomic) BOOL hasPendingFileTransfers;
+@property (nonatomic, getter=shouldIssueSandboxEstensionsForTransfers) BOOL issueSandboxEstensionsForTransfers;
+@property (readonly, weak, nonatomic) NSArray *activeTransfers;
+@property (readonly, weak, nonatomic) NSArray *orderedTransfers;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)setTransferCenterClass:(Class)a0;
++ (Class)transferCenterClass;
++ (Class)fileTransferClass;
+
+- (id)transferForGUID:(id)a0 includeRemoved:(BOOL)a1;
+- (void)_clearTransfers;
+- (void)preauthorizeFileTransferFromOtherPerson:(id)a0 account:(id)a1 filename:(id)a2 saveToPath:(id)a3;
+- (void)createItemForPHAssetWithUUID:(id)a0 parentChatItemGUID:(id)a1 chatGUID:(id)a2;
+- (void)setAuxImageForTransfer:(id)a0 value:(BOOL)a1;
+- (void)_handleFileTransfer:(id)a0 highQualityDownloadSucceededWithPath:(id)a1;
+- (void)_handleFileTransfer:(id)a0 updatedWithProperties:(id)a1 forceNotify:(BOOL)a2;
+- (void)_initiateLocalFileURLRetrievalInDaemonForGUIDs:(id)a0 options:(long long)a1;
+- (void)preWarmConnection;
+- (void)_removeActiveTransfer:(id)a0;
+- (BOOL)isFileTransfer:(id)a0 preauthorizedWithDictionary:(id)a1;
+- (void)assignTransfer:(id)a0 toHandle:(id)a1;
+- (void)registerTransferWithDaemon:(id)a0;
+- (void)setCommSafetySensitiveForTransfer:(id)a0 value:(long long)a1;
+- (id)transferForGUID:(id)a0;
+- (void)deleteTransfer:(id)a0;
+- (void)_addSpotlightProperties:(id)a0 sender:(id)a1 recipients:(id)a2 incoming:(BOOL)a3;
+- (void)acceptFileTransferIfPreauthorzed:(id)a0;
+- (void)_registerDaemonListenerIfNecessary;
+- (void)acceptTransfer:(id)a0 withPath:(id)a1 autoRename:(BOOL)a2 overwrite:(BOOL)a3;
+- (void)acknowledgeAllPendingTransfers;
+- (void)_handleFileTransfer:(id)a0 explicitDownloadSucceededWithPath:(id)a1 livePhotoBundlePath:(id)a2;
+- (id)guidsForStoredAttachmentPayloadData:(id)a0 messageGUID:(id)a1;
+- (void)_addTransfer:(id)a0;
+- (void)_initiateHighQualityVariantDownloadWithDaemonForGUID:(id)a0;
+- (void)retrieveLocalFileURLForFileTransferWithGUID:(id)a0 options:(long long)a1 completion:(id /* block */)a2;
+- (void)_handleFileTransfer:(id)a0 updatedWithCurrentBytes:(unsigned long long)a1 totalBytes:(unsigned long long)a2 averageTransferRate:(unsigned long long)a3;
+- (BOOL)wasFileTransferPreauthorized:(id)a0;
+- (void)_daemonRestarted:(id)a0;
+- (void)sendTransfer:(id)a0;
+- (void)acknowledgePendingTransfer:(id)a0;
+- (void)_handleFileTransfer:(id)a0 createdWithProperties:(id)a1;
+- (void)_fetchHighQualityVariantForTransferGUID:(id)a0 completion:(id /* block */)a1;
+- (void)_daemonDisconnected:(id)a0;
+- (void)_handleAllFileTransfers:(id)a0;
+- (void)assignTransfer:(id)a0 toMessage:(id)a1 account:(id)a2;
+- (void).cxx_destruct;
+- (void)_addTransfer:(id)a0 toAccount:(id)a1;
+- (void)_removeAllActiveTransfers;
+- (void)acceptTransfer:(id)a0;
+- (void)fetchHighQualityVariantForTransfer:(id)a0 completion:(id /* block */)a1;
+- (void)_handleFileTransferExplicitDownloadFailed:(id)a0 suggestedRetryGUID:(id)a1 error:(id)a2;
+- (BOOL)doesLocalURLRequireArchiving:(id)a0 toHandle:(id)a1;
+- (void)_addPendingTransfer:(id)a0;
+- (void)_handleFileTransfers:(id)a0 createdWithLocalPaths:(id)a1;
+- (void)_removePendingTransfer:(id)a0;
+- (id)guidForNewOutgoingTransferWithLocalURL:(id)a0;
+- (void)setAuxVideoForTransfer:(id)a0 value:(BOOL)a1;
+- (void)retrieveLocalFileURLForFileTransferWithGUIDs:(id)a0 options:(long long)a1 completion:(id /* block */)a2;
+- (void)removeTransfer:(id)a0;
+- (void)dealloc;
+- (void)stopTransfer:(id)a0;
+- (id)guidForNewOutgoingTransferWithLocalURL:(id)a0 useLegacyGuid:(BOOL)a1;
+- (void)_handleFileTransferHighQualityDownloadFailed:(id)a0;
+- (void)_initiateLocalFileURLRetrievalInDaemonForGUID:(id)a0 options:(long long)a1;
+- (void)retargetTransfer:(id)a0 toPath:(id)a1;
+- (void)_addActiveTransfer:(id)a0;
+- (id)chatForTransfer:(id)a0;
+- (void)clearFinishedTransfers;
+- (BOOL)registerGUID:(id)a0 forNewOutgoingTransferWithLocalURL:(id)a1;
+- (id)transfersForAccount:(id)a0;
+
+@end

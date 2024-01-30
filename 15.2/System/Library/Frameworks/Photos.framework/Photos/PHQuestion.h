@@ -1,0 +1,33 @@
+@class NSString, NSDictionary, NSDate;
+
+@interface PHQuestion : PHObject
+
+@property (readonly, nonatomic) NSString *entityIdentifier;
+@property (readonly, nonatomic) unsigned short type;
+@property (readonly, nonatomic) unsigned short state;
+@property (readonly, nonatomic) unsigned short entityType;
+@property (readonly, nonatomic) unsigned short displayType;
+@property (readonly, nonatomic) double score;
+@property (readonly, nonatomic) NSDictionary *additionalInfo;
+@property (readonly, nonatomic) NSDate *creationDate;
+
++ (id)fetchType;
++ (id)managedEntityName;
++ (id)entityKeyMap;
++ (id)fetchQuestionsWithOptions:(id)a0 validQuestionsOnly:(BOOL)a1;
++ (id)fetchAnsweredYesOrNoQuestionsWithOptions:(id)a0 validQuestionsOnly:(BOOL)a1;
++ (id)fetchQuestionsWithLocalIdentifiers:(id)a0 options:(id)a1 validQuestionsOnly:(BOOL)a2;
++ (id)fetchAnsweredQuestionsWithOptions:(id)a0 validQuestionsOnly:(BOOL)a1;
++ (id)fetchUnansweredQuestionsWithOptions:(id)a0 validQuestionsOnly:(BOOL)a1;
++ (id)fetchInvalidatedQuestionsWithOptions:(id)a0;
++ (id)questionsWithValidEntitiesFromQuestions:(id)a0 photoLibrary:(id)a1;
++ (id)propertiesToFetchWithHint:(unsigned long long)a0;
++ (id)identifierCode;
++ (id)transformValueExpression:(id)a0 forKeyPath:(id)a1;
+
+- (id)initWithFetchDictionary:(id)a0 propertyHint:(unsigned long long)a1 photoLibrary:(id)a2;
+- (id)description;
+- (void).cxx_destruct;
+- (Class)changeRequestClass;
+
+@end

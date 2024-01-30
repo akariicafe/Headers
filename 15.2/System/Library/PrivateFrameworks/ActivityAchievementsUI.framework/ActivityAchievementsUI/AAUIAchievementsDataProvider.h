@@ -1,0 +1,76 @@
+@class NSHashTable, NSArray, HKHealthStore, NSMutableDictionary, NSDictionary, ACHQuery, NSMutableArray, NSObject, ACHVisibilityEvaluator;
+@protocol OS_dispatch_queue;
+
+@interface AAUIAchievementsDataProvider : NSObject
+
+@property (retain, nonatomic) HKHealthStore *healthStore;
+@property (retain, nonatomic) ACHQuery *query;
+@property (retain, nonatomic) ACHVisibilityEvaluator *visibilityEvaluator;
+@property (retain, nonatomic) NSMutableDictionary *achievementsBySection;
+@property (retain, nonatomic) NSMutableArray *recentAchievements;
+@property (retain, nonatomic) NSMutableArray *relevantAchievements;
+@property (retain, nonatomic) NSMutableDictionary *filteredAchievementsByTemplateUniqueName;
+@property (retain, nonatomic) NSMutableDictionary *achievementsByTemplateUniqueName;
+@property (retain, nonatomic) NSMutableDictionary *achievementsByEarnedDateComponents;
+@property (retain, nonatomic) NSMutableArray *allAchievementsSortedByEarnedDate;
+@property (retain, nonatomic) NSArray *orderedSections;
+@property (retain, nonatomic) NSArray *orderedMainSectionHeaderStrings;
+@property (retain, nonatomic) NSArray *orderedRecentAndRelevantHeaderStrings;
+@property (retain, nonatomic) NSDictionary *clientAchievementsBySection;
+@property (retain, nonatomic) NSArray *clientAllAchievementsSortedByEarnedDate;
+@property (retain, nonatomic) NSArray *clientRecentAchievements;
+@property (retain, nonatomic) NSArray *clientRelevantAchievements;
+@property (retain, nonatomic) NSDictionary *clientFilteredAchievementsByTemplateUniqueName;
+@property (retain, nonatomic) NSDictionary *clientAchievementsByTemplateUniqueName;
+@property (retain, nonatomic) NSDictionary *clientAchievementsByEarnedDateComponents;
+@property (nonatomic) BOOL didFinishInitialLoad;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *achievementsDataQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *observerQueue;
+@property (nonatomic) long long overrideDisplayState;
+@property (nonatomic) double queryRetryDelay;
+@property (nonatomic) long long queryRetryCount;
+@property (nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } modelLock;
+@property (retain, nonatomic) NSHashTable *initialLoadObservers;
+@property (retain, nonatomic) NSHashTable *recentAndRelevantSectionObservers;
+@property (retain, nonatomic) NSHashTable *mainSectionObservers;
+@property (readonly, nonatomic) long long numberOfRecentAndRelevantSections;
+@property (readonly, nonatomic) long long numberOfSections;
+
+- (long long)numberOfItemsInSection:(long long)a0;
+- (void)_reload;
+- (void).cxx_destruct;
+- (void)_handleUpdatedAchievements:(id)a0;
+- (void)_handleDeletedAchievements:(id)a0;
+- (void)cycleQuery;
+- (void)startFetching;
+- (id)_achievementsRespectingOverrideDisplayState:(id)a0;
+- (long long)_updateAchievement:(id)a0;
+- (long long)_deleteAchievement:(id)a0 fromUnfiltered:(BOOL)a1;
+- (void)_deepCopyClientFacingModel;
+- (id)_oldestRecentAchievement;
+- (BOOL)_remoteAchievementBelongsInRelevants:(id)a0;
+- (BOOL)_monthlyChallengeBelongsInRelevants:(id)a0;
+- (BOOL)_builtInBelongsInRelevants:(id)a0;
+- (BOOL)_shouldShowAchievement:(id)a0;
+- (BOOL)_achievementBelongsInRecents:(id)a0 replacingRecent:(id *)a1;
+- (BOOL)_achievementBelongsInRelevants:(id)a0 replacingRelevant:(id *)a1;
+- (id)initWithHealthStore:(id)a0 layoutMode:(unsigned long long)a1;
+- (void)addInitialLoadObserver:(id)a0;
+- (void)removeInitialLoadObserver:(id)a0;
+- (void)addRecentAndRelevantSectionObserver:(id)a0;
+- (void)removeRecentAndRelevantSectionObserver:(id)a0;
+- (void)addMainSectionObserver:(id)a0;
+- (void)removeMainSectionObserver:(id)a0;
+- (void)stopFetching;
+- (id)headerStringForSection:(long long)a0 isRecentAndRelevant:(BOOL)a1;
+- (long long)numberOfItemsInRecentAndRelevantSection:(long long)a0;
+- (id)recentAndRelevantAchievementAtIndexPath:(id)a0;
+- (id)achievementAtIndexPath:(id)a0;
+- (id)trophyCaseAchievementForTemplateUniqueName:(id)a0;
+- (id)achievementForTemplateUniqueName:(id)a0;
+- (id)achievementsForDateComponents:(id)a0;
+- (BOOL)_shouldShowPerfectWeekAchievement:(double)a0;
+- (id)_recentAndRelevantSectionIndexPathForAchievement:(id)a0;
+- (id)_mainSectionIndexPathForAchievement:(id)a0;
+
+@end

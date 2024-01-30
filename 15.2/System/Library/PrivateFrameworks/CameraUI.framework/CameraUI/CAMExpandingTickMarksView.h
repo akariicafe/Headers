@@ -1,0 +1,19 @@
+@class NSMutableArray;
+
+@interface CAMExpandingTickMarksView : UIView
+
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } _selectedRange;
+@property (readonly, nonatomic) NSMutableArray *_tickViews;
+@property (nonatomic) BOOL expanded;
+
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)layoutSubviews;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)setExpanded:(BOOL)a0 animated:(BOOL)a1;
+- (void)setSelectedValue:(double)a0;
+- (void)setSelectedValue:(double)a0 animated:(BOOL)a1;
+- (unsigned long long)_middleTickIndex;
+- (unsigned long long)_collapsedTickIndexForIndex:(unsigned long long)a0;
+
+@end

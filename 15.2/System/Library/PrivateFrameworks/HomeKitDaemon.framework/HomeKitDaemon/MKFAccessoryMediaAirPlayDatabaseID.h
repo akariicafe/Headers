@@ -1,0 +1,3 @@
+@interface MKFAccessoryMediaAirPlayDatabaseID : MKFAccessoryMediaDatabaseID
+
+@end

@@ -1,0 +1,107 @@
+@class HMDDeviceCapabilities, NSObject, HMDPrimaryResidentDiscoveryOperation, HMDMessageDispatcher, HMDResidentDevice, NSString, HMDPrimaryElectionCoordinationAddOn, NSSet, NSMutableSet, NSArray, HMDHome, NSNotificationCenter, NSUUID;
+@protocol HMFCancellable, HMDResidentDeviceManagerDelegate, HMFLocking, OS_dispatch_queue;
+
+@interface HMDResidentDeviceManagerRoar : HMFObject <HMDResidentDeviceManagerContext, HMDPrimaryResidentElectionAddOnDelegate, NSSecureCoding, HMDResidentDeviceManager> {
+    id<HMFLocking> _lock;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableSet *_residentDevices;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+@property (class, readonly) BOOL hasMessageReceiverChildren;
+
+@property (readonly) NSNotificationCenter *notificationCenter;
+@property (readonly) HMDDeviceCapabilities *currentDeviceCapabilities;
+@property (retain) HMDPrimaryElectionCoordinationAddOn *localNetworkElection;
+@property (retain, nonatomic) id<HMFCancellable> redirectorCancelable;
+@property (weak, nonatomic) HMDHome *home;
+@property (retain) HMDPrimaryResidentDiscoveryOperation *primaryDiscoveryOperation;
+@property (readonly) BOOL isResidentSupported;
+@property (readonly) BOOL isResidentEnabled;
+@property (readonly) BOOL isOwnerUser;
+@property (readonly) HMDResidentDevice *currentResidentDevice;
+@property (readonly) HMDResidentDevice *primaryResidentDevice;
+@property (readonly, copy) NSArray *availableResidentDevices;
+@property (readonly) BOOL isCurrentDeviceAvailableResident;
+@property (readonly) HMDMessageDispatcher *messageDispatcher;
+@property (readonly) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) long long atHomeLevel;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak) id<HMDResidentDeviceManagerDelegate> delegate;
+@property (readonly, copy, nonatomic) NSArray *residentDevices;
+@property (readonly, nonatomic, getter=isResidentAvailable) BOOL residentAvailable;
+@property (readonly, nonatomic, getter=isCurrentDeviceAvailableResident) BOOL currentDeviceAvailableResident;
+@property (readonly, nonatomic, getter=isCurrentDevicePrimaryResident) BOOL currentDevicePrimaryResident;
+@property (readonly, nonatomic, getter=isCurrentDeviceConfirmedPrimaryResident) BOOL currentDeviceConfirmedPrimaryResident;
+@property (readonly, nonatomic) BOOL hasTrustZoneCapableResident;
+@property (readonly) NSUUID *primaryResidentUUID;
+@property (nonatomic, getter=isResidentSupported) BOOL residentSupported;
+@property (readonly, copy) NSSet *messageReceiverChildren;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+
++ (id)shortDescription;
++ (id)logCategory;
+
+- (id)dumpState;
+- (id)descriptionWithPointer:(BOOL)a0;
+- (id)shortDescription;
+- (void)addDataSource:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)logIdentifier;
+- (void)run;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (id)ourSelf;
+- (void)_run;
+- (void)_registerForMessages;
+- (void)transactionObjectUpdated:(id)a0 newValues:(id)a1 message:(id)a2;
+- (void)transactionObjectRemoved:(id)a0 message:(id)a1;
+- (void)confirmWithCompletionHandler:(id /* block */)a0;
+- (void)electResidentDevice;
+- (void)updatePrimaryResidentWithUUID:(id)a0 actions:(id)a1;
+- (id)discoverPrimaryResident;
+- (void)atHomeLevelChanged:(long long)a0;
+- (void)removeResidentDevice:(id)a0;
+- (void)configureWithHome:(id)a0 messageDispatcher:(id)a1;
+- (void)updateResidentAvailability;
+- (void)notifyClientsOfUpdatedResidentDevice:(id)a0;
+- (void)confirmAsResident;
+- (void)confirmOnAvailability;
+- (id)foundNewPrimaryResident:(id)a0;
+- (void)primaryElectionAddOn:(id)a0 didElectPrimaryResident:(id)a1 confirmed:(BOOL)a2;
+- (void)primaryElectionAddOn:(id)a0 didFailToElectWithError:(id)a1;
+- (void)primaryElectionAddOn:(id)a0 didUpdateResidentDevice:(id)a1;
+- (void)primaryElectionAddOn:(id)a0 didUpdateActiveNodes:(id)a1;
+- (id)residentDeviceForDevice:(id)a0;
+- (void)_setupSessionWithPrimaryResidentDevice;
+- (void)_teardownSessionWithPrimaryResidentDevice;
+- (id)residentWithUUID:(id)a0;
+- (void)_addResidentDevice:(id)a0;
+- (void)_removeResidentDevice:(id)a0;
+- (void)_updateResidentAvailability;
+- (void)setResidentAvailable:(BOOL)a0;
+- (void)notifyResidentAvailable:(BOOL)a0;
+- (void)_sendResidentDeviceNotificationWithName:(id)a0 forResidentDevice:(id)a1;
+- (void)_handlePrimaryResidentDiscoveryXPCRequest:(id)a0;
+- (void)_handlePrimaryResidentDiscoveryRequest:(id)a0;
+- (void)_handleResidentDeviceUpdateEnabled:(id)a0;
+- (void)handleCurrentDeviceChanged:(id)a0;
+- (void)_updateReachability:(BOOL)a0 forResidentDevice:(id)a1;
+- (void)_handleCloudZoneReadyNotification:(id)a0;
+- (id)initWithNotificationCenter:(id)a0 deviceCapabilities:(id)a1 electionAddOnFactory:(id /* block */)a2;
+- (void)_configureResidentSupported;
+- (id)_findExpectedResidents;
+- (void)_handleCloudResidentChange:(id)a0;
+- (void)addResidentDevice:(id)a0;
+- (void)accountOrDeviceDidUpdate:(id)a0;
+- (void)notifyUpdatedPrimaryResident:(id)a0 previousPrimaryResident:(id)a1;
+- (id)_discoverPrimaryResident;
+- (void)_handleUpdatedPrimaryResidentDevice:(id)a0;
+- (void)_updateResidentReachabilityWithResidents:(id)a0;
+
+@end

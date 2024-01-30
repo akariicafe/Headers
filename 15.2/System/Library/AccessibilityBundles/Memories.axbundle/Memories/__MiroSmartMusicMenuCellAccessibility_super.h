@@ -1,0 +1,3 @@
+@interface __MiroSmartMusicMenuCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

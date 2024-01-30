@@ -1,0 +1,81 @@
+@class UIViewController, UIView, NSString, UIApplicationSceneClientSettingsDiffInspector, SBOrientationTransformWrapperView, FBDisplayLayoutElement, SBSceneViewStatusBarAssertion;
+@protocol SBFullScreenSwitcherSceneLiveContentOverlayDelegate, SBSwitcherLiveContentOverlayDelegate, SBDeviceApplicationSceneViewControlling;
+
+@interface SBFullScreenSwitcherSceneLiveContentOverlay : NSObject <SBFullScreenSwitcherSceneLiveContentOverlay, SBDeviceApplicationSceneHandleObserver, SBMedusaDecoratedDeviceApplicationSceneViewControllerDelegate, SBDeviceApplicationSceneViewControllerDelegate> {
+    UIApplicationSceneClientSettingsDiffInspector *_clientSettingsInspector;
+}
+
+@property (readonly, nonatomic) SBOrientationTransformWrapperView *orientationWrapperView;
+@property (readonly, nonatomic) UIViewController<SBDeviceApplicationSceneViewControlling> *deviceApplicationSceneViewController;
+@property (readonly, nonatomic) SBSceneViewStatusBarAssertion *statusBarAssertion;
+@property (readonly, nonatomic) FBDisplayLayoutElement *displayLayoutElement;
+@property (readonly, nonatomic) BOOL wantsMinificationFilter;
+@property (readonly, nonatomic) BOOL asyncRenderingDisabled;
+@property (readonly, nonatomic) BOOL asynchronousRenderingTemporarilyDisabled;
+@property (readonly, nonatomic, getter=isBlurred) BOOL blurred;
+@property (readonly, nonatomic, getter=isMatchMovedToScene) BOOL matchMovedToScene;
+@property (nonatomic) long long containerOrientation;
+@property (weak, nonatomic) id<SBFullScreenSwitcherSceneLiveContentOverlayDelegate> statusBarActionDelegate;
+@property (weak, nonatomic) id<SBSwitcherLiveContentOverlayDelegate> delegate;
+@property (readonly, nonatomic) UIView *contentOverlayView;
+@property (nonatomic, getter=isInsetForHomeAffordance) BOOL insetForHomeAffordance;
+@property (readonly, nonatomic, getter=isAsyncRenderingEnabled) BOOL asyncRenderingEnabled;
+@property (readonly, nonatomic) BOOL requiresLegacyRotationSupport;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)bestHomeAffordanceOrientationForOrientation:(long long)a0;
+- (long long)trailingStatusBarStyle;
+- (BOOL)handleHomeButtonDoublePress;
+- (void)_updateAsyncRendering;
+- (long long)leadingStatusBarStyle;
+- (void)setDimmed:(BOOL)a0;
+- (BOOL)hitTestedToTopAffordance:(struct CGPoint { double x0; double x1; })a0 window:(id)a1;
+- (BOOL)handleHeadsetButtonPress:(BOOL)a0;
+- (void)didRotateFromInterfaceOrientation:(long long)a0 toInterfaceOrientation:(long long)a1;
+- (long long)preferredInterfaceOrientation;
+- (id)_medusaDecoratedDeviceApplicationSceneViewController;
+- (void)_updateOrientationWrapper;
+- (unsigned long long)_debugPostModernRotationSupportedInterfaceOrientations;
+- (void)sceneHandle:(id)a0 didCreateScene:(id)a1;
+- (BOOL)handleLockButtonPress;
+- (void)setStatusBarHidden:(BOOL)a0 nubViewHidden:(BOOL)a1 animator:(id /* block */)a2;
+- (void)sceneHandle:(id)a0 didUpdateSettingsWithDiff:(id)a1 previousSettings:(id)a2;
+- (void)setAsyncRenderingDisabled:(BOOL)a0;
+- (BOOL)handleHomeButtonPress;
+- (void)setBlurViewIconScale:(double)a0;
+- (long long)overlayType;
+- (BOOL)_isPhoneAppRunningOnPad;
+- (double)currentStatusBarHeight;
+- (void)willRotateFromInterfaceOrientation:(long long)a0 toInterfaceOrientation:(long long)a1 alongsideContainerView:(id)a2 animated:(BOOL)a3;
+- (void)_settingsDidUpdateEdgeProtectOrAutoHideOnHomeGrabberView;
+- (void)sceneHandle:(id)a0 didUpdateClientSettingsWithDiff:(id)a1 transitionContext:(id)a2;
+- (void)noteKeyboardFocusDidChangeToSceneID:(id)a0;
+- (void)disableAsynchronousRenderingForNextCommit;
+- (BOOL)isContentUpdating;
+- (BOOL)handleHomeButtonLongPress;
+- (void)setAsyncRenderingEnabled:(BOOL)a0 withMinificationFilterEnabled:(BOOL)a1;
+- (BOOL)handleVolumeDownButtonPress;
+- (id)contentViewController;
+- (void)setMatchMovedToScene:(BOOL)a0;
+- (BOOL)handleVolumeUpButtonPress;
+- (void).cxx_destruct;
+- (unsigned long long)supportedInterfaceOrientations;
+- (id)init;
+- (void)_updateTopAffordanceAutoHide;
+- (void)configureWithWorkspaceEntity:(id)a0 referenceFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 interfaceOrientation:(long long)a2 layoutRole:(long long)a3 spaceConfiguration:(long long)a4 floatingConfiguration:(long long)a5 hasClassicAppOrientationMismatch:(BOOL)a6;
+- (void)medusaDecoratedDeviceApplicationSceneViewController:(id)a0 statusBarTapped:(id)a1 tapActionType:(long long)a2;
+- (void)medusaDecoratedDeviceApplicationSceneViewControllerDidUpdateHomeAffordanceSupportedOrientations:(id)a0;
+- (void)applicationSceneViewControllerDidUpdateHomeAffordanceSupportedOrientations:(id)a0;
+- (void)setContentReferenceSize:(struct CGSize { double x0; double x1; })a0 interfaceOrientation:(long long)a1;
+- (void)applicationSceneViewController:(id)a0 statusBarTapped:(id)a1 tapActionType:(long long)a2;
+- (void)invalidate;
+- (void)setUsesBrightSceneViewBackgroundMaterial:(BOOL)a0;
+- (void)dealloc;
+- (id)_sceneHandleForHardwareButtonEvents;
+- (id)newPortaledLiveContentOverlayView;
+- (void)setLiveContentBlurEnabled:(BOOL)a0 duration:(double)a1 blurDelay:(double)a2 iconViewScale:(double)a3 began:(id /* block */)a4 completion:(id /* block */)a5;
+
+@end

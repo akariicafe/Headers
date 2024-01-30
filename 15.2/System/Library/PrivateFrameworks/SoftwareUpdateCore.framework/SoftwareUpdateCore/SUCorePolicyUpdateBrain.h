@@ -1,0 +1,22 @@
+@class NSNumber;
+
+@interface SUCorePolicyUpdateBrain : SUCorePolicy
+
+@property (retain, nonatomic) NSNumber *compatibilityVersion;
+
++ (BOOL)supportsSecureCoding;
+
+- (id)constructSoftwareUpdateMAAssetQuery;
+- (id)summary;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)selectSoftwareUpdatePrimaryAsset:(id *)a0 secondaryAsset:(id *)a1 fromAssetQuery:(id)a2;
+- (id)initWithSoftwareUpdateAssetType:(id)a0 documentationAssetType:(id)a1 usingPolicies:(long long)a2 usingExtensions:(id)a3;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)constructSoftwareUpdateMAAssetQueryWithPurpose:(id)a0;
+- (id)initWithSoftwareUpdateAssetType:(id)a0 documentationAssetType:(id)a1 usingExtensions:(id)a2;
+
+@end

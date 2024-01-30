@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType13DietaryBiotin : _TtCs12_SwiftObject
+
+@end

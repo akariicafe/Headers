@@ -1,0 +1,3 @@
+@interface MPSCPUAccelerationStructureGeometryDescriptor : NSObject
+
+@end

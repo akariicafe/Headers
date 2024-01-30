@@ -1,0 +1,3 @@
+@interface COTimerDeleteRequest : COTimerRequest
+
+@end

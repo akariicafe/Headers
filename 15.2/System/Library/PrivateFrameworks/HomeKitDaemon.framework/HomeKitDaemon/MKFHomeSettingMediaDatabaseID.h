@@ -1,0 +1,3 @@
+@interface MKFHomeSettingMediaDatabaseID : MKFHomeSettingDatabaseID
+
+@end

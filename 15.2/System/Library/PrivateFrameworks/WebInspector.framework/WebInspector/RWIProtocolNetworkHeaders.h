@@ -1,0 +1,3 @@
+@interface RWIProtocolNetworkHeaders : RWIProtocolJSONObject
+
+@end

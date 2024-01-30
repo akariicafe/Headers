@@ -1,0 +1,15 @@
+@class NSURL;
+
+@interface AFObjectUpdatedSiriResponse : AFSiriResponse {
+    NSURL *_objectIdentifier;
+}
+
++ (BOOL)supportsSecureCoding;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)_objectIdentifier;
+- (id)_initWithRequest:(id)a0 objectIdentifier:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface MKAnnotationViewInternal : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __WKMultipleSelectPickerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

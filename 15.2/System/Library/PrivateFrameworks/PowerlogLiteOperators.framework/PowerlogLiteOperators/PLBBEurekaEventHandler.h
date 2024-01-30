@@ -1,0 +1,3 @@
+@interface PLBBEurekaEventHandler : PLBBMsgHandler
+
+@end

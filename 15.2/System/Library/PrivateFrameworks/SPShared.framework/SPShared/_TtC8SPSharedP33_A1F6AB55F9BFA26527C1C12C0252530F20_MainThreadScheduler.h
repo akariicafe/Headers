@@ -1,0 +1,3 @@
+@interface _TtC8SPSharedP33_A1F6AB55F9BFA26527C1C12C0252530F20_MainThreadScheduler : _TtCs12_SwiftObject
+
+@end

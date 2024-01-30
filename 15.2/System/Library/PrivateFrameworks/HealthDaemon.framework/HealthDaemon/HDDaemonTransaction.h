@@ -1,0 +1,3 @@
+@interface HDDaemonTransaction : HKDaemonTransaction
+
+@end

@@ -1,0 +1,3 @@
+@interface __SKUIGiftTextFieldTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

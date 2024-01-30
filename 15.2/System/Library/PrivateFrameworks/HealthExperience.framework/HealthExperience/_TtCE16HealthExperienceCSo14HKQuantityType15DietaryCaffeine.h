@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType15DietaryCaffeine : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,15 @@
+@class NSArray;
+
+@interface VNImageBlurScoreRequest : VNImageBasedRequest
+
+@property (nonatomic) unsigned long long maximumIntermediateSideLength;
+@property (nonatomic) unsigned long long blurDeterminationMethod;
+@property (readonly, copy) NSArray *results;
+
++ (Class)configurationClass;
+
+- (BOOL)internalPerformRevision:(unsigned long long)a0 inContext:(id)a1 error:(id *)a2;
+- (void)applyConfigurationOfRequest:(id)a0;
+- (BOOL)willAcceptCachedResultsFromRequestWithConfiguration:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface REMEnableObjectiveCpp : NSObject
+
+@end

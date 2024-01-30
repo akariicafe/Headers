@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockScheduleTaskHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

@@ -1,0 +1,3 @@
+@interface AXSSCloudKitHelperManagedObjectContext : NSManagedObjectContext
+
+@end

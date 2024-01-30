@@ -1,0 +1,80 @@
+@class SFActivityBitmaps, TrackerPolicy, NSString, NSDate;
+
+@interface AppTracker : NSObject <ManagedEventInfoProtocol, ConfigurableObjectProtocol>
+
+@property (retain) NSDate *timestamp;
+@property int flowsForSelf;
+@property int flowsForOthers;
+@property int flowsPerPeriod;
+@property int flowsPerPeriodAfterMadePrimary;
+@property (retain) TrackerPolicy *specificPolicy;
+@property unsigned int eversetClassFlags;
+@property BOOL isADaemon;
+@property BOOL sentFlowCountExceededPolicySymptom;
+@property BOOL sentThunderingHerdFlowCountExceededPolicySymptom;
+@property long long interfaceType;
+@property (retain) SFActivityBitmaps *activityBitmaps;
+@property unsigned long long lastFullBitmapReportTime;
+@property (readonly) NSString *userName;
+@property int prevFlows;
+@property int prevFlowsForOthers;
+@property double prevFlowDurations;
+@property unsigned long long prevFlowRxBytes;
+@property unsigned long long prevFlowTxBytes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)dumpState;
++ (id)sharedInstance;
++ (void)initialize;
++ (void)setInternalQueue:(id)a0;
++ (void)beginTrafficClassFlowSnapshot;
++ (void)setWifiNeverNoteList:(id)a0;
++ (void)configureCellPolicies:(id)a0;
++ (void)noteForegroundState:(BOOL)a0 forApp:(id)a1 hasForegroundApps:(BOOL)a2;
++ (id)getAlignedNetworkBitmapsForInterfaceType:(long long)a0 names:(id)a1 startTime:(unsigned long long)a2 endTime:(unsigned long long)a3;
++ (void)endTrafficClassFlowSnapshot:(id)a0 periodUsecs:(unsigned long long)a1 reply:(id /* block */)a2;
++ (void)resetTrafficClassFlowSnapshot;
++ (void)configureCompanionLinkPolicies:(id)a0;
++ (void)noteFlow:(id)a0 withOwner:(id)a1 snapshot:(id)a2;
++ (void)getAllActivityMapsWithNames:(id)a0 startTime:(unsigned long long)a1 endTime:(unsigned long long)a2 replyQueue:(id)a3 reply:(id /* block */)a4;
++ (void)noteFlow:(id)a0 withDelegatee:(id)a1 snapshot:(id)a2;
++ (void)noteFlowEnding:(id)a0;
++ (void)setWifiDaemonCheckList:(id)a0;
++ (void)stopFlowPeriodTimer;
++ (void)configureWifiPolicies:(id)a0;
++ (id)ifTrackerForFlow:(id)a0;
++ (void)pruneCache:(id)a0;
++ (id)configureClass:(id)a0;
++ (void)tallyUpAllActivityMapsForInterfaceType:(long long)a0 replyQueue:(id)a1 reply:(id /* block */)a2;
++ (void)setWifiAlwaysNoteList:(id)a0;
++ (void)setTrackCellular:(BOOL)a0;
++ (void)getWifiNetworkActivity:(id /* block */)a0;
++ (void)startFlowPeriodTimer;
++ (id)ifTrackerForInterfaceType:(long long)a0;
++ (void)freeUpActivityBitmapsForInterfaceType:(long long)a0;
++ (void)setAppTrackerVerbose:(unsigned int)a0;
++ (void)resetAllActivityMapsForInterfaceType:(long long)a0;
+
+- (int)read:(id)a0 returnedValues:(id)a1;
+- (int)configureInstance:(id)a0;
+- (void)generateInfoForId:(unsigned long long)a0 context:(const char *)a1 uuid:(id)a2 completionBlock:(id /* block */)a3;
+- (void)removeImmediateFlow:(id)a0;
+- (void)resetFlowCountAfterMadePrimary;
+- (void)adjustFlowLinkages:(id)a0;
+- (void)addFlow:(id)a0;
+- (void)resetAllActivityMaps;
+- (void)sendFlowCount:(unsigned long long)a0 exceededPolicyThreshold:(unsigned long long)a1 isLikelyThunderingHerd:(BOOL)a2;
+- (void)tallyUpAllActivityMaps:(id)a0;
+- (void).cxx_destruct;
+- (void)addImmediateFlow:(id)a0;
+- (void)resetFlowCountPolicyInfo;
+- (id)initWithUserName:(id)a0 interfaceType:(long long)a1;
+- (void)adjustImmediateFlowLinkages:(id)a0;
+- (void)removeFlow:(id)a0;
+- (void)_generateInfoForId:(unsigned long long)a0 context:(const char *)a1 uuid:(id)a2 completionBlock:(id /* block */)a3;
+- (void)checkForFlowCountPolicyViolation;
+
+@end

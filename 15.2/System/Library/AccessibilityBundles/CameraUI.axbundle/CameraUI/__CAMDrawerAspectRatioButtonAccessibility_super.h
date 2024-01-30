@@ -1,0 +1,3 @@
+@interface __CAMDrawerAspectRatioButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

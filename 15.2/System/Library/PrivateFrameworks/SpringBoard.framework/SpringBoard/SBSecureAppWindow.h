@@ -1,0 +1,3 @@
+@interface SBSecureAppWindow : SBCoverSheetWindow
+
+@end

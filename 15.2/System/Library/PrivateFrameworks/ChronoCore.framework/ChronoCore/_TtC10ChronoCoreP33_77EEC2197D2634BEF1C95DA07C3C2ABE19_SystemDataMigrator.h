@@ -1,0 +1,3 @@
+@interface _TtC10ChronoCoreP33_77EEC2197D2634BEF1C95DA07C3C2ABE19_SystemDataMigrator : _TtCs12_SwiftObject
+
+@end

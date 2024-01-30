@@ -1,0 +1,3 @@
+@interface __MFComposeSubjectViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,94 @@
+@class NSString;
+
+@interface RBDisplayList : NSObject <RBDisplayListContents> {
+    struct DisplayList { unsigned int _crop_seed; unsigned int _layer_id; struct unique_ptr<RB::DisplayList::Contents, RB::Destroy<RB::DisplayList::Contents>> { struct __compressed_pair<RB::DisplayList::Contents *, RB::Destroy<RB::DisplayList::Contents>> { struct Contents *__value_; } __ptr_; } _contents; struct Pool<RB::DisplayList::State, const RB::Malloc> { struct Item *_freelist; } _state_pool; struct Pool<RB::DisplayList::Layer, RB::Heap> { struct Item *_freelist; } _layer_pool; struct Layer *_active_layer; struct State { struct State *_next; void *_context; struct AffineTransform { void /* unknown type, empty encoding */ ab; void /* unknown type, empty encoding */ cd; void /* unknown type, empty encoding */ txy; } _ctm; struct ClipNode *_clip; struct Style *_style; struct AffineTransform *_copied_ctm; struct Rect { void /* unknown type, empty encoding */ origin; void /* unknown type, empty encoding */ size; } _crop; unsigned int _layer_id; unsigned int _crop_seed; struct optional<RB::ColorSpace> { union { char __null_state_; unsigned char __val_; } ; BOOL __engaged_; } _default_color_space; } _root_state; struct State *_state; } _list;
+    struct unique_ptr<RB::XML::Document, std::default_delete<RB::XML::Document>> { struct __compressed_pair<RB::XML::Document *, std::default_delete<RB::XML::Document>> { struct Document *__value_; } __ptr_; } _xml_document;
+    struct vector<std::pair<RB::cf_ptr<CGContext *>, RB::ContextDelegate *>, 1, unsigned long> { unsigned char _p[16]; void *_p; unsigned long long _size; unsigned long long _capacity; } _contexts;
+    unsigned long long _active_contexts;
+    unsigned long long _active_states;
+}
+
+@property (nonatomic) BOOL linearColors;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } contentRect;
+@property (nonatomic) double deviceScale;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } clipBoundingBox;
+@property (nonatomic) struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } CTM;
+@property (nonatomic) int defaultColorSpace;
+@property (readonly, nonatomic, getter=isEmpty) BOOL empty;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } boundingRect;
+@property (readonly, copy, nonatomic) NSString *xmlDescription;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)decodedObjectWithData:(id)a0 delegate:(id)a1 error:(id *)a2;
+
+- (void)drawDisplayList:(id)a0;
+- (void)drawShape:(id)a0 fill:(id)a1 alpha:(float)a2 blendMode:(int)a3;
+- (void)addShadowStyleWithRadius:(double)a0 offset:(struct CGSize { double x0; double x1; })a1 color:(struct { float x0; float x1; float x2; float x3; })a2 mode:(unsigned int)a3;
+- (void)clearCaches;
+- (void)save;
+- (void)addBlurFilterWithRadius:(double)a0;
+- (void)clear;
+- (void)addGrayscaleFilterWithAmount:(float)a0 flags:(unsigned int)a1;
+- (void)addBrightnessFilterWithAmount:(float)a0 flags:(unsigned int)a1;
+- (void)beginLayerWithFlags:(unsigned int)a0;
+- (struct CGContext { } *)beginCGContextWithAlpha:(float)a0;
+- (void)addColorMatrixFilterWithArray:(float[20])a0;
+- (id)encodedDataForDelegate:(id)a0 error:(id *)a1;
+- (void)addShadowStyleWithRadius:(double)a0 offset:(struct CGSize { double x0; double x1; })a1 color:(struct { float x0; float x1; float x2; float x3; })a2 colorSpace:(int)a3 blendMode:(int)a4 flags:(unsigned int)a5;
+- (void)addColorInvertFilter;
+- (void)scaleByX:(double)a0 Y:(double)a1;
+- (void)addAlphaGradientFilterWithStopCount:(long long)a0 colors:(const struct { float x0; float x1; float x2; float x3; } *)a1 colorSpace:(int)a2 locations:(const double *)a3 flags:(unsigned int)a4;
+- (id)moveContents;
+- (void)clipLayerWithAlpha:(float)a0 mode:(int)a1;
+- (void)endCGContext;
+- (void)addColorInvertFilterWithAmount:(float)a0 flags:(unsigned int)a1;
+- (const void *)_rbPredicate;
+- (void)addLuminanceToAlphaFilterWithFlags:(unsigned int)a0;
+- (void)clipShape:(id)a0 mode:(int)a1;
+- (struct CGContext { } *)beginCGContextWithAlpha:(float)a0 flags:(unsigned int)a1;
+- (void)addBlurFilterWithRadius:(double)a0 opaque:(BOOL)a1;
+- (void)drawInState:(struct _RBDrawingState { } *)a0;
+- (void)addColorMonochromeFilterWithAmount:(float)a0 color:(struct { float x0; float x1; float x2; float x3; })a1 bias:(float)a2;
+- (void)addHueRotationFilterWithAngle:(double)a0 flags:(unsigned int)a1;
+- (void)addSaturationFilterWithAmount:(float)a0;
+- (void)addGrayscaleFilterWithAmount:(float)a0;
+- (void)addBlurFilterWithRadius:(double)a0 flags:(unsigned int)a1;
+- (void)addColorMatrixFilterWithArray:(float[20])a0 flags:(unsigned int)a1;
+- (void)addAlphaThresholdFilterWithMinAlpha:(float)a0 maxAlpha:(float)a1 color:(struct { float x0; float x1; float x2; float x3; })a2 colorSpace:(int)a3;
+- (void)addTransformStyle:(id)a0;
+- (void)addAlphaMultiplyFilterWithColor:(struct { float x0; float x1; float x2; float x3; })a0 colorSpace:(int)a1 flags:(unsigned int)a2;
+- (void).cxx_destruct;
+- (void)addColorMultiplyFilterWithColor:(struct { float x0; float x1; float x2; float x3; })a0 colorSpace:(int)a1 flags:(unsigned int)a2;
+- (void)beginLayer;
+- (void)restore;
+- (id)init;
+- (void)addContrastFilterWithAmount:(float)a0;
+- (void)addAlphaMultiplyFilterWithColor:(struct { float x0; float x1; float x2; float x3; })a0;
+- (void)renderInContext:(struct CGContext { } *)a0 options:(id)a1;
+- (void)addContrastFilterWithAmount:(float)a0 flags:(unsigned int)a1;
+- (void)rotateBy:(double)a0;
+- (void)addHueRotationFilterWithAngle:(double)a0;
+- (void)addAlphaThresholdFilterWithAlpha:(float)a0 color:(struct { float x0; float x1; float x2; float x3; })a1 colorSpace:(int)a2;
+- (const void *)_rbContents;
+- (void)addBlurFilterWithRadius:(double)a0 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 flags:(unsigned int)a2;
+- (void)concat:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)translateByX:(double)a0 Y:(double)a1;
+- (void)addSaturationFilterWithAmount:(float)a0 flags:(unsigned int)a1;
+- (void)drawLayerWithAlpha:(float)a0 blendMode:(int)a1;
+- (void)dealloc;
+- (void)addLuminanceCurveFilterWithCurve:(float[4])a0 color:(struct { float x0; float x1; float x2; float x3; })a1 colorSpace:(int)a2 flags:(unsigned int)a3;
+- (void)drawInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 alpha:(float)a1 blendMode:(int)a2 flags:(unsigned int)a3 operation:(id /* block */)a4;
+- (void)addProjectionStyleWithArray:(float[9])a0;
+- (void)addLuminanceToAlphaFilter;
+- (void)addPredicateStyle:(id)a0;
+- (void)beginRecordingXML;
+- (id).cxx_construct;
+- (const void *)_rbXmlDocument;
+- (void)addColorMultiplyFilterWithColor:(struct { float x0; float x1; float x2; float x3; })a0;
+- (void)addBrightnessFilterWithAmount:(float)a0;
+- (void)addColorMonochromeFilterWithAmount:(float)a0 color:(struct { float x0; float x1; float x2; float x3; })a1 colorSpace:(int)a2 bias:(float)a3 flags:(unsigned int)a4;
+
+@end

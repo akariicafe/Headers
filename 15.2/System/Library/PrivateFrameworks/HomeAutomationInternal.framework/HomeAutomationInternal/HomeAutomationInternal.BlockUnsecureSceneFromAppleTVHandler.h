@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockUnsecureSceneFromAppleTVHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

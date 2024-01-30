@@ -1,0 +1,85 @@
+@class UILabel, NSString, MPMediaControls, UIImage, MPVolumeSlider, MPAVLightweightRoutingController, UIButton;
+
+@interface MPVolumeView : UIView <MPAVLightweightRoutingControllerDelegate, NSCoding> {
+    MPAVLightweightRoutingController *_lightweightRoutingController;
+    BOOL _hasNonDefaultRouteButtonImages;
+    BOOL _hasNonDefaultMaxVolumeSliderImage;
+    BOOL _hasNonDefaultMinVolumeSliderImage;
+    BOOL _hidesRouteLabelWhenNoRouteChoice;
+    UIButton *_routeButton;
+    BOOL _routeDiscoveryEnabled;
+    UILabel *_routeLabel;
+    BOOL _showingButton;
+    BOOL _showingLabel;
+    BOOL _showingSlider;
+    BOOL _showsRouteButton;
+    BOOL _showsVolumeSlider;
+    long long _style;
+    MPMediaControls *_mediaControls;
+    MPVolumeSlider *_volumeSlider;
+    BOOL _volumeSliderShrinksFromBothEnds;
+    BOOL _wirelessRouteIsPicked;
+    BOOL _wirelessRoutesAvailable;
+    BOOL _pushedRouteDiscoveryModeState;
+}
+
+@property (readonly, nonatomic) long long style;
+@property (readonly, nonatomic) MPVolumeSlider *volumeSlider;
+@property (nonatomic) BOOL volumeSliderShrinksFromBothEnds;
+@property (nonatomic) BOOL hidesRouteLabelWhenNoRouteChoice;
+@property (readonly, nonatomic) BOOL isVisible;
+@property (readonly, nonatomic) BOOL isShowingRouteButton;
+@property (nonatomic) BOOL showsVolumeSlider;
+@property (nonatomic) BOOL showsRouteButton;
+@property (readonly, nonatomic, getter=areWirelessRoutesAvailable) BOOL wirelessRoutesAvailable;
+@property (readonly, nonatomic, getter=isWirelessRouteActive) BOOL wirelessRouteActive;
+@property (retain, nonatomic) UIImage *volumeWarningSliderImage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)layoutSubviews;
+- (void)didMoveToSuperview;
+- (void)encodeWithCoder:(id)a0;
+- (void)_applicationDidEnterBackgroundNotification:(id)a0;
+- (void)setAlpha:(double)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 style:(long long)a1;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (id)_routeButton;
+- (void)lightweightRoutingController:(id)a0 didChangeDevicePresenceDetected:(BOOL)a1;
+- (void)lightweightRoutingController:(id)a0 didChangePickedRoutes:(id)a1;
+- (id)minimumVolumeSliderImageForState:(unsigned long long)a0;
+- (void)_createSubviews;
+- (id)maximumVolumeSliderImageForState:(unsigned long long)a0;
+- (id)routeButtonImageForState:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })routeButtonRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setMinimumVolumeSliderImage:(id)a0 forState:(unsigned long long)a1;
+- (void)setMaximumVolumeSliderImage:(id)a0 forState:(unsigned long long)a1;
+- (void)setRouteButtonImage:(id)a0 forState:(unsigned long long)a1;
+- (void)setVolumeThumbImage:(id)a0 forState:(unsigned long long)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })volumeSliderRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)volumeThumbImageForState:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })volumeThumbRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 volumeSliderRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 value:(float)a2;
+- (void)_loadAudioRoutePickerIfNeeded;
+- (id)_defaultRouteButtonImageAsSelected:(BOOL)a0;
+- (void)_displayAudioRoutePicker;
+- (void)_startPrewarmingAudioRoutePicker;
+- (void)_stopPrewarmingAudioRoutePicker;
+- (void)_getDefaultVolumeSliderFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 routeButtonFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a1 forBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)_setShowsRouteButton:(BOOL)a0 animated:(BOOL)a1;
+- (void)_setShowsVolumeSlider:(BOOL)a0;
+- (void)_setRouteDiscoveryEnabled:(BOOL)a0;
+- (void)_updateWirelessRouteStatus;
+- (void)_volumeSliderVolumeControlAvailabilityDidChangeNotification:(id)a0;
+- (void)setHidden:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)_applicationWillEnterForegroundNotification:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+- (void)_initWithStyle:(long long)a0;
+- (void)didMoveToWindow;
+
+@end

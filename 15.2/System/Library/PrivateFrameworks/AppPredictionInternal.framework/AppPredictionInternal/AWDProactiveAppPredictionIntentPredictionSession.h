@@ -1,0 +1,98 @@
+@class AWDProactiveAppPredictionAppLaunchSequence, NSString, AWDProactiveAppPredictionAppActionSequence, NSMutableArray;
+
+@interface AWDProactiveAppPredictionIntentPredictionSession : PBCodable <NSCopying> {
+    struct { int *list; unsigned long long count; unsigned long long size; } _engagedActionCacheIndices;
+    struct { unsigned char timestamp : 1; unsigned char appActionCoreMotionCurrentMotionLaunches : 1; unsigned char appForAllActionsCoreMotionCurrentMotionLaunches : 1; unsigned char consumerSubType : 1; unsigned char currentLOIType : 1; unsigned char dayOfWeek : 1; unsigned char engagementType : 1; unsigned char intentDonationDelay : 1; unsigned char locationDistanceFromHome : 1; unsigned char locationDistanceFromWork : 1; unsigned char logType : 1; unsigned char predictionAge : 1; unsigned char sessionLogVersion : 1; unsigned char timeOfDayInterval : 1; unsigned char totalAppActionAirplaneModeLaunches : 1; unsigned char totalAppActionCoarseTimeOfDayLaunches : 1; unsigned char totalAppActionCurrentDayOfWeekLaunches : 1; unsigned char totalAppActionTimeOfDayLaunches : 1; unsigned char totalAppForAllActionTimeOfDayLaunches : 1; unsigned char totalAppForAllActionsAirplaneModeLaunches : 1; unsigned char totalAppForAllActionsCoarseTimeOfDayLaunches : 1; unsigned char totalAppForAllActionsCurrentDayOfWeekLaunches : 1; unsigned char uiFeedbackDelay : 1; unsigned char inAirplaneMode : 1; unsigned char isInternalBuild : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (retain, nonatomic) NSMutableArray *actionDatas;
+@property (nonatomic) BOOL hasAppActionCoreMotionCurrentMotionLaunches;
+@property (nonatomic) int appActionCoreMotionCurrentMotionLaunches;
+@property (readonly, nonatomic) BOOL hasAppSequence;
+@property (retain, nonatomic) AWDProactiveAppPredictionAppLaunchSequence *appSequence;
+@property (nonatomic) BOOL hasConsumerSubType;
+@property (nonatomic) int consumerSubType;
+@property (nonatomic) BOOL hasCurrentLOIType;
+@property (nonatomic) int currentLOIType;
+@property (nonatomic) BOOL hasDayOfWeek;
+@property (nonatomic) int dayOfWeek;
+@property (readonly, nonatomic) unsigned long long engagedActionCacheIndicesCount;
+@property (readonly, nonatomic) int *engagedActionCacheIndices;
+@property (nonatomic) BOOL hasEngagementType;
+@property (nonatomic) int engagementType;
+@property (nonatomic) BOOL hasInAirplaneMode;
+@property (nonatomic) BOOL inAirplaneMode;
+@property (nonatomic) BOOL hasIntentDonationDelay;
+@property (nonatomic) int intentDonationDelay;
+@property (nonatomic) BOOL hasIsInternalBuild;
+@property (nonatomic) BOOL isInternalBuild;
+@property (nonatomic) BOOL hasLogType;
+@property (nonatomic) int logType;
+@property (nonatomic) BOOL hasPredictionAge;
+@property (nonatomic) int predictionAge;
+@property (nonatomic) BOOL hasTimeOfDayInterval;
+@property (nonatomic) int timeOfDayInterval;
+@property (nonatomic) BOOL hasTotalAppActionAirplaneModeLaunches;
+@property (nonatomic) int totalAppActionAirplaneModeLaunches;
+@property (nonatomic) BOOL hasTotalAppActionCurrentDayOfWeekLaunches;
+@property (nonatomic) int totalAppActionCurrentDayOfWeekLaunches;
+@property (nonatomic) BOOL hasTotalAppForAllActionsAirplaneModeLaunches;
+@property (nonatomic) int totalAppForAllActionsAirplaneModeLaunches;
+@property (nonatomic) BOOL hasTotalAppForAllActionsCurrentDayOfWeekLaunches;
+@property (nonatomic) int totalAppForAllActionsCurrentDayOfWeekLaunches;
+@property (nonatomic) BOOL hasUiFeedbackDelay;
+@property (nonatomic) int uiFeedbackDelay;
+@property (nonatomic) BOOL hasSessionLogVersion;
+@property (nonatomic) int sessionLogVersion;
+@property (readonly, nonatomic) BOOL hasAbGroup;
+@property (retain, nonatomic) NSString *abGroup;
+@property (nonatomic) BOOL hasAppForAllActionsCoreMotionCurrentMotionLaunches;
+@property (nonatomic) int appForAllActionsCoreMotionCurrentMotionLaunches;
+@property (nonatomic) BOOL hasLocationDistanceFromHome;
+@property (nonatomic) int locationDistanceFromHome;
+@property (nonatomic) BOOL hasLocationDistanceFromWork;
+@property (nonatomic) int locationDistanceFromWork;
+@property (nonatomic) BOOL hasTotalAppActionTimeOfDayLaunches;
+@property (nonatomic) int totalAppActionTimeOfDayLaunches;
+@property (nonatomic) BOOL hasTotalAppForAllActionTimeOfDayLaunches;
+@property (nonatomic) int totalAppForAllActionTimeOfDayLaunches;
+@property (nonatomic) BOOL hasTotalAppActionCoarseTimeOfDayLaunches;
+@property (nonatomic) int totalAppActionCoarseTimeOfDayLaunches;
+@property (nonatomic) BOOL hasTotalAppForAllActionsCoarseTimeOfDayLaunches;
+@property (nonatomic) int totalAppForAllActionsCoarseTimeOfDayLaunches;
+@property (readonly, nonatomic) BOOL hasAppActionSequence;
+@property (retain, nonatomic) AWDProactiveAppPredictionAppActionSequence *appActionSequence;
+@property (readonly, nonatomic) BOOL hasSessionId;
+@property (retain, nonatomic) NSString *sessionId;
+
++ (Class)actionDataType;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id)dictionaryRepresentation;
+- (id)engagementTypeAsString:(int)a0;
+- (int)StringAsEngagementType:(id)a0;
+- (void)clearActionDatas;
+- (void)addEngagedActionCacheIndices:(int)a0;
+- (void)addActionData:(id)a0;
+- (id)currentLOITypeAsString:(int)a0;
+- (int)StringAsCurrentLOIType:(id)a0;
+- (id)consumerSubTypeAsString:(int)a0;
+- (int)StringAsConsumerSubType:(id)a0;
+- (unsigned long long)actionDatasCount;
+- (id)actionDataAtIndex:(unsigned long long)a0;
+- (void)clearEngagedActionCacheIndices;
+- (int)engagedActionCacheIndicesAtIndex:(unsigned long long)a0;
+- (void)setEngagedActionCacheIndices:(int *)a0 count:(unsigned long long)a1;
+
+@end

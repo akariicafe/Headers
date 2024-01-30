@@ -1,0 +1,3 @@
+@interface __PUFilterToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface NBBundleLookupClass : NSObject
+
+@end

@@ -1,0 +1,23 @@
+@class NSArray, NSString, NSURL, UIImage, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface AFUIRemoteImageRepresentation : NSObject <NSItemProviderWriting> {
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (class, readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
+
+@property (copy, nonatomic) NSURL *imageURL;
+@property (retain, nonatomic) UIImage *image;
+@property (readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)loadDataWithTypeIdentifier:(id)a0 forItemProviderCompletionHandler:(id /* block */)a1;
+- (id)initWithImageURL:(id)a0;
+- (void).cxx_destruct;
+- (void)_commonInit;
+
+@end

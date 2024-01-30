@@ -1,0 +1,19 @@
+@class NSString, WLKWatchListModificationResponse;
+
+@interface WLKRemoveFavoriteRequest : WLKRequest {
+    NSString *_channelID;
+}
+
+@property (readonly, copy, nonatomic) NSString *canonicalID;
+@property (readonly, copy, nonatomic) NSString *statsID;
+@property (readonly, copy, nonatomic) NSString *bundleID;
+@property (readonly, copy, nonatomic) NSString *externalID;
+@property (readonly, nonatomic) WLKWatchListModificationResponse *response;
+
+- (void).cxx_destruct;
+- (void)makeRequestWithCompletion:(id /* block */)a0;
+- (id)initWithCanonicalID:(id)a0;
+- (id)initWithStatsID:(id)a0;
+- (id)initWithBundleID:(id)a0 externalID:(id)a1;
+
+@end

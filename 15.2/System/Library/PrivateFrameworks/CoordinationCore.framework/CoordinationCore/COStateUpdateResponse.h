@@ -1,0 +1,3 @@
+@interface COStateUpdateResponse : COMeshResponse
+
+@end

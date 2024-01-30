@@ -1,0 +1,3 @@
+@interface MKFBulletinRegistrationCameraReachabilityDatabaseID : MKFBulletinRegistrationDatabaseID
+
+@end

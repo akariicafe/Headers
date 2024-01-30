@@ -1,0 +1,3 @@
+@interface CKTranscriptReplayEffectCell : CKTranscriptStatusCell
+
+@end

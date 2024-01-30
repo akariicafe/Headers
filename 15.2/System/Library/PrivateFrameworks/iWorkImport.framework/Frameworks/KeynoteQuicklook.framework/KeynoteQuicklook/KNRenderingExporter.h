@@ -1,0 +1,81 @@
+@class KNPdfHyperlinkController, NSArray, KNOffscreenController, NSOrderedSet, NSString, KNSlideNode, NSMutableArray;
+@protocol TSDCanvasProxyDelegate;
+
+@interface KNRenderingExporter : TSARenderingExporter <TSDCanvasDelegate> {
+    NSMutableArray *_currentSlidesOnPage;
+    KNPdfHyperlinkController *_hyperlinkController;
+    unsigned long long _currentPage;
+    BOOL _hasObjectComments;
+}
+
+@property (retain, nonatomic) KNOffscreenController *offscreenController;
+@property (nonatomic) unsigned long long slidesPerPage;
+@property (readonly, nonatomic) NSArray *slidesForPrinting;
+@property (retain, nonatomic) KNSlideNode *currentSlideNode;
+@property (readonly, nonatomic) unsigned long long currentSlideNumber;
+@property (readonly, nonatomic) unsigned long long currentBuildIndex;
+@property (copy, nonatomic) NSOrderedSet *selectedSlideNodes;
+@property (readonly, nonatomic) unsigned long long rangeStart;
+@property (readonly, nonatomic) unsigned long long rangeEnd;
+@property (nonatomic) long long printLayout;
+@property (nonatomic, getter=isPrintingBuilds) BOOL printingBuilds;
+@property (nonatomic, getter=isPrintingBackgrounds) BOOL printingBackgrounds;
+@property (nonatomic, getter=isPrintingSlideBackgroundsWithAlpha) BOOL printingSlideBackgroundsWithAlpha;
+@property (nonatomic, getter=isPrintingBorders) BOOL printingBorders;
+@property (nonatomic, getter=isPrintingSlideNumbers) BOOL printingSlideNumbers;
+@property (nonatomic, getter=isPrintingDate) BOOL printingDate;
+@property (nonatomic, getter=isPrintingSkippedSlides) BOOL printingSkippedSlides;
+@property (nonatomic, getter=isPrintingSelectedSlides) BOOL printingSelectedSlides;
+@property (nonatomic, getter=isPrintingPageMargins) BOOL printingPageMargins;
+@property (nonatomic, getter=isPrintingDraftQuality) BOOL printingDraftQuality;
+@property (nonatomic, getter=isPrintingComments) BOOL printingComments;
+@property (readonly, nonatomic) double heightOfPrintedText;
+@property (readonly, nonatomic) double spaceForBottomText;
+@property (nonatomic) double pageMargin;
+@property (copy, nonatomic) NSString *printTitle;
+@property (readonly, nonatomic) BOOL usesViewForDrawing;
+@property (nonatomic) id printView;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } unscaledClipRectForPageCount;
+@property (nonatomic) double viewScaleForPageCount;
+@property (readonly, nonatomic) BOOL isPrintingCommentsSidebar;
+@property (readonly, nonatomic) id<TSDCanvasProxyDelegate> canvasProxyDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)teardown;
+- (unsigned long long)pageCount;
+- (void)setup;
+- (void).cxx_destruct;
+- (void)setOptions:(id)a0;
+- (id)documentRoot;
+- (BOOL)isPrintingCanvas;
+- (id)initWithDocumentRoot:(id)a0;
+- (BOOL)shouldSuppressBackgrounds;
+- (BOOL)isCanvasDrawingIntoPDF:(id)a0;
+- (BOOL)exportToURL:(id)a0 delegate:(id)a1 error:(id *)a2;
+- (void)enableRenderAllContent;
+- (id)currentInfos;
+- (BOOL)incrementPage;
+- (BOOL)drawImageForSlideNode:(id)a0 event:(unsigned long long)a1 slideSize:(struct CGSize { double x0; double x1; })a2 intoRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 annotationFlagsScale:(double)a4 context:(struct CGContext { } *)a5 createPage:(BOOL)a6;
+- (void)drawSlideNumberForNode:(id)a0 buildIndex:(unsigned long long)a1 forRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 context:(struct CGContext { } *)a3 position:(long long)a4;
+- (void)drawBorderForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 context:(struct CGContext { } *)a1;
+- (void)drawDateForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 context:(struct CGContext { } *)a1;
+- (void)addAnchorPointForSlide:(id)a0 context:(struct CGContext { } *)a1;
+- (BOOL)supportsPrintingComments;
+- (BOOL)shouldShowCommentsForCanvas:(id)a0;
+- (BOOL)shouldShowTextCommentHighlightsForCanvas:(id)a0;
+- (BOOL)exportToURL:(id)a0 pageNumber:(unsigned long long)a1 delegate:(id)a2 error:(id *)a3;
+- (id)slideIndexesToPrint;
+- (id)p_slideNumberStringForSlideNode:(id)a0 buildIndex:(unsigned long long)a1;
+- (id)quickLookSlideNodes;
+- (unsigned long long)p_slideNumberForSlideNode:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsRect;
+- (BOOL)preparePage:(unsigned long long)a0;
+- (double)progressForCurrentPage;
+- (void)drawNSStringDateForRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 context:(struct CGContext { } *)a1;
+- (void)drawInView:(id)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (long long)pageIndexFromQuickLookSlideNode:(id)a0;
+
+@end

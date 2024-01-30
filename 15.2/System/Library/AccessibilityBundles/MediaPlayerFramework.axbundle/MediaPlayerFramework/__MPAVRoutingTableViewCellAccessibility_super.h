@@ -1,0 +1,3 @@
+@interface __MPAVRoutingTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

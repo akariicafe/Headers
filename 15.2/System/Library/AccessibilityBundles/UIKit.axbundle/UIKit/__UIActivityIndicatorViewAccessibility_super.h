@@ -1,0 +1,3 @@
+@interface __UIActivityIndicatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface MiroVPSharpnessMetadataRange : MiroVPMetadataRange
+
+@end

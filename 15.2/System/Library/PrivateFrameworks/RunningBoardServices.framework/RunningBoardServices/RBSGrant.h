@@ -1,0 +1,3 @@
+@interface RBSGrant : RBSAttribute
+
+@end

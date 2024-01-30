@@ -1,0 +1,86 @@
+@class NSString, ICLiveLinkIdentity, NSURL, NSArray, ICSharedListeningConnectionController, NSMutableDictionary, ICLiveLinkPlaybackCoordinatorMedium, NSMutableArray, NSObject, ICSharedListeningQueue;
+@protocol OS_dispatch_queue, ICLiveLinkDelegate;
+
+@interface ICLiveLink : NSObject <ICSharedListeningConnectionControllerDelegate>
+
+@property (readonly, nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } lock;
+@property (retain, nonatomic) NSMutableDictionary *pendingRequests;
+@property (retain, nonatomic) NSMutableArray *pendingActions;
+@property (nonatomic) BOOL processingAction;
+@property (retain, nonatomic) ICLiveLinkPlaybackCoordinatorMedium *playbackCoordinatorMedium;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (copy, nonatomic) NSString *identifier;
+@property (retain, nonatomic) ICSharedListeningConnectionController *connectionController;
+@property (readonly, copy, nonatomic) ICLiveLinkIdentity *clientSpecifiedIdentity;
+@property (readonly, nonatomic) long long localParticipantServerID;
+@property (nonatomic, getter=isStarting) BOOL starting;
+@property (nonatomic, getter=isStarted) BOOL started;
+@property (copy, nonatomic) NSString *forcedReconnectReason;
+@property (copy, nonatomic) NSString *deferredReconnectReason;
+@property (nonatomic) BOOL receivedDisconnectionNotice;
+@property (nonatomic) long long currentRetryCount;
+@property (nonatomic) long long maxRetries;
+@property (nonatomic) long long maxRetryWaitPeriod;
+@property (weak, nonatomic) id<ICLiveLinkDelegate> delegate;
+@property (readonly, nonatomic) NSURL *invitationURL;
+@property (readonly, nonatomic) NSString *sessionKey;
+@property (readonly, copy, nonatomic) ICLiveLinkIdentity *identity;
+@property (readonly, nonatomic) NSArray *participants;
+@property (readonly, copy, nonatomic) ICSharedListeningQueue *queue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)linkWithIdentity:(id)a0;
++ (id)linkWithSessionIdentifier:(id)a0 identity:(id)a1;
+
+- (void)receivedEvent:(id)a0;
+- (void)start;
+- (void).cxx_destruct;
+- (void)_handleReceivedMessage:(id)a0;
+- (void)dealloc;
+- (void)sendMessage:(id)a0 completion:(id /* block */)a1;
+- (void)stop;
+- (void)connectionControllerConnectionDidStart:(id)a0;
+- (void)connectionController:(id)a0 connectionDidEndWithError:(id)a1;
+- (void)connectionController:(id)a0 didEncounterFatalError:(id)a1;
+- (void)connectionController:(id)a0 connectionDidReceiveMessage:(id)a1;
+- (id)initWithSharedListeningSessionIdentifier:(id)a0 identity:(id)a1;
+- (void)reconnectWithReason:(id)a0 options:(id)a1;
+- (void)beginSynchronizedPlaybackWithAVPlaybackCoordinator:(id)a0;
+- (void)beginSynchronizedPlaybackWithAVCFPlaybackCoordinator:(void *)a0;
+- (void)endSynchronizedPlayback;
+- (void)broadcastDirectCurrentItemChangedToItemIdentifier:(id)a0;
+- (void)updateWithIdentity:(id)a0;
+- (void)fetchPlaybackSyncStateWithCompletion:(id /* block */)a0;
+- (id)participantForParticipantUUID:(id)a0;
+- (void)receivedCurrentItemIdentifier:(id)a0 fromParticipant:(id)a1;
+- (void)sendPlaybackSyncPayload:(id)a0;
+- (void)_didReceiveAddItemsAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveCurrentItemChangeAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveCurrentItemTransitionAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveMoveItemAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveParticipantChangeAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceivePlaybackControlSettingsAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceivePlaybackSyncAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceivePlayNowQueueItemsAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveQueueSyncAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveReactionAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveRemoveItemAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveReplaceQueueItemsAction:(id)a0 completion:(id /* block */)a1;
+- (void)_didReceiveServerNoticeAction:(id)a0 completion:(id /* block */)a1;
+- (void)_emitSessionEventIfNeededForAction:(id)a0 disconnectedParticipant:(id)a1;
+- (void)_handleUpdatedParticipantQuery:(id)a0;
+- (void)_handleUpdatedQueue:(id)a0 serverQueueContext:(id)a1;
+- (id)_participantForAction:(id)a0;
+- (id)_participantForParticipantID:(long long)a0;
+- (void)_processPendingActions;
+- (void)_storeTraceID:(id)a0 completion:(id /* block */)a1;
+- (void)_updateParticipantsWithReason:(id)a0 completion:(id /* block */)a1;
+- (void)_updateQueueWithReason:(id)a0 completion:(id /* block */)a1;
+- (void)_performClientInfoExchangeAndInitializeQueue;
+- (void)_didReceivePluginErrorMessage:(id)a0;
+- (void)_handlePotentiallyRecoverableError:(id)a0;
+
+@end

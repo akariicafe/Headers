@@ -1,0 +1,85 @@
+@class NSData, NSString, NSURL, NSDate, REMObjectID, NSDictionary, NSDateComponents, NSNumber;
+
+@interface REMDaemonUserDefaults : REMUserDefaults
+
+@property (readonly, nonatomic) BOOL newAppShouldTakeoverEKReminderNotifications;
+@property (readonly, nonatomic) BOOL dataaccessDaemonStopSyncingReminders;
+@property (readonly, nonatomic) BOOL siriShouldRouteIntentsToNewRemindersApp;
+@property (nonatomic) BOOL databaseMigrationTestModeEnabled;
+@property (nonatomic) BOOL isDatabaseMigrated;
+@property (nonatomic) BOOL databaseMigrationTimedOut;
+@property (copy, nonatomic) NSString *lastDatabaseMigrationSystemBuildVersion;
+@property (retain, nonatomic) NSNumber *cloudKitMigrationMaxNumInvocations;
+@property (retain, nonatomic) NSNumber *cloudKitMigrationMaxNumFailures;
+@property (retain, nonatomic) NSNumber *cloudKitMigrationDelayAfterError;
+@property (retain, nonatomic) NSNumber *cloudKitMigrationObserverPollingInterval;
+@property (retain, nonatomic) NSNumber *cloudKitMigrationSimulatedError;
+@property (retain, nonatomic) NSNumber *cloudKitResultsLimitPerSyncOperation;
+@property (nonatomic) BOOL cloudKitMigrationDisableCleanUp;
+@property (retain, nonatomic) NSString *acAccountIdentifierToMergeLocalDataIntoSyncData;
+@property (retain, nonatomic) NSString *acAccountIdentifierToMigrateInactivatedCalDavData;
+@property (retain, nonatomic) NSDate *cloudKitMergeLocalLastDateMaxRetryReached;
+@property (retain, nonatomic) NSString *cloudKitMergeLocalLastBuildVersionMaxRetryReached;
+@property (retain, nonatomic) NSDate *cloudKitSchemaCatchUpSyncLastSuccessDate;
+@property (retain, nonatomic) NSString *cloudKitSchemaCatchUpSyncLastSuccessBuildVersion;
+@property (retain, nonatomic) NSNumber *cloudKitMaxNumAlarmIDsInReminderCKRecordDebugOverride;
+@property (copy, nonatomic) NSNumber *spotlightIndexVersion;
+@property (copy, nonatomic) NSDate *nextScheduledAlarmDate;
+@property (copy, nonatomic) NSDate *lastPresentAlarmDate;
+@property (copy, nonatomic) NSData *lastSuggestedAttributesAutoTrainingToken;
+@property (copy, nonatomic) NSDate *lastSyncPoll;
+@property (copy, nonatomic) NSDate *lastCloudConfigurationDownload;
+@property (copy, nonatomic) NSDate *lastExtraneousAlarmsProcessedDate;
+@property (nonatomic) BOOL useExtraneousAlarmBackOffThrottleInterval;
+@property (copy, nonatomic) NSData *userInteractionsData;
+@property (nonatomic) BOOL simulateMAIDAccount;
+@property (nonatomic) BOOL showRemindersAsOverdue;
+@property (nonatomic) BOOL enableWelcomeScreen;
+@property (nonatomic) BOOL forceShowWelcomeScreen;
+@property (nonatomic) BOOL forceShowWhatsNewScreen;
+@property (nonatomic) BOOL enableInAppDebugMenu;
+@property (readonly, nonatomic) BOOL enableAutoGenerateCKPersonIDSalt;
+@property (nonatomic) BOOL enableHashingUserIdentifiablesWithPersonIDSalt;
+@property (retain, nonatomic) REMObjectID *preferredDefaultListID;
+@property (retain, nonatomic) NSURL *preferredDefaultListObjectIDUrl;
+@property (retain, nonatomic) NSDateComponents *todayNotificationFireTime;
+@property (nonatomic) BOOL disableAlarmEngineDataSourcePrefetching;
+@property (nonatomic) BOOL enableAssignmentNotifications;
+@property (copy, nonatomic) NSDictionary *suggestedAttributesTrainingOverrides;
+@property (copy, nonatomic) NSDictionary *suggestedAttributesHarvestingOverrides;
+@property (copy, nonatomic) NSDictionary *suggestedAttributesAccepted;
+@property (copy, nonatomic) NSData *accountsListCategorizedCountsCache;
+@property (copy, nonatomic) NSData *hashtagLabelsInCustomSmartListFilterCache;
+@property (nonatomic) BOOL debugSimulateSqliteFull;
+@property (retain, nonatomic) NSNumber *tipKitCachedCountOfUncompletedReminders;
+@property (retain, nonatomic) NSNumber *tipKitCachedCountOfLists;
+@property (retain, nonatomic) NSNumber *tipKitCachedCountOfListsWithCustomBadge;
+@property (retain, nonatomic) NSNumber *tipKitCachedCountOfCustomSmartLists;
+@property (retain, nonatomic) NSNumber *tipKitCachedCountOfHashtags;
+@property (nonatomic) BOOL hasViewedContactsAccessAlertForLocation;
+@property (nonatomic) BOOL hasViewedContactsAccessAlertForMessaging;
+@property (nonatomic) BOOL hasViewedContactsAccessAlertForCalDAVSharing;
+@property (retain, nonatomic) NSNumber *remCurrentRuntimeVersionDebuggingOverride;
+@property (nonatomic) BOOL forceEligibleForAutoCloudKitMigration;
+
++ (id)removeAcceptedSuggestionRecordsExpireBy:(id)a0 lifetime:(double)a1 from:(id)a2;
++ (id)todayNotificationFireTimeFromStorageNumber:(id)a0;
++ (id)storageNumberForTodayNotificationTime:(id)a0;
++ (id)defaultValues;
+
+- (id)observePreferredDefaultListIDWithBlock:(id /* block */)a0;
+- (void)_deletePreferredDefaultListObjectIDUrl;
+- (id)_reminderIDAttributeKey:(id)a0 attributeType:(id)a1;
+- (void)ppt_handleInstall;
+- (id)_pptPreferredDefaultListIDKey;
+- (BOOL)hasSuggestedRecentlyForReminderWithID:(id)a0 attributeType:(id)a1;
+- (void)setBestKForKNN:(id)a0;
+- (void)deletePreferredDefaultListID;
+- (void)setCoreBehaviorTrainingParameters:(id)a0;
+- (id)initWithSuiteName:(id)a0 containerURL:(id)a1;
+- (void)ppt_handleRestore;
+- (void)updateAcceptedAttributesForReminderWithID:(id)a0 attributeType:(id)a1;
+- (id)streamTodayNotificationFireTime:(id /* block */)a0;
+- (id)observeShowRemindersAsOverdueWithBlock:(id /* block */)a0;
+
+@end

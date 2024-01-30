@@ -1,0 +1,81 @@
+@class NSString;
+
+@interface TSWPListStyle : TSSStyle <TSSPreset>
+
+@property (weak, nonatomic) TSWPListStyle *baseStyleForTopicNumbersOverride;
+@property (readonly, nonatomic) NSString *presetKind;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)properties;
++ (id)defaultStyleWithContext:(id)a0;
++ (id)defaultPropertyMap;
++ (id)propertiesAllowingNSNull;
++ (id)presetStyleDescriptor;
++ (unsigned long long)pLabelTypeForLevel:(unsigned long long)a0 forPropertyMapping:(id)a1 includeDegenerateLevels:(BOOL)a2;
++ (unsigned long long)firstLabelTypeForPropertyMapping:(id)a0;
++ (void)pGetDefaultTextIndentFloats:(float[9])a0;
++ (id)defaultLabelIndents;
++ (id)pLabelTypeArrayForType:(unsigned long long)a0;
++ (id)defaultLabelGeometries;
++ (id)defaultLabelString;
++ (unsigned long long)defaultLabelNumberType;
++ (BOOL)defaultTieredNumber;
++ (id)stickyOverrideProperties;
++ (unsigned long long)effectiveTypeForLevel:(unsigned long long)a0 forPropertyMapping:(id)a1;
++ (unsigned long long)labelTypeForLevel:(unsigned long long)a0 forPropertyMapping:(id)a1;
++ (id)defaultTextIndents;
++ (id)defaultStyleWithContext:(id)a0 type:(unsigned long long)a1;
++ (id)harvardStyleWithContext:(id)a0;
++ (id)listStyleWithNumberType:(unsigned long long)a0 inStyleSheet:(id)a1 withNumberedPresetStyle:(id)a2;
++ (id)propertyMapForListNumberType:(unsigned long long)a0;
++ (id)languageSpecificStylesForLanguages:(id)a0 theme:(id)a1 stylesheet:(id)a2;
++ (BOOL)deprecated_isDefaultMissingBulletImage:(id)a0;
++ (id)pDefaultLabelValuesForLabelTypeProperty:(int)a0 context:(id)a1;
++ (id)numberedListStyleForPresets:(id)a0;
++ (id)nameForLanguageSpecificListStyle:(unsigned long long)a0 withLocal:(id)a1;
++ (id)p_arrayValuedProperties;
++ (id)defaultLabelImages;
++ (id)defaultLabelNumberTypes;
++ (id)defaultLabelTieredNumbers;
++ (id)defaultLabelStrings;
++ (id)defaultLabelTypes;
++ (id)textInspectorBulletStrings;
++ (id)additionalBulletStrings;
++ (id)textBulletListStyleForPresets:(id)a0;
++ (id)listStyleWithTextBullet:(id)a0 inStyleSheet:(id)a1 withTextBulletPresetStyle:(id)a2;
++ (id)propertyMapForListTextBullet:(id)a0;
++ (id)extendedListNumberingTypesInStylesheet:(id)a0;
++ (id)defaultArrayForProperty:(int)a0;
+
+- (void).cxx_destruct;
+- (id)initWithContext:(id)a0 name:(id)a1 overridePropertyMap:(id)a2 isVariation:(BOOL)a3;
+- (id)baseStyleForTopicNumbers;
+- (unsigned long long)labelTypeForLevel:(unsigned long long)a0;
+- (unsigned long long)effectiveTypeForLevel:(unsigned long long)a0;
+- (unsigned long long)firstLabelType;
+- (double)labelIndentForLevel:(unsigned long long)a0;
+- (double)textIndentForLevel:(unsigned long long)a0 fontSize:(double)a1;
+- (id)pOverrideArrayWithValue:(id)a0 forProperty:(int)a1 atParagraphLevels:(id)a2 withContext:(id)a3;
+- (id)overridePropertyMapWithValue:(id)a0 forProperty:(int)a1 atParagraphLevels:(id)a2 withContext:(id)a3;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (id)numberTypeName;
+- (id)parentStyleForFixingOrphanVariation;
+- (void)setLocalizedArray:(id)a0 forProperty:(int)a1;
+- (id)additionalPropertiesNeededForVariationWithPropertyMap:(id)a0;
+- (BOOL)wantsCustomResolveLogicForProperty:(int)a0 forStyles:(id)a1;
+- (id)resolvedValueForProperty:(int)a0 inStyles:(id)a1;
+- (id)objectForProperty:(int)a0 atIndex:(unsigned long long)a1;
+- (id)p_characterFillByResolvingWithParagraphStyle:(id)a0;
+- (id)boxedObjectForProperty:(int)a0 atIndex:(unsigned long long)a1;
+- (int)intValueForProperty:(int)a0 atIndex:(unsigned long long)a1;
+- (float)floatValueForProperty:(int)a0 atIndex:(unsigned long long)a1;
+- (double)doubleValueForProperty:(int)a0 atIndex:(unsigned long long)a1;
+- (double)CGFloatValueForProperty:(int)a0 atIndex:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonPhotos_PhotoCollectionFilter : SiriOntology.UsoEntityBuilder
+
+@end

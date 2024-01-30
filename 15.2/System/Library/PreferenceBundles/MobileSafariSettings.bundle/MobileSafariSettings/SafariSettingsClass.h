@@ -1,0 +1,3 @@
+@interface SafariSettingsClass : NSObject
+
+@end

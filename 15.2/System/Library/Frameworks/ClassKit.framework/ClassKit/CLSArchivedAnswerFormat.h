@@ -1,0 +1,14 @@
+@interface CLSArchivedAnswerFormat : CLSObject {
+    long long _answerFormatType;
+}
+
+@property (readonly, nonatomic) long long answerFormatType;
+
++ (BOOL)supportsSecureCoding;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)_init;
+- (id)initWithCoder:(id)a0;
+- (void)setAnswerFormatType:(long long)a0;
+
+@end

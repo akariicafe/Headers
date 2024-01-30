@@ -1,0 +1,3 @@
+@interface ___UITabBarVisualProviderLegacyIOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

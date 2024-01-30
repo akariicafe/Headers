@@ -1,0 +1,5 @@
+@interface SiriOntology.AnyMatchingSpan : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ matchingSpan;
+}
+
+@end

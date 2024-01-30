@@ -1,0 +1,18 @@
+@class NSString, PBUnknownFields;
+
+@interface GEOPDRetainedSearchMetadata : PBCodable <NSCopying> {
+    PBUnknownFields *_unknownFields;
+    NSString *_query;
+}
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (id)jsonRepresentation;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

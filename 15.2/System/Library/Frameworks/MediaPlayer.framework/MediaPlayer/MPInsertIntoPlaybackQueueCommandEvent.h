@@ -1,0 +1,16 @@
+@class MPRemotePlaybackQueue, NSArray, NSString, NSNumber;
+
+@interface MPInsertIntoPlaybackQueueCommandEvent : MPRemoteCommandEvent
+
+@property (readonly, copy, nonatomic) NSArray *supportedInsertionPositions;
+@property (readonly, nonatomic) long long insertionPosition;
+@property (readonly, nonatomic) MPRemotePlaybackQueue *playbackQueue;
+@property (readonly, nonatomic) NSNumber *privateListeningOverride;
+@property (readonly, nonatomic) NSString *insertAfterContentItemID;
+@property (readonly, nonatomic) long long destinationOffset;
+
+- (id)initWithCommand:(id)a0 mediaRemoteType:(unsigned int)a1 options:(id)a2;
+- (void).cxx_destruct;
+- (id)initWithCommand:(id)a0 playbackQueue:(id)a1 options:(id)a2;
+
+@end

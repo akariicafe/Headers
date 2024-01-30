@@ -1,0 +1,3 @@
+@interface MKFMediaSystemDatabaseID : MKFModelDatabaseID
+
+@end

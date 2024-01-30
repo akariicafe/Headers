@@ -1,0 +1,98 @@
+@class NSString;
+
+@interface SBPPTOperation : NSOperation {
+    id /* block */ _finishTestBlock;
+    id /* block */ _startTestBlock;
+    id /* block */ _finishSubTestBlock;
+    id /* block */ _startSubTestBlock;
+    double _operationStartTime;
+    double _operationEndTime;
+}
+
+@property (copy, nonatomic) NSString *operationName;
+
++ (id)operationToUnlockInterfaceFinishingUIUnlock:(BOOL)a0;
++ (id)operationToActivateApplicationWithBundleIdentifier:(id)a0;
++ (id)operationToTerminateApplicationWithBundleIdentifier:(id)a0;
++ (id)operationToSynthesizeEventsForEventActions:(id /* block */)a0;
++ (void)enqueueOperations:(id)a0;
++ (id)operationToUnlockInterface;
++ (id)operationToLockInterface;
++ (id)operationToSetInterfaceOrientation:(long long)a0;
++ (id)operationToPreventSystemIdle;
++ (id)operationToResumeSystemIdle;
++ (id)operationToWaitForTimeInterval:(double)a0;
++ (id)operationToWaitForNotificationName:(id)a0 object:(id)a1 timeout:(double)a2;
++ (id)operationToTransitionToHomeScreen;
++ (id)operationToSaveHomeScreenState;
++ (id)operationToRestoreHomeScreenState;
++ (id)operationToCreateFolderWithName:(id)a0 containingIconsForBundleIdentifiers:(id)a1;
++ (id)operationToOpenFolderWithName:(id)a0;
++ (id)operationToPresentAppSwitcher;
++ (id)operationToDismissAppSwitcherAndReturnToSource;
++ (id)operationToSaveAppSwitcherState;
++ (id)operationToRestoreAppSwitcherState;
++ (id)operationToLoadPPTAppSwitcherState;
++ (id)operationToPresentCoverSheet;
++ (id)operationToDismissCoverSheet;
++ (id)operationToPresentFloatingDock;
++ (id)operationToDismissFloatingDock;
++ (id)operationToPresentBannerNotification;
++ (id)operationToDismissBannerNotification;
++ (id)operationToPublishExampleNotificationsWithNotificationCount:(unsigned long long)a0 threadCount:(unsigned long long)a1;
++ (id)operationToRemoveExampleNotifications;
++ (id)operationToActivateNullOffscreenApp;
++ (id)operationToTerminateNullOffscreenApp;
++ (id)operationToSetApplicationWithBundleIdentifier:(id)a0 blockedForScreenTime:(BOOL)a1;
++ (id)operationToSetAllApplicationsBlockedForScreenTime:(BOOL)a0;
++ (id)operationToSynthesizeEventsForCommandString:(id)a0;
++ (id)operationToSynthesizeEventsForEventStream:(id)a0;
++ (id)operationToSwipeUpInMiddleOfInterface;
++ (id)operationToSwipeDownInMiddleOfInterface;
++ (id)operationToSwipeLeftInMiddleOfInterface;
++ (id)operationToSwipeRightInMiddleOfInterface;
++ (id)operationToStartTest:(id)a0;
++ (id)operationToFinishTest:(id)a0;
++ (id)operationToPresentPageManagement;
++ (id)operationToDismissPageManagement;
++ (id)dismissOverlaysAndResetHomeScreenToLastIconPageAnimated:(BOOL)a0;
++ (id)presentAppLibrary:(BOOL)a0;
++ (id)dismissAppLibraryPad:(BOOL)a0;
++ (id)resetAndPrepareforNextTest;
++ (id)presentAppLibraryPhone;
++ (id)presentAppLibrary;
++ (id)dismissAppLibraryOverlay;
++ (id)configureAppLibraryForEachAppHavingOwnPod;
++ (id)resetAppLibraryToTop;
++ (id)dismissOverlaysAndResetHomeScreenToPage:(unsigned long long)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
++ (id)presentAppLibrarySearchByTappingSearchField;
++ (id)dismissAppLibrarySearch;
++ (id)configureAppLibraryForAllAppsInOnePod;
++ (id)appLibraryExpandFirstPod;
++ (id)appLibraryDismissExpandedPod;
++ (id)pullToAppLibrarySearch;
++ (void)_dismissOverlaysAndResetHomeScreenToPage:(unsigned long long)a0 animated:(BOOL)a1 operation:(id)a2 completion:(id /* block */)a3;
++ (void)_appLibrarySupport_performTapAtPoint:(struct CGPoint { double x0; double x1; })a0 fromView:(id)a1 withCompletion:(id /* block */)a2;
++ (void)_appLibrarySupport_performDragFromPoint:(struct CGPoint { double x0; double x1; })a0 andDragTo:(struct CGPoint { double x0; double x1; })a1 duration:(double)a2 fromView:(id)a3 withCompletion:(id /* block */)a4;
++ (void)_appLibrarySupport_performPanGesturesOnScreenUntilOnDeweyOverlayWithCompletion:(id /* block */)a0;
++ (void)_appLibrarySupport_performPanGestureTowardsUserInterfaceLayoutDirectionOnScreenWithDuration:(double)a0 completion:(id /* block */)a1;
++ (void)_appLibrarySupport_performRightToLeftPanGestureOnScreenWithDuration:(double)a0 completion:(id /* block */)a1;
++ (void)_appLibrarySupport_performLeftToRightPanGestureOnScreenWithDuration:(double)a0 completion:(id /* block */)a1;
++ (void)_appLibrarySupport_performPanWithComposer:(id)a0 startLocation:(struct CGPoint { double x0; double x1; })a1 endLocation:(struct CGPoint { double x0; double x1; })a2 duration:(double)a3;
++ (void)_appLibrarySupport__performPanGesturesOnScreenFromPage:(unsigned long long)a0 toPage:(unsigned long long)a1 completion:(id /* block */)a2;
++ (void)_appLibrarySupport_performPanGestureAwayFromUserInterfaceLayoutDirectionOnScreenWithDuration:(double)a0 completion:(id /* block */)a1;
++ (id)dismissOverlaysAndResetHomeScreenToFirstIconPageAnimated:(BOOL)a0;
++ (id)performTapAtPointWithBlock:(id /* block */)a0;
++ (void)_appLibrarySupport_performPanGesturesOnScreenUntilOnPage:(unsigned long long)a0 withCompletion:(id /* block */)a1;
++ (void)_appLibrarySupport_performPanGesturesOnScreenUntilOnDefaultHomeScreenIconPageWithCompletion:(id /* block */)a0;
+
+- (void).cxx_destruct;
+- (void)operationWillStart;
+- (id)init;
+- (id)markStartedTest:(id)a0;
+- (id)markFinishedTest:(id)a0;
+- (id)markStartSubTest:(id)a0 forTestName:(id)a1;
+- (id)markFinishedSubTest:(id)a0 forTestName:(id)a1;
+- (void)operationDidFinish;
+
+@end

@@ -1,0 +1,71 @@
+@class HUClipScrubberSelectionView, NSDate, NSArray, NSString, UICollectionViewDiffableDataSource, HUClipScrubberTimeController, UICollectionView, HFPlaybackEventsData, NSObject, HFCameraPlaybackEngine;
+@protocol HFCameraRecordingEvent, OS_dispatch_queue;
+
+@interface HUClipScrubberDataSource : NSObject <HFCameraPlaybackEngineObserver, UICollectionViewDataSource>
+
+@property (retain, nonatomic) HUClipScrubberTimeController *timeController;
+@property (nonatomic) double startingPinchDeltaX;
+@property (retain, nonatomic) HUClipScrubberSelectionView *selectionView;
+@property (nonatomic) double lastGestureScale;
+@property (retain, nonatomic) UICollectionViewDiffableDataSource *diffableDataSource;
+@property (weak, nonatomic) id<HFCameraRecordingEvent> lastUpdatedEvent;
+@property (retain, nonatomic) HFPlaybackEventsData *eventsData;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *snapshotQueue;
+@property (readonly, nonatomic) NSArray *currentEvents;
+@property (weak, nonatomic) id<HFCameraRecordingEvent> currentEvent;
+@property (weak, nonatomic) UICollectionView *clipCollectionView;
+@property (nonatomic) unsigned long long currentTimelineState;
+@property (nonatomic) unsigned long long displayMode;
+@property (nonatomic, getter=isEditing) BOOL editing;
+@property (retain, nonatomic) NSDate *currentDate;
+@property (weak, nonatomic) HFCameraPlaybackEngine *playbackEngine;
+@property (readonly, nonatomic) unsigned long long mostRecentClipIndex;
+@property (nonatomic) long long lastSelectedClipIndex;
+@property (nonatomic) BOOL selectionViewHidden;
+@property (nonatomic) double posterFrameWidth;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (void).cxx_destruct;
+- (id)initWithPlaybackEngine:(id)a0;
+- (void)updateSnapshot;
+- (void)playbackEngine:(id)a0 didUpdateEvents:(id)a1;
+- (void)playbackEngine:(id)a0 didRemoveEvents:(id)a1;
+- (void)updateEvents:(id)a0;
+- (void)reloadEvents:(id)a0;
+- (void)updateMostRecentClipIndex;
+- (void)updateClipCollectionView;
+- (void)updateSnapshotForEditing;
+- (void)updateSelectionViewIfNeeded;
+- (id)eventForSection:(unsigned long long)a0;
+- (id)reachabilitySectionCellForCollectionView:(id)a0 forEvent:(id)a1 atIndexPath:(id)a2;
+- (id)recordingSectionCellForCollectionView:(id)a0 forEvent:(id)a1 atIndexPath:(id)a2;
+- (void)addDiffableDataSource;
+- (BOOL)isSpacerAtIndexPath:(id)a0;
+- (id)spacerCellForCollectionView:(id)a0 forEvent:(id)a1 atIndexPath:(id)a2;
+- (id)previousEventForSection:(unsigned long long)a0;
+- (void)changeTimeScaleForNewScale:(double)a0;
+- (id)selectedDateFromCell:(id)a0 atCurrentOffset:(double)a1;
+- (id)indexPathsForClip:(id)a0;
+- (BOOL)isValidEventAtIndexPath:(id)a0;
+- (void)toggleSelectionStateForItemAtIndexPath:(id)a0;
+- (void)updateToClipAtIndexPath:(id)a0;
+- (id)startDateFromCell:(id)a0;
+- (void)beginTimeScaleTrackingForPinchGesture:(id)a0;
+- (BOOL)isZoomingIn:(double)a0;
+- (void)changeTimeScaleForPinchGesture:(id)a0;
+- (double)offsetForEvent:(id)a0;
+- (BOOL)isValidRecordingEventAtIndexPath:(id)a0;
+- (id)indexPathForEvent:(id)a0;
+- (id)selectedDateFromCell:(id)a0 atOffset:(double)a1;
+- (double)scrubbingResolutionForClip:(id)a0;
+- (void)expandToMaximumZoom;
+- (void)shrinkToMinimumZoom;
+
+@end

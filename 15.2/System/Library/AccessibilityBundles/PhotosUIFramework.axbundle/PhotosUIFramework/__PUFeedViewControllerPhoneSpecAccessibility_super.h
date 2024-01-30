@@ -1,0 +1,3 @@
+@interface __PUFeedViewControllerPhoneSpecAccessibility_super : UIAccessibilitySafeCategory
+
+@end

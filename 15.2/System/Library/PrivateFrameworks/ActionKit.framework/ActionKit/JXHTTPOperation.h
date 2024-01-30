@@ -1,0 +1,82 @@
+@class NSDate, NSString, NSURL, NSURLAuthenticationChallenge, NSURLCredential, NSArray, NSDictionary, NSObject, NSNumber;
+@protocol OS_dispatch_queue, JXHTTPOperationDelegate, JXHTTPRequestBody;
+
+@interface JXHTTPOperation : JXURLConnectionOperation
+
+@property (nonatomic) unsigned long long requestCachePolicy;
+@property (nonatomic) BOOL requestShouldUsePipelining;
+@property (retain, nonatomic) NSURL *requestMainDocumentURL;
+@property (nonatomic) double requestTimeoutInterval;
+@property (nonatomic) unsigned long long requestNetworkServiceType;
+@property (retain, nonatomic) NSURL *requestURL;
+@property (retain, nonatomic) NSDictionary *requestHeaders;
+@property (retain, nonatomic) NSString *requestMethod;
+@property (nonatomic) BOOL requestShouldHandleCookies;
+@property (retain) NSURLAuthenticationChallenge *authenticationChallenge;
+@property (retain) NSNumber *downloadProgress;
+@property (retain) NSNumber *uploadProgress;
+@property (retain) NSString *uniqueString;
+@property (retain) NSDate *startDate;
+@property (retain) NSDate *finishDate;
+@property (retain) NSObject<OS_dispatch_queue> *blockQueue;
+@property (weak) NSObject<JXHTTPOperationDelegate> *delegate;
+@property (retain) NSObject<JXHTTPRequestBody> *requestBody;
+@property (copy, nonatomic) NSString *responseDataFilePath;
+@property (retain) id userObject;
+@property (retain) NSURLCredential *credential;
+@property BOOL useCredentialStorage;
+@property BOOL trustAllHosts;
+@property (copy) NSArray *trustedHosts;
+@property (copy) NSString *username;
+@property (copy) NSString *password;
+@property BOOL updatesNetworkActivityIndicator;
+@property (readonly) double elapsedSeconds;
+@property BOOL performsBlocksOnMainQueue;
+@property (copy) id /* block */ willStartBlock;
+@property (copy) id /* block */ willNeedNewBodyStreamBlock;
+@property (copy) id /* block */ willSendRequestForAuthenticationChallengeBlock;
+@property (copy) id /* block */ didStartBlock;
+@property (copy) id /* block */ didReceiveResponseBlock;
+@property (copy) id /* block */ didReceiveDataBlock;
+@property (copy) id /* block */ didSendDataBlock;
+@property (copy) id /* block */ didFinishLoadingBlock;
+@property (copy) id /* block */ didFailBlock;
+@property (copy) id /* block */ willCacheResponseBlock;
+@property (copy) id /* block */ willSendRequestRedirectBlock;
+
++ (id)withURLString:(id)a0;
++ (id)withURLString:(id)a0 queryParameters:(id)a1;
+
+- (void)connection:(id)a0 didSendBodyData:(long long)a1 totalBytesWritten:(long long)a2 totalBytesExpectedToWrite:(long long)a3;
+- (id)connection:(id)a0 willSendRequest:(id)a1 redirectResponse:(id)a2;
+- (void)connection:(id)a0 didReceiveData:(id)a1;
+- (void)connection:(id)a0 didFailWithError:(id)a1;
+- (BOOL)connectionShouldUseCredentialStorage:(id)a0;
+- (id)connection:(id)a0 needNewBodyStream:(id)a1;
+- (id)connection:(id)a0 willCacheResponse:(id)a1;
+- (id)responseHeaders;
+- (void)connectionDidFinishLoading:(id)a0;
+- (long long)responseStatusCode;
+- (void)connection:(id)a0 willSendRequestForAuthenticationChallenge:(id)a1;
+- (id)responseData;
+- (id)responseMIMEType;
+- (void)main;
+- (void).cxx_destruct;
+- (id)init;
+- (void)connection:(id)a0 didReceiveResponse:(id)a1;
+- (void)dealloc;
+- (void)willFinish;
+- (id)responseJSON;
+- (id)responseString;
+- (void)performDelegateMethod:(SEL)a0;
+- (id /* block */)blockForSelector:(SEL)a0;
+- (void)addValue:(id)a0 forRequestHeader:(id)a1;
+- (void)setValue:(id)a0 forRequestHeader:(id)a1;
+- (id)responseStatusString;
+- (long long)responseExpectedContentLength;
+- (id)responseExpectedFileName;
+- (id)responseTextEncodingName;
+- (id)responseURL;
+- (void)finalizeRequestBody;
+
+@end

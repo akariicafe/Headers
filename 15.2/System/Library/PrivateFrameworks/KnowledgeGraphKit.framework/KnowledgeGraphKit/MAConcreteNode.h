@@ -1,0 +1,23 @@
+@class NSString, NSMutableDictionary;
+
+@interface MAConcreteNode : MANode {
+    NSMutableDictionary *_properties;
+    unsigned short _domain;
+    float _weight;
+    NSString *_label;
+}
+
+- (void)enumeratePropertiesUsingBlock:(id /* block */)a0;
+- (float)weight;
+- (unsigned long long)memoryFootprint:(id)a0;
+- (unsigned long long)propertiesCount;
+- (BOOL)hasProperties;
+- (id)propertyDictionary;
+- (id)label;
+- (void).cxx_destruct;
+- (unsigned short)domain;
+- (id)initWithLabel:(id)a0 domain:(unsigned short)a1 weight:(float)a2 properties:(id)a3;
+- (id)propertyForKey:(id)a0;
+- (id)propertyKeys;
+
+@end

@@ -1,0 +1,55 @@
+@interface PowerUISmartChargeUtilities : NSObject
+
++ (id)historicalChargeDurationsFromLevel:(int)a0 toLevel:(int)a1 filteredByMinimumPluginDuration:(double)a2 withStore:(id)a3;
++ (BOOL)isiPad;
++ (BOOL)isPluggedInWithContext:(id)a0;
++ (BOOL)isiPhone;
++ (double)totalPluginDurationAfter:(id)a0 withMinimumDuration:(double)a1 withPluginEvents:(id)a2;
++ (id)dateForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (void)setDate:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (id)getEngagementMetricsWithDefaultKnowledgeStoreForDevice:(id)a0;
++ (id)eventsAdjustedForTimeZoneOffsets:(id)a0;
++ (void)recordPossibleEngagementEventAt:(id)a0 withPluginDate:(double)a1 withPluginDuration:(long long)a2 absoluteShouldHaveEngaged:(BOOL)a3 withEngagedMinutes:(long long)a4 withEligibleDurationMins:(long long)a5 wasUndercharged:(BOOL)a6 withKnowledgeStore:(id)a7;
++ (id)readDictForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (void)recordEngagementEventAt:(id)a0 withEngagedMinutes:(long long)a1 withEligibleDurationMins:(long long)a2 wasUndercharged:(BOOL)a3 forDevice:(id)a4 withKnowledgeStore:(id)a5;
++ (BOOL)isOBCSupported;
++ (id)numberForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (id)batteryProperties;
++ (id)percentageOfTimeForBatteryLevels:(double *)a0 withLog:(id)a1;
++ (double)areaOverEightyWithStore:(id)a0 withContext:(id)a1 withBatteryLevelDurations:(double *)a2;
++ (id)concatenateEventsPrivate:(id)a0;
++ (id)concatenateContinuousEventsOfSameState:(id)a0 sortedAscending:(BOOL)a1;
++ (id)log;
++ (BOOL)isiPod;
++ (long long)currentBatteryLevelWithContext:(id)a0;
++ (id)lastPluggedInDateWithContext:(id)a0 withStore:(id)a1;
++ (BOOL)deviceConnectedToWirelessChargerWithContext:(id)a0;
++ (id)predicateForEventsWithinSeconds:(double)a0 aroundTimeOfDay:(id)a1 goingDaysBack:(int)a2;
++ (id)historicalEngagementsWithStore:(id)a0 sortedAscending:(BOOL)a1;
++ (BOOL)deviceWasActiveWithinSeconds:(double)a0 withContext:(id)a1 withStore:(id)a2;
++ (BOOL)isDesktopDeviceWithDurations:(double *)a0 withAOEThreshold:(double)a1 withStore:(id)a2 withContext:(id)a3;
++ (id)pluginEvents:(id)a0 withMinimumDuration:(double)a1;
++ (BOOL)isInternalBuild;
++ (id)pluginEventsBefore:(id)a0 withMinimumDuration:(double)a1 withMinimumPlugoutBatteryLevel:(double)a2 withStore:(id)a3;
++ (void)setDict:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (id)getCurrentBootSessionUUID;
++ (void)setString:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (id)getEngagementMetricsWithKnowledgeStore:(id)a0;
++ (id)timelineEventDate:(id)a0 withDefaultsDomain:(id)a1;
++ (id)pluginEventsBefore:(id)a0 withMinimumDuration:(double)a1 withStore:(id)a2;
++ (void)batteryLevelsWithStore:(id)a0 withContext:(id)a1 withBatteryLevelDurations:(double *)a2;
++ (BOOL)deviceHasEnoughPluggedInTimeWithMinimumDays:(double)a0 withContext:(id)a1 withKnowledgeStore:(id)a2 withDefaultsDomain:(id)a3;
++ (void)recordEngagementEventAt:(id)a0 withEngagedMinutes:(long long)a1 withEligibleDurationMins:(long long)a2 wasUndercharged:(BOOL)a3 withKnowledgeStore:(id)a4;
++ (id)getTestVector:(id)a0;
++ (id)roundedDateFromDate:(id)a0;
++ (id)historicalTopOffDurationsWithStore:(id)a0;
++ (double)percentageOfBatteryDurations:(double *)a0 aboveBatteryLevel:(double)a1;
++ (BOOL)deviceWasConnectedToChargerWithinSeconds:(double)a0 withContext:(id)a1;
++ (id)getEngagementMetricsForDevice:(id)a0 withKnowledgeStore:(id)a1;
++ (void)setNumber:(id)a0 forPreferenceKey:(id)a1 inDomain:(id)a2;
++ (double)batteryLevelAtDate:(id)a0 withCurrentBatteryLevel:(double)a1 withKnowledgeStore:(id)a2 withContextStore:(id)a3;
++ (id)readStringForPreferenceKey:(id)a0 inDomain:(id)a1;
++ (id)getEngagementMetricsWithDefaultKnowledgeStore;
++ (unsigned long long)decileClassificationWithStore:(id)a0 withTopBinCutOff:(float *)a1 withContext:(id)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC19ExtensionFoundationP33_FA5A5127B348FED6EA31068C17FE374E19AppExtensionWrapper : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface GEOURLExtrasInternal : NSObject
+
+@end

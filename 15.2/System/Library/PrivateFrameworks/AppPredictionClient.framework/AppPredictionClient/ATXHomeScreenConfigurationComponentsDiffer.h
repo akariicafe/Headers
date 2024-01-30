@@ -1,0 +1,21 @@
+@class NSArray, NSOrderedCollectionDifference;
+
+@interface ATXHomeScreenConfigurationComponentsDiffer : NSObject {
+    NSOrderedCollectionDifference *_pinnedWidgetsDifference;
+    NSOrderedCollectionDifference *_stacksDifference;
+}
+
+@property (readonly, nonatomic) NSArray *addedPinnedWidgets;
+@property (readonly, nonatomic) NSArray *deletedPinnedWidgets;
+@property (readonly, nonatomic) NSArray *userAddedStackedWidgets;
+@property (readonly, nonatomic) NSArray *userDeletedStackedWidgets;
+@property (readonly, nonatomic) NSArray *userAddedPreviousSuggestedWidgets;
+@property (readonly, nonatomic) NSArray *deletedPreviousSuggestedWidgets;
+@property (readonly, nonatomic) NSArray *addedStacks;
+@property (readonly, nonatomic) NSArray *deletedStacks;
+
+- (id)initWithPreviousComponents:(id)a0 currentComponents:(id)a1;
+- (id)_widgetsByWidgetUniqueIds:(id)a0;
+- (void).cxx_destruct;
+
+@end

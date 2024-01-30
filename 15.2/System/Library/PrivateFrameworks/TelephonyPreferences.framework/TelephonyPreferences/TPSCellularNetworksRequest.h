@@ -1,0 +1,3 @@
+@interface TPSCellularNetworksRequest : TPSRequest
+
+@end

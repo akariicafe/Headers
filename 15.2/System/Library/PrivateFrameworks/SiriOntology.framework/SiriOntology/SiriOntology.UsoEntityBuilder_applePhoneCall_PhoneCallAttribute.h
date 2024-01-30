@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_applePhoneCall_PhoneCallAttribute : SiriOntology.UsoEntityBuilder
+
+@end

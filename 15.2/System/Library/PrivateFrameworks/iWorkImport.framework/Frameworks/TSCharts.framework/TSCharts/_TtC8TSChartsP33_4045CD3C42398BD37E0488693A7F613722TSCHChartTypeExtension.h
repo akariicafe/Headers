@@ -1,0 +1,3 @@
+@interface _TtC8TSChartsP33_4045CD3C42398BD37E0488693A7F613722TSCHChartTypeExtension : _TtCs12_SwiftObject
+
+@end

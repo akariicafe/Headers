@@ -1,0 +1,81 @@
+@class NSString, NSArray, SBShelfRootSwitcherModifier, NSSet, SBMainDisplaySceneManager, SBMainSwitcherViewController, SBFluidSwitcherViewController, SBShelfLiveContentOverlayCoordinator, SBAttentionAwarenessClient, SBSwitcherShelf, SBSwitcherShelfView, SBPortalView;
+@protocol SBSwitcherShelfViewControllerDelegate;
+
+@interface SBSwitcherShelfViewController : SBFTouchPassThroughViewController <SBSwitcherContentViewControllerDelegate, SBSwitcherContentViewControllerDataSource, SBShelfLiveContentOverlayCoordinatorDelegate, SBAssistantObserver, SBTransientUIIndirectPanToDismissParticipant, SBTransientUITapToDismissParticipant, SBAttentionAwarenessClientDelegate, SBLayoutStateTransitionObserver> {
+    SBMainSwitcherViewController *_mainSwitcherViewController;
+    SBMainDisplaySceneManager *_sceneManager;
+    SBFluidSwitcherViewController *_contentViewController;
+    SBShelfLiveContentOverlayCoordinator *_liveContentOverlayCoordinator;
+    SBShelfRootSwitcherModifier *_rootModifier;
+    SBAttentionAwarenessClient *_idleTouchAwarenessClient;
+    struct CGSize { double width; double height; } _halfHalfSize;
+    long long _activePresentationAndDismissalAnimations;
+}
+
+@property (retain, nonatomic) SBSwitcherShelfView *view;
+@property (readonly, weak, nonatomic) id<SBSwitcherShelfViewControllerDelegate> delegate;
+@property (readonly, nonatomic) SBSwitcherShelf *shelf;
+@property (readonly, copy, nonatomic) NSArray *appLayouts;
+@property (nonatomic) unsigned long long contentOptions;
+@property (copy, nonatomic) NSSet *ignoredDisplayItems;
+@property (retain, nonatomic) NSSet *focusedDisplayItems;
+@property (nonatomic) long long contentOrientation;
+@property (retain, nonatomic) SBPortalView *homeAffordancePortalView;
+@property (readonly, nonatomic) BOOL presented;
+@property (readonly, nonatomic, getter=isPresentingOrDismissing) BOOL presentingOrDismissing;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } presentationTargetFrame;
+@property (readonly, nonatomic) unsigned long long animationStyle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)assistantWillAppear:(id)a0;
+- (id)switcherContentController:(id)a0 transitionEventForLayoutState:(id)a1 identifier:(id)a2 phase:(unsigned long long)a3 animated:(BOOL)a4;
+- (void)switcherContentController:(id)a0 requestNewWindowForBundleIdentifier:(id)a1;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)layoutStateTransitionCoordinator:(id)a0 transitionWillEndWithTransitionContext:(id)a1;
+- (void)performKeyboardShortcutAction:(long long)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
+- (id)beginHidingAppLayout:(id)a0 forReason:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)switcherContentController:(id)a0 deletedDisplayItem:(id)a1 inAppLayout:(id)a2 forReason:(long long)a3;
+- (void)layoutStateTransitionCoordinator:(id)a0 transitionDidEndWithTransitionContext:(id)a1;
+- (void)loadView;
+- (void)layoutStateTransitionCoordinator:(id)a0 transitionDidBeginWithTransitionContext:(id)a1;
+- (void)performTransitionWithContext:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void).cxx_destruct;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForCenterItemWithConfiguration:(long long)a0 interfaceOrientation:(long long)a1;
+- (void)client:(id)a0 attentionLostTimeoutDidExpire:(double)a1 forConfigurationGeneration:(unsigned long long)a2 withAssociatedObject:(id)a3;
+- (id)appLayoutsForSwitcherContentController:(id)a0;
+- (id)switcherContentController:(id)a0 transitionEventForContext:(id)a1 identifier:(id)a2 phase:(unsigned long long)a3 animated:(BOOL)a4;
+- (void)clientDidResetForUserAttention:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForFloatingAppLayoutInInterfaceOrientation:(long long)a0 floatingConfiguration:(long long)a1;
+- (BOOL)switcherContentController:(id)a0 supportsTitleItemsForAppLayout:(id)a1;
+- (long long)switcherInterfaceOrientationForContentController:(id)a0;
+- (void)switcherContentController:(id)a0 setContentOrientation:(long long)a1;
+- (long long)sbActiveInterfaceOrientation;
+- (void)dealloc;
+- (void)switcherContentController:(id)a0 performTransitionWithRequest:(id)a1 gestureInitiated:(BOOL)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForItemWithRole:(long long)a0 inMainAppLayout:(id)a1 interfaceOrientation:(long long)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })itemFrameForAppLayout:(id)a0;
+- (double)itemScaleForAppLayout:(id)a0;
+- (double)itemCornerRadiusForAppLayout:(id)a0;
+- (BOOL)switcherContentController:(id)a0 shouldSkipNonAnimatedLayoutPassAfterTransition:(id)a1;
+- (id)initWithShelf:(id)a0 mainSwitcherViewController:(id)a1 sceneManager:(id)a2 delegate:(id)a3;
+- (void)setPresented:(BOOL)a0 withTargetFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 style:(unsigned long long)a2 completion:(id /* block */)a3;
+- (void)transientUI:(id)a0 wasIndirectPannedToDismissFromGestureRecognizer:(id)a1;
+- (BOOL)transientUIHandledTouch:(id)a0 withSystemGestureRecognizer:(id)a1;
+- (void)_rebuildCachedAppLayouts;
+- (void)_dockHeightWillChange:(id)a0;
+- (void)dismissShelfForShelfTransition;
+- (BOOL)_dismissShelfIfNeededWithLocation:(struct CGPoint { double x0; double x1; })a0 window:(id)a1;
+- (void)dismissShelfWithTransitionSource:(long long)a0;
+- (id)shelfLiveContentOverlayCoordinatorAppLayouts:(id)a0;
+- (id)shelfLiveContentOverlayCoordinatorSnapshotCache:(id)a0;
+- (id)shelfLiveContentOverlayCoordinator:(id)a0 liveViewForAppLayout:(id)a1;
+- (void)dismissShelfForAccessibilityTransition;
+
+@end

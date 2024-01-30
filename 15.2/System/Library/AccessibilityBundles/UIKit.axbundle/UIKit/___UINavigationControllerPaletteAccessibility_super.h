@@ -1,0 +1,3 @@
+@interface ___UINavigationControllerPaletteAccessibility_super : UIAccessibilitySafeCategory
+
+@end

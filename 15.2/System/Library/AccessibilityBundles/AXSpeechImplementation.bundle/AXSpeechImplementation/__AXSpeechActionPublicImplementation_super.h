@@ -1,0 +1,3 @@
+@interface __AXSpeechActionPublicImplementation_super : UIAccessibilitySafeCategory
+
+@end

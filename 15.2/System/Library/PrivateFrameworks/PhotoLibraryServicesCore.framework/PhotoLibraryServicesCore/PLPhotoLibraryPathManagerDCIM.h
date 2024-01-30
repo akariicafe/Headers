@@ -1,0 +1,80 @@
+@class NSString, PLSimpleDCIMDirectory, PLImportFileManager, PLLazyObject;
+
+@interface PLPhotoLibraryPathManagerDCIM : PLPhotoLibraryPathManagerCore {
+    unsigned int _persistedAlbumDataDirectoryExists;
+    NSString *_photoDataDirectory;
+    NSString *_photoDataCachesDirectory;
+    NSString *_photoDataAnalyticsDirectory;
+    NSString *_photoDataSearchDirectory;
+    NSString *_restoreInfoDirectory;
+    NSString *_dcimDirectory;
+    NSString *_cplAssetsDirectory;
+    NSString *_cmmAssetsDirectory;
+    NSString *_journalsDirectory;
+    NSString *_projectsDirectory;
+    NSString *_privateDirectory;
+    NSString *_internalDirectory;
+    NSString *_partialVideoDirectory;
+    NSString *_changeStoreDatabasePath;
+    NSString *_thumbnailsDirectory;
+    NSString *_thumbnailsV2Directory;
+    NSString *_thumbnailsVideoKeyFramesDirectory;
+    BOOL _assetAlbumOrderStructurePathCreated;
+    PLSimpleDCIMDirectory *_simpleDCIMDirectory;
+    PLLazyObject *_lazyPathManagerForUBFOnDCIM;
+}
+
+@property (retain, nonatomic) PLImportFileManager *importFileManager;
+
+- (id)iTunesPhotosSyncMetadataFilePath;
+- (id)photoMetadataDirectoryForMediaInMainDirectory:(id)a0;
+- (id)persistedAlbumDataDirectoryCreateIfNeeded:(BOOL)a0 error:(id *)a1;
+- (id)createPathsForNewLibraries;
+- (id)photoMutationsDirectory;
+- (id)pathsForExternalWriters;
+- (id)iTunesSyncedFaceDataDirectory;
+- (void)enumerateBundleScopesWithBlock:(id /* block */)a0;
+- (id)pathsForClientAccess:(id)a0;
+- (id)pathToAssetAlbumOrderStructure;
+- (id)assetBaseFilenameForAdjustmentFilePath:(id)a0;
+- (id)photoMetadataDirectory;
+- (void)obtainAccessAndWaitWithFileWithIdentifier:(id)a0 mode:(unsigned char)a1 toURLWithHandler:(id /* block */)a2;
+- (id)iTunesSyncedFaceAlbumThumbnailsDirectory;
+- (id)pathsForPermissionCheck;
+- (id)iTunesPhotosSyncCurrentLibraryUUIDPath;
+- (id)getImportFileManager;
+- (id)simpleDCIMDirectory;
+- (id)readOnlyUrlWithIdentifier:(id)a0;
+- (id)convertPhotoLibraryPathType:(unsigned char)a0;
+- (id)iTunesSyncedAssetSmallThumbnailsDirectory;
+- (id)modelRestorePostProcessingCompleteTokenPath;
+- (id)privateDirectoryWithSubType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (void).cxx_destruct;
+- (unsigned char)photoLibraryPathTypeForBundleScope:(unsigned short)a0;
+- (id)basePrivateDirectoryPath;
+- (id)photosDatabasePath;
+- (id)assetMainFilePathWithDirectory:(id)a0 filename:(id)a1 bundleScope:(unsigned short)a2;
+- (id)assetAbbreviatedMetadataDirectoryForDirectory:(id)a0 type:(unsigned char)a1 bundleScope:(unsigned short)a2;
+- (id)pathsGroupedByAssetBasePathFromFilePaths:(id)a0 populateInvalidAdjustmentPaths:(id)a1;
+- (id)internalDirectoryWithSubType:(unsigned char)a0 additionalPathComponents:(id)a1;
+- (id)iTunesSyncedAssetsDirectory;
+- (void)setExtendedAttributesWithIdentifier:(id)a0;
+- (id)photoDirectoryWithType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)cloudRestoreCompleteTokenPath;
+- (id)iTunesPhotosSyncDirectory;
+- (id)syncInfoPath;
+- (void)setExtendedAttributesWithIdentifier:(id)a0 andURL:(id)a1;
+- (BOOL)shouldUseFileIdentifierForBundleScope:(unsigned short)a0;
+- (id)privateCacheDirectoryWithSubType:(unsigned char)a0;
+- (id)initWithLibraryURL:(id)a0 bundleScope:(unsigned short)a1;
+- (id)addToPath:(id)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)externalDirectoryWithSubType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)cloudRestoreBackgroundPhaseInProgressTokenPath;
+- (id)iTunesSyncedAssetMetadataThumbnailsDirectory;
+- (id)iTunesPhotosLastSyncMetadataFilePath;
+- (id)pathToAssetsToAlbumsMapping;
+- (id)cloudRestoreForegroundPhaseCompleteTokenPath;
+- (BOOL)isDeviceRestoreSupported;
+- (BOOL)updateTimeMachineExclusionAttributeForExcludePath:(id)a0 error:(id *)a1;
+
+@end

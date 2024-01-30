@@ -1,0 +1,3 @@
+@interface __PLFlatVideoOverlayButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

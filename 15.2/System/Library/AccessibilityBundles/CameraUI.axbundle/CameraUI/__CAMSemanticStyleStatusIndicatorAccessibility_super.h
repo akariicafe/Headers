@@ -1,0 +1,3 @@
+@interface __CAMSemanticStyleStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

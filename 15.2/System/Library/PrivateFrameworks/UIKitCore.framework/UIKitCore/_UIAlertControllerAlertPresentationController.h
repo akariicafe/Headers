@@ -1,0 +1,3 @@
+@interface _UIAlertControllerAlertPresentationController : _UIAlertControllerPresentationController
+
+@end

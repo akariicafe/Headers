@@ -1,0 +1,82 @@
+@class UIView, NSString, NSArray, UICollectionViewFlowLayout, AVTUIEnvironment, _AVTAvatarRecordImageProvider, AVTFunCamAvatarPickerCollectionViewLayout, AVTRenderingScope, AVTCenteringCollectionViewDelegate, UICollectionView, AVTAvatarListImageItem, AVTFunCamAvatarPickerStyle;
+@protocol AVTAvatarStoreInternal, NSObject, AVTPresenterDelegate, AVTAvatarPickerDelegate, AVTUILogger, AVTAvatarRecord;
+
+@interface AVTFunCamAvatarPickerController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AVTViewSessionProviderDelegate, AVTObjectViewController, AVTAvatarPicker>
+
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (retain, nonatomic) UIView *titlesContainer;
+@property (retain, nonatomic) UICollectionView *titlesCollectionView;
+@property (retain, nonatomic) UIView *titlesClippingView;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } lastUpdateViewBounds;
+@property (retain, nonatomic) id<AVTAvatarRecord> selectedAvatarRecord;
+@property (retain, nonatomic) AVTFunCamAvatarPickerCollectionViewLayout *listLayout;
+@property (retain, nonatomic) UICollectionViewFlowLayout *gridLayout;
+@property (retain, nonatomic) AVTCenteringCollectionViewDelegate *centeringDelegate;
+@property (retain, nonatomic) NSArray *puppetRecords;
+@property (retain, nonatomic) NSArray *editableRecords;
+@property (retain, nonatomic) NSArray *items;
+@property (retain, nonatomic) AVTAvatarListImageItem *noneItem;
+@property (retain, nonatomic) id<AVTAvatarStoreInternal> store;
+@property (readonly, nonatomic) AVTUIEnvironment *environment;
+@property (readonly, nonatomic) id<AVTUILogger> logger;
+@property (readonly, nonatomic) _AVTAvatarRecordImageProvider *imageProvider;
+@property (readonly, nonatomic) AVTRenderingScope *editableRecordsListRenderingScope;
+@property (readonly, nonatomic) AVTRenderingScope *gridRenderingScope;
+@property (retain, nonatomic) id<NSObject> changeNotificationToken;
+@property (nonatomic) unsigned long long mode;
+@property (copy, nonatomic) AVTFunCamAvatarPickerStyle *style;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) UIView *view;
+@property (weak, nonatomic) id<AVTPresenterDelegate> presenterDelegate;
+@property (weak, nonatomic) id<AVTAvatarPickerDelegate> avatarPickerDelegate;
+
++ (id)newGridLayout;
++ (id)createClippingViewForSize:(struct CGSize { double x0; double x1; })a0;
++ (id)itemsFromRecords:(id)a0;
++ (id)sessionProviderWithEnvironment:(id)a0 delegate:(id)a1;
++ (id)funCamAvatarPickerControllerForStore:(id)a0 style:(id)a1;
+
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)reloadData;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionView:(id)a0 layout:(id)a1 insetForSectionAtIndex:(long long)a2;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (void)loadView;
+- (void)buildCollectionView;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (BOOL)canCreateAvatar;
+- (id)selectedIndexPath;
+- (struct CGSize { double x0; double x1; })gridItemSize;
+- (void)selectAvatarRecordWithIdentifier:(id)a0 animated:(BOOL)a1;
+- (void)preloadAll;
+- (long long)indexForRecord:(id)a0;
+- (void)reloadModel;
+- (id)initWithStore:(id)a0 environment:(id)a1 style:(id)a2;
+- (id)indexPathForNoneItem;
+- (void)updateViewForCurrentMode;
+- (id)buildCollectionViewLayout;
+- (id)buildTitlesCollectionViewLayout;
+- (void)updateTitlesClippingViewMask;
+- (void)selectItemAtIndexPath:(id)a0 animated:(BOOL)a1 notifyDelegate:(BOOL)a2;
+- (void)startObservingChangesIfNeeded;
+- (BOOL)isDisplayingGridLayout;
+- (void)selectItemForAvatarRecord:(id)a0 animated:(BOOL)a1 notifyDelegate:(BOOL)a2;
+- (void)sendSelectionEventToDelegateForItemAtIndexPath:(id)a0;
+- (long long)indexForRecordIdentifier:(id)a0;
+- (void)selectItemAtCenterNotifyDelegate:(BOOL)a0;
+- (void)sessionProviderWillStartCameraSession:(id)a0;
+- (void)sessionProviderDidEndCameraSession:(id)a0;
+
+@end

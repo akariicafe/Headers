@@ -1,0 +1,98 @@
+@class NSString, PKGroupsController, NSMutableDictionary, PKEditTableNoPassesView, NSDictionary, NSObject, UITableView, PKEditPendingCacheRequest, NSMutableArray, NSCache;
+@protocol OS_dispatch_queue, PKEditTableViewControllerCachingDelegate;
+
+@interface PKEditTableViewController : UITableViewController <UITableViewDataSourcePrefetching, PKEditTableNoPassesViewDelegate, PKEditPassesPerformanceTestResponder> {
+    PKEditTableNoPassesView *_noPassesView;
+    BOOL _shouldShowNoPassesView;
+    UITableView *_tableView;
+    BOOL _scrollingUp;
+    struct CGSize { double width; double height; } _imageSizeNeeded;
+    BOOL _needsFullPass;
+    BOOL _isAccessibilityCategory;
+    NSCache *_imageCache;
+    unsigned long long _imagesToKeep;
+    NSObject<OS_dispatch_queue> *_queueCaching;
+    NSObject<OS_dispatch_queue> *_queuePlaceholder;
+    PKEditPendingCacheRequest *_currentCacheRequest;
+    BOOL _shouldProcessHighPriorityRequests;
+    NSMutableArray *_highPriorityRequests;
+    BOOL _shouldProcessLowPriorityRequests;
+    NSMutableArray *_lowPriorityRequests;
+    unsigned long long _visibleRows;
+    NSMutableDictionary *_placeholdersPerPassStyle;
+    double _snapshotDurationAverage;
+    NSMutableArray *_lastSnapshotDurations;
+    double _lastYOffset;
+    double _lastYOffsetTime;
+    BOOL _scrollingFast;
+    BOOL _dragging;
+    BOOL _isForWatch;
+}
+
+@property (nonatomic) long long performanceTest;
+@property (retain, nonatomic) NSString *performanceTestName;
+@property (nonatomic) long long testIteration;
+@property (weak, nonatomic) id<PKEditTableViewControllerCachingDelegate> cachingDelegate;
+@property (retain, nonatomic) PKGroupsController *existingGroupsController;
+@property (retain, nonatomic) NSDictionary *placeholders;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)loadPlaceholdersWithCompletion:(id /* block */)a0;
++ (id)_generatePlaceholderImageForStyle:(long long)a0;
+
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)viewDidLoad;
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (void)scrollViewDidEndScrollingAnimation:(id)a0;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)tableView:(id)a0 didEndDisplayingCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (void)tableView:(id)a0 prefetchRowsAtIndexPaths:(id)a1;
+- (void)tableView:(id)a0 willBeginEditingRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didEndEditingRowAtIndexPath:(id)a1;
+- (void)findApps;
+- (void)scanCode;
+- (void)noPassesViewScanCodeButtonTapped:(id)a0;
+- (void)noPassesViewFindAppsForWalletTapped:(id)a0;
+- (unsigned long long)visibleRowsCount;
+- (id)tableView:(id)a0 cellWithIdentifier:(id)a1;
+- (void)loadContentAndImageSetFromExistingPassForPass:(id)a0;
+- (id)initWithStyle:(long long)a0 placeholders:(id)a1 isForWatch:(BOOL)a2;
+- (void)imageForPass:(id)a0 stacked:(BOOL)a1 synchronously:(BOOL)a2 placeholder:(id /* block */)a3 completion:(id /* block */)a4;
+- (void)preemptivelyCacheImagesForPass:(id)a0 stacked:(BOOL)a1;
+- (id)mostRecentPassInGroup:(id)a0;
+- (void)clearImageCacheForPass:(id)a0;
+- (void)passedTest;
+- (void)selectFirstRowOrFailTest;
+- (void)showNoPassesView:(BOOL)a0;
+- (void)_imageOfSize:(struct CGSize { double x0; double x1; })a0 forPass:(id)a1 fullPass:(BOOL)a2 stacked:(BOOL)a3 synchronously:(BOOL)a4 preemptive:(BOOL)a5 placeholder:(id /* block */)a6 completion:(id /* block */)a7;
+- (id)_createImageForPass:(id)a0 imageSize:(struct CGSize { double x0; double x1; })a1 cacheKey:(id)a2 fullPass:(BOOL)a3 stacked:(BOOL)a4;
+- (void)_placeholderImageForStyle:(long long)a0 completion:(id /* block */)a1;
+- (void)processCacheRequest:(id)a0;
+- (void)triageCacheRequest:(id)a0;
+- (void)currentCacheRequestCompletedWithImage:(id)a0 duration:(double)a1;
+- (void)updateAverageSnapshotDuration:(double)a0;
+- (id)_createPassStackWithPassImage:(id)a0 withHeight:(double)a1;
+- (void)removeRequestsWithCacheKey:(id)a0;
+- (unsigned long long)_imagesToKeepOutsideVisibleCells;
+- (void)moveHighPriorityToLowPriorityWithCacheKey:(id)a0;
+- (void)_setShouldProcessLowPriorityRequests:(BOOL)a0;
+- (void)resumeRequestIfNoScrollingAfterTimeInterval:(double)a0;
+- (void)_updateShouldProcessHighPriorityRequestsWithFastScrolling:(BOOL)a0;
+- (void)scrollToLastRowOrFailTest;
+- (void)scrollToFirstRowOrFailTest;
+- (void)failedTestWithReason:(id)a0;
+- (void)startedTestWithName:(id)a0;
+- (void)beginScrollingTestWithTestName:(id)a0;
+- (void)beginPassSelectionTestWithTestName:(id)a0;
+- (void)beginPassDeletionTestWithTestName:(id)a0;
+
+@end

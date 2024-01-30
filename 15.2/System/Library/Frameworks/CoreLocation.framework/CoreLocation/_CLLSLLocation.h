@@ -1,0 +1,22 @@
+@class _CLLSLLocationCoordinate;
+
+@interface _CLLSLLocation : NSObject <NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (copy, nonatomic) _CLLSLLocationCoordinate *coordinate;
+@property (nonatomic) double altitude;
+@property (nonatomic) double timestamp;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)descriptionWithMemberIndent:(id)a0 endIndent:(id)a1;
+- (id)description;
+- (id)initWithCoordinate:(id)a0 altitude:(double)a1 timetamp:(double)a2;
+- (id)initWithLatitude:(double)a0 longitude:(double)a1 altitude:(double)a2 timetamp:(double)a3;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)initWithCoordinate:(id)a0;
+- (id)initWithLatitude:(double)a0 longitude:(double)a1;
+
+@end

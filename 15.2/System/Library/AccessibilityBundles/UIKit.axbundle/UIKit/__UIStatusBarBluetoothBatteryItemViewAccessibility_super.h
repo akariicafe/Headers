@@ -1,0 +1,3 @@
+@interface __UIStatusBarBluetoothBatteryItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

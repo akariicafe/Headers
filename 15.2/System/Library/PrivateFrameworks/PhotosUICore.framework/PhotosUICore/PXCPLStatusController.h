@@ -1,0 +1,23 @@
+@class NSString, PXCPLUIStatusProvider, PXStatusViewModel;
+
+@interface PXCPLStatusController : NSObject <PXChangeObserver> {
+    PXStatusViewModel *_viewModel;
+}
+
+@property (retain, nonatomic) PXCPLUIStatusProvider *statusProvider;
+@property (copy, nonatomic) NSString *fallbackTitle;
+@property (copy, nonatomic) NSString *fallbackMessage;
+@property (copy, nonatomic) NSString *fallbackActionTitle;
+@property (copy, nonatomic) id /* block */ fallbackAction;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithViewModel:(id)a0;
+- (void).cxx_destruct;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)init;
+- (void)_statusProviderDidChange;
+
+@end

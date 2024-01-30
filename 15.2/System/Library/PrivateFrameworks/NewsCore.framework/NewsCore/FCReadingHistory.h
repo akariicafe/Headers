@@ -1,0 +1,92 @@
+@class NSArray, NSDictionary, NSSet, NSString, NSMutableDictionary, FCMTWriterLock;
+
+@interface FCReadingHistory : FCPrivateDataController <FCClearableReadingHistory> {
+    NSMutableDictionary *_itemsByIdentifier;
+    NSMutableDictionary *_itemsByArticleID;
+    FCMTWriterLock *_itemsLock;
+}
+
+@property (readonly, nonatomic) NSArray *sortedVisitedArticleIDs;
+@property (readonly, nonatomic) NSArray *sortedListenedArticleIDs;
+@property (readonly, nonatomic) NSArray *readingHistoryItems;
+@property (readonly, nonatomic) NSDictionary *readingHistoryItemsByArticleID;
+@property (readonly, nonatomic) NSSet *allReadArticleIDs;
+@property (readonly, nonatomic) NSSet *allSeenArticleIDs;
+@property (readonly, nonatomic) NSSet *allConsumedArticleIDs;
+@property (readonly, nonatomic) NSSet *allLikedArticleIDs;
+@property (readonly, nonatomic) NSSet *allDislikedArticleIDs;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)desiredKeys;
++ (long long)commandQueueUrgency;
++ (id)commandsToMergeLocalDataToCloud:(id)a0 privateDataDirectory:(id)a1;
++ (id)commandStoreFileName;
++ (id)backingRecordZoneIDs;
++ (id)backingRecordIDs;
++ (BOOL)requiresBatchedSync;
++ (BOOL)requiresPushNotificationSupport;
++ (BOOL)requiresHighPriorityFirstSync;
++ (void)configureKeyValueStoreForJSONHandling:(id)a0;
++ (unsigned long long)localStoreVersion;
++ (void)populateLocalStoreClassRegistry:(id)a0;
++ (id)localStoreFilename;
+
+- (void)handleSyncWithChangedRecords:(id)a0 deletedRecordNames:(id)a1;
+- (BOOL)toggleArticleHasBeenMarkedAsOffensive:(id)a0;
+- (id)historyItemsForArticleIDs:(id)a0;
+- (id)recordsForRestoringZoneName:(id)a0;
+- (void)removeArticleFromHistory:(id)a0;
+- (BOOL)hasArticleCompletedListening:(id)a0;
+- (BOOL)toggleLikeForArticleWithID:(id)a0;
+- (id)pruneRecords:(id)a0 forZoneName:(id)a1;
+- (void)addObserver:(id)a0;
+- (BOOL)hasArticleBeenSeen:(id)a0;
+- (void)removeObserver:(id)a0;
+- (void)clearHistory;
+- (id)firstSeenDateFor:(id)a0;
+- (BOOL)hasArticleBeenReadMoreThanThreshold:(id)a0;
+- (BOOL)hasArticleBeenConsumed:(id)a0;
+- (BOOL)markArticleAsSeenWithHeadline:(id)a0 rememberForever:(BOOL)a1;
+- (BOOL)hasArticleBeenMarkedAsOffensive:(id)a0;
+- (id)readingPositionJSONFor:(id)a0;
+- (BOOL)canHelpPruneZoneName:(id)a0;
+- (void)markArticle:(id)a0 withReadingPositionJSON:(id)a1;
+- (id)readingPositionSavedDateFor:(id)a0;
+- (void)markArticle:(id)a0 withLastListened:(id)a1;
+- (id)localStoreMigrator;
+- (unsigned long long)softMaxRecordCountWhenMigratingZoneName:(id)a0;
+- (BOOL)markArticle:(id)a0 withLikingStatus:(unsigned long long)a1;
+- (id)historyItemsByArticleIDForArticleIDs:(id)a0;
+- (BOOL)markArticle:(id)a0 withCompletedReading:(BOOL)a1;
+- (void)loadLocalCachesFromStore;
+- (void).cxx_destruct;
+- (void)markArticleAsReadWithHeadline:(id)a0;
+- (void)markArticleAsReadWithHeadline:(id)a0 fromGroupType:(long long)a1 swipedToArticle:(BOOL)a2 onScreenChecker:(id /* block */)a3;
+- (id)initWithContext:(id)a0 pushNotificationCenter:(id)a1 storeDirectory:(id)a2;
+- (void)markArticle:(id)a0 asOffensive:(BOOL)a1;
+- (id)markArticlesAsSeenWithHeadlines:(id)a0;
+- (BOOL)markArticle:(id)a0 withCompletedListening:(BOOL)a1;
+- (unsigned long long)likingStatusForArticleID:(id)a0;
+- (id)allKnownRecordNamesWithinRecordZoneWithID:(id)a0;
+- (id)lastListenedFor:(id)a0;
+- (void)markArticle:(id)a0 asArticleConsumed:(BOOL)a1 sourceChannelTagID:(id)a2;
+- (BOOL)hasArticleCompletedReading:(id)a0;
+- (id)listeningProgressSavedDateFor:(id)a0;
+- (double)softMaxRecordAgeWhenMigratingZoneName:(id)a0;
+- (BOOL)canHelpRestoreZoneName:(id)a0;
+- (id)lastVisitedDateForArticleID:(id)a0;
+- (double)listeningProgressFor:(id)a0;
+- (BOOL)hasArticleBeenRead:(id)a0;
+- (id)consumedArticleIDsForTagID:(id)a0 fromTime:(id)a1;
+- (void)markArticle:(id)a0 withListeningProgress:(double)a1;
+- (BOOL)markArticleAsSeenWithHeadline:(id)a0;
+- (id)mostRecentlyCompletedListeningArticlesWithMaxCount:(unsigned long long)a0;
+- (id)mostRecentlyReadArticlesWithMaxCount:(unsigned long long)a0;
+- (BOOL)toggleDislikeForArticleWithID:(id)a0;
+- (BOOL)markArticleAsReadWithArticleID:(id)a0 articleVersion:(long long)a1 readDate:(id)a2;
+- (BOOL)hasArticleBeenVisited:(id)a0;
+
+@end

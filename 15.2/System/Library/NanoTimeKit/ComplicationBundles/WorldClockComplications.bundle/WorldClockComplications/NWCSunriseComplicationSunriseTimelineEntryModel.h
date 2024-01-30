@@ -1,0 +1,3 @@
+@interface NWCSunriseComplicationSunriseTimelineEntryModel : NWCSunriseComplicationTimelineEntryModel
+
+@end

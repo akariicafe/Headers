@@ -1,0 +1,3 @@
+@interface __UINavigationBarAccessibility_UIViewAccessibilityAdditions_super : UIAccessibilitySafeCategory
+
+@end

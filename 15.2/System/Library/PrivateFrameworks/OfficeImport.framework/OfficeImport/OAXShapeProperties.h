@@ -1,0 +1,3 @@
+@interface OAXShapeProperties : NSObject
+
+@end

@@ -1,0 +1,36 @@
+@class UIColor, EKEventDetailTitleCell, UIView, NSObject, NSDate;
+@protocol EKEventTitleDetailItemDelegate;
+
+@interface EKEventTitleDetailItem : EKEventDetailItem <EKEventDetailTitleCellDelegate> {
+    EKEventDetailTitleCell *_cell;
+    UIColor *_color;
+    BOOL _showDot;
+    BOOL _cellNeedsUpdate;
+}
+
+@property (nonatomic) BOOL hidesTopSeparator;
+@property (nonatomic) BOOL hidesBottomSeparator;
+@property (retain, nonatomic) NSDate *proposedTime;
+@property (readonly, nonatomic) UIView *sourceViewForPopover;
+@property (weak, nonatomic) NSObject<EKEventTitleDetailItemDelegate> *editDelegate;
+@property (nonatomic) BOOL hasMapItemLaunchOptionFromTimeToLeaveNotification;
+@property (nonatomic) unsigned long long numberOfTitleLines;
+
+- (double)titleHeight;
+- (void)refreshCopiedEvents;
+- (id)owningViewController;
+- (BOOL)shouldShowEditButtonInline;
+- (void)predictionWasActedOn;
+- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)a0 forWidth:(double)a1 forceUpdate:(BOOL)a2;
+- (void)conferenceInformationUpdated;
+- (BOOL)configureWithCalendar:(id)a0 preview:(BOOL)a1;
+- (void)_updateCellIfNeededForWidth:(double)a0;
+- (id)cellForSubitemAtIndex:(unsigned long long)a0;
+- (void)setCellPosition:(int)a0;
+- (BOOL)showsDetectedConferenceItem;
+- (BOOL)minimalMode;
+- (void).cxx_destruct;
+- (void)editButtonPressed;
+- (void)reset;
+
+@end

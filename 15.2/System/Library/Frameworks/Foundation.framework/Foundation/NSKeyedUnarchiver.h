@@ -1,0 +1,97 @@
+@protocol NSKeyedUnarchiverDelegate;
+
+@interface NSKeyedUnarchiver : NSCoder {
+    id _delegate;
+    _Atomic unsigned long long _flags;
+    id _objRefMap;
+    id _replacementMap;
+    id _nameClassMap;
+    id _tmpRefObjMap;
+    id _refObjMap;
+    int _genericKey;
+    id _data;
+    void *_offsetData;
+    id _containers;
+    id _objects;
+    const char *_bytes;
+    unsigned long long _len;
+    id _helper;
+    void *_reserved0;
+}
+
+@property id<NSKeyedUnarchiverDelegate> delegate;
+@property BOOL requiresSecureCoding;
+@property long long decodingFailurePolicy;
+
++ (id)ls_unarchivedObjectOfClass:(Class)a0 fromData:(id)a1 error:(id *)a2;
++ (void)initialize;
++ (id)unarchivedDictionaryWithKeysOfClasses:(id)a0 objectsOfClasses:(id)a1 fromData:(id)a2 error:(id *)a3;
++ (id)unarchivedDictionaryWithKeysOfClass:(Class)a0 objectsOfClass:(Class)a1 fromData:(id)a2 error:(id *)a3;
++ (id)unarchivedObjectOfClasses:(id)a0 fromData:(id)a1 error:(id *)a2;
++ (id)_strictlyUnarchivedObjectOfClasses:(id)a0 fromData:(id)a1 error:(id *)a2;
++ (id)unarchivedArrayOfObjectsOfClasses:(id)a0 fromData:(id)a1 error:(id *)a2;
++ (id)unarchivedArrayOfObjectsOfClass:(Class)a0 fromData:(id)a1 error:(id *)a2;
++ (id)unarchiveTopLevelObjectWithData:(id)a0 error:(id *)a1;
++ (void)setClass:(Class)a0 forClassName:(id)a1;
++ (id)unarchiveObjectWithData:(id)a0;
++ (id)unarchiveObjectWithFile:(id)a0;
++ (id)unarchiveObjectWithData:(id)a0 error:(id *)a1;
++ (Class)classForClassName:(id)a0;
++ (id)unarchivedObjectOfClass:(Class)a0 fromData:(id)a1 error:(id *)a2;
+
+- (BOOL)decodeBoolForKey:(id)a0;
+- (const char *)decodeBytesForKey:(id)a0 returnedLength:(unsigned long long *)a1;
+- (void)replaceObject:(id)a0 withObject:(id)a1;
+- (id)decodeObject;
+- (void)decodeValueOfObjCType:(const char *)a0 at:(void *)a1;
+- (id)allowedClasses;
+- (float)decodeFloatForKey:(id)a0;
+- (BOOL)containsValueForKey:(id)a0;
+- (id)decodeObjectOfClasses:(id)a0 forKey:(id)a1;
+- (id)decodeObjectForKey:(id)a0;
+- (double)decodeDoubleForKey:(id)a0;
+- (long long)decodeInt64ForKey:(id)a0;
+- (int)decodeIntForKey:(id)a0;
+- (id)initWithStream:(id)a0;
+- (unsigned int)systemVersion;
+- (id)_initForReadingFromData:(id)a0 error:(id *)a1 throwLegacyExceptions:(BOOL)a2;
+- (BOOL)_validateAllowedClassesContainsClass:(Class)a0 forKey:(id)a1;
+- (void)__setError:(id)a0;
+- (BOOL)_allowsValueCoding;
+- (id)initForReadingFromData:(id)a0 error:(id *)a1;
+- (long long)versionForClassName:(id)a0;
+- (id)_blobForCurrentObject;
+- (BOOL)allowsKeyedCoding;
+- (void)_temporaryMapReplaceObject:(id)a0 withObject:(id)a1;
+- (void)setClass:(Class)a0 forClassName:(id)a1;
+- (int)decodeInt32ForKey:(id)a0;
+- (void)_enableStrictSecureDecodingMode;
+- (void)setAllowedClasses:(id)a0;
+- (void)decodeValuesOfObjCTypes:(const char *)a0;
+- (id)decodeDataObject;
+- (id)_decodePropertyListForKey:(id)a0;
+- (void *)decodeBytesWithReturnedLength:(unsigned long long *)a0;
+- (BOOL)_containsNextUnkeyedObject;
+- (BOOL)_willEnforceExplicitPlistTypes;
+- (void)_replaceObject:(id)a0 withObject:(id)a1;
+- (void)_enforceExplicitPlistTypes;
+- (unsigned int)_currentUniqueIdentifier;
+- (id)description;
+- (id)_initWithStream:(struct __CFReadStream { } *)a0 data:(id)a1 topDict:(struct __CFDictionary { } *)a2;
+- (void)_setAllowedClassNames:(id)a0;
+- (Class)classForClassName:(id)a0;
+- (id)_allowedClassNames;
+- (BOOL)_strictSecureDecodingEnabled;
+- (id)decodeArrayOfObjectsOfClasses:(id)a0 forKey:(id)a1;
+- (id)init;
+- (void)_enforceSubclassesMustBeExplicitlyMentionedWhenDecoded;
+- (void)finishDecoding;
+- (id)initForReadingWithData:(id)a0;
+- (id)error;
+- (void)dealloc;
+- (id)_decodeArrayOfObjectsForKey:(id)a0;
+- (id)decodeDictionaryWithKeysOfClasses:(id)a0 objectsOfClasses:(id)a1 forKey:(id)a2;
+- (void)decodeArrayOfObjCType:(const char *)a0 count:(unsigned long long)a1 at:(void *)a2;
+- (id)decodeObjectOfClass:(Class)a0 forKey:(id)a1;
+
+@end

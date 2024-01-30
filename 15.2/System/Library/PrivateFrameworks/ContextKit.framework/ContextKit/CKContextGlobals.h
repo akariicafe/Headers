@@ -1,0 +1,3 @@
+@interface CKContextGlobals : NSObject
+
+@end

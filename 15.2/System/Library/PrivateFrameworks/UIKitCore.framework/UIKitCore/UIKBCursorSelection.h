@@ -1,0 +1,3 @@
+@interface UIKBCursorSelection : UIImageView
+
+@end

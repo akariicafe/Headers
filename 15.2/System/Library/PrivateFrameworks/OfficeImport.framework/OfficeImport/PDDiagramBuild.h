@@ -1,0 +1,3 @@
+@interface PDDiagramBuild : PDBuild
+
+@end

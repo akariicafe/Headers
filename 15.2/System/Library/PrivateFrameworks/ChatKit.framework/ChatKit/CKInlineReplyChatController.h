@@ -1,0 +1,83 @@
+@class NSDictionary, NSString, UIVisualEffectView, CKInlineReplyCollectionViewController, IMMessageItem, CKInlineReplyTransitionContext, UINavigationBarAppearance;
+@protocol CKInlineReplyInteractionDelegate;
+
+@interface CKInlineReplyChatController : CKChatController
+
+@property (readonly, nonatomic) CKInlineReplyCollectionViewController *inlineCollectionViewController;
+@property (nonatomic) BOOL isInitialLoad;
+@property (nonatomic) BOOL isInitialSizing;
+@property (nonatomic) BOOL animatingIn;
+@property (nonatomic) BOOL animatingOut;
+@property (retain, nonatomic) UIVisualEffectView *blurView;
+@property (copy, nonatomic) NSString *threadIdentifier;
+@property (retain, nonatomic) IMMessageItem *threadOriginator;
+@property (retain, nonatomic) CKInlineReplyTransitionContext *transitionContext;
+@property (nonatomic) BOOL showNavbarKeyline;
+@property (retain, nonatomic) UINavigationBarAppearance *navBarAppearance;
+@property (nonatomic) BOOL shouldReloadInsetsForFloatingKeyboard;
+@property (readonly, nonatomic) NSDictionary *originatorMessageSummaryInfo;
+@property (weak, nonatomic) id<CKInlineReplyInteractionDelegate> interactionDelegate;
+@property (readonly, nonatomic, getter=isModal) BOOL modal;
+
++ (id)stringForContentType:(unsigned char)a0;
++ (Class)transcriptControllerClass;
++ (Class)_gradientReferenceViewClass;
+
+- (BOOL)shouldShowDoneButton;
+- (id)inputAccessoryView;
+- (void)viewDidLoad;
+- (id)initWithConversation:(id)a0 threadIdentifier:(id)a1 threadOriginator:(id)a2 transitionContext:(id)a3 originatorMessageSummaryInfo:(id)a4;
+- (BOOL)isInline;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })gradientFrameWithInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0;
+- (void)stageAssetArchive:(id)a0 skipShelf:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)viewDidLayoutSubviews;
+- (void)tapGestureRecognized:(id)a0;
+- (id)inputViewController;
+- (BOOL)messageEntryViewWidth:(double *)a0 andOffset:(double *)a1;
+- (id)inputController;
+- (void)messageEntryViewDidBeginEditingNotAlreadyActive:(id)a0;
+- (void)setTargetFirstResponder:(long long)a0;
+- (void)updateScrollGeometry;
+- (BOOL)shouldListParticipantsInTitle;
+- (void)_updateNavigationUI;
+- (long long)targetFirstResponder;
+- (void)_restoreDraftState;
+- (void)_saveDraftState;
+- (void)setIsShowingPreview:(BOOL)a0;
+- (void)reloadEntryViewIfNeeded;
+- (BOOL)isUnanimated;
+- (void).cxx_destruct;
+- (void)sendMessage:(id)a0 forConversation:(id)a1 newComposition:(BOOL)a2;
+- (void)_didSendCompositionInConversation:(id)a0;
+- (void)_animateOut;
+- (id)_visibleGUIDs;
+- (void)cleanUpDarkEffectStyle;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_contentInsetForSendAnimation;
+- (id)_imMessageForIMMessageItem:(id)a0;
+- (void)collectMetricsForSending:(id)a0;
+- (void)_animateIn:(BOOL)a0;
+- (id)_navigationBarAppearanceWithKeyline:(BOOL)a0;
+- (void)_requestDismissal;
+- (void)_setInitialScrollPositionIfNecessary;
+- (double)accessoryViewHeight;
+- (struct CGSize { double x0; double x1; })contentSizeForPinning;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })navigationBarInsetsWithoutPalette;
+- (double)throwAnimationFinalFrameOffset:(id)a0;
+- (double)throwAnimationManagerTopHeaderHeight:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_initialFrameForCollectionView;
+- (void)dismissController;
+- (void)reloadInputViews;
+- (void)_doneButtonPressed;
+- (void)viewDidAppear:(BOOL)a0;
+- (BOOL)becomeFirstResponder;
+- (id)_defaultTranscriptNavBarAppearance;
+- (void)setUpStyleForDarkEffect;
+- (void)sendMessage:(id)a0 forConversation:(id)a1 onService:(id)a2 newComposition:(BOOL)a3;
+- (void)transcriptCollectionViewControllerChatItemsDidChange:(id)a0;
+- (void)transcriptCollectionViewControllerRestingStateDidChange:(id)a0;
+- (void)transcriptCollectionViewController:(id)a0 collectionViewContentSizeDidChange:(struct CGSize { double x0; double x1; })a1;
+- (double)transcriptCollectionViewController:(id)a0 targetAlphaForChatItem:(id)a1;
+- (void)transcriptCollectionViewController:(id)a0 didScroll:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)transcriptCollectionViewControllerIsPresentedInModalInlineReply:(id)a0;
+
+@end

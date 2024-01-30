@@ -1,0 +1,3 @@
+@interface __CAMExposureBiasSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

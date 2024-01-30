@@ -1,0 +1,19 @@
+@class NSString, NSNumber, NSData;
+
+@interface HMDAccessorySettingConstraintModel : HMDBackingStoreModelObject <HMDBackingStoreModelObjectCDRepresentable>
+
+@property (class, readonly) Class cd_entityClass;
+@property (class, readonly) NSString *cd_parentReferenceName;
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSNumber *type;
+@property (copy, nonatomic) NSData *value;
+
++ (id)properties;
++ (id)schemaHashRoot;
+
+
+@end

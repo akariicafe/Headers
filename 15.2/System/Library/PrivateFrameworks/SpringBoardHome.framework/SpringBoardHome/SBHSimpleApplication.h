@@ -1,0 +1,71 @@
+@class NSString, NSURL, NSArray;
+@protocol SBHIconModelApplicationDataSource;
+
+@interface SBHSimpleApplication : NSObject <SBHApplication, SBHApplicationPlaceholder, BSDescriptionProviding>
+
+@property (readonly, nonatomic, getter=isBeta) BOOL beta;
+@property (readonly, nonatomic) unsigned long long installType;
+@property (readonly, nonatomic, getter=isBlockedForScreenTimeExpiration) BOOL blockedForScreenTimeExpiration;
+@property (nonatomic) long long progressState;
+@property (nonatomic) double progressPercent;
+@property (nonatomic, getter=isProgressPaused) BOOL progressPaused;
+@property (weak, nonatomic) id<SBHIconModelApplicationDataSource> iconModelApplicationDataSource;
+@property (readonly, nonatomic, getter=isPlaceholder) BOOL placeholder;
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+@property (readonly, nonatomic) NSURL *bundleURL;
+@property (readonly, copy, nonatomic) NSString *displayName;
+@property (readonly, copy, nonatomic) NSString *vendorName;
+@property (readonly, nonatomic) NSArray *tags;
+@property (readonly, nonatomic) BOOL hasHiddenTag;
+@property (readonly, copy, nonatomic) NSString *iconIdentifier;
+@property (readonly, nonatomic, getter=isSystemApplication) BOOL systemApplication;
+@property (readonly, nonatomic, getter=isInternalApplication) BOOL internalApplication;
+@property (readonly, nonatomic, getter=isAppleApplication) BOOL appleApplication;
+@property (readonly, nonatomic, getter=isAppClip) BOOL appClip;
+@property (retain, nonatomic) id badgeValue;
+@property (readonly, copy, nonatomic) NSString *uniqueIdentifier;
+@property (readonly, copy, nonatomic) NSString *configurationStorageIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSString *applicationBundleIdentifier;
+@property (readonly, copy, nonatomic) NSString *applicationDisplayName;
+@property (readonly, nonatomic, getter=isActive) BOOL active;
+@property (readonly, nonatomic, getter=isWaiting) BOOL waiting;
+@property (readonly, nonatomic, getter=isPaused) BOOL paused;
+@property (readonly, nonatomic, getter=isPausable) BOOL pausable;
+@property (readonly, nonatomic, getter=isFailed) BOOL failed;
+@property (readonly, nonatomic, getter=isCancelable) BOOL cancelable;
+@property (readonly, nonatomic, getter=isInstalling) BOOL installing;
+@property (readonly, nonatomic, getter=isDownloading) BOOL downloading;
+@property (readonly, nonatomic, getter=isPrioritizable) BOOL prioritizable;
+@property (readonly, nonatomic, getter=isCloudDemoted) BOOL cloudDemoted;
+
+- (BOOL)isTimedOutForIcon:(id)a0;
+- (BOOL)canGenerateIconsInBackgroundForIcon:(id)a0;
+- (long long)labelAccessoryTypeForIcon:(id)a0;
+- (id)initWithBundleIdentifier:(id)a0;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (unsigned long long)supportedGridSizeClassesForIcon:(id)a0;
+- (unsigned long long)priorityForIcon:(id)a0;
+- (id)icon:(id)a0 unmaskedImageWithInfo:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a1;
+- (id)icon:(id)a0 displayNameForLocation:(id)a1;
+- (id)icon:(id)a0 imageWithInfo:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a1;
+- (id)initWithApplicationInfo:(id)a0;
+- (BOOL)iconCompleteUninstall:(id)a0;
+- (id)succinctDescription;
+- (double)progressPercentForIcon:(id)a0;
+- (id)initWithBundleIdentifier:(id)a0 allowPlaceholder:(BOOL)a1;
+- (void)updateProgressState:(long long)a0 progressPercent:(double)a1 progressPaused:(BOOL)a2;
+- (void).cxx_destruct;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)initWithApplicationRecord:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (BOOL)isProgressPausedForIcon:(id)a0;
+- (void)updateDeviceManagementPolicy:(long long)a0;
+- (void)dealloc;
+- (id)initWithApplicationProxy:(id)a0;
+- (long long)progressStateForIcon:(id)a0;
+
+@end

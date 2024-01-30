@@ -1,0 +1,98 @@
+@class NSObject, NSString, NSMutableArray, NSHashTable, DNDState, BSServiceQuality, BSServiceConnection;
+@protocol OS_dispatch_queue;
+
+@interface DNDRemoteServiceConnection : NSObject <DNDRemoteServiceClientProtocol, DNDRemoteServiceServerProtocol, DNDRemoteMonitorServerProtocol> {
+    BSServiceConnection *_monitorQueue_monitorService;
+    BSServiceConnection *_queue_connection;
+    long long _monitorState;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    BSServiceQuality *_queuePriority;
+    NSObject<OS_dispatch_queue> *_queue;
+    BSServiceQuality *_monitorQueuePriority;
+    NSObject<OS_dispatch_queue> *_monitorQueue;
+    NSMutableArray *_assertionMonitorRequestDetails;
+    NSMutableArray *_stateMonitorRequestDetails;
+    NSMutableArray *_settingsMonitorRequestDetails;
+    NSMutableArray *_modeIdentifiersMonitorRequestDetails;
+    NSMutableArray *_globalConfigurationMonitorRequestDetails;
+    NSMutableArray *_meDeviceStateMonitorRequestDetails;
+    NSHashTable *_eventListeners;
+    DNDState *_lastReceivedState;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)initialize;
+
+- (void)registerForMeDeviceStateUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getStateDumpWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerForModeSelectionUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)invalidateModeAssertionWithUUID:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)getAllModesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (oneway void)deliverStateUpdate:(id)a0;
+- (void)setBehaviorSettings:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (oneway void)deliverUpdatedPreventAutoReplySetting:(id)a0;
+- (void)queryMeDeviceStateWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getLatestModeAssertionInvalidationWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getAppInfoForBundleIdentifiers:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (oneway void)deliverActiveModeAssertionUpdate:(id)a0 invalidation:(id)a1 clientIdentifiers:(id)a2;
+- (void)getPairSyncStateWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getScheduleSettingsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerForGlobalConfigurationUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setPairSyncPreferenceEnabled:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)getAllowedModesForContactHandle:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)takeModeAssertionWithDetails:(id)a0 requestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_monitorQueue_invalidateMonitorConnection;
+- (void)getActiveModeAssertionWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (oneway void)didChangeFocusStatusSharingSettingForApplicationIdentifier:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_monitorQueue_createMonitorConnection;
+- (oneway void)deliverMeDeviceState:(id)a0;
+- (void)getModeConfigurationsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getAvailableModesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)syncModeConfigurationsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getCloudSyncStateWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (oneway void)deliverUpdatedBehaviorSettings:(id)a0;
+- (void)_queue_createConnection;
+- (void)getAppInfoForBundleIdentifier:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)registerForSettingsUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_monitorQueue_monitorTarget;
+- (void)setScreenIsShared:(id)a0 screenIsMirrored:(id)a1 withRequestDetails:(id)a2 completionHandler:(id /* block */)a3;
+- (id)_queue_remoteTarget;
+- (void).cxx_destruct;
+- (void)setModeConfiguration:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (oneway void)deliverAvailableModes:(id)a0;
+- (oneway void)deliverUpdatedScheduleSettings:(id)a0;
+- (void)getModeConfigurationForModeIdentifier:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (id)init;
+- (void)getBehaviorSettingsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)registerForAssertionUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getPreventAutoReplyWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)resolveBehaviorForEventDetails:(id)a0 requestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)queryStateWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setCloudSyncPreferenceEnabled:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_setMonitorState:(long long)a0;
+- (void)queryStateForUpdateWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)invalidateActiveModeAssertionWithDetails:(id)a0 reasonOverride:(id)a1 requestDetails:(id)a2 completionHandler:(id /* block */)a3;
+- (void)activateModeWithDetails:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)activeModeAssertionWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)setScheduleSettings:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)addEventListener:(id)a0;
+- (void)_queue_invalidateConnection;
+- (oneway void)deliverActiveModeAssertion:(id)a0 stateUpdate:(id)a1 clientIdentifiers:(id)a2;
+- (void)registerForStateUpdatesWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)removeEventListener:(id)a0;
+- (oneway void)deliverUpdatedPhoneCallBypassSettings:(id)a0;
+- (oneway void)deliverUpdatedPairSyncState:(id)a0;
+- (void)setPreventAutoReply:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (oneway void)deliverAllModes:(id)a0;
+- (void)invalidateAllActiveModeAssertionsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)removeModeConfigurationForModeIdentifier:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)publishStatusKitAvailabilityWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getUserAvailabilityInActiveModeForContactHandle:(id)a0 withRequestDetails:(id)a1 completionHandler:(id /* block */)a2;
+- (void)getAllModeAssertionsWithRequestDetails:(id)a0 completionHandler:(id /* block */)a1;
+
+@end

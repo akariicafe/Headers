@@ -1,0 +1,32 @@
+@class NSString, FMXPCSession, FMXPCServiceDescription, NSObject;
+@protocol OS_dispatch_queue, SPBeaconScanningXPCProtocol;
+
+@interface SPBeaconScanningSession : NSObject <SPBeaconScanningXPCClientProtocol>
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue;
+@property (retain, nonatomic) FMXPCServiceDescription *serviceDescription;
+@property (retain, nonatomic) FMXPCSession *session;
+@property (retain, nonatomic) id<SPBeaconScanningXPCProtocol> proxy;
+@property (copy, nonatomic) id /* block */ sessionInvalidatedCallback;
+@property (copy, nonatomic) id /* block */ beaconDiscoveredCallback;
+@property (copy, nonatomic) id /* block */ discoveryFinishedCallback;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)remoteInterface;
++ (id)exportedInterface;
+
+- (void)invalidationHandler:(id)a0;
+- (void)stopScanning;
+- (void).cxx_destruct;
+- (id)init;
+- (void)interruptionHandler:(id)a0;
+- (id)userAgentProxy;
+- (oneway void)discoveredObject:(id)a0;
+- (oneway void)discoveryFinished:(id)a0;
+- (void)startScanningIncludeServiceCharacteristics:(BOOL)a0;
+
+@end

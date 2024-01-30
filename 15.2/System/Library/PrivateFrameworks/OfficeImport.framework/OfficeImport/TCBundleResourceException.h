@@ -1,0 +1,3 @@
+@interface TCBundleResourceException : NSException
+
+@end

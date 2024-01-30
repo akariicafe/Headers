@@ -1,0 +1,19 @@
+@class NSArray;
+
+@interface TSPObjectContainer : TSPObject {
+    unsigned char _packageIdentifier;
+    NSArray *_childObjects;
+}
+
++ (long long)objectIdentifierForPackageIdentifier:(unsigned char)a0;
+
+- (id)initWithContext:(id)a0;
+- (void).cxx_destruct;
+- (id)packageLocator;
+- (BOOL)shouldDelayArchiving;
+- (unsigned int)delayedArchivingPriority;
+- (long long)tsp_identifier;
+- (id)initWithContext:(id)a0 packageIdentifier:(unsigned char)a1;
+- (void)prepareForComponentWriteWithDelayedObjects:(id)a0;
+
+@end

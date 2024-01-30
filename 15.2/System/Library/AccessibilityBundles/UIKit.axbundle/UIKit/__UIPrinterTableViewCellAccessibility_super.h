@@ -1,0 +1,3 @@
+@interface __UIPrinterTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

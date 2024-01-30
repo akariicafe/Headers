@@ -1,0 +1,74 @@
+@class NSArray, CPZoneProfile, NSMutableArray, CPCharSequence;
+
+@interface CPZone : CPRegion <CPGraphicUser> {
+    NSMutableArray *zoneBorders;
+    struct CGPoint { double x0; double x1; } *outerVertices;
+    struct CGPoint { double x0; double x1; } *swollenOuterVertices;
+    double area;
+    BOOL isStraddleZone;
+    CPZoneProfile *zoneProfile;
+    NSArray *leftGuides;
+    NSArray *rightGuides;
+    NSArray *gutters;
+    NSArray *spacers;
+    CPCharSequence *charactersInZone;
+    NSMutableArray *textLinesInZone;
+    NSArray *graphicsInZone;
+    NSMutableArray *backgroundGraphics;
+    unsigned int usedGraphicCount;
+}
+
+- (double)area;
+- (unsigned int)wordCount;
+- (id)init;
+- (BOOL)contains:(id)a0;
+- (void)accept:(id)a0;
+- (unsigned int)vertexCount;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)gutters;
+- (id)spacers;
+- (BOOL)isZone;
+- (BOOL)isRectangular;
+- (id)textLinesInZone;
+- (struct CGPoint { double x0; double x1; } *)outerVertices;
+- (void)incrementUsedGraphicCount;
+- (unsigned int)usedGraphicCount;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })zoneBounds;
+- (struct CGColor { } *)newBackgroundColor;
+- (id)backgroundGraphics;
+- (BOOL)mapToWordsWithIndex:(void /* function */ *)a0 passing:(void *)a1;
+- (BOOL)mapToWords:(void /* function */ *)a0 passing:(void *)a1;
+- (BOOL)mapToWordPairs:(void /* function */ *)a0 passing:(void *)a1;
+- (BOOL)mapToWordPairsWithIndex:(void /* function */ *)a0 passing:(void *)a1;
+- (BOOL)bordersWindClockwise;
+- (BOOL)hasNeighborShape:(id)a0;
+- (long long)borderZOrder;
+- (long long)neighborZOrder;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })zoneBoundsFromVertices:(struct CGPoint { double x0; double x1; } *)a0 ofCount:(unsigned int)a1;
+- (struct CGPoint { double x0; double x1; } *)swollenOuterVertices;
+- (BOOL)hasBorders;
+- (id)zoneBorders;
+- (id)graphicsInZone;
+- (void)setZoneBorders:(id)a0;
+- (void)removeUnfilledNeighborShapes;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })swollenZoneBounds;
+- (BOOL)rectangleBordersAtLeft:(id *)a0 top:(id *)a1 right:(id *)a2 bottom:(id *)a3;
+- (BOOL)canContain:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)addPDFChar:(void *)a0;
+- (void)setCharactersInZone:(id)a0;
+- (id)charactersInZone;
+- (void)addContentFrom:(id)a0;
+- (long long)compareArea:(id)a0;
+- (BOOL)isStraddleZone;
+- (void)setIsStraddleZone:(BOOL)a0;
+- (id)zoneProfile;
+- (void)setZoneProfile:(id)a0;
+- (void)setLeftGuides:(id)a0;
+- (id)leftGuides;
+- (void)setRightGuides:(id)a0;
+- (id)rightGuides;
+- (void)setGutters:(id)a0;
+- (void)setSpacers:(id)a0;
+
+@end

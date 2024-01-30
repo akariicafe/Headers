@@ -1,0 +1,3 @@
+@interface ___UISearchPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

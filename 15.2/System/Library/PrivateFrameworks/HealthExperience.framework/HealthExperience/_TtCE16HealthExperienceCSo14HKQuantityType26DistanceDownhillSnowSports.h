@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType26DistanceDownhillSnowSports : _TtCs12_SwiftObject
+
+@end

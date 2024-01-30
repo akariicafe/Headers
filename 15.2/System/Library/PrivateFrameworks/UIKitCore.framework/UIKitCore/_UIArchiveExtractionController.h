@@ -1,0 +1,18 @@
+@class NSString, NSArray;
+
+@interface _UIArchiveExtractionController : NSObject {
+    NSArray *_extractedContentAbsolutePaths;
+}
+
+@property (readonly, nonatomic) NSString *sourceArchivePath;
+@property (retain, nonatomic) NSString *destinationExtractionRootPath;
+@property (retain, nonatomic) NSString *destinationContentProtectionType;
+@property (retain, nonatomic) NSString *sourceArchiveExtractionRootPath;
+
+- (id)initWithSourceArchivePath:(id)a0 destinationExtractionRootPath:(id)a1;
+- (BOOL)_createDestinationRoot:(id *)a0;
+- (BOOL)extractArchiveContent:(id *)a0;
+- (id)extractedContentAbsolutePathsMatchingPredicate:(id /* block */)a0;
+- (void).cxx_destruct;
+
+@end

@@ -1,0 +1,97 @@
+@class NSURL, HLPHelpBookController, NSMutableDictionary, UIBarButtonItem, NSDictionary, HLPReachabilityManager, HLPHelpTopicViewController, HLPHelpLoadingView, NSLayoutConstraint, NSString, UIView, HLPHelpTableOfContentViewController, HLPHelpLocaleController, NSArray;
+@protocol HLPHelpViewControllerDelegate;
+
+@interface HLPHelpViewController : UIViewController <HLPHelpTableOfContentViewControllerDelegate, HLPHelpTopicViewControllerDelegate, HLPReachabilityManagerDelegate, HLPHelpLoadingViewDelegate> {
+    BOOL _fullBookView;
+    BOOL _showingHelpTopic;
+    BOOL _shouldDismissWelcomeTopic;
+    NSDictionary *_context;
+    NSString *_helpbookVersion;
+    UIBarButtonItem *_doneBarButtonItem;
+    NSLayoutConstraint *_loadingViewTopConstraint;
+    UIView *_fullBookViewSeparator;
+    HLPHelpTopicViewController *_topicViewController;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *localHelpBookNameIDMap;
+@property (retain, nonatomic) NSURL *helpBookURL;
+@property (retain, nonatomic) NSString *helpBookBasePath;
+@property (retain, nonatomic) HLPHelpLocaleController *localeListController;
+@property (retain, nonatomic) HLPHelpBookController *helpBookController;
+@property (retain, nonatomic) HLPReachabilityManager *reachabilityManager;
+@property (retain, nonatomic) HLPHelpLoadingView *loadingView;
+@property (retain, nonatomic) HLPHelpTableOfContentViewController *tableOfContentViewController;
+@property (nonatomic) BOOL hideDoneButton;
+@property (nonatomic) BOOL displayHelpTopicsOnly;
+@property (nonatomic) BOOL showTopicNameAsTitle;
+@property (nonatomic) BOOL showTopicViewOnLoad;
+@property (weak, nonatomic) id<HLPHelpViewControllerDelegate> delegate;
+@property (copy, nonatomic) NSString *identifier;
+@property (copy, nonatomic) NSString *version;
+@property (copy, nonatomic) NSString *subpath;
+@property (copy, nonatomic) NSURL *localHelpBookFileURL;
+@property (copy, nonatomic) NSArray *preferredLanguagesOverride;
+@property (copy, nonatomic) NSArray *additionalSupportedLanguages;
+@property (copy, nonatomic) NSString *selectedHelpTopicID;
+@property (copy, nonatomic) NSString *selectedHelpTopicName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)helpViewControllerWithIdentifier:(id)a0 version:(id)a1;
++ (id)helpViewControllerWithTitle:(id)a0 identifier:(id)a1 version:(id)a2;
++ (id)helpViewControllerWithTitle:(id)a0 identifier:(id)a1 version:(id)a2 subpath:(id)a3;
++ (void)clearCacheControllers;
++ (id)helpViewController;
++ (id)helpViewControllerWithLocalHelpBookFileURL:(id)a0;
+
+- (id)deviceFamily;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewDidLayoutSubviews;
+- (void)dismiss;
+- (void).cxx_destruct;
+- (void)updateDoneButton;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)init;
+- (void)_setContext:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)currentHelpTopicItemForTableOfContentViewController:(id)a0;
+- (void)tableOfContentViewControllerShowHelpBookInfo:(id)a0;
+- (void)tableOfContentViewController:(id)a0 showHelpTopicItem:(id)a1;
+- (void)updateDarkMode;
+- (id)localHelpBookAnalyticIdentifier;
+- (void)setupFullBookView;
+- (void)_showHelpTopicItem:(id)a0 anchor:(id)a1 animate:(BOOL)a2;
+- (void)setupTableContentViewController;
+- (void)updateTOCButton;
+- (void)updateChildViewConstraints;
+- (void)loadHelpBook;
+- (void)setupTopicViewController;
+- (void)showTopicView;
+- (void)_showWithLoadInfo:(id)a0 animate:(BOOL)a1;
+- (void)loadFromStaticServer;
+- (void)updateLastLoadVersion;
+- (void)removeDDMLoadFailVersion;
+- (void)updateCacheControllerToLanguageCode:(id)a0;
+- (void)displayHelpBookWithLocale:(id)a0;
+- (void)showMessageForError:(id)a0;
+- (void)traitCollectionChangedFrom:(id)a0;
+- (void)popWelcomeTopicView;
+- (void)helpTopicViewControllerTableOfContentButtonTapped:(id)a0;
+- (void)showHelpBookInfo:(id)a0;
+- (void)helpTopicViewController:(id)a0 traitCollectionChanged:(id)a1;
+- (void)helpTopicViewControllerShowHelpBookInfo:(id)a0;
+- (void)helpTopicViewControllerDoneButtonTapped:(id)a0;
+- (void)helpTopicViewController:(id)a0 topicLoaded:(id)a1;
+- (void)helpTopicViewController:(id)a0 failToLoadWithError:(id)a1;
+- (void)helpTopicViewControllerCurrentTopicIsPassionPoint:(id)a0;
+- (void)helpTopicViewController:(id)a0 selectedHelpTopicItem:(id)a1;
+- (void)reachabilityManagerConnectionStatusChanged:(id)a0 connected:(BOOL)a1;
+- (void)_setFullBookView:(BOOL)a0;
+- (void)loadHelpTopicID:(id)a0;
+- (id)topicIDForTopicName:(id)a0 locale:(id)a1;
+
+@end

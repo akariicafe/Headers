@@ -1,0 +1,3 @@
+@interface APOdmlExperimentResult : NSObject
+
+@end

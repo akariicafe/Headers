@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI11StackLayoutP33_68D684484B5AEF917B6B8353D57CF5907Storage : _TtCV7SwiftUI14LayoutComputer8Delegate
+
+@end

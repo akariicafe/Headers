@@ -1,0 +1,86 @@
+@class NSUUID, NSString, HMFTimer, HMDDatabaseZoneManager, NSSet, NSObject, HMBCloudZone, HMBLocalZone;
+@protocol OS_dispatch_queue, HMDPersonManagerSettings;
+
+@interface HMDPersonManager : HMFObject <HMBLocalZoneModelObserver, HMDDatabaseZoneManagerDataSource, HMDDatabaseZoneManagerDelegate, HMFLogging, HMFTimerDelegate, HMDPersonDataSource>
+
+@property (readonly, copy) NSString *logIdentifier;
+@property (retain) HMBCloudZone *cloudZone;
+@property (retain) HMFTimer *unassociatedFaceCropsCleanupTimer;
+@property unsigned long long fetchBatchLimit;
+@property (copy) id /* block */ unassociatedFaceCropsCleanupTimerFactory;
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) HMDDatabaseZoneManager *zoneManager;
+@property (readonly) NSSet *dataReceivers;
+@property (retain) HMBLocalZone *localZone;
+@property (readonly, copy) NSUUID *UUID;
+@property (readonly) BOOL syncsPersonData;
+@property (readonly) BOOL sharesFaceClassifications;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, getter=isDataAvailable) BOOL dataAvailable;
+@property (readonly, getter=isCurrentDeviceAvailableResident) BOOL currentDeviceAvailableResident;
+@property (readonly, copy) id<HMDPersonManagerSettings> settings;
+
++ (id)logCategory;
+
+- (void)timerDidFire:(id)a0;
+- (id)attributeDescriptions;
+- (void)remove;
+- (BOOL)isDataSyncInProgress;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)localZone:(id)a0 didProcessModelDeletion:(id)a1;
+- (id)localZone:(id)a0 didProcessModelCreation:(id)a1;
+- (id)localZone:(id)a0 didProcessModelUpdate:(id)a1;
+- (void)zoneManagerDidStart:(id)a0;
+- (void)zoneManagerDidStop:(id)a0;
+- (BOOL)manager:(id)a0 shouldShareWithUser:(id)a1;
+- (id)_removeZones;
+- (void)configureWithHome:(id)a0;
+- (void)handleFaceMisclassificationForFaceCropData:(id)a0 personUUID:(id)a1;
+- (id)performCloudPull;
+- (id)faceprintsForFaceCropsWithUUIDs:(id)a0;
+- (void)enumerateFaceprintsUsingBlock:(id /* block */)a0;
+- (id)faceCropsForPersonsWithUUIDs:(id)a0;
+- (void)enumeratePersonFaceCropsUsingBlock:(id /* block */)a0;
+- (id)personsWithUUIDs:(id)a0;
+- (void)enumeratePersonsUsingBlock:(id /* block */)a0;
+- (void)_createOrRemoveZonesForSettings:(id)a0;
+- (id)initWithUUID:(id)a0 zoneManager:(id)a1 dataReceivers:(id)a2 workQueue:(id)a3;
+- (id)personWithUUID:(id)a0;
+- (void)enumerateFaceCropsUsingBlock:(id /* block */)a0;
+- (void)enumerateUnassociatedFaceCropsUsingBlock:(id /* block */)a0;
+- (id)faceCropsWithUUIDs:(id)a0;
+- (id)faceCropUUIDsForPersonWithUUID:(id)a0;
+- (id)addOrUpdatePersons:(id)a0;
+- (id)addOrUpdateFaceCrops:(id)a0;
+- (id)addOrUpdateFaceprints:(id)a0;
+- (id)associateFaceCropsWithUUIDs:(id)a0 toPersonWithUUID:(id)a1 forSource:(long long)a2;
+- (id)disassociateFaceCropsWithUUIDs:(id)a0;
+- (id)removePersonsWithUUIDs:(id)a0;
+- (id)removeFaceCropsWithUUIDs:(id)a0;
+- (id)removeFaceprintsWithUUIDs:(id)a0;
+- (id)createBatchChange;
+- (BOOL)syncsDataToAllUsers;
+- (id)unassociatedFaceCropWithUUID:(id)a0;
+- (id)personFaceCropWithUnassociatedFaceCropUUID:(id)a0;
+- (id)faceCropsForPersonWithUUID:(id)a0;
+- (id)addUnassociatedFaceCropWithData:(id)a0;
+- (id)_unassociatedFaceCropsModelsWithUUIDs:(id)a0;
+- (id)_faceCropsModelsWithUUIDs:(id)a0;
+- (id)_removeFaceprintsForFaceCropsWithUUIDs:(id)a0;
+- (void)_handleCreatedOrUpdatedModel:(id)a0 mirrorOutputFuture:(id)a1;
+- (void)_handleDeletedModel:(id)a0 mirrorOutputFuture:(id)a1;
+- (void)_notifyDataReceiversOfCurrentIsCurrentDeviceAvailableResident;
+- (void)_notifyDataReceiversOfCurrentIsDataSyncInProgress;
+- (void)_createZones;
+- (void)_cleanUpExpiredUnassociatedFaceCrops;
+- (void)handleUserPrivilegeDidChangeNotification:(id)a0;
+- (void)handleResidentWasAddedNotification:(id)a0;
+- (void)handleResidentWasUpdatedNotification:(id)a0;
+- (void)handleResidentWasRemovedNotification:(id)a0;
+- (void)handleDataSyncInProgressChangedNotification:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC18SiriGlobalRerankerP33_B5425A8CA6E2D9E10577122F022AA1A725SmsDomainFeatureExtractor : _TtCs12_SwiftObject
+
+@end

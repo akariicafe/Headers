@@ -1,0 +1,3 @@
+@interface TFRouterException : NSException
+
+@end

@@ -1,0 +1,88 @@
+@class SKUIRowComponent, SKUIProductPageOverlayController, NSString, SKUIMissingItemLoader, SKUIClientContext, SKUILockupComponent, NSMapTable, NSMutableIndexSet;
+
+@interface SKUIRowSection : SKUIStorePageSection <SKUIArtworkRequestDelegate, SKUIEmbeddedMediaViewDelegate, SKUIItemStateCenterObserver, SKUIMissingItemDelegate, SKUIProductPageOverlayDelegate> {
+    SKUIClientContext *_clientContext;
+    NSMapTable *_columnViews;
+    NSMapTable *_componentArtworkRequestIDs;
+    NSMapTable *_editorialLayouts;
+    NSMutableIndexSet *_expandedEditorialIndexes;
+    NSMapTable *_galleryViewControllers;
+    NSMapTable *_countdownViewControllers;
+    BOOL _isPad;
+    double _landscapeCellContentHeight;
+    SKUIMissingItemLoader *_missingItemLoader;
+    SKUIProductPageOverlayController *_overlayController;
+    SKUILockupComponent *_overlaySourceComponent;
+    double _portraitCellContentHeight;
+}
+
+@property (readonly, nonatomic) SKUIRowComponent *pageComponent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (long long)numberOfCells;
+- (void)dealloc;
+- (double)_interColumnSpacing;
+- (id)_columnViews;
+- (void)itemStateCenter:(id)a0 itemStatesChanged:(id)a1;
+- (void)itemStateCenterRestrictionsChanged:(id)a0;
+- (void)artworkRequest:(id)a0 didLoadImage:(id)a1;
+- (id)initWithPageComponent:(id)a0;
+- (id)backgroundColorForIndexPath:(id)a0;
+- (void)collectionViewWillApplyLayoutAttributes:(id)a0;
+- (void)invalidateCachedLayoutInformation;
+- (void)willAppearInContext:(id)a0;
+- (void)willHideInContext:(id)a0;
+- (id)cellForIndexPath:(id)a0;
+- (struct CGSize { double x0; double x1; })cellSizeForIndexPath:(id)a0;
+- (void)prefetchResourcesWithReason:(long long)a0;
+- (void)addImpressionsForIndexPath:(id)a0 toSession:(id)a1;
+- (void)collectionViewDidSelectItemAtIndexPath:(id)a0;
+- (void)collectionViewDidConfirmItemOfferAtIndexPath:(id)a0;
+- (void)willTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)productPageOverlay:(id)a0 flipSourceViewToDismissItem:(id)a1;
+- (id)productPageOverlay:(id)a0 flipSourceViewToPresentItem:(id)a1;
+- (void)productPageOverlayDidDismiss:(id)a0;
+- (id)clickEventWithItem:(id)a0 elementName:(id)a1 index:(long long)a2;
+- (id)itemOfferClickEventWithItem:(id)a0 elementName:(id)a1 index:(long long)a2;
+- (id)_missingItemLoader;
+- (void)missingItemLoader:(id)a0 didLoadItems:(id)a1 invalidItemIdentifiers:(id)a2;
+- (void)mediaView:(id)a0 playbackStateDidChange:(long long)a1;
+- (void)_reloadEditorialLockupCell:(id)a0 forComponent:(id)a1 columnIndex:(long long)a2;
+- (void)_reloadLockupCell:(id)a0 forComponent:(id)a1 columnIndex:(long long)a2;
+- (void)_reloadEditorialCell:(id)a0 forComponent:(id)a1 columnIndex:(long long)a2;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_edgeInsetsForColumnIndex:(long long)a0;
+- (void)_loadImagesForGalleryComponent:(id)a0 columnIndex:(long long)a1;
+- (void)_reloadView:(id)a0 forMediaComponent:(id)a1 columnIndex:(long long)a2;
+- (double)_heightForComponent:(id)a0 columnIndex:(double)a1 rowWidth:(double)a2;
+- (double)_cellContentHeightForRowWidth:(double)a0;
+- (double)_columnWidthForColumnIndex:(long long)a0 rowWidth:(double)a1;
+- (void)_setPositionForClickEvent:(id)a0 elementIndex:(long long)a1;
+- (void)_expandEditorialComponent:(id)a0 columnIndex:(long long)a1;
+- (void)_selectGalleryComponent:(id)a0 columnIndex:(long long)a1;
+- (void)_selectLockupComponent:(id)a0 columnIndex:(long long)a1;
+- (void)_selectMediaComponent:(id)a0 columnIndex:(long long)a1;
+- (id)_editorialLayoutForEditorial:(id)a0 columnIndex:(long long)a1;
+- (id)_editorialLayoutForLockup:(id)a0 columnIndex:(long long)a1;
+- (void)_enumerateLockupsWithBlock:(id /* block */)a0;
+- (id)_popSourceViewForOverlayController:(id)a0;
+- (id)_overlaySourceCell;
+- (id)_viewControllerForCountdownComponent:(id)a0;
+- (id)_viewControllerForGalleryComponent:(id)a0;
+- (id)_newViewWithMediaComponent:(id)a0;
+- (struct SKUILockupStyle { long long x0; long long x1; unsigned long long x2; })_lockupStyleForComponent:(id)a0 columnIndex:(long long)a1;
+- (double)_heightForCountdownComponent:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (double)_heightForEditorialComponent:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (double)_heightForGalleryComponent:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (double)_heightForLockupComponent:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (double)_heightForMediaComponent:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (double)_heightForArtwork:(id)a0 columnIndex:(long long)a1 rowWidth:(double)a2;
+- (id)_lockupPlaceholderForComponent:(id)a0;
+- (id)_imageConsumerWithItem:(id)a0 lockupSize:(long long)a1;
+- (id)_lockupImageForComponent:(id)a0;
+- (id)_newSizeToFitArtworkRequestWithArtwork:(id)a0 columnIndex:(long long)a1;
+
+@end

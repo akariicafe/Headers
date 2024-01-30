@@ -1,0 +1,94 @@
+@class NSString, CALayer, NSMutableDictionary, TSDTextureSet, TSDMetalShader, NSObject, NSMutableArray, TSUColor;
+@protocol MTLTexture, TSDLiveTexturedRectangleSource, OS_dispatch_semaphore;
+
+@interface TSDTexturedRectangle : NSObject <NSCopying> {
+    struct CGPoint { double x; double y; } mOffset;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } mOriginalFrame;
+    id /* block */ mRenderBlock;
+    struct CGImage { } *mSourceImage;
+    struct CGImage { } *mBakedImage;
+    unsigned int mSingleTextureName;
+    BOOL mSingleTextureContainsMipmaps;
+    NSObject<OS_dispatch_semaphore> *_liveMetalTexturesSemaphore;
+    id<TSDLiveTexturedRectangleSource> _liveTexturedRectangleSource;
+    TSDTexturedRectangle *_liveTexturedRectangleSourceProxy;
+    NSMutableArray *_liveMetalTexturePool;
+    unsigned long long _liveMetalTexturePoolIndex;
+    NSMutableDictionary *_liveMetalTextureToTimestamp;
+    NSMutableDictionary *_liveMetalTimestampToTexture;
+    TSDMetalShader *_liveTextureSourceShader;
+}
+
+@property (readonly, nonatomic) unsigned int singleTextureName;
+@property (readonly, nonatomic) unsigned int singleTextureTarget;
+@property (nonatomic) struct CGPoint { double x; double y; } originalPosition;
+@property (nonatomic) struct CGPoint { double x0; double x1; } offset;
+@property (readonly, nonatomic) struct CGSize { double width; double height; } size;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frame;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } contentRect;
+@property (weak, nonatomic) TSDTextureSet *parent;
+@property (readonly, nonatomic) CALayer *layer;
+@property (readonly, nonatomic) struct CGImage { } *image;
+@property (readonly, nonatomic) float opacityFromAttributes;
+@property (readonly, nonatomic) struct CATransform3D { double x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; double x11; double x12; double x13; double x14; double x15; } transformFromAttributes;
+@property (retain, nonatomic) NSMutableDictionary *attributes;
+@property (nonatomic) BOOL shouldUseDisplayLinkPresentationTime;
+@property (retain, nonatomic) NSMutableArray *tags;
+@property (nonatomic) int textureType;
+@property (nonatomic) double textureOpacity;
+@property (readonly, nonatomic) double singleTextureOpacity;
+@property (nonatomic) BOOL isFlattened;
+@property (nonatomic) struct CGColorSpace { } *colorSpace;
+@property (readonly, nonatomic) BOOL isRenderable;
+@property (readonly, nonatomic) double bakedScale;
+@property (readonly, nonatomic) BOOL isBackgroundTexture;
+@property (readonly, nonatomic) CALayer *parentLayer;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } frameOnCanvas;
+@property (nonatomic) BOOL shouldGenerateMipmap;
+@property (copy, nonatomic) TSUColor *backgroundColor;
+@property (nonatomic) BOOL isVerticalText;
+@property (nonatomic) double textBaseline;
+@property (nonatomic) double textXHeight;
+@property (copy, nonatomic) TSUColor *textColor;
+@property (copy, nonatomic) NSString *text;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } textRange;
+@property (readonly, nonatomic) id<MTLTexture> metalTexture;
+
++ (id)setupMetalShaderForContext:(id)a0;
+
+- (void)teardown;
+- (id)initWithLayer:(id)a0;
+- (id)initWithCGImage:(struct CGImage { } *)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+- (id)initWithSize:(struct CGSize { double x0; double x1; })a0 offset:(struct CGPoint { double x0; double x1; })a1 renderBlock:(id /* block */)a2;
+- (void)setupMetalTextureForDevice:(id)a0;
+- (void)releaseSingleTexture;
+- (struct CGColorSpace { } *)p_colorSpace;
+- (struct CGImage { } *)p_newImageAndBufferWithAngle:(double)a0 scale:(double)a1 offset:(struct CGPoint { double x0; double x1; })a2;
+- (void)resetToSourceImage;
+- (void)setupSingleTextureAndGenerateMipMaps:(BOOL)a0;
+- (void)setupSingleTexture;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundingRectForStage:(long long)a0 isBuildIn:(BOOL)a1;
+- (id)p_allocateMetalTextureForDevice:(id)a0;
+- (char *)p_setupTextureDataWithSize:(struct CGSize { double x0; double x1; })a0 isBGRA:(BOOL)a1;
+- (id)metalTextureWithContext:(id)a0;
+- (id)p_latestTextureNotAfterLayerTime:(double)a0;
+- (id)p_allocateMetalTextureForDevice:(id)a0 renderTarget:(BOOL)a1 writable:(BOOL)a2 private:(BOOL)a3 maxSize:(struct CGSize { double x0; double x1; })a4;
+- (struct CGSize { double x0; double x1; })p_textureSizeWithDevice:(id)a0 maxSize:(struct CGSize { double x0; double x1; })a1;
+- (id)initWithSize:(struct CGSize { double x0; double x1; })a0 image:(struct CGImage { } *)a1;
+- (void)adjustAnchorRelativeToParentsCenterOfRotation:(struct CGPoint { double x0; double x1; })a0 isMagicMove:(BOOL)a1;
+- (void)resetAnchorPoint;
+- (void)renderLayerContentsIfNeeded;
+- (void)bakeLayerWithAngle:(double)a0 scale:(double)a1;
+- (void)renderIntoContext:(struct CGContext { } *)a0;
+- (BOOL)isMetalTextureSetup;
+- (void)releaseMetalTexture;
+- (void)drawFrameAtLayerTime:(double)a0 context:(id)a1;
+- (void)setLiveTexturedRectangleSource:(id)a0;
+- (void)setLiveTexturedRectangleSourceProxy:(id)a0;
+- (BOOL)hasLiveTexturedRectangleSource;
+
+@end

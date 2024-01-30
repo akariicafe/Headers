@@ -1,0 +1,7 @@
+@interface FamilyControls.FamilyActivitySlot : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ activity;
+    void /* unknown type, empty encoding */ slotType;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_connection;
+}
+
+@end

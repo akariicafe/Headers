@@ -1,0 +1,3 @@
+@interface __SKUIProductPageInAppPurchaseTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,84 @@
+@class NSString, NSSet, NSMutableSet, NSData, NSObject;
+@protocol OS_dispatch_source;
+
+@interface ACCTransportIOAccessoryManager : ACCTransportIOAccessoryBase {
+    BOOL _allAccessoryInfoFieldsAreValid;
+}
+
+@property (retain, nonatomic) NSMutableSet *mutableioAccessoryChildPorts;
+@property (retain, nonatomic) NSMutableSet *mutableioAccessoryEAChildPorts;
+@property (retain, nonatomic) NSMutableSet *mutableioAccessoryAuthCPChildPorts;
+@property (retain, nonatomic) NSMutableSet *mutableioAccessoryOOBPairingChildPorts;
+@property (retain, nonatomic) NSMutableSet *mutableioAccessoryConfigStreamChildPorts;
+@property (nonatomic) int resistorID;
+@property (retain, nonatomic) NSString *deviceName;
+@property (retain, nonatomic) NSString *deviceVendorName;
+@property (retain, nonatomic) NSString *deviceModelNumber;
+@property (retain, nonatomic) NSString *deviceSerialNumber;
+@property (retain, nonatomic) NSString *deviceHardwareRevision;
+@property (retain, nonatomic) NSString *deviceFirmwareRevision;
+@property (retain, nonatomic) NSString *ppid;
+@property (retain, nonatomic) NSData *digitalID;
+@property (retain, nonatomic) NSString *regionCode;
+@property (readonly, nonatomic) BOOL bIsInductive;
+@property (readonly, nonatomic) BOOL bIsInductivePowerToAccessory;
+@property (readonly, nonatomic) BOOL bIsWatch;
+@property (readonly, nonatomic) NSSet *ioAccessoryChildPorts;
+@property (readonly, nonatomic) NSSet *eaProtocolChildPorts;
+@property (readonly, nonatomic) NSSet *authCPChildPorts;
+@property (readonly, nonatomic) NSSet *oobPairingChildPorts;
+@property (readonly, nonatomic) NSSet *configStreamChildPorts;
+@property (nonatomic) int accessoryPowerMode;
+@property (nonatomic) BOOL needsOOBPairing;
+@property (nonatomic) BOOL isAuthenticated;
+@property (nonatomic) BOOL isAuthTimedOut;
+@property (readonly, nonatomic) BOOL isRootPort;
+@property (readonly, nonatomic) int connectionType;
+@property (nonatomic) BOOL bAccConnected;
+@property (readonly, nonatomic) NSObject<OS_dispatch_source> *authTimerAccessory;
+@property (copy) NSString *connectionUUID;
+
+- (id)initWithIOService:(unsigned int)a0;
+- (unsigned int)accessoryChargingCurrentInmA;
+- (BOOL)isPowerDuringSleepSupported;
+- (void)_clearAccessoryInfo;
+- (void)_handlePowerChangeNotification;
+- (void)addIOAccessoryChildPort:(id)a0;
+- (int)_IOAccUSBModeTypeForSetUSBMode:(int)a0;
+- (int)USBCurrentLimitOffsetInmA;
+- (unsigned int)USBCurrentLimitBaseInmA;
+- (BOOL)setPowerDuringSleepEnabled:(BOOL)a0;
+- (BOOL)isPowerDuringSleepEnabled;
+- (void)transportClassTerminated;
+- (void)_handleResistorIDChangeNotification:(int)a0;
+- (void)_sendNotification:(id)a0;
+- (int)_connectionTypeForPrimaryPort;
+- (BOOL)setUSBCurrentOffset:(int)a0;
+- (unsigned int)USBChargingVoltageInmV;
+- (unsigned int)sleepPowerCurrentLimitInmA;
+- (BOOL)resetAccessoryBaseCurrent;
+- (BOOL)setUSBCurrentLimitBase:(unsigned int)a0;
+- (BOOL)setAccessoryRequestedCurrent:(unsigned int)a0;
+- (void)_stopAuthTimer;
+- (unsigned int)accessoryPowerModeCurrentLimitInmA:(int)a0;
+- (void).cxx_destruct;
+- (void)removeIOAccessoryChildPort:(id)a0;
+- (BOOL)isBatteryPackModeEnabled;
+- (BOOL)setAccessoryUsedCurrent:(unsigned int)a0;
+- (BOOL)supervisedTransportsRestricted;
+- (int)_ACCPlatformUSBModeForIOAccessoryUSBConnectType:(int)a0;
+- (id)_connectionUUIDsForNotification;
+- (int)cableType;
+- (void)_processAccessoryInfo;
+- (void)_registerForIOAccessoryManagerInterestNotifications;
+- (BOOL)setFeaturesFromAuthStatus:(int)a0 authCert:(id)a1;
+- (void)_handleBatteryPackNotification;
+- (void)dealloc;
+- (BOOL)setBatteryPackMode:(BOOL)a0;
+- (void)_pokeResistorID;
+- (BOOL)setUSBMode:(int)a0;
+- (void)_handleUSBCurrentLimitNotification;
+- (unsigned int)USBCurrentLimitInmA;
+- (int)getUSBMode;
+
+@end

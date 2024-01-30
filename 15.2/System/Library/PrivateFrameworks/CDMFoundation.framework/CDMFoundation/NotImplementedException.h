@@ -1,0 +1,3 @@
+@interface NotImplementedException : NSException
+
+@end

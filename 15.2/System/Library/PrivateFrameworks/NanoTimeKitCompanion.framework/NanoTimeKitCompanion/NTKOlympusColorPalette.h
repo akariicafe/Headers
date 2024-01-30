@@ -1,0 +1,73 @@
+@class UIColor, NSString;
+
+@interface NTKOlympusColorPalette : NTKFaceColorPalette <NTKOlympusColorPalette, NTKCircularAnalogDialColorPalette>
+
+@property (readonly, nonatomic) UIColor *logo;
+@property (readonly, nonatomic) UIColor *digits;
+@property (readonly, nonatomic) UIColor *darker;
+@property (readonly, nonatomic) UIColor *ticks;
+@property (readonly, nonatomic) UIColor *black;
+@property (readonly, nonatomic) UIColor *softBlack;
+@property (readonly, nonatomic) UIColor *softerBlack;
+@property (readonly, nonatomic) UIColor *orangeLogo;
+@property (nonatomic) unsigned long long style;
+@property (nonatomic) unsigned long long dial;
+@property (nonatomic) BOOL useSmallFont;
+@property (readonly, nonatomic) UIColor *primaryBackgroundColor;
+@property (readonly, nonatomic) UIColor *primaryTextColor;
+@property (readonly, nonatomic) UIColor *primaryOutlineTextColor;
+@property (readonly, nonatomic) UIColor *primaryLogoColor;
+@property (readonly, nonatomic) UIColor *largeHandsColor;
+@property (readonly, nonatomic) UIColor *secondHandColor;
+@property (readonly, nonatomic) UIColor *cornerComplicationsAccentColor;
+@property (readonly, nonatomic) UIColor *bezelComplicationColor;
+@property (readonly, nonatomic) UIColor *circularDialTickColor;
+@property (readonly, nonatomic) UIColor *circularDialSubtickColor;
+@property (readonly, nonatomic) UIColor *circularDialFillColor;
+@property (readonly, nonatomic) UIColor *secondaryBackgroundColor;
+@property (readonly, nonatomic) UIColor *secondaryTextColor;
+@property (readonly, nonatomic) UIColor *secondaryOutlineTextColor;
+@property (readonly, nonatomic) UIColor *secondaryLogoColor;
+@property (readonly, nonatomic) UIColor *customBlack;
+@property (readonly, nonatomic) UIColor *primaryColor;
+@property (readonly, nonatomic) UIColor *primaryShiftedColor;
+@property (readonly, nonatomic) UIColor *secondaryColor;
+@property (readonly, nonatomic) UIColor *secondaryShiftedColor;
+@property (readonly, nonatomic) UIColor *swatch;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL isMulticolorPalette;
+
+- (id)_digits;
+- (id)_logo;
+- (id)identifier;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)_primaryTextColor;
+- (id)_darker;
+- (id)colorForCircularTicksForMinute:(unsigned long long)a0;
+- (id)colorForCircularTicksForHour:(unsigned long long)a0;
+- (id)_secondHandColor;
+- (double)colorBrightness:(id)a0;
+- (id)_customBlack;
+- (id)_secondHandForColorName:(id)a0;
+- (id)mainColor;
+- (id)_primaryBackgroundColor;
+- (id)_primaryOutlineTextColor;
+- (id)_primaryLogoColor;
+- (id)_cornerComplicationsAccentColor;
+- (id)_largeHandsColor;
+- (id)_bezelComplicationColor;
+- (id)_circularDialTickColor;
+- (id)_circularDialSubtickColor;
+- (id)_circularDialFillColor;
+- (id)tritium_primaryBackgroundColor;
+- (id)tritium_secondaryBackgroundColor;
+- (id)tritium_primaryTextColor;
+- (id)tritium_secondaryTextColor;
+- (id)tritium_primaryOutlineTextColor;
+- (id)tritium_secondaryOutlineTextColor;
+
+@end

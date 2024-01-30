@@ -1,0 +1,86 @@
+@class NSString, MXCoreSession, NSDictionary;
+
+@interface MXSession : NSObject <MXSessionProtocol> {
+    unsigned long long mCoreSessionID;
+    NSString *mDescription;
+    unsigned long long mID;
+    int mClientType;
+    MXCoreSession *mCoreSession;
+    BOOL mIsMuted;
+    BOOL mIsPlaying;
+    BOOL mClientIsPlaying;
+    BOOL mAudioToolboxIsPlaying;
+    unsigned int mPreferredNumberOfOutputChannels;
+    double mPreferredOutputSampleRate;
+    NSString *mPreferredAudioHardwareFormat;
+    NSString *mMutePriority;
+    BOOL mIAmPiP;
+    BOOL mDoesntActuallyPlayAudio;
+    NSDictionary *mSourceFormatInfo;
+    NSString *mBestAvailableContentType;
+    NSDictionary *mCurrentlyPlayingSourceFormatInfo;
+    BOOL mCurrentlyPlayingContentIsEligibleForSpatialization;
+}
+
++ (int)updateIsPlaying:(id)a0;
++ (unsigned int)getResolvedPreferredNumberOfOutputChannels:(id)a0;
++ (int)updatePreferredAudioHardwareFormat:(id)a0 withMaxOutputChannels:(unsigned int)a1 andCalledFromDealloc:(BOOL)a2;
++ (BOOL)_isSessionMuted:(unsigned long long)a0;
++ (id)copyMXSessionForID:(unsigned long long)a0;
++ (int)updatePreferredNumberOfOutputChannels:(id)a0;
++ (BOOL)isCoreSessionFormatValidForMaxOutputChannels:(id)a0;
++ (int)updatePreferredOutputSampleRate:(id)a0;
++ (int)updateDoesntActuallyPlayAudio:(id)a0;
++ (BOOL)isSessionMuted:(unsigned long long)a0;
+
+- (int)setID:(unsigned long long)a0;
+- (void)unmute;
+- (void)_dealloc;
+- (int)setSourceFormatInfo:(id)a0;
+- (int)setIAmPiP:(BOOL)a0;
+- (void)mute;
+- (id)getPreferredAudioHardwareFormat;
+- (int)setIsPlaying:(BOOL)a0;
+- (id)initWithSession:(id)a0;
+- (int)setIsMuted:(BOOL)a0;
+- (BOOL)getActuallyPlaysAudio;
+- (id)getMutePriority;
+- (int)setPropertyForKey:(id)a0 value:(id)a1;
+- (int)_beginInterruptionWithSecTask:(struct __SecTask { } *)a0 flags:(long long)a1;
+- (int)setClientType:(int)a0;
+- (int)getClientType;
+- (int)_setPropertyForKey:(id)a0 value:(id)a1;
+- (unsigned int)getPreferredNumberOfOutputChannels;
+- (id)getCurrentlyPlayingSourceFormatInfo;
+- (int)resetIsPlayingStates;
+- (BOOL)getCurrentlyPlayingContentIsEligibleForSpatialization;
+- (int)setMutePriority:(id)a0;
+- (id)info;
+- (int)setCurrentlyPlayingSourceFormatInfo:(id)a0;
+- (id)_initWithSession:(struct opaqueCMSession { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; id x1; unsigned char x2; } *)a0;
+- (id)getSourceFormatInfo;
+- (BOOL)getIAmPiP;
+- (int)setPreferredOutputSampleRate:(double)a0;
+- (double)getPreferredOutputSampleRate;
+- (int)setDoesntActuallyPlayAudio:(BOOL)a0;
+- (int)_removeResourceWithToken:(struct OpaqueCMSessionResourceToken { } *)a0;
+- (int)setBestAvailableContentType:(id)a0;
+- (int)copyPropertyForKey:(id)a0 valueOut:(id *)a1;
+- (int)_addResource:(const struct __CFString { } *)a0 resourceInfo:(const struct __CFDictionary { } *)a1 token:(struct OpaqueCMSessionResourceToken **)a2;
+- (int)setCurrentlyPlayingContentIsEligibleForSpatialization:(BOOL)a0;
+- (id)getClientTypeAsString;
+- (id)getCoreSession;
+- (BOOL)getIsMuted;
+- (int)_endInterruptionWithSecTask:(struct __SecTask { } *)a0 interruptionStatus:(const struct __CFString { } *)a1;
+- (void)dealloc;
+- (unsigned long long)getID;
+- (void)dumpInfo;
+- (id)getBestAvailableContentType;
+- (void)postIsMutedDidChange;
+- (BOOL)getIsPlaying;
+- (int)_copyPropertyForKey:(id)a0 valueOut:(id *)a1;
+- (BOOL)getDoesntActuallyPlayAudio;
+- (int)setPreferredNumberOfOutputChannels:(unsigned int)a0;
+- (int)setPreferredAudioHardwareFormat:(id)a0;
+
+@end

@@ -1,0 +1,86 @@
+@class UIImageView, UIBarButtonItem, UILabel, UIVisualEffectView, UITapGestureRecognizer, UILongPressGestureRecognizer, NSString, CPUITransportControlView, UIActivityIndicatorView, CPUIPlayModeControlView, CPUINowPlayingView, NSOperationQueue, NSArray, UIImage;
+@protocol CPUINowPlayingViewControllerDataSource, CPUINowPlayingViewControllerDelegate;
+
+@interface CPUINowPlayingViewController : UIViewController <CPUIPlayModeControlViewDelegate> {
+    long long _heldAction;
+}
+
+@property (retain, nonatomic) CPUINowPlayingView *nowPlayingView;
+@property (retain, nonatomic) NSOperationQueue *artworkOperationQueue;
+@property (retain, nonatomic) UIVisualEffectView *artworkVisualEffectView;
+@property (retain, nonatomic) UIImage *artworkImage;
+@property (retain, nonatomic) UIImageView *artworkView;
+@property (retain, nonatomic) UILabel *rightTitleLabel;
+@property (retain, nonatomic) UIBarButtonItem *rightTitleLabelBarButtonItem;
+@property (retain, nonatomic) UIBarButtonItem *playbackQueueBarButtonItem;
+@property (retain, nonatomic) UIBarButtonItem *backButton;
+@property (retain, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (retain, nonatomic) UIBarButtonItem *activityIndicatorBarButtonItem;
+@property (readonly, nonatomic) UITapGestureRecognizer *knobPressRecognizer;
+@property (readonly, nonatomic) UITapGestureRecognizer *backPressRecognizer;
+@property (retain, nonatomic) UITapGestureRecognizer *leftNudgePressRecognizer;
+@property (retain, nonatomic) UITapGestureRecognizer *rightNudgePressRecognizer;
+@property (retain, nonatomic) UILongPressGestureRecognizer *leftNudgeLongPressRecognizer;
+@property (retain, nonatomic) UILongPressGestureRecognizer *rightNudgeLongPressRecognizer;
+@property (retain, nonatomic) UILongPressGestureRecognizer *leftButtonLongPressRecognizer;
+@property (retain, nonatomic) UILongPressGestureRecognizer *fastForwardButtonLongPressRecognizer;
+@property (retain, nonatomic) NSString *previousTransportButtonImageIdentifier;
+@property (retain, nonatomic) NSString *forwardTransportButtonImageIdentifier;
+@property (retain, nonatomic) NSString *playPauseTransportButtonImageIdentifier;
+@property (retain, nonatomic) NSArray *nowPlayingSizeConstraints;
+@property (weak, nonatomic) id<CPUINowPlayingViewControllerDataSource> dataSource;
+@property (weak, nonatomic) id<CPUINowPlayingViewControllerDelegate> delegate;
+@property (readonly, nonatomic) CPUITransportControlView *transportControlView;
+@property (readonly, nonatomic) CPUIPlayModeControlView *playModeControlView;
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)reloadData;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)pressesCancelled:(id)a0 withEvent:(id)a1;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)pressesChanged:(id)a0 withEvent:(id)a1;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)pressesEnded:(id)a0 withEvent:(id)a1;
+- (id)preferredFocusEnvironments;
+- (void)pressesBegan:(id)a0 withEvent:(id)a1;
+- (void)setRightTitle:(id)a0;
+- (id)initWithBundleIdentifier:(id)a0 dataSource:(id)a1 delegate:(id)a2;
+- (void)playModeControlView:(id)a0 didSelectButton:(id)a1;
+- (void)_albumArtistButtonTapped:(id)a0;
+- (void)_reloadDataForcingLayout:(BOOL)a0;
+- (id)_installedFullBackgroundArtworkViewBelowView:(id)a0;
+- (void)_adjustRightTitleLabelToFit;
+- (void)_leftNudgePress:(id)a0;
+- (void)_rightNudgePress:(id)a0;
+- (void)_leftButtonLongPress:(id)a0;
+- (void)_fastForwardButtonLongPress:(id)a0;
+- (void)_initializeTransportControls;
+- (void)_recalculateLayout:(BOOL)a0;
+- (void)_updateTransportControl:(id)a0 withDefaultImage:(id)a1 actionType:(long long)a2;
+- (void)_updatePlayModesState;
+- (void)_updateShuffleStateWithType:(long long)a0;
+- (void)_updateRepeatStateWithType:(long long)a0;
+- (void)_updatePlaybackRate;
+- (BOOL)_showsButtonSelectionsForTouch;
+- (void)_sendAction:(long long)a0 withState:(long long)a1;
+- (void)_respondToHeldAction;
+- (void)_sendHeldAction;
+- (void)_playPauseButtonTouchDown:(id)a0;
+- (void)_playPauseButtonTouchUp:(id)a0;
+- (void)_leftButtonTouchDown:(id)a0;
+- (void)_leftButtonTouchUp:(id)a0;
+- (void)_fastForwardButtonTouchDown:(id)a0;
+- (void)_fastForwardButtonTouchUp:(id)a0;
+- (void)upNextButtonTapped:(id)a0;
+- (void)_updateArtworkIfNeeded:(id)a0 placeholder:(id)a1;
+- (id)_upNextBarButtonItem;
+- (void)updatePlayControls;
+
+@end

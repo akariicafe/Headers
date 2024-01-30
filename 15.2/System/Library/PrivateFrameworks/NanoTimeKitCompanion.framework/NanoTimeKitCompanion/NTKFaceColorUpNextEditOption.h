@@ -1,0 +1,9 @@
+@interface NTKFaceColorUpNextEditOption : NTKFaceColorEditOption
+
++ (id)_orderedValuesForDevice:(id)a0;
++ (id)__orderedValuesForDevice:(id)a0;
++ (id)_snapshotKeyForValue:(unsigned long long)a0 forDevice:(id)a1;
+
+- (BOOL)optionExistsInDevice:(id)a0;
+
+@end

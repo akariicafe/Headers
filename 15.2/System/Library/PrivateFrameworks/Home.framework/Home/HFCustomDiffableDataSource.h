@@ -1,0 +1,22 @@
+@class NSArray, NSString, HFCustomDiffableDataSourceSnapshot;
+
+@interface HFCustomDiffableDataSource : NSObject <HFDiffableDataSource>
+
+@property (retain, nonatomic) HFCustomDiffableDataSourceSnapshot *snapshot;
+@property (retain, nonatomic) NSArray *sections;
+@property (copy, nonatomic) id /* block */ supplementaryViewProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)itemIdentifierForIndexPath:(id)a0;
+- (void)applySnapshot:(id)a0 animatingDifferences:(BOOL)a1 completion:(id /* block */)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (id)indexPathForItemIdentifier:(id)a0;
+- (unsigned long long)_sectionForItem:(id)a0 assertOnNotFound:(BOOL)a1;
+- (unsigned long long)_sectionForItem:(id)a0;
+- (id)_indexPathForItem:(id)a0 inDisplayedItemsArray:(id)a1;
+
+@end

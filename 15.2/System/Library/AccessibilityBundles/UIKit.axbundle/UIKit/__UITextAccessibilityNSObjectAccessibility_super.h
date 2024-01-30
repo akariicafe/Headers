@@ -1,0 +1,3 @@
+@interface __UITextAccessibilityNSObjectAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,103 @@
+@class NSUUID, NSString, NSArray, HKInspectableValueCollection, NSLocale, HKMedicalCodingCollection, HKConcept, HKMedicalDate, HKDiagnosticTestResultType, HKMedicalCoding;
+
+@interface HKDiagnosticTestResult : HKMedicalRecord <HKConceptIndexable, NSSecureCoding, NSCopying> {
+    HKMedicalCodingCollection *_diagnosticTestCodingCollection;
+    HKInspectableValueCollection *_value;
+    NSArray *_referenceRanges;
+    HKMedicalDate *_effectiveStartDate;
+    NSString *_category;
+    NSArray *_categoriesCodingCollections;
+    HKMedicalDate *_issueDate;
+    HKMedicalDate *_effectiveEndDate;
+    HKMedicalCoding *_statusCoding;
+    NSArray *_interpretationCodingCollections;
+    NSString *_comments;
+    HKMedicalCodingCollection *_bodySiteCodingCollection;
+    HKMedicalCodingCollection *_methodCodingCollection;
+    NSArray *_performers;
+    long long _referenceRangeStatus;
+    HKConcept *_diagnosticTest;
+    NSArray *_categories;
+    HKConcept *_status;
+    NSArray *_interpretation;
+    HKConcept *_bodySite;
+    HKConcept *_method;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) NSUUID *UUID;
+@property (readonly, copy, nonatomic) NSLocale *locale;
+@property (readonly, copy, nonatomic) NSString *country;
+@property (readonly, nonatomic) long long recordCategoryType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) HKDiagnosticTestResultType *diagnosticTestResultType;
+@property (readonly, copy) HKConcept *bodySite;
+@property (readonly, copy) HKMedicalCodingCollection *bodySiteCodingCollection;
+@property (readonly, copy) NSArray *categories;
+@property (readonly, copy) NSArray *categoriesCodingCollections;
+@property (readonly, copy) NSString *category;
+@property (readonly, copy) NSString *comments;
+@property (readonly, copy) HKConcept *diagnosticTest;
+@property (readonly, copy) HKMedicalCodingCollection *diagnosticTestCodingCollection;
+@property (readonly, copy) HKMedicalDate *effectiveEndDate;
+@property (readonly, copy) HKMedicalDate *effectiveStartDate;
+@property (readonly, copy) NSArray *interpretation;
+@property (readonly, copy) NSArray *interpretationCodingCollections;
+@property (readonly, copy) HKMedicalDate *issueDate;
+@property (readonly, copy) HKConcept *method;
+@property (readonly, copy) HKMedicalCodingCollection *methodCodingCollection;
+@property (readonly, copy) NSArray *performers;
+@property (readonly, copy) NSArray *referenceRanges;
+@property (readonly) long long referenceRangeStatus;
+@property (readonly, copy) HKConcept *status;
+@property (readonly, copy) HKMedicalCoding *statusCoding;
+@property (readonly, copy) HKInspectableValueCollection *value;
+
++ (id)diagnosticTestResultWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 diagnosticTestCodingCollection:(id)a12 value:(id)a13 referenceRanges:(id)a14 effectiveStartDate:(id)a15 category:(id)a16 categoriesCodingCollections:(id)a17 issueDate:(id)a18 effectiveEndDate:(id)a19 statusCoding:(id)a20 interpretationCodingCollections:(id)a21 comments:(id)a22 bodySiteCodingCollection:(id)a23 methodCodingCollection:(id)a24 performers:(id)a25 referenceRangeStatus:(long long)a26;
++ (id)_newDiagnosticTestResultWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 sortDate:(id)a9 country:(id)a10 state:(unsigned long long)a11 diagnosticTestCodingCollection:(id)a12 value:(id)a13 referenceRanges:(id)a14 effectiveStartDate:(id)a15 category:(id)a16 categoriesCodingCollections:(id)a17 issueDate:(id)a18 effectiveEndDate:(id)a19 statusCoding:(id)a20 interpretationCodingCollections:(id)a21 comments:(id)a22 bodySiteCodingCollection:(id)a23 methodCodingCollection:(id)a24 performers:(id)a25 referenceRangeStatus:(long long)a26 config:(id /* block */)a27;
++ (id)diagnosticTestResultWithType:(id)a0 note:(id)a1 enteredInError:(BOOL)a2 modifiedDate:(id)a3 originIdentifier:(id)a4 locale:(id)a5 extractionVersion:(long long)a6 device:(id)a7 metadata:(id)a8 country:(id)a9 state:(unsigned long long)a10 diagnosticTestCodingCollection:(id)a11 value:(id)a12 referenceRanges:(id)a13 effectiveStartDate:(id)a14 category:(id)a15 categoriesCodingCollections:(id)a16 issueDate:(id)a17 effectiveEndDate:(id)a18 statusCoding:(id)a19 interpretationCodingCollections:(id)a20 comments:(id)a21 bodySiteCodingCollection:(id)a22 methodCodingCollection:(id)a23 performers:(id)a24 referenceRangeStatus:(long long)a25;
++ (BOOL)supportsEquivalence;
++ (BOOL)_isConcreteObjectClass;
++ (id)indexableConceptKeyPaths;
++ (id)cachedConceptRelationshipKeyPaths;
++ (BOOL)groupsByUserDomainConcept;
++ (id)defaultDisplayString;
+
+- (void)_setValue:(id)a0;
+- (void)_setDiagnosticTestCodingCollection:(id)a0;
+- (void)_setReferenceRanges:(id)a0;
+- (void)_setIssueDate:(id)a0;
+- (void)_setEffectiveStartDate:(id)a0;
+- (void)_setCategoriesCodingCollections:(id)a0;
+- (void)_setEffectiveEndDate:(id)a0;
+- (void)_setInterpretationCodingCollections:(id)a0;
+- (void)_setComments:(id)a0;
+- (void)_setBodySiteCodingCollection:(id)a0;
+- (void)_setMethodCodingCollection:(id)a0;
+- (void)_setPerformers:(id)a0;
+- (void)_setReferenceRangeStatus:(long long)a0;
+- (void)_setInterpretation:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void)_setStatus:(id)a0;
+- (BOOL)isEquivalent:(id)a0;
+- (id)_validateWithConfiguration:(struct HKObjectValidationConfiguration { unsigned long long x0; unsigned int x1; })a0;
+- (id)codingsForKeyPath:(id)a0 error:(id *)a1;
+- (BOOL)applyConcepts:(id)a0 forKeyPath:(id)a1 error:(id *)a2;
+- (void).cxx_destruct;
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (id)statusCodingCollection;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)_setStatusCoding:(id)a0;
+- (void)_setBodySite:(id)a0;
+- (void)_setCategory:(id)a0;
+- (void)_setDiagnosticTest:(id)a0;
+- (void)_setCategories:(id)a0;
+- (id)medicalRecordCodings;
+- (void)_setMethod:(id)a0;
+
+@end

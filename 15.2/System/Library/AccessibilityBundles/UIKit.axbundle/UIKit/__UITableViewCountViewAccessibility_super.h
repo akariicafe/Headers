@@ -1,0 +1,3 @@
+@interface __UITableViewCountViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

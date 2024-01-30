@@ -1,0 +1,13 @@
+@class __end_cap_, __end_;
+
+@interface WFAdaptiveLayoutComponent : CKComponent {
+    struct vector<CKComponent *, std::allocator<CKComponent *>> { __end_ **__begin_; __end_cap_ **x0; struct __compressed_pair<CKComponent *__strong *, std::allocator<CKComponent *>> { id *__value_; } x1; } _children;
+}
+
++ (id)newWithChildren:(const void *)a0 size:(const struct CKComponentSize { struct CKRelativeDimension { int x0; double x1; } x0; struct CKRelativeDimension { int x0; double x1; } x1; struct CKRelativeDimension { int x0; double x1; } x2; struct CKRelativeDimension { int x0; double x1; } x3; struct CKRelativeDimension { int x0; double x1; } x4; struct CKRelativeDimension { int x0; double x1; } x5; } *)a1;
+
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (struct CKComponentLayout { id x0; struct CGSize { double x0; double x1; } x1; struct shared_ptr<const std::vector<CKComponentLayoutChild>> { void *x0; struct __shared_weak_count *x1; } x2; id x3; })computeLayoutThatFits:(struct CKSizeRange { struct CGSize { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+
+@end

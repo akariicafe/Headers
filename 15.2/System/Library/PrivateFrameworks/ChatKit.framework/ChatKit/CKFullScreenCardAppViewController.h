@@ -1,0 +1,84 @@
+@class NSData, NSString, NSArray, CKBrowserDragManager, UIView, CKDismissView, IMBalloonPlugin, CKConversation, NSObject, UIViewController, IMBalloonPluginDataSource, NSNumber;
+@protocol UIViewControllerTransitioningDelegate, CKBrowserViewControllerProtocol, CKExpandedAppViewControllerDelegate, CKBrowserViewControllerSendDelegate;
+
+@interface CKFullScreenCardAppViewController : UIViewController <CKBrowserViewControllerProtocol, UIGestureRecognizerDelegate, UIAdaptivePresentationControllerDelegate, CKExpandedAppViewControllerProtocol> {
+    BOOL _shouldDisableSnapshotView;
+}
+
+@property (retain, nonatomic) UIViewController *presentationViewController;
+@property (weak, nonatomic) NSObject<CKBrowserViewControllerSendDelegate> *sendDelegate;
+@property (readonly, nonatomic) IMBalloonPlugin *balloonPlugin;
+@property (retain, nonatomic) IMBalloonPluginDataSource *balloonPluginDataSource;
+@property (nonatomic) BOOL isiMessage;
+@property (nonatomic) NSString *conversationID;
+@property (readonly, nonatomic) BOOL wantsDarkUI;
+@property (readonly, nonatomic) BOOL wantsOpaqueUI;
+@property (readonly, nonatomic) BOOL supportsQuickView;
+@property (readonly, nonatomic) BOOL shouldSuppressEntryView;
+@property (nonatomic) BOOL isPrimaryViewController;
+@property (readonly, nonatomic, getter=isDismissing) BOOL dismissing;
+@property (readonly, nonatomic) BOOL mayBeKeptInViewHierarchy;
+@property (readonly, nonatomic) long long browserPresentationStyle;
+@property (readonly, nonatomic) BOOL shouldShowChatChrome;
+@property (readonly, nonatomic) BOOL inExpandedPresentation;
+@property (readonly, nonatomic) BOOL inFullScreenModalPresentation;
+@property (retain, nonatomic) NSString *sender;
+@property (retain, nonatomic) NSArray *recipients;
+@property (readonly, nonatomic) BOOL wasExpandedPresentation;
+@property (retain, nonatomic) NSData *conversationEngramID;
+@property (readonly, nonatomic) unsigned long long badgeValue;
+@property (readonly, nonatomic) CKBrowserDragManager *browserDragManager;
+@property (nonatomic) long long currentBrowserConsumer;
+@property (readonly, nonatomic) UIViewController *remoteViewController;
+@property (nonatomic) BOOL shouldDisableSnapshotView;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } horizontalSwipeExclusionRect;
+@property (readonly, nonatomic) BOOL canReplaceDataSource;
+@property (retain, nonatomic) NSNumber *adamID;
+@property (readonly, nonatomic) long long parentModalPresentationStyle;
+@property (readonly, weak, nonatomic) id<UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) UIView *contentView;
+@property (retain, nonatomic) CKDismissView *dismissView;
+@property (nonatomic) BOOL inTransition;
+@property (retain, nonatomic) CKConversation *conversation;
+@property (nonatomic) long long lastKnownDeviceOrientation;
+@property (readonly, weak, nonatomic) id<UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *contentViewController;
+@property (weak, nonatomic) id<CKExpandedAppViewControllerDelegate> delegate;
+
+- (long long)preferredStatusBarStyle;
+- (id)inputAccessoryView;
+- (void)_updateDimmingViewAlpha;
+- (BOOL)isLoaded;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)initWithConversation:(id)a0 plugin:(id)a1;
+- (void)viewDidLayoutSubviews;
+- (id)initWithBalloonPlugin:(id)a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (id)initWithBalloonPlugin:(id)a0 dataSource:(id)a1;
+- (void)dismiss;
+- (void)willMoveToParentViewController:(id)a0;
+- (void)_handleRemoteConnectionInterrupted:(id)a0;
+- (BOOL)_currentPluginIsJellyfish;
+- (void)loadView;
+- (BOOL)_shouldShowDimmingView;
+- (void)animateBrowserViewFromSourceRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 interactive:(BOOL)a1 grabberView:(id)a2 completion:(id /* block */)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })finalContentViewFrame;
+- (void)animateBrowserViewToTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 grabberView:(id)a1 completion:(id /* block */)a2;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)canBecomeFirstResponder;
+- (long long)adaptivePresentationStyleForPresentationController:(id)a0 traitCollection:(id)a1;
+- (void)dealloc;
+- (BOOL)shouldAutorotate;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+
+@end

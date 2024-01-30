@@ -1,0 +1,92 @@
+@class NSDictionary, CUICatalog, CUINamedLookup;
+
+@interface CUINamedVectorGlyph : CUINamedLookup {
+    double _pointSize;
+    double _lookedupScaleFactor;
+    struct CGImage { } *_cgImageRef;
+    double _fontMatchingScaleFactor;
+    CUICatalog *_catalog;
+    long long _layoutDirection;
+    unsigned char _generatedImage : 1;
+    unsigned char _flippable : 1;
+    unsigned char _canUsePathConcatenation : 1;
+    long long _glyphSize;
+    long long _glyphWeight;
+    CUINamedLookup *_ultralightInterpolationSource;
+    CUINamedLookup *_blackInterpolationSource;
+    struct CGPath { } *_templatePath;
+    NSDictionary *_multicolorPaths;
+    NSDictionary *_hierarchicalPaths;
+}
+
+@property (nonatomic) double fontMatchingScaleFactor;
+@property (readonly, nonatomic) double baselineOffset;
+@property (readonly, nonatomic) double capHeight;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentRect;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } contentBounds;
+@property (readonly, nonatomic) BOOL isFlippable;
+@property (readonly, nonatomic) float templateVersion;
+@property (readonly, nonatomic) double baselineOffsetUnrounded;
+@property (readonly, nonatomic) double capHeightUnrounded;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } contentBoundsUnrounded;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } alignmentRectUnrounded;
+
++ (id)_knockoutStyleNames;
++ (id)_colorStyleNames;
++ (id)_layerHierarchyStyleNames;
+
+- (const struct CGPath { } *)CGPath;
+- (double)pointSize;
+- (struct CGImage { } *)rasterizeImageUsingScaleFactor:(double)a0 forTargetSize:(struct CGSize { double x0; double x1; })a1 withHierarchyColorResolver:(id /* block */)a2;
+- (long long)layoutDirection;
+- (void)drawInContext:(struct CGContext { } *)a0;
+- (struct CGImage { } *)rasterizeImageUsingScaleFactor:(double)a0 forTargetSize:(struct CGSize { double x0; double x1; })a1 withColorResolver:(id /* block */)a2;
+- (struct CGImage { } *)rasterizeImageUsingScaleFactor:(double)a0 forTargetSize:(struct CGSize { double x0; double x1; })a1 withPaletteColors:(id)a2;
+- (double)referencePointSize;
+- (long long)glyphSize;
+- (struct CGImage { } *)imageWithHierarchyColorResolver:(id /* block */)a0;
+- (struct CGImage { } *)imageWithPaletteColors:(id)a0;
+- (id)hierarchyLayers;
+- (void)drawMulticolorLayerAtIndex:(unsigned long long)a0 inContext:(struct CGContext { } *)a1 withColorResolver:(id /* block */)a2;
+- (unsigned long long)numberOfMulticolorLayers;
+- (void)drawHierarchyLayerAtIndex:(unsigned long long)a0 inContext:(struct CGContext { } *)a1 withColorResolver:(id /* block */)a2;
+- (struct CGImage { } *)rasterizeImageUsingScaleFactor:(double)a0 forTargetSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_lookupCatalogImageForIdiom:(long long)a0;
+- (id)knownAvailableVectorSizes;
+- (void)setRepresentsOnDemandContent:(BOOL)a0;
+- (double)_interpolatedBaselineOffsetWithWeight:(long long)a0 glyphSize:(long long)a1 fromUltralight:(double)a2 regular:(double)a3 black:(double)a4;
+- (double)_requestedPointSizeRatio;
+- (struct CGSize { double x0; double x1; })referenceCanvasSize;
+- (struct CGPath { } *)_referencePathForTemplateMode;
+- (double)_interpolatedCapHeightWithWeight:(long long)a0 glyphSize:(long long)a1 fromUltralight:(double)a2 regular:(double)a3 black:(double)a4;
+- (struct CGSize { double x0; double x1; })_interpolatedCanvasSizeWithWeight:(long long)a0 glyphSize:(long long)a1 fromUltralight:(struct CGSize { double x0; double x1; })a2 regular:(struct CGSize { double x0; double x1; })a3 black:(struct CGSize { double x0; double x1; })a4;
+- (id)_referencePathsForMulticolorMode;
+- (struct { double x0; double x1; double x2; double x3; })_interpolatedAlignmentRectInsetsWithWeight:(long long)a0 glyphSize:(long long)a1 fromUltralight:(struct { double x0; double x1; double x2; double x3; })a2 regular:(struct { double x0; double x1; double x2; double x3; })a3 black:(struct { double x0; double x1; double x2; double x3; })a4;
+- (void)_drawMulticolorLayerNamed:(id)a0 inContext:(struct CGContext { } *)a1 colorResolver:(id /* block */)a2;
+- (id)colorNameForRenderingStyle:(id)a0;
+- (id)_referencePathsForHierarchicalMode;
+- (void)_drawHierarchicalLayerNamed:(id)a0 inContext:(struct CGContext { } *)a1 colorResolver:(id /* block */)a2;
+- (id)_stylePrefixForRenderingMode:(int)a0;
+- (void)_drawMulticolorLayersInContext:(struct CGContext { } *)a0 scaleFactor:(double)a1 targetSize:(struct CGSize { double x0; double x1; })a2 colorResolver:(id /* block */)a3;
+- (void)_drawHierarchicalLayersInContext:(struct CGContext { } *)a0 scaleFactor:(double)a1 targetSize:(struct CGSize { double x0; double x1; })a2 colorResolver:(id /* block */)a3;
+- (id)_layersForRenderingMode:(int)a0 inRendition:(id)a1;
+- (struct CGSVGDocument { } *)referenceGlyph;
+- (BOOL)generatedImage;
+- (double)scale;
+- (struct CGPath { } *)_interpolatedPathWithWeight:(long long)a0 glyphSize:(long long)a1 fromUltralightSmall:(struct CGPath { } *)a2 regularSmall:(struct CGPath { } *)a3 blackSmall:(struct CGPath { } *)a4;
+- (id)intWithName:(id)a0 scaleFactor:(double)a1 deviceIdiom:(long long)a2 pointSize:(double)a3 weight:(long long)a4 glyphSize:(long long)a5 interpolatedFromRegular:(id)a6 ultralight:(id)a7 black:(id)a8 fromCatalog:(id)a9 themeRef:(unsigned long long)a10;
+- (id)initWithName:(id)a0 scaleFactor:(double)a1 deviceIdiom:(long long)a2 pointSize:(double)a3 fromCatalog:(id)a4 usingRenditionKey:(id)a5 fromTheme:(unsigned long long)a6;
+- (id)makeLayerWithColorResolver:(id /* block */)a0;
+- (id)multicolorColorNames;
+- (void)drawInContext:(struct CGContext { } *)a0 withPaletteColors:(id)a1;
+- (BOOL)containsNamedColorStyle:(id)a0;
+- (void).cxx_destruct;
+- (unsigned long long)numberOfHierarchyLayers;
+- (long long)glyphWeight;
+- (struct CGImage { } *)image;
+- (void)dealloc;
+- (BOOL)containsNamedColorStyles;
+- (id)debugDescription;
+- (struct CGImage { } *)imageWithColorResolver:(id /* block */)a0;
+
+@end

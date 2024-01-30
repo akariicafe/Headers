@@ -1,0 +1,3 @@
+@interface __MFComposeStyleSelectorButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

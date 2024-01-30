@@ -1,0 +1,83 @@
+@class CKDDirectoryContext, NSString, NSMutableDictionary, NSMutableSet, CKDMMCS, CKSQLite;
+
+@interface CKDAssetCache : NSObject
+
+@property (readonly, nonatomic) NSString *applicationBundleID;
+@property (retain, nonatomic) CKDDirectoryContext *directoryContext;
+@property (nonatomic) int fileDownloadDirectoryFd;
+@property BOOL isEvictionScheduled;
+@property BOOL didDrop;
+@property (nonatomic) long long checkoutCount;
+@property (retain, nonatomic) NSMutableDictionary *volumeUUIDByVolumeIndex;
+@property (retain, nonatomic) NSMutableDictionary *volumeIndexByVolumeUUID;
+@property (retain, nonatomic) NSMutableSet *deferredDeletedAssetHandles;
+@property (retain, nonatomic) NSMutableDictionary *deferredLastUsedTimeByTrackingUUID;
+@property (weak, nonatomic) CKDMMCS *MMCS;
+@property (readonly, nonatomic) CKSQLite *sqlite;
+@property (readonly, nonatomic) BOOL hasMigrated;
+@property (readonly, nonatomic) NSString *fileDownloadPath;
+
++ (id)_sharedCachesByDirectory;
++ (id)_sharedCachesQueue;
++ (void)registerExpirationForAssetHandles;
++ (id)assetCacheWithApplicationBundleID:(id)a0 directoryContext:(id)a1 didInit:(BOOL *)a2 error:(id *)a3;
++ (int)openFdForDownloadPath:(id)a0 error:(id *)a1;
+
+- (void)showAssetCache;
+- (unsigned long long)countAssetCacheItems;
+- (void)drop;
+- (void)forgetVolumeUUID:(id)a0;
+- (id)_initWithApplicationBundleID:(id)a0 directoryContext:(id)a1 error:(id *)a2;
+- (void)scheduleUnregisterItemsAndDeleteUnregisteredAssetHandlesWithIDs:(id)a0 deleteUnregisteredAssetHandlesWithIDs:(id)a1 completionBlock:(id /* block */)a2;
+- (void)_deleteAssetHandlesAndUnregisterItemsForUnmountedAssetVolumes;
+- (void)_scheduleEvictionForDownloadedFiles;
+- (id)deviceIDForVolumeIndex:(id)a0;
+- (id)trackDownloadedData:(id)a0 signature:(id)a1 error:(id *)a2;
+- (id)existingOrNewVolumeIndexForDeviceID:(id)a0;
+- (unsigned long long)_evictDownloadedFilesWithEvictionInfo:(id)a0;
+- (id)trackDownloadedMMCSItems:(id)a0 error:(id *)a1;
+- (void)serialize:(id /* block */)a0;
+- (BOOL)startTrackingRegisterOrPutAssetHandles:(id)a0 operationType:(long long)a1 error:(id *)a2;
+- (void)scheduleUnregisterItemsAndDeleteUnregisteredAssetHandlesWithIDs:(id)a0;
+- (id)updateAssetHandlesForChunkedMMCSItems:(id)a0 error:(id *)a1;
+- (void)_performExpirationForAssetHandles;
+- (unsigned long long)predictedEvictedSizeForAllFilesForced:(BOOL)a0;
+- (id)_saveData:(id)a0 error:(id *)a1;
+- (id)findAssetHandleForItemID:(unsigned long long)a0 error:(id *)a1;
+- (void)deferredUpdateLastTimeUsedForUUID:(id)a0;
+- (void)clearAssetCache;
+- (id)volumeUUIDWithVolumeIndex:(id)a0;
+- (BOOL)parseCachedPath:(id)a0 assetHandleUUIDString:(id *)a1 assetSignatureString:(id *)a2;
+- (void).cxx_destruct;
+- (BOOL)updateAssetHandlesForGetMMCSItems:(id)a0 error:(id *)a1;
+- (id)_performUnregisterItemsAndDeleteUnregisteredAssetHandlesWithIDs:(id)a0 deleteUnregisteredAssetHandlesWithIDs:(id)a1;
+- (void)unregisterDeferredItemIDs:(id)a0 andDeleteAssetHandles:(id)a1;
+- (id)existingOrNewVolumeIndexForVolumeUUID:(id)a0;
+- (id)_getAssetHandlesForCachedButNotRegisteredMMCSItems:(id)a0 error:(id *)a1;
+- (void)registerForCacheExpiration;
+- (unsigned long long)_evictAllFilesForced:(BOOL)a0;
+- (void)setupPersistentStateAtStartup;
+- (BOOL)startTrackingGetAssetHandles:(id)a0 operationType:(long long)a1 error:(id *)a2;
+- (void)_resetAssetInflight;
+- (void)_expireAssetHandlesWithGroup:(id)a0;
+- (void)checkAssetHandlesForRegisteredMMCSItems:(id)a0;
+- (void)expireAssetHandlesIfNecessaryWithGroup:(id)a0;
+- (id)assetHandleWithCachedPath:(id)a0;
+- (id)trackCachedButNotRegisteredMMCSItems:(id)a0 error:(id *)a1;
+- (void)scheduleUnregisterItemIDsAndDeleteAssetHandlesWithEvictionInfo:(id)a0 completionBlock:(id /* block */)a1;
+- (void)_expireAssetHandlesWithExpiryDate:(id)a0 group:(id)a1;
+- (unsigned long long)_evictWithEvictionInfo:(id)a0;
+- (BOOL)updateAssetHandlesForPutMMCSItems:(id)a0 error:(id *)a1;
+- (void)dealloc;
+- (void)deferredStopTrackingAssetHandlesByItemIDs:(id)a0;
+- (unsigned long long)clearForced:(BOOL)a0;
+- (BOOL)parseCachedPath:(id)a0 assetHandleUUID:(id *)a1 assetSignature:(id *)a2;
+- (id)updateAssetHandlesForRegisteredMMCSItems:(id)a0 error:(id *)a1;
+- (void)stopTrackingAssetHandlesByItemIDs:(id)a0;
+- (id)_getAssetHandlesForDownloadedMMCSItems:(id)a0 error:(id *)a1;
+- (void)updateDeferredLastAccessTimeForUUIDs;
+- (void)_setVolumeIndex:(id)a0 forVolumeUUID:(id)a1;
+- (unsigned long long)evictAllFilesForced:(BOOL)a0;
+- (void)serialize_async:(id /* block */)a0;
+
+@end

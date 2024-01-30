@@ -1,0 +1,3 @@
+@interface PXMemoriesDataSource : PXSectionedDataSource
+
+@end

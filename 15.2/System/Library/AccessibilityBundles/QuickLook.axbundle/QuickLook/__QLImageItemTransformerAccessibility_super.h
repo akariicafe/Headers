@@ -1,0 +1,3 @@
+@interface __QLImageItemTransformerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

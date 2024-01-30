@@ -1,0 +1,21 @@
+@class CPAlertTemplate, NSArray, NSString;
+
+@interface CPSFullScreenAlertViewController : CPSBaseTemplateViewController <CPSButtonDelegate>
+
+@property (readonly, nonatomic) CPAlertTemplate *alert;
+@property (retain, nonatomic) NSArray *alertButtons;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewWillAppear:(BOOL)a0;
+- (id)_titleFont;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)preferredFocusEnvironments;
+- (void)didSelectButton:(id)a0;
+- (void)_viewDidLoad;
+- (id)initWithAlert:(id)a0 alertDelegate:(id)a1 templateEnvironment:(id)a2;
+
+@end

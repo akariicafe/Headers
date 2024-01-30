@@ -1,0 +1,82 @@
+@class PKTextInputCanvasController, PKDrawing, NSMutableArray, PKTextInputHandwritingShot, PKTextInputElementsController, NSString, PKTextInputReserveSpaceController, PKTextInputFeedbackController, PKTextInputWritingSession, PKTextInputRecognitionManager, PKTextInputCursorController, PKTextInputResultCommand, PKTextInputTargetState, PKTextInputDebugLogController, NSUUID;
+@protocol PKTextInputHandwritingControllerDelegate;
+
+@interface PKTextInputHandwritingController : NSObject <PKTextInputHandwritingShotDelegate, PKTextInputResultCommandDelegate, PKTextInputWritingSessionDelegate, PKTextInputCanvasControllerChangeObserver, PKTextInputDebugStateReporting>
+
+@property (readonly, nonatomic) PKTextInputRecognitionManager *debugRecognitionManager;
+@property (readonly, nonatomic) PKTextInputTargetState *debugActiveInputTargetState;
+@property (retain, nonatomic) PKTextInputRecognitionManager *_recognitionManager;
+@property (retain, nonatomic, setter=_setWritingSession:) PKTextInputWritingSession *_writingSession;
+@property (retain, nonatomic, setter=_setActiveHandwritingShot:) PKTextInputHandwritingShot *_activeHandwritingShot;
+@property (retain, nonatomic, setter=_setPossibleHandwritingShot:) PKTextInputHandwritingShot *_possibleHandwritingShot;
+@property (retain, nonatomic, setter=_setActiveResultCommand:) PKTextInputResultCommand *_activeResultCommand;
+@property (readonly, nonatomic) NSMutableArray *_resultCommandsQueue;
+@property (nonatomic) double _lastInProgressStrokeUpdateTime;
+@property (copy, nonatomic) NSUUID *_lastInProgressStrokeUUID;
+@property (copy, nonatomic, setter=_setLastKnownDrawing:) PKDrawing *_lastKnownDrawing;
+@property (retain, nonatomic, setter=_setActiveInputTargetState:) PKTextInputTargetState *_activeInputTargetState;
+@property (nonatomic) double _floatingBackgroundLastUpdateTime;
+@property (weak, nonatomic) id<PKTextInputHandwritingControllerDelegate> delegate;
+@property (readonly, nonatomic) PKTextInputCanvasController *canvasController;
+@property (readonly, nonatomic) PKTextInputElementsController *elementsController;
+@property (readonly, nonatomic) PKTextInputFeedbackController *feedbackController;
+@property (readonly, nonatomic) PKTextInputReserveSpaceController *reserveSpaceController;
+@property (readonly, nonatomic) PKTextInputDebugLogController *debugLogController;
+@property (readonly, nonatomic) PKTextInputCursorController *cursorController;
+@property (readonly, nonatomic) long long writingState;
+@property (readonly, nonatomic) double strokeAlphaOverride;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_isCorrectionResultGesture:(id)a0;
+
+- (void).cxx_destruct;
+- (void)reportDebugStateDescription:(id /* block */)a0;
+- (id)initWithCanvasController:(id)a0 elementsController:(id)a1 feedbackController:(id)a2 reserveSpaceController:(id)a3 debugLogController:(id)a4 cursorController:(id)a5;
+- (void)canvasControllerDidEndDrawing:(id)a0;
+- (void)canvasControllerInProgressStrokeDidChange:(id)a0;
+- (void)canvasControllerDidCancelStroke:(id)a0 strokeAcceptanceState:(long long)a1;
+- (void)canvasControllerEndedStroke:(id)a0;
+- (void)canvasController:(id)a0 drawingDidChange:(id)a1;
+- (void)reserveSpaceControllerIsActiveChanged;
+- (void)reserveSpaceControllerWillFocusElement:(id)a0;
+- (void)canvasControllerDidBeginDrawing:(id)a0;
+- (void)cleanUpFromCancelledReplay;
+- (void)handwritingShotDidChangeState:(id)a0;
+- (void)handwritingShot:(id)a0 willFocusAndLoadDataForTargetElement:(id)a1;
+- (void)handwritingShotDidOverrideStrongCursor:(id)a0;
+- (id)handwritingShotStrokeIdentifiersToExcludeFromRecognition:(id)a0;
+- (id)handwritingShot:(id)a0 preferredTargetElementForQueryItemStableIdentifier:(id)a1 simultaneousItemStableIdentifiers:(id)a2 proposedTargetElement:(id)a3;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })handwritingShot:(id)a0 inProgressGestureInitialSelectedRangeForElementRecognitionIdentifier:(id)a1;
+- (long long)handwritingShot:(id)a0 lastCharacterLevelPositionForElementRecognitionIdentifier:(id)a1;
+- (BOOL)handwritingShot:(id)a0 hasCommittedResultsInSessionToElementRecognitionIdentifier:(id)a1;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })handwritingShot:(id)a0 activePreviewRangeForElementRecognitionIdentifier:(id)a1 queryItemStableIdentifier:(id)a2;
+- (BOOL)handwritingShot:(id)a0 shouldSuppressGesturesForStrokesBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 coordinateSpace:(id)a2;
+- (BOOL)writingSession:(id)a0 elementHasPendingOperations:(id)a1;
+- (id)resultCommandSupportedElementDelegate:(id)a0;
+- (id)resultCommandCanvasController:(id)a0;
+- (id)resultCommandCursorController:(id)a0;
+- (id)resultCommandFeedbackController:(id)a0;
+- (void)resultCommandStateDidChange:(id)a0;
+- (void)_updateWritingSession;
+- (void)_notifyDelegateOfResultCommandState;
+- (void)_updateFloatingBackground;
+- (void)_updateStrokeAlphaOverride;
+- (void)_scheduleCommitForResultCommandIfNeeded:(id)a0;
+- (void)_evaluateAndProcessResultCommandsQueue;
+- (void)_processPossibleShotIfReady;
+- (id)_pendingResultCommand;
+- (void)_handleResultCommandFinished:(id)a0;
+- (void)_updateRecognitionManager;
+- (void)_cancelPendingResultCommand;
+- (id)_resultCommandToProcessQueryItem:(id)a0 handwritingShot:(id)a1;
+- (long long)_immediateCommitTypeForQueryItem:(id)a0 handwritingShot:(id)a1;
+- (void)_handleActiveHandwritingShotRecognitionFinished;
+- (BOOL)_wantsFloatingBackground;
+- (void)_createPossibleHandwritingShotIfNeeded;
+- (double)_continuousRecognitionInterval;
+- (void)_cancelInProgressStrokeFromHandwritingShots;
+
+@end

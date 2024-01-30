@@ -1,0 +1,3 @@
+@interface STAlarmAction : STSiriModelObject
+
+@end

@@ -1,0 +1,3 @@
+@interface UNUtilities : NSObject
+
+@end

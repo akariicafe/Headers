@@ -1,0 +1,3 @@
+@interface __SKUIStandardInteractiveSegmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

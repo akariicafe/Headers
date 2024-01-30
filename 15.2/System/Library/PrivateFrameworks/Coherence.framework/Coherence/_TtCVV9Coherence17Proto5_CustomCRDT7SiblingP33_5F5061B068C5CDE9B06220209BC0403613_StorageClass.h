@@ -1,0 +1,6 @@
+@interface _TtCVV9Coherence17Proto5_CustomCRDT7SiblingP33_5F5061B068C5CDE9B06220209BC0403613_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _version;
+    void /* unknown type, empty encoding */ _data;
+}
+
+@end

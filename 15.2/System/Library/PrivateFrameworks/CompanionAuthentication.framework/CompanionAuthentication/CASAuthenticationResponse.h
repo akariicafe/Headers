@@ -1,0 +1,3 @@
+@interface CASAuthenticationResponse : NSObject
+
+@end

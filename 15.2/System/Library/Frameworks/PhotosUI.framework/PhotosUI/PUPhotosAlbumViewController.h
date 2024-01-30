@@ -1,0 +1,87 @@
+@class PUPhotosPickerViewController, NSString, PUPhotosAlbumViewControllerSpec, PHFetchResult, PXEditableNavigationTitleView, PHAssetCollection, NSObject;
+@protocol PLAlbumProtocol;
+
+@interface PUPhotosAlbumViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUPhotosSectionHeaderViewDelegate, PXEditableNavigationTitleViewDelegate> {
+    struct { BOOL sectionHeadersEnabled; } _needsUpdateFlags;
+    PUPhotosPickerViewController *_activePhotosPickerViewController;
+}
+
+@property (nonatomic, setter=_setCountingAssetTypes:) BOOL _isCountingAssetTypes;
+@property (nonatomic, setter=_setHasAccurateCounts:) BOOL _hasAccurateCounts;
+@property (retain, nonatomic, setter=_setAlbumSpec:) PUPhotosAlbumViewControllerSpec *_albumSpec;
+@property (readonly, nonatomic) PXEditableNavigationTitleView *editableTitleView;
+@property (readonly, nonatomic) BOOL shouldShowSectionHeaders;
+@property (readonly, nonatomic) NSString *globalFooterSubtitle;
+@property (readonly, nonatomic) PHAssetCollection *assetCollection;
+@property (readonly, nonatomic) PHFetchResult *assetCollectionAssets;
+@property (retain, nonatomic) NSObject<PLAlbumProtocol> *album;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)navigateToDestination:(id)a0 options:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)setSessionInfo:(id)a0;
+- (unsigned long long)routingOptionsForDestination:(id)a0;
+- (id)_collectionView:(id)a0 dropSessionDidUpdate:(id)a1 withDestinationIndexPath:(id)a2;
+- (void)setAssetCollection:(id)a0;
+- (id)px_navigationDestination;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)configureSupplementaryView:(id)a0 ofKind:(id)a1 forIndexPath:(id)a2;
+- (id)initWithSpec:(id)a0;
+- (long long)oneUpPresentationOrigin;
+- (void)_collectionView:(id)a0 performDropWithCoordinator:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)canDragOut;
+- (void)updateTitle;
+- (id)_globalHeaderTitle;
+- (void)configureGlobalHeaderView:(id)a0;
+- (double)globalHeaderHeight;
+- (void)_ensureEditableTitleView;
+- (void)_setNeedsUpdate;
+- (void)dropInteraction:(id)a0 performDrop:(id)a1;
+- (id)editableNavigationTitleView:(id)a0 validateNewText:(id)a1;
+- (BOOL)updateSpec;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)photosDataSource:(id)a0 didReceivePhotoLibraryChange:(id)a1;
+- (BOOL)prepareForDismissingForced:(BOOL)a0;
+- (BOOL)isCameraRoll;
+- (void)setAlbum:(id)a0 existingFetchResult:(id)a1;
+- (BOOL)wantsGlobalFooter;
+- (void)handleAddToAlbum:(id)a0 pickedAssets:(id)a1;
+- (void)editableNavigationTitleViewDidEndEditing:(id)a0;
+- (void)didTapHeaderView:(id)a0;
+- (double)sectionedGridLayout:(id)a0 sectionHeaderHeightForVisualSection:(long long)a1;
+- (double)sectionedGridLayout:(id)a0 accessibilitySectionHeaderHeightForVisualSection:(long long)a1;
+- (void)setAssetCollection:(id)a0 fetchResultContainingAssetCollection:(id)a1 filterPredicate:(id)a2;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)handleAddFromAction;
+- (void)handleTransitionFade:(BOOL)a0 animate:(BOOL)a1;
+- (BOOL)canDragIn;
+- (id)newGridLayout;
+- (long long)cellFillMode;
+- (void)updateLayoutMetrics;
+- (id)initWithAlbumSpec:(id)a0;
+- (id)filterPredicateForAlbum:(id)a0;
+- (void)setAssetCollection:(id)a0 fetchResultContainingAssetCollection:(id)a1 filterPredicate:(id)a2 existingFetchResults:(id)a3;
+- (id)localizedTitleForAssets:(id)a0;
+- (id)sessionInfoForTransferredAssets:(id)a0;
+- (BOOL)canBeginStackCollapseTransition;
+- (void)_invalideSectionHeaders;
+- (void)_updateSectionHeadersIfNeeded;
+- (void)_getDataForVisualSection:(long long)a0 hasActionButton:(BOOL *)a1 locations:(id *)a2 title:(id *)a3 startDate:(id *)a4 endDate:(id *)a5;
+- (void)configureGlobalFooterView:(id)a0;
+- (struct CGPoint { double x0; double x1; })contentOffsetForPreheating;
+- (BOOL)isTrashBinViewController;
+- (BOOL)allowSelectAllButton;
+- (unsigned long long)userEventSourceType;
+- (unsigned long long)additionalOneUpViewControllerOptions;
+- (void)_countAssetTypesIfNeeded;
+- (void)setupScrubber;
+- (BOOL)canHandleDropSession:(id)a0;
+- (void)_performAddDropWithSession:(id)a0;
+- (void)_performMoveDropWithCoordinator:(id)a0;
+
+@end

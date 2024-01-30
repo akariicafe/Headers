@@ -1,0 +1,82 @@
+@class NSIndexSet, NSString, NSDictionary, IDSSockAddrWrapper;
+@protocol IDSLinkDelegate;
+
+@interface IDSUDPLink : NSObject <IDSLink> {
+    int _addressFamily;
+    IDSSockAddrWrapper *_localAddress;
+    IDSSockAddrWrapper *_destinationAddress;
+    BOOL _hasFixedDestination;
+    NSDictionary *_destinationAddressToDeviceIDMap;
+    BOOL _wantsAWDL;
+    BOOL _wantsWiFi;
+    BOOL _wantsCellular;
+    BOOL _needToConnect;
+    BOOL _hasTemporaryError;
+    unsigned long long _totalBytesSent;
+    unsigned long long _totalPacketsSent;
+    unsigned long long _totalBytesReceived;
+    unsigned long long _totalPacketsReceived;
+    unsigned long long _previousBytesSent;
+    unsigned long long _previousPacketsSent;
+    unsigned long long _previousBytesReceived;
+    unsigned long long _previousPacketsReceived;
+    double _previousReportTime;
+}
+
+@property (nonatomic) unsigned short port;
+@property (nonatomic) unsigned short cellularPort;
+@property (readonly, nonatomic) int socket;
+@property (readonly, nonatomic) int cellularSocket;
+@property (nonatomic) BOOL useDefaultInterfaceOnly;
+@property (readonly, nonatomic) BOOL isInvalidated;
+@property (nonatomic) double lastDestinationSent;
+@property (readonly, nonatomic) double lastDestinationReceived;
+@property (nonatomic) BOOL allowsLinkLocal;
+@property (nonatomic) BOOL skipTransportThread;
+@property (retain, nonatomic) NSIndexSet *cellularInterfaceIndices;
+@property (nonatomic) BOOL wifiAssistEnabled;
+@property (retain) NSString *cbuuid;
+@property (retain) NSString *deviceUniqueID;
+@property (readonly, getter=linkTypeString) NSString *linkTypeString;
+@property (readonly) unsigned long long state;
+@property (readonly) unsigned long long headerOverhead;
+@property (weak) id<IDSLinkDelegate> delegate;
+@property (weak) id<IDSLinkDelegate> alternateDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)setTrafficClass:(int)a0;
+- (unsigned long long)sendPacketBufferArray:(struct **)a0 arraySize:(int)a1 toDeviceUniqueID:(id)a2 cbuuid:(id)a3;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; unsigned int x11; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x12; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x13; unsigned short x14; unsigned char x15; int x16; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; long long x4; unsigned char x5; unsigned short x6; unsigned char x7; BOOL x8; BOOL x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; BOOL x12; BOOL x13; int x14; unsigned short x15[4]; unsigned char x16; unsigned int x17; } x17[8]; char x18; char x19; int x20; double x21; unsigned long long x22; unsigned char x23[0]; } *)a0 toDeviceUniqueID:(id)a1 cbuuid:(id)a2;
+- (id)generateLinkReport:(double)a0 isCurrentLink:(BOOL)a1;
+- (id)copyLinkStatsDict;
+- (void)setWiFiAssistState:(BOOL)a0;
+- (BOOL)_isInterfaceIndexCellular:(int)a0;
+- (void)_processIncomingPacketOnSocket:(int)a0;
+- (unsigned long long)_sendBytes:(const void *)a0 length:(unsigned long long)a1 destinationAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a2;
+- (unsigned long long)_sendBytes:(const void *)a0 length:(unsigned long long)a1;
+- (int)_findSocketForInterfaceIndex:(int)a0;
+- (BOOL)setDestinationAddress:(id)a0 isFixedDestination:(BOOL)a1 fromAddress:(id)a2;
+- (int)_createNewUDPSocketWithIPVersion:(unsigned long long)a0 localPort:(unsigned short *)a1 wantsAWDL:(BOOL)a2 clientUUID:(unsigned char[16])a3;
+- (void)_processIncomingPacket;
+- (void)_processIncomingCellularPacket;
+- (BOOL)_setTrafficClassOnSocket:(int)a0 trafficClassValue:(int)a1;
+- (id)_createNetworkInterfaceArrayWithIPVersion:(unsigned long long)a0 wantsAWDL:(BOOL)a1 wantsWiFi:(BOOL)a2 wantsCellular:(BOOL)a3 allowsLinkLocal:(BOOL)a4 useDefaultInterfaceOnly:(BOOL)a5 defaultPairedDevice:(BOOL)a6;
+- (BOOL)setDestinationAddress:(id)a0 localIfIndex:(unsigned int)a1 isFixedDestination:(BOOL)a2 fromAddress:(id)a3;
+- (unsigned long long)_sendBytesArray:(const void **)a0 lengthArray:(unsigned long long *)a1 arraySize:(int)a2 localInterfaceIndex:(int)a3 localAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a4 destinationAddress:(const struct sockaddr { unsigned char x0; unsigned char x1; char x2[14]; } *)a5 trafficClass:(unsigned short)a6 DSCP:(unsigned char)a7;
+- (BOOL)setDestinationAddressToDeviceIDMap:(id)a0;
+- (void)reconnectWithLocalAddress:(id)a0;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; unsigned int x11; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x12; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x13; unsigned short x14; unsigned char x15; int x16; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; long long x4; unsigned char x5; unsigned short x6; unsigned char x7; BOOL x8; BOOL x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; BOOL x12; BOOL x13; int x14; unsigned short x15[4]; unsigned char x16; unsigned int x17; } x17[8]; char x18; char x19; int x20; double x21; unsigned long long x22; unsigned char x23[0]; } *)a0 destination:(id)a1 toDeviceID:(id)a2;
+- (id)newSocketWithIPVersion:(unsigned long long)a0 wantsAWDL:(BOOL)a1 wantsWiFi:(BOOL)a2 wantsCellular:(BOOL)a3;
+- (unsigned long long)sendPacketBuffer:(struct { char *x0; unsigned long long x1; long long x2; long long x3; unsigned int x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; unsigned int x11; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x12; struct sockaddr_storage { unsigned char x0; unsigned char x1; char x2[6]; long long x3; char x4[112]; } x13; unsigned short x14; unsigned char x15; int x16; struct { char *x0; unsigned short x1; int x2; unsigned short x3[12]; long long x4; unsigned char x5; unsigned short x6; unsigned char x7; BOOL x8; BOOL x9; unsigned short x10; struct { unsigned short x0; unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; } x11; BOOL x12; BOOL x13; int x14; unsigned short x15[4]; unsigned char x16; unsigned int x17; } x17[8]; char x18; char x19; int x20; double x21; unsigned long long x22; unsigned char x23[0]; } *)a0 sourceInterface:(id)a1 destination:(id)a2 toDeviceID:(id)a3;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (id)initWithDeviceUniqueID:(id)a0 cbuuid:(id)a1;
+- (id)newSocketWithIPVersion:(unsigned long long)a0 wantsAWDL:(BOOL)a1 wantsWiFi:(BOOL)a2 wantsCellular:(BOOL)a3 clientUUID:(unsigned char[16])a4;
+- (void)removeSocket;
+- (void)dealloc;
+- (id)copyCurrentNetworkInterfaces;
+
+@end

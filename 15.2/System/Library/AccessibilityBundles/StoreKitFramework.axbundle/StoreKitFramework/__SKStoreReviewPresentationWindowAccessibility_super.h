@@ -1,0 +1,3 @@
+@interface __SKStoreReviewPresentationWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

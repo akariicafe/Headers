@@ -1,0 +1,87 @@
+@class NSTimer, NSString, NSArray, DAAccount, DATransaction, DAActivity, NSMutableSet, NSMutableArray;
+@protocol DATask;
+
+@interface DATaskManager : NSObject {
+    DATransaction *_transaction;
+    DAActivity *_daActivity;
+}
+
+@property (retain, nonatomic) NSMutableArray *queuedExclusiveTasks;
+@property (retain, nonatomic) id<DATask> activeExclusiveTask;
+@property (retain, nonatomic) NSMutableSet *independentTasks;
+@property (retain, nonatomic) NSMutableSet *heldIndependentTasks;
+@property (retain, nonatomic) NSMutableSet *modalHeldIndependentTasks;
+@property (retain, nonatomic) NSMutableArray *mQueuedTasks;
+@property (retain, nonatomic) id<DATask> modalHeldActiveQueuedTask;
+@property (retain, nonatomic) id<DATask> activeQueuedTask;
+@property (retain, nonatomic) NSMutableArray *queuedModalTasks;
+@property (retain, nonatomic) id<DATask> activeModalTask;
+@property (nonatomic) int state;
+@property (retain, nonatomic) NSTimer *managerIdleTimer;
+@property (retain, nonatomic) NSTimer *userInitiatedSyncTimer;
+@property (retain, nonatomic) NSTimer *xpcTransactionTimer;
+@property (retain, nonatomic) NSTimer *powerLogIdleTimer;
+@property (nonatomic) BOOL didLogSyncStart;
+@property (weak, nonatomic) DAAccount *account;
+@property (readonly, nonatomic) NSArray *queuedTasks;
+@property (readonly, nonatomic) NSArray *allTasks;
+@property (copy, nonatomic) NSString *powerAssertionGroupID;
+
+- (id)stateString;
+- (BOOL)useSSL;
+- (void)cancelTask:(id)a0;
+- (id)userAgent;
+- (id)deviceType;
+- (id)initWithAccount:(id)a0;
+- (void)shutdown;
+- (id)user;
+- (id)server;
+- (id)password;
+- (BOOL)isShutdown;
+- (void).cxx_destruct;
+- (id)_version;
+- (id)init;
+- (id)accountID;
+- (id)accountPersistentUUID;
+- (long long)port;
+- (void)dealloc;
+- (void)cancelAllTasks;
+- (id)identityPersist;
+- (BOOL)shouldCancelTaskDueToOnPowerFetchMode;
+- (void)_logSyncEnd;
+- (void)_populateVersionDescriptions;
+- (void)submitExclusiveTask:(id)a0 toFrontOfQueue:(BOOL)a1;
+- (void)_schedulePerformTask:(id)a0;
+- (void)_makeStateTransition;
+- (void)_requestCancelTasksWithReason:(int)a0;
+- (void)taskManagerDidAddTask:(id)a0;
+- (void)cancelTask:(id)a0 withUnderlyingError:(id)a1;
+- (void)_cancelTasksWithReason:(int)a0;
+- (id)_powerLogInfoDictionary;
+- (BOOL)_taskForcesNetworking:(id)a0;
+- (BOOL)_taskInQueueForcesNetworkConnection:(id)a0;
+- (void)taskManagerWillRemoveTask:(id)a0;
+- (void)_releasePowerAssertionForTask:(id)a0;
+- (void)_performTask:(id)a0;
+- (void)_startModal:(id)a0;
+- (void)_reactivateHeldTasks;
+- (void)_scheduleStartModal:(id)a0;
+- (BOOL)_hasTasksForcingNetworkConnection;
+- (void)_useOpportunisticSocketsAgain;
+- (BOOL)_hasTasksIndicatingARunningSync;
+- (void)_clearUserInitiatedSyncTimer;
+- (void)_endXpcTransaction;
+- (void)cancelTasksDueToOnPowerMode;
+- (void)_retainPowerAssertionForTask:(id)a0;
+- (void)_scheduleSelector:(SEL)a0 withArgument:(id)a1;
+- (BOOL)_useFakeDescriptions;
+- (id)OAuth2Token;
+- (void)submitExclusiveTask:(id)a0;
+- (void)submitIndependentTask:(id)a0;
+- (void)submitQueuedTask:(id)a0;
+- (void)taskDidFinish:(id)a0;
+- (void)taskRequestModal:(id)a0;
+- (void)taskEndModal:(id)a0;
+- (BOOL)taskIsModal:(id)a0;
+
+@end

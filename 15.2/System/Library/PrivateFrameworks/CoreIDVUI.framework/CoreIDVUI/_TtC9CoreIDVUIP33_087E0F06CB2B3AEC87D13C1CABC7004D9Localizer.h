@@ -1,0 +1,3 @@
+@interface _TtC9CoreIDVUIP33_087E0F06CB2B3AEC87D13C1CABC7004D9Localizer : _TtCs12_SwiftObject
+
+@end

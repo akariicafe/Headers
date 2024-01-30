@@ -1,0 +1,3 @@
+@interface COAlarmDeleteRequest : COAlarmRequest
+
+@end

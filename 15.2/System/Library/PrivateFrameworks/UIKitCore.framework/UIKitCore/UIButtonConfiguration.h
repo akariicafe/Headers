@@ -1,0 +1,108 @@
+@class UIBackgroundConfiguration, NSString, UIColor, UIImage, _UIButtonConfigurationStyleBehaviors, UIImageSymbolConfiguration, NSAttributedString;
+
+@interface UIButtonConfiguration : NSObject <_UIButtonConfigurationShim, NSCopying, NSSecureCoding> {
+    _UIButtonConfigurationStyleBehaviors *_behaviors;
+    NSAttributedString *_resolvedTitle;
+    NSAttributedString *_resolvedSubtitle;
+    UIColor *_resolvedImageColor;
+    UIImageSymbolConfiguration *_resolvedSymbolConfig;
+    UIColor *_resolvedActivityIndicatorColor;
+    double _resolvedActivityIndicatorSize;
+    double _resolvedImageReservation;
+    struct { unsigned char macIdiomStyle : 4; unsigned char buttonSize : 2; unsigned char showsActivityIndicator : 1; unsigned char useCustomContentInsets : 1; unsigned char contentInsetsExpansion : 3; unsigned char titleLineBreakMode : 3; unsigned char subtitleLineBreakMode : 3; unsigned char automaticallyUpdateForSelection : 1; unsigned char resolvedTitleIsOversized : 1; unsigned char resolvedSubtitleIsOversized : 1; } _flags;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) UIBackgroundConfiguration *background;
+@property (readonly, nonatomic) long long cornerStyle;
+@property (readonly, nonatomic) long long buttonSize;
+@property (readonly, nonatomic) long long macIdiomStyle;
+@property (retain, nonatomic) UIImage *image;
+@property (copy, nonatomic) UIImageSymbolConfiguration *preferredSymbolConfigurationForImage;
+@property (readonly, nonatomic) BOOL showsActivityIndicator;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSAttributedString *attributedTitle;
+@property (readonly, copy, nonatomic) NSString *subtitle;
+@property (readonly, copy, nonatomic) NSAttributedString *attributedSubtitle;
+@property (readonly, nonatomic) struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; } contentInsets;
+@property (readonly, nonatomic) unsigned long long imagePlacement;
+@property (readonly, nonatomic) double imagePadding;
+@property (readonly, nonatomic) double titlePadding;
+@property (readonly, nonatomic) long long titleAlignment;
+@property (readonly, nonatomic) long long titleLineBreakMode;
+@property (readonly, nonatomic) long long subtitleLineBreakMode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) long long titleLineBreakMode;
+@property (nonatomic) long long subtitleLineBreakMode;
+@property (nonatomic) double imageReservation;
+@property (retain, nonatomic) UIBackgroundConfiguration *background;
+@property (nonatomic) long long cornerStyle;
+@property (nonatomic) long long buttonSize;
+@property (nonatomic) long long macIdiomStyle;
+@property (retain, nonatomic) UIColor *baseForegroundColor;
+@property (retain, nonatomic) UIColor *baseBackgroundColor;
+@property (retain, nonatomic) UIImage *image;
+@property (copy, nonatomic) id /* block */ imageColorTransformer;
+@property (copy, nonatomic) UIImageSymbolConfiguration *preferredSymbolConfigurationForImage;
+@property (nonatomic) BOOL showsActivityIndicator;
+@property (copy, nonatomic) id /* block */ activityIndicatorColorTransformer;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSAttributedString *attributedTitle;
+@property (copy, nonatomic) id /* block */ titleTextAttributesTransformer;
+@property (copy, nonatomic) NSString *subtitle;
+@property (copy, nonatomic) NSAttributedString *attributedSubtitle;
+@property (copy, nonatomic) id /* block */ subtitleTextAttributesTransformer;
+@property (nonatomic) struct NSDirectionalEdgeInsets { double top; double leading; double bottom; double trailing; } contentInsets;
+@property (nonatomic) unsigned long long imagePlacement;
+@property (nonatomic) double imagePadding;
+@property (nonatomic) double titlePadding;
+@property (nonatomic) long long titleAlignment;
+@property (nonatomic) BOOL automaticallyUpdateForSelection;
+
++ (id)tintedButtonConfiguration;
++ (id)grayButtonConfiguration;
++ (id)filledButtonConfiguration;
++ (id)borderedProminentButtonConfiguration;
++ (id)plainButtonConfiguration;
++ (id)borderlessButtonConfiguration;
++ (id)borderedButtonConfiguration;
++ (id)borderedTintedButtonConfiguration;
+
+- (id)_resolvedActivityIndicatorColor;
+- (BOOL)_hasOversizedSubtitle;
+- (id)_resolvedImage;
+- (void)setDefaultContentInsets;
+- (BOOL)_hasOversizedTitle;
+- (BOOL)_hasSymbolImage;
+- (void)encodeWithCoder:(id)a0;
+- (id)_apiValue;
+- (long long)_resolvedTitleAlignment;
+- (BOOL)_hasMultilineSubtitle;
+- (id)_resolvedSymbolConfiguration;
+- (id)_resolvedSubtitle;
+- (id)_spiValue;
+- (id)_resolvedTitle;
+- (BOOL)_hasMultilineTitle;
+- (BOOL)_isRoundButton;
+- (id)_resolvedImageColor;
+- (double)_resolvedActivityIndicatorSize;
+- (id)_initWithBehaviors:(id)a0;
+- (double)_resolvedImageReservation;
+- (BOOL)_hasObscuringBackground;
+- (long long)_resolvedMacIdiomStyle;
+- (id)_updateFromButton:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)_setSwiftBridgingBackground:(id)a0;
+- (id)updatedConfigurationForButton:(id)a0;
+- (void)_copyValuesFromConfiguration:(id)a0;
+- (void)_resolveValuesWithButton:(id)a0;
+
+@end

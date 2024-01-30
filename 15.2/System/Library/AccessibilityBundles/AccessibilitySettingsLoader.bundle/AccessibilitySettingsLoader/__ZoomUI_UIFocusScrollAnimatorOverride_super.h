@@ -1,0 +1,3 @@
+@interface __ZoomUI_UIFocusScrollAnimatorOverride_super : UIAccessibilitySafeCategory
+
+@end

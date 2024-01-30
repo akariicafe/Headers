@@ -1,0 +1,105 @@
+@class NSUUID, NSString, ATXAVRouteInfo, ATXLazyIntent, NSDictionary, NSUserActivity, CSSearchableItemAttributeSet, INIntent, ATXActionCriteria, NSNumber, UAUserActivityProxy;
+
+@interface ATXAction : NSObject <BMStoreData, CRContent, ATXLazyIntentDelegateProtocol, NSSecureCoding, NSCopying, ATXSuggestionExecutableProtocol, ATXProtoBufWrapper, ATXMemoryPressureObserver> {
+    NSUserActivity *_userActivity;
+    unsigned long long _userActivityHash;
+    NSString *_title;
+    NSString *_subtitle;
+    NSString *_languageCode;
+    ATXActionCriteria *_criteria;
+    ATXLazyIntent *_lazyIntent;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSString *userActivityString;
+@property (readonly, nonatomic) CSSearchableItemAttributeSet *contentAttributeSet;
+@property (readonly, nonatomic) ATXAVRouteInfo *routeInfo;
+@property (readonly, nonatomic) NSNumber *cachedHash;
+@property (readonly, nonatomic) NSString *bundleId;
+@property (readonly, nonatomic) unsigned long long actionType;
+@property (readonly, nonatomic) ATXActionCriteria *criteria;
+@property (readonly, nonatomic) NSUUID *actionUUID;
+@property (readonly, nonatomic) NSString *itemIdentifier;
+@property (readonly, nonatomic) NSString *heuristic;
+@property (readonly, nonatomic) NSDictionary *heuristicMetadata;
+@property (readonly, nonatomic) BOOL isHeuristic;
+@property (readonly, nonatomic) BOOL isFutureMedia;
+@property (readonly, nonatomic) BOOL isTVWhiteListedLongFormMedia;
+@property (readonly, nonatomic) INIntent *intent;
+@property (readonly, nonatomic) NSUserActivity *userActivity;
+@property (readonly, nonatomic) UAUserActivityProxy *userActivityProxy;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_extractValueInKeyValueBlob:(id)a0 withKey:(id)a1;
++ (id)unarchivedActionFromData:(id)a0;
++ (id)getNSUATypefromActivityType:(id)a0;
++ (unsigned long long)_userActivityHashForUserInfoDict:(id)a0 activityType:(id)a1 webpageURL:(id)a2;
++ (id)getDateFromUserActivityString:(id)a0 forActionKey:(id)a1;
++ (id)actionFromProactiveSuggestion:(id)a0;
++ (id)getActionKeyForBundleId:(id)a0 actionType:(id)a1;
++ (BOOL)_isTVIntent:(id)a0 bundleId:(id)a1;
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
+
+- (void)setHeuristic:(id)a0;
+- (unsigned long long)userActivityHash;
+- (unsigned long long)_hash;
+- (id)_title;
+- (id)initWithProto:(id)a0;
+- (id)initWithActivityProxy:(id)a0 activity:(id)a1 activityString:(id)a2 itemIdentifier:(id)a3 contentAttributeSet:(id)a4 intent:(id)a5 actionUUID:(id)a6 bundleId:(id)a7 type:(unsigned long long)a8 heuristic:(id)a9 heuristicMetadata:(id)a10 criteria:(id)a11 isFutureMedia:(BOOL)a12 routeInfo:(id)a13 title:(id)a14 subtitle:(id)a15 languageCode:(id)a16 cachedHash:(id)a17;
+- (id)initWithNSUserActivity:(id)a0 actionUUID:(id)a1 bundleId:(id)a2 contentAttributeSet:(id)a3 itemIdentifier:(id)a4 heuristic:(id)a5 heuristicMetadata:(id)a6 criteria:(id)a7 isFutureMedia:(BOOL)a8 title:(id)a9 subtitle:(id)a10;
+- (id)slotSet;
+- (id)actionDescription;
+- (id)_initWithCoder:(id)a0;
+- (BOOL)_shouldUseCachedTitle:(id)a0 cachedLanguageCode:(id)a1;
+- (void)encodeWithCoder:(id)a0;
+- (id)_bundleIdForDisplay;
+- (id)initWithProtoData:(id)a0;
+- (id)actionKey;
+- (id)serialize;
+- (void)setCriteria:(id)a0;
+- (id)archivedDataForAction;
+- (id)copyWithParameterWhitelist:(id)a0;
+- (id)underlyingInteraction;
+- (BOOL)hasActionTitle;
+- (id)actionTitle;
+- (unsigned long long)hashSlotSetWithNonNilParameters:(id)a0;
+- (id)initFromBestAppSuggestion:(id)a0 activity:(id)a1 actionUUID:(id)a2 bundleId:(id)a3 contentAttributeSet:(id)a4 itemIdentifier:(id)a5 heuristic:(id)a6 heuristicMetadata:(id)a7 criteria:(id)a8 isFutureMedia:(BOOL)a9 title:(id)a10 subtitle:(id)a11;
+- (void)handleMemoryPressure;
+- (unsigned long long)paramHash;
+- (id)actionWithRouteInfo:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isTVAction;
+- (void)setSubtitleForSerializationToCache;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (id)actionSubtitle;
+- (id)initWithCoder:(id)a0;
+- (id)proto;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)userActivityWebpageURL;
+- (void)setTitleForSerializationToCache;
+- (void)_setUserActivityHash:(unsigned long long)a0;
+- (void)setLaunchIdForIntent:(id)a0;
+- (id)predictionTypeStringForPET;
+- (void)dealloc;
+- (id)_subtitle;
+- (id)encodeAsProto;
+- (id)_spotlightContentType;
+- (void)invalidateCachedHash;
+- (id)initWithIntent:(id)a0 actionUUID:(id)a1 bundleId:(id)a2 heuristic:(id)a3 heuristicMetadata:(id)a4 criteria:(id)a5 isFutureMedia:(BOOL)a6 title:(id)a7 subtitle:(id)a8;
+- (id)json;
+- (id)dateForAction;
+- (id)initWithNSUserActivityString:(id)a0 actionUUID:(id)a1 bundleId:(id)a2 itemIdentifier:(id)a3 contentAttributeSet:(id)a4 heuristic:(id)a5 heuristicMetadata:(id)a6 isFutureMedia:(BOOL)a7 title:(id)a8 subtitle:(id)a9;
+- (BOOL)isEqualToAction:(id)a0;
+- (void)didDeserializeIntent:(id)a0;
+
+@end

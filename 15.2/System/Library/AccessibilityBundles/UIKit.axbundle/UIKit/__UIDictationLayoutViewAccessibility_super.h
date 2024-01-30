@@ -1,0 +1,3 @@
+@interface __UIDictationLayoutViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

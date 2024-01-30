@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType13BodyMassIndex : _TtCs12_SwiftObject
+
+@end

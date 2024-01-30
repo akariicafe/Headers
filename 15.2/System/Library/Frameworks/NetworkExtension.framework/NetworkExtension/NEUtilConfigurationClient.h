@@ -1,0 +1,80 @@
+@class NEDNSProxyProviderProtocol, NEFilterProviderConfiguration, NSArray, NEConfiguration, NEConfigurationManager, NEDNSSettingsBundle, NEAppPush, NSMutableArray, NSString;
+
+@interface NEUtilConfigurationClient : NSObject <NEConfigurationCommandHandling>
+
+@property (readonly) NEConfigurationManager *manager;
+@property (retain) NSMutableArray *createdConfigurations;
+@property (retain) NSMutableArray *currentConfigurations;
+@property (retain) NSMutableArray *identities;
+@property (retain) NEConfiguration *currentConfiguration;
+@property BOOL enabled;
+@property BOOL onDemandEnabled;
+@property BOOL onDemandUserOverrideDisabled;
+@property (nonatomic) BOOL disconnectOnDemandEnabled;
+@property (copy) NSArray *onDemandRules;
+@property (readonly) BOOL isAlwaysOn;
+@property (readonly) NEFilterProviderConfiguration *filterConfiguration;
+@property (readonly) NEDNSProxyProviderProtocol *dnsProxyConfiguration;
+@property (readonly) NEDNSSettingsBundle *dnsSettingsBundle;
+@property (readonly) NEAppPush *appPush;
+@property (readonly) NSString *clientName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)allClients;
++ (id)clientWithName:(id)a0;
++ (void)removeClientWithName:(id)a0;
+
+- (BOOL)setPasswordWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetPasswordWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setSharedSecretWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetSharedSecretWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setProviderTypeWithParameters:(id)a0 errorStr:(id *)a1;
+- (void)loadConfigurationsForceRefresh:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (id)readIndexFromDiskForGivenPatahWithError:(id)a0 returnError:(id *)a1 fileDecoder:(id *)a2;
+- (id)decodeConfigurationWithIdentifier:(id)a0 andDecoder:(id)a1;
+- (void)addIdentityProperties:(id)a0 withDomain:(long long)a1;
+- (void)reloadIdentityListWithCompletionHandler:(id /* block */)a0;
+- (void)loadFromDiskForGivenPath:(id)a0 configName:(id)a1 completionHandler:(id /* block */)a2;
+- (BOOL)swapConfigurationTypeWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setPPPParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetPPPParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)addAppRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)removeAppRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setPathControllerWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)addPathRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)removePathRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setAlwaysOnParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetAlwaysOnParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)isIsAlwaysOn;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)initInternalWithClientName:(id)a0;
+- (void)handleCommand:(int)a0 forConfigWithName:(id)a1 withParameters:(id)a2 completionHandler:(id /* block */)a3;
+- (id)protocolForParameters:(id)a0;
+- (BOOL)createConfigurationWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setProtocolWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setFilterPluginWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetFilterPluginParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setDNSProxyWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetDNSProxyWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setCommonParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetCommonParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setIPSecParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetIPSecParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)addOnDemandRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setDNSParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)removeOnDemandRuleWithParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetDNSParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setAppPushParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetAppPushParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setProxyParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetProxyParameters:(id)a0 errorStr:(id *)a1;
+- (BOOL)setProxyServer:(id)a0 errorStr:(id *)a1;
+- (BOOL)unsetProxyServer:(id)a0 errorStr:(id *)a1;
+- (void)loadConfigurationWithName:(id)a0 completionHandler:(id /* block */)a1;
+- (id)initWithClientName:(id)a0;
+
+@end

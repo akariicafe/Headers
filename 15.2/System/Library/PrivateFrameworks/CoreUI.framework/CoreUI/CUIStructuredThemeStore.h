@@ -1,0 +1,84 @@
+@class CUICommonAssetStorage, NSString, NSMutableDictionary, NSDictionary, NSSet, NSCache;
+
+@interface CUIStructuredThemeStore : NSObject <CUIStructuredThemeStorage, CUIStructuredThemeStorage2> {
+    NSMutableDictionary *_cache;
+    CUICommonAssetStorage *_store;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _cacheLock;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _storeLock;
+    unsigned long long _themeIndex;
+    NSString *_bundleID;
+    NSCache *_namedRenditionKeyCache;
+    void /* function */ *_attributePresent;
+    unsigned char _mainBundle : 1;
+    NSDictionary *_aliasDictionary;
+    NSSet *_legacyFlippableSet;
+    NSCache *_nameCache;
+}
+
+@property BOOL mainBundle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)localizations;
+- (id)copyKeySignatureForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0 withBytesNoCopy:(char *)a1 length:(unsigned long long)a2;
+- (id)baseGradationKeySignatureForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (BOOL)canGetRenditionWithKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)initWithPath:(id)a0;
+- (void)setBundleID:(id)a0;
+- (BOOL)getFontName:(id *)a0 baselineOffset:(double *)a1 forFontType:(id)a2;
+- (const struct _renditionkeyattributeindex { unsigned long long x0; unsigned char x1[65]; unsigned int x2; unsigned int x3[29]; } *)keyAttributeIndex;
+- (id)initWithURL:(id)a0;
+- (BOOL)assetExistsForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)_newRenditionKeyDataFromKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)renditionNameForKeyList:(struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (BOOL)caAllowSubimageOfImage:(struct CGImage { } *)a0;
+- (BOOL)_subImageTexturingShouldBeSupported;
+- (unsigned long long)themeIndex;
+- (id)debugDescriptionForKeyList:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)renditionWithKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (BOOL)imageNamedShouldFlip:(id)a0;
+- (id)aliasForName:(id)a0;
+- (unsigned int)distilledInCoreUIVersion;
+- (id)nameForAppearanceIdentifier:(unsigned short)a0;
+- (id)catalogGlobals;
+- (const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)renditionKeyForName:(id)a0;
+- (BOOL)localizationWorkaroundForKeyList:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)initWithBytes:(const void *)a0 length:(unsigned long long)a1;
+- (void)setThemeIndex:(unsigned long long)a0;
+- (void)_updateKeyWithCompatibilityMapping:(struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)bundleID;
+- (id)copyLookupKeySignatureForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (long long)maximumRenditionKeyTokenCount;
+- (BOOL)_formatStorageKeyArrayBytes:(void *)a0 length:(unsigned long long)a1 fromKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a2;
+- (const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)renditionKeyForName:(id)a0 cursorHotSpot:(struct CGPoint { double x0; double x1; } *)a1;
+- (double)fontSizeForFontSizeType:(id)a0;
+- (id)imagesWithName:(id)a0;
+- (const struct _renditionkeyfmt { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3[0]; } *)renditionKeyFormat;
+- (BOOL)containsLookupForName:(id)a0;
+- (const struct _renditionkeyfmt { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3[0]; } *)keyFormat;
+- (id)renditionInfoForIdentifier:(unsigned short)a0;
+- (unsigned long long)colorSpaceID;
+- (void)_commonInit;
+- (unsigned short)localizationIdentifierForName:(id)a0;
+- (id)store;
+- (BOOL)hasPhysicalColorWithName:(id)a0;
+- (id)renditionWithKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0 usingKeySignature:(id)a1;
+- (id)lookupAssetForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)defaultAppearanceName;
+- (void)dealloc;
+- (id)mappedAliases;
+- (unsigned short)appearanceIdentifierForName:(id)a0;
+- (unsigned int)authoredWithSchemaVersion;
+- (id)convertRenditionKeyToKeyData:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (unsigned int)documentFormatVersion;
+- (BOOL)getPhysicalColor:(struct _colordef { unsigned int x0; unsigned int x1; struct _rgbquad { unsigned char x0 : 8; unsigned char x1 : 8; unsigned char x2 : 8; unsigned char x3 : 8; } x2; } *)a0 withName:(id)a1;
+- (void)clearRenditionCache;
+- (id)appearances;
+- (id)themeStore;
+- (id)keySignatureForKey:(const struct _renditionkeytoken { unsigned short x0; unsigned short x1; } *)a0;
+- (id)allImageNames;
+- (BOOL)usesCUISystemThemeRenditionKey;
+
+@end

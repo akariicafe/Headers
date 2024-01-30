@@ -1,0 +1,3 @@
+@interface LPDynamicStub : NSObject
+
+@end

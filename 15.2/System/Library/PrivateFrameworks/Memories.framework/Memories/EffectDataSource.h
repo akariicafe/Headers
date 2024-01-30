@@ -1,0 +1,80 @@
+@class NSString, NSMutableArray, NSMutableDictionary;
+
+@interface EffectDataSource : NSObject <ItemStylePickerDataSource>
+
+@property (retain, nonatomic) NSMutableArray *factoryFilterIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *factoryFilterNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *factoryFilterInternalNamesDict;
+@property (retain, nonatomic) NSMutableArray *allFilterIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *allFilterNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *allFilterPreviewsDict;
+@property (retain, nonatomic) NSMutableDictionary *allFilterDirtyPreviewsDict;
+@property int filterClientRefCount;
+@property (retain, nonatomic) NSMutableArray *factoryTitleIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *factoryTitleNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *factoryTitleInternalNamesDict;
+@property (retain, nonatomic) NSMutableArray *allTitleIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *allTitleNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *allTitlePreviewsDict;
+@property (retain, nonatomic) NSMutableDictionary *allTitleDirtyPreviewsDict;
+@property (retain, nonatomic) NSMutableArray *factoryGeneratorIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *factoryGeneratorNamesDict;
+@property (retain, nonatomic) NSMutableArray *allGeneratorIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *allGeneratorNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *allGeneratorPreviewsDict;
+@property (retain, nonatomic) NSMutableDictionary *allGeneratorDirtyPreviewsDict;
+@property (retain, nonatomic) NSMutableArray *factoryTransitionIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *factoryTransitionNamesDict;
+@property (retain, nonatomic) NSMutableArray *allTransitionIDsArray;
+@property (retain, nonatomic) NSMutableDictionary *allTransitionNamesDict;
+@property (retain, nonatomic) NSMutableDictionary *allTransitionPreviewsDict;
+@property (retain, nonatomic) NSMutableDictionary *allTransitionDirtyPreviewsDict;
+@property (nonatomic, getter=isGeneratingThumbs) BOOL generatingThumbs;
+@property (nonatomic, getter=isGeneratingThumbsInterrupted) BOOL generatingThumbsInterrupted;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedDataSource;
+
+- (long long)numberOfItems;
+- (void).cxx_destruct;
+- (id)init;
+- (id)getFactoryFilterIDs;
+- (id)getAllFilterNames;
+- (id)getFactoryFilterNames;
+- (id)getAllFilterIDs;
+- (id)getAllTitleIDs;
+- (id)getAllTransitionIDs;
+- (id)getAllGeneratorIDs;
+- (void)initAllEffectPreviewsForImage:(id)a0 effectType:(id)a1;
+- (void)dirtyAllFilterPreviewsIncludingNone:(BOOL)a0;
+- (void)dirtyAllTitlePreviewsIncludingNone:(BOOL)a0;
+- (void)generatePreviewImageForEffectID:(id)a0 currentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 effectRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a2 rawImage:(id)a3 previewSize:(struct CGSize { double x0; double x1; })a4 completion:(id /* block */)a5;
+- (id)getFactoryTitleIDs;
+- (id)getAllTitleNames;
+- (id)getFactoryTitleNames;
+- (id)getFactoryTransitionIDs;
+- (id)getAllTransitionNames;
+- (id)getFactoryTransitionNames;
+- (id)getAllGeneratorNames;
+- (id)getEffectIDsForType:(id)a0;
+- (id)getEffectNamesForType:(id)a0;
+- (id)itemIDAtIndexPath:(id)a0;
+- (id)itemNameAtIndexPath:(id)a0;
+- (id)indexPathOfItemName:(id)a0;
+- (id)indexPathOfItemID:(id)a0;
+- (id)getFactoryFilterInternalNames;
+- (void)initAllFilterPreviewsForImage:(id)a0;
+- (void)releaseAllFilterPreviewsIncludingNone:(BOOL)a0;
+- (void)initAllTitlePreviewsForImage:(id)a0;
+- (void)releaseAllTitlePreviewsIncludingNone:(BOOL)a0;
+- (void)generateAllFilterPreviewsAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 effectRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 rawImage:(id)a2 previewSize:(struct CGSize { double x0; double x1; })a3;
+- (id)getPreviewImageForFilterID:(id)a0;
+- (id)getPreviewImageForTitleID:(id)a0;
+- (id)getFactoryTitleInternalNames;
+- (id)getFactoryTransitionInternalNames;
+- (id)effectsForType:(id)a0;
+
+@end

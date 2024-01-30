@@ -1,0 +1,8 @@
+@interface MFAttachmentLibraryManager : MFAttachmentComposeManager
+
+- (id)attachmentsForMessage:(id)a0 withSchemes:(id)a1;
+- (id)_dataProviderForAttachmentURL:(id)a0 error:(id *)a1;
+- (void)removeProviderForBaseURL:(id)a0;
+- (id)initWithPrimaryLibrary:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UIContextMenuContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

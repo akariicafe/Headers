@@ -1,0 +1,3 @@
+@interface __PXPhotosGlobalFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

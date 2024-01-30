@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType6Nausea : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC12SiriOntology19AddressOntologyNode15PersonPlaceNode : SiriOntology.NonTerminalOntologyNode
+
+@end

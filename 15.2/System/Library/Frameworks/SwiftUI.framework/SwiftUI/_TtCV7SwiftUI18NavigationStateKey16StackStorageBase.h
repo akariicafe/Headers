@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI18NavigationStateKey16StackStorageBase : _TtCs12_SwiftObject
+
+@end

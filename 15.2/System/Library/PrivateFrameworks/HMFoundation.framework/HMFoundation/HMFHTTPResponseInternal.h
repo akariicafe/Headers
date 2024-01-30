@@ -1,0 +1,16 @@
+@class NSDictionary, NSData, HMFActivity;
+
+@interface HMFHTTPResponseInternal : HMFObject <NSCopying>
+
+@property (readonly, nonatomic) long long statusCode;
+@property (copy, nonatomic) NSDictionary *headerFields;
+@property (copy, nonatomic) NSData *body;
+@property (retain, nonatomic) HMFActivity *activity;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)setHeaderValue:(id)a0 forHeaderKey:(id)a1;
+- (id)initWithStatusCode:(long long)a0 headerFields:(id)a1 body:(id)a2;
+
+@end

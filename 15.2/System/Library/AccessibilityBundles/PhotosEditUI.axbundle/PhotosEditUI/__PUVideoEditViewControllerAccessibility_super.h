@@ -1,0 +1,3 @@
+@interface __PUVideoEditViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

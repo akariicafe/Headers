@@ -1,0 +1,3 @@
+@interface CRColor : UIColor
+
+@end

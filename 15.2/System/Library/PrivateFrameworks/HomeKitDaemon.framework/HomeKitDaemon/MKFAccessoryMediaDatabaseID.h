@@ -1,0 +1,3 @@
+@interface MKFAccessoryMediaDatabaseID : MKFAccessoryDatabaseID
+
+@end

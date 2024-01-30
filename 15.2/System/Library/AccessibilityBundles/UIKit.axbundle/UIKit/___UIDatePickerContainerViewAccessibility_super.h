@@ -1,0 +1,3 @@
+@interface ___UIDatePickerContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

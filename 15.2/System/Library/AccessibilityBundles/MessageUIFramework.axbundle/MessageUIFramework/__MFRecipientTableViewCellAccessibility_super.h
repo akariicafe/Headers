@@ -1,0 +1,3 @@
+@interface __MFRecipientTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXPhotosSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

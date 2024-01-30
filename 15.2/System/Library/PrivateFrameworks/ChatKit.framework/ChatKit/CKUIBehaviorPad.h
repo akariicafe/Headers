@@ -1,0 +1,49 @@
+@interface CKUIBehaviorPad : CKUIBehavior
+
+- (double)previewMaxWidth;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contactPhotoTranscriptInsets;
+- (double)transcriptContactImageDiameter;
+- (struct CGSize { double x0; double x1; })documentIconSize;
+- (BOOL)isAppStripInKeyboard;
+- (double)primaryColumnWidthForInterfaceOrientation:(long long)a0;
+- (BOOL)shouldDisableFocusRing;
+- (struct CGSize { double x0; double x1; })attachmentBrowserDefaultSizeForSquare;
+- (double)attachmentBrowserGridInterItemSpacing;
+- (double)photoPickerPopoverWidth;
+- (unsigned long long)numberOfButtonsInPhotoPicker;
+- (BOOL)photoPickerShouldZoomOnSelection;
+- (double)photoPickerMaxPopoverPhotoHeight;
+- (double)welcomeViewContentViewTopAnchorLayoutConstraintConstant;
+- (BOOL)showsConversationListCellChevronImage;
+- (BOOL)shouldAlignRecipientGlyphsWithMargins;
+- (BOOL)usesPopovers;
+- (BOOL)canPresentOverKeyboard;
+- (double)conversationListMinimumWidthForHiddenContactImage;
+- (unsigned long long)supportedInterfaceOrientations;
+- (BOOL)canShowContactPhotosInConversationList;
+- (BOOL)usesUncollapsedSplitview;
+- (BOOL)lowClearanceInLandscape;
+- (BOOL)presentsQuickLookController;
+- (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)a0;
+- (unsigned long long)suggestedAppStripLimit;
+- (BOOL)presentForwardingUIModally;
+- (BOOL)shouldOnlyResumeToConversationListAfterTimeout;
+- (BOOL)showMMSSetup;
+- (double)resumeToConversationListTimeInterval;
+- (double)maxNavigationBarNoContactPhotoCollapsedHeightValue;
+- (double)transcriptHeaderViewMaxRows;
+- (double)navigationBarMaxHeight;
+- (BOOL)shouldPopoverSuggestionsBanner;
+- (double)searchPhotosThumbnailWidth;
+- (double)searchLinksThumbnailWidth;
+- (BOOL)shouldSuppressRotationInNewCompose;
+- (BOOL)shouldShowDisclosureChevronInRecipientAtoms;
+- (unsigned long long)defaultConversationViewingMessageCount;
+- (BOOL)presentsAutocompleteInAPopover;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })defaultAVPlayerViewContorllerControlsInsets;
+- (double)entryViewMaxHandWritingPluginShelfHeight;
+- (BOOL)shouldRefreshAlternateAddressesSheet;
+- (BOOL)showPendingInConversationList;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })minTranscriptMarginInsets;
+
+@end

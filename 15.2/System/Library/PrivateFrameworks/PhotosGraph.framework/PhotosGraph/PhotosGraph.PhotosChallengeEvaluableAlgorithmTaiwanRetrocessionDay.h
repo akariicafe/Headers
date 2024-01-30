@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmTaiwanRetrocessionDay : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

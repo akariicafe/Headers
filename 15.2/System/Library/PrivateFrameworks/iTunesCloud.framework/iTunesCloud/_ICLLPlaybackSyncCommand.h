@@ -1,0 +1,19 @@
+@class NSString;
+
+@interface _ICLLPlaybackSyncCommand : PBCodable <NSCopying> {
+    NSString *_participantState;
+    int _payload;
+    NSString *_transportControlState;
+    struct { unsigned char payload : 1; } _has;
+}
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

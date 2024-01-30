@@ -1,0 +1,74 @@
+@class PKMetalShader, PKMetalFramebuffer, PKMetalRenderState, MTKTextureLoader, PKLinedPaper, PKMetalResourceHandler;
+@protocol MTLDevice, MTLTexture, MTLBuffer, MTLCommandQueueSPI;
+
+@interface PKMetalRenderer : NSObject {
+    PKMetalRenderState *_currentRenderState;
+    unsigned long long _currentCacheSize;
+    id<MTLDevice> _device;
+    id<MTLCommandQueueSPI> _commandQueue;
+    PKMetalFramebuffer *_originalBackFramebuffer;
+    BOOL _originalBackFramebufferIsNonPurgeable;
+    PKMetalFramebuffer *_sixChannelMultiplyFramebuffer;
+    BOOL _sixChannelMultiplyFramebufferIsNonPurgeable;
+    BOOL _shouldClearOriginalBackFramebuffer;
+    struct { double red; double green; double blue; double alpha; } _originalBackClearColor;
+    PKMetalFramebuffer *_paintFramebuffer;
+    BOOL _paintFramebufferIsNonPurgeable;
+    PKMetalFramebuffer *_alwaysMemorylessPaintFramebuffer;
+    PKMetalFramebuffer *_paintFramebufferMask;
+    PKMetalFramebuffer *_maskMSAAFramebuffer;
+    PKMetalResourceHandler *_resourceHandler;
+    PKMetalFramebuffer *_dummyPaintFramebuffer;
+    PKMetalFramebuffer *_dummyColorFramebuffer;
+    struct CGSize { double width; double height; } _drawingPixelSize;
+    struct CGColor { } *_backgroundColor;
+    struct CGSize { double width; double height; } _actualSize;
+    double _fromStrokeSpaceScale;
+    struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } _strokeTransform;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _viewScissor;
+    BOOL _lastPointForEraserIsValid;
+    struct _PKStrokePoint { double timestamp; struct CGPoint { double x; double y; } location; double radius; double aspectRatio; double edgeWidth; double force; double azimuth; double altitude; double opacity; } _lastPointForEraser;
+    id<MTLTexture> _paperTexture;
+    struct CGSize { double width; double height; } _paperTextureSize;
+    unsigned long long _pixelFormat;
+    unsigned long long _originalBackPixelFormat;
+    unsigned long long _paintAndParticlePixelFormat;
+    struct vector<PKMetalParticleStrokePoint, std::allocator<PKMetalParticleStrokePoint>> { struct PKMetalParticleStrokePoint *__begin_; struct PKMetalParticleStrokePoint *__end_; struct __compressed_pair<PKMetalParticleStrokePoint *, std::allocator<PKMetalParticleStrokePoint>> { struct PKMetalParticleStrokePoint *__value_; } __end_cap_; } _particleStrokePointBuffer;
+    struct vector<PKMetalPaintStrokePoint, std::allocator<PKMetalPaintStrokePoint>> { struct PKMetalPaintStrokePoint *__begin_; struct PKMetalPaintStrokePoint *__end_; struct __compressed_pair<PKMetalPaintStrokePoint *, std::allocator<PKMetalPaintStrokePoint>> { struct PKMetalPaintStrokePoint *__value_; } __end_cap_; } _paintStrokePointBuffer;
+    struct vector<PKMetalLiveStrokePaintStrokePoint, std::allocator<PKMetalLiveStrokePaintStrokePoint>> { struct PKMetalLiveStrokePaintStrokePoint *__begin_; struct PKMetalLiveStrokePaintStrokePoint *__end_; struct __compressed_pair<PKMetalLiveStrokePaintStrokePoint *, std::allocator<PKMetalLiveStrokePaintStrokePoint>> { struct PKMetalLiveStrokePaintStrokePoint *__value_; } __end_cap_; } _liveStrokeStrokePointBuffer;
+    struct shared_ptr<std::vector<(anonymous namespace)::StrokeVertex>> { void *__ptr_; struct __shared_weak_count *__cntrl_; } _sharedStrokeVertexBuffer;
+    struct vector<(anonymous namespace)::AnimatingStroke, std::allocator<(anonymous namespace)::AnimatingStroke>> { struct AnimatingStroke *__begin_; struct AnimatingStroke *__end_; struct __compressed_pair<(anonymous namespace)::AnimatingStroke *, std::allocator<(anonymous namespace)::AnimatingStroke>> { struct AnimatingStroke *__value_; } __end_cap_; } _animatingStrokes;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _paintFramebufferDirtyRect;
+    PKMetalShader *_paintShader;
+    PKMetalShader *_particleShader;
+    PKMetalShader *_particleShaderWithAspectRatioSupport;
+    PKMetalShader *_erasePaintShader;
+    id<MTLBuffer> _particleIndexBuffer;
+    id<MTLBuffer> _randomNumberBuffer;
+    unsigned long long _renderMaskMSAASampleCount;
+    BOOL _needRestartWorkaroundForOldIntelDrivers;
+    BOOL _useComputeRenderCaches;
+    BOOL _sixChannelBlending;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _drawableDirtyRect;
+    MTKTextureLoader *_textureLoader;
+    BOOL _solidColorBackboard;
+    BOOL _oneRenderPassForLiveRendering;
+    BOOL _fadeOutStrokesMode;
+    BOOL _liveStrokeMode;
+    BOOL _edgeMask;
+    BOOL _invertColors;
+    PKLinedPaper *_linedPaper;
+    struct CGColor { } *_liveRenderingOverrideColor;
+    double _backboardPaperMultiply;
+    double _inputScale;
+    double _eraserIndicatorAlpha;
+    double _liveStrokeElapsedTime;
+    struct CGSize { double width; double height; } _liveStrokeMaxSize;
+    struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } _paperTransform;
+}
+
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id).cxx_construct;
+
+@end

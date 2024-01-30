@@ -1,0 +1,80 @@
+@class NSString, QLFindOnPageInputView, UITextInputPasswordRules;
+@protocol QLFindOnPageNavigator, QLFindOnPageViewDelegate;
+
+@interface QLFindOnPageView : UIView <QLFindOnPageToolbarDelegate, QLFindOnPageNavigatorInterfaceHandler, UIKeyInput> {
+    BOOL _requiresKeyboard;
+    id /* block */ _dismissCompletionHandler;
+}
+
+@property (weak, nonatomic) id<QLFindOnPageNavigator> navigator;
+@property (retain, nonatomic) QLFindOnPageInputView *findOnPageInputView;
+@property (nonatomic) long long keyboardVisibility;
+@property (copy, nonatomic) NSString *findString;
+@property (nonatomic) unsigned long long numberOfFindMatches;
+@property (nonatomic) long long highlightedMatchIndex;
+@property (weak, nonatomic) id<QLFindOnPageViewDelegate> delegate;
+@property (nonatomic) BOOL usesNarrowLayout;
+@property (nonatomic) BOOL shouldFocusTextField;
+@property (readonly, nonatomic) BOOL isShowing;
+@property (readonly, nonatomic) BOOL hasText;
+@property (nonatomic) long long autocapitalizationType;
+@property (nonatomic) long long autocorrectionType;
+@property (nonatomic) long long spellCheckingType;
+@property (nonatomic) long long smartQuotesType;
+@property (nonatomic) long long smartDashesType;
+@property (nonatomic) long long smartInsertDeleteType;
+@property (nonatomic) long long keyboardType;
+@property (nonatomic) long long keyboardAppearance;
+@property (nonatomic) long long returnKeyType;
+@property (nonatomic) BOOL enablesReturnKeyAutomatically;
+@property (nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
+@property (copy, nonatomic) NSString *textContentType;
+@property (copy, nonatomic) UITextInputPasswordRules *passwordRules;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)done;
+- (void)_keyboardWillChangeFrame:(id)a0;
+- (void)_keyboardWillHide:(id)a0;
+- (void)_keyboardDidShow:(id)a0;
+- (id)inputAccessoryView;
+- (void)_keyboardDidChangeFrame:(id)a0;
+- (void)previous;
+- (void)didMoveToSuperview;
+- (void)deleteBackward;
+- (void)_registerForKeyboardNotifications;
+- (void)next;
+- (id)keyCommands;
+- (void)insertText:(id)a0;
+- (void)updateUI;
+- (void)_dismiss:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)canBecomeFirstResponder;
+- (void)dealloc;
+- (void)_keyboardDidHide:(id)a0;
+- (BOOL)_requiresKeyboardWhenFirstResponder;
+- (void)willEnd;
+- (BOOL)isFocused;
+- (id)findTextField;
+- (BOOL)hideFindOnPage;
+- (unsigned long long)_findOptions;
+- (id)textForToolbarLabel;
+- (void)updateSearchText:(id)a0;
+- (BOOL)hasMatches;
+- (id)matchLabelText;
+- (void)showFindOnPage;
+- (void)selectFindOnPageText;
+- (void)navigator:(id)a0 isDisplayingResultAtIndex:(unsigned long long)a1 numberOfResults:(unsigned long long)a2;
+- (void)navigatorDoesNotHaveAnyResultToDisplay:(id)a0;
+- (id)registeredKeyCommands;
+- (void)_handlePossibleKeyboardHideEvent:(long long)a0 forFrameChangeNotification:(id)a1;
+- (void)_handleKeyboardDidShow;
+- (void)_handleKeyboardWillHide;
+- (void)_handleKeyboardDidHide;
+- (void)_advance:(id)a0;
+- (void)dismissFindOnPageWithCompletionHandler:(id /* block */)a0;
+- (id)initWithNavigator:(id)a0;
+
+@end

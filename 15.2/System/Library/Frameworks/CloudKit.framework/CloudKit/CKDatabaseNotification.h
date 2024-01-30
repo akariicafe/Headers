@@ -1,0 +1,13 @@
+@interface CKDatabaseNotification : CKNotification <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) long long databaseScope;
+
+- (id)CKPropertiesDescription;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (id)initWithCoder:(id)a0;
+- (id)initWithRemoteNotificationDictionary:(id)a0;
+
+@end

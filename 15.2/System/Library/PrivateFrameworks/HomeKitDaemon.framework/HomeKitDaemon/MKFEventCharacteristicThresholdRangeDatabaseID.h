@@ -1,0 +1,3 @@
+@interface MKFEventCharacteristicThresholdRangeDatabaseID : MKFEventCharacteristicDatabaseID
+
+@end

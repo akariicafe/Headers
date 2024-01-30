@@ -1,0 +1,3 @@
+@interface SBPIPStashAssertion : SBPIPEnvironmentDependentOverrideAssertion
+
+@end

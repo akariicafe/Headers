@@ -1,0 +1,91 @@
+@class GEOLocationShifter, NSString, NSHashTable, NSLock, MNLocation, NSDate, CLInUseAssertion, NSBundle, CLHeading;
+@protocol MNLocationProvider, MNLocationRecorder;
+
+@interface MNLocationManager : NSObject <GEOResourceManifestTileGroupObserver, MNLocationProviderDelegate> {
+    NSBundle *_effectiveBundle;
+    NSString *_effectiveBundleIdentifier;
+    NSHashTable *_accessRequesters;
+    NSHashTable *_locationObservers;
+    NSHashTable *_locationListeners;
+    NSHashTable *_headingObservers;
+    NSLock *_observersLock;
+    NSLock *_lastLocationLock;
+    MNLocation *_lastLocation;
+    GEOLocationShifter *_locationShifter;
+    double _expectedGpsUpdateInterval;
+    CLInUseAssertion *_locationAssertion;
+    NSDate *_lastUpdatedHeadingDate;
+    BOOL _trackingLocation;
+    BOOL _trackingHeading;
+}
+
+@property (copy, nonatomic) id /* block */ locationCorrector;
+@property (copy, nonatomic) NSString *effectiveBundleIdentifier;
+@property (retain, nonatomic) NSBundle *effectiveBundle;
+@property (readonly, nonatomic) BOOL isHeadingServicesAvailable;
+@property (readonly, nonatomic) CLHeading *heading;
+@property (readonly, nonatomic) MNLocation *lastLocation;
+@property (readonly, nonatomic) BOOL coarseModeEnabled;
+@property (readonly, nonatomic) double expectedGpsUpdateInterval;
+@property (readonly, nonatomic) double timeScale;
+@property (nonatomic) int headingOrientation;
+@property (retain, nonatomic) id<MNLocationRecorder> locationRecorder;
+@property (readonly, nonatomic) unsigned long long locationProviderType;
+@property (retain, nonatomic) id<MNLocationProvider> locationProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedLocationManager;
+
+- (void)_reportLocationSuccess;
+- (void)_setTrackingHeading:(BOOL)a0;
+- (void)resourceManifestManager:(id)a0 didChangeActiveTileGroup:(id)a1 fromOldTileGroup:(id)a2;
+- (void)locationProvider:(id)a0 didUpdateVehicleSpeed:(double)a1 timestamp:(id)a2;
+- (BOOL)locationProviderShouldPauseLocationUpdates:(id)a0;
+- (void)stopHeadingUpdateWithObserver:(id)a0;
+- (void)_reportLocationStatus:(SEL)a0;
+- (void)startLocationUpdateWithObserver:(id)a0;
+- (void)setLastLocation:(id)a0;
+- (void)locationProvider:(id)a0 didUpdateVehicleHeading:(double)a1 timestamp:(id)a2;
+- (void)stopLocationUpdateWithObserver:(id)a0;
+- (void)locationProvider:(id)a0 didUpdateHeading:(id)a1;
+- (void)_setTrackingLocation:(BOOL)a0;
+- (void)_reset;
+- (void)locationProvider:(id)a0 didUpdateLocation:(id)a1;
+- (void)_reportLocationReset;
+- (void)requestLocationAccessFor:(id)a0;
+- (void)locationProvider:(id)a0 didReceiveError:(id)a1;
+- (void)stopMonitoringForRegion:(id)a0;
+- (void)startHeadingUpdateWithObserver:(id)a0;
+- (void)locationProviderDidChangeAuthorizationStatus:(id)a0;
+- (void)_reportLocationFailureWithError:(id)a0;
+- (void)startMonitoringForRegion:(id)a0;
+- (void)pushLocation:(id)a0;
+- (void)locationProviderDidResumeLocationUpdates:(id)a0;
+- (void)_shiftLocationIfNecessary:(id)a0 handler:(id /* block */)a1;
+- (void)useHybridLocationProvider;
+- (void)locationProvider:(id)a0 monitoringDidFailForRegion:(id)a1 withError:(id)a2;
+- (void)useTraceLocationProvider:(id)a0;
+- (void)addLocationListener:(id)a0;
+- (void)locationProvider:(id)a0 didEnterRegion:(id)a1;
+- (void)setLocationProviderType:(unsigned long long)a0;
+- (void)_createLocationAssertion;
+- (void)removeLocationListener:(id)a0;
+- (void)removeLocationAccessForAll;
+- (void)useSimulationLocationProvider:(id)a0;
+- (void)_updateForNewShiftedLocation:(id)a0 rawLocation:(id)a1;
+- (void)removeLocationAccessFor:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)useGPSLocationProviderWithCLParameters:(id)a0;
+- (void)locationProviderDidPauseLocationUpdates:(id)a0;
+- (void)_clearLocationAssertion;
+- (BOOL)_hasLocationAssertion;
+- (void)dealloc;
+- (void)locationProvider:(id)a0 didChangeCoarseMode:(BOOL)a1;
+- (void)locationProvider:(id)a0 didExitRegion:(id)a1;
+- (void)stop;
+
+@end

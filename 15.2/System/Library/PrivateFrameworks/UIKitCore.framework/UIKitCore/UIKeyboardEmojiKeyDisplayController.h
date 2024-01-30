@@ -1,0 +1,36 @@
+@class UIKeyboardEmojiKeyView, UIKeyboardEmojiCategory, NSString;
+
+@interface UIKeyboardEmojiKeyDisplayController : NSObject <UIKeyboardEmojiCategoryUpdateDelegate> {
+    UIKeyboardEmojiCategory *_lastViewedCategory;
+}
+
+@property (retain, nonatomic) UIKeyboardEmojiKeyView *inputView;
+@property (retain, nonatomic) UIKeyboardEmojiKeyView *categoryView;
+@property UIKeyboardEmojiCategory *lastViewedCategory;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)classForInputView:(long long)a0;
++ (Class)classForCategoryControl:(long long)a0;
++ (void)writeEmojiDefaultsAndReleaseActiveInputView;
+
+- (BOOL)userHasSelectedSkinToneEmoji;
+- (id)recents;
+- (void)updateEmojiKeyManagerWithKey:(id)a0 withKeyView:(id)a1;
+- (void)emojiUsed:(id)a0;
+- (id)init;
+- (void)reloadForCategory:(long long)a0 withSender:(id)a1;
+- (long long)reloadCategoryForOffsetPercentage:(double)a0 withSender:(id)a1;
+- (BOOL)hasLastUsedVariantForEmojiString:(id)a0;
+- (void)updateSkinToneBaseKey:(id)a0 variantUsed:(id)a1;
+- (void)dealloc;
+- (void)emojiUsed:(id)a0 language:(id)a1;
+- (id)recentEmojiAtIndex:(long long)a0 size:(unsigned long long *)a1;
+- (id)emojiWithoutDuplicateRecents:(id)a0;
+- (id)lastUsedVariantEmojiForEmojiString:(id)a0;
+- (long long)lastVisibleFirstEmojiIndexforCategory:(id)a0;
+- (id)skinToneBaseKeyPreferences;
+
+@end

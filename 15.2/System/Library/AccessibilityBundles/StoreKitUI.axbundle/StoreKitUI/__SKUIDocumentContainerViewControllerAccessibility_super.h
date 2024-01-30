@@ -1,0 +1,3 @@
+@interface __SKUIDocumentContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

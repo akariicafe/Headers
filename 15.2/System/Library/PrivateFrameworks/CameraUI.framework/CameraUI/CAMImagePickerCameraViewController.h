@@ -1,0 +1,86 @@
+@class NSString, PLCropOverlay, PLPhotoTileViewController, NSDictionary, UIView, PLVideoView;
+
+@interface CAMImagePickerCameraViewController : CAMCameraViewController <CAMCameraConfigurationDelegate, CAMCameraCaptureDelegate, PLVideoViewDelegate, PLCropOverlayDelegate, UIImagePickerCameraViewController>
+
+@property (readonly, nonatomic) PLCropOverlay *_cropOverlay;
+@property (readonly, nonatomic) PLPhotoTileViewController *_photoTileViewController;
+@property (readonly, nonatomic) PLVideoView *_videoView;
+@property (nonatomic, getter=_isEditingAllowed, setter=_setEditingAllowed:) BOOL editingAllowed;
+@property (nonatomic, getter=_isVideoEditingAllowed, setter=_setVideoEditingAllowed:) BOOL videoEditingAllowed;
+@property (nonatomic, getter=_isCurrentlyReviewing, setter=_setCurrentlyReviewing:) BOOL currentlyReviewing;
+@property (nonatomic, getter=_isUsingTelephonyUI, setter=_setUsingTelephonyUI:) BOOL usingTelephonyUI;
+@property (nonatomic, getter=_photoSavingOptions, setter=_setPhotoSavingOptions:) int photoSavingOptions;
+@property (copy, nonatomic, getter=_mostRecentPhotoProperties, setter=_setMostRecentPhotoProperties:) NSDictionary *mostRecentPhotoProperties;
+@property (copy, nonatomic, getter=_mostRecentVideoProperties, setter=_setMostRecentVideoProperties:) NSDictionary *mostRecentVideoProperties;
+@property (nonatomic, getter=_statusBarWasHidden, setter=_setStatusBarWasHidden:) BOOL statusBarWasHidden;
+@property (nonatomic, getter=isShowingStandardControls) BOOL showingStandardControls;
+@property (nonatomic) long long imagePickerVideoQuality;
+@property (nonatomic) double maximumVideoRecordingDuration;
+@property (retain, nonatomic) UIView *customOverlayView;
+@property (nonatomic) struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } customPreviewViewTransform;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isEmulatingImagePicker;
+
+- (long long)_videoConfigurationForImagePickerQualityType:(long long)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)loadView;
+- (void).cxx_destruct;
+- (void)_takePicture;
+- (void)_stopVideoCapture;
+- (void)_setCameraDevice:(long long)a0;
+- (long long)_cameraDevice;
+- (void)_setStatusBarHidden:(BOOL)a0;
+- (long long)_cameraFlashMode;
+- (id)_cameraOverlayView;
+- (BOOL)_showsCameraControls;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })_cameraViewTransform;
+- (void)_setShowsCameraControls:(BOOL)a0;
+- (void)_setCameraOverlayView:(id)a0;
+- (long long)_cameraCaptureMode;
+- (void)_setCameraViewTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)_setCameraCaptureMode:(long long)a0;
+- (void)_setCameraFlashMode:(long long)a0;
+- (void)_setImagePickerMediaTypes:(id)a0;
+- (id)initWithInitialImagePickerProperties:(id)a0;
+- (BOOL)_startVideoCapture;
+- (void)cropOverlayWasOKed:(id)a0;
+- (long long)_captureModeForImagePickerCameraCaptureMode:(long long)a0;
+- (long long)_captureDeviceForImagePickerCameraDevice:(long long)a0;
+- (id)_containingImagePickerController;
+- (void)_applyPropertiesFromImagePicker:(id)a0;
+- (void)_createCropOverlayIfNecessary;
+- (long long)_imagePickerQualityTypeForVideoConfiguration:(long long)a0;
+- (void)_updateFromEditabilityChange;
+- (void)_handleEditabilityChanged:(id)a0;
+- (long long)_imagePickerCameraDeviceForCaptureDevice:(long long)a0;
+- (long long)_imagePickerCameraCaptureModeForCaptureMode:(long long)a0;
+- (long long)_imagePickerCameraFlashModeForFlashMode:(long long)a0;
+- (long long)_flashModeForImagePickerCameraFlashMode:(long long)a0;
+- (id)_currentCancelButtonTitle;
+- (void)cropOverlay:(id)a0 didFinishSaving:(id)a1;
+- (void)_handleCapturedImagePickerVideoAtPath:(id)a0 withEditingMetadata:(id)a1;
+- (void)_removeFileAtPath:(id)a0;
+- (void)_resetTileViewControllerAndVideoView;
+- (void)_handleCapturedImagePickerPhotoWithCropOverlayOutput:(id)a0;
+- (void)cameraViewController:(id)a0 didCapturePhoto:(id)a1 withProperties:(id)a2 error:(id)a3;
+- (void)cameraViewController:(id)a0 didCaptureAVAsset:(id)a1 andAudioMix:(id)a2 withProperties:(id)a3 error:(id)a4;
+- (double)videoViewScrubberYOrigin:(id)a0 forOrientation:(long long)a1;
+- (BOOL)videoViewCanBeginPlayback:(id)a0;
+- (void)videoViewIsReadyToBeginPlayback:(id)a0;
+- (void)videoViewDidBeginPlayback:(id)a0;
+- (void)videoViewDidPausePlayback:(id)a0;
+- (void)videoViewDidEndPlayback:(id)a0 didFinish:(BOOL)a1;
+- (void)cropOverlayWasCancelled:(id)a0;
+- (void)cropOverlayWasToggled:(id)a0;
+- (void)cropOverlayPlay:(id)a0;
+- (void)cropOverlayPause:(id)a0;
+- (void)handleReviewButtonReleased:(id)a0;
+- (BOOL)photoTileViewControllerIsDisplayingLandscape:(id)a0;
+
+@end

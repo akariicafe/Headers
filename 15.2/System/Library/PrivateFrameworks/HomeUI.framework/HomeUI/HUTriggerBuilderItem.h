@@ -1,0 +1,20 @@
+@class HFTriggerBuilder;
+
+@interface HUTriggerBuilderItem : HFItem <NSCopying>
+
+@property (readonly, nonatomic) HFTriggerBuilder *triggerBuilder;
+@property (readonly, nonatomic) unsigned long long naturalLanguageNameType;
+
++ (id)_detailedErrorDescriptionForForceDisableReasons:(unsigned long long)a0 inHome:(id)a1;
++ (id)settingsURLForForceDisableReasons:(unsigned long long)a0;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)_triggerType;
+- (id)_subclass_updateWithOptions:(id)a0;
+- (id)initWithTriggerBuilder:(id)a0 nameType:(unsigned long long)a1;
+- (id)_resultsForTriggerConditions;
+- (id)_forceDisableReasons;
+
+@end

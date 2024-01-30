@@ -1,0 +1,3 @@
+@interface __PUPhotoEditMediaToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

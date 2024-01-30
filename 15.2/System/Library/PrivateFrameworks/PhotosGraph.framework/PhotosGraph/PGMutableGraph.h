@@ -1,0 +1,3 @@
+@interface PGMutableGraph : PGGraph
+
+@end

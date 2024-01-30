@@ -1,0 +1,3 @@
+@interface SGTaggedMallocWorkQueueItemPart : NSObject
+
+@end

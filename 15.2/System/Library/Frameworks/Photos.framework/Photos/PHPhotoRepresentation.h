@@ -1,0 +1,3 @@
+@interface PHPhotoRepresentation : PHObject
+
+@end

@@ -1,0 +1,72 @@
+@class UIStackView, UIView, HKSeparatorLineView, NSDate, HRStackedButtonView, UIImageView, NSString, NSLayoutConstraint, NSNumber, UILabel;
+
+@interface HROnboardingAtrialFibrillationGateViewController : HKOnboardingBaseViewController <HRStackedButtonViewDelegate, HKOnboardingCompactDatePickerViewDelegate>
+
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *bodyLabel;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayTopSeparator;
+@property (retain, nonatomic) UIStackView *birthdayEntryView;
+@property (retain, nonatomic) UILabel *birthdayFooterLabel;
+@property (retain, nonatomic) NSDate *dateOfBirth;
+@property (retain, nonatomic) HKSeparatorLineView *birthdayBottomSeparator;
+@property (retain, nonatomic) UILabel *diagnosisPromptLabel;
+@property (retain, nonatomic) NSNumber *diagnosis;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisTopSeparator;
+@property (retain, nonatomic) UIView *diagnosisYesBackground;
+@property (retain, nonatomic) UIStackView *diagnosisYesRow;
+@property (retain, nonatomic) UIImageView *diagnosisYesCheckmark;
+@property (retain, nonatomic) UILabel *diagnosisYesLabel;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisMiddleSeparator;
+@property (retain, nonatomic) UIView *diagnosisNoBackground;
+@property (retain, nonatomic) UIStackView *diagnosisNoRow;
+@property (retain, nonatomic) UIImageView *diagnosisNoCheckmark;
+@property (retain, nonatomic) UILabel *diagnosisNoLabel;
+@property (retain, nonatomic) HKSeparatorLineView *diagnosisBottomSeparator;
+@property (retain, nonatomic) UILabel *diagnosisFooterLabel;
+@property (retain, nonatomic) HRStackedButtonView *stackedButtonView;
+@property (retain, nonatomic) NSLayoutConstraint *contentViewBottomConstraint;
+@property (nonatomic) BOOL didLayoutSubviewsOnce;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (void)_updateButtonState;
+- (void)setUpUI;
+- (void).cxx_destruct;
+- (id)ageLimit;
+- (void)setUpConstraints;
+- (id)_bodyFont;
+- (void)compactDatePickerView:(id)a0 didChangeValue:(id)a1;
+- (id)initForOnboarding:(BOOL)a0 upgradingFromAlgorithmVersion:(long long)a1;
+- (void)stackedButtonView:(id)a0 didTapButtonAtIndex:(long long)a1;
+- (id)_footnoteFont;
+- (void)_setUpButtonFooterView;
+- (void)_adjustButtonFooterViewLocationForViewContentHeight;
+- (double)_ageEntryTopSeparatorToFirstBaseline;
+- (double)_ageEntryLastBaselineToBottomSeparator;
+- (id)_ageEntryTitleFont;
+- (id)_defaultDOB;
+- (id)ageWithDate:(id)a0;
+- (BOOL)_meetsAgeRequirement;
+- (id)ageIneligiblePromptBodyString;
+- (id)ageIneligiblePromptTitleString;
+- (id)ageIneligiblePromptAckButtonString;
+- (void)_setUpBirthdayEntryView;
+- (id)_diagnosisPromptFont;
+- (void)_setUpDiagnosisRowWithTitle:(id)a0 value:(BOOL)a1;
+- (double)_separatorToFooterFirstBaseline;
+- (double)_ageEntryFooterToDiagnosisPromptFirstBaseline;
+- (double)_diagnosisPromptLastBaselineToDiagnosisTop;
+- (double)_diagnosisTopSeparatorToFirstBaseline;
+- (double)_diagnosisLastBaselineToBottomSeparator;
+- (double)_diagnosisFooterLabelToContinueButton;
+- (void)_diagnosisRowTapped:(id)a0;
+- (BOOL)_meetsDiagnosisRequirement;
+- (id)diagnosisIneligiblePromptBodyString;
+- (id)diagnosisIneligiblePromptAckButtonString;
+- (id)diagnosisIneligiblePromptTitleString;
+
+@end

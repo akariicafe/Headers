@@ -1,0 +1,10 @@
+@interface HealthPlatformCore.InteractiveGeneratorToPipelineAdaptor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ domain;
+    void /* unknown type, empty encoding */ context;
+    void /* unknown type, empty encoding */ publisher;
+    void /* unknown type, empty encoding */ queue;
+    void /* unknown type, empty encoding */ adaptor;
+    void /* unknown type, empty encoding */ finishObservation;
+}
+
+@end

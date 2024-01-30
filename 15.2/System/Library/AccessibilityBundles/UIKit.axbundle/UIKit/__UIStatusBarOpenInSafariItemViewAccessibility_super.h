@@ -1,0 +1,3 @@
+@interface __UIStatusBarOpenInSafariItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType7Fatigue : _TtCs12_SwiftObject
+
+@end

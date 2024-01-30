@@ -1,0 +1,91 @@
+@class NSString, NSArray, NSData;
+
+@interface VCHardwareSettingsMac : VCHardwareSettings <VCHardwareSettingsMacProtocol> {
+    BOOL _hiDefEncoding;
+    BOOL _isGVAEncoderAvailableInitialized;
+    BOOL _isGVAEncoderAvailable;
+    int _machineType;
+    int _cpuFamily;
+    int _numProcessors;
+    int _mhrtz;
+    int _isG5;
+    int _hardwareScore;
+    NSString *_cpuType;
+    NSString *_machineName;
+    unsigned int _screenWidth;
+    unsigned int _screenHeight;
+    unsigned long long _maxScreenEncodingSizeSupported;
+    NSString *_modelName;
+    unsigned int _modelVersion;
+    unsigned int _modelRevision;
+    NSData *_boardId;
+}
+
+@property (readonly, nonatomic) unsigned int screenWidth;
+@property (readonly, nonatomic) unsigned int screenHeight;
+@property (readonly, nonatomic) unsigned long long maxScreenEncodingSizeSupported;
+@property (readonly, nonatomic) unsigned int maxFrameRateSupportedScreenShare;
+@property (readonly, nonatomic) unsigned int maxActiveScreenEncoders;
+@property (readonly, nonatomic) BOOL shouldEnforceScreenFrameRateLimit;
+@property (readonly, nonatomic) long long screenShareCapabilities;
+@property (readonly, nonatomic) BOOL supportHEVC;
+@property (readonly, nonatomic) BOOL vcpSupportsHEVCEncoder;
+@property (readonly, nonatomic) NSString *machineName;
+@property (readonly, nonatomic) int hardwareScore;
+@property (readonly, nonatomic) BOOL canDoHiDefEncoding;
+@property (readonly, nonatomic) BOOL canDoHiDefDecoding;
+@property (readonly, nonatomic) BOOL supports1080pEncoding;
+@property (readonly, nonatomic) BOOL supports1080pDecoding;
+@property (readonly, nonatomic) BOOL canDoHEVC;
+@property (readonly, nonatomic) BOOL supportsAVFCapture;
+@property (readonly, nonatomic) BOOL isMacBookWVGA;
+@property (readonly, nonatomic) BOOL isMacPro;
+@property (readonly, nonatomic) BOOL isIMac;
+@property (readonly, nonatomic) BOOL isMacmini;
+@property (readonly, nonatomic) BOOL useSoftFramerateSwitching;
+@property (readonly, nonatomic) unsigned int hwEncoderExitBitrate;
+@property (readonly, nonatomic) unsigned int hwEncoderEnterBitrate;
+@property (readonly, nonatomic) unsigned int maxDisplayRefreshRate;
+@property (readonly, nonatomic) unsigned int maxActiveVideoEncoders;
+@property (readonly, nonatomic) unsigned int maxActiveVideoDecoders;
+@property (readonly, nonatomic) BOOL supportsMultiway720pStream;
+@property (readonly, nonatomic) BOOL isDeviceLargeScreen;
+@property (readonly, nonatomic) BOOL supportsHEIFEncoding;
+@property (readonly, nonatomic) BOOL isPixelFormatAvailable;
+@property (readonly, nonatomic) BOOL isSpatialAudioSupported;
+@property (readonly, nonatomic) NSArray *supportedVideoPayloads;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (long long)deviceClass;
+
+- (unsigned int)maxRemoteParticipants30fps;
+- (BOOL)limitCameraDownlinkBitrateDuringSharing;
+- (unsigned int)screenWidthForDisplayID:(unsigned int)a0;
+- (BOOL)disableMLScalarDuringSharing;
+- (float)previewPreferredAspectRatio;
+- (unsigned int)maxFpsCameraCaptureDuringSharing;
+- (unsigned int)maxOneToOneFramerateSupported;
+- (unsigned int)maxMultiwayFramerateSupported;
+- (id)init;
+- (void)addPixelFormat;
+- (void)_initializeScreenDimension;
+- (unsigned int)screenHeightForDisplayID:(unsigned int)a0;
+- (void)dealloc;
+- (BOOL)supportsDedicatedSystemAudioStream;
+- (void)setupMachineName;
+- (int)_getCPUFamilyType;
+- (id)_getCPUTypeStringForMachineType:(int)a0;
+- (id)queryBoardId;
+- (BOOL)isGVAEncoderAvailable;
+- (BOOL)_isModel:(id)a0;
+- (BOOL)_isMachineNewerThanSandybridge:(int)a0;
+- (BOOL)isIMacPro;
+- (BOOL)isMacBookAir;
+- (BOOL)supportsPortraitCameraCapture;
+- (BOOL)preferPresentationTimestamp;
+
+@end

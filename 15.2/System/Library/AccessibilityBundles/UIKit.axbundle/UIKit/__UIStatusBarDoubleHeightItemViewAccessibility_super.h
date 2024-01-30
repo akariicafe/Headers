@@ -1,0 +1,3 @@
+@interface __UIStatusBarDoubleHeightItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

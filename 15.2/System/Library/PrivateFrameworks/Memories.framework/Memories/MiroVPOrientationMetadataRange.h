@@ -1,0 +1,3 @@
+@interface MiroVPOrientationMetadataRange : MiroVPMetadataRange
+
+@end

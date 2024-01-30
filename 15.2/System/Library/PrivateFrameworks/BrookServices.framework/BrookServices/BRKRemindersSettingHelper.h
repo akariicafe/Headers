@@ -1,0 +1,3 @@
+@interface BRKRemindersSettingHelper : BRKRemindersSettingsHelper
+
+@end

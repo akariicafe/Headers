@@ -1,0 +1,3 @@
+@interface SSImageIdentifierAction : BSAction
+
+@end

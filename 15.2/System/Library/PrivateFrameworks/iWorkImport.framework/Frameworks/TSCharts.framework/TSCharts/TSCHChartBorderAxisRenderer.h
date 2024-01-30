@@ -1,0 +1,3 @@
+@interface TSCHChartBorderAxisRenderer : TSCHChartAxisRenderer
+
+@end

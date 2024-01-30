@@ -1,0 +1,81 @@
+@class NSArray, NSString, CRImage, NSUUID, NSNumber;
+
+@interface CRTextFeature : NSObject <NSCoding, NSCopying>
+
+@property BOOL contextSet;
+@property unsigned long long type;
+@property struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } bounds;
+@property struct CGPoint { double x; double y; } topLeft;
+@property struct CGPoint { double x; double y; } topRight;
+@property struct CGPoint { double x; double y; } bottomLeft;
+@property struct CGPoint { double x; double y; } bottomRight;
+@property (retain) NSArray *subFeatures;
+@property (retain) NSArray *stringValueCandidates;
+@property (retain) NSArray *candidateProbs;
+@property (retain) NSArray *candidateActivationProbs;
+@property (retain) NSArray *subFeatureCandidates;
+@property long long bestCandidateIndex;
+@property BOOL shouldExpandToFullWidth;
+@property (retain, nonatomic) NSString *stringValue;
+@property (retain, nonatomic) NSString *gtStringValue;
+@property (retain) CRImage *imageCut;
+@property (retain) NSNumber *confidence;
+@property (readonly) struct CGPoint { double x; double y; } toplineOrigin;
+@property (readonly) struct CGPoint { double x; double y; } baselineOrigin;
+@property float baselineAngle;
+@property unsigned char sizeHint;
+@property float textlineHeight;
+@property int featureMapID;
+@property (retain) NSArray *scriptCategoryResults;
+@property (retain) NSString *selectedLocale;
+@property (retain) NSArray *scriptCount;
+@property BOOL isCurve;
+@property (readonly) unsigned long long subFeatureType;
+@property (retain) NSUUID *uuid;
+
++ (id)sortedTextFeaturesByAspectRatio:(id)a0 imageSize:(struct CGSize { double x0; double x1; })a1;
++ (id)sortedRotateTextFeatures:(id)a0 center:(struct CGPoint { double x0; double x1; })a1 radians:(float)a2 sortingWithinLine:(BOOL)a3;
++ (id)sortedTextFeatures:(id)a0;
++ (id)lineFeatures:(id)a0 imageWidth:(unsigned long long)a1 imageHeight:(unsigned long long)a2;
++ (id)overlayFeatures:(id)a0 onImage:(id)a1 showSubFeatures:(BOOL)a2;
++ (id)overlayFeaturesVertices:(id)a0 onImage:(id)a1 showSubFeatures:(BOOL)a2;
+
+- (BOOL)isUp;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)isDown;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithSubfeatures:(id)a0;
+- (void)flipHorizontally;
+- (id)initWithSubfeatures:(id)a0 stringValue:(id)a1;
+- (void)scale:(struct CGPoint { double x0; double x1; })a0 offset:(struct CGPoint { double x0; double x1; })a1;
+- (id)initWithTopLeft:(struct CGPoint { double x0; double x1; })a0 TopRight:(struct CGPoint { double x0; double x1; })a1 BottomLeft:(struct CGPoint { double x0; double x1; })a2 BottomRight:(struct CGPoint { double x0; double x1; })a3;
+- (void)updateSizeHints;
+- (id)wordFeatures;
+- (id)initWithFeatureRect:(id)a0 subFeatureRects:(id)a1;
+- (void)setBaselineOrigin:(struct CGPoint { double x0; double x1; })a0 toplineOrigin:(struct CGPoint { double x0; double x1; })a1 slope:(float)a2;
+- (float)aspectRatioWithImageSize:(struct CGSize { double x0; double x1; })a0;
+- (float)calculateTextBoxHeightForImageWidth:(unsigned long long)a0 imageHeight:(unsigned long long)a1;
+- (void)sortSubfeaturesInReadingOrderImageSize:(struct CGSize { double x0; double x1; })a0;
+- (void)adjustBoundsBasedOnSubfeaturesForImageSize:(struct CGSize { double x0; double x1; })a0;
+- (void)setSelectedLocale:(id)a0 includeSubfeatures:(BOOL)a1;
+- (id)createWordSubFeaturesForCandidateAtIndex:(long long)a0 topWhiteSpacePoints:(id)a1 bottomWhiteSpacePoints:(id)a2 hasBoundarySpacePoints:(BOOL)a3;
+- (id)createCharacterSubFeaturesForCandidateAtIndex:(long long)a0;
+- (id)initWithFeatureRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inImage:(id)a1;
+- (id)initWithFeatureRect:(id)a0 subFeatureRects:(id)a1 inImage:(id)a2;
+- (id)initWithCCFeatureRect:(id)a0 subFeatureRects:(id)a1 rotatePortrait:(BOOL)a2;
+- (id)textFeatureScaledToImageWidth:(float)a0 height:(float)a1;
+- (id)textFeaturebyPaddingToWidth:(float)a0 height:(float)a1;
+- (float)slopeOfSubFeatures;
+- (id)textFeatureScaledToImage:(id)a0;
+- (void)estimateTopAndBaseline;
+- (struct CGPoint { double x0; double x1; })getBaselineVector;
+- (void)setStringValueByReplacingCharactersInSet:(id)a0 withString:(id)a1;
+- (id)initWithVNTextObsevation:(id)a0;
+- (id)textFeatureSplitForStringValue:(id)a0;
+- (float)caseInsensitiveProbabilityCandidateIndex:(int)a0;
+- (void)addKohlsDigitProjection;
+- (id)createCharacterSubFeaturesForCandidateAtIndex:(long long)a0 topWhiteSpacePoints:(id)a1 bottomWhiteSpacePoints:(id)a2 falsePositiveFiltering:(BOOL)a3;
+
+@end

@@ -1,0 +1,26 @@
+@class NSString, CRCameraReader, WBSCreditCardData;
+@protocol _SFCreditCardCaptureViewControllerDelegate;
+
+@interface _SFCreditCardCaptureViewController : UINavigationController <CRCameraReaderDelegate> {
+    CRCameraReader *_reader;
+    WBSCreditCardData *_receivedCardData;
+}
+
+@property (weak, nonatomic) id<_SFCreditCardCaptureViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)canCapture;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)_cancel:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)cameraReaderDidCancel:(id)a0;
+- (void)cameraReaderDidEnd:(id)a0;
+- (void)cameraReader:(id)a0 didFailWithError:(id)a1;
+- (void)cameraReader:(id)a0 didRecognizeObjects:(id)a1;
+
+@end

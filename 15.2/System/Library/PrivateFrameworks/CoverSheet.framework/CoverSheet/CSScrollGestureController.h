@@ -1,0 +1,37 @@
+@class NSString, CSHorizontalScrollFailureRecognizer, UIScrollView, UIView, UIGestureRecognizer;
+@protocol CSScrollableView, CSScrollGestureControllerDelegate;
+
+@interface CSScrollGestureController : NSObject <UIGestureRecognizerDelegate, BSDescriptionProviding, CSEventHandling> {
+    UIScrollView *_scrollView;
+    UIView<CSScrollableView> *_scrollableView;
+    UIGestureRecognizer *_scrollViewGestureRecognizer;
+}
+
+@property (retain, nonatomic) CSHorizontalScrollFailureRecognizer *horizontalFailureGestureRecognizer;
+@property (nonatomic) long long scrollingStrategy;
+@property (weak, nonatomic) id<CSScrollGestureControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)gestureRecognizer:(id)a0 shouldBeRequiredToFailByGestureRecognizer:(id)a1;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (BOOL)wouldHandleButtonEvent:(id)a0;
+- (BOOL)gestureRecognizer:(id)a0 shouldRequireFailureOfGestureRecognizer:(id)a1;
+- (id)succinctDescription;
+- (BOOL)handleEvent:(id)a0;
+- (void).cxx_destruct;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (id)succinctDescriptionBuilder;
+- (void)invalidate;
+- (void)conformsToCSEventHandling;
+- (void)dealloc;
+- (id)initWithScrollableView:(id)a0;
+- (void)_horizontalScrollFailureGestureRecognizerChanged:(id)a0;
+- (void)_updateForScrollingStrategy:(long long)a0 fromScrollingStrategy:(long long)a1;
+- (BOOL)_shouldFailHorizontalSwipesForScrollingStrategy:(long long)a0;
+- (BOOL)_shouldAllowScrollForScrollingStrategy:(long long)a0;
+
+@end

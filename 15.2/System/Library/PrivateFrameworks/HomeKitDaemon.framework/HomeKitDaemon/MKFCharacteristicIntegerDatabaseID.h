@@ -1,0 +1,3 @@
+@interface MKFCharacteristicIntegerDatabaseID : MKFCharacteristicDatabaseID
+
+@end

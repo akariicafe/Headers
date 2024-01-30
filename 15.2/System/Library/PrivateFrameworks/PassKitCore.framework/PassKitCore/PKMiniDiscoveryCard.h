@@ -1,0 +1,3 @@
+@interface PKMiniDiscoveryCard : PKDiscoveryCard
+
+@end

@@ -1,0 +1,3 @@
+@interface DMFStopAppLockRequest : DMFTaskRequest
+
+@end

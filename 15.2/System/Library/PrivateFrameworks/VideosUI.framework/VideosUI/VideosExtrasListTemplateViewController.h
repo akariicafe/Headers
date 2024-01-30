@@ -1,0 +1,50 @@
+@class NSIndexPath, NSString, UIImageView, NSArray, NSMapTable, VideosExtrasViewElementViewController, UITableView;
+
+@interface VideosExtrasListTemplateViewController : VideosExtrasTemplateViewController <UITableViewDataSource, UITableViewDelegate> {
+    UITableView *_tableView;
+    BOOL _tableViewLeft;
+    UIImageView *_vignetteView;
+    BOOL _relatedContentEmbedded;
+    NSArray *_masterViewConstraints;
+    NSArray *_detailViewConstraints;
+    NSMapTable *_relatedContentViewControllerMap;
+    NSIndexPath *_autohighlightIndexPath;
+}
+
+@property (retain, nonatomic) VideosExtrasViewElementViewController *relatedContentViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)relatedContentViewControllerForElement:(id)a0;
+
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void)tableView:(id)a0 didHighlightRowAtIndexPath:(id)a1;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (id)templateElement;
+- (void)_prepareLayout;
+- (BOOL)showsPlaceholder;
+- (BOOL)shouldUpdateByReplacingViewControllerWithTemplate:(id)a0;
+- (id)initWithDocument:(id)a0 options:(id)a1 context:(id)a2;
+- (void)_configureBannerWithElement:(id)a0;
+- (void)_updateForTemplate:(id)a0;
+- (void)_updateRelatedContent:(id)a0 forListItem:(id)a1;
+- (void)_embedRelatedContentViewController;
+- (void)_unembedRelatedContent;
+- (void)_pushRelatedViewController:(id)a0 animated:(BOOL)a1;
+- (void)_setDetailContraints;
+- (void)_setRelatedContentEmbedded:(BOOL)a0;
+- (void)_addConstraintsToTableView:(id)a0;
+- (void)_configureVignette:(BOOL)a0;
+- (void)_setNavigationConstraints;
+
+@end

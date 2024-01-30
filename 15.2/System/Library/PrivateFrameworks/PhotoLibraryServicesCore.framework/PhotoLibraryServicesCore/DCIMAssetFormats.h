@@ -1,0 +1,3 @@
+@interface DCIMAssetFormats : PLAssetFormatsCore
+
+@end

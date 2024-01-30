@@ -1,0 +1,3 @@
+@interface KnowledgeGraphKit.MAProbabilitySimilarityDistance : KnowledgeGraphKit.MACommonNeighborsSimilarityDistance
+
+@end

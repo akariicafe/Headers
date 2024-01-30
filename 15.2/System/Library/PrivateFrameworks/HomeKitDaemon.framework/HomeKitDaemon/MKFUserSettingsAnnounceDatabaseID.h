@@ -1,0 +1,3 @@
+@interface MKFUserSettingsAnnounceDatabaseID : MKFModelDatabaseID
+
+@end

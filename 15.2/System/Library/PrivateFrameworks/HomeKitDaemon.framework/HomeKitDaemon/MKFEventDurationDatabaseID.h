@@ -1,0 +1,3 @@
+@interface MKFEventDurationDatabaseID : MKFEventDatabaseID
+
+@end

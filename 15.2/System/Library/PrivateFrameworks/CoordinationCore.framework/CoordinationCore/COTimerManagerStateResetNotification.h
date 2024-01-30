@@ -1,0 +1,3 @@
+@interface COTimerManagerStateResetNotification : COMeshNotification
+
+@end

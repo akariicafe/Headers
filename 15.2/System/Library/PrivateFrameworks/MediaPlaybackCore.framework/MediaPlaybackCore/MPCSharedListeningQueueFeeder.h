@@ -1,0 +1,71 @@
+@class NSError, NSString, MPPropertySet, ICLiveLinkIdentity, AVPlayerPlaybackCoordinator, NSMutableArray, NSMutableSet, MPCPlaybackRequestEnvironment, ICLiveLink;
+@protocol MPCQueueControllerCommandInterposingHost;
+
+@interface MPCSharedListeningQueueFeeder : MPCModelQueueFeeder <ICLiveLinkDelegate, AVPlayerPlaybackCoordinatorDelegate, MPCQueueControllerCommandInterposing>
+
+@property (readonly, nonatomic) long long state;
+@property (retain, nonatomic) ICLiveLink *liveLink;
+@property (copy, nonatomic) NSString *completionStartItemIdentifier;
+@property (retain, nonatomic) NSError *completionError;
+@property (readonly, copy, nonatomic) id /* block */ initialQueueCompletion;
+@property (retain, nonatomic) MPCPlaybackRequestEnvironment *playbackRequestEnvironment;
+@property (copy, nonatomic) MPPropertySet *requestedPropertySet;
+@property (retain, nonatomic) NSMutableArray *pendingActions;
+@property (retain, nonatomic) NSMutableSet *knownContainerIDs;
+@property (nonatomic) long long lastKnownExplicitContentState;
+@property (nonatomic) BOOL shouldRefreshBeforeActive;
+@property (copy, nonatomic) NSString *deferredDirectCurrentItemIdentifier;
+@property (retain, nonatomic) ICLiveLinkIdentity *deferredDirectCurrentItemParticipant;
+@property (nonatomic) BOOL hasPendingPlayNowInFlight;
+@property (copy, nonatomic) NSString *deferredPlayNowCurrentItemIdentifier;
+@property (weak, nonatomic) AVPlayerPlaybackCoordinator *playbackCoordinator;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<MPCQueueControllerCommandInterposingHost> interposingHost;
+@property (readonly, nonatomic) NSString *sharedSessionIdentifier;
+@property (readonly, nonatomic) long long queueExplicitContentState;
+@property (readonly, nonatomic) BOOL containsLiveStream;
+@property (readonly, nonatomic) BOOL containsTransportableContent;
+
+- (void)_transitionToState:(long long)a0;
+- (id)playbackCoordinator:(id)a0 identifierForPlayerItem:(id)a1;
+- (void)removeItem:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (id)_responseQueue;
+- (void)moveItem:(id)a0 afterItem:(id)a1;
+- (void)_allowsExplicitContentDidChangeNotification:(id)a0;
+- (void)endSynchronizedPlayback;
+- (void)liveLink:(id)a0 didEncounterError:(id)a1 willRetry:(BOOL)a2;
+- (void)liveLinkDidReconnect:(id)a0;
+- (void)didStartLiveLink:(id)a0;
+- (void)liveLink:(id)a0 didUpdateQueue:(id)a1;
+- (void)liveLink:(id)a0 didUpdateParticipants:(id)a1;
+- (void)liveLink:(id)a0 didReceiveEvent:(id)a1;
+- (void)liveLink:(id)a0 didReceiveDirectCurrentItemChanged:(id)a1 fromParticipant:(id)a2;
+- (void)didStopLiveLink:(id)a0;
+- (void)loadPlaybackContext:(id)a0 completion:(id /* block */)a1;
+- (void)_didUpdateToResponse:(id)a0;
+- (void)updatePlaybackCoordinator:(id)a0;
+- (void)moveItem:(id)a0 beforeItem:(id)a1;
+- (BOOL)isValidContainerIdentifier:(id)a0;
+- (id)containerInfoForItem:(id)a0;
+- (void)addPlaybackContext:(id)a0 atPosition:(long long)a1 afterItem:(id)a2 actions:(unsigned long long)a3 completion:(id /* block */)a4;
+- (void)didJumpToItem:(id)a0;
+- (void)_dequeuePendingActions;
+- (void)_emitNewContainerIfNeededForResponse:(id)a0;
+- (void)_enqueuePendingActionWithLabel:(id)a0 itemIdentifier:(id)a1 block:(id /* block */)a2;
+- (void)_handleDirectCurrentItemChangedToItemIdentifier:(id)a0 participant:(id)a1;
+- (void)_handleUpdatedSharedListeningQueue:(id)a0;
+- (id)_ICSharedListeningForMPSILItemIdentifier:(id)a0;
+- (id)_MPSILItemIdentifierForICSharedListeningItemIdentifier:(id)a0;
+- (id)_mpcSharedListeningEventForICLiveLinkEvent:(id)a0;
+- (id)_playbackItemsRequestForQueue:(id)a0;
+- (void)_purgePendingActionsWithLabel:(id)a0;
+- (id)_requiredItemIdentifierForEvent:(id)a0;
+- (id)_sectionedCollectionForQueue:(id)a0;
+- (void)_updatePlayerLiveLinkConnection;
+
+@end

@@ -1,0 +1,92 @@
+@class NSMutableArray, HPLocationServicesSettingsManager, NSString, NSUserDefaults, HPAccessibilitySettingsManager, HPSettingsDefaults, AFSettingsConnection, HPSServer, HPSHomeAccessorySettingsListener, NSObject, HPMediaRestrictionsSettingsManager, HPSettingAdapterManager;
+@protocol OS_dispatch_queue;
+
+@interface HPSettingsManager : NSObject <HPSettingAdapterManagerDelegate, HPSHomeInterface, HPMediaRestrictionsSettingsManagerDelegate> {
+    NSUserDefaults *_accessibilityDefaults;
+    HPSettingsDefaults *_defaultsManager;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _clientInfoStateLock;
+}
+
+@property (getter=isFirstTimeUpdate) BOOL firstTimeUpdate;
+@property (retain) AFSettingsConnection *settingsConnection;
+@property (readonly, nonatomic) BOOL onlyUseMobileTimerAdapterForLeader;
+@property (retain, nonatomic) HPSServer *serverConnection;
+@property (retain, nonatomic) HPSHomeAccessorySettingsListener *homeAccessorysettingsListener;
+@property (retain, nonatomic) HPSettingAdapterManager *settingAdapterManager;
+@property (retain, nonatomic) HPAccessibilitySettingsManager *accessibilitySettingsManager;
+@property (retain, nonatomic) HPLocationServicesSettingsManager *locationServicesSettingsManager;
+@property (retain, nonatomic) HPMediaRestrictionsSettingsManager *mediaRestrictionsSettingsManager;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *afSettingsConnectionQueue;
+@property (copy, nonatomic) NSMutableArray *hpSettingsClientInfo;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedManager;
+
+- (id)accessoryIdentifier;
+- (id)homeIdentifier;
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (void)startConnection;
+- (void)homeKitSettingValueForKeyPathInternal:(id)a0 value:(id)a1 completionHandler:(id /* block */)a2;
+- (void)accessorySettingValueForKeyPathInternal:(id)a0 completionHandler:(id /* block */)a1;
+- (void)homeKitCachedSettingsInternal:(id /* block */)a0;
+- (void)homeKitStatusChanged;
+- (void)settingAdapterManager:(id)a0 siriLanguageOptionDidChangeOutputLanguage:(id)a1 recognitionLanguage:(id)a2 gender:(long long)a3 name:(id)a4;
+- (void)settingAdapterManagerDidChangeSystemLocale:(id)a0;
+- (void)settingAdapterManager:(id)a0 handleSettingChangeForKeyPath:(id)a1 withNewValue:(id)a2;
+- (void)settingAdapterManager:(id)a0 setHomeKitSettingForKeyPath:(id)a1 newValue:(id)a2 completion:(id /* block */)a3;
+- (void)settingAdapterManagerSetupListenerDidChangeSiriLanguageAndVoiceOptions:(id)a0;
+- (void)_setupSettingListenerForCurrentAccessory;
+- (void)setupSiriLanguageAndVoiceOptions;
+- (void)createHomeProxyObject;
+- (void)enableHKAirplayAccessControlSetting;
+- (void)settingAdapterManager:(id)a0 handleDeviceAttributeChanged:(id)a1 withContext:(id)a2;
+- (void)settingAdapterManager:(id)a0 didEnableLocationServices:(BOOL)a1;
+- (void)settingAdapterManager:(id)a0 didUpdateSoundCheckEnabled:(BOOL)a1;
+- (void)settingAdapterManager:(id)a0 losslessAudioValueEnabled:(BOOL)a1;
+- (void)getCurrentHomeAttribute:(id)a0 completion:(id /* block */)a1;
+- (void)homeKitSettingKeyPathValueForAccessoryIdentifier:(id)a0 homeIdentifier:(id)a1 settingKeyPath:(id)a2 value:(id)a3 completionHandler:(id /* block */)a4;
+- (void)accessorySettingKeyPathValueForHomeIdentifier:(id)a0 accessoryIdentifier:(id)a1 settingKeyPath:(id)a2 completionHandler:(id /* block */)a3;
+- (void)cacheHomeKitSettingForKeyPath:(id)a0 withNewValue:(id)a1;
+- (void)_updateSystemIfLocaleChanged;
+- (void)_setupVoiceServicesObserver;
+- (void)voiceServicesMobileAssetInstallAvailable;
+- (void)voiceServicesUpdateAvailable;
+- (void)assistantPrefsChanged:(id)a0;
+- (void)_notifyLocaleChange:(id)a0;
+- (id)_getHomeKitSettingForKeyPath:(id)a0;
+- (void)_homeKitCachedSettings:(id /* block */)a0;
+- (void)_setSoundWhenUsingSiri:(BOOL)a0;
+- (void)setHomeKitSettingForKeyPath:(id)a0 newValue:(id)a1 completion:(id /* block */)a2;
+- (void)homeKitAccessorySettingForKeyPath:(id)a0 value:(id)a1 completion:(id /* block */)a2;
+- (void)_homeKitAccessorySettingForKeyPath:(id)a0 settingValue:(id)a1 completion:(id /* block */)a2;
+- (void)retryNotifyingSettingChangeObservers:(id)a0 updatedValue:(id)a1;
+- (void)retryNotificationSend:(id)a0 context:(id)a1;
+- (void)_setupListenerForSiriLanguageAndVoiceChanges;
+- (void)_handleHomeSettingChangeForKeyPath:(id)a0 withNewValue:(id)a1;
+- (void)_handleDeviceAttributeChanged:(id)a0 withContext:(id)a1;
+- (id)_airplayDefaults;
+- (void)_setupSiriLanguageAndVoiceOptions;
+- (void)_enableHKAirplayAccessControlSetting;
+- (void)_handleHomeKitSettingChangeForKeyPath:(id)a0 withNewValue:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_notifySettingChangedObservers:(id)a0 settingValueFromHome:(id)a1 settingValue:(id)a2 completion:(id /* block */)a3;
+- (void)getHomeAccessoryAttribute:(id)a0 completion:(id /* block */)a1;
+- (void)getAirPlaySettings:(id /* block */)a0;
+- (void)getHomeKitCachedSettings:(id /* block */)a0;
+- (void)getAllHomeKitSettingsKeyPath:(id /* block */)a0;
+- (void)getHomeKitSettingForKeyPath:(id)a0 completion:(id /* block */)a1;
+- (void)homeKitSettingValueForKeyPath:(id)a0 completion:(id /* block */)a1;
+- (void)isHomeKitSyncComplete:(id /* block */)a0;
+- (void)isValidHome:(id /* block */)a0;
+- (void)isAutomaticSoftwareUpdateEnabled:(id /* block */)a0;
+- (void)mediaRestrictionsSettingsManager:(id)a0 homeKitSettingForKeyPath:(id)a1 newValue:(id)a2 completion:(id /* block */)a3;
+- (void)setupHomeKit;
+- (void)_setBufferedSurroundSwitch:(BOOL)a0;
+- (void)addClientInfo:(id)a0;
+- (void)removeClientInfo:(id)a0;
+
+@end

@@ -1,0 +1,87 @@
+@class NSObject, JFXCompositionPlayerRequest, JFXComposition, NSString, NSMutableArray, AVPlayer;
+@protocol JFXCompositionPlayableElementsDataSource, JFXAVPlayerViewer, JFXCompositionPlayerDelegate;
+
+@interface JFXCompositionPlayer : NSObject
+
+@property (retain, nonatomic) id<JFXCompositionPlayableElementsDataSource> clipsDataSource;
+@property (retain, nonatomic) JFXComposition *composition;
+@property (retain, nonatomic) AVPlayer *player;
+@property (retain, nonatomic) id playerProVideoPeriodicObserver;
+@property (retain, nonatomic) id playerPlaybackTimePeriodicObserver;
+@property (retain, nonatomic) JFXCompositionPlayerRequest *pendingRequest;
+@property (retain, nonatomic) NSMutableArray *requestQueue;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } wasCurrentTime;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } cachedCurrentTimeForCompositionUpdate;
+@property (nonatomic) BOOL wasAudioMuted;
+@property (nonatomic) BOOL wasPlaying;
+@property (nonatomic) BOOL restoringPlayerStateAfterCompositionUpdate;
+@property (copy, nonatomic) NSString *displayName;
+@property (nonatomic) unsigned int parentCode;
+@property (weak, nonatomic) id<JFXCompositionPlayerDelegate> playbackDelegate;
+@property (readonly, nonatomic) NSObject<JFXAVPlayerViewer> *playerView;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } renderSize;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } playbackTimeChangedObserverInterval;
+@property (readonly, nonatomic) int currentTime;
+@property (readonly, nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } currentCMTime;
+
++ (Class)compositionClass;
+
+- (BOOL)isPlaying;
+- (id)removeAllRequests;
+- (void)enqueueRequest:(id)a0;
+- (void).cxx_destruct;
+- (int)duration;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)play:(id /* block */)a0;
+- (void)dealloc;
+- (void)doPause;
+- (void)doPlay;
+- (BOOL)pause:(id /* block */)a0;
+- (void)destroyPlayer;
+- (BOOL)isAudioMuted;
+- (void)dispatchBlockWhenDone:(id /* block */)a0;
+- (void)warnTooManyLiveCompositors:(id)a0;
+- (void)teardownSetPlaceHolder:(BOOL)a0;
+- (void)clearQueuedRequests;
+- (void)executeRequestCompletionBlock:(id)a0 success:(BOOL)a1 wasCancelled:(BOOL)a2 error:(id)a3;
+- (BOOL)isRequestOfTypeQueued:(unsigned long long)a0;
+- (void)handleUpdateCompositionCompleted:(BOOL)a0 wasCancelled:(BOOL)a1 error:(id)a2;
+- (void)handleClipCompositionUpdateTimedOut;
+- (void)completePendingRequest:(BOOL)a0 wasCancelled:(BOOL)a1 error:(id)a2;
+- (void)executeNextRequest;
+- (void)checkPendingRequestForTimeOut;
+- (void)completeRequest:(id)a0 success:(BOOL)a1 wasCancelled:(BOOL)a2 error:(id)a3;
+- (id)requestWithBlock:(id /* block */)a0 ofType:(unsigned long long)a1 completion:(id /* block */)a2;
+- (BOOL)isRequestOfTypePendingOrQueued:(unsigned long long)a0;
+- (void)throttleRequestWithCompletionBlock:(id /* block */)a0 ofType:(unsigned long long)a1;
+- (void)setupPlaybackTimeChangedObserver;
+- (void)removeCompositorCompletionBlock;
+- (void)configureCompositorCompletionBlock;
+- (void)cancelQueuedRequestOfType:(unsigned long long)a0;
+- (void)handleSeekCompleted:(BOOL)a0;
+- (void)seek:(int)a0 cancelQueuedRequest:(BOOL)a1 tolerance:(int)a2 completion:(id /* block */)a3;
+- (void)doMuteAudio:(BOOL)a0;
+- (void)handleChangeAudioMutedCompleted;
+- (BOOL)updateComposition:(id /* block */)a0;
+- (void)doUpdateComposition;
+- (void)createPlayer;
+- (BOOL)setAudioMuted:(BOOL)a0 completionBlock:(id /* block */)a1;
+- (id)removeRequestOfType:(unsigned long long)a0;
+- (void)appendRequests:(id)a0;
+- (id)firstQueuedRequestOfType:(unsigned long long)a0;
+- (void)seek:(int)a0 tolerance:(int)a1 completion:(id /* block */)a2;
+- (void)cancelQueuedCompositionUpdateRequestFromClip:(id)a0;
+- (void)doClipCompositionUpdate:(id)a0;
+- (void)handleUpdateCompositionForClipCompleted:(BOOL)a0;
+- (void)handleCompositionRefreshCompleted:(BOOL)a0;
+- (void)handlePlaybackBegan;
+- (void)handlePlaybackPaused;
+- (void)handleReadyForDisplay:(BOOL)a0;
+- (id)initWithClipsDataSource:(id)a0 seekPosition:(int)a1 audioMuted:(BOOL)a2;
+- (void)resetPlaybackTimeChangedObserverInterval;
+- (void)setPlayerView:(id)a0 completionBlock:(id /* block */)a1;
+- (void)notifyPlayerViewSizeChanged;
+- (BOOL)updateCompositionForClip:(id)a0 completion:(id /* block */)a1;
+- (BOOL)JFX_clipDataSourceHasClip:(id)a0;
+
+@end

@@ -1,0 +1,26 @@
+@class NSString, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CDPDCircleStateObserver : NSObject <CDPDXPCEventListener> {
+    int _circleChangeToken;
+    BOOL _isObserving;
+    NSObject<OS_dispatch_queue> *_eventQueue;
+    NSMutableArray *_circleObservers;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (const char *)_notificationName;
+- (void)eventReceived:(const char *)a0 eventValue:(unsigned long long)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (void)stopObservingCircleStatusChange;
+- (void)dealloc;
+- (void)observeCircleStateWithCircleProxy:(id)a0 changeHandler:(id /* block */)a1;
+- (void)observeChangeToState:(unsigned long long)a0 circleProxy:(id)a1 handler:(id /* block */)a2;
+- (void)registerListener:(id)a0;
+
+@end

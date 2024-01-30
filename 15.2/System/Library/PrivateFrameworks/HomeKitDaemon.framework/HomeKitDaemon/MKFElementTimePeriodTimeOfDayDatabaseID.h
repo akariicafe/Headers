@@ -1,0 +1,3 @@
+@interface MKFElementTimePeriodTimeOfDayDatabaseID : MKFElementTimePeriodDatabaseID
+
+@end

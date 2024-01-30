@@ -1,0 +1,3 @@
+@interface __TIPreferencesControllerAccessibility__UIKit__TextInput_super : UIAccessibilitySafeCategory
+
+@end

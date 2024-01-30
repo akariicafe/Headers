@@ -1,0 +1,3 @@
+@interface __UIInputSwitcherTableCellSegmentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXAssetVariationCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

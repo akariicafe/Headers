@@ -1,0 +1,77 @@
+@class UIView, NSString, UIDropInteraction, PXUpdater, UIDragInteraction, NSSet, PXAssetReference, NSMutableSet, UIViewController, PXSectionedSelectionManager, _UIDragSnappingFeedbackGenerator, PXAssetCollectionActionManager;
+@protocol PXPhotosDragControllerDelegate;
+
+@interface PXPhotosDragController : NSObject <PXChangeObserver, UIDragInteractionDelegate, UIDropInteractionDelegate, PXAssetCollectionActionPerformerDelegate, PXLocalDragSessionDelegate>
+
+@property (readonly, nonatomic) PXUpdater *updater;
+@property (nonatomic) BOOL isUpdatingExcludedAssets;
+@property (readonly, nonatomic) NSMutableSet *localDragSessions;
+@property (readonly, nonatomic) _UIDragSnappingFeedbackGenerator *reorderFeedbackGenerator;
+@property (readonly, nonatomic) UIViewController *viewControllerForPresentation;
+@property (retain, nonatomic) NSSet *excludedAssets;
+@property (nonatomic) BOOL reorderFeedbackEnabled;
+@property (nonatomic) BOOL isDragSessionActive;
+@property (retain, nonatomic) NSSet *draggedAssetReferences;
+@property (retain, nonatomic) PXAssetReference *dropTargetAssetReference;
+@property (retain, nonatomic) PXAssetReference *hitAssetReference;
+@property (readonly, nonatomic) UIDragInteraction *dragInteraction;
+@property (readonly, nonatomic) UIDropInteraction *dropInteraction;
+@property (readonly, weak, nonatomic) UIView *contentView;
+@property (readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
+@property (readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
+@property (readonly, weak, nonatomic) id<PXPhotosDragControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_updateTrackedAssetReferences;
+- (void)dropInteraction:(id)a0 sessionDidEnd:(id)a1;
+- (id)dragInteraction:(id)a0 previewForLiftingItem:(id)a1 session:(id)a2;
+- (id)_createLocalSession;
+- (BOOL)actionPerformer:(id)a0 dismissViewController:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_updateDropTarget;
+- (void)dragInteraction:(id)a0 session:(id)a1 willAddItems:(id)a2 forInteraction:(id)a3;
+- (void)dragInteraction:(id)a0 session:(id)a1 didEndWithOperation:(unsigned long long)a2;
+- (id)dropInteraction:(id)a0 previewForDroppingItem:(id)a1 withDefault:(id)a2;
+- (void)_presentConfidentialityWarning;
+- (void)dropInteraction:(id)a0 concludeDrop:(id)a1;
+- (BOOL)dropInteraction:(id)a0 canHandleSession:(id)a1;
+- (void)localDragSession:(id)a0 didChangeProperty:(SEL)a1;
+- (BOOL)canDragOut;
+- (void)removeFromView;
+- (id)scrollView;
+- (id)dropInteraction:(id)a0 sessionDidUpdate:(id)a1;
+- (void)_localSessionForDropSession:(id)a0 changeBlock:(id /* block */)a1;
+- (void)dropInteraction:(id)a0 sessionDidEnter:(id)a1;
+- (id)_createDragItemForAssetReference:(id)a0;
+- (void)dragInteraction:(id)a0 item:(id)a1 willAnimateCancelWithAnimator:(id)a2;
+- (void)dropInteraction:(id)a0 sessionDidExit:(id)a1;
+- (id)initWithContentView:(id)a0 selectionManager:(id)a1 assetCollectionActionManager:(id)a2 delegate:(id)a3;
+- (id)_assetReferenceForDragItem:(id)a0;
+- (void)dropInteraction:(id)a0 performDrop:(id)a1;
+- (id)hostViewControllerForActionPerformer:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)actionPerformer:(id)a0 presentViewController:(id)a1;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)init;
+- (id)dragInteraction:(id)a0 previewForCancellingItem:(id)a1 withDefault:(id)a2;
+- (id)dragInteraction:(id)a0 sessionForAddingItems:(id)a1 withTouchAtPoint:(struct CGPoint { double x0; double x1; })a2;
+- (void)_removeDraggedAssetReferece:(id)a0 fromLocalSession:(id)a1;
+- (BOOL)_addDraggedAssetReferences:(id)a0 toLocalSession:(id)a1;
+- (void)dragInteraction:(id)a0 sessionWillBegin:(id)a1;
+- (id)_actionManagerForDropSession:(id)a0;
+- (void)_updateDraggedAssetReferences;
+- (id)_draggableAssetReferenceAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_updateExcludedAssets;
+- (void)_localSessionForDragSession:(id)a0 changeBlock:(id /* block */)a1;
+- (void)dragInteraction:(id)a0 willAnimateLiftWithAnimator:(id)a1 session:(id)a2;
+- (void)_pruneLocalSessionIfFinished:(id)a0;
+- (void)_setupWithContentView:(id)a0;
+- (void)_updateIsDragSessionActive;
+- (id)dragInteraction:(id)a0 itemsForAddingToSession:(id)a1 withTouchAtPoint:(struct CGPoint { double x0; double x1; })a2;
+- (unsigned long long)_supportedDropOperationForSession:(id)a0;
+- (id)dragInteraction:(id)a0 itemsForBeginningSession:(id)a1;
+- (BOOL)canDragIn;
+
+@end

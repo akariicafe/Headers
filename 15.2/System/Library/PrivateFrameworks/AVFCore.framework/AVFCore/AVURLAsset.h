@@ -1,0 +1,95 @@
+@class NSString, NSArray, AVAssetResourceLoader, NSURL, AVURLAssetInternal;
+
+@interface AVURLAsset : AVAsset <AVContentKeyRecipient> {
+    AVURLAssetInternal *_URLAsset;
+}
+
+@property (readonly, nonatomic) BOOL shouldMatchDataInCacheByURLPathComponentOnly;
+@property (readonly, nonatomic) BOOL shouldMatchDataInCacheByURLWithoutQueryComponent;
+@property (readonly, nonatomic) NSString *cacheKey;
+@property (readonly, nonatomic) NSArray *variants;
+@property (readonly, nonatomic) AVAssetResourceLoader *resourceLoader;
+@property (readonly, nonatomic) BOOL mayRequireContentKeysForMediaDataProcessing;
+@property (readonly, copy, nonatomic) NSURL *URL;
+
++ (long long)_preferredRepresentationForItemProviderWritableTypeIdentifier:(id)a0;
++ (long long)_preferredRepresentationForItemProviderReadableTypeIdentifier:(id)a0;
++ (id)_objectWithItemProviderFileURL:(id)a0 typeIdentifier:(id)a1 isInPlace:(BOOL)a2 error:(id *)a3;
++ (id)_getFigAssetCreationOptionsFromURLAssetInitializationOptions:(id)a0 assetLoggingIdentifier:(id)a1 figAssetCreationFlags:(unsigned long long *)a2 error:(id *)a3;
++ (long long)itemProviderVisibilityForRepresentationWithTypeIdentifier:(id)a0;
++ (id)objectWithItemProviderData:(id)a0 typeIdentifier:(id)a1 error:(id *)a2;
++ (id)_UTTypes;
++ (id)URLAssetWithURL:(id)a0 options:(id)a1;
++ (id)writableTypeIdentifiersForItemProvider;
++ (id)readableTypeIdentifiersForItemProvider;
++ (id)_figFileUTIs;
++ (id)_figFileMIMETypes;
++ (id)_figStreamingMIMETypes;
++ (id)_figStreamingUTIs;
++ (id)_figFilePathExtensions;
++ (id)_fileUTTypes;
++ (id)_streamingUTTypes;
++ (id)_figMIMETypes;
++ (id)audiovisualMIMETypes;
++ (id)_figHFSFileTypes;
++ (id)_avfValidationPlist;
++ (id)_getFigAssetiTunesStoreContentInfoFromURLAssetiTunesStoreContentInfo:(id)a0;
++ (id)audiovisualTypes;
++ (BOOL)isPlayableExtendedMIMEType:(id)a0;
++ (id)_initializationOptionsClasses;
++ (id)instanceIdentifierMapTable;
++ (id)userInfoObjectForURLAssetInstanceIdentifier:(id)a0;
++ (void)setUserInfoObject:(id)a0 forURLAsset:(id)a1;
++ (id)userInfoObjectForURLAsset:(id)a0;
+
+- (Class)_classForTrackInspectors;
+- (id)_assetInspectorLoader;
+- (id)tracks;
+- (id)initWithURL:(id)a0 options:(id)a1;
+- (id)_absoluteURL;
+- (id)lyrics;
+- (struct OpaqueFigPlaybackItem { } *)_playbackItem;
+- (id)_assetInspector;
+- (id)_instanceIdentifier;
+- (struct OpaqueFigFormatReader { } *)_formatReader;
+- (unsigned long long)downloadToken;
+- (void)_addFigAssetNotifications;
+- (id)_loadFileRepresentationOfTypeIdentifier:(id)a0 forItemProviderCompletionHandler:(id /* block */)a1;
+- (id)loadDataWithTypeIdentifier:(id)a0 forItemProviderCompletionHandler:(id /* block */)a1;
+- (id)contentKeySpecifiersEligibleForPreloading;
+- (void)_tracksDidChange;
+- (BOOL)_requiresInProcessOperation;
+- (BOOL)_hasResourceLoaderDelegate;
+- (void)_removeFigAssetNotifications;
+- (id)creationOptions;
+- (Class)_classForFigAssetInspectorLoader;
+- (void)_setAssetInspectorLoader:(id)a0;
+- (id)_resourceLoaderWithRemoteHandlerContext:(id)a0;
+- (id)_errorForFigNotificationPayload:(struct __CFDictionary { } *)a0 key:(struct __CFString { } *)a1;
+- (void)_removeUserInfoObject;
+- (Class)_classForAssetTracks;
+- (id)initWithFileURL:(id)a0 offset:(long long)a1 length:(long long)a2 options:(id)a3;
+- (void)_ensureAssetDownloadCache;
+- (id)_managedAssetCache;
+- (id)downloadDestinationURL;
+- (BOOL)_shouldOptimizeAccessForLinearMoviePlayback;
+- (BOOL)_clientURLLoadingRepresentsAccurateNetworkStatistics;
+- (void)_setUserInfoObject:(id)a0;
+- (BOOL)_attachedToExternalContentKeySession;
+- (int)_attachToContentKeySession:(id)a0 failedSinceAlreadyAttachedToAnotherSession:(BOOL *)a1;
+- (id)contentKeySession;
+- (id)_installHandlerForNSURLSessionConfiguration:(id)a0 queue:(id)a1;
+- (id)description;
+- (void)cancelLoading;
+- (void)expire;
+- (id)identifyingTag;
+- (id)resolvedURL;
+- (id)init;
+- (unsigned long long)referenceRestrictions;
+- (void)dealloc;
+- (id)assetCache;
+- (id)identifyingTagClass;
+- (id)originalNetworkContentURL;
+- (id)SHA1Digest;
+
+@end

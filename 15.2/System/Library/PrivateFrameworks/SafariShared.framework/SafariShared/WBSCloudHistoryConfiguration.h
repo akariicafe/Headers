@@ -1,0 +1,28 @@
+@class NSString;
+
+@interface WBSCloudHistoryConfiguration : NSObject
+
+@property (retain) NSString *singleDeviceSaveChangesThrottlingPolicyString;
+@property (retain) NSString *multipleDeviceSaveChangesThrottlingPolicyString;
+@property (retain) NSString *singleDeviceFetchChangesThrottlingPolicyString;
+@property (retain) NSString *multipleDeviceFetchChangesThrottlingPolicyString;
+@property (retain) NSString *syncCircleSizeRetrievalThrottlingPolicyString;
+@property unsigned long long maximumRequestCharacterCount;
+@property double syncWindow;
+@property (readonly) BOOL shouldBatchSaveRecords;
+@property (readonly) BOOL shouldUseLongLivedOperationsToSaveRecords;
+
+- (id)_builtInConfiguration;
+- (id)platformBuiltInConfiguration;
+- (void)applyRemoteConfiguration:(id)a0;
+- (void)applyPlatformConfiguration:(id)a0 withTolerance:(long long)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (id)_sharedBuiltInConfiguration;
+- (id)initWithDictionary:(id)a0;
+- (void)_applyConfiguration:(id)a0 withTolerance:(long long)a1;
+- (void)_applyBuiltInConfiguration:(id)a0;
+- (id)dictionaryRepresentation;
+- (id)remoteConfiguration;
+
+@end

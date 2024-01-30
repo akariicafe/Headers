@@ -1,0 +1,3 @@
+@interface RTScenarioTriggerManagerNotificationUnsettled : RTScenarioTriggerNotification
+
+@end

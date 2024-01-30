@@ -1,0 +1,85 @@
+@class NSMutableDictionary, NSArray, NSData, NSString, NSNumber, NSMutableArray;
+
+@interface BFFSettingsManager : NSObject {
+    NSMutableArray *_stashedPaths;
+    NSMutableDictionary *_stashedPreferences;
+    NSMutableDictionary *_stashedManagedConfigurationSettings;
+    NSNumber *_stashedAssistantEnabled;
+    NSNumber *_stashedAssistantVoiceTriggerEnabled;
+    NSNumber *_stashedSiriDataSharingOptInStatus;
+    NSNumber *_stashedLocationServicesEnabled;
+    NSData *_stashedLocationServicesSettings;
+    NSData *_stashedWatchData;
+    NSArray *_stashedFlowSkipIdentifiers;
+    NSNumber *_stashedScreenTimeEnabled;
+    NSNumber *_stashedAutoUpdateEnabled;
+    NSNumber *_stashedAutoDownloadEnabled;
+    NSData *_stashedAccessibilityData;
+    NSNumber *_stashedUserInterfaceStyleMode;
+    NSString *_stashedSeedEnrollmentProgramName;
+    NSString *_stashedSeedEnrollmentAssetAudience;
+    NSMutableArray *_stashedAnalytics;
+    NSData *_stashedSiriOutputVoice;
+    NSString *_stashedSiriLanguage;
+}
+
++ (id)sharedManager;
+
+- (void)setAssistantEnabled:(BOOL)a0;
+- (void)setScreenTimeEnabled:(BOOL)a0;
+- (id)watchData;
+- (void).cxx_destruct;
+- (id)init;
+- (void)reset;
+- (void)_reset:(BOOL)a0;
+- (BOOL)hasStashedValuesOnDisk;
+- (BOOL)removeSafeHaven;
+- (void)postDidRestoreSafeHavenNotification;
+- (void)setAutoUpdateEnabled:(BOOL)a0;
+- (void)setUserInterfaceStyleMode:(long long)a0;
+- (void)setAutoDownloadEnabled:(BOOL)a0;
+- (id)loadConfigurationFromDisk;
+- (void)setObject:(id)a0 forDomain:(id)a1 key:(id)a2;
+- (id)_preferencesForDomain:(id)a0;
+- (void)stashPath:(id)a0;
+- (BOOL)hideStashInSafeHavenAsProvisional:(BOOL)a0;
+- (void)populatePathsToStash;
+- (BOOL)hasStashedValues;
+- (long long)stashConfigurationType;
+- (BOOL)_stashConfiguration:(BOOL)a0;
+- (BOOL)_stashPaths;
+- (BOOL)_commitStash;
+- (id)stashProductVersion;
+- (id)stashBuildVersion;
+- (unsigned long long)_restoreConfiguration;
+- (void)_applyStashedPreferences;
+- (void)_applyStashedManagedConfiguration;
+- (void)_applyAssistantPreferences;
+- (void)_applyLocationServices;
+- (void)_applyLocationServicesSettings;
+- (void)_restoreWatchData;
+- (void)_applyStashedFlowSkipIdentifiers;
+- (void)_applyScreenTimePreferences;
+- (void)_applyUpdatePreferences;
+- (void)_restoreAccessibilityData;
+- (void)_applyUserInterfaceStyleMode;
+- (void)_applySeedEnrollmentData;
+- (void)_restoreAnalyticsData;
+- (void)_restoreStashedFiles;
+- (id)_shovePath:(id)a0 toPath:(id)a1;
+- (unsigned long long)stashVersion;
+- (void)setBool:(BOOL)a0 forManagedConfigurationSetting:(id)a1;
+- (void)removeBoolSettingForManagedConfigurationSetting:(id)a0;
+- (void)setBool:(BOOL)a0 forDomain:(id)a1 key:(id)a2;
+- (void)stashLocationServicesChoice:(BOOL)a0;
+- (void)stashLocationServicesSettings:(id)a0;
+- (void)stashWatchData:(id)a0;
+- (void)setAssistantVoiceTriggerEnabled:(BOOL)a0;
+- (void)stashFlowSkipIdentifiers:(id)a0;
+- (void)stashAccessibilityData:(id)a0;
+- (void)setSeedEnrollmentProgramName:(id)a0 assetAudience:(id)a1;
+- (void)stashAnalyticEvent:(id)a0 payload:(id)a1;
+- (BOOL)hideStashInSafeHaven;
+- (void)applySafeHavenStash;
+
+@end

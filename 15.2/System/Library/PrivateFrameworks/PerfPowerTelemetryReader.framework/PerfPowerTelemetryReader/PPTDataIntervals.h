@@ -1,0 +1,3 @@
+@interface PPTDataIntervals : NSObject
+
+@end

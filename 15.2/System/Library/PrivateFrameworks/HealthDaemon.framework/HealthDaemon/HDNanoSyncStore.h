@@ -1,0 +1,90 @@
+@class NSMutableDictionary, HDProfile, NSDate, HKNanoSyncPairedDeviceInfo, NSMutableArray, NRDevice, NSString, NSSet, HDNanoPairingEntity, IDSDevice, NSArray, HDNanoSyncRestoreSession, NSError, NSUUID;
+@protocol HDNanoSyncStoreDelegate;
+
+@interface HDNanoSyncStore : NSObject <NRDevicePropertyObserver, HDSyncStore> {
+    HDProfile *_profile;
+    NSString *_remoteSystemBuildVersion;
+    NSString *_remoteProductType;
+    HDNanoPairingEntity *_pairingEntity;
+    NSMutableDictionary *_pendingRequestContexts;
+    int _protocolVersion;
+    BOOL _active;
+    BOOL _invalidated;
+    NSMutableArray *_incomingSyncObserverTimers;
+    NSUUID *_lastIncompleteIncomingSyncUUID;
+    NSDate *_lastIncompleteIncomingSyncDate;
+    NSDate *_lastCompleteIncomingSyncDate;
+    NSError *_lastCompleteIncomingSyncError;
+    NSMutableDictionary *_expectedSequenceNumbers;
+    NSArray *_orderedSyncEntities;
+    BOOL _isTinkerPairing;
+    IDSDevice *_identityServicesDevice;
+    NRDevice *_nanoRegistryDevice;
+}
+
+@property (weak, nonatomic) id<HDNanoSyncStoreDelegate> delegate;
+@property (readonly) IDSDevice *device;
+@property (readonly, copy) HKNanoSyncPairedDeviceInfo *deviceInfo;
+@property (copy, nonatomic) NSUUID *persistentUUID;
+@property (copy, nonatomic) NSUUID *healthUUID;
+@property (readonly, nonatomic, getter=isRestoreComplete) BOOL restoreComplete;
+@property (readonly, nonatomic) long long restoreState;
+@property (readonly, nonatomic) HDNanoSyncRestoreSession *restoreSession;
+@property (readonly, copy, nonatomic) NSSet *obliteratedDatabaseUUIDs;
+@property (nonatomic) BOOL needsSyncOnUnlock;
+@property (readonly, getter=isInvalidated) BOOL invalidated;
+@property (readonly) NSUUID *nanoRegistryUUID;
+@property (readonly, copy) NSString *remoteSystemBuildVersion;
+@property (readonly, copy) NSString *remoteProductType;
+@property (readonly, copy) NSString *sourceBundleIdentifier;
+@property (readonly) int protocolVersion;
+@property (readonly, getter=isActive) BOOL active;
+@property (readonly, getter=isMaster) BOOL master;
+@property (readonly, copy) NSString *deviceName;
+@property (readonly) NSDate *lastInactiveDate;
+@property (readonly, getter=isAltAccount) BOOL altAccount;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) long long syncStoreType;
+
++ (id)nanoSyncStoreWithProfile:(id)a0 device:(id)a1 delegate:(id)a2 tinkerPaired:(BOOL)a3;
++ (id)orderedSyncEntitiesForProfile:(id)a0 protocolVersion:(int)a1 companion:(BOOL)a2;
+
+- (id)diagnosticDescription;
+- (long long)syncProvenance;
+- (id)syncStoreIdentifier;
+- (id)profile;
+- (id)databaseIdentifier;
+- (long long)expectedSequenceNumberForSyncEntityClass:(Class)a0;
+- (id)orderedSyncEntities;
+- (void)device:(id)a0 propertyDidChange:(id)a1 fromValue:(id)a2;
+- (long long)syncEpoch;
+- (BOOL)shouldEnforceSequenceOrdering;
+- (id)syncEntityDependenciesForSyncEntity:(Class)a0;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (BOOL)canRecieveSyncObjectsForEntityClass:(Class)a0;
+- (void)dealloc;
+- (BOOL)shouldContinueAfterAnchorValidationError:(id)a0;
+- (BOOL)enforceSyncEntityOrdering;
+- (void)setExpectedSequenceNumber:(long long)a0 forSyncEntityClass:(Class)a1;
+- (id)syncStoreDefaultSourceBundleIdentifier;
+- (BOOL)supportsSpeculativeChangesForSyncEntityClass:(Class)a0;
+- (void)prepareForObliteration;
+- (void)configureOutgoingResponse:(id)a0;
+- (id)nanoSyncStoreForProtocolVersion:(int)a0;
+- (void)finishRestoreSessionWithError:(id)a0;
+- (id)beginRestoreSessionWithUUID:(id)a0 timeout:(double)a1 timeoutHandler:(id /* block */)a2;
+- (BOOL)resetProvenanceWithError:(id *)a0;
+- (BOOL)validatePairingUUIDsWithIncomingMessage:(id)a0;
+- (void)didReceiveRequestWithChangeSet:(id)a0;
+- (void)removeExpiredIncomingSyncObservers;
+- (void)addIncomingSyncObserverWithTimeout:(double)a0 timeoutHandler:(id /* block */)a1 completion:(id /* block */)a2;
+- (id)createRequestWithMessageID:(unsigned short)a0;
+- (void)addPendingRequestContext:(id)a0 forUUID:(id)a1;
+- (id)pendingRequestContextForUUID:(id)a0;
+- (void)removePendingRequestContextForUUID:(id)a0;
+
+@end

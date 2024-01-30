@@ -1,0 +1,85 @@
+@class PLClickPresentationInteractionManager, INIntent, NSUserActivity, APUIIntentHandlingViewController, CRKCardPresentation, UIViewController, SFSearchResult, APUILongLookViewController, UIView, NSString, ATXAction, NSUserDefaults, APUITVIntentHandler, INInteraction;
+@protocol APUIActionFeedbackDelegate, CRKCardViewControlling, PLClickPresentationInteractionPresentable, CRKCardViewControllerDelegate, APUIShortLookViewControllerDelegate;
+
+@interface APUIShortLookViewController : UIViewController <APUIIntentHandlingViewControllerDelegate, CRKCardPresentationDelegate, CRKCardViewControllerDelegate, PLClickPresentationInteractionPresenting, PLClickPresentationInteractionManagerDelegate, APUILongLookViewControllerDataSource, APUILongLookViewControllerDelegate> {
+    APUILongLookViewController<PLClickPresentationInteractionPresentable> *_presentableViewController;
+    APUITVIntentHandler *_tvIntentHandler;
+    double _preferredPlatterContentHeight;
+    BOOL _acceptPlatterTaps;
+    long long _dismissalReason;
+    BOOL _actionCompletedSuccessfully;
+    BOOL _hasShownLongLook;
+    BOOL _wasPresentedImmediately;
+    BOOL _representsVoiceShortcut;
+    NSUserDefaults *_userDefaults;
+}
+
+@property (retain, nonatomic) APUIIntentHandlingViewController *intentHandlingViewController;
+@property (retain, nonatomic) ATXAction *atxAction;
+@property (retain, nonatomic) NSUserActivity *userActivity;
+@property (retain, nonatomic) INIntent *intent;
+@property (retain, nonatomic) INInteraction *interaction;
+@property (retain, nonatomic) CRKCardPresentation *cardPresentation;
+@property (retain, nonatomic) UIViewController<CRKCardViewControlling> *currentCardViewController;
+@property (copy, nonatomic) NSString *bundleId;
+@property (retain, nonatomic) SFSearchResult *searchResult;
+@property (nonatomic) long long displayContext;
+@property (weak, nonatomic) id<APUIShortLookViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<APUIActionFeedbackDelegate> actionFeedbackDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<CRKCardViewControllerDelegate> cardViewControllerDelegate;
+@property (readonly, nonatomic) PLClickPresentationInteractionManager *clickPresentationInteractionManager;
+@property (readonly, nonatomic) UIView *viewForPreview;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } initialPresentedFrameOfViewForPreview;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } finalPresentedFrameOfViewForPreview;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } finalDismissedFrameOfViewForPreview;
+
+- (void)viewDidLoad;
+- (void)clickPresentationInteractionManagerDidEndUserInteraction:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)setView:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)presentedViewControllerForClickPresentationInteractionManager:(id)a0;
+- (void).cxx_destruct;
+- (void)clickPresentationInteractionManager:(id)a0 willDismissPresentedContentWithTrigger:(long long)a1;
+- (void)clickPresentationInteractionManagerWillBeginUserInteraction:(id)a0;
+- (id)_defaults;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (BOOL)_shouldTellDelegateToClearActionOnDismissal:(long long)a0;
+- (void)cardViewControllerDidLoad:(id)a0;
+- (void)cardViewControllerBoundsDidChange:(id)a0;
+- (void)_resetRepresentedObjectState;
+- (void)_handleActionButtonForIntent;
+- (BOOL)_isDoNotDisturbIntent;
+- (id)bundleIdentifierForAppIconInLongLook:(id)a0;
+- (id)_titleForLongLookViewController:(id)a0;
+- (id)_cardContentWithIntentResponse:(id)a0;
+- (long long)_actionTypeForMetrics;
+- (BOOL)_shouldAcceptPlatterTaps;
+- (void)handOverIntentHandlingToApp;
+- (void)_dismissLongLookWithReason:(long long)a0 completion:(id /* block */)a1;
+- (BOOL)_isLongLookDebugUIEnabled;
+- (id)_debugStringForNSUA;
+- (id)_intentConfirmationActions;
+- (void)intentHandlingViewController:(id)a0 wantsPreferredSize:(struct CGSize { double x0; double x1; })a1;
+- (void)intentHandlingViewController:(id)a0 requiresConfirmationWithResponse:(id)a1 confirmationActionTitle:(id)a2;
+- (void)intentHandlingViewController:(id)a0 willContinueInAppForIntent:(id)a1 completion:(id /* block */)a2;
+- (void)intentHandlingViewControllerDidFailAuthorizationCheck:(id)a0;
+- (void)intentHandlingViewController:(id)a0 didComplete:(BOOL)a1;
+- (id)interfaceActionsForLongLook:(id)a0;
+- (id)appIconImageForLongLook:(id)a0;
+- (id)titleForLongLookHeaderInLongLook:(id)a0;
+- (BOOL)fetchViewControllerForContentViewInLongLook:(id)a0 completion:(id /* block */)a1;
+- (double)preferredContentHeightForLongLook:(id)a0;
+- (void)longLookPlatterDidReceiveTap:(id)a0;
+- (BOOL)longLookPlatterShouldShowUtilityButton:(id)a0;
+- (void)longLookPlatterDidTapUtilityButton:(id)a0;
+- (BOOL)presentImmediately:(id /* block */)a0;
+- (id)containerViewForclickPresentationInteractionManager:(id)a0;
+- (BOOL)clickPresentationInteractionManagerShouldAutomaticallyTransitionToPreviewAfterDelay:(id)a0;
+
+@end

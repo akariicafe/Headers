@@ -1,0 +1,88 @@
+@class UIBarButtonItem, NSString, UIActivityIndicatorView, PSSpecifier, NSTimer, RemoteUIController, AKAppleIDAuthenticationController;
+
+@interface PSAppleIDSplashViewController : PSListController <AKAppleIDAuthenticationInAppContextPasswordDelegate, RemoteUIControllerDelegate> {
+    AKAppleIDAuthenticationController *_authController;
+    id /* block */ _passwordHandler;
+    UIActivityIndicatorView *_spinner;
+    UIBarButtonItem *_spinnerBarItem;
+    UIBarButtonItem *_nextButtonBarItem;
+    UIBarButtonItem *_cancelButtonBarItem;
+    PSSpecifier *_createNewAccountButtonSpecifier;
+    PSSpecifier *_createNewAccountGroupSpecifier;
+    PSSpecifier *_signInButtonSpecifier;
+    PSSpecifier *_passwordSpecifier;
+    PSSpecifier *_userSpecifier;
+    NSString *_username;
+    NSString *_password;
+    id _textFieldTextDidChangeObserver;
+    BOOL _isPasswordDirty;
+    BOOL _shouldHideBackButton;
+    void *_powerAssertion;
+    NSTimer *_idleJiggleTimer;
+    RemoteUIController *_remoteUIController;
+    id /* block */ _remoteUICompletion;
+}
+
+@property (nonatomic, setter=setPresentedModally:) BOOL isPresentedModally;
+@property (readonly, nonatomic) AKAppleIDAuthenticationController *authenticationController;
+@property (nonatomic) BOOL shouldShowCreateAppleIDButton;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)specifiers;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)serviceIcon;
+- (BOOL)_runningInMail;
+- (id)_specifierForLoginUserForm;
+- (id)_specifierForGroupWithiForgotLink;
+- (id)_specifierForLoginPasswordForm;
+- (id)_silhouetteMonogram;
+- (id)_specifiersForSignInButton;
+- (id)_specifiersForCreateNewAccount;
+- (id)_usernameForSpecifier:(id)a0;
+- (void)_setUsername:(id)a0 withSpecifier:(id)a1;
+- (void)_setPassword:(id)a0 withSpecifier:(id)a1;
+- (id)_passwordForSpecifier:(id)a0;
+- (void)_signInButtonWasTapped:(id)a0;
+- (void)_presentAppleIDPrivacyInformationPane;
+- (void)_createNewAppleIDButtonWasTapped:(id)a0;
+- (void)_iForgotButtonWasTapped:(id)a0;
+- (void)_cancelButtonWasTapped:(id)a0;
+- (void)setUsername:(id)a0;
+- (void)_updateSignInButton;
+- (BOOL)_shouldAnchorCreateAccountButton;
+- (void)_reloadPasswordSpecifier;
+- (double)_heightForCreateNewAccountSpecifierWithWidth:(double)a0;
+- (void)_cancelPasswordDelegateIfNecessary;
+- (double)_heightForCreateNewAccountFooterWithWidth:(double)a0;
+- (void)willBeginAuthWithContext:(id)a0;
+- (void)didFinishAuthWithContext:(id)a0 results:(id)a1 error:(id)a2;
+- (void)handleAuthCompletionWithResults:(id)a0;
+- (void)_signInWithUsername:(id)a0 password:(id)a1;
+- (void)_beginiCloudCreationFlowWithContinuationData:(id)a0 completion:(id /* block */)a1;
+- (void)_openWebBasedCredentialRecoveryFlow;
+- (void)createNewAppleIDWithCompletion:(id /* block */)a0;
+- (void)_textFieldValueDidChange:(id)a0;
+- (void)_setInteractionEnabled:(BOOL)a0;
+- (void)context:(id)a0 needsPasswordWithCompletion:(id /* block */)a1;
+- (void)setUsernameEnabled:(BOOL)a0;
+- (BOOL)_shouldShowCancelDone;
+- (void)remoteUIControllerDidDismiss:(id)a0;
+- (void)_presentInvalidUsernameAlert;
+- (id)title;
+- (void)willMoveToParentViewController:(id)a0;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)serviceDescription;
+- (void)showBusyUI;
+- (void)hideBusyUI;
+- (void)dealloc;
+- (id)serviceName;
+- (void)returnPressedAtEnd;
+
+@end

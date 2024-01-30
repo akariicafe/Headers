@@ -1,0 +1,100 @@
+@class NSMutableDictionary, NSData, GEOUserSessionEntity, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface GEOUserSession : NSObject {
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _shortSessionID;
+    double _shortSessionStartTime;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _shortNavSessionLock;
+    BOOL _shortNavSessionNeedsInit;
+    int _shortSessionChangedToken;
+    NSData *_navigationDirectionsID;
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _navigationSessionID;
+    double _navigationSessionStartTime;
+    NSData *_previousNavigationDirectionsID;
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _previousNavigationSessionID;
+    double _previousNavigationSessionStartTime;
+    double _previousNavigationSessionEndTime;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _longSessionLock;
+    NSMutableDictionary *_longSessionByAppID;
+    BOOL _longSessionNeedsInit;
+    struct GEOSessionID { unsigned long long _high; unsigned long long _low; } _zeroSessionID;
+    NSObject<OS_dispatch_queue> *_serialQueue;
+}
+
+@property (class, nonatomic) BOOL initialShareSessionWithMaps;
+
+@property (nonatomic) BOOL shareSessionWithMaps;
+@property (copy, nonatomic) GEOUserSessionEntity *mapsUserSessionEntity;
+@property (copy, nonatomic) GEOUserSessionEntity *mapsShortSession;
+@property (readonly, nonatomic) struct GEOSessionID { unsigned long long x0; unsigned long long x1; } navSessionID;
+
++ (id)sharedInstance;
++ (struct GEOSessionID { unsigned long long x0; unsigned long long x1; })_newSessionId;
++ (id)lowBytesStringFromSession:(struct GEOSessionID { unsigned long long x0; unsigned long long x1; })a0;
++ (id)highBytesStringFromSession:(struct GEOSessionID { unsigned long long x0; unsigned long long x1; })a0;
++ (id)mapsUnifiedBundleId;
+
+- (void)_setPersisted15MoDeviceSessionData:(id)a0;
+- (id)_getPersisted15MoSessionIdPBData;
+- (void)_initializeLongSessionData;
+- (void)_initializeShortAndNavData;
+- (void)_setPersisted15MoSessionStartTime:(double)a0;
+- (void)_setShortSessionId:(struct GEOSessionID { unsigned long long x0; unsigned long long x1; })a0 sessionCreateTime:(double)a1;
+- (void)_currentTimeResult:(id /* block */)a0;
+- (void)_getPersisted15MoUserSessionDataOnQueue:(id)a0 callback:(id /* block */)a1;
+- (void)_generateNewNavSessionIDAtTime:(double)a0;
+- (id)_getPersistedLongSessionData;
+- (id)_mapsUserSessionEntity;
+- (unsigned long long)_getPersisted15MoSessionDeviceEpoch;
+- (unsigned long long)_get15moUserSessionConfiguredEpoch;
+- (struct GEOSessionID { unsigned long long x0; unsigned long long x1; })_getPersisted15MoSessionId;
+- (double)_getPersisted15MoSessionStartTime;
+- (void)startNavigationSessionWithDirectionsID:(id)a0 originalDirectionsID:(id)a1;
+- (void)longSessionValuesForAppId:(id)a0 completionQueue:(id)a1 completion:(id /* block */)a2;
+- (id)_getPreSync15MoData;
+- (void)_removePersisted15MoUserSessionData:(id)a0 onQueue:(id)a1 callback:(id /* block */)a2;
+- (void)_processMapsAppDeletion;
+- (void)_accessLongSessionValuesInBlock:(id /* block */)a0;
+- (void)_removePreSync15MoData;
+- (void)fifteenMonthUserSessionValuesOnQueue:(id)a0 valuesBlock:(id /* block */)a1;
+- (void)_removePersisted15MoSessionStartTime;
+- (id)_sharedSessionDataByAppId;
+- (void)_mapsSyncRemovePersisted15MoSessionData:(id)a0 completion:(id /* block */)a1;
+- (void)_setPersisted15MoUserSessionData:(id)a0 onQueue:(id)a1 callback:(id /* block */)a2;
+- (void)_mapsSyncGet15MoSessionDataWithCompletion:(id /* block */)a0;
+- (void)mapsSessionEntityWithCallback:(id /* block */)a0 shareSessionIDWithMaps:(BOOL)a1 resetSession:(BOOL)a2;
+- (void)fifteenMonthDeviceSessionValues:(id /* block */)a0;
+- (void)_mapsSyncSave15MoSessionData:(id)a0 completion:(id /* block */)a1;
+- (id)_getConfigStore15MoData;
+- (void).cxx_destruct;
+- (void)_removePersisted15MoSessionDeviceEpoch;
+- (void)_migrate15moDeviceSessionData;
+- (BOOL)_15moSyncEnabled;
+- (double)_currentTime;
+- (id)init;
+- (void)_saveSharedSessionDataByAppId:(id)a0;
+- (double)_getMapsUserStartDate;
+- (id)_pbDataForSessionID:(struct GEOSessionID { unsigned long long x0; unsigned long long x1; })a0;
+- (void)shortAndNavSessionValues:(id /* block */)a0;
+- (void)_removePersisted15MoSessionId;
+- (void)setSharedMapsUserSessionEntity:(id)a0 shareSessionIDWithMaps:(BOOL)a1;
+- (void)endNavigationSession;
+- (double)_preferredSessionStartDateDerivedFromMapsUserStartDate:(double)a0 currentDate:(double)a1;
+- (struct GEOSessionID { unsigned long long x0; unsigned long long x1; })_sessionIDFromPBData:(id)a0;
+- (void)shortSessionValues:(id /* block */)a0;
+- (void)_setPreSync15MoData:(id)a0;
+- (id)longSessionAppIdForActualAppId:(id)a0;
+- (id)_getPersisted15MoDeviceSessionData;
+- (unsigned long long)_get15moDeviceSessionConfiguredEpoch;
+- (BOOL)_hasGoodTimeSync;
+- (void)_setConfigStore15MoData:(id)a0;
+- (BOOL)_hasMapsUserStartDate;
+- (void)_setPersistedLongSessionData:(id)a0;
+- (BOOL)fifteenMonthUserSessionInitialized;
+- (BOOL)_15moSyncDeleteExpiredSessionsEnabled;
+- (void)_updateNavSessionIDAtTime:(double)a0;
+- (void)_mapsShortSessionValues:(id /* block */)a0;
+- (void)_resetShortSessionID;
+- (void)resetLongSessionValuesForAppId:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+
+@end

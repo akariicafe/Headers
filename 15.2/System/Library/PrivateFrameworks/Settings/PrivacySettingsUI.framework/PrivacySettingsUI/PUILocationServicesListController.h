@@ -1,0 +1,96 @@
+@class NSDate, NSString, FMFDevice, NSArray, NSOperationQueue, NSDictionary, NSMutableDictionary, NSMutableArray, ACAccount, FMFSession, NSNumber, ACAccountStore;
+@protocol SRRelatedSettingsProvider;
+
+@interface PUILocationServicesListController : PSListController <FMFSessionDelegate> {
+    NSDictionary *_locationEntitiesDetails;
+    NSMutableArray *_coalescedLocationBasedAlertsSystemServices;
+    NSMutableArray *_coalescedHomeKitSystemServices;
+    NSMutableArray *_coalescedRoutingAndTrafficSystemServices;
+    NSMutableArray *_coalescedWirelessSystemServices;
+    NSMutableArray *_coalescedSystemCutomizationSystemServices;
+    NSArray *_ignoredLocationEntities;
+    BOOL _deferredRefreshDueToConfirm;
+    BOOL _locationNotificationsEnabled;
+    NSMutableDictionary *_coalesceAppKeys;
+    NSDate *_twentyFourHoursAgo;
+    ACAccountStore *_accountStore;
+    ACAccount *_primaryAccount;
+    NSNumber *_isLocationServicesEnabled;
+    id<SRRelatedSettingsProvider> _sensorKitSpecifiersProvider;
+}
+
+@property (retain, nonatomic) NSOperationQueue *locationSharingOperationQueue;
+@property (retain, nonatomic) FMFSession *locationSharingSession;
+@property (retain, nonatomic) FMFDevice *locationSharingDevice;
+@property (retain, nonatomic) NSNumber *locationSharingEnabled;
+@property (retain, nonatomic) NSMutableArray *coalescedImproveMapsServices;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isLocationRestricted;
++ (BOOL)isCoreRoutineAuthorized;
++ (void)setCoreRoutineAuthorized:(BOOL)a0;
+
+- (id)primaryAccount;
+- (void)didChangeActiveLocationSharingDevice:(id)a0;
+- (id)specifiers;
+- (id)accountStore;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)connectionError:(id)a0;
+- (void)didUpdateHidingStatus:(BOOL)a0;
+- (void)profileNotification:(id)a0;
+- (id)tableView:(id)a0 willSelectRowAtIndexPath:(id)a1;
+- (void)willBecomeActive;
+- (void).cxx_destruct;
+- (id)init;
+- (void)dealloc;
+- (id)valueForSpecifier:(id)a0;
+- (void)updateSpecifiersForImposedSettings;
+- (int)locationUsageForEntity:(id)a0;
+- (void)setEntityAuthorized:(id)a0 specifier:(id)a1;
+- (id)isEntityAuthorized:(id)a0;
+- (id)locationDetailSpecifiersWithDetailsMatching:(id /* block */)a0;
+- (void)updateSpecifiersForImposedSettingsWithReload:(BOOL)a0;
+- (void)updateRecentlyUsedDate;
+- (void)updateForApplicationDidBecomeActive:(id)a0;
+- (void)refreshLinkStatusInParent;
+- (void)stopLocationStatusUpdates;
+- (void)setUsage:(int)a0 forCell:(id)a1;
+- (void)setAuthLevel:(unsigned long long)a0 forCell:(id)a1;
+- (int)locationUsageBasedOnDetails:(id)a0;
+- (void)_cancelConfirmDisableForSpecifier:(id)a0;
+- (void)_setLocationServicesEnabled:(BOOL)a0;
+- (id)locationDetailSpecifiersForAppsAndBundles;
+- (void)updateLocationSharingSpecifiersWithReload:(BOOL)a0;
+- (void)updateFindMyFriendsStateBasedOnRestriction;
+- (BOOL)_isFindMyDeviceSpecifier:(id)a0;
+- (void)disableAfterLoginConfirmation:(id)a0;
+- (void)_setEntityAuthorized:(BOOL)a0 specifier:(id)a1;
+- (void)updateMutableStateBasedOnRestriction;
+- (void)updateMutableStateForLocationSharing;
+- (id)isLocationServicesEnabled:(id)a0;
+- (id)loadSensorKitSpecifiersProvider;
+- (BOOL)_isBundleBlacklisted:(id)a0;
+- (id)hiddenBundleIdentifiers;
+- (id)localizedDisplayNameForBundleID:(id)a0;
+- (void)startLocationStatusUpdates;
+- (BOOL)_shouldEnableLocationSharingSpecifier;
+- (void)_locationSharingSpecifierWasTapped:(id)a0;
+- (BOOL)isLocationSharingEnabled;
+- (id)locationSharingSpecifiers;
+- (BOOL)isLocationSharingModificationAllowed;
+- (void)setLocationServicesEnabled:(id)a0 specifier:(id)a1;
+- (void)updateLocationSharing;
+- (void)_pushCoreRoutineViewController;
+- (void)_handleAuthenticationForSpecifier:(id)a0 success:(BOOL)a1 error:(id)a2;
+- (void)mainThreadDidChangeActiveLocationSharingDevice:(id)a0;
+- (void)mainThreadConnectionError:(id)a0;
+- (void)mainThreadDidUpdateHidingStatus:(BOOL)a0;
+- (void)updateLocationUsage;
+- (void)setSOSEntityAuthorized:(id)a0 specifier:(id)a1;
+- (void)showLocationPrivacyPage;
+
+@end

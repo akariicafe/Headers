@@ -1,0 +1,3 @@
+@interface UIPDFMarkupAnnotation : UIPDFAnnotation
+
+@end

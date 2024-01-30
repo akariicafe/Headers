@@ -1,0 +1,3 @@
+@interface SBHBTriplePressDownGestureRecognizer : UIHBClickGestureRecognizer
+
+@end

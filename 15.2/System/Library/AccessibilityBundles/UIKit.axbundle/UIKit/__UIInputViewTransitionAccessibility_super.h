@@ -1,0 +1,3 @@
+@interface __UIInputViewTransitionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

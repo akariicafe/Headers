@@ -1,0 +1,47 @@
+@class QLThumbnailView, NSString, NSMutableDictionary, QLPageNumberView, NSMutableArray;
+@protocol QLScrubViewDataSource, QLScrubViewDelegate;
+
+@interface QLScrubView : UIView <UIGestureRecognizerDelegate> {
+    BOOL _needsThumbLayout;
+    double _thumbOrigin;
+    double _thumbEnd;
+    double _thumbHeight;
+    long long _pageCount;
+    long long _selectedPage;
+    NSMutableDictionary *_thumbViews;
+    NSMutableArray *_visibleThumbIndexes;
+    QLThumbnailView *_selectedThumbnailView;
+    QLPageNumberView *_pageNumberLabel;
+}
+
+@property (weak) id<QLScrubViewDataSource> dataSource;
+@property (weak) id<QLScrubViewDelegate> delegate;
+@property (nonatomic) double topOffset;
+@property (nonatomic) double bottomOffset;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (double)defaultWidth;
+
+- (void)layoutSubviews;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)reloadThumbnails;
+- (void)panReceived:(id)a0;
+- (void)tapReceived:(id)a0;
+- (void)longTapReceived:(id)a0;
+- (void)_removeThumbviews;
+- (void)_updateSelectedThumbnailView;
+- (void)_notifyPageChanged;
+- (void)_updatePageLabelPosition;
+- (void)_showPageLabel;
+- (void)_handleSwipAtLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_hidePageLabel;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_thumbnailFrameForPageAtIndex:(long long)a0;
+- (void)selectPageNumber:(long long)a0;
+
+@end

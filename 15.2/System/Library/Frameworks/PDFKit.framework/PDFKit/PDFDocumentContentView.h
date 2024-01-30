@@ -1,0 +1,3 @@
+@interface PDFDocumentContentView : UIView
+
+@end

@@ -1,0 +1,17 @@
+@class NSString, NSData;
+
+@interface DMFInstallProvisioningProfileRequest : DMFTaskRequest
+
+@property (copy, nonatomic) NSString *managingProfileIdentifier;
+@property (copy, nonatomic) NSData *profileData;
+
++ (BOOL)isPermittedOnUserConnection;
++ (BOOL)supportsSecureCoding;
++ (BOOL)isPermittedOnSystemConnection;
++ (id)permittedPlatforms;
+
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,27 @@
+@class NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface TSDPDFImageProvider : TSDImageProvider {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    struct CGPDFDocument { } *_PDFDocument;
+    struct CGSize { double width; double height; } _naturalSize;
+    NSObject<OS_dispatch_semaphore> *_flushableContentLock;
+    BOOL _hasFlushableContent;
+}
+
+@property (readonly, nonatomic) struct CGPDFDocument { } *CGPDFDocument;
+@property (readonly, nonatomic) long long pageAngle;
+
+- (struct CGSize { double x0; double x1; })naturalSize;
+- (void)flush;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (struct CGPDFDocument { } *)p_load;
+- (BOOL)isValid;
+- (void)drawImageInContext:(struct CGContext { } *)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)i_commonInit;
+- (void)p_loadIfNecessary;
+- (BOOL)i_hasFlushableContent;
+- (unsigned long long)i_flushableMemoryEstimate;
+
+@end

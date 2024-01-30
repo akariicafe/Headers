@@ -1,0 +1,20 @@
+@interface HDCodableCompanionUserNotificationConfiguration : PBCodable <NSCopying> {
+    struct { unsigned char notificationType : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasNotificationType;
+@property (nonatomic) int notificationType;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+- (id)notificationTypeAsString:(int)a0;
+- (int)StringAsNotificationType:(id)a0;
+
+@end

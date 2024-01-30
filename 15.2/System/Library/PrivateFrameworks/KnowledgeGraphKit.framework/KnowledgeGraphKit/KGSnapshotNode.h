@@ -1,0 +1,20 @@
+@class NSArray, NSDictionary, NSString;
+
+@interface KGSnapshotNode : NSObject <KGNode>
+
+@property (readonly, nonatomic) unsigned long long identifier;
+@property (readonly, nonatomic) float weight;
+@property (readonly, copy, nonatomic) NSArray *labels;
+@property (readonly, copy, nonatomic) NSDictionary *properties;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithIdentifier:(unsigned long long)a0 labels:(id)a1 weight:(float)a2 properties:(id)a3;
+- (void)resolveIdentifier:(unsigned long long)a0;
+
+@end

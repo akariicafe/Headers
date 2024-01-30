@@ -1,0 +1,106 @@
+@class NSMapTable, NSString, NSDictionary, NSURL, NSError, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue, OS_os_log, OS_dispatch_group;
+
+@interface GEOSQLiteDB : NSObject {
+    NSObject<OS_dispatch_queue> *_externalFilesQueue;
+    NSObject<OS_dispatch_group> *_externalFilesGroup;
+    NSMutableArray *_externalFilesActiveChannels;
+    BOOL _didEncounterExternalResourceErrorInTransaction;
+    NSDictionary *_pragmas;
+    id /* block */ _setupBlock;
+    NSMapTable *_preparedStatements;
+    BOOL _isInTransaction;
+    BOOL _isTemporaryInMemoryDatabase;
+    NSMutableArray *_filesAddedDuringTransaction;
+    NSMutableArray *_filesDeletedDuringTransaction;
+    NSMapTable *_virtualTables;
+    struct atomic_flag { _Atomic BOOL _Value; } _didTearDown;
+}
+
+@property (class, readonly, nonatomic) NSDictionary *defaultPragmas;
+
+@property (readonly, nonatomic) struct sqlite3 { } *sqliteDB;
+@property (readonly, nonatomic) int sqliteFlags;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *isolationQueue;
+@property (readonly, nonatomic) NSString *dbFilePath;
+@property (readonly, nonatomic) NSURL *databaseFileURL;
+@property (readonly, nonatomic) NSError *lastError;
+@property (readonly, nonatomic) BOOL isDBReady;
+@property (readonly, nonatomic) NSObject<OS_os_log> *log;
+@property (readonly, nonatomic) NSDictionary *pragmas;
+@property (nonatomic) long long user_version;
+
++ (id)_findAllDBFilesForURL:(id)a0 error:(id *)a1;
++ (BOOL)renameAllDBFilesFrom:(id)a0 to:(id)a1;
+
+- (BOOL)executeStatement:(struct sqlite3_stmt { } *)a0 error:(id *)a1;
+- (void)tearDown;
+- (BOOL)bindBlobParameter:(const char *)a0 toValue:(id)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (double)doubleForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (void)_doneWritingToChannel:(id)a0;
+- (BOOL)dropAllTables;
+- (BOOL)bindInt64Parameter:(const char *)a0 toValue:(long long)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (BOOL)vacuum;
+- (BOOL)_deleteAllDatabaseFilesIfCorrupt:(int)a0;
+- (BOOL)bindZeroBlobParameter:(const char *)a0 length:(unsigned long long)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (id)_blobForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1 noCopy:(BOOL)a2;
+- (id)stringForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (long long)int64ForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (void)_debug_unlockDB:(id)a0;
+- (long long)lastInsertRowID;
+- (BOOL)_bindParameter:(const char *)a0 inStatement:(struct sqlite3_stmt { } *)a1 error:(id *)a2 withBinder:(id /* block */)a3;
+- (BOOL)writeBlobData:(id)a0 toTable:(const char *)a1 column:(const char *)a2 rowID:(long long)a3 error:(id *)a4;
+- (BOOL)deleteExternalResourceAtURL:(id)a0 error:(id *)a1;
+- (BOOL)moveExternalResourceAtURL:(id)a0 toURL:(id)a1 error:(id *)a2;
+- (BOOL)statementForKey:(id)a0 statementBlock:(id /* block */)a1;
+- (BOOL)setup;
+- (BOOL)writeExternalResourceWithData:(id)a0 toURL:(id)a1 error:(id *)a2;
+- (BOOL)createTable:(const char *)a0 withDrop:(const char *)a1;
+- (id)description;
+- (void)executeAsync:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (int)_openDatabaseFile;
+- (id)noCopyBlobForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (BOOL)unregisterVirtualTable:(id)a0;
+- (void)_deleteAndReopenDatabaseIfCorrupt:(int)a0;
+- (BOOL)_waitForAllTransactionExternalResources;
+- (void)_closeDB;
+- (id)blobForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (BOOL)bindParameter:(const char *)a0 toUUID:(id)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (id)initWithQueueName:(const char *)a0 log:(id)a1 databaseFileURL:(id)a2 sqliteFlags:(int)a3 pragmas:(id)a4 setupBlock:(id /* block */)a5;
+- (void)_channelCleanupFailedWithError:(int)a0;
+- (void)_execute:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (int)_openAndConfigure;
+- (void).cxx_destruct;
+- (BOOL)bindTextParameter:(const char *)a0 toValue:(id)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (void)_createParentDirectory;
+- (id)init;
+- (BOOL)dropTablesLike:(id)a0;
+- (BOOL)registerVirtualTable:(id)a0;
+- (BOOL)prepareStatement:(const char *)a0 forKey:(id)a1;
+- (BOOL)_openAndConfigureWithRetryIfCorrupt;
+- (BOOL)executeStatement:(id)a0 statementBlock:(id /* block */)a1;
+- (BOOL)bindBlobNoCopyParameter:(const char *)a0 toValue:(id)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (void)_channelEncounteredError:(int)a0;
+- (id)getAllTables;
+- (id)getTablesLike:(id)a0;
+- (void)executeSync:(id /* block */)a0;
+- (BOOL)executeInTransaction:(id /* block */)a0;
+- (struct sqlite3_stmt { } *)statementForKey:(id)a0;
+- (void)dealloc;
+- (BOOL)reportSQLiteErrorCode:(int)a0 method:(id)a1 error:(id *)a2;
+- (void)executeSync:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (id)UUIDForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (int)intForColumn:(int)a0 inStatment:(struct sqlite3_stmt { } *)a1;
+- (void)clearStatement:(id)a0;
+- (BOOL)deleteAllDBFiles;
+- (BOOL)bindNullParameter:(const char *)a0 inStatement:(struct sqlite3_stmt { } *)a1 error:(id *)a2;
+- (BOOL)_deleteAllDBFiles;
+- (void)executeAsync:(id /* block */)a0;
+- (void)_writeTransactionExternalResourceWithData:(id)a0 toURL:(id)a1;
+- (BOOL)bindIntParameter:(const char *)a0 toValue:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (int)_setPragmas;
+- (void)_debug_lockDB:(id)a0;
+- (BOOL)bindRealParameter:(const char *)a0 toValue:(double)a1 inStatement:(struct sqlite3_stmt { } *)a2 error:(id *)a3;
+- (id)initWithQueueName:(const char *)a0 logFacility:(const char *)a1 dbFilePath:(id)a2 sqliteFlags:(int)a3 pragmas:(id)a4 setupBlock:(id /* block */)a5;
+
+@end

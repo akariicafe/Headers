@@ -1,0 +1,35 @@
+@class NSString, ECEmailAddress, NSArray;
+
+@interface ECEmailAddressComponents : NSObject <ECEmailAddressConvertible, EFPubliclyDescribable, NSCopying>
+
+@property (readonly, copy) NSString *idnaAddress;
+@property (readonly) ECEmailAddress *emailAddressValue;
+@property (readonly) NSString *stringValue;
+@property (readonly) NSString *simpleAddress;
+@property (copy) NSString *displayName;
+@property (copy) NSString *localPart;
+@property (copy) NSString *domain;
+@property (copy, setter=setIDNADomain:) NSString *idnaDomain;
+@property (copy) NSArray *groupList;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSString *ef_publicDescription;
+
++ (id)componentsWithEmailAddress:(id)a0;
++ (id)componentsWithString:(id)a0;
+
+- (id)initWithString:(id)a0;
+- (BOOL)_nts_getValidatedDomain:(id *)a0 idnaDomain:(id *)a1 avoidReparse:(BOOL)a2;
+- (id)_initWithString:(id)a0 displayName:(id)a1 localPart:(id)a2 domain:(id)a3 groupList:(id)a4;
+- (BOOL)_nts_getValidatedLocalPart:(id *)a0 domain:(id *)a1 idnaDomain:(id *)a2 displayName:(id *)a3;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)_nts_isValid;
+- (id)initWithEmailAddress:(id)a0;
+- (BOOL)_nts_isValidDomain;
+
+@end

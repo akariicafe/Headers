@@ -1,0 +1,3 @@
+@interface MiroVPInterestingMetadataRange : MiroVPMetadataRange
+
+@end

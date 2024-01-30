@@ -1,0 +1,54 @@
+@interface PGMeaningfulEventRequiredCriteriaFactory : NSObject
+
++ (id)requiredCriteriaForIdentifiers:(id)a0 inferenceType:(unsigned long long)a1 graph:(id)a2;
++ (id)_requiredCriteriaForIdentifiers:(id)a0 inferenceType:(unsigned long long)a1 graph:(id)a2;
++ (id)requiredCriteriaByIdentifierWithGraph:(id)a0 inferenceType:(unsigned long long)a1;
++ (id)availableMeaningLabels;
++ (id)availablePersonActivityMeaningLabels;
++ (void)_birthdayCriteriaWithGraph:(id)a0 strongBirthdayCriteria:(id *)a1 weakBirthdayCriteria:(id *)a2;
++ (id)_weddingCriteriaWithGraph:(id)a0;
++ (id)_celebrationCriteriaWithGraph:(id)a0;
++ (id)_sportEventCriteriaArrayForInferenceType:(unsigned long long)a0 graph:(id)a1;
++ (id)_sportEventCriteriaArrayForMeaningInferenceWithGraph:(id)a0;
++ (id)_sportEventCriteriaArrayForPublicEventInferenceWithGraph:(id)a0;
++ (id)_divingCriteriaWithGraph:(id)a0;
++ (id)_winterSportCriteriaWithGraph:(id)a0;
++ (id)_theaterCriteriaWithGraph:(id)a0;
++ (id)_danceCriteriaWithGraph:(id)a0;
++ (id)_performanceCriteriaWithGraph:(id)a0;
++ (id)_concertCriteriaArrayForInferenceType:(unsigned long long)a0 graph:(id)a1;
++ (id)_concertCriteriaArrayForMeaningInferenceWithGraph:(id)a0;
++ (id)_concertCriteriaArrayForPublicEventInferenceWithGraph:(id)a0;
++ (id)_festivalCriteriaArrayWithGraph:(id)a0;
++ (id)_museumCriteriaArrayForInferenceType:(unsigned long long)a0 graph:(id)a1;
++ (id)_museumCriteriaArrayForPublicEventInferenceWithGraph:(id)a0;
++ (id)_museumCriteriaArrayForMeaningInferenceWithGraph:(id)a0;
++ (id)_nightOutCriteriaArrayWithGraph:(id)a0;
++ (id)_anniversaryCriteriaWithGraph:(id)a0;
++ (id)_restaurantCriteriaByCriteriaForIdentifiers:(id)a0 withGraph:(id)a1;
++ (id)_hikingCriteriaWithGraph:(id)a0;
++ (id)_climbingCriteriaWithGraph:(id)a0;
++ (id)_beachingCriteriaWithGraph:(id)a0;
++ (id)_entertainmentCriteriaWithGraph:(id)a0;
++ (id)_amusementParkCriteriaArrayWithGraph:(id)a0;
++ (id)_specialAmusementParkCriteriaWithGraph:(id)a0;
++ (id)_socialGroupGatheringCriteriaWithGraph:(id)a0;
++ (id)_sportEventScenesTraitWithGraph:(id)a0;
++ (id)_winterSportSceneNodesWithGraph:(id)a0;
++ (id)_beachingSceneNodesWithGraph:(id)a0;
++ (id)_negativeSceneNodesForBeachingWithGraph:(id)a0;
++ (id)_divingSceneNodesWithGraph:(id)a0;
++ (id)_hikingSceneNodesWithGraph:(id)a0;
++ (id)_negativeHikingSceneNodesWithGraph:(id)a0;
++ (id)_weddingSceneNodesWithGraph:(id)a0 includeWedding:(BOOL)a1;
++ (id)_concertSceneNodesInGraph:(id)a0;
++ (id)_museumSceneTraitInGraph:(id)a0 minimumNumberOfHighConfidenceAssets:(unsigned long long)a1;
++ (id)_museumSceneNodesInGraph:(id)a0;
++ (id)_negativeMuseumSceneNodesInGraph:(id)a0;
++ (id)_poiNodesForLabels:(id)a0 inGraph:(id)a1;
++ (id)_roiNodesForLabels:(id)a0 inGraph:(id)a1;
++ (id)_locationsTraitNotMatchingFrequentLocationsForGraph:(id)a0;
++ (id)_locationsTraitNotMatchingPeopleHomeWorkLocationsForGraph:(id)a0;
++ (id)_publicEventCriteriaForCategoryWithName:(id)a0 inGraph:(id)a1;
+
+@end

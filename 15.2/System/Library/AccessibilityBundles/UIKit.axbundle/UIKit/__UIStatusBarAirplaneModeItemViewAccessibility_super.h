@@ -1,0 +1,3 @@
+@interface __UIStatusBarAirplaneModeItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

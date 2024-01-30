@@ -1,0 +1,30 @@
+@class NSString, NSData;
+
+@interface PKProtobufDeviceSharingCapabilities : PBCodable <NSCopying> {
+    struct { unsigned char supportsManatee : 1; } _has;
+}
+
+@property (nonatomic) unsigned int version;
+@property (readonly, nonatomic) BOOL hasHandle;
+@property (retain, nonatomic) NSString *handle;
+@property (readonly, nonatomic) BOOL hasAltDSID;
+@property (retain, nonatomic) NSString *altDSID;
+@property (readonly, nonatomic) BOOL hasDeviceRegion;
+@property (retain, nonatomic) NSString *deviceRegion;
+@property (nonatomic) BOOL hasSupportsManatee;
+@property (nonatomic) BOOL supportsManatee;
+@property (readonly, nonatomic) BOOL hasFromDeviceVersion;
+@property (retain, nonatomic) NSData *fromDeviceVersion;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

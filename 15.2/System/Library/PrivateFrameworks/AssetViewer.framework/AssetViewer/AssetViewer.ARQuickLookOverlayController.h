@@ -1,0 +1,85 @@
+@class ASVRoundedButton, ASVControlsView, ASVTrackingStateStatusLabel, UIButton;
+
+@interface AssetViewer.ARQuickLookOverlayController : UIViewController <CAMDynamicShutterControlDelegate> {
+    void /* unknown type, empty encoding */ wantsStatusPillHidden;
+    void /* unknown type, empty encoding */ arTrackingState;
+    void /* unknown type, empty encoding */ currentTriggerAffordance;
+    void /* unknown type, empty encoding */ trackedRaycastState;
+    void /* unknown type, empty encoding */ lastResultType;
+    void /* unknown type, empty encoding */ sessionIsInterrupted;
+    void /* unknown type, empty encoding */ isInFullscreen;
+    void /* unknown type, empty encoding */ cancellables;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_longPressGesture;
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ currentTrackingState;
+    void /* unknown type, empty encoding */ trackingStateStatus;
+    void /* unknown type, empty encoding */ sharingEnabled;
+    void /* unknown type, empty encoding */ allowOverlayToBeHidden;
+    void /* unknown type, empty encoding */ touchesOnScreenGestureRecognizer;
+    void /* unknown type, empty encoding */ displayCornerRadiusPortraitSidePadding;
+    void /* unknown type, empty encoding */ displayCornerRadiusDefaultPadding;
+    void /* unknown type, empty encoding */ displayCornerRadiusPortraitShutterButtonPadding;
+    void /* unknown type, empty encoding */ defaultPortraitShutterButtonPadding;
+    void /* unknown type, empty encoding */ defaultControlPadding;
+    void /* unknown type, empty encoding */ controlsViewToStatusBarVerticalPadding;
+    void /* unknown type, empty encoding */ topControlsHeight;
+    void /* unknown type, empty encoding */ topControlsButtonWidth;
+    void /* unknown type, empty encoding */ topControlsSegmentedControlWidth;
+    void /* unknown type, empty encoding */ trackingLabelMinimumBottomPadding;
+    void /* unknown type, empty encoding */ portraitConstraints;
+    void /* unknown type, empty encoding */ portraitUpsideDownConstraints;
+    void /* unknown type, empty encoding */ landscapeLeftConstraints;
+    void /* unknown type, empty encoding */ landscapeRightConstraints;
+    void /* unknown type, empty encoding */ currentConstraints;
+    void /* unknown type, empty encoding */ autoHideControlsTimer;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_controlsViewStack;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_shutterButtonContainer;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_dismissButton;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_displayModeControlView;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_shareButton;
+    void /* unknown type, empty encoding */ checkoutPlatter;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_debugActionsButtonContainer;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_debugActionsButton;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_fileARadarButton;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_shutterButton;
+    void /* unknown type, empty encoding */ animationView;
+    void /* unknown type, empty encoding */ coachingOverlayView;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_statusPill;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_assetLoadingView;
+    void /* unknown type, empty encoding */ backgroundDimmingView;
+    void /* unknown type, empty encoding */ displayMode;
+    void /* unknown type, empty encoding */ bottomControlCapabilities;
+    void /* unknown type, empty encoding */ operationMode;
+    void /* unknown type, empty encoding */ currentAppearance;
+}
+
+@property (nonatomic, retain) ASVControlsView *controlsViewStack;
+@property (nonatomic, retain) ASVRoundedButton *dismissButton;
+@property (nonatomic, retain) ASVRoundedButton *shareButton;
+@property (nonatomic, retain) UIButton *debugActionsButton;
+@property (nonatomic, retain) UIButton *fileARadarButton;
+@property (nonatomic, retain) ASVTrackingStateStatusLabel *statusPill;
+
+- (void)dynamicShutterControlDidDismissCounter:(id)a0;
+- (void)dynamicShutterControlDidStop:(id)a0;
+- (void)dynamicShutterControlDidShortPress:(id)a0;
+- (void)dynamicShutterControlDidStart:(id)a0;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void)handleLongPressGesture:(id)a0;
+- (void)takePicture;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)dealloc;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)updateStatusPill;
+- (void)startAutoHideControlsTimer;
+- (void)enableWorldModeControl:(BOOL)a0;
+- (void)displayModeChanged;
+- (void)stopAutoHideControlsTimerWithShouldRestart:(BOOL)a0;
+- (void)autoHide2DControls;
+- (void)trackedRaycastStateDidChange:(id)a0;
+
+@end

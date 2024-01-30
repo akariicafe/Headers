@@ -1,0 +1,41 @@
+@class TSUSparseArray, TSCECalculationEngine;
+
+@interface TSTFormulaStore : NSObject {
+    TSUSparseArray *_formulas;
+    unsigned long long _nextIndex;
+}
+
+@property (nonatomic) BOOL usesOnlyFixedCoords;
+@property (nonatomic) struct TSKUIDStruct { unsigned long long _lower; unsigned long long _upper; } formulaOwnerUID;
+@property (weak, nonatomic) TSCECalculationEngine *calcEngine;
+
++ (struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; })coordFromIndex:(unsigned long long)a0;
++ (unsigned long long)indexFromCoord:(const struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } *)a0;
++ (struct TSUModelCellRect { struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; } x0; })rangeFromFormulaObject:(id)a0 atCoord:(const struct TSUModelCellCoord { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; } *)a1 useBoundingRange:(BOOL)a2;
++ (struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })tableUIDFromFormula:(id)a0 atCoord:(const struct TSUModelCellCoord { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; } *)a1;
++ (id)createFormulaForUIDRange:(const void *)a0 tableUID:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a1;
++ (struct TSUModelCellRect { struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; } x0; })rangeFromFormulaObject:(id)a0 atCoord:(const struct TSUModelCellCoord { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; } *)a1;
+
+- (id)description;
+- (void)foreach:(id /* block */)a0;
+- (void).cxx_destruct;
+- (unsigned long long)formulaCount;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (id)initWithOwnerUID:(struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })a0;
+- (struct TSUModelCellRect { struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; } x0; })rangeFromFormulaAtIndex:(unsigned long long)a0 useBoundingRange:(BOOL)a1;
+- (unsigned long long)maxIndex;
+- (unsigned long long)reserveNextIndex;
+- (void)clearFormulaAtIndex:(unsigned long long)a0;
+- (void)setFormulaObject:(id)a0 atIndex:(unsigned long long)a1;
+- (id)formulaObjectAtIndex:(unsigned long long)a0;
+- (struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; })reserveNextCoordinate;
+- (unsigned long long)markForRollback;
+- (void)rollbackToMark:(unsigned long long)a0;
+- (unsigned long long)appendIndexedFormula:(id)a0;
+- (void)registerAllFormulaToCalculationEngine;
+- (id)createFormulaObjectForRange:(struct TSUModelCellRect { struct TSUCellRect { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct { unsigned int x0; unsigned int x1; } x1; } x0; })a0 atIndex:(unsigned long long)a1 tableUID:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a2;
+- (struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; })tableUIDFromFormulaAtIndex:(unsigned long long)a0;
+- (void)remapRangeFormulasToOwnerUID:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a0;
+- (id)initWithOwnerUID:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a0 archive:(const void *)a1 unarchiver:(id)a2;
+
+@end

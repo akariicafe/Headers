@@ -1,0 +1,31 @@
+@class SUActivity, NSString, SUScriptFunction, WebScriptObject;
+
+@interface SUScriptActivity : SUScriptObject {
+    SUScriptFunction *_actionFunction;
+}
+
+@property (readonly, nonatomic) SUActivity *nativeActivity;
+@property (retain) WebScriptObject *actionFunction;
+@property (copy) NSString *activityTitle;
+@property (copy) NSString *activityType;
+@property (readonly) NSString *activityImageNameGiftAppStore;
+@property (readonly) NSString *activityImageNameGiftMusicStore;
+@property (readonly) NSString *activityImageNamePingAppStore;
+@property (readonly) NSString *activityImageNamePingMusicStore;
+@property (readonly) NSString *activityImageNameWishlistAppStore;
+@property (readonly) NSString *activityImageNameWishlistMusicStore;
+
++ (void)initialize;
++ (id)webScriptNameForSelector:(SEL)a0;
++ (id)webScriptNameForKeyName:(id)a0;
+
+- (id)_className;
+- (id)attributeKeys;
+- (void)dealloc;
+- (id)scriptAttributeKeys;
+- (id)_nativeActivity;
+- (void)setActivityImageWithName:(id)a0;
+- (void)setActivityImageWithURL:(id)a0 scale:(id)a1;
+- (void)_performActionFunctionWithItems:(id)a0;
+
+@end

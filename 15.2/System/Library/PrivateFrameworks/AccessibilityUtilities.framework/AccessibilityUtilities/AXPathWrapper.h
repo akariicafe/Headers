@@ -1,0 +1,12 @@
+@interface AXPathWrapper : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) struct CGPath { } *path;
+
++ (id)currentSharedInstance;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface TRIPBDurationRoot : TRIPBRootObject
+
+@end

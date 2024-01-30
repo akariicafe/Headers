@@ -1,0 +1,80 @@
+@class PUPickerConfiguration, PHAsset, UINavigationController, PXSelectionCoordinator, PUPhotosGridDownloadHelper, NSMutableDictionary, PUAssetPickerActivityProgressController, NSString, PUPhotoPickerResizeTaskDescriptorViewModel, PUAssetPickerContainerController, PXLoadingStatusManager;
+@protocol PUPhotoPicker, PUAssetPickerCoordinatorActionHandler;
+
+@interface PUAssetPickerCoordinator : NSObject <PUAssetPickerContainerControllerActionHandler, PUAssetExplorerReviewScreenViewControllerDelegate, PUPhotosGridDownloadUpdateHandler, PXSelectionCoordinatorDelegate, UINavigationControllerDelegate, PUPhotoPickerResizeTaskDescriptorViewModelDelegate, PUUIImageViewControllerFileResizingDelegate, PUPhotoPickerServicesConsumer>
+
+@property (readonly, weak, nonatomic) id<PUAssetPickerCoordinatorActionHandler> coordinatorActionHandler;
+@property (readonly, nonatomic) PXSelectionCoordinator *selectionCoordinator;
+@property (retain, nonatomic) PHAsset *mostRecentTappedAsset;
+@property (readonly, nonatomic) PUPhotosGridDownloadHelper *downloadHelper;
+@property (readonly, nonatomic) NSMutableDictionary *downloadProgresses;
+@property (readonly, nonatomic) PUAssetPickerActivityProgressController *progressController;
+@property (readonly, nonatomic) PUPhotoPickerResizeTaskDescriptorViewModel *resizeTaskDescriptorViewModel;
+@property (readonly, nonatomic) PUPickerConfiguration *configuration;
+@property (readonly, nonatomic) UINavigationController *navigationController;
+@property (readonly, nonatomic) PUAssetPickerContainerController *rootViewController;
+@property (readonly, nonatomic) PXLoadingStatusManager *loadingStatusManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PUPhotoPicker> photoPicker;
+
++ (void)_logPhotosPickerPresentedForClient:(id)a0;
++ (BOOL)pu_legacy_shouldDownloadVideoComplement:(id)a0 configuration:(id)a1;
++ (BOOL)_editingEnabled:(id)a0;
++ (BOOL)_viewImageBeforeSelectingEnabled:(id)a0;
++ (BOOL)_skipSelectionConfirmation:(id)a0;
++ (BOOL)_assetCanPlay:(id)a0;
++ (BOOL)_shouldTreatAssetAsLivePhoto:(id)a0 photoPicker:(id)a1 configuration:(id)a2;
++ (id)_extraArgumentsForResizeTaskDescriptor:(id)a0;
+
+- (void)navigationController:(id)a0 willShowViewController:(id)a1 animated:(BOOL)a2;
+- (id)initWithPUConfiguration:(id)a0 coordinatorActionHandler:(id)a1 loadingStatusManager:(id)a2;
+- (void)activateSearchField;
+- (void).cxx_destruct;
+- (id)init;
+- (void)presentAlertController:(id)a0;
+- (void)assetExplorerReviewScreenViewController:(id)a0 didPerformCompletionAction:(unsigned long long)a1 withSelectedAssetUUIDs:(id)a2 livePhotoDisabledAssetUUIDs:(id)a3 substituteAssetsByUUID:(id)a4;
+- (void)assetExplorerReviewScreenViewControllerDidPressCancel:(id)a0;
+- (id)assetExplorerReviewScreenViewController:(id)a0 fileSizeMenuForSelectedUUIDs:(id)a1;
+- (BOOL)assetExplorerReviewScreenViewController:(id)a0 shouldEnableActionType:(unsigned long long)a1 onAsset:(id)a2 inAssetCollection:(id)a3;
+- (BOOL)assetExplorerReviewScreenViewController:(id)a0 canPerformActionType:(unsigned long long)a1 onAsset:(id)a2 inAssetCollection:(id)a3;
+- (void)moveAssetWithIdentifier:(id)a0 afterIdentifier:(id)a1;
+- (void)deselectAssetsWithIdentifiers:(id)a0;
+- (void)setPhotoPickerMediaTypes:(id)a0;
+- (id)imageViewControllerFileSizeMenuActions:(id)a0;
+- (void)imageViewControllerDidConfirmSelection:(id)a0;
+- (id)assetsForResizing;
+- (void)selectionCoordinator:(id)a0 willUpdateSelectedObjectsForSnapshot:(id)a1 withRemovedIndexes:(id)a2 insertedIndexes:(id)a3;
+- (void)selectionCoordinator:(id)a0 didUpdateSelectedObjectsWithRemovedOIDs:(id)a1 insertedOIDs:(id)a2;
+- (id)beginShowingProgressForAsset:(id)a0 inCollection:(id)a1;
+- (void)updateProgressWithIdentifier:(id)a0 withValue:(double)a1;
+- (void)endShowingProgressWithIdentifier:(id)a0 succeeded:(BOOL)a1 canceled:(BOOL)a2 error:(id)a3;
+- (void)containerControllerDidAppear:(id)a0;
+- (void)containerController:(id)a0 didTapAsset:(id)a1;
+- (void)containerController:(id)a0 didTapCancelButton:(id)a1;
+- (void)containerController:(id)a0 didTapClearButton:(id)a1;
+- (void)containerController:(id)a0 didTapAddButton:(id)a1;
+- (void)containerController:(id)a0 didTapSelectedItemsButton:(id)a1;
+- (void)containerController:(id)a0 didTapSearchBar:(id)a1 canBeginEditing:(BOOL)a2;
+- (id)initWithPhotoPicker:(id)a0 mediaTypes:(id)a1;
+- (id)initWithPHConfiguration:(id)a0 coordinatorActionHandler:(id)a1 loadingStatusManager:(id)a2;
+- (id)initWithConfiguration:(id)a0 navigationControllerClass:(Class)a1 coordinatorActionHandler:(id)a2 loadingStatusManager:(id)a3;
+- (void)updateUsesEmbeddedMessagesLayout:(BOOL)a0;
+- (void)deactivateSearchField;
+- (id)_fileSizeActionsForAssets:(id)a0;
+- (id)_createFetchResultUsingSelectedObjectIDs;
+- (void)_logPhotosAccessWithNonEmptyUserSelection;
+- (void)presentProgressControllerFromViewController:(id)a0 progress:(id)a1;
+- (void)cancelProgressController;
+- (void)updateProgressControllerMessage;
+- (void)pu_legacy_selectSingleAssetWithFileResizing:(id)a0;
+- (void)pu_legacy_selectMultipleAssets:(id /* block */)a0;
+- (void)pu_legacy_cancelPicker;
+- (void)pu_legacy_selectSingleAsset:(id)a0;
+- (void)pu_legacy_didDisplayPicker;
+- (void)_completeSingleSelection:(id)a0 showConfirmation:(BOOL)a1;
+- (void)_completeMultipleSelection:(id)a0;
+
+@end

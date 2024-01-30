@@ -1,0 +1,17 @@
+@interface BSMonotonicReferenceTime : NSObject {
+    double _startTimeStamp;
+}
+
+@property (readonly, nonatomic) double timeIntervalSinceNow;
+@property (readonly, nonatomic) double timeIntervalToNow;
+
++ (id)now;
++ (id)referenceTimeForDate:(id)a0;
++ (id)distantFuture;
++ (id)referenceTimeWithTimeIntervalSinceNow:(double)a0;
++ (id)distantPast;
+
+- (id)date;
+- (double)timeIntervalSinceReferenceTime:(id)a0;
+
+@end

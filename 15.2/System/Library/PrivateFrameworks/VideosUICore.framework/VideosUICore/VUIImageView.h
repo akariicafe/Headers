@@ -1,0 +1,83 @@
+@class UIColor, VUIImageProxy, UIImageView, UIImage, CAFilter, UIImageSymbolConfiguration;
+
+@interface VUIImageView : UIControl {
+    BOOL _rendersImageAsTemplates;
+    UIImage *_image;
+    UIImageView *_imageView;
+    unsigned long long _imageContentMode;
+    UIImage *_flatImage;
+    UIImage *_flatHighlightImage;
+    BOOL _selected;
+    double _cornerRadius;
+    BOOL _continuousCorners;
+    struct CGSize { double width; double height; } _previousSize;
+    CAFilter *_highlightFilter;
+}
+
+@property (copy, nonatomic) id /* block */ completion;
+@property (nonatomic, getter=isImageLoaded) BOOL imageLoaded;
+@property (retain, nonatomic) UIImage *image;
+@property (retain, nonatomic) UIImage *placeholderImage;
+@property (retain, nonatomic) UIColor *placeholderColor;
+@property (nonatomic) BOOL shouldScaleToSize;
+@property (nonatomic) double cornerRadius;
+@property (nonatomic) BOOL imageContainsShadow;
+@property (nonatomic) BOOL animatesShadowChanges;
+@property (nonatomic) struct _VUICornerRadii { double topLeft; double topRight; double bottomLeft; double bottomRight; } shadowRadii;
+@property (copy, nonatomic) id /* block */ shadowPathUpdater;
+@property (nonatomic) BOOL imageContainsCornerRadius;
+@property (retain, nonatomic) UIColor *borderColor;
+@property (nonatomic) double borderWidth;
+@property (retain, nonatomic) VUIImageProxy *imageProxy;
+@property (copy, nonatomic) id /* block */ dynamicProxyProvider;
+@property (retain, nonatomic, setter=_setTintColor:) UIColor *_tintColor;
+@property (retain, nonatomic, setter=_setFocusedColor:) UIColor *_focusedColor;
+@property (nonatomic, setter=_setEnableEdgeAntialiasingOnSelected:) BOOL _enableEdgeAntialiasingOnSelected;
+@property (retain, nonatomic, setter=_setPreferredSymbolConfiguration:) UIImageSymbolConfiguration *preferredSymbolConfiguration;
+@property (nonatomic, getter=isSymbolImage) BOOL symbolImage;
+@property (nonatomic, getter=isResourceImage) BOOL resourceImage;
+@property (nonatomic) struct CGSize { double width; double height; } resourceOrSymbolSize;
+
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)layoutSubviews;
+- (id)_imageView;
+- (double)_cornerRadius;
+- (void)setHighlighted:(BOOL)a0;
+- (void)_updateTintColor;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_setContentRectInPixels:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 forContentSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_setCornerRadius:(double)a0;
+- (id)backgroundColor;
+- (void)_updateCornerRadius;
+- (void)_resetContentRect;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)actionForLayer:(id)a0 forKey:(id)a1;
+- (double)_continuousCornerRadius;
+- (void)willMoveToWindow:(id)a0;
+- (void)_setContinuousCornerRadius:(double)a0;
+- (void)dealloc;
+- (void)setBackgroundColor:(id)a0;
+- (void)_updateImageView;
+- (void)_setImage:(id)a0;
+- (struct CGSize { double x0; double x1; })vui_layoutSubviews:(struct CGSize { double x0; double x1; })a0 computationOnly:(BOOL)a1;
+- (void)vui_setHighlighted:(BOOL)a0;
+- (void)setVuiBackgroundColor:(id)a0;
+- (void)vui_willMoveToWindow:(id)a0;
+- (void)vui_setSelected:(BOOL)a0 animated:(BOOL)a1 withAnimationCoordinator:(id)a2;
+- (id)vuiBackgroundColor;
+- (void)vui_traitCollectionDidChange:(id)a0;
+- (void)setVuiContentMode:(unsigned long long)a0;
+- (BOOL)vuiIsUserInteractionEnabled;
+- (void)setVuiUserInteractionEnabled:(BOOL)a0;
+- (void)setImageProxy:(id)a0 completion:(id /* block */)a1;
+- (void)setImageProxy:(id)a0 clearingExisting:(BOOL)a1 completion:(id /* block */)a2;
+- (unsigned long long)vuiContentMode;
+- (void)_loadImage;
+- (id)_imageProxyWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateFlatImageWithImage:(id)a0;
+- (void)_reloadImageForLayoutDirectionChange;
+
+@end

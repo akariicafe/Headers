@@ -1,0 +1,19 @@
+@interface _UIKeyShortcutHUDCell : UICollectionViewListCell
+
+@property (nonatomic, getter=isFlashing) BOOL flashing;
+@property (nonatomic, getter=isCategoryVisible) BOOL categoryVisible;
+@property (nonatomic) BOOL drawsBackground;
+@property (readonly, nonatomic, getter=isBackgroundVisible) BOOL backgroundVisible;
+
+- (long long)_focusItemDeferralMode;
+- (BOOL)canBecomeFocused;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)_shouldSkipKeyCommand:(id)a0 forMovement:(long long)a1;
+- (void)updateConfigurationUsingState:(id)a0;
+- (long long)_backgroundStyleForState:(id)a0;
+- (void)prepareForReuse;
+- (id)defaultContentConfiguration;
+- (BOOL)_wantsFocusRing;
+- (id)configurationState;
+
+@end

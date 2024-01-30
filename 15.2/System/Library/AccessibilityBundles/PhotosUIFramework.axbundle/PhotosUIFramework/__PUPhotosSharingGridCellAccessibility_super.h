@@ -1,0 +1,3 @@
+@interface __PUPhotosSharingGridCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,16 @@
+@class NSUUID, NTKComplication;
+
+@interface _NTKComplicationCacheKey : NSObject <NSCopying>
+
+@property (readonly) NTKComplication *complication;
+@property (readonly) long long family;
+@property (readonly) NSUUID *deviceUUID;
+
++ (id)keyWithFamily:(long long)a0 complication:(id)a1 forDevice:(id)a2;
+
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+
+@end

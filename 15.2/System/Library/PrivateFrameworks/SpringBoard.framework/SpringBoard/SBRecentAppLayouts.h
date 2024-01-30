@@ -1,0 +1,76 @@
+@class NSString, SBAppSwitcherDefaults, NSMutableDictionary, NSDictionary, SBApplicationController, SBIconController, NSMutableArray, SBApplicationPlaceholderController, SBMainDisplaySceneManager, SBRecentAppLayoutsPersister;
+@protocol SBRecentAppLayoutsDelegate, BSInvalidatable;
+
+@interface SBRecentAppLayouts : NSObject <SBApplicationRestrictionObserver> {
+    NSMutableArray *_allRecents;
+    NSMutableArray *_unhiddenRecents;
+    NSDictionary *_allRecentsForBundleIdentifiers;
+    NSDictionary *_unhiddenRecentsForBundleIdentifiers;
+    NSDictionary *_allRecentDisplayItemsForBundleIdentifiers;
+    NSDictionary *_unhiddenRecentDisplayItemsForBundleIdentifiers;
+    NSMutableDictionary *_allowHiddenAppAssertions;
+    SBAppSwitcherDefaults *_defaults;
+    SBIconController *_iconController;
+    SBApplicationController *_applicationController;
+    SBApplicationPlaceholderController *_placeholderController;
+    SBMainDisplaySceneManager *_sceneManager;
+    SBRecentAppLayoutsPersister *_persister;
+    id<BSInvalidatable> _stateCaptureInvalidatable;
+}
+
+@property (weak, nonatomic) id<SBRecentAppLayoutsDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)remove:(id)a0;
+- (void)applicationRestrictionController:(id)a0 didUpdateVisibleTags:(id)a1 hiddenTags:(id)a2;
+- (void)removeAppLayouts:(id)a0;
+- (BOOL)_isDisplayItemRestrictedOrUnsupported:(id)a0;
+- (void)_installedApplicationsDidChange:(id)a0;
+- (id)_changeDescriptionForFilteringAppLayouts:(id)a0 withDisplayItemTest:(id /* block */)a1;
+- (BOOL)_stashModelToPath:(id)a0;
+- (id)initWithUserDefaults:(id)a0 persister:(id)a1 iconController:(id)a2 applicationController:(id)a3 placeholderController:(id)a4 sceneManager:(id)a5;
+- (void)_initializeRecents;
+- (void)hide:(id)a0;
+- (id)recentDisplayItemsForBundleIdentifier:(id)a0 includingHiddenAppLayouts:(BOOL)a1;
+- (void)_persistSoon;
+- (BOOL)_isApplicationSupported:(id)a0;
+- (void)_filterRestrictedUnsupportedAndInvalidAppsFromRecents;
+- (BOOL)_loadStashedModelAtPath:(id)a0;
+- (id)_ppt_loadStashedModel;
+- (void)_setUpStashedModelSettingsOutlets;
+- (void)_filterRestrictedOrUnsupportedAppsFromRecents;
+- (id)_displayItemLayoutRolesFromLegacyPrefsForLoadedDisplayItems:(id)a0;
+- (id)_changeDescriptionForFilteringRestrictedOrUnsupportedAppsFromAppLayouts:(id)a0;
+- (void)_validateAndUpdateRecents:(id)a0;
+- (id)_legacyAppLayoutForItem:(id)a0 layoutRole:(long long)a1;
+- (void)_persistSynchronously;
+- (id)_ppt_currentModel;
+- (id)_legacyAppLayoutsForDisplayItems:(id)a0 layoutRolesMapping:(id)a1;
+- (void)_ppt_setModel:(id)a0;
+- (void)replaceAppLayout:(id)a0 withAppLayout:(id)a1;
+- (void).cxx_destruct;
+- (id)init;
+- (id)recentsForBundleIdentifier:(id)a0 includingHiddenAppLayouts:(BOOL)a1;
+- (BOOL)_isExistingSceneIdentifierValidForClaimedMultiwindowSupportInDisplayItem:(id)a0;
+- (id)_migrateDisplayItemIfNeeded:(id)a0;
+- (void)_addAllowHiddenAppAssertionForBundleIdentifier:(id)a0 requestIdentifier:(id)a1;
+- (id)_acquireAllowHiddenAppAssertionForBundleIdentifier:(id)a0 reason:(id)a1;
+- (id)_recentDisplayItemsFromLegacyPrefs;
+- (void)_setRecents:(id)a0 notifyForChangeDescription:(id)a1;
+- (id)recentsIncludingHiddenAppLayouts:(BOOL)a0;
+- (void)_saveRecents;
+- (void)_removeAllowHiddenAppAssertionForBundleIdentifier:(id)a0 requestIdentifier:(id)a1;
+- (void)dealloc;
+- (id)_changeDescriptionForFilteringRestrictedUnsupportedAndInvalidAppsFromAppLayouts:(id)a0;
+- (void)addToFront:(id)a0;
+- (BOOL)_ignoresAppHiddenForDisplayItem:(id)a0;
+- (id)_recentsFromPrefs;
+- (void)addAppLayout:(id)a0 afterAppLayout:(id)a1;
+- (void)addAppLayout:(id)a0 atIndex:(unsigned long long)a1;
+- (void)_addAllAppsToModel;
+- (void)_iconVisibilityDidChange:(id)a0;
+
+@end

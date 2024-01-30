@@ -1,0 +1,85 @@
+@class UIColor, NSString, NSArray, _UIDatePickerCompactDateLabel, _UIDatePickerOverlayPresentation, UIPanGestureRecognizer, NSDictionary, UILayoutGuide, _UIDatePickerCompactTimeLabel, _UIDatePickerDataModel, NSDateFormatter, UIDatePicker;
+
+@interface _UIDatePickerIOSCompactView : UIControl <_UIDatePickerCompactTimeLabelDelegate, _UIDatePickerCompactDateLabelDelegate, _UIDatePickerOverlayPresentationDelegate, _UIDatePickerViewComponent> {
+    struct { unsigned char isEnabled : 1; unsigned char implementsCustomDidSelectComponent : 1; } _flags;
+    NSDateFormatter *_dateFormatterMedium;
+    NSDateFormatter *_dateFormatterShort;
+    UILayoutGuide *_timeViewLayoutGuide;
+    UILayoutGuide *_contentLayoutGuide;
+    NSDateFormatter *_layoutFormatter;
+    BOOL _dateOnLeadingSide;
+    NSArray *_dateTimeConstraints;
+    _UIDatePickerOverlayPresentation *_presentation;
+    long long _activeComponent;
+    UIPanGestureRecognizer *_panGestureRecognizer;
+}
+
+@property (readonly, nonatomic) _UIDatePickerCompactDateLabel *dateView;
+@property (readonly, nonatomic) _UIDatePickerCompactTimeLabel *timeView;
+@property (readonly, nonatomic) BOOL alignConstraintsToLayoutGuide;
+@property (retain, nonatomic) NSDictionary *overrideAttributes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) UIDatePicker *datePicker;
+@property (retain, nonatomic) _UIDatePickerDataModel *data;
+@property (readonly, nonatomic) long long datePickerStyle;
+@property (nonatomic, getter=_allowsZeroCountDownDuration, setter=_setAllowsZeroCountDownDuration:) BOOL allowsZeroCountDownDuration;
+@property (nonatomic, getter=_allowsZeroTimeInterval, setter=_setAllowsZeroTimeInterval:) BOOL allowsZeroTimeInterval;
+@property (readonly, nonatomic, getter=_isTimeIntervalMode) BOOL isTimeIntervalMode;
+@property (nonatomic) double timeInterval;
+@property (readonly, nonatomic) double contentWidth;
+@property (retain, nonatomic, getter=_highlightColor, setter=_setHighlightColor:) UIColor *highlightColor;
+@property (retain, nonatomic, getter=_textColor, setter=_setTextColor:) UIColor *textColor;
+@property (retain, nonatomic, getter=_textShadowColor, setter=_setTextShadowColor:) UIColor *textShadowColor;
+@property (retain, nonatomic, getter=_magnifierLineColor, setter=_setMagnifierLineColor:) UIColor *magnifierLineColor;
+
+- (void)willMoveToSuperview:(id)a0;
+- (void)didReset;
+- (void)_updateUI;
+- (BOOL)compactTimeLabel:(id)a0 shouldDismissForInteractionAtLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void)_updateDateBeforeTimeValue;
+- (void)_didReceivePanGestureRecognizer:(id)a0;
+- (void)_resignActiveComponentAnimated:(BOOL)a0;
+- (void)_reloadTimeViewTimeFormat;
+- (void)_updateDateViewTextAlignment;
+- (void)_datePickerPresentation:(id)a0 didChangeActiveMode:(long long)a1;
+- (void)setActiveComponent:(long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)didChangeMode;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (void).cxx_destruct;
+- (void)updateConstraints;
+- (void)didChangeToday;
+- (void)didChangeRoundsToMinuteInterval;
+- (BOOL)hasDefaultSize;
+- (struct CGSize { double x0; double x1; })_sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (BOOL)usesAutoLayout;
+- (struct CGSize { double x0; double x1; })defaultSize;
+- (void)_setHidesLabels:(BOOL)a0;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_appliedInsetsToEdgeOfContent;
+- (void)didChangeLocale;
+- (void)didChangeMinimumDate;
+- (void)didChangeMaximumDate;
+- (void)didChangeTimeZone;
+- (void)didChangeCalendar;
+- (void)didChangeDateFrom:(id)a0 animated:(BOOL)a1;
+- (void)_updateEnabledStyling;
+- (void)willMoveToWindow:(id)a0;
+- (void)didChangeCompactStyleDelegate;
+- (void)updateTimeZoneDisplay;
+- (void)tintColorDidChange;
+- (void)didChangeMinuteInterval;
+- (void)compactTimeLabel:(id)a0 didSelectTime:(id)a1;
+- (void)compactTimeLabelWillBecomeFirstResponder:(id)a0;
+- (void)compactTimeLabelDidBeginEditing:(id)a0;
+- (void)compactTimeLabelDidEndEditing:(id)a0;
+- (id)createDatePickerForCompactTimeLabel:(id)a0;
+- (void)compactDateLabelDidEndEditing:(id)a0;
+- (void)compactDateLabelDidBeginEditing:(id)a0;
+- (id)createDatePickerForCompactDateLabel:(id)a0;
+- (void)_setEnabled:(BOOL)a0;
+- (void)setContentHorizontalAlignment:(long long)a0;
+
+@end

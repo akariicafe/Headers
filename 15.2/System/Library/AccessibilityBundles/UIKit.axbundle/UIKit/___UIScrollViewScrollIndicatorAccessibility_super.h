@@ -1,0 +1,3 @@
+@interface ___UIScrollViewScrollIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,29 @@
+@class NSString;
+
+@interface PPPBDateComponents : PBCodable <NSCopying> {
+    struct { unsigned char day : 1; unsigned char month : 1; unsigned char year : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasDay;
+@property (nonatomic) int day;
+@property (nonatomic) BOOL hasMonth;
+@property (nonatomic) int month;
+@property (nonatomic) BOOL hasYear;
+@property (nonatomic) int year;
+@property (readonly, nonatomic) BOOL hasCalendarIdentifier;
+@property (retain, nonatomic) NSString *calendarIdentifier;
+@property (readonly, nonatomic) BOOL hasTimeZoneName;
+@property (retain, nonatomic) NSString *timeZoneName;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

@@ -1,0 +1,3 @@
+@interface __SKUIBrowseHeaderCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

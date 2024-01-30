@@ -1,0 +1,80 @@
+@class PLAccountingDistributionManager, PLAccountingQualificationManager, NSString, PLEntryNotificationOperatorComposition, PLAccountingCorrectionManager, PLActivity, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface PLAccountingEngine : NSObject <PLAccountingDistributionManagerDelegate, PLAccountingCorrectionManagerDelegate, PLAccountingQualificationManagerDelegate>
+
+@property (retain) NSObject<OS_dispatch_queue> *workQueue;
+@property (retain) PLActivity *chunkActivity;
+@property (retain) PLEntryNotificationOperatorComposition *batteryListener;
+@property BOOL pluggedIn;
+@property (retain, nonatomic) PLAccountingDistributionManager *distributionManager;
+@property (retain, nonatomic) PLAccountingCorrectionManager *correctionManager;
+@property (retain, nonatomic) PLAccountingQualificationManager *qualificationManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)workQueue;
++ (double)maxPowerEventChunkInterval;
++ (id)deviceRootNodeIDs;
++ (id)debugInstance;
++ (id)distributionIDForDistributionName:(id)a0;
++ (id)gasGaugeEntryKey;
++ (id)allQualificationIDs;
++ (id)allSoCRootNodeIDs;
++ (id)allDistributionIDs;
++ (double)minEnergy;
++ (id)deviceSoCRootNodeIDs;
++ (id)deviceBBRootNodeIDs;
++ (id)normalizeWeights:(id)a0;
++ (void)clearWithEntryKey:(id)a0;
++ (id)qualificationIDForQualificationName:(id)a0;
++ (BOOL)accountingDebugEnabled;
++ (id)allBBRootNodeIDs;
++ (double)minDistributionEnergy;
+
+- (void)createPowerEventForwardWithRootNodeID:(int)a0 withPower:(double)a1 withStartDate:(id)a2;
+- (void)reload;
+- (void)addPowerMeasurementEventIntervalWithPower:(double)a0 withStartDate:(id)a1 withEndDate:(id)a2;
+- (void)didQualifyEnergyEvent:(id)a0 withRootNodeID:(id)a1 withQualificationID:(id)a2;
+- (void)createDistributionEventIntervalWithDistributionID:(int)a0 withChildNodeNameToWeight:(id)a1 withStartDate:(id)a2 withEndDate:(id)a3;
+- (void)createDistributionEventForwardWithDistributionID:(int)a0 withAddingChildNodeName:(id)a1 withStartDate:(id)a2;
+- (void)createQualificationEventBackwardWithQualificationID:(int)a0 withChildNodeNames:(id)a1 withEndDate:(id)a2;
+- (void)createPowerEventBackwardWithRootNodeID:(int)a0 withPower:(double)a1 withEndDate:(id)a2;
+- (void)addQualificationEventPoint:(id)a0;
+- (void)reloadLastQualificationEventsWithLastDeviceBootDate:(id)a0;
+- (void)createDistributionEventForwardWithDistributionID:(int)a0 withRemovingChildNodeName:(id)a1 withStartDate:(id)a2;
+- (void)addDistributionEventIntervalWithLastDistributionEventBackward:(id)a0 withDistributionEventBackward:(id)a1;
+- (void)addQualificationEventIntervalWithLastQualificationEventBackward:(id)a0 withQualificationEventBackward:(id)a1;
+- (void)createAggregateRootNodeEnergyEntryWithEnergyEstimate:(id)a0;
+- (void)reloadLastPowerEventsWithLastDeviceBootDate:(id)a0;
+- (void)addEnergyMeasurementWithRootNodeID:(int)a0 withEnergy:(double)a1 withRange:(id)a2;
+- (void).cxx_destruct;
+- (id)getLastQualifiedEnergyEvent;
+- (void)createEventWithEvent:(id)a0 withActionBlock:(id /* block */)a1;
+- (id)init;
+- (void)addDistributionEventIntervalWithLastDistributionEventForward:(id)a0 withDistributionEventForward:(id)a1;
+- (void)didDistributeEnergyEstimate:(id)a0;
+- (void)createQualificationEventForwardWithQualificationID:(int)a0 withChildNodeNames:(id)a1 withStartDate:(id)a2;
+- (void)createQualificationEventIntervalWithQualificationID:(int)a0 withChildNodeNames:(id)a1 withStartDate:(id)a2 withEndDate:(id)a3;
+- (void)addDistributionEventPoint:(id)a0;
+- (void)createDistributionEventPointWithDistributionID:(int)a0 withChildNodeNameToWeight:(id)a1 withStartDate:(id)a2;
+- (void)createDistributionEventForwardWithDistributionID:(int)a0 withChildNodeNameToWeight:(id)a1 withStartDate:(id)a2;
+- (void)createQualificationEventForwardWithQualificationID:(int)a0 withRemovingChildNodeName:(id)a1 withStartDate:(id)a2;
+- (void)createQualificationEventPointWithQualificationID:(int)a0 withChildNodeNames:(id)a1 withStartDate:(id)a2;
+- (void)didCreateChildEnergyEstimate:(id)a0 withParentEnergyEstimate:(id)a1;
+- (void)addQualificationEventInterval:(id)a0;
+- (void)createQualificationEventForwardWithQualificationID:(int)a0 withAddingChildNodeName:(id)a1 withStartDate:(id)a2;
+- (id)currentDistributionEventForwardWithDistributionID:(int)a0;
+- (void)reset;
+- (void)createDistributionEventBackwardWithDistributionID:(int)a0 withChildNodeNameToWeight:(id)a1 withEndDate:(id)a2;
+- (void)addDistributionEventInterval:(id)a0;
+- (void)createPowerEventIntervalWithRootNodeID:(int)a0 withPower:(double)a1 withStartDate:(id)a2 withEndDate:(id)a3;
+- (void)addQualificationEventIntervalWithLastQualificationEventForward:(id)a0 withQualificationEventForward:(id)a1;
+- (void)reloadLastDistributionEventsWithLastDeviceBootDate:(id)a0;
+- (void)didCorrectEnergyEstimate:(id)a0;
+- (void)chunkWithLastChunkDate:(id)a0 withNow:(id)a1;
+
+@end

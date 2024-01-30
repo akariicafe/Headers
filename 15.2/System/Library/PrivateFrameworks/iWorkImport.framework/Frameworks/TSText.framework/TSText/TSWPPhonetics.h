@@ -1,0 +1,19 @@
+@class NSDictionary;
+
+@interface TSWPPhonetics : NSObject {
+    NSDictionary *_transcribers;
+}
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (id)sharedDictionary;
++ (id)_singletonAlloc;
++ (id)orderedTranscriberIDsForLanguage:(int)a0;
+
+- (void).cxx_destruct;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)transcriberWithIdentifier:(id)a0;
+- (id)transcriberForBaseText:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 documentLocale:(id)a2 outLanguageLocale:(id *)a3 outTextLanguageCode:(int *)a4;
+- (id)pronunciationSuggestionsForBaseText:(id)a0 locale:(id)a1 language:(int)a2;
+
+@end

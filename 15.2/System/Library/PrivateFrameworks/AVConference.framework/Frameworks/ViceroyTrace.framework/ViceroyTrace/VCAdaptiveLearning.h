@@ -1,0 +1,35 @@
+@class NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface VCAdaptiveLearning : NSObject {
+    NSMutableDictionary *_callHistory;
+    BOOL _dirty;
+    int _shortTermHistoryLength;
+    int _longTermHistoryLength;
+    double _shortTermAdjustmentFactor;
+    double _longTermAdjustmentFactor;
+    double _shortTermValueWeight;
+    double _longTermValueWeight;
+    NSObject<OS_dispatch_queue> *_stateQueue;
+}
+
+@property (readonly) int adaptiveLearningState;
+
+- (void)dealloc;
+- (id)initWithParameters:(id)a0;
+- (int)learntBitrateForSegment:(id)a0 defaultValue:(int)a1;
+- (int)previousISBRForSegment:(id)a0;
+- (void)updateSegment:(id)a0 TBR:(int)a1 ISBTR:(int)a2 SATXBR:(int)a3 SARBR:(int)a4 BWE:(int)a5;
+- (int)shortTermAverageTBRForSegment:(id)a0;
+- (int)longTermAverageTBRForSegment:(id)a0;
+- (int)longTermAverageISBRForSegment:(id)a0;
+- (int)shortTermAverageISBRForSegment:(id)a0;
+- (int)longTermAverageSATXBRForSegment:(id)a0;
+- (int)shortTermAverageSATXBRForSegment:(id)a0;
+- (int)longTermAverageSARBRForSegment:(id)a0;
+- (int)shortTermAverageSARBRForSegment:(id)a0;
+- (int)longTermAverageBWEForSegment:(id)a0;
+- (int)shortTermAverageBWEForSegment:(id)a0;
+- (void)saveCallSegmentHistory;
+
+@end

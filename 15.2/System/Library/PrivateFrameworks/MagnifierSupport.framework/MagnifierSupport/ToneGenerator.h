@@ -1,0 +1,41 @@
+@class CHHapticEngine, AVAudioMixerNode, NSTimer, NSURL, AVAudioEngine, AVAudioPlayerNode, AVAudioPCMBuffer;
+
+@interface ToneGenerator : NSObject {
+    BOOL _useSoundFeedback;
+    BOOL _useHapticFeedback;
+}
+
+@property (retain, nonatomic) AVAudioEngine *audioEngine;
+@property (retain, nonatomic) AVAudioPlayerNode *player;
+@property (retain, nonatomic) AVAudioMixerNode *mixer;
+@property (retain, nonatomic) AVAudioPCMBuffer *buffer;
+@property (nonatomic) double pulseDuration;
+@property (retain, nonatomic) CHHapticEngine *hapticEngine;
+@property BOOL hapticEngineStarted;
+@property (retain, nonatomic) NSTimer *timer;
+@property (readonly, nonatomic) double minPulseFrequency;
+@property (readonly, nonatomic) double maxPulseFrequency;
+@property (readonly, nonatomic) float minPitchFactor;
+@property (readonly, nonatomic) float maxPitchFactor;
+@property (nonatomic) double pulseFrequency;
+@property (nonatomic) float volume;
+@property (nonatomic) float leftBalance;
+@property (nonatomic) float rightBalance;
+@property (nonatomic) float pitchFactor;
+@property (retain, nonatomic) NSURL *audioFileURL;
+@property (nonatomic) BOOL useSoundFeedback;
+@property (nonatomic) BOOL useHapticFeedback;
+
+- (void).cxx_destruct;
+- (id)init;
+- (void)pause;
+- (id)configureAudioEngineWithError:(id *)a0;
+- (void)playOnePulse;
+- (void)playSoundWithPitchFactor:(float)a0 leftBalance:(float)a1 rightBalance:(float)a2 volume:(float)a3 loop:(BOOL)a4;
+- (void)playHapticsWithVolume:(float)a0 pulseDuration:(double)a1;
+- (void)configurePlayerWithPitchFactor:(float)a0 leftBalance:(float)a1 rightBalance:(float)a2 volume:(float)a3 loop:(BOOL)a4;
+- (id)configureHapticPlayerWithVolume:(float)a0 duration:(double)a1 error:(id *)a2;
+- (void)startPulse;
+- (void)stopPulse;
+
+@end

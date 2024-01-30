@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKQuantityType17DietaryRiboflavin : _TtCs12_SwiftObject
+
+@end

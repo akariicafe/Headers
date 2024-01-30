@@ -1,0 +1,3 @@
+@interface MKFTriggerEventDatabaseID : MKFTriggerDatabaseID
+
+@end

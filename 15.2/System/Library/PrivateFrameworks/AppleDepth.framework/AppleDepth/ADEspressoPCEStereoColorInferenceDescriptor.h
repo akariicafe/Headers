@@ -1,0 +1,3 @@
+@interface ADEspressoPCEStereoColorInferenceDescriptor : ADEspressoPCEDisparityColorInferenceDescriptor
+
+@end

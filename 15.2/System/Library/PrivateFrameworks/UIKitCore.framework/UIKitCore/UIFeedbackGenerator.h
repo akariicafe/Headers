@@ -1,0 +1,92 @@
+@class NSSet, NSString, _UIFeedbackGeneratorConfiguration, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_source, UICoordinateSpace;
+
+@interface UIFeedbackGenerator : NSObject {
+    long long _styleActivationCount[3];
+    long long _autoDeactivationCount[3];
+    NSObject<OS_dispatch_source> *_autoDeactivateTimer;
+    NSMutableDictionary *_preparationTimers;
+    id /* block */ _feedbackWarmingBlock;
+    double _currentDelay;
+    NSSet *_usedFeedbacks;
+    BOOL _activated;
+}
+
+@property (nonatomic, getter=_isMuted, setter=_setMuted:) BOOL muted;
+@property (nonatomic) long long activationCount;
+@property (nonatomic) long long externalActivationCount;
+@property (nonatomic) BOOL usesCustomActivation;
+@property (weak, nonatomic) id<UICoordinateSpace> coordinateSpace;
+@property (retain, nonatomic, getter=_configuration, setter=_setConfiguration:) _UIFeedbackGeneratorConfiguration *configuration;
+@property (readonly, nonatomic) NSSet *engines;
+@property (readonly, nonatomic, getter=_effectiveCoordinateSpace) id<UICoordinateSpace> effectiveCoordinateSpace;
+@property (readonly, nonatomic, getter=_isEnabled) BOOL enabled;
+@property (readonly, nonatomic, getter=_autoDeactivationTimeout) double autoDeactivationTimeout;
+@property (readonly, nonatomic, getter=_isAutoDeactivated) BOOL autoDeactivated;
+@property (readonly, nonatomic) NSString *_stats_key;
+
++ (id)_defaultCoordinateSpace;
++ (void)_setAutoDeactivateTimeout:(double)a0;
++ (void)_resetAutoDeactivateTimeout;
++ (void)_setPreparationTimeout:(double)a0 forStyle:(long long)a1;
++ (void)_resetPreparationTimeouts;
++ (id)behaviorWithConfiguration:(id)a0 coordinateSpace:(id)a1;
++ (id)behaviorWithCoordinateSpace:(id)a0;
++ (Class)_configurationClass;
++ (void)_setRunningTests:(BOOL)a0;
+
+- (void)_updateActivationStateForRemovedEngines:(id)a0 addedEngines:(id)a1 prewarmCount:(long long)a2 turnOnCount:(long long)a3;
+- (id)_ui_descriptionBuilder;
+- (void)_playFeedback:(id)a0 withMinimumIntervalPassed:(double)a1 since:(double *)a2 prefersRegularPace:(BOOL)a3;
+- (void)prepare;
+- (void)_stopFeedback:(id)a0;
+- (void)_stopAutoDeactivateTimer;
+- (id)_preparationTimerForStyle:(long long)a0;
+- (void)_stopPreparationForAllStyles;
+- (void)_prepareWithStyle:(long long)a0;
+- (void)_stopPreparationForStyle:(long long)a0;
+- (void)_setPreparationTimer:(id)a0 forStyle:(long long)a1;
+- (void)_deactivateWithStyle:(long long)a0;
+- (void)_updatePreparationTimer:(id)a0 withTimeout:(double)a1;
+- (void)_activateWithStyle:(long long)a0 completionBlock:(id /* block */)a1;
+- (void)_setupEnginesIfNeededForFeedback:(id)a0;
+- (void)_setupForFeedback:(id)a0;
+- (void)__activateWithStyle:(long long)a0 forFeedback:(id)a1 completionBlock:(id /* block */)a2;
+- (void)_clientDidUpdateGeneratorWithSelector:(SEL)a0;
+- (void)_setupAutoDeactivateTimer;
+- (void)_scheduleFeedbackWarming;
+- (void)_stats_activationDidChangeTo:(BOOL)a0;
+- (void)_startFeedbackWarming;
+- (BOOL)isActive;
+- (void)__deactivateWithStyle:(long long)a0;
+- (void)_stopFeedbackWarming;
+- (void)_stats_activationTimedOut;
+- (void)_resetAutoDeactivationTimeout;
+- (void)_forceDeactivationForStyle:(long long)a0;
+- (void)_stats_playedFeedback;
+- (id)description;
+- (id)initWithConfiguration:(id)a0 coordinateSpace:(id)a1;
+- (id)initWithConfiguration:(id)a0;
+- (double)_preparationTimeoutForStyle:(long long)a0;
+- (id)initWithCoordinateSpace:(id)a0;
+- (void).cxx_destruct;
+- (void)_playFeedback:(id)a0;
+- (id)init;
+- (long long)_outputMode;
+- (void)activateWithCompletionBlock:(id /* block */)a0;
+- (id)_statsSuffix;
+- (void)performFeedbackWithDelay:(double)a0 insideBlock:(id /* block */)a1;
+- (void)deactivate;
+- (id)_activationCountStatistics;
+- (id)_activationDurationStatistics;
+- (id)_playCountStatistics;
+- (id)_activationTimeOutCountStatistics;
+- (id)_preparationCountStatistics;
+- (void)dealloc;
+- (void)_activated;
+- (void)_deactivated;
+- (void)_autoDeactivate;
+- (void)_stats_prepared;
+- (void)_setOutputMode:(long long)a0;
+
+@end

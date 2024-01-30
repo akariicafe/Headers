@@ -1,0 +1,72 @@
+@class NSDictionary, OAVReadState, OCPPackagePart;
+
+@interface OAVShapeManager : NSObject {
+    struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *mShape;
+    unsigned short mType;
+    OCPPackagePart *mPackagePart;
+    NSDictionary *mShapeStyle;
+    NSDictionary *mTextBoxStyle;
+    OAVReadState *mOAVState;
+}
+
+- (struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)shape;
+- (id)shadowColor;
+- (float)shadowAlpha;
+- (float)strokeWidth;
+- (BOOL)isShadowed;
+- (id)limo;
+- (BOOL)isImage;
+- (id)fillType;
+- (struct OAVTextBoxInsets { float x0; float x1; float x2; float x3; })textInsets;
+- (void).cxx_destruct;
+- (BOOL)isFilled;
+- (unsigned short)type;
+- (id)path;
+- (id)points;
+- (id)shadowType;
+- (float)strokeMiterLimit;
+- (id)packagePart;
+- (id)oavState;
+- (id)fillFgColor;
+- (float)fillFgAlpha;
+- (float)fillAngle;
+- (id)fillBgColor;
+- (float)fillBgAlpha;
+- (float)fillFocus;
+- (id)fillGradientColors;
+- (id)strokeFgColor;
+- (id)strokeBgColor;
+- (BOOL)isStroked;
+- (id)strokeFillType;
+- (float)strokeFgAlpha;
+- (id)strokeCompoundType;
+- (id)strokeCapStyle;
+- (id)strokeJoinStyle;
+- (id)strokeStartArrowType;
+- (id)strokeStartArrowWidth;
+- (id)strokeStartArrowLength;
+- (id)strokeEndArrowType;
+- (id)strokeEndArrowWidth;
+- (id)strokeEndArrowLength;
+- (BOOL)isFillOK;
+- (BOOL)isStrokeOK;
+- (BOOL)isShadowOK;
+- (id)textAnchor;
+- (id)imageFillId;
+- (id)imageRelId;
+- (id)movieRelId;
+- (id)initWithShape:(struct _xmlNode { void *x0; int x1; char *x2; struct _xmlNode *x3; struct _xmlNode *x4; struct _xmlNode *x5; struct _xmlNode *x6; struct _xmlNode *x7; struct _xmlDoc *x8; struct _xmlNs *x9; char *x10; struct _xmlAttr *x11; struct _xmlNs *x12; void *x13; unsigned short x14; unsigned short x15; } *)a0 type:(unsigned short)a1 packagePart:(id)a2 state:(id)a3;
+- (BOOL)isPolyline;
+- (BOOL)isWordArt;
+- (id)textBodyRects;
+- (id)imageFillTitle;
+- (struct CGPoint { double x0; double x1; })shadowOffsets;
+- (BOOL)autoInsets;
+- (id)strokeDashStyle;
+- (id)textRotation;
+- (id)textLayoutFlow;
+- (id)textAltLayoutFlow;
+- (BOOL)fitShapeToText;
+- (id)textWrapStyle;
+
+@end

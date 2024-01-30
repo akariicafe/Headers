@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonPayments_PaymentAttribute : SiriOntology.UsoEntityBuilder
+
+@end

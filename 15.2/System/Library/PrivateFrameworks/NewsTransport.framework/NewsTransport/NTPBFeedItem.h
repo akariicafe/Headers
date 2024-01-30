@@ -1,0 +1,93 @@
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleScores, NSString, COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohortList, COMAPPLEFELDSPARPROTOCOLLIVERPOOLConversionStats, COMAPPLEFELDSPARPROTOCOLLIVERPOOLTagMetadata, NSMutableArray, COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleConversionStats;
+
+@interface NTPBFeedItem : PBCodable <NSCopying> {
+    struct { unsigned char bodyTextLength : 1; unsigned char contentType : 1; unsigned char feedHalfLifeMilliseconds : 1; unsigned char globalUserFeedback : 1; unsigned char minimumNewsVersion : 1; unsigned char order : 1; unsigned char publishDateMilliseconds : 1; unsigned char publisherArticleVersion : 1; unsigned char hasAudioTrack : 1; unsigned char hasThumbnail : 1; unsigned char hasVideo : 1; unsigned char isBundlePaid : 1; unsigned char isEvergreen : 1; unsigned char isExplicitContent : 1; unsigned char isFeatured : 1; unsigned char isFromBlockedStorefront : 1; unsigned char isHiddenFromAutoFavorites : 1; unsigned char isPaid : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasFeedID;
+@property (retain, nonatomic) NSString *feedID;
+@property (readonly, nonatomic) BOOL hasArticleID;
+@property (retain, nonatomic) NSString *articleID;
+@property (nonatomic) BOOL hasOrder;
+@property (nonatomic) unsigned long long order;
+@property (nonatomic) BOOL hasPublishDateMilliseconds;
+@property (nonatomic) unsigned long long publishDateMilliseconds;
+@property (nonatomic) BOOL hasFeedHalfLifeMilliseconds;
+@property (nonatomic) unsigned long long feedHalfLifeMilliseconds;
+@property (nonatomic) BOOL hasGlobalUserFeedback;
+@property (nonatomic) double globalUserFeedback;
+@property (readonly, nonatomic) BOOL hasClusterID;
+@property (retain, nonatomic) NSString *clusterID;
+@property (readonly, nonatomic) BOOL hasSourceChannelID;
+@property (retain, nonatomic) NSString *sourceChannelID;
+@property (nonatomic) BOOL hasHasThumbnail;
+@property (nonatomic) BOOL hasThumbnail;
+@property (nonatomic) BOOL hasIsFromBlockedStorefront;
+@property (nonatomic) BOOL isFromBlockedStorefront;
+@property (nonatomic) BOOL hasIsExplicitContent;
+@property (nonatomic) BOOL isExplicitContent;
+@property (nonatomic) BOOL hasMinimumNewsVersion;
+@property (nonatomic) long long minimumNewsVersion;
+@property (nonatomic) BOOL hasContentType;
+@property (nonatomic) unsigned long long contentType;
+@property (retain, nonatomic) NSMutableArray *topicIDs;
+@property (nonatomic) BOOL hasIsPaid;
+@property (nonatomic) BOOL isPaid;
+@property (nonatomic) BOOL hasHasVideo;
+@property (nonatomic) BOOL hasVideo;
+@property (nonatomic) BOOL hasPublisherArticleVersion;
+@property (nonatomic) long long publisherArticleVersion;
+@property (readonly, nonatomic) BOOL hasScores;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleScores *scores;
+@property (nonatomic) BOOL hasIsHiddenFromAutoFavorites;
+@property (nonatomic) BOOL isHiddenFromAutoFavorites;
+@property (readonly, nonatomic) BOOL hasParentIssueID;
+@property (retain, nonatomic) NSString *parentIssueID;
+@property (nonatomic) BOOL hasIsBundlePaid;
+@property (nonatomic) BOOL isBundlePaid;
+@property (nonatomic) BOOL hasBodyTextLength;
+@property (nonatomic) long long bodyTextLength;
+@property (nonatomic) BOOL hasIsFeatured;
+@property (nonatomic) BOOL isFeatured;
+@property (nonatomic) BOOL hasHasAudioTrack;
+@property (nonatomic) BOOL hasAudioTrack;
+@property (readonly, nonatomic) BOOL hasConversionStats;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleConversionStats *conversionStats;
+@property (nonatomic) BOOL hasIsEvergreen;
+@property (nonatomic) BOOL isEvergreen;
+@property (readonly, nonatomic) BOOL hasSourceArticleListID;
+@property (retain, nonatomic) NSString *sourceArticleListID;
+@property (readonly, nonatomic) BOOL hasSourceChannelCohorts;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohortList *sourceChannelCohorts;
+@property (readonly, nonatomic) BOOL hasGlobalCohorts;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohortList *globalCohorts;
+@property (readonly, nonatomic) BOOL hasChannelConversionStats;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLConversionStats *channelConversionStats;
+@property (readonly, nonatomic) BOOL hasGlobalConversionStats;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLConversionStats *globalConversionStats;
+@property (readonly, nonatomic) BOOL hasChannelTagMetadata;
+@property (retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLTagMetadata *channelTagMetadata;
+@property (retain, nonatomic) NSMutableArray *topics;
+
++ (Class)topicsType;
++ (Class)topicIDsType;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (unsigned long long)topicsCount;
+- (void)addTopics:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)topicsAtIndex:(unsigned long long)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)clearTopics;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id)dictionaryRepresentation;
+- (void)addTopicIDs:(id)a0;
+- (void)clearTopicIDs;
+- (unsigned long long)topicIDsCount;
+- (id)topicIDsAtIndex:(unsigned long long)a0;
+
+@end

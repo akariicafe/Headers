@@ -1,0 +1,28 @@
+@class AFMyriadSession, NSString, NSUUID, NSData, NSDictionary;
+
+@interface _AFMyriadSessionMutation : NSObject <AFMyriadSessionMutating> {
+    AFMyriadSession *_baseModel;
+    unsigned long long _generation;
+    NSUUID *_sessionId;
+    NSUUID *_currentElectionAdvertisementId;
+    NSData *_currentElectionAdvertisementData;
+    NSDictionary *_electionAdvertisementDataByIds;
+    struct _mutationFlags { unsigned char isDirty : 1; unsigned char hasGeneration : 1; unsigned char hasSessionId : 1; unsigned char hasCurrentElectionAdvertisementId : 1; unsigned char hasCurrentElectionAdvertisementData : 1; unsigned char hasElectionAdvertisementDataByIds : 1; } _mutationFlags;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setSessionId:(id)a0;
+- (id)initWithBaseModel:(id)a0;
+- (id)generate;
+- (void)setGeneration:(unsigned long long)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)setCurrentElectionAdvertisementId:(id)a0;
+- (void)setCurrentElectionAdvertisementData:(id)a0;
+- (void)setElectionAdvertisementDataByIds:(id)a0;
+
+@end

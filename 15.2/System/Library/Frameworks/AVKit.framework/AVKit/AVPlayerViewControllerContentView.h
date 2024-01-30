@@ -1,0 +1,72 @@
+@class UIView, NSString, AVScrollViewObserver, AVTurboModePlaybackControlsPlaceholderView, NSMutableDictionary, UIImageView, __AVPlayerLayerView, AVStyleSheet, AVExternalPlaybackIndicatorView, AVCABackdropLayerView, NSNumber, AVPlaybackControlsView;
+@protocol AVPlaybackContentContainer, AVPlayerViewControllerContentViewDelegate;
+
+@interface AVPlayerViewControllerContentView : UIView <AVScrollViewObserverContentView>
+
+@property (readonly, nonatomic) AVExternalPlaybackIndicatorView *externalPlaybackIndicatorView;
+@property (readonly, nonatomic) UIImageView *unsupportedContentIndicatorView;
+@property (readonly, nonatomic) UIImageView *audioOnlyIndicatorView;
+@property (readonly, nonatomic) AVExternalPlaybackIndicatorView *externalPlaybackIndicatorViewIfLoaded;
+@property (readonly, nonatomic) UIImageView *unsupportedContentIndicatorViewIfLoaded;
+@property (readonly, nonatomic) UIImageView *audioOnlyIndicatorViewIfLoaded;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } videoContentInset;
+@property (retain, nonatomic) __AVPlayerLayerView *playerLayerView;
+@property (nonatomic) BOOL needsInitialLayout;
+@property (readonly, nonatomic) NSMutableDictionary *targetVideoGravities;
+@property (copy, nonatomic) NSString *automaticVideoGravity;
+@property (readonly, nonatomic) AVCABackdropLayerView *backdropLayerView;
+@property (copy, nonatomic) NSString *externalPlaybackIndicatorTitle;
+@property (copy, nonatomic) NSString *externalPlaybackIndicatorSubtitle;
+@property (retain, nonatomic) AVStyleSheet *styleSheet;
+@property (readonly, nonatomic) AVScrollViewObserver *scrollingObserver;
+@property (weak, nonatomic) id<AVPlayerViewControllerContentViewDelegate> delegate;
+@property (readonly, nonatomic) BOOL isCoveringWindow;
+@property (retain, nonatomic) UIView<AVPlaybackContentContainer> *playbackContentContainerView;
+@property (readonly, nonatomic) NSNumber *layoutClass;
+@property (readonly, nonatomic, getter=isInAWindowAndNotScrolling) BOOL inAWindowAndNotScrolling;
+@property (readonly, nonatomic, getter=isScrolling) BOOL scrolling;
+@property (readonly, nonatomic, getter=isScrollingQuickly) BOOL scrollingQuickly;
+@property (nonatomic) BOOL shouldLoadPlaybackControlsHint;
+@property (nonatomic) BOOL canAutomaticallyZoomLetterboxVideos;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } edgeInsetsForLetterboxedContent;
+@property (retain, nonatomic) UIView *interactiveContentOverlayView;
+@property (readonly, nonatomic) UIView *iAdPreRollView;
+@property (readonly, nonatomic) UIView *iAdPreRollViewIfLoaded;
+@property (readonly, nonatomic) AVPlaybackControlsView *playbackControlsView;
+@property (readonly, weak, nonatomic) AVTurboModePlaybackControlsPlaceholderView *turboModePlaybackControlsPlaceholderView;
+@property (nonatomic) BOOL styleSheetShouldUseCompactFullScreenItemSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)layoutSubviews;
+- (void)didMoveToSuperview;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (void)didMoveToWindow;
+- (void)avkit_needsUpdateBackdropCaptureViewHidden;
+- (id)avkit_backdropGroupLeader;
+- (BOOL)avkit_hasFullScreenLayoutClass;
+- (void)scrollViewObserverValuesDidChange:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 playbackContentContainerView:(id)a1 targetVideoGravities:(id)a2;
+- (void)addPlaybackContentContainerViewIfNeeded;
+- (BOOL)isViewDescendantOfPlaybackControlsSubview:(id)a0;
+- (void)setShowsUnsupportedContentIndicator:(BOOL)a0;
+- (void)setShowsAudioOnlyIndicator:(BOOL)a0;
+- (void)setShowsExternalPlaybackIndicator:(BOOL)a0;
+- (void)setExternalPlaybackIndicatorTitle:(id)a0 subtitle:(id)a1;
+- (void)setTargetVideoGravity:(id)a0 forLayoutClass:(unsigned long long)a1;
+- (void)loadPlaybackControlsViewIfNeeded;
+- (void)removeTurboModePlaybackControlsPlaceholderViewIfNeeded;
+- (BOOL)_isBeingTransitionedToOrFromFullScreen;
+- (void)_updateVideoGravityDuringLayoutSubviewsAndAssertThatIfYouBreakThisMethodYouOwnThisMethod;
+- (void)_updateVideoContentInsetForVideoGravity:(long long)a0;
+- (void)_applyVideoGravityIfNeeded:(long long)a0;
+- (id)_mediaTimingFunctionForCurrentAnimationCurve;
+- (void)_insertPlaybackControlsOrPlaceholderView:(id)a0;
+- (void)_loadTurboOrFullPlaybackControlsIfNeeded;
+- (void)_loadTurboModePlaybackControlsPlaceholderViewIfNeeded;
+- (void)_updateStyleSheet;
+
+@end

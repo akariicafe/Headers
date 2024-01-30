@@ -1,0 +1,81 @@
+@class NSString, NSSet, NSNumber, BBSectionIcon;
+
+@interface BBSectionSubtypeParameters : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (weak, nonatomic) BBSectionSubtypeParameters *fallbackParameters;
+@property (retain, nonatomic) NSNumber *boxedSuppressesAlertsWhenAppIsActive;
+@property (retain, nonatomic) NSNumber *boxedCoalescesWhenLocked;
+@property (retain, nonatomic) NSNumber *boxedInertWhenLocked;
+@property (retain, nonatomic) NSNumber *boxedPreservesUnlockActionCase;
+@property (retain, nonatomic) NSNumber *boxedVisuallyIndicatesWhenDateIsInFuture;
+@property (retain, nonatomic) NSNumber *boxedCanBeSilencedByMenuButtonPress;
+@property (retain, nonatomic) NSNumber *boxedPreventLock;
+@property (retain, nonatomic) NSNumber *boxedIgnoresQuietMode;
+@property (retain, nonatomic) NSNumber *boxedSuppressesTitle;
+@property (retain, nonatomic) NSNumber *boxedSubtypePriority;
+@property (retain, nonatomic) NSNumber *boxedIPodOutAlertType;
+@property (retain, nonatomic) NSNumber *boxedShowsUnreadIndicatorForNoticesFeed;
+@property (retain, nonatomic) NSNumber *boxedShowsContactPhoto;
+@property (retain, nonatomic) NSNumber *boxedPlaysSoundForModify;
+@property (retain, nonatomic) NSNumber *boxedAllowsAutomaticRemovalFromLockScreen;
+@property (retain, nonatomic) NSNumber *boxedAllowsAddingToLockScreenWhenUnlocked;
+@property (retain, nonatomic) NSNumber *boxedPrioritizeAtTopOfLockScreen;
+@property (retain, nonatomic) NSNumber *boxedRevealsAdditionalContentOnPresentation;
+@property (retain, nonatomic) NSNumber *boxedPrivacySettings;
+@property (retain, nonatomic) NSNumber *boxedShouldDismissBulletinWhenClosed;
+@property (retain, nonatomic) NSNumber *boxedAllowsPersistentBannersInCarPlay;
+@property (retain, nonatomic) NSNumber *boxedAllowsSupplementaryActionsInCarPlay;
+@property (retain, nonatomic) NSNumber *boxedPlaysMediaWhenRaised;
+@property (retain, nonatomic) NSNumber *boxedSuppressDelayForForwardedBulletins;
+@property (retain, nonatomic) NSNumber *boxedHideDismissActionInCarPlay;
+@property (copy, nonatomic) NSString *hiddenPreviewsBodyPlaceholder;
+@property (copy, nonatomic) NSString *subtypeSummaryFormat;
+@property (copy, nonatomic) NSString *missedBannerDescriptionFormat;
+@property (copy, nonatomic) NSString *fullUnlockActionLabel;
+@property (copy, nonatomic) NSString *unlockActionLabel;
+@property (copy, nonatomic) NSString *fullAlternateActionLabel;
+@property (copy, nonatomic) NSString *alternateActionLabel;
+@property (copy, nonatomic) BBSectionIcon *sectionIconOverride;
+@property (nonatomic) BOOL suppressesAlertsWhenAppIsActive;
+@property (nonatomic) BOOL coalescesWhenLocked;
+@property (nonatomic) BOOL inertWhenLocked;
+@property (nonatomic) BOOL preservesUnlockActionCase;
+@property (nonatomic) unsigned long long subtypePriority;
+@property (nonatomic) long long iPodOutAlertType;
+@property (nonatomic) BOOL canBeSilencedByMenuButtonPress;
+@property (nonatomic) BOOL preventLock;
+@property (nonatomic) BOOL ignoresQuietMode;
+@property (nonatomic) BOOL suppressesTitle;
+@property (nonatomic) BOOL showsUnreadIndicatorForNoticesFeed;
+@property (nonatomic) BOOL showsContactPhoto;
+@property (nonatomic) BOOL playsSoundForModify;
+@property (nonatomic) BOOL visuallyIndicatesWhenDateIsInFuture;
+@property (retain, nonatomic) NSSet *alertSuppressionAppIDs;
+@property (copy, nonatomic) NSString *bannerAccessoryRemoteViewControllerClassName;
+@property (copy, nonatomic) NSString *bannerAccessoryRemoteServiceBundleIdentifier;
+@property (copy, nonatomic) NSString *secondaryContentRemoteViewControllerClassName;
+@property (copy, nonatomic) NSString *secondaryContentRemoteServiceBundleIdentifier;
+@property (nonatomic) BOOL allowsAutomaticRemovalFromLockScreen;
+@property (nonatomic) BOOL allowsAddingToLockScreenWhenUnlocked;
+@property (nonatomic) BOOL prioritizeAtTopOfLockScreen;
+@property (nonatomic) BOOL revealsAdditionalContentOnPresentation;
+@property (nonatomic) unsigned long long privacySettings;
+@property (nonatomic) BOOL shouldDismissBulletinWhenClosed;
+@property (nonatomic) BOOL allowsPersistentBannersInCarPlay;
+@property (nonatomic) BOOL allowsSupplementaryActionsInCarPlay;
+@property (nonatomic) BOOL playsMediaWhenRaised;
+@property (nonatomic) BOOL suppressDelayForForwardedBulletins;
+@property (nonatomic) BOOL hideDismissActionInCarPlay;
+@property (copy, nonatomic) NSString *topic;
+@property (nonatomic) BOOL preemptsPresentedAlert;
+
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithFallbackParameters:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (unsigned long long)hash;
+
+@end

@@ -1,0 +1,71 @@
+@class NSMutableDictionary, WFNetworkRetryManager, NSString, WFWeatherStoreCache, WFWeatherStoreServiceConfiguration, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface WFWeatherStoreService : NSObject <WFWeatherStore>
+
+@property (retain) NSObject<OS_dispatch_queue> *incomingRequestQueue;
+@property (retain) NSObject<OS_dispatch_queue> *parseQueue;
+@property (retain) NSObject<OS_dispatch_queue> *mapQueue;
+@property struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } retryLock;
+@property (retain) NSMutableDictionary *UUIDToCallbackMap;
+@property (retain) NSMutableDictionary *UUIDToURLMap;
+@property (retain) NSMutableDictionary *URLToTaskMap;
+@property (retain) NSMutableDictionary *URLToCallbackMap;
+@property (copy, nonatomic) WFWeatherStoreServiceConfiguration *configuration;
+@property (retain) WFWeatherStoreCache *cache;
+@property (retain, nonatomic) WFNetworkRetryManager *retryManager;
+@property (copy, nonatomic) id /* block */ forecastRequestStartingCallback;
+@property (copy, nonatomic) id /* block */ locationGeocodeForCoordinateRequestStartingCallback;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithConfiguration:(id)a0 error:(id *)a1;
+- (void)_submitRequest:(id)a0 withIdentifier:(id)a1 forScaleNamed:(id)a2 language:(id)a3 configuration:(id)a4 apiVersion:(id)a5 completionHandler:(id /* block */)a6;
+- (void)_executeCallbacksForURL:(id)a0 responseData:(id)a1 error:(id)a2;
+- (id)_cachedCurrentObservationsForLocation:(id)a0 date:(id)a1;
+- (id)languageForLocale:(id)a0;
+- (void)cancelTaskWithIdentifier:(id)a0;
+- (BOOL)_handleDataTaskCompletionWithData:(id)a0 httpResponse:(id)a1 apiVersion:(id)a2 identifier:(id)a3 requestURL:(id)a4 dataTask:(id)a5 dataTaskError:(id)a6 startDate:(id)a7;
+- (id)_cachedChangeForecastForLocation:(id)a0 date:(id)a1;
+- (void)_setTask:(id)a0 requestIdentifier:(id)a1 callback:(id)a2 forURL:(id)a3;
+- (id)_cachedSevereWeatherEventsForLocation:(id)a0 date:(id)a1;
+- (void)_forecastConditionsForTypes:(unsigned long long)a0 location:(id)a1 locale:(id)a2 date:(id)a3 requestIdentifier:(id)a4 completionHandler:(id /* block */)a5;
+- (BOOL)_cacheParsedForecastData:(id)a0 types:(unsigned long long)a1 location:(id)a2 date:(id)a3 requestIdentifier:(id)a4;
+- (id)_cachedDailyPollenForecastedConditionsForLocation:(id)a0 date:(id)a1;
+- (void)_cleanupCallbacksAndTasksForURL:(id)a0;
+- (id)apiVersionForSettings:(id)a0;
+- (BOOL)_isConnectivityAvailableForWeatherHost:(id *)a0;
+- (void)forecastForLocation:(id)a0 locale:(id)a1 onDate:(id)a2 requestIdentifier:(id)a3 options:(id)a4 completionHandler:(id /* block */)a5;
+- (id)initWithConfiguration:(id)a0;
+- (id)_currentScaleCategoryForScale:(id)a0 index:(unsigned long long)a1;
+- (void)_cancelWithRequestIdentifier:(id)a0;
+- (void)_cacheObject:(id)a0 type:(unsigned long long)a1 date:(id)a2 forLocation:(id)a3;
+- (id)_cachedNextHourPrecipitationForLocation:(id)a0 date:(id)a1;
+- (id)_taskForURL:(id)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)airQualityForLocation:(id)a0 locale:(id)a1 requestIdentifier:(id)a2 options:(id)a3 completionHandler:(id /* block */)a4;
+- (void)forecast:(unsigned long long)a0 forLocation:(id)a1 locale:(id)a2 requestIdentifier:(id)a3 completionHandler:(id /* block */)a4;
+- (id)_cachedHistoricalObservationsForLast24hForLocation:(id)a0 date:(id)a1;
+- (id)_cachedDailyForecastedConditionsForLocation:(id)a0 date:(id)a1;
+- (void)invalidateCacheWithIdentifier:(id)a0;
+- (void)dailyForecastForLocation:(id)a0 locale:(id)a1 requestIdentifier:(id)a2 completionHandler:(id /* block */)a3;
+- (void)_forecastConditionsForTypes:(unsigned long long)a0 location:(id)a1 units:(int)a2 locale:(id)a3 date:(id)a4 requestIdentifier:(id)a5 requestOptions:(id)a6 completionHandler:(id /* block */)a7;
+- (void)forecast:(unsigned long long)a0 forLocation:(id)a1 withUnits:(int)a2 locale:(id)a3 requestIdentifier:(id)a4 completionHandler:(id /* block */)a5;
+- (void)completeErroneousForecastRequestWithHandler:(id /* block */)a0 requestIdentifier:(id)a1 error:(id)a2;
+- (void)_addCallback:(id)a0 requestIdentifier:(id)a1 forURL:(id)a2;
+- (id)_cachedAirQualityConditionsForLocation:(id)a0 date:(id)a1;
+- (void)dealloc;
+- (void)_enumerateForecastTypesIn:(unsigned long long)a0 usingBlock:(id /* block */)a1;
+- (id)_cachedData:(unsigned long long)a0 forLocation:(id)a1 date:(id)a2;
+- (void)forecast:(unsigned long long)a0 forLocation:(id)a1 withUnits:(int)a2 locale:(id)a3 requestIdentifier:(id)a4 requestOptions:(id)a5 completionHandler:(id /* block */)a6;
+- (void)requestFailureForAPIVersion:(id)a0 error:(id)a1;
+- (void)_forecastConditionsForTWCAQIAndTypes:(unsigned long long)a0 location:(id)a1 locale:(id)a2 date:(id)a3 requestIdentifier:(id)a4 completionHandler:(id /* block */)a5;
+- (void)requestSuccessForAPIVersion:(id)a0;
+- (void)hourlyForecastForLocation:(id)a0 locale:(id)a1 requestIdentifier:(id)a2 completionHandler:(id /* block */)a3;
+- (void)_submitRequest:(id)a0 withIdentifier:(id)a1 forLocation:(id)a2 forecastTypes:(unsigned long long)a3 configuration:(id)a4 units:(int)a5 locale:(id)a6 date:(id)a7 apiVersion:(id)a8 completionHandler:(id /* block */)a9;
+- (id)_cachedHourlyForecastedConditionsForLocation:(id)a0 date:(id)a1;
+
+@end

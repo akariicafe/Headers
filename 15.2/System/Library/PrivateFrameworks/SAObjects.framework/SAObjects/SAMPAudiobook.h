@@ -1,0 +1,9 @@
+@interface SAMPAudiobook : SAMPMediaItem
+
++ (id)audiobook;
++ (id)audiobookWithDictionary:(id)a0 context:(id)a1;
+
+- (id)encodedClassName;
+- (id)groupIdentifier;
+
+@end

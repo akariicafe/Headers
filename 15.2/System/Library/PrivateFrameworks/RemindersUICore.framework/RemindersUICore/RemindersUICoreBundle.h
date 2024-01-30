@@ -1,0 +1,3 @@
+@interface RemindersUICoreBundle : NSObject
+
+@end

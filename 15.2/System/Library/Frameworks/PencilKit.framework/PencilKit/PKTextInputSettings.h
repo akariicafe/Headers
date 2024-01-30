@@ -1,0 +1,94 @@
+@class NSString, NSArray;
+
+@interface PKTextInputSettings : NSObject
+
+@property (class, readonly, nonatomic) long long featureLevel;
+
+@property (readonly, nonatomic) BOOL isScribbleActive;
+@property (nonatomic) double textInputViewHitTestSlackHorizontal;
+@property (nonatomic) double textInputViewHitTestSlackVertical;
+@property (nonatomic) double firstResponderAttractionHorizontal;
+@property (nonatomic) double firstResponderAttractionVertical;
+@property (nonatomic) double subwordGestureEndingSpeedRange;
+@property (nonatomic) double subwordGestureSpeedThreshold;
+@property (nonatomic) BOOL preventLeftoverCharsInSubwordGestures;
+@property (nonatomic) double minimumWritingSpaceWidth;
+@property (nonatomic) double interactionDisablingDelay;
+@property (nonatomic) double textInputStrokeFadeOutDelay;
+@property (nonatomic) double textInputStrokeFadeOutDuration;
+@property (nonatomic) BOOL activePreviewEnabled;
+@property (nonatomic) BOOL styledActivePreview;
+@property (nonatomic) BOOL floatingBackgroundEnabled;
+@property (nonatomic) double textInputStandardCommitDelay;
+@property (nonatomic) double singleCharacterCommitDelay;
+@property (nonatomic) long long incrementalCommitWordsBack;
+@property (nonatomic) BOOL continuousRecognition;
+@property (nonatomic) double continuousRecognitionWritingInterval;
+@property (nonatomic) double recognitionCoalescingDelay;
+@property (readonly, copy, nonatomic) NSString *recognitionLocaleIdentifier;
+@property (readonly, copy, nonatomic) NSArray *recognitionLocaleIdentifiers;
+@property (nonatomic) BOOL outOfProcessRecognition;
+@property (nonatomic) double debugRecognitionRequestArtificialDelay;
+@property (nonatomic) double debugElementFinderArtificialDelay;
+@property (nonatomic) double debugFirstResponderArtificialDelay;
+@property (nonatomic) BOOL enableOnRemoteViews;
+@property (nonatomic) BOOL enableViewControllerSupport;
+@property (nonatomic) BOOL enableReserveSpace;
+@property (nonatomic) BOOL enableReserveSpaceTapForNewlines;
+@property (nonatomic) BOOL UCBPaletteEnabled;
+@property (nonatomic) BOOL alwaysIncludeReturnKeyAndInputAssistantItems;
+@property (nonatomic) BOOL hideDefaultReturnKeyWhenSpecialReturnKeyIsPresent;
+@property (nonatomic) double drawingGestureMinimumPanDistanceThreshold;
+@property (nonatomic) double drawingGestureMinimumScrollDistanceThreshold;
+@property (nonatomic) double drawingGestureTapDetectionDistanceThreshold;
+@property (nonatomic) double drawingGestureTapDetectionTimeInterval;
+@property (nonatomic) double drawingGestureDetectTapAwayFromCurrentStrokesHorizontalDistance;
+@property (nonatomic) double drawingGestureDetectTapAwayFromCurrentStrokesVerticalDistance;
+@property (nonatomic) double drawingGestureLongPressMaxDistance;
+@property (nonatomic) double drawingGestureLongPressDetectionTimeInterval;
+@property (nonatomic) double asyncElementRequestTimeout;
+@property (nonatomic) double inkWeight;
+@property (nonatomic) double inkWeightForIncreasedContrast;
+@property (nonatomic) BOOL lineBreakVerticalBarGestureEnabled;
+@property (nonatomic) BOOL lineBreakVerticalBarUpToDelete;
+@property (nonatomic) BOOL autoLineBreakEnabled;
+@property (nonatomic) BOOL autoLineBreakRequireWeakCursor;
+@property (nonatomic) double autoLineBreakVerticalDistance;
+@property (nonatomic) double autoLineBreakDualVerticalDistance;
+@property (nonatomic) double autoLineBreakAreaWidthFactor;
+@property (nonatomic) BOOL enableWeakCursor;
+@property (nonatomic) double weakCursorVisibilityTimeout;
+@property (nonatomic) double strongCursorRestoreDelay;
+@property (nonatomic) BOOL scratchOutMakesTheCursorStrong;
+@property (nonatomic) BOOL enableTargetedAppWorkarounds;
+@property (nonatomic) BOOL useLargeHitTestArea;
+@property (nonatomic) double strongCursorMaximumYDistance;
+@property (nonatomic) BOOL useSlidingCanvas;
+@property (nonatomic) BOOL slidingCanvasDebugBorder;
+@property (nonatomic) double slidingCanvasWidth;
+@property (nonatomic) double slidingCanvasHeight;
+@property (nonatomic) BOOL useSingleComponentCanvas;
+@property (readonly, nonatomic) BOOL supportedKeyboardLocaleExists;
+@property (nonatomic) BOOL useTransformStrokesAnimation;
+@property (nonatomic) BOOL forceUserTextInputSettingEnabled;
+
++ (id)sharedSettings;
+
+- (void)setValue:(id)a0 forKey:(id)a1;
+- (id)init;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)dealloc;
+- (void)_loadDefaultValues;
+- (void)loadSettingsFromUserDefaults;
+- (void)_notifyRecognitionLocaleIdentifierDidChange;
+- (BOOL)_shouldSaveSettings;
+- (void)_scheduleSavingSettingsSoon;
+- (BOOL)_isFeatureAvailableAndEnabled;
+- (void)loadSettingsFromDictionary:(id)a0;
+- (id)settingsDictionaryRepresentation;
+- (void)_scheduledSaveSettingsTriggered;
+- (void)saveSettingsToUserDefaults;
+- (void)resetToDefaultValues;
+- (id)availableRecognitionLocaleIdentifiers;
+
+@end

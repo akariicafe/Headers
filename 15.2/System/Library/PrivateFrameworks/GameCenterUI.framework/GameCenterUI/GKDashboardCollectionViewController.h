@@ -1,0 +1,74 @@
+@class NSString, GKNoContentView, UICollectionView, GKCollectionDataSource, NSLayoutConstraint, UIView, NSMutableIndexSet;
+
+@interface GKDashboardCollectionViewController : GKLoadingViewController <NSPopoverDelegate, UIAdaptivePresentationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } contentInsetsBeforeKeyboard;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } scrollInsetsBeforeKeyboard;
+@property (weak, nonatomic) NSLayoutConstraint *keyboardConstraint;
+@property (nonatomic) double keyboardConstraintDefaultConstant;
+@property (weak, nonatomic) UIView *keyboardAdjustedView;
+@property (weak, nonatomic) UIView *collectionContainerView;
+@property (readonly, nonatomic) BOOL isLoading;
+@property (retain, nonatomic) GKCollectionDataSource *dataSource;
+@property (nonatomic) BOOL autoWidthUsesTwoColumnsWhenSpace;
+@property (retain, nonatomic) NSMutableIndexSet *sectionsToReload;
+@property (retain, nonatomic) GKNoContentView *noContentView;
+@property (copy, nonatomic) id /* block */ dismissHandler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForHeaderInSection:(long long)a2;
+- (BOOL)collectionView:(id)a0 shouldDeselectItemAtIndexPath:(id)a1;
+- (void)clearSelection;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (BOOL)isLoading;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)viewWillAppear:(BOOL)a0;
+- (BOOL)collectionView:(id)a0 shouldSelectItemAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 canFocusItemAtIndexPath:(id)a1;
+- (void)loadData;
+- (void)presentationControllerDidDismiss:(id)a0;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForFooterInSection:(long long)a2;
+- (void)setupDataSource;
+- (void)loadView;
+- (void)collectionView:(id)a0 didUnfocusItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didFocusItemAtIndexPath:(id)a1;
+- (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)keyboardWillHide:(id)a0;
+- (id)preferredFocusEnvironments;
+- (void)contentSizeCategoryDidChangeNotification:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)keyboardWillShow:(id)a0;
+- (BOOL)hasData;
+- (void)didEnterLoadingState;
+- (void)setAutoWidthColumns:(long long)a0;
+- (void)setToHorizontalLayout:(BOOL)a0;
+- (void)dataUpdated:(BOOL)a0 withError:(id)a1;
+- (void)setupNoContentView:(id)a0 withError:(id)a1;
+- (void)setNeedsRefresh;
+- (id)horizontalCollectionViewLayout;
+- (id)verticalCollectionViewLayout;
+- (void)createCollectionViewInsideView:(id)a0;
+- (void)prepareForAutomaticTwoColumnLayout;
+- (void)hideNoContentPlaceholder;
+- (void)showNoContentPlaceholderForError:(id)a0;
+- (void)clearSelectionForCollectionView:(id)a0;
+- (void)didEnterRefreshingState;
+- (void)didExitRefreshingState;
+- (void)popoverDidClose:(id)a0;
+- (void)windowDidEndSheet:(id)a0;
+
+@end

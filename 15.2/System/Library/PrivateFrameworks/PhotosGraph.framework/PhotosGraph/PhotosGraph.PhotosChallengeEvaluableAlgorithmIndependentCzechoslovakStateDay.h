@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmIndependentCzechoslovakStateDay : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

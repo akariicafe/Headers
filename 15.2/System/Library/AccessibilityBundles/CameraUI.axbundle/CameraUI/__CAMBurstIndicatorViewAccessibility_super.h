@@ -1,0 +1,3 @@
+@interface __CAMBurstIndicatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXMemoriesUIViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface VNBoundingCircleAlgorithm : NSObject
+
+@end

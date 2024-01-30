@@ -1,0 +1,90 @@
+@class NSCoreDataCoreSpotlightDelegate, NSString, NSDictionary, NSPersistentStoreCoordinator, NSURL;
+
+@interface NSPersistentStore : NSObject {
+    NSPersistentStoreCoordinator *_coordinator;
+    NSString *_configurationName;
+    NSURL *_url;
+    NSDictionary *_options;
+    id *_oidFactories;
+    id _defaultFaultHandler;
+    struct _objectStoreFlags { unsigned char isReadOnly : 1; unsigned char cleanOnRemove : 1; unsigned char isMDDirty : 1; unsigned int _RESERVED : 29; } _flags;
+    void *_temporaryIDClass;
+    id _coreSpotlightDelegate;
+    id _managedObjectModel;
+    struct __CFSet { } *_entitiesInConfiguration;
+}
+
+@property (readonly, weak, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, copy) NSString *configurationName;
+@property (readonly) NSDictionary *options;
+@property (retain) NSURL *URL;
+@property (copy) NSString *identifier;
+@property (readonly, copy) NSString *type;
+@property (getter=isReadOnly) BOOL readOnly;
+@property (retain, nonatomic) NSDictionary *metadata;
+@property (readonly, nonatomic) NSCoreDataCoreSpotlightDelegate *coreSpotlightExporter;
+
++ (void)initialize;
++ (BOOL)doURLStuff:(id)a0 createdStubFile:(BOOL *)a1 readOnly:(BOOL *)a2 error:(id *)a3 options:(id)a4;
++ (BOOL)accessInstanceVariablesDirectly;
++ (Class)rowCacheClass;
++ (id)cachedModelForPersistentStoreWithURL:(id)a0 options:(id)a1 error:(id *)a2;
++ (Class)migrationManagerClass;
++ (BOOL)_rekeyPersistentStoreAtURL:(id)a0 options:(id)a1 withKey:(id)a2 error:(id *)a3;
++ (BOOL)_replacePersistentStoreAtURL:(id)a0 destinationOptions:(id)a1 withPersistentStoreFromURL:(id)a2 sourceOptions:(id)a3 error:(id *)a4;
++ (id)_figureOutWhereExternalReferencesEndedUpRelativeTo:(id)a0;
++ (id)metadataForPersistentStoreWithURL:(id)a0 error:(id *)a1;
++ (BOOL)_destroyPersistentStoreAtURL:(id)a0 options:(id)a1 error:(id *)a2;
++ (BOOL)setMetadata:(id)a0 forPersistentStoreWithURL:(id)a1 error:(id *)a2;
+
+- (id)_updatedMetadataWithSeed:(id)a0 includeVersioning:(BOOL)a1;
+- (id)reopenQueryGenerationWithIdentifier:(id)a0 error:(id *)a1;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (id)currentQueryGeneration;
+- (BOOL)_isPersistentStoreAlive;
+- (void)willRemoveFromPersistentStoreCoordinator:(id)a0;
+- (id)objectIDFactoryForEntity:(id)a0;
+- (BOOL)finishDeferredLightweightMigration:(BOOL)a0 withError:(id *)a1;
+- (BOOL)_isCloudKitOptioned;
+- (id)obtainPermanentIDsForObjects:(id)a0 error:(id *)a1;
+- (id)initWithPersistentStoreCoordinator:(id)a0 configurationName:(id)a1 URL:(id)a2 options:(id)a3;
+- (id)_persistentStoreCoordinator;
+- (BOOL)_prepareForExecuteRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)_storeInfoForEntityDescription:(id)a0;
+- (void)_rebuildIndiciesSynchronously:(BOOL)a0;
+- (id)ancillaryModels;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (void)didAddToPersistentStoreCoordinator:(id)a0;
+- (Class)_objectIDClass;
+- (BOOL)loadMetadata:(id *)a0;
+- (id)currentChangeToken;
+- (id)_newOrderedRelationshipInformationForRelationship:(id)a0 forObjectWithID:(id)a1 withContext:(id)a2 error:(id *)a3;
+- (unsigned long long)entityIDForEntityDescription:(id)a0;
+- (void)freeQueryGenerationWithIdentifier:(id)a0;
+- (id)newValuesForObjectWithID:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)_rawMetadata__;
+- (BOOL)_hasActiveGenerations;
+- (BOOL)load:(id *)a0;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)a0;
+- (id)executeRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)a0;
+- (void)doFilesystemCleanupOnRemove:(BOOL)a0;
+- (BOOL)_unload:(id *)a0;
+- (id)_allOrderKeysForDestination:(id)a0 inRelationship:(id)a1 error:(id *)a2;
+- (struct __CFSet { } *)_entitiesForConfiguration;
+- (id)mirroringDelegate;
+- (BOOL)isCloudKitEnabled;
+- (void)_preflightCrossCheck;
+- (BOOL)supportsGenerationalQuerying;
+- (void)_didLoadMetadata;
+- (id)newValueForRelationship:(id)a0 forObjectWithID:(id)a1 withContext:(id)a2 error:(id *)a3;
+- (BOOL)supportsConcurrentRequestHandling;
+- (void)_setMetadataDirty:(BOOL)a0;
+- (id)propertyNamesInHistoryChangeDataForEntityDescription:(id)a0;
+- (void)_setupObserver;
+- (id)description;
+- (id)init;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)dealloc;
+
+@end

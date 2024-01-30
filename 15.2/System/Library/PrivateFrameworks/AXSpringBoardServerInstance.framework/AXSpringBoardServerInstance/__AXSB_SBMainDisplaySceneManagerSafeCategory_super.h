@@ -1,0 +1,3 @@
+@interface __AXSB_SBMainDisplaySceneManagerSafeCategory_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,52 @@
+@interface SBDefaultImplementationsSwitcherModifier : SBSwitcherModifier
+
+- (id)homeAffordanceLayoutElementToPortalIntoShelf:(id)a0;
+- (BOOL)shouldScaleContentToFillBoundsAtIndex:(unsigned long long)a0;
+- (long long)updateModeForAnimatableProperty:(id)a0;
+- (unsigned long long)hiddenContainerStatusBarParts;
+- (BOOL)canLayoutRoleParticipateInSwitcherDragAndDrop:(long long)a0 appLayout:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForLayoutRole:(long long)a0 inAppLayout:(id)a1 withBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (BOOL)isLayoutRoleBlurred:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)_isLayoutRoleBehindCenterWindow:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)shouldTetherItemsAndAccessoriesInAppLayout:(id)a0;
+- (id)topMostLayoutRolesForAppLayout:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForIconOverlayInAppLayout:(id)a0;
+- (id)focusedAppLayoutForShelf:(id)a0;
+- (id)switcherDropRegionContextForDraggingLayoutRole:(long long)a0 inAppLayout:(id)a1 atLocation:(struct CGPoint { double x0; double x1; })a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })clippingFrameForIndex:(unsigned long long)a0 withBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (unsigned long long)multipleWindowsIndicatorLayoutRoleMaskForAppLayout:(id)a0;
+- (struct CGPoint { double x0; double x1; })contentViewOffsetForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)shouldUseNonuniformSnapshotScalingForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)shouldSuppressHighlightEffectForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)canFocusableAppLayoutBeEffectivelyObscured:(id)a0;
+- (id)resizeProgressNotificationsForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (id)preferredAppLayoutToReuseAccessoryForAppLayout:(id)a0 fromAppLayouts:(id)a1;
+- (id)animatablePropertyIdentifiers;
+- (BOOL)shouldUseAnchorPointToPinLayoutRolesToSpace:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })fullyPresentedFrameForIndex:(unsigned long long)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (unsigned long long)maskedCornersForLayoutRole:(long long)a0 inAppLayout:(id)a1 withMaskedCorners:(unsigned long long)a2;
+- (struct UIRectCornerRadii { double x0; double x1; double x2; double x3; })cornerRadiiForLayoutRole:(long long)a0 inAppLayout:(id)a1 withCornerRadii:(struct UIRectCornerRadii { double x0; double x1; double x2; double x3; })a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounceIconInitialFrame;
+- (BOOL)shouldUpdateAnimatableProperty:(id)a0;
+- (double)scaleForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)clipsToBoundsAtIndex:(unsigned long long)a0;
+- (id)bounceIconBundleIdentifier;
+- (id)ignoredDisplayItemsForShelf:(id)a0;
+- (unsigned long long)blurTargetPreferenceForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)switcherHitTestsAsOpaque;
+- (double)modelValueForAnimatableProperty:(id)a0 currentValue:(double)a1 creating:(BOOL)a2;
+- (BOOL)shouldShowBackdropViewAtIndex:(unsigned long long)a0;
+- (double)dimmingAlphaForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (unsigned long long)bounceIconGenerationCountForCurrentCount:(unsigned long long)a0;
+- (id)resizeGrabberLayoutAttributesForAppLayout:(id)a0;
+- (id)settingsForAnimatableProperty:(id)a0;
+- (unsigned long long)hiddenContentStatusBarPartsForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)isLayoutRoleMatchMovedToScene:(long long)a0 inAppLayout:(id)a1;
+- (struct SBSwitcherShelfPresentationAttributes { BOOL x0; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x1; unsigned long long x2; unsigned long long x3; })presentationAttributesForShelf:(id)a0;
+- (unsigned long long)maskedCornersForIndex:(unsigned long long)a0;
+- (struct CGPoint { double x0; double x1; })anchorPointForIndex:(unsigned long long)a0;
+- (double)blurDelayForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (struct CGPoint { double x0; double x1; })contentViewOffsetForAccessoriesOfAppLayout:(id)a0;
+- (id)hiddenAppLayoutsInShelf:(id)a0;
+
+@end

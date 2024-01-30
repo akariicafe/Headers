@@ -1,0 +1,3 @@
+@interface CDMSpanMatchBaseRequestCommand : CDMBaseCommand
+
+@end

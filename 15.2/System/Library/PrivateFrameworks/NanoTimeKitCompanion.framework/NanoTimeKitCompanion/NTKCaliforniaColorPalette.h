@@ -1,0 +1,73 @@
+@class UIColor, NSString;
+
+@interface NTKCaliforniaColorPalette : NTKFaceColorPalette <NTKCaliforniaColorPalette, NTKCircularAnalogDialColorPalette>
+
+@property (retain, nonatomic) UIColor *simpleTextComplicationColorValue;
+@property (readonly, nonatomic) BOOL isBlackBackground;
+@property (readonly, nonatomic) UIColor *background;
+@property (readonly, nonatomic) UIColor *circularBackground;
+@property (readonly, nonatomic) UIColor *digit;
+@property (readonly, nonatomic) UIColor *smallTick;
+@property (readonly, nonatomic) UIColor *smallTickCircular;
+@property (readonly, nonatomic) UIColor *largeTick;
+@property (readonly, nonatomic) UIColor *clockHandsInlay;
+@property (readonly, nonatomic) UIColor *clockHands;
+@property (readonly, nonatomic) UIColor *secondHand;
+@property (readonly, nonatomic) UIColor *cornerComplicationSecondary;
+@property (readonly, nonatomic) UIColor *cornerComplication;
+@property (readonly, nonatomic) UIColor *simpleTextComplication;
+@property (readonly, nonatomic) UIColor *bezelComplication;
+@property (readonly, nonatomic) UIColor *circularComplication;
+@property (readonly, nonatomic) UIColor *circularComplicationSecondary;
+@property (readonly, nonatomic) long long richComplicationViewTheme;
+@property (readonly, nonatomic) UIColor *worldClockDaytimeBackground;
+@property (readonly, nonatomic) UIColor *worldClockDaytimeHands;
+@property (readonly, nonatomic) UIColor *worldClockDaytimeHandsDot;
+@property (readonly, nonatomic) UIColor *worldClockNighttimeBackground;
+@property (readonly, nonatomic) UIColor *worldClockNighttimeHands;
+@property (readonly, nonatomic) UIColor *worldClockNighttimeHandsDot;
+@property (readonly, nonatomic) UIColor *primaryColor;
+@property (readonly, nonatomic) UIColor *primaryShiftedColor;
+@property (readonly, nonatomic) UIColor *secondaryColor;
+@property (readonly, nonatomic) UIColor *secondaryShiftedColor;
+@property (readonly, nonatomic) UIColor *swatch;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL isMulticolorPalette;
+
+- (id)_digit;
+- (id)_background;
+- (id)init;
+- (id)circularDialFillColor;
+- (id)colorForCircularTicksForMinute:(unsigned long long)a0;
+- (id)circularDialSubtickColor;
+- (id)colorForCircularTicksForHour:(unsigned long long)a0;
+- (id)circularDialTickColor;
+- (id)digitColorAtIndex:(unsigned long long)a0;
+- (id)_colorForCircularTicksForMinute:(unsigned long long)a0;
+- (id)_smallTick;
+- (BOOL)isLightColor;
+- (id)tritium_digit;
+- (id)colorForHourMarker:(unsigned long long)a0;
+- (id)_circularBackground;
+- (id)_smallTickCircular;
+- (id)_largeTick;
+- (id)_clockHands;
+- (id)_clockHandsInlay;
+- (id)_bezelComplication;
+- (id)_cornerComplication;
+- (id)_simpleTextComplication;
+- (id)_circularComplication;
+- (id)_worldClockDaytimeBackground;
+- (id)_worldClockDaytimeHands;
+- (id)_worldClockDaytimeHandsDot;
+- (id)_worldClockNighttimeBackground;
+- (id)_worldClockNighttimeHands;
+- (id)_worldClockNighttimeHandsDot;
+- (id)tritium_simpleTextComplication;
+- (id)tritium_smallTick;
+- (id)tritium_largeTick;
+
+@end

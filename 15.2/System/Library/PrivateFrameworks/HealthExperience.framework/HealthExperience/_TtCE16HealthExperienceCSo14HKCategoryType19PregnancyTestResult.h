@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKCategoryType19PregnancyTestResult : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmNightOut : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

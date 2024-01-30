@@ -1,0 +1,106 @@
+@class TSUPointerKeyDictionary, NSString, NSArray, NSSet, NSMutableDictionary, NSDictionary, NSMutableArray, NSObject, TSWPParagraphStyle, KNLiveVideoSourceCollection, KNSlideNode;
+@protocol OS_dispatch_queue;
+
+@interface KNTheme : TSATheme <KNSlideCollection, TSSPresetSource, TSKTransformableObject, TSKDocumentObject, TSDModelContainer> {
+    NSString *_UUID;
+    NSArray *_templateSlides;
+    NSMutableDictionary *_customEffectTimingCurves;
+    NSObject<OS_dispatch_queue> *_defaultTemplateSlideNodeQueue;
+    KNSlideNode *_defaultTemplateSlideNode;
+    NSMutableDictionary *_slideNodesForFormulaReferenceNamesCache;
+    TSUPointerKeyDictionary *_formulaReferenceNamesForSlideNodesCache;
+}
+
+@property (class, readonly, nonatomic) NSSet *presetKinds;
+
+@property (retain, nonatomic) NSString *UUID;
+@property (copy, nonatomic) NSArray *templateSlides;
+@property (retain, nonatomic) KNSlideNode *defaultTemplateSlideNode;
+@property (readonly, nonatomic) BOOL defaultTemplateSlideNodeIsOurBestGuess;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } thumbnailSize;
+@property (retain, nonatomic) NSMutableArray *classicThemeRecords;
+@property (copy, nonatomic) NSDictionary *customEffectTimingCurves;
+@property (readonly, nonatomic) double cornerRadius;
+@property (readonly, nonatomic) TSWPParagraphStyle *defaultPresenterNotesParagraphStyle;
+@property (readonly, nonatomic) KNLiveVideoSourceCollection *liveVideoSourceCollection;
+@property (readonly, nonatomic) KNSlideNode *defaultSlideNodeForNewSelection;
+@property (readonly, nonatomic) NSArray *slideNodes;
+@property (readonly, nonatomic) NSArray *displayedSlideNodes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSArray *containedModels;
+
++ (void)initialize;
++ (id)generateUUID;
++ (void)bootstrapPresetsOfKind:(id)a0 inTheme:(id)a1 alternate:(unsigned long long)a2;
++ (void)registerPresetSourceClasses;
++ (BOOL)needsObjectUUID;
++ (id)makeLiveVideoSourceCollectionWithContext:(id)a0;
++ (id)nativeThemeNameFromTheme:(id)a0;
++ (id)classicThemeNameFromTheme:(id)a0;
++ (id)themeNameForCustomOrUnknownTheme;
+
+- (void).cxx_destruct;
+- (id)childEnumerator;
+- (id)modelPathComponentForChild:(id)a0;
+- (void)willBeRemovedFromDocumentRoot:(id)a0;
+- (void)wasRemovedFromDocumentRoot:(id)a0;
+- (void)willBeAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)wasAddedToDocumentRoot:(id)a0 dolcContext:(id)a1;
+- (void)loadFromArchive:(const void *)a0 unarchiver:(id)a1;
+- (void)saveToArchive:(void *)a0 archiver:(id)a1;
+- (void)insertContainedModel:(id)a0 atIndex:(unsigned long long)a1;
+- (void)removeContainedModel:(id)a0;
+- (void)moveModel:(id)a0 toIndex:(unsigned long long)a1;
+- (id)formulaReferenceNameForSlideNode:(id)a0;
+- (id)slideNodeForFormulaReferenceName:(id)a0 caseSensitive:(BOOL)a1;
+- (id)slideNamesMatchingPrefix:(id)a0;
+- (void)invalidateSlideNameCache;
+- (BOOL)containsSlideNode:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)saveToArchiver:(id)a0;
+- (void)addTemplateSlideNode:(id)a0 dolcContext:(id)a1;
+- (id)initWithContext:(id)a0 documentStylesheet:(id)a1;
+- (unsigned long long)indexOfSlideNode:(id)a0;
+- (void)addDefaultPresenterNotesStylesIfAbsent;
+- (id)defaultSlideNodeForNewSelectionNearestToIndex:(unsigned long long)a0;
+- (void)p_cacheSlideNodes;
+- (id)orderedSlideNodesInSelection:(id)a0;
+- (id)p_findDefaultTemplateSlideWithoutLoadingSlides;
+- (void)p_setDefaultTemplateSlideNode:(id)a0;
+- (void)bootstrapThemeOfSize:(struct CGSize { double x0; double x1; })a0 alternate:(unsigned long long)a1;
+- (void)addTemplateSlideNode:(id)a0 withThumbnails:(id)a1 dolcContext:(id)a2;
+- (void)insertTemplateSlideNode:(id)a0 withThumbnails:(id)a1 atIndex:(unsigned long long)a2 dolcContext:(id)a3;
+- (id)templateSlideWithName:(id)a0;
+- (BOOL)containsTemplateSlideWithName:(id)a0;
+- (id)p_nameByIncrementingCounterAfterStringToAppend:(id)a0 forOriginalName:(id)a1 testForExistingName:(id /* block */)a2;
+- (BOOL)customTimingCurvesContainsName:(id)a0;
+- (id)customTimingCurveWithName:(id)a0;
+- (int)p_matchScoreForTemplateSlide:(id)a0 toTemplateSlide:(id)a1;
+- (id)p_mappedTemplateSlideForTemplateSlide:(id)a0 scoringHeuristic:(id /* block */)a1;
+- (id)mappedTemplateSlideForPasteForTemplateSlide:(id)a0;
+- (id)undeletableStyles;
+- (id)p_findFallbackDefaultTemplateSlide;
+- (void)p_selectFallbackTemplateSlideAsDefault;
+- (void)removeTemplateSlideNode:(id)a0;
+- (void)bootstrapBlackThemeOfSize:(struct CGSize { double x0; double x1; })a0;
+- (void)bootstrapGradientThemeOfSize:(struct CGSize { double x0; double x1; })a0;
+- (void)bootstrapWhiteThemeOfSize:(struct CGSize { double x0; double x1; })a0;
+- (id)nameForTemplateSlideCopyWithName:(id)a0;
+- (void)setCustomTimingCurve:(id)a0 forName:(id)a1;
+- (void)removeCustomTimingCurveWithName:(id)a0;
+- (id)updatedThemeCurveInfoForPastedThemeCurves:(id)a0;
+- (id)themeCurvesForBuilds:(id)a0 slideNodes:(id)a1;
+- (void)removeAllTemplateSlides;
+- (id)mappedTemplateSlideForThemeChangeForTemplateSlide:(id)a0;
+- (id)mappedTemplateSlideForPasteForSlide:(id)a0;
+- (void)addClassicThemeRecord:(id)a0;
+- (void)removeAllClassicThemeRecords;
+- (void)selectFallbackTemplateSlideAsDefault;
+- (id)i_findDefaultTemplateSlideDuringArchiving;
+- (void)resolveDefaultTemplateSlide;
+- (void)takeLiveVideoSourceCollectionFromTheme:(id)a0;
+
+@end

@@ -1,0 +1,24 @@
+@class NSString;
+
+@interface FSFNLUFeature : NSObject <FSFFeature, BMStoreData> {
+    unsigned int _dataVersion;
+    NSString *_content;
+}
+
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
+
+- (id)serialize;
+- (void).cxx_destruct;
+- (id)interactionId;
+- (id)content;
+- (id)json;
+- (id)initWithData:(id)a0 dataVersion:(unsigned int)a1;
+- (id)initWithContent:(id)a0 dataVersion:(unsigned int)a1;
+
+@end

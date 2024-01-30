@@ -1,0 +1,22 @@
+@class NSString, NSArray, NSPredicate;
+
+@interface ASAssetQuery : NSObject
+
+@property (copy, nonatomic) NSString *assetType;
+@property (copy, nonatomic) NSString *sessionIdentifier;
+@property (retain, nonatomic) NSArray *results;
+@property (retain, nonatomic) NSPredicate *predicate;
+@property (nonatomic) BOOL queriesLocalAssetInformationOnly;
+@property (nonatomic) double networkTimeout;
+
++ (id)queryPredicateForProperties:(id)a0;
+
+- (id)initWithAssetType:(id)a0 sessionIdentifier:(id)a1;
+- (id)runQueryForInfoReturnError:(id *)a0;
+- (id)runQueryAndReturnError:(id *)a0;
+- (void)stopQuery;
+- (id)initWithAssetType:(id)a0;
+- (void)startQuery:(id /* block */)a0;
+- (void)dealloc;
+
+@end

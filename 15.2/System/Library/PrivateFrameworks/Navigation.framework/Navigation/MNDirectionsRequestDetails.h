@@ -1,0 +1,37 @@
+@class GEODirectionsRequestFeedback, NSString, GEOLocation, GEOCommonOptions, GEORouteAttributes, GEOMapRegion, GEOComposedWaypoint;
+
+@interface MNDirectionsRequestDetails : PBCodable <NSCopying> {
+    struct { unsigned char maxRouteCount : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasOrigin;
+@property (retain, nonatomic) GEOComposedWaypoint *origin;
+@property (readonly, nonatomic) BOOL hasDestination;
+@property (retain, nonatomic) GEOComposedWaypoint *destination;
+@property (readonly, nonatomic) BOOL hasRouteAttributes;
+@property (retain, nonatomic) GEORouteAttributes *routeAttributes;
+@property (nonatomic) BOOL hasMaxRouteCount;
+@property (nonatomic) unsigned int maxRouteCount;
+@property (readonly, nonatomic) BOOL hasCurrentUserLocation;
+@property (retain, nonatomic) GEOLocation *currentUserLocation;
+@property (readonly, nonatomic) BOOL hasCurrentMapRegion;
+@property (retain, nonatomic) GEOMapRegion *currentMapRegion;
+@property (readonly, nonatomic) BOOL hasDirectionsRequestFeedback;
+@property (retain, nonatomic) GEODirectionsRequestFeedback *directionsRequestFeedback;
+@property (readonly, nonatomic) BOOL hasCommonOptions;
+@property (retain, nonatomic) GEOCommonOptions *commonOptions;
+@property (readonly, nonatomic) BOOL hasTracePath;
+@property (retain, nonatomic) NSString *tracePath;
+
+- (BOOL)readFrom:(id)a0;
+- (id)description;
+- (void)mergeFrom:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)copyTo:(id)a0;
+- (unsigned long long)hash;
+- (id)dictionaryRepresentation;
+
+@end

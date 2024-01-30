@@ -1,0 +1,3 @@
+@interface TNImager : TSDImager
+
+@end

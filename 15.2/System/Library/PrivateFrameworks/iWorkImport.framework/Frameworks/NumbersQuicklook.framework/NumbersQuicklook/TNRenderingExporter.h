@@ -1,0 +1,80 @@
+@class TNPageController, NSArray, NSMapTable, NSMutableArray, TNPdfHyperlinkController, TNAnnotationPrintingHelper;
+
+@interface TNRenderingExporter : TSARenderingExporter <TNAnnotationPrintingHelperDataSource> {
+    unsigned long long mSheetIndex;
+    unsigned long long mPageIndex;
+    NSMapTable *mPageCountCache;
+    struct vector<unsigned long, std::allocator<unsigned long>> { unsigned long long *__begin_; unsigned long long *__end_; struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> { unsigned long long *__value_; } __end_cap_; } mSheetPageCountArray;
+    struct vector<unsigned long, std::allocator<unsigned long>> { unsigned long long *__begin_; unsigned long long *__end_; struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> { unsigned long long *__value_; } __end_cap_; } mSheetPageStartArray;
+    TNPageController *mPageController;
+    TNPdfHyperlinkController *mHyperlinkController;
+    NSMutableArray *mCanvasBasedSheets;
+}
+
+@property (readonly, nonatomic) TNAnnotationPrintingHelper *annotationPrintingHelper;
+@property (readonly, nonatomic) NSArray *addendumContentProvidersForCurrentSheet;
+@property (retain, nonatomic) NSArray *overlayContentProvidersForCurrentSheet;
+@property (nonatomic) unsigned long long addendumPageIndex;
+@property (nonatomic) unsigned long long exportState;
+@property (nonatomic) unsigned long long addendumPageCount;
+@property (nonatomic) BOOL shouldGenerateTemporaryLayouts;
+@property (nonatomic) BOOL hasCompletedSetup;
+@property (nonatomic, getter=isRenderingAllSheets) BOOL renderingAllSheets;
+@property (nonatomic) unsigned long long renderingComments;
+
+- (void)teardown;
+- (unsigned long long)pageCount;
+- (void)setup;
+- (id)pageController;
+- (void).cxx_destruct;
+- (void)dealloc;
+- (id).cxx_construct;
+- (id)initWithDocumentRoot:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })unscaledClipRect;
+- (id)currentInfos;
+- (BOOL)incrementPage;
+- (BOOL)drawCurrentPageInContext:(struct CGContext { } *)a0 viewScale:(double)a1 unscaledClipRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 createPage:(BOOL)a3;
+- (BOOL)exportToURL:(id)a0 pageNumber:(unsigned long long)a1 delegate:(id)a2 error:(id *)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsRect;
+- (BOOL)preparePage:(unsigned long long)a0;
+- (double)progressForCurrentPage;
+- (BOOL)shouldPrintComments;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })_printMargins;
+- (BOOL)shouldPrintCommentsOfAnnotationPrintingHelper:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })availableRectForAddendumContentOfAnnotationPrintingHelper:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })p_boundsRectForFirstPage;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_unpaginatedBoundsRect;
+- (id)p_canvasBasedSheets;
+- (BOOL)p_isActiveSheetForm;
+- (id)_printableInfos;
+- (id)_pageCountCache;
+- (unsigned long long)numberOfCanvasBasedSheets;
+- (struct vector<unsigned long, std::allocator<unsigned long>> { unsigned long long *x0; unsigned long long *x1; struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> { unsigned long long *x0; } x2; })p_pageCountArray;
+- (struct vector<unsigned long, std::allocator<unsigned long>> { unsigned long long *x0; unsigned long long *x1; struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> { unsigned long long *x0; } x2; })p_pageStartArray;
+- (unsigned long long)sheetIndexForPage:(unsigned long long)a0;
+- (void)setSheetIndex:(unsigned long long)a0 pageIndex:(unsigned long long)a1 addendumPageIndex:(unsigned long long)a2;
+- (void)_resetSheetDependentObjects;
+- (unsigned long long)_addendumPageCountForCurrentSheet;
+- (unsigned long long)inSheetPageIndexForPage:(unsigned long long)a0;
+- (void)setSheetIndex:(unsigned long long)a0 andPageIndex:(unsigned long long)a1;
+- (long long)p_indexOfActiveSheet;
+- (void)processHyperlinksForCanvas:(id)a0 withContext:(struct CGContext { } *)a1 andImager:(id)a2 isFitToSheet:(BOOL)a3;
+- (void)_updateExportState;
+- (id)p_activeSheet;
+- (void)drawCurrentPageWithContext:(struct CGContext { } *)a0 returnSuccess:(BOOL *)a1;
+- (id)quickLookSheets;
+- (id)_printProperties;
+- (id)annotationPrintingHelper:(id)a0 layoutsForPageIndex:(unsigned long long)a1;
+- (id)addendumPageTitleOfAnnotationPrintingHelper:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForAddendumContentOfAnnotationPrintingHelper:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForFlagContentOfAnnotationPrintingHelper:(id)a0;
+- (double)contentScaleOfAnnotationPrintingHelper:(id)a0;
+- (void)annotationPrintingHelper:(id)a0 enumerateLayoutsByPageWithBlock:(id /* block */)a1;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })annotationPrintingHelper:(id)a0 inversePureTransformInRootForContentAtPageIndex:(unsigned long long)a1;
+- (Class)imagerClass;
+- (BOOL)shouldSuppressBackgroundsForCurrentPage;
+- (double)totalProgess;
+- (BOOL)isPageInPortraitOrientation:(unsigned long long)a0;
+- (long long)pageIndexFromQuickLookSheet:(id)a0;
+
+@end

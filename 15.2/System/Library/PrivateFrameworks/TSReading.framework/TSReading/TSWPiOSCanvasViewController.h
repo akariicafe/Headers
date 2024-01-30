@@ -1,0 +1,81 @@
+@class UITextInteraction, TSWPLongPressGestureRecognizer, TSWPInteractiveCanvasController, TSWPSwipeGestureRecognizer, UITapGestureRecognizer, NSString, TSWPTwoPartAction, TSWPHyperlinkField, NSMutableArray, TSWPRep, TSUColor, UIGestureRecognizer;
+
+@interface TSWPiOSCanvasViewController : TSDiOSCanvasViewController <UITextInteractionDelegate, UITextLinkInteraction, UIDragInteractionDelegate> {
+    TSWPTwoPartAction *_delayedTapAction;
+    NSMutableArray *_gestureRecognizers;
+    BOOL _isInteractingWithHyperLink;
+    BOOL _linkInteractionIsLongPress;
+    TSWPHyperlinkField *_interactionHyperlinkField;
+    TSWPRep *_interactionHyperLinkRep;
+}
+
+@property (readonly) TSWPInteractiveCanvasController *interactiveCanvasController;
+@property (readonly, nonatomic) TSWPSwipeGestureRecognizer *textLeftSwipeGestureRecognizer;
+@property (readonly, nonatomic) TSWPSwipeGestureRecognizer *textRightSwipeGestureRecognizer;
+@property (readonly, nonatomic) UITapGestureRecognizer *secondarySingleTapGestureRecognizer;
+@property (readonly, nonatomic) UIGestureRecognizer *hyperlinkGestureRecognizer;
+@property (readonly, nonatomic) TSWPLongPressGestureRecognizer *longPressGestureRecognizer;
+@property (retain, nonatomic) UITextInteraction *textInteraction;
+@property (readonly, nonatomic) TSUColor *backgroundColorForMagnifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)teardown;
+- (id)dragInteraction:(id)a0 previewForLiftingItem:(id)a1 session:(id)a2;
+- (void)viewDidDisappear:(BOOL)a0;
+- (BOOL)isInteractingWithLink;
+- (void)cancelInteractionWithLink;
+- (void)tapLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)mightHaveLinks;
+- (void)startInteractionWithLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateInteractionWithLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)validateInteractionWithLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)startLongInteractionWithLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)willInteractWithLinkAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)_requestTextItemConstrainedToLineAtPoint:(struct CGPoint { double x0; double x1; })a0 resultHandler:(id /* block */)a1;
+- (id)dragInteraction:(id)a0 previewForCancellingItem:(id)a1 withDefault:(id)a2;
+- (void)dragInteraction:(id)a0 willAnimateLiftWithAnimator:(id)a1 session:(id)a2;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)dragInteraction:(id)a0 itemsForAddingToSession:(id)a1 withTouchAtPoint:(struct CGPoint { double x0; double x1; })a2;
+- (id)dragInteraction:(id)a0 itemsForBeginningSession:(id)a1;
+- (void)interactionDidEnd:(id)a0;
+- (void)interactionWillBegin:(id)a0;
+- (BOOL)interactionShouldSuppressSystemUI:(id)a0;
+- (BOOL)interactionShouldBegin:(id)a0;
+- (BOOL)interactionShouldBegin:(id)a0 atPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)actionForHyperlink:(id)a0 inRep:(id)a1 gesture:(id)a2;
+- (void)cancelDelayedTapAction;
+- (void)gestureSequenceWillBegin;
+- (void)gestureSequenceDidEnd;
+- (void)setUpGestureRecognizers;
+- (id)hyperlinkUICustomStringForURLString:(id)a0;
+- (BOOL)shouldHideCanvasLayerInMagnifier;
+- (void)startDelayedTapAction:(id)a0;
+- (BOOL)onlyAllowTextSwipesWhenEditing;
+- (void)addSwipeGestureRecognizers;
+- (void)removeSwipeGestureRecognizers;
+- (BOOL)hasDelayedTapAction;
+- (void)finishDelayedTapAction;
+- (void)_resetAndClearInteractions;
+- (void)_clearSelectedRange;
+- (void)_resetLinkInteraction;
+- (id)p_newSwipeGestureRecognizerWithDirection:(int)a0 numberOfTouchesRequired:(unsigned int)a1;
+- (void)setUpGestureDependenciesForNewCopyOfTextGesture:(id)a0;
+- (void)p_addSwipeGestureRecognizer:(id)a0 failRequiredFor:(id)a1;
+- (id)_dragItemsForInteraction:(id)a0 session:(id)a1 withTouchAtPoint:(struct CGPoint { double x0; double x1; })a2;
+- (id)_hitRepAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)_textInteractionBlockingRepClasses;
+- (BOOL)_shouldAllowInteractionAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)_hyperLinkFieldAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)canDisplayHyperlinkUI;
+- (void)hyperlinkUIWillShow;
+- (void)hyperlinkUIDidHide;
+- (BOOL)hyperlinkUIShouldShowCustomUI;
+- (BOOL)hyperlinkUIShouldShow;
+- (void)hyperlinkUIShowCustomUIforRep:(id)a0 field:(id)a1;
+
+@end

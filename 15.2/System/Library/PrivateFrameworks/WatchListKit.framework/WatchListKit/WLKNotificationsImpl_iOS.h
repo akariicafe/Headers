@@ -1,0 +1,37 @@
+@class NSString;
+@protocol WLKNotificationCenterDelegate;
+
+@interface WLKNotificationsImpl_iOS : NSObject <UNUserNotificationCenterDelegate, UNUserNotificationCenterDelegatePrivate, WLKNotificationsImpl>
+
+@property (nonatomic) BOOL topicsAreInitialized;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<WLKNotificationCenterDelegate> delegate;
+
++ (unsigned long long)_interruptionLevelForNumber:(id)a0;
++ (id)_JSONDictForResponse:(id)a0;
+
+- (id)_notificationCenter;
+- (void)userNotificationCenter:(id)a0 didReceiveNotificationResponse:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)userNotificationCenter:(id)a0 willPresentNotification:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (BOOL)isCategoryBadgeSettingEnabledByUser:(long long)a0;
+- (void)setBadgeNumber:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_fetchTopics:(id /* block */)a0;
+- (id)_topicIdentifierForCategory:(long long)a0;
+- (void)userNotificationCenter:(id)a0 didOpenApplicationForResponse:(id)a1;
+- (void).cxx_destruct;
+- (void)post:(id)a0 title:(id)a1 body:(id)a2 options:(id)a3;
+- (id)init;
+- (void)_networkReachabilityDidChangeNotification:(id)a0;
+- (BOOL)isCategoryEnabledByUser:(long long)a0;
+- (unsigned long long)_authOptions;
+- (void)_initializeTopics;
+- (id)_displayNameForSubsectionID:(id)a0;
+- (void)dealloc;
+- (void)_storeFrontChangedNotification:(id)a0;
+- (void)userNotificationCenter:(id)a0 didChangeSettings:(id)a1;
+- (void)setBadgeString:(id)a0 withCompletionHandler:(id /* block */)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE16HealthExperienceCSo14HKClinicalType15VitalSignRecord : _TtCs12_SwiftObject
+
+@end

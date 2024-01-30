@@ -1,0 +1,95 @@
+@class NSTimer, AXMAudioDataSourceMixer, NSMutableOrderedSet, AXMChartDescriptor, AXMDataSeriesDescriptor, AXMAudioDataSource, AXMLiveContinuousTone, NSPointerArray, AXMSynthPatch;
+
+@interface AXMDataSonifier : NSObject {
+    struct OpaqueAudioComponentInstance { } *_audioUnit;
+}
+
+@property (retain, nonatomic) NSTimer *playbackObserverUpdateTimer;
+@property (retain, nonatomic) AXMAudioDataSourceMixer *playbackMixerDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *playbackChartDataAudioDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *playbackTrendlineAudioDataSource;
+@property (retain, nonatomic) AXMAudioDataSourceMixer *scrubbingMixerDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *scrubbingDiscreteAudioDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *scrubbingContinuousAudioDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *scrubbingTrendlineAudioDataSource;
+@property (retain, nonatomic) AXMAudioDataSourceMixer *liveContinuousMixerDataSource;
+@property (retain, nonatomic) AXMAudioDataSource *liveContinuousAudioDataSource;
+@property (retain, nonatomic) NSPointerArray *playbackObservers;
+@property (readonly, nonatomic) int interpolationMode;
+@property (readonly, nonatomic) AXMLiveContinuousTone *continuousScrubbingTone;
+@property (readonly, nonatomic) AXMLiveContinuousTone *trendlineScrubbingTone;
+@property (readonly, nonatomic) AXMLiveContinuousTone *liveContinuousDataTone;
+@property (copy, nonatomic) id /* block */ trendlineFunction;
+@property (readonly, nonatomic) void *scrubbingDiscreteDataRenderingContext;
+@property (readonly, nonatomic) void *scrubbingPlaybackCallbackRenderingContext;
+@property (readonly, nonatomic) void *liveTonePlaybackCallbackRenderingContext;
+@property (readonly, nonatomic) unsigned long long playbackSampleCount;
+@property (readonly, nonatomic) NSMutableOrderedSet *dataCategories;
+@property (nonatomic) double minimumDiscreteToneLength;
+@property (nonatomic) double maximumDiscreteToneLength;
+@property (nonatomic) double minimumToneVolume;
+@property (nonatomic) double maximumToneVolume;
+@property (nonatomic) double masterVolume;
+@property (readonly, nonatomic) BOOL isPlaying;
+@property (readonly, nonatomic) BOOL isPaused;
+@property (readonly, nonatomic) BOOL isScrubbing;
+@property (readonly, nonatomic) BOOL isEndingScrubbing;
+@property (readonly, nonatomic) BOOL isInLiveContinuousToneSession;
+@property (readonly, nonatomic) double currentPlaybackPosition;
+@property (nonatomic) double minimumPlaybackFrequency;
+@property (nonatomic) double maximumPlaybackFrequency;
+@property (nonatomic) double playbackDuration;
+@property (nonatomic) BOOL usesBinauralPanning;
+@property (readonly, nonatomic) int dataMode;
+@property (readonly, nonatomic) id /* block */ function;
+@property (retain, nonatomic) AXMSynthPatch *patch;
+@property (retain, nonatomic) AXMChartDescriptor *currentChartDescriptor;
+@property (nonatomic) long long currentSeriesIndex;
+@property (readonly, nonatomic) AXMDataSeriesDescriptor *currentSeries;
+
++ (id)sharedInstance;
+
+- (void)setPlaybackPosition:(double)a0;
+- (void).cxx_destruct;
+- (id)init;
+- (void)pause;
+- (void)play;
+- (void)dealloc;
+- (void)stopPlaying;
+- (void)beginScrubbing;
+- (void)endScrubbing;
+- (BOOL)_initializeAudioUnit;
+- (BOOL)_uninitializeAudioUnit;
+- (void)_regenerateTimeEncodingValuesForDataPoints;
+- (void)scrubToPlaybackFrame:(unsigned long long)a0;
+- (id)_newContinuousToneEnvelope;
+- (void)stopScrubbing;
+- (double)normalizedTimeEncodingValueForValue:(id)a0;
+- (double)frequencyForPitchEncodingValue:(double)a0;
+- (double)durationForDurationEncodingValue:(double)a0;
+- (double)volumeForVolumeEncodingValue:(double)a0;
+- (void)_peakNormalizeBuffer:(void *)a0 length:(unsigned long long)a1 level:(double)a2;
+- (BOOL)series:(id)a0 hasContinuousPitchDataForTimePosition:(double)a1;
+- (double)interpolatedPitchValueForNormalizedTimePosition:(double)a0 inSeries:(id)a1;
+- (double)valueFromNormalizedValue:(double)a0 min:(double)a1 max:(double)a2;
+- (void)renderSonification;
+- (void)_initializeAXMAudioDataSources;
+- (void)_renderSeries:(id)a0;
+- (void)_renderContinuousAudioForSeries:(id)a0;
+- (void)_renderDiscreteAudioForSeries:(id)a0;
+- (unsigned long long)sampleIndexForTimeOffset:(double)a0;
+- (BOOL)_initializeAudioComponent;
+- (BOOL)_setAudioFormat;
+- (BOOL)_setOutputCallback;
+- (double)normalizedValueForValue:(double)a0 min:(double)a1 max:(double)a2;
+- (void)_initializeLiveToneDataSource;
+- (void)setMasterVolume:(double)a0 fadeDuration:(double)a1;
+- (void)addPlaybackObserver:(id)a0;
+- (void)removePlaybackObserver:(id)a0;
+- (void)_renderUnivariateFunctionAudio;
+- (double)timeOffsetForTimeEncodingValue:(id)a0;
+- (void)beginLiveContinuousToneSession;
+- (void)endLiveContinuousToneSession;
+- (void)setLiveContinuousToneNormalizedFrequency:(double)a0;
+
+@end

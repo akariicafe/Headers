@@ -1,0 +1,95 @@
+@class NSHashTable, NSString, SBUserSessionController, NSMutableSet, SBAlertItemsObjectQueue, NSMutableOrderedSet, NSMapTable, SBModalAlertPresenter;
+@protocol SBAlertItemPresenter, BSInvalidatable, SBLockScreenActionProvider;
+
+@interface SBAlertItemsController : NSObject <BSDescriptionProviding> {
+    SBUserSessionController *_userSessionController;
+    SBAlertItemsObjectQueue *_alertItemsQueue;
+    SBAlertItemsObjectQueue *_superModalItemsQueue;
+    NSMutableSet *_pendedAlertsToReenqueuePostDismissal;
+    NSMutableOrderedSet *_alertItemPresentations;
+    NSMutableOrderedSet *_superModalAlertItemPresentations;
+    NSMutableSet *_activePresenters;
+    NSMutableSet *_forceAlertsToPendReasons;
+    NSMapTable *_suppressionAssertionReasons;
+    NSHashTable *_observers;
+    BOOL _inUILockedMode;
+    BOOL _isProcessingQueue;
+    BOOL _delayProcessingQueue;
+    BOOL _suppressAlertsForKeynote;
+    id<BSInvalidatable> _stateCaptureBlock;
+    id<BSInvalidatable> _systemModalAlertVisibleAssertion;
+}
+
+@property (retain, nonatomic, getter=_systemModalAlertPresenter, setter=_setSystemModalAlertPresenter:) SBModalAlertPresenter *systemModalAlertPresenter;
+@property (retain, nonatomic) id<SBAlertItemPresenter, SBLockScreenActionProvider> lockScreenModalAlertItemPresenter;
+@property (retain, nonatomic) id<SBAlertItemPresenter> lockScreenNotificationsAlertItemPresenter;
+@property (retain, nonatomic) id<SBAlertItemPresenter> unlockedAlertItemPresenter;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (BOOL)_hasPresentationForPresenter:(id)a0;
+- (id)_presentationForAlertItem:(id)a0;
+- (id)_presenterForAlertItem:(id)a0;
+- (void)_enumerateWithDirection:(unsigned long long)a0 presentationsWithType:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (void)_clearAllQueuedAlertItems;
+- (void)_updateActiveDestinations;
+- (void)_performBatchActions:(id /* block */)a0 animated:(BOOL)a1 processQueue:(BOOL)a2;
+- (void)activateAlertItem:(id)a0 animated:(BOOL)a1;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (BOOL)hasLockScreenModalAlert;
+- (BOOL)hasVisibleSuperModalAlert;
+- (void)addObserver:(id)a0;
+- (void)removeObserver:(id)a0;
+- (BOOL)deactivateAlertItemsOfClass:(Class)a0 reason:(int)a1 animated:(BOOL)a2;
+- (void)convertLockedAlertsToUnlockedAlerts;
+- (id)succinctDescription;
+- (void)_deactivateAlertItem:(id)a0 reason:(int)a1 animated:(BOOL)a2;
+- (void)_dismissAlertItem:(id)a0 fromPresenter:(id)a1 forReason:(int)a2 animated:(BOOL)a3 completion:(id /* block */)a4;
+- (BOOL)hasVisibleAlert;
+- (void)_buddyDidExit;
+- (BOOL)deactivateAlertForMenuClickOrSystemGestureWithAnimation:(BOOL)a0;
+- (BOOL)hasAlertOfClass:(Class)a0;
+- (void)deactivateAlertItem:(id)a0 reason:(int)a1 animated:(BOOL)a2;
+- (void)_presentAlertItem:(id)a0 withPresenter:(id)a1 animated:(BOOL)a2;
+- (void)setInUILockedMode:(BOOL)a0;
+- (BOOL)hasVisibleModalAlert;
+- (void)_processAlertItemQueuesAnimated:(BOOL)a0;
+- (void)activatePendedAlertsIfNecessary;
+- (void)_reallyDeactivateAlertItem:(id)a0 forReason:(int)a1 deactivateBlock:(id /* block */)a2;
+- (void)_enumeratePresentationsWithType:(unsigned long long)a0 usingBlock:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)deactivateAlertItem:(id)a0 reason:(int)a1;
+- (void)convertUnlockedAlertsToLockedAlerts;
+- (void)activateAlertItem:(id)a0;
+- (id)_initWithUserSessionController:(id)a0;
+- (id)init;
+- (id)visibleAlertItem;
+- (BOOL)hasAlerts;
+- (BOOL)deactivateAlertItemsOfClass:(Class)a0 reason:(int)a1;
+- (BOOL)deactivateAlertItemsOfClass:(Class)a0;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (BOOL)canDeactivateAlertForMenuClickOrSystemGesture;
+- (id)_presentedAlertItemForPresenter:(id)a0;
+- (id)alertItemsOfClass:(Class)a0;
+- (void)captureSuppressionAssertion:(id)a0 reason:(id)a1;
+- (void)setForceAlertsToPend:(BOOL)a0 forReason:(id)a1;
+- (id)succinctDescriptionBuilder;
+- (void)_processAlertItemsFromQueue:(id)a0 animated:(BOOL)a1;
+- (void)_activeCallStateDidChange:(id)a0;
+- (BOOL)_hasActivePresentationsThatPresentModally;
+- (void)dealloc;
+- (void)moveActiveUnlockedAlertsToPendingWithAnimation:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_notifyObservers:(id /* block */)a0;
+- (void)noteVolumeOrLockPressedOverLockedAlerts;
+- (void)_deactivateAlertItem:(id)a0 reason:(int)a1 animated:(BOOL)a2 alertDismissCompletion:(id /* block */)a3;
+- (void)deactivateAlertItem:(id)a0;
+- (BOOL)_shouldPendAlertItem:(id)a0 outReasonsPended:(id *)a1;
+- (id)_activePresenterForAlertItem:(id)a0;
+- (BOOL)_hasVisibleModalAlertOfType:(unsigned long long)a0;
+- (BOOL)_isAlertItemPresentable:(id)a0 outReasonsNotPresentable:(id *)a1;
+
+@end

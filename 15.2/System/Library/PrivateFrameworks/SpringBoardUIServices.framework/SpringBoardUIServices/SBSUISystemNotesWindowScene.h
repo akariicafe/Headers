@@ -1,0 +1,3 @@
+@interface SBSUISystemNotesWindowScene : UIWindowScene
+
+@end

@@ -1,0 +1,3 @@
+@interface SBIconTapGestureRecognizer : UITapGestureRecognizer
+
+@end

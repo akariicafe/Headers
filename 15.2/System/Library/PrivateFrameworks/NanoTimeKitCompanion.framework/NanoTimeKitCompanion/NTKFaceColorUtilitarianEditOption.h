@@ -1,0 +1,3 @@
+@interface NTKFaceColorUtilitarianEditOption : NTKFaceColorEditOption
+
+@end

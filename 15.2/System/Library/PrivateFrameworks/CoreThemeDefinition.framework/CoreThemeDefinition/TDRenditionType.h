@@ -1,0 +1,3 @@
+@interface TDRenditionType : TDThemeConstant
+
+@end
