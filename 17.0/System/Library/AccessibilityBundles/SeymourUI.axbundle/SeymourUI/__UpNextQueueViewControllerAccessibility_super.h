@@ -1,0 +1,3 @@
+@interface __UpNextQueueViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

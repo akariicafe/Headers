@@ -1,0 +1,3 @@
+@interface __MTAddPodcastCellAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __STUIStatusBarCellularCondensedItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

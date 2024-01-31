@@ -1,0 +1,3 @@
+@interface __SUUIOnboardingCircleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

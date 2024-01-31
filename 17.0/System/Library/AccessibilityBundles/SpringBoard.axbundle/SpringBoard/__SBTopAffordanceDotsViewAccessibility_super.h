@@ -1,0 +1,3 @@
+@interface __SBTopAffordanceDotsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface UINotificationResponseAction : UISNotificationResponseAction
+
+@end

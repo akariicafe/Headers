@@ -1,0 +1,3 @@
+@interface __EKEventEditViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

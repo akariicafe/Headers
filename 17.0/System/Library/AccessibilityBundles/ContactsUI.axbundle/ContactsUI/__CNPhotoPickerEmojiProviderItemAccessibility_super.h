@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerEmojiProviderItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

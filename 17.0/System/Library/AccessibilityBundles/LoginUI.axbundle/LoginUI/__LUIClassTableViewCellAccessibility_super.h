@@ -1,0 +1,3 @@
+@interface __LUIClassTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

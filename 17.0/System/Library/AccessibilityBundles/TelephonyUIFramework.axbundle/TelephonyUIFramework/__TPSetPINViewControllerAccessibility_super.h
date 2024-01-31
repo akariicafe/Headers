@@ -1,0 +1,3 @@
+@interface __TPSetPINViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

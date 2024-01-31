@@ -1,0 +1,3 @@
+@interface ___UIFocusSystemSceneComponentAccessibility__SpringBoardFramework__UIKit_super : UIAccessibilitySafeCategory
+
+@end

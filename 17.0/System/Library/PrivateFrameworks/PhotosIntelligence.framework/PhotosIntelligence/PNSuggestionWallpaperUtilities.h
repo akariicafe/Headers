@@ -1,0 +1,58 @@
+@interface PNSuggestionWallpaperUtilities : NSObject
+
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bestWallpaperCropForAsset:(id)a0 classification:(unsigned long long)a1 outputCropScore:(double *)a2 outputLayoutAcceptable:(BOOL *)a3 layoutConfiguration:(id)a4;
++ (id)fetchPersonLocalIdentifiersForSuggestionSubtype:(unsigned short)a0 photoLibrary:(id)a1;
++ (unsigned long long)posterClassificationForSuggestionSubtype:(unsigned short)a0;
++ (id)randomizedSuggestionsFromSuggestions:(id)a0 limit:(unsigned long long)a1;
++ (id)coldStartDeviceOwnerWallpaperInPhotoLibrary:(id)a0;
++ (id)coldStartPortraitWallpaperInPhotoLibrary:(id)a0;
++ (id)coldStartPortraitWallpaperInPhotoLibrary:(id)a0 passingFilterBlock:(id /* block */)a1 maximumNumberOfTries:(unsigned long long)a2;
++ (id)fetchLivePhotoTabAssetsWithOptions:(id)a0;
++ (id)fetchSettlingEffectSuggestionsInPhotoLibrary:(id)a0;
++ (id)fetchWallpaperGallerySuggestionsInPhotoLibrary:(id)a0;
++ (id)knownPersonLocalIdentifiersInPhotoLibrary:(id)a0;
++ (id)predicateForPortraitWallpaperCandidatesWithPersonLocalIdentifiers:(id)a0;
++ (id)randomNumberGeneratorForWallpaperDonation;
++ (void)rejectWallpaperSuggestionsUsingAsset:(id)a0 completionHandler:(id /* block */)a1;
++ (void)rejectWallpaperSuggestionsUsingAssetOfSuggestion:(id)a0 completionHandler:(id /* block */)a1;
++ (id)wallpaperGalleryFeaturedPhotoSortedSuggestionsFromSuggestions:(id)a0;
++ (id)wallpaperGallerySmartAlbumSuggestionsFromSuggestions:(id)a0;
++ (BOOL)assetIsEligibleForSettlingEffect:(id)a0;
++ (double)cropScoreWithAsset:(id)a0 classification:(unsigned long long)a1 passesClockOverlap:(BOOL *)a2 cropZoomRatio:(double *)a3 orientation:(long long)a4;
++ (id)fetchLivePhotoTabHighlightCandidateAssetsWithOptions:(id)a0 excludeExistingWallpapers:(BOOL)a1;
++ (id)fetchLivePhotoTabHighlightSettlingEffectAssetsWithOptions:(id)a0 excludeExistingWallpapers:(BOOL)a1;
++ (id)filterSuggestions:(id)a0 excludingSingleFeature:(unsigned long long)a1;
++ (unsigned long long)mediaAnalysisTypeForPosterClassification:(unsigned long long)a0;
++ (long long)primaryOrientation;
++ (id)settlingEffectAssetInternalSortDescriptors;
++ (id)settlingEffectLivePhotoPredicate;
++ (id)fetchSettlingEffectSuggestionsWithOptions:(id)a0;
++ (unsigned long long)posterClassificationForMedia:(id)a0 descriptorType:(long long)a1;
++ (unsigned long long)posterClassificationForSuggestionMedia:(id)a0;
++ (BOOL)wallpaperDemoModeEnabled;
++ (BOOL)_assetPassesFRCInstantPlayback:(id)a0;
++ (id)fetchPortraitAssetsWithOptions:(id)a0;
++ (id /* block */)_assetSortComparatorForPortraitWallpaper;
++ (id)_blockedImportedByBundleIdentifiers;
++ (BOOL)_cacheExistsForAsset:(id)a0;
++ (id)_coldStartPortraitWallpaperInPhotoLibrary:(id)a0 candidatePersons:(id)a1 passingFilterBlock:(id /* block */)a2 maximumNumberOfTries:(unsigned long long)a3 targetCount:(unsigned long long)a4;
++ (id)_facePredicateForPortraitWallpaperCandidatesWithPersonLocalIdentifiers:(id)a0 deviceAspectRatio:(double)a1;
++ (id)_fetchMeContactIdentifier;
++ (id)_fetchSettlingEffectSuggestionKeyAssetsWithOptions:(id)a0;
++ (id)_fetchSuggestedMePersonLocalIdentifierInPhotoLibrary:(id)a0;
++ (id)_filterSuggestions:(id)a0 withSingleFeature:(unsigned long long)a1 included:(BOOL)a2;
++ (id)_mePersonUUIDInPhotoLibrary:(id)a0;
++ (id)_mostRecentAssetDateInPhotoLibrary:(id)a0;
++ (id)_personFetchOptionsWithPhotoLibrary:(id)a0;
++ (id)_settlingEffectAssetFetchPropertySets;
++ (unsigned long long)_settlingEffectVideoDecisionForAsset:(id)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bestWallpaperCropForAsset:(id)a0 classification:(unsigned long long)a1 outputCropScore:(double *)a2 outputLayoutAcceptable:(BOOL *)a3;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bestWallpaperCropForSuggestion:(id)a0 outputCropScore:(double *)a1 outputLayoutAcceptable:(BOOL *)a2;
++ (id)fetchKnownPersonLocalIdentifiersInPhotoLibrary:(id)a0 fetchLimit:(unsigned long long)a1;
++ (id)filterSuggestions:(id)a0 includingSingleFeature:(unsigned long long)a1;
++ (BOOL)hasAnyKnownPersonLocalIdentifierInPhotoLibrary:(id)a0;
++ (id)predicateForPortraitWallpaperCandidatesWithPersonLocalIdentifiers:(id)a0 deviceAspectRatio:(double)a1;
++ (void)rejectWallpaperSuggestions:(id)a0 completionHandler:(id /* block */)a1;
++ (id)wallpaperCroppingDebugKeyValuePairsForAsset:(id)a0;
+
+@end

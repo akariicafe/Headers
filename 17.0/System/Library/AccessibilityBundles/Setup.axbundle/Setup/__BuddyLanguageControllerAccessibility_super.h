@@ -1,0 +1,3 @@
+@interface __BuddyLanguageControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

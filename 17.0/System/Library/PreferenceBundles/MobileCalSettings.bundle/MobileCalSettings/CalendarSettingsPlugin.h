@@ -1,0 +1,81 @@
+@class NSString, EKEventStore, PSSpecifier, ACAccountStore, PSSystemPolicyForApp;
+
+@interface CalendarSettingsPlugin : PSListController <PSSystemPolicyForAppDelegate> {
+    PSSpecifier *_showInviteeDeclinesSpecifier;
+    PSSpecifier *_syncDaysSpecifier;
+    PSSpecifier *_timeZoneSupportSpecifier;
+    PSSpecifier *_defaultCalendarSpecifier;
+    PSSpecifier *_identityListSpecifier;
+    PSSpecifier *_birthdayCalendarSpecifier;
+    PSSpecifier *_defaultAlarmsSpecifier;
+    PSSpecifier *_overlayCalendarSpecifier;
+    PSSpecifier *_showWeekNumbersSpecifier;
+    PSSpecifier *_weekViewStartsOnTodaySpecifier;
+    PSSpecifier *_suggestedLocationsSpecifier;
+    PSSpecifier *_showAccountsSupportingDelegationSpecifier;
+    PSSpecifier *_showSingleAccountSupportingDelegationSpecifier;
+    PSSpecifier *_defaultEventDurationSpecifier;
+    EKEventStore *_eventStore;
+    ACAccountStore *_accountStore;
+    BOOL _numTotalCalendars;
+    BOOL _delegationSpecifierShowing;
+    PSSystemPolicyForApp *_appPolicy;
+}
+
+@property (retain, nonatomic) PSSpecifier *weekStartSpecifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)reloadSpecifiers:(id)a0;
+- (id)init;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_localeChanged:(id)a0;
+- (void)dealloc;
+- (id)_accountStore;
+- (id)_eventStore;
+- (id)specifiers;
+- (void).cxx_destruct;
+- (void)_eventStoreChanged:(id)a0;
+- (void)_createAllCommonSpecifiers;
+- (id)_defaultEventDurationIdentifiers;
+- (void)_freeSpecifiers;
+- (long long)_countOfAccountsSyncingCalendars;
+- (void)setOverlayCalendarID:(id)a0 specifier:(id)a1;
+- (double)_defaultEventDurationForIdentifier:(id)a0;
+- (id)_defaultEventDurationLocalizedStrings;
+- (id)_localeSpecificLocalizedOneMonthSyncTitleWithBundle:(id)a0;
+- (id)_localeSpecificLocalizedSixMonthsSyncTitleWithBundle:(id)a0;
+- (id)_localeSpecificLocalizedThreeMonthsSyncTitleWithBundle:(id)a0;
+- (id)_localeSpecificLocalizedTwoWeeksSyncTitleWithBundle:(id)a0;
+- (id)_localizedNoLimitSyncTitleInBundle:(id)a0;
+- (id)_localizedOneMonthSyncTitleOverrideInBundle:(id)a0;
+- (id)_numbersForWeekdays;
+- (BOOL)_shouldShowDefaultCalendarSpecifier;
+- (id)_titlesForCalendarIdentifiers:(id)a0;
+- (id)_titlesForDaysToSync;
+- (id)_titlesForWeekDays:(id)a0;
+- (id)accountsSupportingDelegation;
+- (id)daysToSync:(id)a0;
+- (id)defaultCalendarName:(id)a0;
+- (id)defaultEventDuration:(id)a0;
+- (id)immediateAlarmCreation:(id)a0;
+- (id)overlayCalendarID:(id)a0;
+- (void)setDaysToSync:(id)a0 specifier:(id)a1;
+- (void)setDefaultCalendar:(id)a0 specifier:(id)a1;
+- (void)setDefaultEventDuration:(id)a0 specifier:(id)a1;
+- (void)setImmediateAlarmCreation:(id)a0 specifier:(id)a1;
+- (void)setShowInviteeDeclinesEnabled:(id)a0 specifier:(id)a1;
+- (void)setShowWeekNumbers:(id)a0 specifier:(id)a1;
+- (void)setSuggestEventLocations:(id)a0 specifier:(id)a1;
+- (void)setWeekViewStartsOnToday:(id)a0 specifier:(id)a1;
+- (id)showInviteeDeclinesEnabled:(id)a0;
+- (id)showWeekNumbers:(id)a0;
+- (id)suggestEventLocations:(id)a0;
+- (id)timeZoneSupportEnabled:(id)a0;
+- (id)weekStart:(id)a0;
+- (id)weekViewStartsOnToday:(id)a0;
+- (id)writableEnabledIdentities;
+
+@end

@@ -1,0 +1,3 @@
+@interface __VocalsAttenuationSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC24SoundsAndHapticsSettingsP33_BA36E6B266DEB43A86F52B82F3EDD6AF19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

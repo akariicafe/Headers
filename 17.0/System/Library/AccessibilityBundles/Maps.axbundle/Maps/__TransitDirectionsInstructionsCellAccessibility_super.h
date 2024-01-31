@@ -1,0 +1,3 @@
+@interface __TransitDirectionsInstructionsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

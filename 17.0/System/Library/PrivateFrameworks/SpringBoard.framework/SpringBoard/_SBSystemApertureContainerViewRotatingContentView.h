@@ -1,0 +1,3 @@
+@interface _SBSystemApertureContainerViewRotatingContentView : _SBSystemApertureContainerViewContentView
+
+@end

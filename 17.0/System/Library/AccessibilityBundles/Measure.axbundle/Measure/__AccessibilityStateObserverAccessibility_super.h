@@ -1,0 +1,3 @@
+@interface __AccessibilityStateObserverAccessibility_super : UIAccessibilitySafeCategory
+
+@end

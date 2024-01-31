@@ -1,0 +1,85 @@
+@class NSString, NSMapTable, NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface ASDPlugin : ASDObject <ASDDeviceConfigurationChangeDelegate, ASDPropertyChangedDelegate> {
+    NSMapTable *_objects;
+    NSObject<OS_dispatch_queue> *_objectQueue;
+    NSMutableDictionary *_boxes;
+    NSObject<OS_dispatch_queue> *_boxQueue;
+    NSMutableDictionary *_audioDevices;
+    NSObject<OS_dispatch_queue> *_audioDeviceQueue;
+    NSMutableDictionary *_clockDevices;
+    NSObject<OS_dispatch_queue> *_clockDeviceQueue;
+    NSString *_manufacturerName;
+    unsigned int _nextObjectID;
+    struct AudioServerPlugInDriverInterface { void *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; void /* function */ *x5; void /* function */ *x6; void /* function */ *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; void /* function */ *x12; void /* function */ *x13; void /* function */ *x14; void /* function */ *x15; void /* function */ *x16; void /* function */ *x17; void /* function */ *x18; void /* function */ *x19; void /* function */ *x20; void /* function */ *x21; void /* function */ *x22; } *_interfacePtr;
+    struct AudioServerPlugInHostInterface { void /* function */ *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *_pluginHost;
+    unsigned int _pluginRefCount;
+    NSObject<OS_dispatch_queue> *_powerNotificationQueue;
+    struct IONotificationPort { } *_powerNotificationPort;
+    unsigned int _powerConnection;
+    unsigned int _powerNotifier;
+}
+
+@property (readonly, nonatomic) struct AudioServerPlugInDriverInterface **driverRef;
+@property (readonly, nonatomic) NSString *bundleID;
+@property (nonatomic) unsigned int transportType;
+@property (nonatomic) unsigned int maximumNumberOfObjects;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)diagnosticDescriptionWithIndent:(id)a0 walkTree:(BOOL)a1;
+- (unsigned int)objectClass;
+- (void)systemHasPoweredOn;
+- (void)systemWillSleep;
+- (BOOL)getProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 withQualifierSize:(unsigned int)a1 qualifierData:(const void *)a2 dataSize:(unsigned int *)a3 andData:(void *)a4 forClient:(int)a5;
+- (id)driverClassName;
+- (unsigned int)dataSizeForProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 withQualifierSize:(unsigned int)a1 andQualifierData:(const void *)a2;
+- (id)init;
+- (id)arrayForKey:(id)a0;
+- (void)dealloc;
+- (void)setArray:(id)a0 forKey:(id)a1;
+- (void)addDevices:(id)a0;
+- (void)changedProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 forObject:(id)a1;
+- (id)devices;
+- (void)setDictionary:(id)a0 forKey:(id)a1;
+- (BOOL)hasProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0;
+- (BOOL)requestConfigurationChangeForDevice:(id)a0 withBlock:(id /* block */)a1;
+- (void).cxx_destruct;
+- (id)dictionaryForKey:(id)a0;
+- (void)removeDevice:(id)a0;
+- (void)addDevice:(id)a0;
+- (id)plugin;
+- (void)_handlePowerNotificationWithMessageType:(unsigned int)a0 andArgument:(long long)a1;
+- (void)addBox:(id)a0;
+- (void)removeStreamRealTimeOperations:(id)a0;
+- (void)addAudioDevice:(id)a0;
+- (void)addClockDevice:(id)a0;
+- (void)removeCAObject:(id)a0;
+- (void)addAudioDevices:(id)a0;
+- (void)addCAObject:(id)a0;
+- (void)addClockDevices:(id)a0;
+- (unsigned int)addRef;
+- (void)addStreamRealTimeOperations:(id)a0;
+- (id)audioDevices;
+- (id)boxes;
+- (void)changedProperty:(const struct AudioObjectPropertyAddress { unsigned int x0; unsigned int x1; unsigned int x2; } *)a0 forObjectID:(unsigned int)a1;
+- (id)clockDevices;
+- (BOOL)deregisterForSystemSleepNotifications;
+- (void)halInitializeWithPluginHost:(struct AudioServerPlugInHostInterface { void /* function */ *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *)a0;
+- (id)objectForObjectID:(unsigned int)a0;
+- (unsigned int)objectIDForBoxUID:(id)a0;
+- (unsigned int)objectIDForClockDeviceUID:(id)a0;
+- (unsigned int)objectIDForDeviceUID:(id)a0;
+- (BOOL)registerForSystemSleepNotifications;
+- (void)removeAudioDevice:(id)a0;
+- (void)removeAudioDevices:(id)a0;
+- (void)removeBox:(id)a0;
+- (void)removeClockDevice:(id)a0;
+- (void)removeClockDevices:(id)a0;
+- (void)removeDevices:(id)a0;
+- (unsigned int)removeRef;
+
+@end

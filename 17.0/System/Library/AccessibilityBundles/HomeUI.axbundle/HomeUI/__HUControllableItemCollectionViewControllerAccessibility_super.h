@@ -1,0 +1,3 @@
+@interface __HUControllableItemCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

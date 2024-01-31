@@ -1,0 +1,3 @@
+@interface __CNPropertyPlaceholderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

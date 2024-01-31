@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmDragobete : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

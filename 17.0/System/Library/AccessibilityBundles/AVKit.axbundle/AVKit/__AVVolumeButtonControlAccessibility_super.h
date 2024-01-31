@@ -1,0 +1,3 @@
+@interface __AVVolumeButtonControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

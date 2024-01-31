@@ -1,0 +1,83 @@
+@class NSString;
+
+@interface AppTelemetryFPFSMigrationNonMigratedItemInvestigation : PBCodable <NSCopying> {
+    struct { unsigned char cloneErrorCode : 1; unsigned char dbGenCount : 1; unsigned char fileNameLength : 1; unsigned char fsGenCount : 1; unsigned char itemNumber : 1; unsigned char pathLength : 1; unsigned char readErrorCode : 1; unsigned char stFlags : 1; unsigned char stMode : 1; unsigned char compressionType : 1; unsigned char dataProtectionClass : 1; unsigned char itemType : 1; unsigned char syncRootEnum : 1; unsigned char xattrCount : 1; unsigned char doGenCountsMatchInFileId : 1; unsigned char hasAcls : 1; unsigned char hasLocalChanges : 1; unsigned char hasMoreLinks : 1; unsigned char isAppleDouble : 1; unsigned char isBundleBit : 1; unsigned char isFileNameNonAscii : 1; unsigned char isOwnedByLoggedInUser : 1; unsigned char isOwnedByRoot : 1; unsigned char isPurgable : 1; unsigned char isQuerantined : 1; unsigned char isResourceFork : 1; unsigned char isSparseFile : 1; unsigned char isUnderDirStatFolder : 1; unsigned char isUrgent : 1; unsigned char parentHasAcls : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasItemNumber;
+@property (nonatomic) long long itemNumber;
+@property (nonatomic) BOOL hasItemType;
+@property (nonatomic) int itemType;
+@property (nonatomic) BOOL hasDataProtectionClass;
+@property (nonatomic) int dataProtectionClass;
+@property (nonatomic) BOOL hasIsOwnedByLoggedInUser;
+@property (nonatomic) BOOL isOwnedByLoggedInUser;
+@property (nonatomic) BOOL hasIsOwnedByRoot;
+@property (nonatomic) BOOL isOwnedByRoot;
+@property (nonatomic) BOOL hasXattrCount;
+@property (nonatomic) int xattrCount;
+@property (nonatomic) BOOL hasIsAppleDouble;
+@property (nonatomic) BOOL isAppleDouble;
+@property (nonatomic) BOOL hasIsResourceFork;
+@property (nonatomic) BOOL isResourceFork;
+@property (nonatomic) BOOL hasIsQuerantined;
+@property (nonatomic) BOOL isQuerantined;
+@property (readonly, nonatomic) BOOL hasUtType;
+@property (retain, nonatomic) NSString *utType;
+@property (nonatomic) BOOL hasIsBundleBit;
+@property (nonatomic) BOOL isBundleBit;
+@property (nonatomic) BOOL hasIsSparseFile;
+@property (nonatomic) BOOL isSparseFile;
+@property (nonatomic) BOOL hasCompressionType;
+@property (nonatomic) int compressionType;
+@property (nonatomic) BOOL hasReadErrorCode;
+@property (nonatomic) long long readErrorCode;
+@property (nonatomic) BOOL hasCloneErrorCode;
+@property (nonatomic) long long cloneErrorCode;
+@property (nonatomic) BOOL hasSyncRootEnum;
+@property (nonatomic) int syncRootEnum;
+@property (nonatomic) BOOL hasPathLength;
+@property (nonatomic) long long pathLength;
+@property (nonatomic) BOOL hasFileNameLength;
+@property (nonatomic) long long fileNameLength;
+@property (nonatomic) BOOL hasStMode;
+@property (nonatomic) long long stMode;
+@property (nonatomic) BOOL hasStFlags;
+@property (nonatomic) long long stFlags;
+@property (nonatomic) BOOL hasHasAcls;
+@property (nonatomic) BOOL hasAcls;
+@property (nonatomic) BOOL hasParentHasAcls;
+@property (nonatomic) BOOL parentHasAcls;
+@property (nonatomic) BOOL hasIsPurgable;
+@property (nonatomic) BOOL isPurgable;
+@property (nonatomic) BOOL hasIsUrgent;
+@property (nonatomic) BOOL isUrgent;
+@property (nonatomic) BOOL hasIsUnderDirStatFolder;
+@property (nonatomic) BOOL isUnderDirStatFolder;
+@property (nonatomic) BOOL hasIsFileNameNonAscii;
+@property (nonatomic) BOOL isFileNameNonAscii;
+@property (readonly, nonatomic) BOOL hasFinderInfoFlagsBase64;
+@property (retain, nonatomic) NSString *finderInfoFlagsBase64;
+@property (nonatomic) BOOL hasHasMoreLinks;
+@property (nonatomic) BOOL hasMoreLinks;
+@property (nonatomic) BOOL hasFsGenCount;
+@property (nonatomic) long long fsGenCount;
+@property (nonatomic) BOOL hasDbGenCount;
+@property (nonatomic) long long dbGenCount;
+@property (nonatomic) BOOL hasHasLocalChanges;
+@property (nonatomic) BOOL hasLocalChanges;
+@property (nonatomic) BOOL hasDoGenCountsMatchInFileId;
+@property (nonatomic) BOOL doGenCountsMatchInFileId;
+
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

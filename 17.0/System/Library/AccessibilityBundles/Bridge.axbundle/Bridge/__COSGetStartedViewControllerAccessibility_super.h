@@ -1,0 +1,3 @@
+@interface __COSGetStartedViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

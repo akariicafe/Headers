@@ -1,0 +1,3 @@
+@interface __SUUIScrollingTabBarContentCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

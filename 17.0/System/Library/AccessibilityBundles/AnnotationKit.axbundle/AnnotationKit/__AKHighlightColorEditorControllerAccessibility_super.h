@@ -1,0 +1,3 @@
+@interface __AKHighlightColorEditorControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

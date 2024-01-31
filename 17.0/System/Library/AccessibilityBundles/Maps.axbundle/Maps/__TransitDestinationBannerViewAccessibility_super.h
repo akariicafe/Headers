@@ -1,0 +1,3 @@
+@interface __TransitDestinationBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

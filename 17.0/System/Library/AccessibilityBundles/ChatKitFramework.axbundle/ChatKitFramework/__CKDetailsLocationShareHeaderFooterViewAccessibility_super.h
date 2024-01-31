@@ -1,0 +1,3 @@
+@interface __CKDetailsLocationShareHeaderFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

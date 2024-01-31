@@ -1,0 +1,3 @@
+@interface __HUAccessoryButtonTableViewHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

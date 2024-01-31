@@ -1,0 +1,3 @@
+@interface __SmallBreakoutCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBUIViewControllerWrapperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

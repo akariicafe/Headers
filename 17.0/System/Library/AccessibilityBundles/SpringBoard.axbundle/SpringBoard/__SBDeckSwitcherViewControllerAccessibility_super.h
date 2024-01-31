@@ -1,0 +1,3 @@
+@interface __SBDeckSwitcherViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

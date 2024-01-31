@@ -1,0 +1,92 @@
+@class NSDate, NSString, NSUUID, SFNetworkAttachment, StopWatch, AnalyticsWorkspace, NSMutableDictionary, NSManagedObjectID, NSMutableSet, SFLiveRoutePerf, NetworkAttachmentAnalytics, NSDictionary;
+
+@interface NetworkEpoch : NSObject <NSCopying> {
+    NSDate *createdAt;
+    NSString *identifier;
+    BOOL fromRoamingEvent;
+    AnalyticsWorkspace *workspace;
+    NetworkAttachmentAnalytics *naspace;
+    NSMutableDictionary *tickers;
+    NSManagedObjectID *currentLiveRoutePerfObjectID;
+    double lastBytesDelta;
+    NSDate *lastBytesPartialUpdate;
+    BOOL isSnapshot;
+    NSDictionary *scores;
+    BOOL isLowLqm;
+    BOOL isLowq;
+    BOOL isFaulty;
+    BOOL isKnownGood;
+}
+
+@property (nonatomic) long long loi;
+@property (readonly) BOOL active;
+@property (readonly) BOOL oncell;
+@property (nonatomic) struct __NStatSource { } *defRoute4;
+@property (nonatomic) struct __NStatSource { } *defRoute6;
+@property (nonatomic) BOOL supportsIPv4;
+@property (nonatomic) BOOL supportsIPv6;
+@property (readonly) NSString *primaryKey;
+@property (readonly) NSString *interfaceName;
+@property int bars;
+@property double lqmTransitions;
+@property (retain, nonatomic) NSDate *lastCountedDown;
+@property (retain, nonatomic) StopWatch *overall;
+@property (retain, nonatomic) StopWatch *lowLqm;
+@property (retain, nonatomic) StopWatch *lowq;
+@property (retain, nonatomic) StopWatch *fatal;
+@property (retain, nonatomic) SFLiveRoutePerf *partial;
+@property (retain, nonatomic) SFLiveRoutePerf *partial4;
+@property (retain, nonatomic) SFLiveRoutePerf *partial6;
+@property (readonly, nonatomic) double initialRttAvg;
+@property (readonly, nonatomic) double initialRttVar;
+@property (nonatomic) double topDownlRate;
+@property (retain, nonatomic) NSMutableSet *hasDNS;
+@property (retain, nonatomic) NSMutableSet *impDNS;
+@property (retain, nonatomic) NSMutableSet *hasGW;
+@property (nonatomic) BOOL hasInternetDNS;
+@property (readonly, nonatomic) SFNetworkAttachment *durable;
+@property (readonly, nonatomic) SFLiveRoutePerf *currentLiveRoutePerf;
+@property (retain, nonatomic) NSUUID *uuid;
+@property BOOL knownGoodNotified;
+@property (readonly) unsigned int seqno;
+@property (nonatomic) BOOL deleteNetworkAttachmentsWhenDone;
+
++ (id)snapshotsIn:(id)a0 olderThan:(id)a1;
++ (void)resetDataForSSIDs:(id)a0 exceptFor:(id)a1 inWorkspace:(id)a2;
++ (BOOL)pruneDataOlderThan:(id)a0 exceptFor:(id)a1 inWorkspace:(id)a2;
++ (BOOL)parsePrimaryKey:(id)a0 majorID:(id *)a1 minorID:(id *)a2;
++ (void)resetDataFor:(id)a0 exceptFor:(id)a1 inWorkspace:(id)a2;
++ (id)epochWithPrimaryKey:(id)a0 interfaceName:(id)a1 isCell:(BOOL)a2 maxBars:(int)a3 roamingEvent:(BOOL)a4 roamingAttrs:(long long)a5 supportsIPv4:(BOOL)a6 supportsIPv6:(BOOL)a7 inWorkspace:(id)a8 andQueue:(id)a9;
++ (BOOL)parsePrimaryKeyStr:(const char *)a0 majorIDLengthInBytes:(int *)a1 minorIDLengthInBytes:(int *)a2;
++ (unsigned long long)coalescingFactor;
+
+- (void)retire;
+- (BOOL)_isLiveRoutePerfinScope:(id)a0 forTime:(id)a1;
+- (void)dealloc;
+- (id)_init;
+- (BOOL)createCountDown:(id)a0 atTime:(id)a1 nextTick:(unsigned long long)a2 ticksTotal:(unsigned long long)a3 onQueue:(id)a4 withIterationBlock:(id /* block */)a5 completionBlock:(id /* block */)a6;
+- (void)unloadDurableState;
+- (BOOL)hasCountDownActive:(id)a0;
+- (id)_createCellSignature;
+- (void)_retrieveLOIAttrsOnQueue:(id)a0 roamingEvent:(BOOL)a1 roamingAttrs:(long long)a2 reply:(id /* block */)a3;
+- (void)updateMetrics:(id)a0 source:(struct __NStatSource { } *)a1 wasProgress:(id /* block */)a2;
+- (BOOL)matchesLOI:(long long)a0;
+- (id)_networkAttachmentDurableState;
+- (id)description;
+- (void).cxx_destruct;
+- (id)establishPartials:(id)a0 withFlag:(BOOL)a1;
+- (BOOL)countDownStop:(id)a0 eventTimeStamp:(id)a1;
+- (void)reportAdminDisable;
+- (BOOL)hasTypicalShortStay;
+- (id)_initWithPrimaryKey:(id)a0 interfaceName:(id)a1 isCell:(BOOL)a2 maxBars:(int)a3 roamingEvent:(BOOL)a4 roamingAttrs:(long long)a5 supportsIPv4:(BOOL)a6 supportsIPv6:(BOOL)a7 inWorkspace:(id)a8 andQueue:(id)a9;
+- (void)refreshLOIOnQueue:(id)a0 reply:(id /* block */)a1;
+- (int)compareToSnapshot:(id)a0;
+- (void)reportDataStall;
+- (long long)getMatchingRTLocationOfInterestType;
+- (void)reportCaptivityRedirect;
+- (id)mapLOIToString;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (long long)RTLocationOfInterestTypeForExtended:(long long)a0;
+- (void)reportCertError;
+
+@end

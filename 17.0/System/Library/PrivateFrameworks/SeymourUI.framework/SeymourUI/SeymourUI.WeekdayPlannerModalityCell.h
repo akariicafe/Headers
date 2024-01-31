@@ -1,0 +1,22 @@
+@interface SeymourUI.WeekdayPlannerModalityCell : UICollectionViewListCell {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ itemInfo;
+    void /* unknown type, empty encoding */ iconView;
+    void /* unknown type, empty encoding */ separator;
+    void /* unknown type, empty encoding */ styleProvider;
+    void /* unknown type, empty encoding */ subtitleLabel;
+    void /* unknown type, empty encoding */ titleLabel;
+    void /* unknown type, empty encoding */ separatorHeightConstraint;
+}
+
+@property (nonatomic) BOOL highlighted;
+
+- (void)prepareForReuse;
+- (struct CGSize { double x0; double x1; })systemLayoutSizeFittingSize:(struct CGSize { double x0; double x1; })a0 withHorizontalFittingPriority:(float)a1 verticalFittingPriority:(float)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (BOOL)isHighlighted;
+- (id)initWithCoder:(id)a0;
+- (void)didMoveToWindow;
+
+@end

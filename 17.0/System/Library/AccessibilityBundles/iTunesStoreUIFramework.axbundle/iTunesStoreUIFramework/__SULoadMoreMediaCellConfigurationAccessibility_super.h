@@ -1,0 +1,3 @@
+@interface __SULoadMoreMediaCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

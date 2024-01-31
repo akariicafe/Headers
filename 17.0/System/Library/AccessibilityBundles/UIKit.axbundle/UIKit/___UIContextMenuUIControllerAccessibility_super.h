@@ -1,0 +1,3 @@
+@interface ___UIContextMenuUIControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

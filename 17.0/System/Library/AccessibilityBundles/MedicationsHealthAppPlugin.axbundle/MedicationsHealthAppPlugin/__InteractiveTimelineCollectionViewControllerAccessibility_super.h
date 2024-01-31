@@ -1,0 +1,3 @@
+@interface __InteractiveTimelineCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CSChargingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

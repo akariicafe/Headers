@@ -1,0 +1,3 @@
+@interface __SectionHeaderOutlineCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

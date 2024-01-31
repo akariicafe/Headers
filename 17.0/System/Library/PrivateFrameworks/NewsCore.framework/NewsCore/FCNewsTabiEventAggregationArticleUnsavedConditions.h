@@ -1,0 +1,3 @@
+@interface FCNewsTabiEventAggregationArticleUnsavedConditions : FCNewsTabiEventAggregationBaseEventConditions
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXScrollViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

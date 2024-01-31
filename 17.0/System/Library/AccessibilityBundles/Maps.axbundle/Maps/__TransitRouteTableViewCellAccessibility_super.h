@@ -1,0 +1,3 @@
+@interface __TransitRouteTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

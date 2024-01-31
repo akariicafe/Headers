@@ -1,0 +1,3 @@
+@interface __HKMedicalIDNoValueTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

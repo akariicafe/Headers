@@ -1,0 +1,3 @@
+@interface __InCallControlsIgnoreLMIRequestsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

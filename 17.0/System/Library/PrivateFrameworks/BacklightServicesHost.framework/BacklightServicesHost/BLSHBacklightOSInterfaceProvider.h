@@ -1,0 +1,90 @@
+@class NSDate, NSString, BLSHSuppressionEvent, BSContinuousMachTimer, NSMutableDictionary, BLSHCriticalAssertProvider, NSObject, NSMutableSet, CBDisplayStateClient, BLSHWatchdogProvider, CMSuppressionManager;
+@protocol BLSCBDisplayStateDelegate, BLSHBacklightPlatformProvider, OS_dispatch_queue, BLSHWatchdogInvalidatable;
+
+@interface BLSHBacklightOSInterfaceProvider : BLSHBacklightOSTimerProvider <CBDisplayStateClientDelegate, BLSHTransparentFlipbookProvider, BLSHBacklightOSInterfaceProviding, BLSHWatchdogDelegate, BLSHWatchdogProviderDelegate> {
+    id<BLSHBacklightPlatformProvider> _platformProvider;
+    BLSHWatchdogProvider *_watchdogProvider;
+    BLSHCriticalAssertProvider *_criticalAssertProvider;
+    NSMutableDictionary *_lock_sceneObservers;
+    NSMutableSet *_lock_sceneWorkspaces;
+    BLSHSuppressionEvent *_lock_lastSuppressionEvent;
+    CBDisplayStateClient *_displayStateClient;
+    CMSuppressionManager *_suppressionManager;
+    BSContinuousMachTimer *_setCBDisplayModeTimer;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    long long _lock_cbDisplayMode;
+    long long _lock_cbFlipbookState;
+    BOOL _lock_suppressionServiceActive;
+    BOOL _lock_caFlipbookEnabled;
+    BOOL _lock_caFlipbookSuppressed;
+    BOOL _lock_caBlanked;
+    BOOL _lock_flipbookTransparent;
+    BOOL _deviceSupportsAlwaysOn;
+    BOOL _lock_kernelSpecialMode;
+    BOOL _displayStateClientSupported;
+    float _backlightDimmedFactor;
+    id<BLSHWatchdogInvalidatable> _lock_watchdogTimer;
+    unsigned long long _lock_watchdogType;
+    double _completionDelayForTesting;
+}
+
+@property (class, retain) BLSHBacklightOSInterfaceProvider *sharedProvider;
+
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, getter=isFlipbookTransparent) BOOL flipbookTransparent;
+@property (nonatomic, getter=isCABlanked, setter=setCABlanked:) BOOL caBlanked;
+@property (nonatomic, getter=isCAFlipbookEnabled, setter=setCAFlipbookEnabled:) BOOL caFlipbookEnabled;
+@property (nonatomic, getter=isCAFlipbookSuppressed, setter=setCAFlipbookSuppressed:) BOOL caFlipbookSuppressed;
+@property (nonatomic, getter=isKernelAlwaysOnMode) BOOL kernelAlwaysOnMode;
+@property (retain, setter=setCBDisplayStateDelegate:) id<BLSCBDisplayStateDelegate> cbDisplayStateDelegate;
+@property (readonly, nonatomic) long long cbDisplayMode;
+@property (readonly, nonatomic) BOOL supportsFlipbookState;
+@property (readonly, nonatomic) long long cbFlipbookState;
+@property (readonly, nonatomic, getter=isShowingBlankingWindow) BOOL showingBlankingWindow;
+@property (readonly, nonatomic) BOOL deviceSupportsAlwaysOn;
+@property (readonly, nonatomic) unsigned long long flipbookDiagnosticHistoryFrameLimit;
+@property (readonly, nonatomic) unsigned long long flipbookDiagnosticHistoryMemoryLimit;
+@property (readonly, nonatomic, getter=isSuppressionServiceActive) BOOL suppressionServiceActive;
+@property (readonly, nonatomic) BLSHSuppressionEvent *lastSuppressionEvent;
+@property (readonly, nonatomic) unsigned long long mach_continuous_time;
+@property (readonly, nonatomic) NSDate *now;
+@property (nonatomic) double completionDelayForTesting;
+@property (readonly, nonatomic, getter=isTesting) BOOL testing;
+
+- (id)observeSignificantTimeChangeWithIdentifier:(id)a0 handler:(id /* block */)a1;
+- (void)willUnblank;
+- (void)startSuppressionServiceWithHandler:(id /* block */)a0;
+- (void)didCompleteTransitionToDisplayMode:(long long)a0 withError:(id)a1;
+- (id)createSystemActivityAssertionWithIdentifier:(id)a0;
+- (void)switchToFlipbookState:(long long)a0;
+- (id)initWithPlatformProvider:(id)a0;
+- (void)didDetectSignificantUserInteraction;
+- (id)addSceneObserver:(id)a0 forSceneIdentityToken:(id)a1;
+- (void)registerSceneWorkspace:(id)a0;
+- (id)identifier;
+- (BOOL)isTailspinAvailable;
+- (void)endSuppressionService;
+- (void)abortForWatchdog:(unsigned long long)a0 payload:(void *)a1 payloadSize:(unsigned int)a2 explanation:(id)a3;
+- (void)dispatchToMainQueueAfterSecondsDelay:(double)a0 identifier:(id)a1 block:(id /* block */)a2;
+- (BOOL)panicForWatchdog:(id)a0;
+- (void)setShowingBlankingWindow:(BOOL)a0 fadeDuration:(double)a1;
+- (id)scheduleWatchdogWithDelegate:(id)a0 explanation:(id)a1 timeout:(double)a2;
+- (id)systemSleepMonitor;
+- (void)registerHandlersForService:(id)a0;
+- (void)deregisterSceneWorkspace:(id)a0;
+- (void).cxx_destruct;
+- (void)writeTailspinForWatchdog:(id)a0 completion:(id /* block */)a1;
+- (void)didCompleteSwitchToFlipbookState:(long long)a0 withError:(id)a1;
+- (id)createFlipbook;
+- (void)transitionToDisplayMode:(long long)a0 withDuration:(double)a1;
+- (id)createPowerAssertionWithIdentifier:(id)a0;
+- (id)sceneWithIdentityToken:(id)a0;
+- (id)abortContext;
+- (id)removeSceneObserver:(id)a0 forSceneIdentityToken:(id)a1;
+- (id)osInterfaceProvider;
+
+@end

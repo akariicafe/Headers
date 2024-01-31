@@ -1,0 +1,3 @@
+@interface __PSUIPrefsListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

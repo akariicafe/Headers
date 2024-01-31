@@ -1,0 +1,82 @@
+@class PKInputPointWeightedAverageFilter, PKInputPointAltitudeAndAzimuthEdgeFilter, PKInputPointAltitudeAndAzimuthBucketingFilter, PKInputPointExtraLatencyFilter, UIView, NSString, UIHoverGestureRecognizer, PKInputPointAltitudeAndAzimuthZLimitFilter, NSTimer, PKInputPointPredictionFilter, NSAttributedString, NSArray, PKInputPointReduceFramerateFilter, CADisplayLink, PKInputPointAltitudeAndAzimuthNoiseFilter;
+@protocol PKHoverControllerDelegate;
+
+@interface PKHoverController : NSObject <PKPencilObserverGestureRecognizerDelegate, PKInputPointAltitudeAndAzimuthEdgeFilterDelegate> {
+    struct { unsigned char delegateSupportsDidBegin : 1; unsigned char delegateSupportsDidUpdate : 1; unsigned char delegateSupportsDidEnd : 1; unsigned char delegateSupportsDidLift : 1; unsigned char delegateSupportsHoldGestureMeanInputPointLatestInputPoint : 1; unsigned char delegateSupportsHoldGestureEnded : 1; unsigned char delegateSupportsIntentionalHoverWithDuration : 1; unsigned char delegateSupportsShouldBeActiveAt : 1; } _delegateFlags;
+    struct { unsigned char gestureSupportsAzimuth : 1; unsigned char gestureSupportsAltitude : 1; unsigned char gestureSupportsTimestamp : 1; unsigned char gestureSupportsZOffset : 1; } _gestureRecognizerFlags;
+    UIView *_view;
+    struct vector<PKInputPoint, std::allocator<PKInputPoint>> { struct *__begin_; struct *__end_; struct __compressed_pair<PKInputPoint *, std::allocator<PKInputPoint>> { struct *__value_; } __end_cap_; } _inputPoints;
+    BOOL _activeInputPoint;
+    BOOL _activeHoverHold;
+    BOOL _waitingForHoverHold;
+    double _waitingForHoverHoldTimestamp;
+    double _latestInputPointTimestamp;
+    double _latestHoldTimestamp;
+    double _latestInputPointSentTimestamp;
+    struct { union { struct CGPoint { double x; double y; } point; struct CGPoint { double x; double y; } location; } ; double force; double azimuth; double altitude; double velocity; double directionAngle; double zPosition; double timestamp; BOOL predicted; long long estimationUpdateIndex; double length; BOOL hasEstimatedAltitudeAndAzimuth; } _cachedLatestInputPoint;
+    struct CGPoint { double x; double y; } _latestHoldLocation;
+    double _latestHoldZPosition;
+    BOOL _didPauseOtherControllers;
+    BOOL _isPaused;
+    UIView *_hoverLabelView;
+    unsigned long long _currentInputPointCounter;
+    UIHoverGestureRecognizer *_gestureRecognizer;
+    NSTimer *_eventGeneratorTimer;
+    PKInputPointWeightedAverageFilter *_weightedAverageFilter;
+    PKInputPointAltitudeAndAzimuthNoiseFilter *_altitudeAndAzimuthNoiseFilter;
+    PKInputPointAltitudeAndAzimuthBucketingFilter *_altitudeAndAzimuthBucketingFilter;
+    PKInputPointAltitudeAndAzimuthZLimitFilter *_altitudeAndAzimuthZLimitFilter;
+    PKInputPointAltitudeAndAzimuthEdgeFilter *_altitudeAndAzimuthEdgeFilter;
+    PKInputPointExtraLatencyFilter *_extraLatencyFilter;
+    PKInputPointReduceFramerateFilter *_reduceFramerateFilter;
+    PKInputPointPredictionFilter *_predictionFilter;
+    NSArray *_allInputPointFilters;
+    double _intentionalHoverStartTimestamp;
+    double _intentionalHoverMinZValue;
+    double _intentionalHoverMaxZValue;
+    BOOL _didReceiveNewPointToPredict;
+    double _timestampForLatestGestureUpdate;
+    CADisplayLink *_displayLink;
+    BOOL _shouldShowHoverDebugLayer;
+    BOOL _hasSeenAnyHoverEvent;
+    BOOL _hasSeenAnyHoverEventWithAltitude;
+    BOOL _shouldLogHoverEvents;
+    BOOL _shouldGenerate120HzEvents;
+    id<PKHoverControllerDelegate> _delegate;
+    NSAttributedString *_currentLabel;
+    double _maximumTimeIntervalBetweenEvents;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)gestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)_resume:(id)a0;
+- (id).cxx_construct;
+- (BOOL)gestureRecognizer:(id)a0 shouldBeRequiredToFailByGestureRecognizer:(id)a1;
+- (void).cxx_destruct;
+- (BOOL)gestureRecognizer:(id)a0 shouldRequireFailureOfGestureRecognizer:(id)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)_pause:(id)a0;
+- (void)_sendDidUpdate:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)_endIntentionalHoverTracking;
+- (void)_handleHoverInputPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)_hoverGesture:(id)a0;
+- (void)_sendDidUpdateNow:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)_setupHoverGestureRecognizerInView:(id)a0;
+- (void)_setupPredictorForNewPoint:(BOOL)a0;
+- (void)_trackIntentionalHover:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)_triggerHoldGestureIfNecessary;
+- (void)_updateInputPointFilters;
+- (void)checkDidLiftAfterGestureEnd;
+- (struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })currentInputPoint;
+- (double)currentMovementSpeed;
+- (void)hideLabel;
+- (double)inputPointFilter:(id)a0 distanceToEdge:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a1;
+- (void)logInputPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)updateCurrentInputPointWithInputPoint:(struct { union { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; double x1; double x2; double x3; double x4; double x5; double x6; double x7; BOOL x8; long long x9; double x10; BOOL x11; })a0;
+- (void)vsync:(double)a0;
+
+@end

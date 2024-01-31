@@ -1,0 +1,3 @@
+@interface __SBFluidSwitcherTitledButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

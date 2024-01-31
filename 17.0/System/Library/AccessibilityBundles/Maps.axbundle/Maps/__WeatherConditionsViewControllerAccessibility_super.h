@@ -1,0 +1,3 @@
+@interface __WeatherConditionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

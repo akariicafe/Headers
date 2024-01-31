@@ -1,0 +1,72 @@
+@class GKLeaderboardEntry, NSString, NSArray, NSSet, GKLeaderboard, NSMutableSet, UICollectionView, GKLeaderboardAddFriendsCell;
+@protocol GKLeaderboardScoreDelegate;
+
+@interface GKLeaderboardScoreDataSource : GKGameLayerCollectionDataSource
+
+@property (retain, nonatomic) NSArray *entries;
+@property (nonatomic) BOOL isLoadingData;
+@property (nonatomic) BOOL isLoadingNextData;
+@property (nonatomic) BOOL isLoadingPreviousData;
+@property (retain, nonatomic) NSString *additionalNextDataLoadToken;
+@property (retain, nonatomic) NSString *additionalPreviousDataLoadToken;
+@property (nonatomic) long long topLoadingCellItem;
+@property (nonatomic) long long bottomLoadingCellItem;
+@property (nonatomic) long long addFriendCellItem;
+@property (nonatomic) long long noFriendsCellItem;
+@property (nonatomic) long long maxRange;
+@property (retain, nonatomic) GKLeaderboardEntry *localPlayerEntry;
+@property (weak, nonatomic) UICollectionView *collectionView;
+@property (nonatomic) long long friendCount;
+@property (nonatomic) BOOL firstLoad;
+@property (retain, nonatomic) NSSet *localPlayerFriendIDs;
+@property (retain, nonatomic) GKLeaderboardAddFriendsCell *sizingAddFriendsCell;
+@property (nonatomic) BOOL shouldDisplayFriendSuggestions;
+@property (retain, nonatomic) NSArray *friendSuggestions;
+@property (nonatomic) BOOL showingAllFriendSuggestions;
+@property (retain, nonatomic) NSMutableSet *invitedFriendContactIdentifiers;
+@property (retain, nonatomic) GKLeaderboard *leaderboard;
+@property (nonatomic) long long playerScope;
+@property (nonatomic) long long timeScope;
+@property (nonatomic) BOOL restrictToFriendsOnly;
+@property (nonatomic) long long leaderboardOccurrence;
+@property (weak, nonatomic) id<GKLeaderboardScoreDelegate> leaderboardScoreDelegate;
+@property (nonatomic) long long startingRank;
+@property (nonatomic) BOOL autoScrollToLocalPlayerPosition;
+@property (copy, nonatomic) id /* block */ inviteFriendHandler;
+
+- (long long)itemCount;
+- (id)collectionView:(id)a0 previewForHighlightingContextMenuWithConfiguration:(id)a1;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (double)collectionView:(id)a0 layout:(id)a1 minimumLineSpacingForSectionAtIndex:(long long)a2;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForHeaderInSection:(long long)a2;
+- (id)collectionView:(id)a0 previewForDismissingContextMenuWithConfiguration:(id)a1;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 referenceSizeForFooterInSection:(long long)a2;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })collectionView:(id)a0 layout:(id)a1 insetForSectionAtIndex:(long long)a2;
+- (id)collectionView:(id)a0 contextMenuConfigurationForItemAtIndexPath:(id)a1 point:(struct CGPoint { double x0; double x1; })a2;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (void)loadDataWithCompletionHandler:(id /* block */)a0;
+- (void)collectionView:(id)a0 willPerformPreviewActionForMenuWithConfiguration:(id)a1 animator:(id)a2;
+- (BOOL)hasData;
+- (void).cxx_destruct;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)scrollViewDidScroll:(id)a0;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (double)cellSpacing;
+- (id)initWithGameRecord:(id)a0 leaderboard:(id)a1;
+- (id)addInvitedFriendContactIdentifier:(id)a0;
+- (long long)friendSuggestionsCount;
+- (void)handleSelectionInCollectionView:(id)a0 forItemAtIndexPath:(id)a1;
+- (id)indexPathForPlayerId:(id)a0;
+- (id)itemForIndexPath:(id)a0;
+- (void)loadInitialDataWithCompletionHandler:(id /* block */)a0;
+- (void)loadMoreDataWithStartIndex:(long long)a0 completionHandler:(id /* block */)a1;
+- (id)localPlayerEntryIndexPath;
+- (id)makeContextMenuForCell:(id)a0 withScore:(id)a1;
+- (void)presentFriendInvite;
+- (void)processEntries:(id)a0 localPlayerEntry:(id)a1 totalPlayerCount:(long long)a2 error:(id)a3 completionHandler:(id /* block */)a4;
+- (void)setupCollectionView:(id)a0;
+- (id)targetedPreviewForUIContextMenuConfiguration:(id)a0 inCollectionView:(id)a1;
+
+@end

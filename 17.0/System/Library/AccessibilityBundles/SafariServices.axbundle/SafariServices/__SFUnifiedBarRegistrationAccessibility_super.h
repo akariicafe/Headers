@@ -1,0 +1,3 @@
+@interface __SFUnifiedBarRegistrationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface SBPortalHostWindow : SBFTouchPassThroughWindow
+
+@end

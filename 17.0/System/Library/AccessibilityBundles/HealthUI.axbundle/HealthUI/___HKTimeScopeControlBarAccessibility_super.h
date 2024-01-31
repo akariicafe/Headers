@@ -1,0 +1,3 @@
+@interface ___HKTimeScopeControlBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

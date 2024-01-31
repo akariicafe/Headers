@@ -1,0 +1,18 @@
+@class NSString;
+
+@interface MenstrualCyclesAppPlugin.CycleChartSectionView : MenstrualCyclesAppPlugin.CycleChart {
+    void /* unknown type, empty encoding */ role;
+    void /* unknown type, empty encoding */ header;
+    void /* unknown type, empty encoding */ footer;
+    void /* unknown type, empty encoding */ cycle;
+    void /* unknown type, empty encoding */ dayProvider;
+}
+
+@property (nonatomic, readonly) NSString *description;
+
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

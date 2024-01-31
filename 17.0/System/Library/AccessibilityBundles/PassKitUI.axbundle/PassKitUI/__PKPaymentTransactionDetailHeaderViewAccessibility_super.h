@@ -1,0 +1,3 @@
+@interface __PKPaymentTransactionDetailHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

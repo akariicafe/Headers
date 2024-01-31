@@ -1,0 +1,3 @@
+@interface __CFXEffectBrowserViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

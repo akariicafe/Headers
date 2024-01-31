@@ -1,0 +1,3 @@
+@interface __PKSearchSuggestionCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SmallLockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __QuerySuggestionCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ProductCapabilityCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

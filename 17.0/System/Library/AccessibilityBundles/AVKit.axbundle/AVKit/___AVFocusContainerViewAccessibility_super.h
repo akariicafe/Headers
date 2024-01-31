@@ -1,0 +1,3 @@
+@interface ___AVFocusContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

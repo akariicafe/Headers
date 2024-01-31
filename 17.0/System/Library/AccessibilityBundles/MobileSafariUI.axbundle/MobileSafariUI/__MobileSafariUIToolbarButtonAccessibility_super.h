@@ -1,0 +1,3 @@
+@interface __MobileSafariUIToolbarButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PXSearchSuggestionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

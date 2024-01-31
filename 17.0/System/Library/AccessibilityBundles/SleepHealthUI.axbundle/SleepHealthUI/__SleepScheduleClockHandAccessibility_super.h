@@ -1,0 +1,3 @@
+@interface __SleepScheduleClockHandAccessibility_super : UIAccessibilitySafeCategory
+
+@end

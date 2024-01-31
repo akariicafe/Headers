@@ -1,0 +1,3 @@
+@interface __MapsUserLocationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __STUIStatusBarBluetoothItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

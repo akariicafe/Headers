@@ -1,0 +1,3 @@
+@interface __HUTimerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,24 @@
+@class NSMutableDictionary, RBSProcessMonitor;
+@protocol ARProcessMonitorStateChangeDelegate;
+
+@interface ARProcessMonitor : NSObject {
+    RBSProcessMonitor *_processMonitor;
+    NSMutableDictionary *_pidsToObserve;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _pidsLock;
+}
+
+@property (weak, nonatomic) id<ARProcessMonitorStateChangeDelegate> delegate;
+
++ (BOOL)processIsDaemon:(int)a0 error:(out id *)a1;
+
+- (id)init;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)handleStateUpdate:(id)a0;
+- (void)startMonitoringImmersiveStatusForPID:(int)a0 withServices:(id)a1;
+- (void)startMonitoringPID:(int)a0;
+- (void)stopMonitoringImmersiveStatusForPID:(int)a0;
+- (void)stopMonitoringPID:(int)a0;
+- (void)updateProcessMonitorConfig:(id)a0 withPredicates:(id)a1;
+
+@end

@@ -1,0 +1,10 @@
+@interface NewsFeed.FormatGroupNodeMaskStyle : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _identifier;
+    void /* unknown type, empty encoding */ class;
+    void /* unknown type, empty encoding */ _selectors;
+    void /* unknown type, empty encoding */ path;
+    void /* unknown type, empty encoding */ borders;
+    void /* unknown type, empty encoding */ shadow;
+}
+
+@end

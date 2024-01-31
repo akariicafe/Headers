@@ -1,0 +1,96 @@
+@class NSString, EKInviteeAlternativeTimeSearcher, CUIKCalendarModel, NSDate, EKUIInviteesViewAllInviteesCanAttendSection, EKEvent, EKUIEventStatusButtonsView, EKUIEmailCompositionManager, NSTimer, EKUIInviteesViewAvailabilitySection, EKUIInviteesViewOriginalConflictSection, NSArray, EKUIInviteesViewSomeInviteesCanAttendSection, UIActivityIndicatorView, SingleToolbarItemContainerView, EKEventDateEditItem;
+@protocol EKEditItemViewControllerDelegate;
+
+@interface EKEventProposeNewTimeViewController : UITableViewController <EKEditItemViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, EKCalendarItemEditItemDelegate, EKEventDateEditItemDelegate, EKUIEventStatusButtonsViewDelegate, EKEditItemViewControllerProtocol> {
+    CUIKCalendarModel *_model;
+}
+
+@property (retain, nonatomic) NSDate *originalDate;
+@property (nonatomic) BOOL resetConflictResolutionSections;
+@property (nonatomic) BOOL viewIsVisible;
+@property (retain, nonatomic) EKEvent *event;
+@property (retain, nonatomic) EKUIEventStatusButtonsView *statusButtonsView;
+@property (retain, nonatomic) SingleToolbarItemContainerView *statusButtonsContainerView;
+@property (nonatomic) double statusButtonsViewCachedFontSize;
+@property (retain, nonatomic) NSDate *proposedStartDate;
+@property (retain, nonatomic) UIActivityIndicatorView *availabilitySearcherRunningSpinner;
+@property (retain, nonatomic) NSTimer *availabilitySearcherRunningSpinnerTimer;
+@property (retain, nonatomic) NSArray *sections;
+@property (retain, nonatomic) EKEventDateEditItem *proposeTimeItem;
+@property (retain, nonatomic) EKUIInviteesViewOriginalConflictSection *originalConflictSection;
+@property (retain, nonatomic) EKUIInviteesViewSomeInviteesCanAttendSection *someInviteesCanAttendSection;
+@property (retain, nonatomic) EKUIInviteesViewAllInviteesCanAttendSection *allInviteesCanAttendSection;
+@property (retain, nonatomic) EKUIInviteesViewAvailabilitySection *viewAvailabilitySection;
+@property (retain, nonatomic) EKInviteeAlternativeTimeSearcher *availabilitySearcher;
+@property (retain, nonatomic) EKUIEmailCompositionManager *messageSendingManager;
+@property (readonly, nonatomic) NSDate *selectedStartDate;
+@property (readonly, nonatomic) NSDate *selectedEndDate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<EKEditItemViewControllerDelegate> editDelegate;
+@property (nonatomic) BOOL presentModally;
+@property (nonatomic) BOOL editItemShouldBeAskedForInjectableViewController;
+@property (nonatomic) BOOL useCustomBackButton;
+
++ (id)_participantsInArray:(id)a0 thatAreNotInArray:(id)a1;
+
+- (id)tableView:(id)a0 willSelectRowAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)dealloc;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewWillLayoutSubviews;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (id)tableView:(id)a0 titleForHeaderInSection:(long long)a1;
+- (double)tableView:(id)a0 estimatedHeightForRowAtIndexPath:(id)a1;
+- (void)loadView;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)editItemViewControllerShouldShowDetachAlert;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)_refreshIfNeeded;
+- (void)_dismiss:(id)a0;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 commitEditingStyle:(long long)a1 forRowAtIndexPath:(id)a2;
+- (void)tableView:(id)a0 didDeselectRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 willDisplayHeaderView:(id)a1 forSection:(long long)a2;
+- (void)_presentViewController:(id)a0;
+- (id)_sectionForIndex:(unsigned long long)a0;
+- (void)_eventModified:(id)a0;
+- (void)updateCheckmark;
+- (void)_cancelAvailabilitySpinnerTimer;
+- (void)_dismissPresentedViewControllerAnimated:(BOOL)a0;
+- (void)_fontSizeDefinitionsChanged:(id)a0;
+- (long long)_indexForSection:(id)a0;
+- (void)_scheduleAvailabilitySpinnerTimer;
+- (void)_searcherStateChanged:(long long)a0;
+- (id)_statusButtons;
+- (void)_updateStatusButtons;
+- (id)_viewControllerForPresentingViewControllers;
+- (void)availabilityDateChangedTo:(id)a0;
+- (void)dateChangedTo:(id)a0;
+- (id)defaultAlertTitleForEditItem:(id)a0;
+- (void)editItem:(id)a0 wantsDoneButtonDisabled:(BOOL)a1;
+- (void)editItem:(id)a0 wantsRowInsertions:(id)a1 rowDeletions:(id)a2;
+- (void)editItem:(id)a0 wantsRowsScrolledToVisible:(id)a1;
+- (id)editItemEventToDetach;
+- (void)editItemRequiresHeightChange:(id)a0;
+- (void)editItemViewController:(id)a0 didCompleteWithAction:(int)a1;
+- (void)eventStatusButtonsView:(id)a0 calculatedFontSizeToFit:(double)a1;
+- (void)eventStatusButtonsView:(id)a0 didSelectAction:(long long)a1 appliesToAll:(BOOL)a2 ifCancelled:(id /* block */)a3;
+- (double)eventStatusButtonsViewButtonFontSize:(id)a0;
+- (id)initWithEvent:(id)a0 model:(id)a1;
+- (BOOL)proposedTimeChanged;
+- (void)resetBackgroundColor;
+- (void)updateCustomBackButton;
+- (void)viewAvailabilityTapped;
+
+@end

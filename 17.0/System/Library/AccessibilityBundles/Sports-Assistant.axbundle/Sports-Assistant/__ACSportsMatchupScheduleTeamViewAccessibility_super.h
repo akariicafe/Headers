@@ -1,0 +1,3 @@
+@interface __ACSportsMatchupScheduleTeamViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

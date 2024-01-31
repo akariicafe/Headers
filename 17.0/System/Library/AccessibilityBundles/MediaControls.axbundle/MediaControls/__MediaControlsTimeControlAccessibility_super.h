@@ -1,0 +1,3 @@
+@interface __MediaControlsTimeControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

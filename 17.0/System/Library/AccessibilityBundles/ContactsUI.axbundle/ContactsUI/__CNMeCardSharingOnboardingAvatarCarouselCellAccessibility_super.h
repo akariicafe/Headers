@@ -1,0 +1,3 @@
+@interface __CNMeCardSharingOnboardingAvatarCarouselCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

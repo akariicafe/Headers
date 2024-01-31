@@ -1,0 +1,3 @@
+@interface __BTSDevicesControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

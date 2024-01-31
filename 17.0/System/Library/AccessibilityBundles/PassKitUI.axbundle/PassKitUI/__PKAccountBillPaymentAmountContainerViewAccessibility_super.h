@@ -1,0 +1,3 @@
+@interface __PKAccountBillPaymentAmountContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

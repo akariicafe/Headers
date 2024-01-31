@@ -1,0 +1,3 @@
+@interface __SBHViewControllerTransitionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

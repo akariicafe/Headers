@@ -1,0 +1,3 @@
+@interface __LARGBCaptureSelfieVCAccessibility_super : UIAccessibilitySafeCategory
+
+@end

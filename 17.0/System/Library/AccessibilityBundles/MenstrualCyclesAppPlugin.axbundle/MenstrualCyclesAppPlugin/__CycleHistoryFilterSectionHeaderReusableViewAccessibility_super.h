@@ -1,0 +1,3 @@
+@interface __CycleHistoryFilterSectionHeaderReusableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

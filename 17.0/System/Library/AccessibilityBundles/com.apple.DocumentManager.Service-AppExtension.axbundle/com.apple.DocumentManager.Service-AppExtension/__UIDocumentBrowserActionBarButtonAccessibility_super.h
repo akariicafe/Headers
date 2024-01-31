@@ -1,0 +1,3 @@
+@interface __UIDocumentBrowserActionBarButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

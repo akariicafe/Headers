@@ -1,0 +1,3 @@
+@interface ___UIPopoverViewBackgroundComponentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,81 @@
+@class SBSceneBackgroundedStatusAssertion, NSString, SBWorkspaceApplicationSceneTransitionContext, NSSet, FBSynchronizedTransactionGroup, SBWorkspaceTransitionRequest, NSMutableSet, SBSceneLayoutSynchronizeTransitionTransaction;
+@protocol FBSynchronizedTransactionDelegate, BSInvalidatable, SBSceneLayoutWorkspaceTransactionDelegate;
+
+@interface SBSceneLayoutWorkspaceTransaction : SBWorkspaceTransaction <FBSynchronizedTransactionGroupDelegate, FBApplicationUpdateScenesTransactionObserver, FBSynchronizedTransaction> {
+    id<BSInvalidatable> _displayLayoutTransitionAssertion;
+    NSString *_preferredDisplayLayoutTransitionReason;
+    BOOL _transitionFailed;
+    BOOL _delegateTransitionComplete;
+    BOOL _performSceneUpdates;
+    BOOL _waitForSceneUpdates;
+    BOOL _waitingForSynchronizedCommit;
+    SBSceneLayoutSynchronizeTransitionTransaction *_synchronizePrepareTransitionTransaction;
+    SBSceneLayoutSynchronizeTransitionTransaction *_synchronizeSendActivationResultTransaction;
+    SBSceneLayoutSynchronizeTransitionTransaction *_synchronizeBeginTransitionTransaction;
+    SBSceneLayoutSynchronizeTransitionTransaction *_synchronizeAddSlavesTransaction;
+    FBSynchronizedTransactionGroup *_sceneUpdateTransactionGroup;
+    SBSceneBackgroundedStatusAssertion *_scenesBackgroundedStatusAssertion;
+    NSMutableSet *_toAppSceneEntities;
+    NSMutableSet *_fromAppSceneEntities;
+    NSMutableSet *_foregroundingAppSceneEntities;
+    NSMutableSet *_backgroundingAppSceneEntities;
+    NSMutableSet *_scenesToBackground;
+    SBWorkspaceTransitionRequest *_interruptingTransitionRequest;
+}
+
+@property (weak, nonatomic) id<SBSceneLayoutWorkspaceTransactionDelegate> delegate;
+@property (nonatomic) unsigned long long options;
+@property (readonly, nonatomic, getter=isTransitioning) BOOL transitioning;
+@property (readonly, nonatomic) SBWorkspaceApplicationSceneTransitionContext *transitionContext;
+@property (readonly, nonatomic) NSMutableSet *sceneUpdateTransactions;
+@property (readonly, nonatomic) NSSet *toApplicationSceneEntities;
+@property (readonly, nonatomic) NSSet *fromApplicationSceneEntities;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<FBSynchronizedTransactionDelegate> synchronizationDelegate;
+
+- (void)_didComplete;
+- (BOOL)_canBeInterrupted;
+- (void)_sendActivationResultWithError:(id)a0;
+- (void)_completeTransition;
+- (BOOL)_shouldKeepSceneForSceneHandleForeground:(id)a0;
+- (BOOL)isReadyForSynchronizedCommit;
+- (void)_childTransactionDidComplete:(id)a0;
+- (void)_begin;
+- (id)_defaultDisplayLayoutTransitionReason;
+- (void)dealloc;
+- (void)transaction:(id)a0 didLaunchProcess:(id)a1;
+- (void)_willBegin;
+- (BOOL)canInterruptForTransitionRequest:(id)a0;
+- (void)synchronizedTransaction:(id)a0 didCommitSynchronizedTransactions:(id)a1;
+- (void)_captureAppsForTransition;
+- (void)synchronizedTransaction:(id)a0 willCommitSynchronizedTransactions:(id)a1;
+- (void)_updateKeyboardContextMaskStyles:(BOOL)a0;
+- (void)_prepareLayoutTransition;
+- (void)_updateScenesForTransitionCompletion;
+- (id)sceneManager;
+- (void)transaction:(id)a0 willUpdateScene:(id)a1;
+- (void)transaction:(id)a0 willCommitSceneUpdate:(id)a1;
+- (void)transaction:(id)a0 didCommitSceneUpdate:(id)a1;
+- (void)synchronizedTransactionReadyToCommit:(id)a0;
+- (BOOL)_runningOnMainRootOrExtendedExternalDisplay;
+- (void)_evaluateTransitionCompletion;
+- (void).cxx_destruct;
+- (BOOL)synchronizedTransactionGroup:(id)a0 shouldFailForSynchronizedTransaction:(id)a1;
+- (void)_updatePreferredDisplayLayoutTransitionReason:(id)a0;
+- (void)_prepareScenesForSceneUpdates;
+- (void)transaction:(id)a0 willLaunchProcess:(id)a1;
+- (void)performSynchronizedCommit;
+- (void)transaction:(id)a0 didCreateScene:(id)a1;
+- (void)_willInterruptWithReason:(id)a0;
+- (void)_beginLayoutTransition;
+- (void)_prepareScenesForTransition;
+- (void)_willFailWithReason:(id)a0;
+- (BOOL)_overrideInterfaceOrientationForOrientationMismatch:(long long *)a0;
+- (BOOL)_sceneEntities:(id)a0 hasEntityRepresentingSceneID:(id)a1;
+- (id)initWithTransitionRequest:(id)a0 delegate:(id)a1;
+- (void)_performTransition;
+
+@end

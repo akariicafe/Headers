@@ -1,0 +1,3 @@
+@interface _TtC21VisionHealthAppPluginP33_DE7071265AE73D1745B5372E4CC6AEAF19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

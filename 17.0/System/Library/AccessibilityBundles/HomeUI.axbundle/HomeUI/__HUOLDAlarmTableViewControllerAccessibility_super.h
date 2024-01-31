@@ -1,0 +1,3 @@
+@interface __HUOLDAlarmTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

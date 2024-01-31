@@ -1,0 +1,3 @@
+@interface __HUQuickControlRingSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

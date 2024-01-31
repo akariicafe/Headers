@@ -1,0 +1,3 @@
+@interface SNMLModelFactory : NSObject
+
+@end

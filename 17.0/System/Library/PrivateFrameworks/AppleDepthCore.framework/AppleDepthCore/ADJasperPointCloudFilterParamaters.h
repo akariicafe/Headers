@@ -1,0 +1,3 @@
+@interface ADJasperPointCloudFilterParamaters : ADJasperPointCloudFilterParameters
+
+@end

@@ -1,0 +1,3 @@
+@interface __MomentsIndicatorBubbleAccessibility_super : UIAccessibilitySafeCategory
+
+@end

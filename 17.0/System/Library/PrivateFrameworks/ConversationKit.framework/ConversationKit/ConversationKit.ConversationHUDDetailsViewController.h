@@ -1,0 +1,19 @@
+@interface ConversationKit.ConversationHUDDetailsViewController : UIViewController <CNKSceneVisibilityHandler> {
+    void /* unknown type, empty encoding */ detailsDelegate;
+    void /* unknown type, empty encoding */ controlsManager;
+    void /* unknown type, empty encoding */ linkShareCoordinator;
+    void /* unknown type, empty encoding */ detailsViewController;
+    void /* unknown type, empty encoding */ peoplePickerViewController;
+}
+
+@property (nonatomic) void /* unknown type, empty encoding */ isOnScreen;
+
+- (void)dismissPeoplePicker;
+- (void)viewDidLoad;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)initWithCoder:(id)a0;
+
+@end

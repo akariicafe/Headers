@@ -1,0 +1,3 @@
+@interface __UIKeyboardSceneDelegateAccessibility_super : UIAccessibilitySafeCategory
+
+@end

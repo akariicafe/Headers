@@ -1,0 +1,3 @@
+@interface __CKMessageEntryRecordedAudioViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

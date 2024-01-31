@@ -1,0 +1,3 @@
+@interface __DetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

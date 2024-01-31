@@ -1,0 +1,3 @@
+@interface __HomeScreenConfigurationBlurControlContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

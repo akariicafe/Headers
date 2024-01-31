@@ -1,0 +1,3 @@
+@interface __HUQuickControlContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

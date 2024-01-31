@@ -1,0 +1,3 @@
+@interface WidgetKit.CornerMonoClockComplicationFontDefinition : WidgetKit.CornerSemiboldClockComplicationFontDefinition
+
+@end

@@ -1,0 +1,3 @@
+@interface __HUNaturalLightColorSwatchViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

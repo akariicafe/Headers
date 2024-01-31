@@ -1,0 +1,3 @@
+@interface __CNComposeTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

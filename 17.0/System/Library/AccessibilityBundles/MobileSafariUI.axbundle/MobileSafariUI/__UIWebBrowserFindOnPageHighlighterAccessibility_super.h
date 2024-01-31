@@ -1,0 +1,3 @@
+@interface __UIWebBrowserFindOnPageHighlighterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

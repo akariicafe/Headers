@@ -1,0 +1,3 @@
+@interface __CKPhotoStackBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

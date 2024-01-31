@@ -1,0 +1,3 @@
+@interface __LargeWeekViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

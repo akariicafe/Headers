@@ -1,0 +1,3 @@
+@interface __ContinuousReadingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIBarButtonItemAccessibility__DocumentManager__UIKit_super : UIAccessibilitySafeCategory
+
+@end

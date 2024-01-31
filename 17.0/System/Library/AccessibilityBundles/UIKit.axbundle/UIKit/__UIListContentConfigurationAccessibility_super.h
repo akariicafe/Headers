@@ -1,0 +1,3 @@
+@interface __UIListContentConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AVTSimpleAvatarPickerHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

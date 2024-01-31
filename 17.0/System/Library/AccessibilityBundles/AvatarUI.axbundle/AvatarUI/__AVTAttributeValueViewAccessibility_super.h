@@ -1,0 +1,3 @@
+@interface __AVTAttributeValueViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

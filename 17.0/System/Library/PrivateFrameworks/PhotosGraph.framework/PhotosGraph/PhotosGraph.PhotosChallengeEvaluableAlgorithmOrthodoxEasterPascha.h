@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmOrthodoxEasterPascha : PhotosGraph.PhotosChallengeEvaluableHolidayAlgorithm
+
+@end

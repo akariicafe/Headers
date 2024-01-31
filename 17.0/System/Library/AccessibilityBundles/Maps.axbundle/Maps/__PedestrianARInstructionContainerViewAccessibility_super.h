@@ -1,0 +1,3 @@
+@interface __PedestrianARInstructionContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

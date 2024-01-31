@@ -1,0 +1,3 @@
+@interface __ConversationHUDControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

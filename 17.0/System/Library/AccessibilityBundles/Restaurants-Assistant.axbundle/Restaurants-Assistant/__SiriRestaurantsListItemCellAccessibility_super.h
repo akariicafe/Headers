@@ -1,0 +1,3 @@
+@interface __SiriRestaurantsListItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

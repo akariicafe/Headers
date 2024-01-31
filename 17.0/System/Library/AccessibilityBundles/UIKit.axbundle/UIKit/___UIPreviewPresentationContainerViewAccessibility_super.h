@@ -1,0 +1,3 @@
+@interface ___UIPreviewPresentationContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

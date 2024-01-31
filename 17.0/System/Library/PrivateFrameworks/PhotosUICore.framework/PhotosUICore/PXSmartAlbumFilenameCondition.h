@@ -1,0 +1,5 @@
+@interface PXSmartAlbumFilenameCondition : PXSmartAlbumStringValueCondition
+
++ (id)defaultSingleQueryForEditingContext:(id)a0;
+
+@end

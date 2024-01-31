@@ -1,0 +1,3 @@
+@interface __SUUIShelfCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

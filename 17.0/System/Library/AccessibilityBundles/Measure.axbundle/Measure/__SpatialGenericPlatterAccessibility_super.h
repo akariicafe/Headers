@@ -1,0 +1,3 @@
+@interface __SpatialGenericPlatterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

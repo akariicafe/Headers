@@ -1,0 +1,3 @@
+@interface __PKPaymentSetupHeroViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

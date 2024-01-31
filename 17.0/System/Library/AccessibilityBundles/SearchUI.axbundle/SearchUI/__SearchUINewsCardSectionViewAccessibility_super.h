@@ -1,0 +1,3 @@
+@interface __SearchUINewsCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

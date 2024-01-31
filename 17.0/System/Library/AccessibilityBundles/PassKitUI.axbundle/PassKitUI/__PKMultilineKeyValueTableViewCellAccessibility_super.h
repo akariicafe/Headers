@@ -1,0 +1,3 @@
+@interface __PKMultilineKeyValueTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

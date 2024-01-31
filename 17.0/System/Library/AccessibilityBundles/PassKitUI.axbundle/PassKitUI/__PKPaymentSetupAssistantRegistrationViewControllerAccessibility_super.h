@@ -1,0 +1,3 @@
+@interface __PKPaymentSetupAssistantRegistrationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

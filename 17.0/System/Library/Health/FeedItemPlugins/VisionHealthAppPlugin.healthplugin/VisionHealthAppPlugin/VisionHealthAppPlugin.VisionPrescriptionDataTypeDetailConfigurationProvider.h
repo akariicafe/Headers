@@ -1,0 +1,3 @@
+@interface VisionHealthAppPlugin.VisionPrescriptionDataTypeDetailConfigurationProvider : _TtCs12_SwiftObject
+
+@end

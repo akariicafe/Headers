@@ -1,0 +1,3 @@
+@interface __VerificationSummaryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

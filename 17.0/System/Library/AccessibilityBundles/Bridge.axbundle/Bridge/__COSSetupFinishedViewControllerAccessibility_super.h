@@ -1,0 +1,3 @@
+@interface __COSSetupFinishedViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

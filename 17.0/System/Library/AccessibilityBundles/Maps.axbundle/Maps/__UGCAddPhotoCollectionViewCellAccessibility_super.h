@@ -1,0 +1,3 @@
+@interface __UGCAddPhotoCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

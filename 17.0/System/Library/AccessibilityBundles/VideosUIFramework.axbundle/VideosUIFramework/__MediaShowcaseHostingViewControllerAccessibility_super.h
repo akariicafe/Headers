@@ -1,0 +1,3 @@
+@interface __MediaShowcaseHostingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

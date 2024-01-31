@@ -1,0 +1,3 @@
+@interface __SBUIPasscodeLockViewWithKeyboardAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBUIAnimationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

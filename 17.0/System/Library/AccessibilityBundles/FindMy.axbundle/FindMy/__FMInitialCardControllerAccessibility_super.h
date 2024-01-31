@@ -1,0 +1,3 @@
+@interface __FMInitialCardControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

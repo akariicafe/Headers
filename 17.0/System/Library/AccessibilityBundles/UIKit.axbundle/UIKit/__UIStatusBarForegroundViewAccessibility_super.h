@@ -1,0 +1,3 @@
+@interface __UIStatusBarForegroundViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

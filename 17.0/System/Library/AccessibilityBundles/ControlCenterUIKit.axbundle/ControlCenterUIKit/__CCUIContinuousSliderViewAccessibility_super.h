@@ -1,0 +1,3 @@
+@interface __CCUIContinuousSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

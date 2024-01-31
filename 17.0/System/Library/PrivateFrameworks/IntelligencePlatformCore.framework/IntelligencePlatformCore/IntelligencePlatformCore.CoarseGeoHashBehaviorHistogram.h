@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.CoarseGeoHashBehaviorHistogram : IntelligencePlatformCore.CategoricalBehaviorHistogramBase
+
+@end

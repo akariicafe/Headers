@@ -1,0 +1,3 @@
+@interface __PKEnterValueNewBalanceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

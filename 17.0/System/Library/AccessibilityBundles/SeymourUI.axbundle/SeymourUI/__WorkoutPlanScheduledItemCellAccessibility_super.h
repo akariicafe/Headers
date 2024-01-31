@@ -1,0 +1,3 @@
+@interface __WorkoutPlanScheduledItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

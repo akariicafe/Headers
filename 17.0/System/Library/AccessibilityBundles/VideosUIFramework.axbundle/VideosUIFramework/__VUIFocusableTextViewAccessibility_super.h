@@ -1,0 +1,3 @@
+@interface __VUIFocusableTextViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __DeviceInformationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

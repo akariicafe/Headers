@@ -1,0 +1,3 @@
+@interface __VUILibraryMenuItemViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

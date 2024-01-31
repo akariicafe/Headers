@@ -1,0 +1,93 @@
+@class NSString, AXUIClient, AXDispatchTimer, NSMutableArray, NSLock;
+
+@interface AXBHomeClickController : NSObject <AXUIClientDelegate> {
+    BOOL _isAlertVisible;
+    BOOL _isDisableSwitchAlertVisible;
+    NSString *_eventTapIdentifier;
+    NSMutableArray *_menuButtonClientIds;
+    NSLock *_menuButtonLock;
+    AXDispatchTimer *_writeLoginNoteTimer;
+    AXUIClient *_displayFilterUIClient;
+}
+
+@property (nonatomic) BOOL didShowHoldDurationTripleClickHelp;
+@property (nonatomic) BOOL isHearingAidControlVisible;
+@property (nonatomic) BOOL switchControlRendersDeviceUnusable;
+@property (nonatomic) BOOL switchControlHasScreenSwitch;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)controller;
++ (void)initializeMonitor;
+
+- (void)initialize;
+- (void)connectionWithServiceWasInterruptedForUserInterfaceClient:(id)a0;
+- (void).cxx_destruct;
+- (void)_promptToDisableBrightnessFilters:(id /* block */)a0 data:(id)a1;
+- (void)_toggleAssistiveTouch;
+- (void)_toggleClassicInvertColors;
+- (void)_toggleVoiceOver;
+- (void)_toggleZoom;
+- (void)_toggleLocalizationCaptionPanel;
+- (void)_appTransition;
+- (BOOL)_accessibilityIsFactoryDiskImagePresent;
+- (BOOL)_captureKeyboardCommands:(struct { int x0; int x1; struct CGPoint { double x0; double x1; } x2; struct CGPoint { double x0; double x1; } x3; unsigned int x4; unsigned long long x5; void *x6; int x7; int x8; unsigned int x9; unsigned long long x10; unsigned char x11[0]; } *)a0;
+- (BOOL)_checkIfZoomWasActivated:(id)a0 stealEvent:(BOOL *)a1;
+- (void)_didHideAlert;
+- (void)_disableSwitchControlWithHandler:(id /* block */)a0;
+- (id)_eventTapIdentifier;
+- (void)_fireHomeButtons:(BOOL)a0;
+- (void)_handleZoomActivationDuringBuddy;
+- (void)_handleZoomInBuddyAlertResult:(long long)a0;
+- (BOOL)_purpleBuddySetupComplete;
+- (void)_setHearingAidControlVisible:(BOOL)a0;
+- (void)_setVoiceOverWasToggledSinceBoot:(BOOL)a0;
+- (void)_showLookingGlassMenu;
+- (BOOL)_sideButtonEnabled;
+- (void)_springBoardDied:(id)a0;
+- (void)_startVoiceOverSequence;
+- (void)_toggleAssistiveTouchOffMainThread;
+- (void)_toggleBackgroundSounds;
+- (void)_toggleColorFilter;
+- (void)_toggleCommandAndControl;
+- (void)_toggleDetectionMode;
+- (void)_toggleDisplayAppearance;
+- (void)_toggleDisplayAskSheet;
+- (void)_toggleGrayscale;
+- (void)_toggleGuidedAccess;
+- (void)_toggleGuidedAccessBlock:(id /* block */)a0;
+- (void)_toggleHoverText;
+- (void)_toggleIncreaseContrast;
+- (void)_toggleLeftRightAudioBalance;
+- (void)_toggleLiveSpeech;
+- (void)_toggleLiveTranscription;
+- (void)_toggleMagnifier;
+- (void)_toggleReduceMotion;
+- (void)_toggleReduceTransparency;
+- (void)_toggleReduceWhitePoint;
+- (void)_toggleSwitchOver;
+- (void)_toggleSwitchOverOffMainThread;
+- (void)_toggleTouchAccommodations;
+- (void)_toggleTwiceRemoteScreeen;
+- (void)_toggleWatchControl;
+- (void)_toggleWhiteOnBlack;
+- (void)_toggleWhiteOnBlackOffMainThread;
+- (void)_toggleZoomOffMainThread;
+- (void)_triggerAppTransition;
+- (void)_updateBuddyVoiceOverStatus;
+- (void)_updateEventTapSettings;
+- (void)_updateHomeClickEnabled;
+- (void)_updateHomeClickSpeed;
+- (void)_updateTripleHomeSettings:(BOOL)a0;
+- (BOOL)_voiceOverWasToggledSinceBoot;
+- (id)_votExistsBreadCrumbFile;
+- (void)_willShowAlert;
+- (id)_writeLoginNoteTimer;
+- (void)_writeNoteToNewUserSession;
+- (BOOL)captureHomeClick:(id)a0;
+- (void)clearNoteToUserSession;
+- (id)displayFilterUIClient;
+
+@end

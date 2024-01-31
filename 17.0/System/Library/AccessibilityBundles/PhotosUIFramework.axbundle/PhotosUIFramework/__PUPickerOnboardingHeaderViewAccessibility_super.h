@@ -1,0 +1,3 @@
+@interface __PUPickerOnboardingHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

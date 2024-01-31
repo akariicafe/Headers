@@ -1,0 +1,17 @@
+@class CPLSyncSessionPrediction, NSHashTable;
+
+@interface CPLSyncSessionPredictor : NSObject {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSHashTable *_observers;
+}
+
+@property (readonly) CPLSyncSessionPrediction *currentPrediction;
+
+- (id)init;
+- (void)removeObserver:(id)a0;
+- (void)updatePredictionWithValuesAndTypes:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (void)addObserver:(id)a0;
+
+@end

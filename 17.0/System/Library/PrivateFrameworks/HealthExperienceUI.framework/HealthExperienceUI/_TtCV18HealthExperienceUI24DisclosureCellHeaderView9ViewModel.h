@@ -1,0 +1,3 @@
+@interface _TtCV18HealthExperienceUI24DisclosureCellHeaderView9ViewModel : HealthExperienceUI.CellHeaderViewModel
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIInputSetHostViewAccessibility__ChatKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

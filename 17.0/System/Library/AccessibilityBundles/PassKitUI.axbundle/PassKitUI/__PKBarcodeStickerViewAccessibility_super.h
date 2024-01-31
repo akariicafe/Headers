@@ -1,0 +1,3 @@
+@interface __PKBarcodeStickerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

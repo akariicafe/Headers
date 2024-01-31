@@ -1,0 +1,3 @@
+@interface __BucketCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

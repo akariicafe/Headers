@@ -1,0 +1,3 @@
+@interface __TKPickerDividerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

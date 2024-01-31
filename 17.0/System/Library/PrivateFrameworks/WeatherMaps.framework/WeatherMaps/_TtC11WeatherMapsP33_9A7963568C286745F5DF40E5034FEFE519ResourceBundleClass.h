@@ -1,0 +1,3 @@
+@interface _TtC11WeatherMapsP33_9A7963568C286745F5DF40E5034FEFE519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

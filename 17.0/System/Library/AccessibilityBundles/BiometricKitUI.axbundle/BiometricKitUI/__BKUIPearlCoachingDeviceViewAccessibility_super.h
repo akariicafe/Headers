@@ -1,0 +1,3 @@
+@interface __BKUIPearlCoachingDeviceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SFAirDropActiveIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

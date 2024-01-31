@@ -1,0 +1,3 @@
+@interface __SUUIProductPageTableUpdateHistorySectionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

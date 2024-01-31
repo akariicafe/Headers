@@ -1,0 +1,3 @@
+@interface __NFCCContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIDropShadowViewAccessibility_Maps_AppKit_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __BKUIJindoContainerScrollviewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

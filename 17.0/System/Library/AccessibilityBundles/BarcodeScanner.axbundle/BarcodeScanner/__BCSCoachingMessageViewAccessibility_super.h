@@ -1,0 +1,3 @@
+@interface __BCSCoachingMessageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

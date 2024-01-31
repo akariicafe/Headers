@@ -1,0 +1,3 @@
+@interface __PKNavigationDashboardPassViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

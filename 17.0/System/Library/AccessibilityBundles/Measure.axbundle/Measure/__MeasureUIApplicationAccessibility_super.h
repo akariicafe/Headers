@@ -1,0 +1,3 @@
+@interface __MeasureUIApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

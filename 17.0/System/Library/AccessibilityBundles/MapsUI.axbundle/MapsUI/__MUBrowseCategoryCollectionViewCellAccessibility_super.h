@@ -1,0 +1,3 @@
+@interface __MUBrowseCategoryCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

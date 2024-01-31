@@ -1,0 +1,3 @@
+@interface __SocialProfileArtworkEditorLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

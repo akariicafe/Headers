@@ -1,0 +1,3 @@
+@interface __SearchUITrailersCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

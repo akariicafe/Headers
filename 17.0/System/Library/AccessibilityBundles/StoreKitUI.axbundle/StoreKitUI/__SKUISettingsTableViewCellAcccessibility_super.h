@@ -1,0 +1,3 @@
+@interface __SKUISettingsTableViewCellAcccessibility_super : UIAccessibilitySafeCategory
+
+@end

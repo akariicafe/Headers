@@ -1,0 +1,3 @@
+@interface FBSWorkspaceCreateSceneResponse : FBSWorkspaceSceneUpdateResponse
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIStatusBarQuietModeItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

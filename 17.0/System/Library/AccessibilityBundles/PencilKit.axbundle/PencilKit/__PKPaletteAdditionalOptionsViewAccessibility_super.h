@@ -1,0 +1,3 @@
+@interface __PKPaletteAdditionalOptionsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

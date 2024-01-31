@@ -1,0 +1,3 @@
+@interface __CNAssistantSnippetViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

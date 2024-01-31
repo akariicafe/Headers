@@ -1,0 +1,3 @@
+@interface __SBHEditingWidgetButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

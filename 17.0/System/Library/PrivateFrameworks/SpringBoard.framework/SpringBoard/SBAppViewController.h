@@ -1,0 +1,85 @@
+@class UIView, NSString, SBDeviceApplicationSceneHandle, NSSet, SBApplicationSceneView, SBActivationSettings, NSMutableSet, SBDeviceApplicationSceneViewController;
+@protocol SBApplicationSceneViewControllingStatusBarDelegate, SBScenePlaceholderContentContext, SBAppViewControllerDelegate;
+
+@interface SBAppViewController : UIViewController <SBDeviceApplicationSceneHandleObserver, SBWorkspaceApplicationSceneTransitionContextDelegate, SBDeviceApplicationSceneViewControllerDelegate, SBApplicationSceneUpdateTransactionDelegate, SBApplicationHosting, SBApplicationSceneViewControlling, BSInvalidatable> {
+    NSString *_identifier;
+    SBDeviceApplicationSceneViewController *_deviceAppViewController;
+    SBActivationSettings *_activationSettings;
+    NSMutableSet *_activeTransitions;
+    BOOL _sceneContentIsReady;
+    BOOL _invalidated;
+}
+
+@property (weak, nonatomic) id<SBAppViewControllerDelegate> delegate;
+@property (nonatomic) BOOL automatesLifecycle;
+@property (nonatomic) long long requestedMode;
+@property (readonly, nonatomic) long long currentMode;
+@property (readonly, nonatomic) SBApplicationSceneView *appView;
+@property (nonatomic) BOOL ignoresOcclusions;
+@property (retain, nonatomic) NSSet *actionsToDeliver;
+@property (nonatomic) BOOL wantsSecureRendering;
+@property (nonatomic) BOOL placeholderContentEnabled;
+@property (retain, nonatomic) SBActivationSettings *supplementalActivationSettings;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) SBDeviceApplicationSceneHandle *sceneHandle;
+@property (readonly, nonatomic) double statusBarAlpha;
+@property (readonly, nonatomic) long long overrideStatusBarStyle;
+@property (weak, nonatomic) id<SBApplicationSceneViewControllingStatusBarDelegate> applicationSceneStatusBarDelegate;
+@property (readonly, nonatomic) long long displayMode;
+@property (retain, nonatomic) id<SBScenePlaceholderContentContext> placeholderContentContext;
+@property (retain, nonatomic) UIView *customContentView;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } contentReferenceSize;
+@property (readonly, nonatomic) long long contentOrientation;
+@property (readonly, nonatomic) long long containerOrientation;
+
+- (void)conformsToSBApplicationHosting;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })applicationTransitionContext:(id)a0 frameForApplicationSceneEntity:(id)a1;
+- (void)applicationSceneViewController:(id)a0 statusBarTapped:(id)a1 tapActionType:(long long)a2;
+- (void)viewDidLayoutSubviews;
+- (void)_destroySceneViewController;
+- (void)_setCurrentMode:(long long)a0;
+- (void)containerContentWrapperInterfaceOrientationChangedTo:(long long)a0;
+- (void)setDisplayMode:(long long)a0 animationFactory:(id)a1 completion:(id /* block */)a2;
+- (id)hostedAppSceneHandles;
+- (BOOL)isHostingAnApp;
+- (id)newSnapshot;
+- (id)layoutStateForApplicationTransitionContext:(id)a0;
+- (void)_transformHostedAppViewForRotationToOrientation:(long long)a0;
+- (id)initWithIdentifier:(id)a0 andApplicationSceneEntity:(id)a1;
+- (id)hostedAppSceneHandle;
+- (id)previousLayoutStateForApplicationTransitionContext:(id)a0;
+- (void)invalidate;
+- (void)sceneHandle:(id)a0 didUpdateContentState:(long long)a1;
+- (id)_configureApplicationSceneEntity:(id)a0 deliveringActions:(BOOL)a1;
+- (id)_createSceneUpdateTransactionForApplicationSceneEntity:(id)a0 deliveringActions:(BOOL)a1;
+- (void)hostedAppWillRotateToInterfaceOrientation:(long long)a0;
+- (void)_deactivateHostedApp;
+- (void)_activateApp;
+- (void)sceneUpdateTransaction:(id)a0 finishedApplyingUpdate:(BOOL)a1;
+- (void)_installedAppsDidChange:(id)a0;
+- (void)sceneHandle:(id)a0 didDestroyScene:(id)a1;
+- (BOOL)applicationSceneViewControllerIsInNonrotatingWindow:(id)a0;
+- (void)sceneHandle:(id)a0 didUpdateSettingsWithDiff:(id)a1 previousSettings:(id)a2;
+- (BOOL)canHostAnApp;
+- (id)_windowSceneFromSceneHandle;
+- (void)applicationSceneViewControllerDidUpdateHomeAffordanceSupportedOrientations:(id)a0;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)_updateForAppearanceState:(int)a0;
+- (void)_createSceneViewController;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)newSnapshotView;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)newSnapshotViewOnQueue:(id)a0 withCompletion:(id /* block */)a1;
+- (void)_sendActions:(id)a0;
+- (void)setContentReferenceSize:(struct CGSize { double x0; double x1; })a0 withContentOrientation:(long long)a1 andContainerOrientation:(long long)a2;
+- (void)willMoveToParentViewController:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+
+@end

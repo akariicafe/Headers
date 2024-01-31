@@ -1,0 +1,3 @@
+@interface __MTActionButtonContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

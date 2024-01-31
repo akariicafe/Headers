@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__PassKitUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

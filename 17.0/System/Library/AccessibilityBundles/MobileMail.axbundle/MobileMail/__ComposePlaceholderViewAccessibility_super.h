@@ -1,0 +1,3 @@
+@interface __ComposePlaceholderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

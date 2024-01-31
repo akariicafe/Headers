@@ -1,0 +1,3 @@
+@interface __PSDateTimePickerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

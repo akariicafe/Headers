@@ -1,0 +1,3 @@
+@interface ___UITextMenuLinkInteractionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

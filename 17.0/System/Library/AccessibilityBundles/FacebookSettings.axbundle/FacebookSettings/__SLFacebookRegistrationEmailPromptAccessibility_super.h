@@ -1,0 +1,3 @@
+@interface __SLFacebookRegistrationEmailPromptAccessibility_super : UIAccessibilitySafeCategory
+
+@end

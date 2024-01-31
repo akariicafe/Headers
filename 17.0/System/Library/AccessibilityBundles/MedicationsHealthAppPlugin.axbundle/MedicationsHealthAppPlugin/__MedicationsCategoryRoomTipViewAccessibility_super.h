@@ -1,0 +1,3 @@
+@interface __MedicationsCategoryRoomTipViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

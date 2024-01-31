@@ -1,0 +1,3 @@
+@interface __SiriGKAttributionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

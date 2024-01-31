@@ -1,0 +1,3 @@
+@interface __PreferredTrainerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __WGMajorListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

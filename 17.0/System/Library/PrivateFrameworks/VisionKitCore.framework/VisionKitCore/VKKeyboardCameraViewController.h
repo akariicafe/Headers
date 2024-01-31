@@ -1,0 +1,87 @@
+@class VKKeyboardCameraGuidanceView, VKImageAnalysisButton, VKTextFrameProcessor, VKKeyboardCameraReticleView, UITapGestureRecognizer, UIPinchGestureRecognizer, NSMutableArray, UIView, VKAVCaptureFrameProvider, NSString, VKFeedbackProvider, VKKeyboardCameraCloseButton, VKTextLiftingView, VKKeyboardCameraInsertButton, VKTextWithTrackingFrameProcessor, VKHomographyFrameProcessor, VKRecognizedText, NSTimer, VKCaptureTextAnalyzer;
+@protocol VKKeyboardCameraViewControllerDelegate;
+
+@interface VKKeyboardCameraViewController : UIViewController <VKTextLiftingViewDelegate, VKCaptureTextAnalysisRequestDelegate, VKAVCaptureFrameProviderDelegate>
+
+@property (retain, nonatomic) VKAVCaptureFrameProvider *frameProvider;
+@property (retain, nonatomic) VKTextFrameProcessor *textProcessor;
+@property (retain, nonatomic) VKTextWithTrackingFrameProcessor *optFlowTextProcessor;
+@property (retain, nonatomic) VKHomographyFrameProcessor *homographyProcessor;
+@property (retain, nonatomic) UIView *hitTestView;
+@property (retain, nonatomic) VKKeyboardCameraCloseButton *closeButton;
+@property (retain, nonatomic) VKTextLiftingView *textLiftingView;
+@property (retain, nonatomic) VKKeyboardCameraInsertButton *insertButton;
+@property (retain, nonatomic) VKImageAnalysisButton *liftTextButton;
+@property (retain, nonatomic) VKKeyboardCameraGuidanceView *guidanceView;
+@property (retain, nonatomic) VKKeyboardCameraReticleView *reticleView;
+@property (nonatomic) BOOL didSetInitialComparisonPoint;
+@property (nonatomic) BOOL didOverrideComparisonPoint;
+@property (retain, nonatomic) VKRecognizedText *closestItem;
+@property (retain, nonatomic) NSString *previousString;
+@property (retain, nonatomic) NSString *liftedString;
+@property (nonatomic) BOOL didDismiss;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (retain, nonatomic) NSTimer *timeWithoutTextTimer;
+@property (retain, nonatomic) VKCaptureTextAnalyzer *textAnalyzer;
+@property (nonatomic) BOOL isTextLifted;
+@property (retain, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer;
+@property (nonatomic) double initialPinchZoom;
+@property (nonatomic) BOOL isPinchToZoomInProgress;
+@property (nonatomic, getter=isRecording) BOOL recording;
+@property (retain, nonatomic) VKFeedbackProvider *feedbackProvider;
+@property (retain, nonatomic) NSMutableArray *dataForRadar;
+@property (nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } initialRecordingTimestamp;
+@property (readonly, nonatomic) unsigned long long dataType;
+@property (weak, nonatomic) id<VKKeyboardCameraViewControllerDelegate> delegate;
+@property (nonatomic) NSString *textContentType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isOpticalFlowForTextEnabled;
+
+- (void)request:(id)a0 didFailWithError:(id)a1;
+- (void)requestDidCancel:(id)a0;
+- (void)textLiftingAnimationDidEndForView:(id)a0;
+- (void)request:(id)a0 didDetectTextWithResult:(id)a1;
+- (void)animateAlongsideFadeOutForTextLiftingView:(id)a0;
+- (id)init;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (void)request:(id)a0 didRecgonizeTextWithAnalysis:(id)a1;
+- (void)loadView;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)fadeOutAnimationDidEndForView:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)animateAlongsideTextLiftingForView:(id)a0;
+- (void)addButtons;
+- (void)animate:(id /* block */)a0;
+- (void)cancelTimeWithoutTextTimer;
+- (void)clearFoundItemAndRemoveLiftTextButton:(BOOL)a0;
+- (void)configureConstraints;
+- (void)didEndPinchToZoom;
+- (void)dismissLiftedText;
+- (id)findTextLocalizedStringKey;
+- (void)frameProvider:(id)a0 didChangeSceneStabilityState:(unsigned long long)a1;
+- (void)liftTextIfPossible;
+- (void)liftTextWithCompletion:(id /* block */)a0;
+- (BOOL)liftTextWithSnapshot:(id)a0;
+- (void)onCancel;
+- (void)onInsert;
+- (void)onLiftTextButton:(id)a0;
+- (void)onPinch:(id)a0;
+- (void)onSelectionChanged:(id)a0;
+- (void)onTap:(id)a0;
+- (void)resetToDefaultComparisonPoint;
+- (void)startTimeWithoutTextTimer;
+- (void)textProcessorResult:(id)a0;
+- (void)updateInsertButtonWithRecognizedString:(id)a0;
+- (void)willBeginPinchToZoom;
+
+@end

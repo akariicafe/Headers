@@ -1,0 +1,3 @@
+@interface __HeadphoneImageBatteryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

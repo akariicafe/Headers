@@ -1,0 +1,3 @@
+@interface __PlatformSelectorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

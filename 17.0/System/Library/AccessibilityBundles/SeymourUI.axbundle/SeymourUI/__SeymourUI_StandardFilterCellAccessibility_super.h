@@ -1,0 +1,3 @@
+@interface __SeymourUI_StandardFilterCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

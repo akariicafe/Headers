@@ -1,0 +1,3 @@
+@interface FCNewsTabiEventAggregationTrackListenedConditions : FCNewsTabiEventAggregationBaseEventConditions
+
+@end

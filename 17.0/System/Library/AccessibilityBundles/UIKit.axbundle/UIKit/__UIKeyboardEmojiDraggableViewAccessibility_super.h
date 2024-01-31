@@ -1,0 +1,3 @@
+@interface __UIKeyboardEmojiDraggableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

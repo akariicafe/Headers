@@ -1,0 +1,3 @@
+@interface __HUQuickControlSegmentedControlSegmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface WLImportCancellationViewController : WLTransferCancellationViewController
+
+@end

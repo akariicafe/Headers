@@ -1,0 +1,3 @@
+@interface __SAUIElementViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

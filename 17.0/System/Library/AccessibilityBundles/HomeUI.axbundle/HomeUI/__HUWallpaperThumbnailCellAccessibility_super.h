@@ -1,0 +1,3 @@
+@interface __HUWallpaperThumbnailCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

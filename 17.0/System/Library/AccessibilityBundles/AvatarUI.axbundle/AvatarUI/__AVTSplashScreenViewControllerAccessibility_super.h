@@ -1,0 +1,3 @@
+@interface __AVTSplashScreenViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

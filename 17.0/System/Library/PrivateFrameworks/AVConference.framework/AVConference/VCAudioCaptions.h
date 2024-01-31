@@ -1,0 +1,95 @@
+@class NSString, SFSpeechAudioBufferRecognitionRequest, NSSet, NSLocale, SFSpeechRecognitionTask, NSObject, SFSpeechRecognizer, NSMutableArray;
+@protocol OS_dispatch_queue, VCAudioCaptionsDelegate, OS_dispatch_semaphore;
+
+@interface VCAudioCaptions : NSObject <SFSpeechRecognizerDelegate, SFSpeechRecognitionTaskDelegate, VCAudioIOSink> {
+    BOOL _isEnabled;
+    BOOL _isStarted;
+    BOOL _isLocal;
+    struct AudioStreamBasicDescription { double mSampleRate; unsigned int mFormatID; unsigned int mFormatFlags; unsigned int mBytesPerPacket; unsigned int mFramesPerPacket; unsigned int mBytesPerFrame; unsigned int mChannelsPerFrame; unsigned int mBitsPerChannel; unsigned int mReserved; } _inputFormat;
+    unsigned int _lastVoiceAcitivty;
+    int _recognizerState;
+    SFSpeechRecognizer *_recognizer;
+    SFSpeechAudioBufferRecognitionRequest *_recognizerRequest;
+    SFSpeechRecognitionTask *_recognizerTask;
+    NSObject<OS_dispatch_queue> *_captionsQueue;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    struct __CFAllocator { } *_copyBufferAllocator;
+    struct __CFAllocator { } *_audioBufferAllocator;
+    long long _currentTime;
+    int _timescale;
+    long long _epoch;
+    NSLocale *_locale;
+    id<VCAudioCaptionsDelegate> _delegate;
+    unsigned long long _captioningRequestCount;
+    struct opaqueRTCReporting { } *_reportingAgent;
+    double _captionsEnabledDuration;
+    double _lastCaptionsEnabledTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastAudioProcessedTime;
+    double _captionedAudioDuration;
+    unsigned int _captionTaskCount;
+    double _captionsLastUtteranceStart;
+    double _captionsUtteranceDuration;
+    struct OpaqueAudioConverter { } *_audioConverter;
+    struct AudioStreamBasicDescription { double mSampleRate; unsigned int mFormatID; unsigned int mFormatFlags; unsigned int mBytesPerPacket; unsigned int mFramesPerPacket; unsigned int mBytesPerFrame; unsigned int mChannelsPerFrame; unsigned int mBitsPerChannel; unsigned int mReserved; } _captionsFormat;
+    unsigned int _currentUtteranceNumber;
+    NSObject<OS_dispatch_semaphore> *_teardownSemaphore;
+    BOOL _inputFormatDidChange;
+    NSMutableArray *_captionTasks;
+    long long _currentActiveToken;
+    void *_logCaptionsDump;
+    BOOL _isCaptionsDebugDumpEnabled;
+    BOOL _isSpeechModelLoaded;
+    unsigned int _logMessageCounter;
+}
+
+@property (nonatomic) id<VCAudioCaptionsDelegate> delegate;
+@property (copy, nonatomic) NSLocale *locale;
+@property (readonly, nonatomic) BOOL enabled;
+@property (readonly, nonatomic) BOOL supported;
+@property (retain, nonatomic) NSSet *localLanguages;
+@property (retain, nonatomic) NSSet *remoteLanguages;
+@property (nonatomic) BOOL remoteCanDisplay;
+@property (retain, nonatomic) NSString *taskIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)shouldAllocateNewAllocator:(void *)a0 streamDesc:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a1 referenceStreamDesc:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a2;
+
+- (void)dealloc;
+- (void)stop;
+- (void)stopWithCompletionHandler:(id /* block */)a0;
+- (void)speechRecognitionDidDetectSpeech:(id)a0;
+- (void)speechRecognitionTask:(id)a0 didFinishRecognition:(id)a1;
+- (void)speechRecognitionTask:(id)a0 didFinishSuccessfully:(BOOL)a1;
+- (void)speechRecognitionTask:(id)a0 didHypothesizeTranscription:(id)a1;
+- (void)speechRecognitionTaskWasCancelled:(id)a0;
+- (void)speechRecognizer:(id)a0 availabilityDidChange:(BOOL)a1;
+- (void)enableCaptions:(BOOL)a0;
+- (BOOL)recognizerBufferSetupWithError:(id *)a0;
+- (void)callCompletionHandler:(id /* block */)a0 withResult:(BOOL)a1;
+- (BOOL)captionsDebugDumpEnabled;
+- (struct opaqueCMSampleBuffer { } *)convertSamples:(char *)a0 numSamples:(int)a1;
+- (BOOL)createAudioConverterWithInputFormat:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a0 outputFormat:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a1 converter:(struct OpaqueAudioConverter **)a2;
+- (BOOL)createRecognizer:(id *)a0;
+- (struct opaqueCMSampleBuffer { } *)createSampleBufferWithFormat:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a0 samples:(char *)a1 numSamples:(int)a2;
+- (void)destroyAudioConverter:(struct OpaqueAudioConverter { } *)a0;
+- (void)destroyRecognizer;
+- (void)dumpCaptionsIfNeeded:(id)a0 final:(BOOL)a1;
+- (void)gatherRealtimeStats:(struct __CFDictionary { } *)a0;
+- (id)getTaskInfoForTask:(id)a0;
+- (long long)getTokenForTask:(id)a0;
+- (BOOL)idleStateToState:(int)a0 withReason:(int)a1 error:(id *)a2;
+- (id)initWithDelegate:(id)a0 isLocal:(BOOL)a1 taskIdentifier:(id)a2 reportingAgent:(struct opaqueRTCReporting { } *)a3;
+- (BOOL)loadedStateToState:(int)a0 withReason:(int)a1 error:(id *)a2;
+- (void)packageAndSendTranscribedString:(id)a0 withTask:(id)a1 final:(BOOL)a2;
+- (void)pushAudioSamples:(struct opaqueVCAudioBufferList { } *)a0;
+- (void)recognizerBufferTeardown;
+- (void)recordAudioSampleMetrics;
+- (BOOL)runningStateToState:(int)a0 withReason:(int)a1 error:(id *)a2;
+- (void)start:(const struct AudioStreamBasicDescription { double x0; unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; unsigned int x5; unsigned int x6; unsigned int x7; unsigned int x8; } *)a0 forToken:(long long)a1 withCompletionHandler:(id /* block */)a2;
+- (BOOL)stoppingStateToState:(int)a0 withReason:(int)a1 error:(id *)a2;
+- (BOOL)transitionToState:(int)a0 withReason:(int)a1 error:(id *)a2;
+
+@end

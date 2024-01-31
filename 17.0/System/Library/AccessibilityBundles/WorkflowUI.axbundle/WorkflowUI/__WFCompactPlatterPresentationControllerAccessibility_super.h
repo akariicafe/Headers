@@ -1,0 +1,3 @@
+@interface __WFCompactPlatterPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

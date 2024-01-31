@@ -1,0 +1,3 @@
+@interface __SUUIPhysicalCirclesViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

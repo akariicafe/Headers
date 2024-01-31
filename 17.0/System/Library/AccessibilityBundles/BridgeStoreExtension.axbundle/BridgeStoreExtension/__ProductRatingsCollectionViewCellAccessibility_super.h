@@ -1,0 +1,3 @@
+@interface __ProductRatingsCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

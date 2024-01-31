@@ -1,0 +1,3 @@
+@interface __CKPhotosSearchControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

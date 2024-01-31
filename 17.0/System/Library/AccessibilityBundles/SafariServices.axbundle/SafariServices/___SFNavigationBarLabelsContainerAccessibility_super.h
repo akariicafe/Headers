@@ -1,0 +1,3 @@
+@interface ___SFNavigationBarLabelsContainerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

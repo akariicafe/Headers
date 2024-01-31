@@ -1,0 +1,3 @@
+@interface __UITextInputControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

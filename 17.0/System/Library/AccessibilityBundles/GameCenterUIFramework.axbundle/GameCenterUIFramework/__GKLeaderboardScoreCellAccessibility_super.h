@@ -1,0 +1,3 @@
+@interface __GKLeaderboardScoreCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

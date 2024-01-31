@@ -1,0 +1,3 @@
+@interface AMSSyncPasswordSettingsResult : NSObject
+
+@end

@@ -1,0 +1,81 @@
+@class UIView, NSString, CEKBadgeTextView, PEAutoAdjustmentController, PUAdjustmentsViewController, PUAdjustmentsDataSource, PUAdjustmentsToolControllerSpec, _UIBackdropView;
+
+@interface PUAdjustmentsToolController : PUPhotoEditToolController <UIGestureRecognizerDelegate, PUAdjustmentsDataSourceDelegate, PUAdjustmentViewControllerDelegate, PUAdjustmentsToolControllerPPT> {
+    PUAdjustmentsViewController *_adjustmentsViewController;
+    UIView *_adjustmentPickerView;
+    _UIBackdropView *_backdropBackgroundView;
+    UIView *_solidBackgroundView;
+    BOOL _useTranslucentBackground;
+    BOOL _ppt_EverAdjusted;
+    double _ppt_scrollDelta;
+    long long _viewLoadingStartTime;
+}
+
+@property (retain, nonatomic) PUAdjustmentsDataSource *dataSource;
+@property (retain, nonatomic) CEKBadgeTextView *badgeView;
+@property (retain, nonatomic) PEAutoAdjustmentController *autoAdjustmentController;
+@property (readonly, nonatomic) PUAdjustmentsToolControllerSpec *toolControllerSpec;
+@property (nonatomic) long long initialAction;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)validateCommand:(id)a0;
+- (void)willTransitionToTraitCollection:(id)a0 withTransitionCoordinator:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (void)_updateBackgroundAnimated:(BOOL)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)setBackdropViewGroupName:(id)a0;
+- (id)localizedName;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (BOOL)canPerformAction:(SEL)a0 withSender:(id)a1;
+- (void)autoEnhanceAssets:(id)a0;
+- (void)ppt_scrollSelectedSliderByDelta;
+- (void)_performInitialAction;
+- (void)_ppt_scrollAfterDelay:(id /* block */)a0;
+- (double)_sliderLength;
+- (void)_updateBadgeTextWithInfo:(id)a0;
+- (void)adjustmentsDataChanged:(id)a0;
+- (id)adjustmentsRenderer:(id)a0;
+- (void)adjustmentsViewControllerDidAppear:(id)a0;
+- (void)adjustmentsViewControllerDidUpdateSelectedControl:(id)a0;
+- (void)adjustmentsViewControllerSliderDidEndScrubbing:(id)a0;
+- (void)adjustmentsViewControllerSliderWillBeginScrubbing:(id)a0;
+- (void)autoEnhanceActionStateChanged;
+- (BOOL)canResetToDefaultValue;
+- (id)centerToolbarView;
+- (void)compositionControllerDidChangeForAdjustments:(id)a0;
+- (void)decreaseSliderValue:(BOOL)a0;
+- (void)didBecomeActiveTool;
+- (void)increaseSliderValue:(BOOL)a0;
+- (id)localizedResetToolActionTitle;
+- (void)mediaViewIsReady;
+- (void)ppt_selectBWSlider:(id /* block */)a0;
+- (void)ppt_selectColorSlider:(id /* block */)a0;
+- (void)ppt_selectLightSlider:(id /* block */)a0;
+- (void)ppt_selectSliderNamed:(id)a0 completion:(id /* block */)a1;
+- (void)ppt_setSteps:(long long)a0;
+- (double)ppt_valueIncrementForSelectedSlider;
+- (double)ppt_visibleScaleValueForSelectedSlider;
+- (void)reactivate;
+- (void)resetToDefaultValueAnimated:(BOOL)a0;
+- (id)selectedToolbarIconGlyphName;
+- (void)setLayoutOrientation:(long long)a0 withTransitionCoordinator:(id)a1;
+- (void)setUseGradientBackground:(BOOL)a0 animated:(BOOL)a1;
+- (void)setupWithAsset:(id)a0 compositionController:(id)a1 editSource:(id)a2 valuesCalculator:(id)a3;
+- (void)specDidChange;
+- (long long)toolControllerTag;
+- (id)toolbarIcon;
+- (id)toolbarIconGlyphName;
+- (void)updateAdjustmentControls;
+- (BOOL)wantsSliderKeyControl;
+- (BOOL)wantsZoomAndPanEnabled;
+- (void)willBecomeActiveTool;
+
+@end

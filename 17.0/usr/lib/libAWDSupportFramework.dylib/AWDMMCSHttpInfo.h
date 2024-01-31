@@ -1,0 +1,98 @@
+@class NSString, NSMutableArray;
+
+@interface AWDMMCSHttpInfo : PBCodable <NSCopying> {
+    struct { unsigned char duration : 1; unsigned char networkServiceType : 1; unsigned char responseReceivedDuration : 1; unsigned char startTime : 1; unsigned char adaptiveTcpReadTimeout : 1; unsigned char adaptiveTcpWriteTimeout : 1; unsigned char errorCode : 1; unsigned char httpStatus : 1; unsigned char locatorPort : 1; unsigned char qualityOfService : 1; unsigned char requestSize : 1; unsigned char responseSize : 1; unsigned char allowsCellular : 1; unsigned char allowsPowerNapScheduling : 1; unsigned char cancelled : 1; unsigned char connectionReused : 1; unsigned char fastFail : 1; unsigned char finalTryInRequest : 1; unsigned char forceNondiscretionary : 1; unsigned char inlineEdgeComplete : 1; unsigned char powerPluggedInAtEnd : 1; unsigned char powerPluggedInAtStart : 1; unsigned char powerPluggedInWhenQueued : 1; unsigned char proxyUsed : 1; unsigned char requiresPowerPluggedIn : 1; unsigned char timedOut : 1; unsigned char transactionComplete : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasLocatorScheme;
+@property (retain, nonatomic) NSString *locatorScheme;
+@property (readonly, nonatomic) BOOL hasLocatorHostname;
+@property (retain, nonatomic) NSString *locatorHostname;
+@property (nonatomic) BOOL hasLocatorPort;
+@property (nonatomic) unsigned int locatorPort;
+@property (nonatomic) BOOL hasConnectionReused;
+@property (nonatomic) BOOL connectionReused;
+@property (nonatomic) BOOL hasStartTime;
+@property (nonatomic) long long startTime;
+@property (nonatomic) BOOL hasResponseReceivedDuration;
+@property (nonatomic) long long responseReceivedDuration;
+@property (nonatomic) BOOL hasDuration;
+@property (nonatomic) long long duration;
+@property (nonatomic) BOOL hasHttpStatus;
+@property (nonatomic) int httpStatus;
+@property (readonly, nonatomic) BOOL hasErrorDomain;
+@property (retain, nonatomic) NSString *errorDomain;
+@property (nonatomic) BOOL hasErrorCode;
+@property (nonatomic) int errorCode;
+@property (nonatomic) BOOL hasRequestSize;
+@property (nonatomic) int requestSize;
+@property (nonatomic) BOOL hasResponseSize;
+@property (nonatomic) int responseSize;
+@property (nonatomic) BOOL hasTransactionComplete;
+@property (nonatomic) BOOL transactionComplete;
+@property (nonatomic) BOOL hasTimedOut;
+@property (nonatomic) BOOL timedOut;
+@property (nonatomic) BOOL hasCancelled;
+@property (nonatomic) BOOL cancelled;
+@property (retain, nonatomic) NSMutableArray *tcpInfos;
+@property (retain, nonatomic) NSMutableArray *httpErrors;
+@property (readonly, nonatomic) BOOL hasInterfaceIdentifier;
+@property (retain, nonatomic) NSString *interfaceIdentifier;
+@property (readonly, nonatomic) BOOL hasLocatorPeerAddress;
+@property (retain, nonatomic) NSString *locatorPeerAddress;
+@property (nonatomic) BOOL hasRequiresPowerPluggedIn;
+@property (nonatomic) BOOL requiresPowerPluggedIn;
+@property (nonatomic) BOOL hasAllowsPowerNapScheduling;
+@property (nonatomic) BOOL allowsPowerNapScheduling;
+@property (nonatomic) BOOL hasAllowsCellular;
+@property (nonatomic) BOOL allowsCellular;
+@property (nonatomic) BOOL hasForceNondiscretionary;
+@property (nonatomic) BOOL forceNondiscretionary;
+@property (nonatomic) BOOL hasFastFail;
+@property (nonatomic) BOOL fastFail;
+@property (nonatomic) BOOL hasQualityOfService;
+@property (nonatomic) int qualityOfService;
+@property (nonatomic) BOOL hasProxyUsed;
+@property (nonatomic) BOOL proxyUsed;
+@property (nonatomic) BOOL hasFinalTryInRequest;
+@property (nonatomic) BOOL finalTryInRequest;
+@property (nonatomic) BOOL hasInlineEdgeComplete;
+@property (nonatomic) BOOL inlineEdgeComplete;
+@property (nonatomic) BOOL hasAdaptiveTcpReadTimeout;
+@property (nonatomic) int adaptiveTcpReadTimeout;
+@property (nonatomic) BOOL hasAdaptiveTcpWriteTimeout;
+@property (nonatomic) int adaptiveTcpWriteTimeout;
+@property (nonatomic) BOOL hasPowerPluggedInWhenQueued;
+@property (nonatomic) BOOL powerPluggedInWhenQueued;
+@property (nonatomic) BOOL hasPowerPluggedInAtStart;
+@property (nonatomic) BOOL powerPluggedInAtStart;
+@property (nonatomic) BOOL hasPowerPluggedInAtEnd;
+@property (nonatomic) BOOL powerPluggedInAtEnd;
+@property (readonly, nonatomic) BOOL hasNetworkUsed;
+@property (retain, nonatomic) NSString *networkUsed;
+@property (nonatomic) BOOL hasNetworkServiceType;
+@property (nonatomic) long long networkServiceType;
+
++ (Class)httpErrorType;
++ (Class)tcpInfoType;
+
+- (unsigned long long)hash;
+- (void)dealloc;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)tcpInfoAtIndex:(unsigned long long)a0;
+- (void)clearHttpErrors;
+- (unsigned long long)httpErrorsCount;
+- (void)addHttpError:(id)a0;
+- (void)addTcpInfo:(id)a0;
+- (void)clearTcpInfos;
+- (id)httpErrorAtIndex:(unsigned long long)a0;
+- (unsigned long long)tcpInfosCount;
+
+@end

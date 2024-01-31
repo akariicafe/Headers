@@ -1,0 +1,3 @@
+@interface __SFSectionDisclosureButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

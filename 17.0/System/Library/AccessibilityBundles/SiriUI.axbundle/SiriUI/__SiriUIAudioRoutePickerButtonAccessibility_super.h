@@ -1,0 +1,3 @@
+@interface __SiriUIAudioRoutePickerButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKAttachmentSearchResultCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

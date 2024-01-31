@@ -1,0 +1,3 @@
+@interface __QLAudioViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface TRITriclientFactorPackRoot : TRIPBRootObject
+
+@end

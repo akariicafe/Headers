@@ -1,0 +1,3 @@
+@interface _TtCO10Accelerate4BNNS37FusedFullyConnectedNormalizationLayer : _TtCO10Accelerate4BNNS10FusedLayer
+
+@end

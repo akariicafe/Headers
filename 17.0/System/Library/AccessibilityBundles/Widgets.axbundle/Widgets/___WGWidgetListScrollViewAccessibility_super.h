@@ -1,0 +1,3 @@
+@interface ___WGWidgetListScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

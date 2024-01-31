@@ -1,0 +1,3 @@
+@interface ICMentionTextAttachment : ICInlineTextAttachment
+
+@end

@@ -1,0 +1,3 @@
+@interface __HKElectrocardiogramChartTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

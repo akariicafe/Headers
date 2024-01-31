@@ -1,0 +1,10 @@
+@interface SleepHealthUI.SleepDiffableTableViewAdaptor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ cellBackgroundColorOverride;
+    void /* unknown type, empty encoding */ dataSource;
+    void /* unknown type, empty encoding */ diffableDataSource;
+    void /* unknown type, empty encoding */ allowAnimations;
+    void /* unknown type, empty encoding */ loaded;
+    void /* unknown type, empty encoding */ isAnimating;
+}
+
+@end

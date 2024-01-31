@@ -1,0 +1,3 @@
+@interface __NikeSettingsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

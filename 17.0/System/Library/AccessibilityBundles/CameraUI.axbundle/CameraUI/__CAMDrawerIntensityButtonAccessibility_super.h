@@ -1,0 +1,3 @@
+@interface __CAMDrawerIntensityButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

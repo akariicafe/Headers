@@ -1,0 +1,3 @@
+@interface SCMLVideoAnalysisResult : SCMLAnalysisResult
+
+@end

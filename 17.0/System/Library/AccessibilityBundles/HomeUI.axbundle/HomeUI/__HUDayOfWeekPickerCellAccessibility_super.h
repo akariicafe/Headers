@@ -1,0 +1,3 @@
+@interface __HUDayOfWeekPickerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

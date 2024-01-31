@@ -1,0 +1,3 @@
+@interface __HUQuickControlSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

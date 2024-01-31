@@ -1,0 +1,3 @@
+@interface __InCallControlsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

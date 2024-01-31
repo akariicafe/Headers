@@ -1,0 +1,3 @@
+@interface __STUIStatusBarWifiSignalViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

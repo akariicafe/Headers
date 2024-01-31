@@ -1,0 +1,3 @@
+@interface __CompactMonthWeekDayNumberAccessibility_super : UIAccessibilitySafeCategory
+
+@end

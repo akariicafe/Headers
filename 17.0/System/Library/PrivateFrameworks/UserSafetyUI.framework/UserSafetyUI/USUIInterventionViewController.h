@@ -1,0 +1,3 @@
+@interface USUIInterventionViewController : SCUIInterventionViewController
+
+@end

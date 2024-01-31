@@ -1,0 +1,3 @@
+@interface __SBSystemApertureTelemetryEmitterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AttributionWeeAppControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

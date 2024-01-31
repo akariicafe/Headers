@@ -1,0 +1,3 @@
+@interface __CuratedCollectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

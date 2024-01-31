@@ -1,0 +1,3 @@
+@interface __SUUIStandardInteractiveSegmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

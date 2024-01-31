@@ -1,0 +1,3 @@
+@interface __SBFTouchPassThroughViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

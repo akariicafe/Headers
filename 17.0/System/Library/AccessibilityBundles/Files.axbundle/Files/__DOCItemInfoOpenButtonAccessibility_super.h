@@ -1,0 +1,3 @@
+@interface __DOCItemInfoOpenButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

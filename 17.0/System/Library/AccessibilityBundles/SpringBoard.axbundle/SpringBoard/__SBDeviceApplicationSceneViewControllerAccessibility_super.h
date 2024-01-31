@@ -1,0 +1,3 @@
+@interface __SBDeviceApplicationSceneViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SWTodayTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

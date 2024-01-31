@@ -1,0 +1,3 @@
+@interface __TUIPredictionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

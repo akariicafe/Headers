@@ -1,0 +1,3 @@
+@interface RTContactsManagerContactStoreMeContactDidChangeNotification : RTNotification
+
+@end

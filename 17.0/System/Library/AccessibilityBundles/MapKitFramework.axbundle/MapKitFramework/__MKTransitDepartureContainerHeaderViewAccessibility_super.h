@@ -1,0 +1,3 @@
+@interface __MKTransitDepartureContainerHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

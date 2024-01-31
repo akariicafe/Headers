@@ -1,0 +1,3 @@
+@interface __CKRecipientSelectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

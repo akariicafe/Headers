@@ -1,0 +1,3 @@
+@interface __SyncedLyricsLineViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

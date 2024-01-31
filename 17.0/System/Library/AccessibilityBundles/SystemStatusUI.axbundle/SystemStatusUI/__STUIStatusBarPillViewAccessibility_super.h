@@ -1,0 +1,3 @@
+@interface __STUIStatusBarPillViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

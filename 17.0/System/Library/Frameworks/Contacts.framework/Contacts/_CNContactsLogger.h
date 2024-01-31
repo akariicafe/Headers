@@ -1,0 +1,69 @@
+@class NSString, NSObject;
+@protocol OS_os_log;
+
+@interface _CNContactsLogger : NSObject <CNContactsLogger>
+
+@property (readonly, nonatomic) NSObject<OS_os_log> *log;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)serviceError:(id)a0;
+- (void)registeringForChangeHistory:(id /* block */)a0;
+- (id)init;
+- (void)fetchingContactIdentifierWithMatchingDictionary:(id /* block */)a0;
+- (void)failedToApplyContactUpdateOfKind:(const char *)a0 value:(id)a1 property:(id)a2 error:(id)a3;
+- (void)changingMeContact:(id /* block */)a0;
+- (void)contactsAccessWasGranted;
+- (void)saving:(id /* block */)a0;
+- (void)applyContactUpdateOfKind:(const char *)a0 value:(id)a1 property:(id)a2;
+- (void)clearingChangeHistory:(id /* block */)a0;
+- (void)XPCConnectionWasInterrupted;
+- (void)fetchEncodedContactsMatchingPredicate:(id)a0 unifyResults:(BOOL)a1 keysToFetch:(id)a2;
+- (void)contactsAccessWasDeniedWithError:(id)a0;
+- (void)fetchingMeContactIdentifier:(id /* block */)a0;
+- (void)didFetchContacts:(id)a0 error:(id)a1;
+- (void)resettingSortDataIfNeeded:(id /* block */)a0;
+- (void)fetchingContainers:(id /* block */)a0;
+- (void)updatingContact:(id)a0;
+- (void)accessAuthorizationStatusWasDenied;
+- (void)fetchingContactWithUserActivity:(id /* block */)a0;
+- (void)fetchingChangeHistory:(id /* block */)a0;
+- (void)requestingExtensionCommand:(id /* block */)a0;
+- (void)fetchContactsMatchingPredicate:(id)a0 unifyResults:(BOOL)a1 keysToFetch:(id)a2;
+- (void)postingNotificationWithName:(id)a0;
+- (void)fetchingGroups:(id /* block */)a0;
+- (void)deletingContact:(id)a0;
+- (void)SPIUsageLackingEntitlementGrantedForPID:(int)a0;
+- (void)setContactImageDataZeroCropRect:(id)a0 format:(const char *)a1;
+- (void)fetchingContactCount:(id /* block */)a0;
+- (void)saveRequestInvalid:(id)a0;
+- (void)fetchingContactSectionCounts:(id /* block */)a0;
+- (void)deleteImageRecentsMetadataRequestFailed:(id)a0;
+- (void)removeContactImageData;
+- (void)setContactImageData:(id)a0 format:(const char *)a1 cropRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)changedMeContact:(id)a0;
+- (void)SPIUsageLackingEntitlementRejectedForPID:(int)a0;
+- (void)deletePosterRecentsMetadataRequestFailed:(id)a0;
+- (void)postingNotification:(id /* block */)a0;
+- (void)fetchingContactsBatch:(id /* block */)a0;
+- (void)unregisteringForChangeHistory:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)requestAuthorizationWasDenied;
+- (void)fetchingContacts:(id /* block */)a0;
+- (void)didFetchEncodedContacts:(id)a0 error:(id)a1;
+- (void)fetchingDefaultContainerIdentifier:(id /* block */)a0;
+- (void)_commonFetchContactsMatchingPredicate:(id)a0 fetchType:(const char *)a1 unifyResults:(BOOL)a2 keysToFetch:(id)a3;
+- (void)saveRequestFailed:(id)a0;
+- (void)addingContacts:(id)a0 toContainerWithIdentifier:(id)a1;
+- (void)errorWhenQueryingTetheredSyncData:(id)a0;
+- (void)servicingContactsRequest:(id /* block */)a0;
+- (void)settingDefaultAccount:(id /* block */)a0;
+- (void)fetchContactsProgressivelyMatchingPredicate:(id)a0 unifyResults:(BOOL)a1 keysToFetch:(id)a2;
+- (void)requestingAccessForContacts:(id /* block */)a0;
+- (void)setContactImageData:(id)a0;
+- (void)internalError:(id)a0;
+- (void)XPCConnectionWasInvalidated;
+
+@end

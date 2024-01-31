@@ -1,0 +1,3 @@
+@interface COUnhandledRequest : NSObject
+
+@end

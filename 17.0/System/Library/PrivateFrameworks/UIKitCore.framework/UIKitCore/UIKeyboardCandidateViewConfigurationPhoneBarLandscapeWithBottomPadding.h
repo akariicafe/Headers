@@ -1,0 +1,5 @@
+@interface UIKeyboardCandidateViewConfigurationPhoneBarLandscapeWithBottomPadding : UIKeyboardCandidateViewConfigurationPhoneBarLandscape
+
+- (id)extendedScrolledState;
+
+@end

@@ -1,0 +1,3 @@
+@interface __JSDrivenViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

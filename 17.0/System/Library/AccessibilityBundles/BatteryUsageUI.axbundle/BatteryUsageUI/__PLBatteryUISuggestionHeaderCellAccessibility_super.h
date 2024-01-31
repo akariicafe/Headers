@@ -1,0 +1,3 @@
+@interface __PLBatteryUISuggestionHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

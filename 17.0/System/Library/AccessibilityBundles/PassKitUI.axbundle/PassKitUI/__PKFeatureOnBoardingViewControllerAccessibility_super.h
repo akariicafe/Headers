@@ -1,0 +1,3 @@
+@interface __PKFeatureOnBoardingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

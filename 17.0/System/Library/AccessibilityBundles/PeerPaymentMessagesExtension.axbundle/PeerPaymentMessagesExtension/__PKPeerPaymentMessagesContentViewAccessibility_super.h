@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentMessagesContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

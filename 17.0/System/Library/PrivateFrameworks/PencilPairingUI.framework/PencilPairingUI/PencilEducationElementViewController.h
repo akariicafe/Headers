@@ -1,0 +1,88 @@
+@class UIStackView, NSString, PKTextInputSettings, PKDrawingReplayController, NSDictionary, UIButton, PKTextInputInteraction, NSMutableArray, PencilEducationElementData, UILabel, PencilEducationElementTextField;
+@protocol PencilEducationElementViewControllerDelegate, UITextCursorAssertion;
+
+@interface PencilEducationElementViewController : UIViewController <PKScribbleInteractionDelegate>
+
+@property (nonatomic) BOOL isAnimating;
+@property (nonatomic) BOOL isRunningAnimationSequence;
+@property (retain, nonatomic) PencilEducationElementData *elementData;
+@property (retain, nonatomic) UIStackView *stackView;
+@property (weak, nonatomic) UILabel *titleLabel;
+@property (weak, nonatomic) PencilEducationElementTextField *textField;
+@property (retain, nonatomic) NSString *processedString;
+@property (retain, nonatomic) id<UITextCursorAssertion> cursorAssertion;
+@property (retain, nonatomic) PKTextInputSettings *textInputSettings;
+@property (retain, nonatomic) NSDictionary *localizationOffsetDictionary;
+@property (weak, nonatomic) UIButton *replayButton;
+@property (readonly, nonatomic) PKTextInputInteraction *textInputInteraction;
+@property (retain, nonatomic) PKDrawingReplayController *drawingReplayController;
+@property (retain, nonatomic) PKDrawingReplayController *delayDrawingReplayController;
+@property (retain, nonatomic) NSMutableArray *animationQueue;
+@property (nonatomic) long long inProgressAnimationType;
+@property (nonatomic) BOOL hasPencilInteraction;
+@property (nonatomic) unsigned long long replayButtonHiddenIndex;
+@property (nonatomic) unsigned long long performAnimationAsyncIndex;
+@property (copy, nonatomic) id /* block */ endWritingCompletionBlock;
+@property (nonatomic) BOOL didDisappear;
+@property (nonatomic) BOOL didRunInitialAppearActions;
+@property (readonly, nonatomic) BOOL isUIRTL;
+@property (nonatomic) BOOL isTextFieldRTL;
+@property (weak, nonatomic) id<PencilEducationElementViewControllerDelegate> delegate;
+@property (readonly, nonatomic) BOOL hasRemainingAnimation;
+@property (readonly, nonatomic) BOOL animationInProgress;
+@property (readonly, nonatomic) long long type;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)keyPathsForValuesAffectingAnimationInProgress;
+
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewDidLoad;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (BOOL)_scribbleInteraction:(id)a0 focusWillTransformElement:(id)a1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (void)_scribbleInteraction:(id)a0 didFinishWritingInElement:(id)a1;
+- (void)_scribbleInteraction:(id)a0 willBeginWritingInElement:(id)a1;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)beginAnimation;
+- (BOOL)_pkScribbleInteractionShouldDisableInputAssistant:(id)a0;
+- (void)reloadStrings;
+- (void)cancelAnimation;
+- (id)allowedCalloutActionsForType:(long long)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })applyLocalizationScaleOffsetsIfNecesssaryForDrawing:(id)a0 animationType:(long long)a1 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a2;
+- (void)beginAnimationIfNecessary;
+- (double)calculateFittingHeightByTemporarilyAdjustingFrameForWidth:(double)a0;
+- (void)cancelPendingReplayHiddenCommands;
+- (void)cancelScheduledAnimations;
+- (double)customHeightRatioForAnimationType:(long long)a0;
+- (double)customWidthRatioForAnimationType:(long long)a0;
+- (id)defaultAllowedCalloutActions;
+- (id)drawingForAnimationType:(long long)a0;
+- (void)handleEndAnimation;
+- (BOOL)hasCustomHeightRatioForAnimationType:(long long)a0;
+- (BOOL)hasCustomWidthRatioForAnimationType:(long long)a0;
+- (id)initWithElementData:(id)a0;
+- (BOOL)isSecondaryAnimationForType:(long long)a0;
+- (BOOL)isTextAddedForAnimationType:(long long)a0;
+- (id)localizationOffsetKeyForAnimationType:(long long)a0;
+- (struct PKPencilEducationOffset { double x0; double x1; double x2; double x3; })localizationOffsetsForAnimationType:(long long)a0;
+- (double)nextAnimationDelayForAnimationType:(long long)a0;
+- (struct CGPoint { double x0; double x1; })offsetForAnimationType:(long long)a0;
+- (void)reloadAnimationQueue;
+- (id)replacePlaceholdersInString:(id)a0;
+- (void)replayButtonPressed:(id)a0;
+- (double)scaleRatioForAnimationType:(long long)a0;
+- (double)speedRatioForAnimationType:(long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })textFieldBoundsForRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })textRangeForAnimationType:(long long)a0;
+- (long long)transformDimensionAnimationType:(long long)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transformDrawing:(id)a0 toFitBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 dimension:(long long)a2 offset:(struct CGPoint { double x0; double x1; })a3 animationType:(long long)a4;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transformForAnimationType:(long long)a0 drawing:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)updateIsAnimatingUI;
+
+@end

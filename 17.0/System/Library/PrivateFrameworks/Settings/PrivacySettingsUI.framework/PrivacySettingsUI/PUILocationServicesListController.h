@@ -1,0 +1,95 @@
+@class NSMutableDictionary, NSDate, NSDictionary, ACAccount, NSMutableArray, NSString, PSSpecifier, FMFSession, FMFDevice, NSArray, NSOperationQueue, NSNumber, ACAccountStore;
+@protocol SRRelatedSettingsProvider;
+
+@interface PUILocationServicesListController : PSListController <FMFSessionDelegate> {
+    NSDictionary *_locationEntitiesDetails;
+    NSMutableArray *_coalescedLocationBasedAlertsSystemServices;
+    NSMutableArray *_coalescedHomeKitSystemServices;
+    NSMutableArray *_coalescedRoutingAndTrafficSystemServices;
+    NSMutableArray *_coalescedWirelessSystemServices;
+    NSMutableArray *_coalescedSystemCutomizationSystemServices;
+    NSArray *_ignoredLocationEntities;
+    BOOL _deferredRefreshDueToConfirm;
+    BOOL _locationNotificationsEnabled;
+    NSMutableDictionary *_coalesceAppKeys;
+    NSDate *_twentyFourHoursAgo;
+    ACAccountStore *_accountStore;
+    ACAccount *_primaryAccount;
+    NSNumber *_isLocationServicesEnabled;
+    id<SRRelatedSettingsProvider> _sensorKitSpecifiersProvider;
+}
+
+@property (retain, nonatomic) NSOperationQueue *locationSharingOperationQueue;
+@property (retain, nonatomic) FMFSession *locationSharingSession;
+@property (retain, nonatomic) FMFDevice *locationSharingDevice;
+@property (retain, nonatomic) NSNumber *locationSharingEnabled;
+@property (retain, nonatomic) PSSpecifier *tribecaSpecifier;
+@property (retain, nonatomic) NSMutableArray *coalescedImproveMapsServices;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isCoreRoutineAuthorized;
++ (BOOL)isLocationRestricted;
++ (void)setCoreRoutineAuthorized:(BOOL)a0;
+
+- (void)didChangeActiveLocationSharingDevice:(id)a0;
+- (id)init;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)dealloc;
+- (id)accountStore;
+- (void)profileNotification:(id)a0;
+- (id)specifiers;
+- (void)willBecomeActive;
+- (void).cxx_destruct;
+- (id)primaryAccount;
+- (void)connectionError:(id)a0;
+- (void)didUpdateHidingStatus:(BOOL)a0;
+- (id)valueForSpecifier:(id)a0;
+- (void)_setEntityAuthorized:(BOOL)a0 specifier:(id)a1;
+- (id)loadSensorKitSpecifiersProvider;
+- (void)_cancelConfirmDisableForSpecifier:(id)a0;
+- (BOOL)_isBundleBlacklisted:(id)a0;
+- (BOOL)_isFindMyDeviceSpecifier:(id)a0;
+- (void)_locationSharingSpecifierWasTapped:(id)a0;
+- (void)_setLocationServicesEnabled:(BOOL)a0;
+- (BOOL)_shouldEnableLocationSharingSpecifier;
+- (void)disableAfterLoginConfirmation:(id)a0;
+- (id)hiddenBundleIdentifiers;
+- (id)isEntityAuthorized:(id)a0;
+- (id)isLocationServicesEnabled:(id)a0;
+- (BOOL)isLocationSharingEnabled;
+- (BOOL)isLocationSharingModificationAllowed;
+- (id)localizedDisplayNameForBundleID:(id)a0;
+- (id)locationDetailSpecifiersForAppsAndBundles;
+- (id)locationDetailSpecifiersWithDetailsMatching:(id /* block */)a0;
+- (id)locationSharingSpecifiers;
+- (int)locationUsageBasedOnDetails:(id)a0;
+- (int)locationUsageForEntity:(id)a0;
+- (void)mainThreadConnectionError:(id)a0;
+- (void)mainThreadDidChangeActiveLocationSharingDevice:(id)a0;
+- (void)mainThreadDidUpdateHidingStatus:(BOOL)a0;
+- (void)refreshLinkStatusInParent;
+- (void)setAuthLevel:(unsigned long long)a0 forCell:(id)a1;
+- (void)setEntityAuthorized:(id)a0 specifier:(id)a1;
+- (void)setLocationServicesEnabled:(id)a0 specifier:(id)a1;
+- (void)setSOSEntityAuthorized:(id)a0 specifier:(id)a1;
+- (void)setUsage:(int)a0 forCell:(id)a1;
+- (void)showLocationPrivacyPage;
+- (void)startLocationStatusUpdates;
+- (void)stopLocationStatusUpdates;
+- (void)updateFindMyFriendsStateBasedOnRestriction;
+- (void)updateForApplicationDidBecomeActive:(id)a0;
+- (void)updateLocationSharing;
+- (void)updateLocationSharingSpecifiersWithReload:(BOOL)a0;
+- (void)updateLocationUsage;
+- (void)updateMutableStateBasedOnRestriction;
+- (void)updateMutableStateForLocationSharing;
+- (void)updateRecentlyUsedDate;
+- (void)updateSpecifiersForImposedSettings;
+- (void)updateSpecifiersForImposedSettingsWithReload:(BOOL)a0;
+- (void)updateTribecaText;
+
+@end

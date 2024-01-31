@@ -1,0 +1,3 @@
+@interface __TwoLineOutlineCellButtonAccessoryModelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

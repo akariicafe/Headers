@@ -1,0 +1,3 @@
+@interface CadModelRetrieverDummy : NSObject
+
+@end

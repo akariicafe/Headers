@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore22MutableWidgetHostStore : _TtCC9ChronoKit19ChronoMetadataStore15WidgetHostStore
+
+@end

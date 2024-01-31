@@ -1,0 +1,3 @@
+@interface __SHSHeadphoneLevelLimitSliderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

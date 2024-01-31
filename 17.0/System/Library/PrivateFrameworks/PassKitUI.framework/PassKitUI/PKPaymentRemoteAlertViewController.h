@@ -1,0 +1,92 @@
+@class PKAuthenticator, NSString, NSArray, SBSAssertion, PKFieldProperties, PKBackgroundContactlessInterfaceSessionController, PKPassGroupsViewController, CLInUseAssertion, NSObject, PKAuthorizationCoverSheetViewController, PKAssertion, PKPaymentService;
+@protocol OS_dispatch_group, BSInvalidatable;
+
+@interface PKPaymentRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentServiceDelegate, SBSHardwareButtonEventConsuming, PKAuthorizationCoverSheetViewControllerDelegate> {
+    PKPassGroupsViewController *_passGroupsViewController;
+    PKAuthorizationCoverSheetViewController *_coverSheetViewController;
+    id _staticGlyphResources;
+    PKPaymentService *_paymentService;
+    PKFieldProperties *_fieldProperties;
+    NSArray *_fieldPassUniqueIdentifiers;
+    NSString *_passUniqueIdentifier;
+    CLInUseAssertion *_passbookForegroundAssertion;
+    BOOL _hasAquiredStaticResources;
+    id<BSInvalidatable> _lockButtonObserver;
+    SBSAssertion *_lockButtonAssertion;
+    PKAssertion *_notificationSuppressionAssertion;
+    NSObject<OS_dispatch_group> *_fieldPropertiesLookupGroup;
+    long long _presentationSource;
+    unsigned long long _presentationStartTime;
+    BOOL _shouldViewAnimateIn;
+    BOOL _isLockScreenPresented;
+    BOOL _processHomeButtonEvents;
+    BOOL _brightnessRampingAllowed;
+    PKAuthenticator *_coverSheetAuthenticator;
+    BOOL _currentShowWhileLockedValue;
+    PKBackgroundContactlessInterfaceSessionController *_backgroundContactlessInterfaceSession;
+    BOOL _showCoverSheet;
+    BOOL _isBlockingUIForUserAuthorization;
+    id /* block */ _blockingUIForUserAuthorizationCompletion;
+    struct { long long screen; BOOL appeared; BOOL viewLoaded; BOOL hasShownPassGroups; } _state;
+    long long _invalidationStatus;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_isSecureForRemoteViewService;
++ (BOOL)_shouldForwardViewWillTransitionToSize;
++ (id)groupsControllerWithSource:(long long)a0 hasUserBeenAuthenticated:(BOOL)a1 passUniqueID:(id)a2;
+
+- (id)init;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidLoad;
+- (struct CGSize { double x0; double x1; })sizeForChildContentContainer:(id)a0 withParentContainerSize:(struct CGSize { double x0; double x1; })a1;
+- (void)_invalidate;
+- (void)loadView;
+- (id)childViewControllerForStatusBarStyle;
+- (unsigned long long)supportedInterfaceOrientations;
+- (id)childViewControllerForStatusBarHidden;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewDidMoveToWindow:(id)a0 shouldAppearOrDisappear:(BOOL)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)_activeViewController;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)consumeDoublePressUpForButtonKind:(long long)a0;
+- (BOOL)_releaseUIBlockIfNeededTimeout:(BOOL)a0;
+- (void)_acquireStaticResources;
+- (void)_animateViewBackgroundColorIn:(id)a0;
+- (void)_contactlessInterfaceSessionDidAuthorize:(id)a0;
+- (void)_contactlessInterfaceSessionFinishTransaction:(id)a0;
+- (void)_dismissForSource:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)_dismissIfRestricted;
+- (void)_insertViewControllerIfNeeded:(id)a0;
+- (void)_invalidateForType:(long long)a0;
+- (BOOL)_isInGroup;
+- (BOOL)_notificationIsFromChildViewController:(id)a0;
+- (void)_paymentDidReceiveSuccessfulTransactionNotification:(id)a0;
+- (void)_presentHomeButtonDoubleTapAlertIfNecessary;
+- (void)_presentPassAnimated:(BOOL)a0 externalizedContext:(id)a1 completion:(id /* block */)a2;
+- (void)_removeViewController:(id)a0;
+- (void)_setupCoverSheetIfNeeded;
+- (void)_setupGroupControllerIfNeeded;
+- (void)_startBackgroundContactlessInterfaceSessionIfNeeded;
+- (void)_startGroupControllerAnimated:(BOOL)a0 completion:(id /* block */)a1;
+- (void)_transitionToAppeared;
+- (void)_transitionToViewState:(struct { long long x0; BOOL x1; BOOL x2; BOOL x3; })a0 animated:(BOOL)a1;
+- (void)_transitionToViewStateScreen:(long long)a0 animated:(BOOL)a1;
+- (void)authorizationCoverSheetViewControllerDidCompleteWithSuccess:(BOOL)a0;
+- (void)authorizationCoverSheetViewControllerDidGetBiometricUnavailableOrFailure;
+- (void)configureWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)didInvalidateForRemoteAlert;
+- (void)handleButtonActions:(id)a0;
+- (void)openApplication:(id)a0;
+- (void)prepareForActivationWithContext:(id)a0 completion:(id /* block */)a1;
+
+@end

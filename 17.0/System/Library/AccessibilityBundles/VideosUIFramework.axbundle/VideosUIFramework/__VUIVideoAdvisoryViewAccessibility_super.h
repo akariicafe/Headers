@@ -1,0 +1,3 @@
+@interface __VUIVideoAdvisoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

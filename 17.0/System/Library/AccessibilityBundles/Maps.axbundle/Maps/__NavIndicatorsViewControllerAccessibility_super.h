@@ -1,0 +1,3 @@
+@interface __NavIndicatorsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

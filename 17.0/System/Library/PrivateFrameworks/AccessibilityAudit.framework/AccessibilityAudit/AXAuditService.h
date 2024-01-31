@@ -1,0 +1,85 @@
+@class DTXConnection, NSString, AXAuditDeviceSettingsManager, AXAuditer;
+
+@interface AXAuditService : NSObject <AXAuditAPIDevice1, AXAuditerDelegate, AXAuditDeviceSettingsManagerDelegate>
+
+@property (copy) id /* block */ _channelRestrictBlock;
+@property (retain, nonatomic) AXAuditDeviceSettingsManager *deviceSettingsManager;
+@property long long hostAPIVersion;
+@property (nonatomic) BOOL applicationStateNotificationsEnabled;
+@property (nonatomic) BOOL runningAudit;
+@property (nonatomic) int targetPid;
+@property (nonatomic) unsigned long long monitoredEventType;
+@property (retain, nonatomic) AXAuditer *currentAuditer;
+@property (readonly, nonatomic) DTXConnection *connection;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)deviceSettingsManagerClass;
+
+- (void)connectionInterrupted;
+- (id)deviceCapabilities;
+- (void)resume;
+- (void).cxx_destruct;
+- (void)cancel;
+- (id)initWithTransport:(id)a0;
+- (void)setMaxConnectionEnqueue:(unsigned long long)a0;
+- (void)deviceInspectorMoveWithOptions:(id)a0;
+- (id)fetchScreenshot;
+- (void)auditer:(id)a0 didCompleteWithResults:(id)a1;
+- (id)auditCaseIDsForAuditGroup:(id)a0;
+- (void)auditCategorySetup;
+- (void)auditer:(id)a0 didAppendLogWithMessage:(id)a1;
+- (void)auditer:(id)a0 didEncounterIssue:(id)a1;
+- (void)axAuditDeviceManager:(id)a0 settingDidChange:(id)a1;
+- (id)deviceAccessibilitySettings;
+- (id)deviceAllAuditCaseIDs;
+- (id)deviceAllSupportedAuditTypes;
+- (id)deviceApiVersion;
+- (id)deviceAuditIssueSupportedKeys;
+- (void)deviceBailWithMessage:(id)a0;
+- (void)deviceBeginAuditCaseIDs:(id)a0;
+- (void)deviceBeginAuditTypes:(id)a0;
+- (id)deviceCaptureScreenshot;
+- (id)deviceCurrentState;
+- (void)deviceDidGetTargeted;
+- (id)deviceElement:(id)a0 performAction:(id)a1 withValue:(id)a2;
+- (void)deviceElement:(id)a0 setValue:(id)a1 attribute:(id)a2;
+- (id)deviceElement:(id)a0 valueForAttribute:(id)a1;
+- (id)deviceElement:(id)a0 valueForParameterizedAttribute:(id)a1 withObject:(id)a2;
+- (void)deviceEnableHighlight:(id)a0;
+- (id)deviceFetchElementAtNormalizedDeviceCoordinate:(id)a0;
+- (id)deviceFetchResolvesElementsOnSimulator;
+- (id)deviceFetchSpecialElement:(id)a0;
+- (void)deviceHighlightIssue:(id)a0;
+- (void)deviceHighlightIssues:(id)a0;
+- (id)deviceHumanReadableDescriptionForAuditCaseID:(id)a0;
+- (void)deviceInspectorAutodrillIntoElements:(id)a0;
+- (id)deviceInspectorCanNavWhileMonitoringEvents;
+- (void)deviceInspectorEnable:(id)a0;
+- (void)deviceInspectorFocusOnElement:(id)a0;
+- (void)deviceInspectorInformCurrentCursorPosition:(id)a0;
+- (void)deviceInspectorLockOnCurrentElement;
+- (void)deviceInspectorPreviewOnElement:(id)a0;
+- (void)deviceInspectorSetMonitoredEventType:(id)a0;
+- (void)deviceInspectorShowIgnoredElements:(id)a0;
+- (void)deviceInspectorShowVisuals:(id)a0;
+- (id)deviceInspectorSupportedEventType;
+- (id)deviceInspectorSupportedEventTypes;
+- (id)deviceInspectorSupportsAutodrillIntoElements;
+- (id)deviceInspectorSupportsIgnoredElements;
+- (void)devicePerformFinalCleanup;
+- (void)deviceResetToDefaultAccessibilitySettings;
+- (id)deviceRunningApplications;
+- (void)deviceSetAppMonitoringEnabled:(id)a0;
+- (void)deviceSetAuditTargetPid:(id)a0;
+- (void)deviceSetAuditUIPid:(id)a0;
+- (void)deviceUpdateAccessibilitySetting:(id)a0 withValue:(id)a1;
+- (void)highlightElement:(id)a0;
+- (void)highlightElements:(id)a0;
+- (void)requestHostAPIVersion;
+- (void)restrictChannelsWithBlock:(id /* block */)a0;
+- (id)synchronousDeviceCaptureScreenshot;
+
+@end

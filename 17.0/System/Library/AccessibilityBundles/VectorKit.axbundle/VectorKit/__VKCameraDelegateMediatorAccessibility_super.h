@@ -1,0 +1,3 @@
+@interface __VKCameraDelegateMediatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

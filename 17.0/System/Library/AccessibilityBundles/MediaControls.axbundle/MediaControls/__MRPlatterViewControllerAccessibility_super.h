@@ -1,0 +1,3 @@
+@interface __MRPlatterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

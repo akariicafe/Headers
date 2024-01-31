@@ -1,0 +1,3 @@
+@interface __WGWidgetListEditViewTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

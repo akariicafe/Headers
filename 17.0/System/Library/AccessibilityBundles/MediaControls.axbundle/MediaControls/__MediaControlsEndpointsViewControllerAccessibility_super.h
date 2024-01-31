@@ -1,0 +1,3 @@
+@interface __MediaControlsEndpointsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

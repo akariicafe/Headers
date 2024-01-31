@@ -1,0 +1,3 @@
+@interface __CCUILabeledRoundButtonViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

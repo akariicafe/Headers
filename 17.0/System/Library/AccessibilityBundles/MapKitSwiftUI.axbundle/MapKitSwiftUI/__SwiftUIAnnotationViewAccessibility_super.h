@@ -1,0 +1,3 @@
+@interface __SwiftUIAnnotationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

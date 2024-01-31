@@ -1,0 +1,3 @@
+@interface __SBCoverSheetPresentationManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

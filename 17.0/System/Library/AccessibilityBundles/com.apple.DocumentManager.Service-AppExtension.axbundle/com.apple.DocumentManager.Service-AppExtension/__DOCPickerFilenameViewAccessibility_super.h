@@ -1,0 +1,3 @@
+@interface __DOCPickerFilenameViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

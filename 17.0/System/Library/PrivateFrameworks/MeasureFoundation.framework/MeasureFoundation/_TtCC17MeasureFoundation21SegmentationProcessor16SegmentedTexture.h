@@ -1,0 +1,3 @@
+@interface _TtCC17MeasureFoundation21SegmentationProcessor16SegmentedTexture : MeasureFoundation.SurfaceTexture
+
+@end

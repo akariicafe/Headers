@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterTestNullableOptionalResponseParams : MTRUnitTestingClusterTestNullableOptionalResponseParams
+
+@end

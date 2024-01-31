@@ -1,0 +1,7 @@
+@interface StrokeAnimation.StrokeContourLayer : CAShapeLayer
+
+- (id)init;
+- (id)initWithLayer:(id)a0;
+- (id)initWithCoder:(id)a0;
+
+@end

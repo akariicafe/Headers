@@ -1,0 +1,3 @@
+@interface COMeshAcceptResponse : COMeshBaseBallotResponse
+
+@end

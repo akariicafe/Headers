@@ -1,0 +1,3 @@
+@interface __CNPropertyLabelButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

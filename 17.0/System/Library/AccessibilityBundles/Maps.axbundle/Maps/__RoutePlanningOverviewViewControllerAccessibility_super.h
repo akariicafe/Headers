@@ -1,0 +1,3 @@
+@interface __RoutePlanningOverviewViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

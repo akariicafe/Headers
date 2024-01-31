@@ -1,0 +1,3 @@
+@interface __VideosUI_FocusableTextViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ADInFieldCalibrationColorMetadata : ADInFieldCalibrationMetadata
+
+@end

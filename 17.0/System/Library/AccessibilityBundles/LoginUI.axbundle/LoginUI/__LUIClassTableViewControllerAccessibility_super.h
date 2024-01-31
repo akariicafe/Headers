@@ -1,0 +1,3 @@
+@interface __LUIClassTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

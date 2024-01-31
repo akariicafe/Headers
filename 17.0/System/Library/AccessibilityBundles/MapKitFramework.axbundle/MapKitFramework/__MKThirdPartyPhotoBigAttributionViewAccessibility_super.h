@@ -1,0 +1,3 @@
+@interface __MKThirdPartyPhotoBigAttributionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIMobileStoreApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

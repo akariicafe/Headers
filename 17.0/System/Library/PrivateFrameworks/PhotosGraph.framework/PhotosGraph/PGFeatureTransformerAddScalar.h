@@ -1,0 +1,12 @@
+@interface PGFeatureTransformerAddScalar : PGFeatureSliceTransformer
+
+@property (readonly, nonatomic) float scalarToAdd;
+
++ (id)name;
++ (id)instanceWithParameters:(id)a0 error:(id *)a1;
+
+- (id)applyTransformationToFloatVector:(id)a0 error:(id *)a1;
+- (id)initWithScalarToAdd:(float)a0;
+- (id)initWithScalarToAdd:(float)a0 fromIndex:(long long)a1 toIndex:(long long)a2;
+
+@end

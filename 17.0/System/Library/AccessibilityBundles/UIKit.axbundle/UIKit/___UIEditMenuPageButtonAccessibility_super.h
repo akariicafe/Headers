@@ -1,0 +1,3 @@
+@interface ___UIEditMenuPageButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

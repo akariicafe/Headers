@@ -1,0 +1,3 @@
+@interface __PLExpandedPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

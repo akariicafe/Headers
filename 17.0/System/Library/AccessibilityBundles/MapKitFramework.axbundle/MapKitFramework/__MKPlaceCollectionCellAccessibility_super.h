@@ -1,0 +1,3 @@
+@interface __MKPlaceCollectionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

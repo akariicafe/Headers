@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmConcert : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

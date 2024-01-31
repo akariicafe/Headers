@@ -1,0 +1,3 @@
+@interface __SBWallpaperControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

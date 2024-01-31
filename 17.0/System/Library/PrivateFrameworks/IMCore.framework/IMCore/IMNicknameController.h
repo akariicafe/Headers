@@ -1,0 +1,83 @@
+@class NSSet, IMNickname, NSDictionary, NSMutableSet, NSMutableDictionary;
+
+@interface IMNicknameController : NSObject
+
+@property (retain, nonatomic) IMNickname *personalNickname;
+@property (retain, nonatomic) NSDictionary *pendingNicknameUpdates;
+@property (retain, nonatomic) NSDictionary *handledNicknames;
+@property (retain, nonatomic) NSDictionary *archivedNicknames;
+@property (retain, nonatomic) NSSet *allowListedHandlesForSharing;
+@property (retain, nonatomic) NSSet *denyListedHandlesForSharing;
+@property (retain, nonatomic) NSSet *transitionedHandles;
+@property (retain, nonatomic) NSDictionary *activeRecords;
+@property (retain, nonatomic) NSDictionary *ignoredRecords;
+@property (retain, nonatomic) NSMutableSet *scrutinyNicknameHandles;
+@property (nonatomic) BOOL isInitialLoad;
+@property (retain, nonatomic) NSMutableDictionary *responseHandlers;
+
++ (id)sharedInstance;
++ (BOOL)multiplePhoneNumbersTiedToAppleID;
++ (BOOL)accountsMatchUpToUseNicknames;
+
+- (void)acceptPendingNicknameForHandleID:(id)a0 updateType:(unsigned long long)a1;
+- (id)init;
+- (void)sendNameOnlyToHandleIDs:(id)a0 fromHandleID:(id)a1;
+- (void).cxx_destruct;
+- (void)updateTransitionedNicknameHandles:(id)a0;
+- (void)updatePersonalNickname:(id)a0;
+- (id)contactStore;
+- (BOOL)_nicknameFeatureEnabled;
+- (id)daemonController;
+- (id)nicknameForHandle:(id)a0;
+- (BOOL)iCloudSignedInToUseNicknames;
+- (void)allowHandlesForNicknameSharing:(id)a0 forChat:(id)a1 fromHandle:(id)a2 forceSend:(BOOL)a3;
+- (void)clearHandleFromScrutiny:(id)a0;
+- (void)clearPendingNicknameUpdatesForHandle:(id)a0 forceClear:(BOOL)a1;
+- (void)clearPendingNicknameUpdatesForHandleIDs:(id)a0;
+- (id)createSharedProfileStateOracleForHandles:(id)a0;
+- (id)currentNicknameForHandleIDs:(id)a0;
+- (void)denyHandlesForNicknameSharing:(id)a0;
+- (void)fetchPersonalNicknameWithCompletion:(id /* block */)a0;
+- (id)handlesForNicknamesUnderScrutiny;
+- (void)ignorePendingNicknameUpdatesForHandle:(id)a0;
+- (void)ignorePendingNicknameUpdatesForHandleIDs:(id)a0;
+- (void)markHandleUnderScrutiny:(id)a0;
+- (void)markTransitionAsObservedForHandleID:(id)a0 isAutoUpdate:(BOOL)a1;
+- (unsigned long long)nicknameUpdateForHandle:(id)a0 nicknameIfAvailable:(id *)a1;
+- (id)pendingNicknameForHandleIDs:(id)a0;
+- (void)setPersonalNicknameFromOnboardingResult:(id)a0;
+- (BOOL)shouldOfferNicknameSharingForChat:(id)a0;
+- (void)updatePersonalNicknameIfNecessaryWithMeCardSharingResult:(id)a0;
+- (id)getNicknameHandlesUnderScrutiny;
+- (id)IMSharedHelperMD5Helper:(id)a0;
+- (void)setNicknameHandlesUnderScrutiny;
+- (void)_broadcastNicknamePreferencesDidChange:(id)a0;
+- (BOOL)_canUpdatePersonalNickname;
+- (id)_handleIDsForHandle:(id)a0;
+- (void)_updateLocalNicknameStore;
+- (void)allowHandlesForNicknameSharing:(id)a0 fromHandle:(id)a1 forceSend:(BOOL)a2;
+- (id)archivedNicknameForHandleIDs:(id)a0;
+- (void)clearPendingNicknameUpdatesForHandle:(id)a0;
+- (BOOL)handleIsAllowedForSharing:(id)a0;
+- (BOOL)handleIsDeniedForSharing:(id)a0;
+- (BOOL)hasObservedTransitionForHandleID:(id)a0;
+- (id)imageDataForHandle:(id)a0;
+- (BOOL)isActiveForNickname:(id)a0;
+- (BOOL)isIgnoredForNickname:(id)a0;
+- (void)markAllAsPending;
+- (void)markNickname:(id)a0 asActive:(BOOL)a1;
+- (void)markNicknameAsIgnored:(id)a0;
+- (id)meCardSharingState;
+- (id)nicknameForHandleIDs:(id)a0;
+- (id)personNameComponentsForHandle:(id)a0;
+- (void)sendPersonalNicknameToHandle:(id)a0;
+- (void)sendPersonalNicknameToHandle:(id)a0 fromHandle:(id)a1;
+- (BOOL)shouldOfferNicknameSharingForHandles:(id)a0;
+- (id)truncateNameIfNeeded:(id)a0;
+- (void)updateIsActiveList:(id)a0;
+- (void)updateIsIgnoredList:(id)a0;
+- (void)updatePendingNicknameForHandleIDs:(id)a0;
+- (void)updatePendingNicknames:(id)a0 handledNicknames:(id)a1 archivedNicknames:(id)a2;
+- (void)updateSharingAllowList:(id)a0 denyList:(id)a1;
+
+@end

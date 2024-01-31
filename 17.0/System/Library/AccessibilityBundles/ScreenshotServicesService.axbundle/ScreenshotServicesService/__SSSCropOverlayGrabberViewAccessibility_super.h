@@ -1,0 +1,3 @@
+@interface __SSSCropOverlayGrabberViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

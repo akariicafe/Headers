@@ -1,0 +1,3 @@
+@interface MTGetAlarmsIntent : INIntent
+
+@end

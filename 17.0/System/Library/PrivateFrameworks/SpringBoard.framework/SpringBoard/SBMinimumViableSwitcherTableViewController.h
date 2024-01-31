@@ -1,0 +1,87 @@
+@class SBBestAppSuggestion, NSString, SBApplicationSceneView, BSAnimationSettings;
+@protocol SBSwitcherContentViewControllerDataSource, SBSwitcherContentViewControllerDelegate;
+
+@interface SBMinimumViableSwitcherTableViewController : UITableViewController <SBSwitcherContentViewControlling> {
+    SBApplicationSceneView *_temporaryAppView;
+    SBApplicationSceneView *_temporarySideAppView;
+}
+
+@property (weak, nonatomic) id<SBSwitcherContentViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<SBSwitcherContentViewControllerDataSource> dataSource;
+@property (retain, nonatomic) SBBestAppSuggestion *bestAppSuggestion;
+@property (nonatomic, getter=isShowingModifierTimeline) BOOL showModifierTimeline;
+@property (nonatomic) long long contentOrientation;
+@property (nonatomic, getter=isAsyncRenderingDisabled) BOOL asyncRenderingDisabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL canInterruptActiveTransition;
+@property (readonly, copy, nonatomic) BSAnimationSettings *defaultTransitionAnimationSettings;
+
+- (BOOL)isStatusBarHiddenForAppLayout:(id)a0;
+- (void)clickReceivedForHomeGrabberView:(id)a0;
+- (id)liveOverlayForSceneIdentityToken:(id)a0;
+- (id)trailingStatusBarStyleRequest;
+- (void)noteKeyboardFocusDidChangeToSceneID:(id)a0;
+- (void)noteWindowSceneCountDidChange;
+- (void)noteAppLayoutsDidChange;
+- (void)acquiredViewController:(id)a0 forTransientOverlayAppLayout:(id)a1;
+- (void)performTransitionWithContext:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (id)iconForAppLayout:(id)a0;
+- (id)leadingStatusBarStyleRequest;
+- (id)animationControllerForTransitionRequest:(id)a0;
+- (void)relinquishTransientOverlayViewController:(id)a0;
+- (double)minimumHomeScreenScale;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (char)activityModeForAppLayout:(id)a0;
+- (void)handleFluidSwitcherGestureManager:(id)a0 didBeginGesture:(id)a1;
+- (BOOL)handleVoiceCommandButtonPress;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (BOOL)isWindowVisible;
+- (BOOL)shouldAcceleratedHomeButtonPressBegin;
+- (BOOL)handleHomeButtonLongPress;
+- (BOOL)isUserInteractionEnabled;
+- (void)viewDidLoad;
+- (double)switcherCardScale;
+- (void)failMultitaskingGesturesForReason:(id)a0;
+- (BOOL)handleVolumeUpButtonPress;
+- (char)jetsamModeForAppLayout:(id)a0;
+- (void)invalidate;
+- (void)performKeyboardShortcutAction:(long long)a0;
+- (void)handleFluidSwitcherGestureManager:(id)a0 didEndGesture:(id)a1;
+- (void)handleFluidSwitcherGestureManager:(id)a0 didUpdateGesture:(id)a1;
+- (id)foregroundAppLayouts;
+- (BOOL)shouldRubberbandFullScreenHomeGrabberView;
+- (void)performAnimatedInsertionOfAppLayouts:(id)a0 atIndexes:(id)a1 completion:(id /* block */)a2;
+- (BOOL)handleLockButtonPress;
+- (BOOL)canPerformKeyboardShortcutAction:(long long)a0 forBundleIdentifier:(id)a1;
+- (id)prepareOverlayForContentRotation;
+- (BOOL)shouldAddAppLayoutToFront:(id)a0 forTransitionWithContext:(id)a1 transitionCompleted:(BOOL)a2;
+- (id)overlaySceneHandle;
+- (void)prepareAnimatedInsertionOfAppLayouts:(id)a0 atIndexes:(id)a1;
+- (void)noteModelDidMutateForInsertionOfAppLayouts:(id)a0 atIndexes:(id)a1 willAnimate:(BOOL)a2;
+- (BOOL)shouldAnimateInsertionOfAppLayouts:(id)a0 atIndexes:(id)a1;
+- (void)sceneLayoutTransitionWillStartWithTransitionContext:(id)a0;
+- (double)contentAspectRatio;
+- (void).cxx_destruct;
+- (void)tapReceivedForGrabberTongueAtEdge:(unsigned long long)a0;
+- (double)snapshotScaleForSceneHandle:(id)a0;
+- (id)liveContentOverlayForAppLayout:(id)a0;
+- (void)respondToInAppStatusBarRequestedHiddenUpdateAnimated:(BOOL)a0;
+- (BOOL)handleHomeButtonDoublePress;
+- (id)liveScenesIdentityTokens;
+- (BOOL)handleVolumeDownButtonPress;
+- (void)removeLayoutRole:(long long)a0 inSpace:(id)a1 mutationBlock:(id /* block */)a2 reason:(long long)a3;
+- (id)liveOverlayForSceneHandle:(id)a0;
+- (BOOL)handleHeadsetButtonPress:(BOOL)a0;
+- (BOOL)handleHomeButtonPress;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 commitEditingStyle:(long long)a1 forRowAtIndexPath:(id)a2;
+- (id)tableView:(id)a0 titleForDeleteConfirmationButtonForRowAtIndexPath:(id)a1;
+- (id)_appLayouts;
+- (id)_statusBarStyleRequestForDefaultStyle;
+
+@end

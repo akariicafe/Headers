@@ -1,0 +1,92 @@
+@class NSString, NSMutableDictionary, QLCacheIndexDatabase, QLCacheMMAPBlobDatabase, NSLock;
+@protocol QLDiskCacheDelegate;
+
+@interface QLDiskCache : NSObject {
+    QLCacheIndexDatabase *_indexDatabase;
+    QLCacheMMAPBlobDatabase *_blobDatabase;
+    NSString *_dirtyFilePath;
+    NSString *_exclusivePath;
+    NSString *_resetFilePath;
+    NSString *_resetReasonPath;
+    BOOL _dirtyForDelegate;
+    NSLock *_databaseLock;
+    int _exclusiveFD;
+}
+
+@property BOOL metaDataDirty;
+@property (retain) NSMutableDictionary *metaData;
+@property (retain) NSString *metaDataFilePath;
+@property (readonly, nonatomic) BOOL hasDirtyLock;
+@property (readonly) BOOL isOpened;
+@property (readonly) NSString *path;
+@property (readonly) float fragmentation;
+@property (readonly) unsigned long long reserveBufferCount;
+@property (readonly) unsigned long long reserveBufferSize;
+@property (readonly) unsigned long long size;
+@property (readonly) unsigned long long maxSize;
+@property (readonly) unsigned long long maxThumbnailLifeTime;
+@property (weak) id<QLDiskCacheDelegate> delegate;
+@property (readonly) unsigned long long fileEntryCount;
+@property (readonly) unsigned long long thumbnailCount;
+@property (readonly) long long writingCount;
+
++ (id)defaultLocation;
++ (void)setupCacheAtLocationIfNecessary:(id)a0;
++ (void)setCacheLocationForTesting:(id)a0;
+
+- (void)noteRemoteThumbnailMissingForItems:(id)a0;
+- (id)itemsAfterFilteringOutItemsWithMissingThumbnails:(id)a0;
+- (BOOL)setLastHitDateOfAllCachedThumbnailsToDate:(id)a0;
+- (void)noteRemoteThumbnailPresentForItems:(id)a0;
+- (id)lastCrapWithDate:(id *)a0;
+- (void)_close;
+- (void)close;
+- (BOOL)itemIsMissingRemoteThumbnail:(id)a0;
+- (BOOL)_open;
+- (void)checkpoint;
+- (id)initWithPathLocation:(id)a0 cacheSize:(long long)a1 cacheThread:(id)a2;
+- (unsigned long long)removeThumbnailsOlderThanDate:(id)a0;
+- (unsigned long long)sizeSumOfThumbnailsOlderThanDate:(id)a0;
+- (void)reset;
+- (BOOL)_setThumbnailData:(id)a0;
+- (id)reserveBufferForData:(id)a0;
+- (id)_checkConsistency;
+- (BOOL)open;
+- (void)_cleanupForceResetAtNextLaunch;
+- (BOOL)discardReservedBuffer:(id)a0;
+- (void)discardThumbnailDataBatchForReset:(id)a0;
+- (unsigned long long)cleanup;
+- (id)enumeratorForAllFilesUbiquitousFiles:(BOOL)a0 withExtraInfo:(BOOL)a1;
+- (id)blobDatabase;
+- (id)checkConsistency;
+- (BOOL)removeCachedThumbnailsFromUninstalledFileProvidersWithRemainingFileProviderIdentifiers:(id)a0;
+- (BOOL)doReading:(id /* block */)a0;
+- (void)_resetWithReason:(id)a0;
+- (id)metaDataForKey:(id)a0;
+- (void)_closeWhatIsOpen;
+- (unsigned long long)cleanupDeletedFiles;
+- (void)_createDirtyLockInformDelegate:(BOOL)a0;
+- (id)enumeratorForAllThumbnailsWithFileIdentifier:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (unsigned long long)freeDiskSpaceForNewThumbnails;
+- (void).cxx_destruct;
+- (void)removeFilesWithFileInfo:(id)a0;
+- (void)updateHitCount:(id)a0 forFileIdentifier:(id)a1;
+- (void)_cleanupDirtyLock;
+- (id)reserveBufferWithLength:(unsigned long long)a0;
+- (void)setMetaData:(id)a0 forKey:(id)a1;
+- (void)logCacheSizeBeforeCleanup;
+- (BOOL)doWriting:(id /* block */)a0;
+- (BOOL)removeCachedThumbnailsFromUninstalledFileProvidersWithIdentifiers:(id)a0;
+- (id)enumeratorForThumbnailRequests:(id)a0;
+- (id)indexDatabase;
+- (void)forceResetAtNextLaunch;
+- (id)lastResetWithDate:(id *)a0;
+- (BOOL)validateReservedBuffer:(id)a0;
+- (void)_removeDirtyLock;
+- (void)_discardThumbnailDataForReset:(id)a0;
+- (unsigned long long)_deleteBlobArrayFromDatabase:(id)a0;
+- (void)writeThumbnailDataBatch:(id)a0;
+- (void)do:(id /* block */)a0;
+
+@end

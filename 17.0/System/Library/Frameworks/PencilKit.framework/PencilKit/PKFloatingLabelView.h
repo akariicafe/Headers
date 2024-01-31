@@ -1,0 +1,3 @@
+@interface PKFloatingLabelView : UIView
+
+@end

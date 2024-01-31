@@ -1,0 +1,3 @@
+@interface __AKLineStylesViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

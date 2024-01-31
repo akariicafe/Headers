@@ -1,0 +1,3 @@
+@interface __AudioMessageRecordingAppendButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

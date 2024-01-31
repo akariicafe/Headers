@@ -1,0 +1,3 @@
+@interface __PosterBoardUIApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

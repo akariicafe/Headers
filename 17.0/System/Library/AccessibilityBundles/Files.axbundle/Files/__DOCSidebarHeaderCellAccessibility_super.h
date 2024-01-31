@@ -1,0 +1,3 @@
+@interface __DOCSidebarHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

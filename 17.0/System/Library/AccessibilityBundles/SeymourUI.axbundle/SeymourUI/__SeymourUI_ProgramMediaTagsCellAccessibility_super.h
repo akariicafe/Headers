@@ -1,0 +1,3 @@
+@interface __SeymourUI_ProgramMediaTagsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

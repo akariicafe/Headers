@@ -1,0 +1,3 @@
+@interface _TtC5HeartP33_6987C3CC332A035F2C9727230D98D02A19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

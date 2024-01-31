@@ -1,0 +1,81 @@
+@class CONode, COExecutionContext, NSString, NSSet, NSMutableDictionary, COConstituent, NSMutableArray, CODiscoveryRecord;
+@protocol CONodeControllerDelegate, CODiscoveryRecordProtocol, COTransportProtocol;
+
+@interface CONodeController : NSObject <CONodeDelegate, COTransportDelegate> {
+    BOOL _activated;
+}
+
+@property (retain, nonatomic) id<CODiscoveryRecordProtocol> originalRecord;
+@property (retain, nonatomic) id<COTransportProtocol> preferredTransport;
+@property (retain, nonatomic) COConstituent *leader;
+@property (nonatomic) BOOL stopped;
+@property (nonatomic) BOOL handlersRegistered;
+@property (readonly, nonatomic) CONode *node;
+@property (readonly, nonatomic) COExecutionContext *executionContext;
+@property (weak, nonatomic) id<CONodeControllerDelegate> delegate;
+@property (copy, nonatomic) NSSet *acceptableCommands;
+@property (copy, nonatomic) CODiscoveryRecord *ipDiscoveryRecord;
+@property (readonly, copy, nonatomic) NSMutableArray *records;
+@property (readonly, copy, nonatomic) NSMutableArray *transports;
+@property (retain, nonatomic) NSMutableDictionary *sentElements;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)remote;
+- (void)sendPing;
+- (id)shortDescription;
+- (void)activateWithCompletionHandler:(id /* block */)a0;
+- (long long)state;
+- (void)stopWithCompletionHandler:(id /* block */)a0;
+- (void)invalidateWithReason:(long long)a0;
+- (void).cxx_destruct;
+- (id)rapportTransport;
+- (void)sendCommand:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (BOOL)_isActiveState:(long long)a0;
+- (void)_handlePingError:(id)a0 fromTransport:(id)a1;
+- (id)_acceptResponseWithElectionInfo:(id)a0;
+- (void)_adjustNodeDiscoveryInformationUsingRecord:(id)a0;
+- (id)_ballotResponseWithElectionInfo:(id)a0;
+- (void)_createAndActivateTransportForRecord:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (id)_electionRequestWithElectionInfo:(id)a0;
+- (void)_handleAcceptResponse:(id)a0 fromTransport:(id)a1;
+- (void)_handleBallotResponse:(id)a0 fromTransport:(id)a1;
+- (void)_handleElectionRequest:(id)a0 fromTransport:(id)a1 callback:(id /* block */)a2;
+- (void)_handleResponseToCoreRequest:(id)a0 response:(id)a1 error:(id)a2 usingTransport:(id)a3;
+- (void)_handleVoteRequest:(id)a0 fromTransport:(id)a1 callback:(id /* block */)a2;
+- (void)_handleWithdraw:(id)a0 fromTransport:(id)a1;
+- (long long)_nodeControllerStateFromNodeState;
+- (void)_sendAcceptResponse:(id)a0 usingTransport:(id)a1 callback:(id /* block */)a2;
+- (void)_sendBallotResponse:(id)a0 usingTransport:(id)a1 callback:(id /* block */)a2;
+- (void)_sendElectionRequest:(id)a0 usingTransport:(id)a1;
+- (void)_sendPingUsingTransport:(id)a0;
+- (void)_sendProbeRequest:(id)a0 withState:(long long)a1 usingTransport:(id)a2;
+- (void)_sendVoteRequest:(id)a0 usingTransport:(id)a1;
+- (void)_updateDelegateWithBallotCommand:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_updateNodeState:(long long)a0 currentElectionInfo:(id)a1 incomingElectionInfo:(id)a2 reason:(long long)a3;
+- (id)_voteRequestWithElectionInfo:(id)a0;
+- (void)addDiscoveryRecord:(id)a0;
+- (id)computePreferredTransport;
+- (void)didFireBackoffTimer;
+- (id)electionSummaryDetails;
+- (id)initWithDiscoveryRecord:(id)a0 executionContext:(id)a1;
+- (void)inquireForTransport:(id)a0;
+- (BOOL)isLocalNodeController;
+- (void)markInactive;
+- (id)nodeAfterReconciliation;
+- (void)reconcileNode;
+- (void)removeDiscoveryRecord:(id)a0;
+- (BOOL)supportsLeaderElection;
+- (void)transport:(id)a0 didInvalidateWithError:(id)a1;
+- (void)transport:(id)a0 didReceiveCommand:(id)a1;
+- (void)transport:(id)a0 didReceiveError:(id)a1 forCommand:(id)a2;
+- (void)transport:(id)a0 didReceiveRequest:(id)a1 callback:(id /* block */)a2;
+- (void)transport:(id)a0 didReceiveUnhandledRequest:(id)a1;
+- (void)transport:(id)a0 didUpdateRemoteConstituent:(id)a1 to:(id)a2;
+- (void)transport:(id)a0 shouldUpdateRemoteConstituent:(id)a1 to:(id)a2 forCommand:(id)a3 completionHandler:(id /* block */)a4;
+- (void)transport:(id)a0 willUpdateRemoteConstituent:(id)a1 to:(id)a2;
+- (void)updateElectionInfo:(id)a0;
+
+@end

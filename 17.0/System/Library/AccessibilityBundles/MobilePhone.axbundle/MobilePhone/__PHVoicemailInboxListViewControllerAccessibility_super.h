@@ -1,0 +1,3 @@
+@interface __PHVoicemailInboxListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

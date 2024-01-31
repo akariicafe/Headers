@@ -1,0 +1,51 @@
+@class VUIMediaController, NSString, NSTimer;
+@protocol VUIMediaPlaybackManagerDelegate;
+
+@interface VUITransitionalPlaybackUIManager : NSObject <UIGestureRecognizerDelegate> {
+    int _mediaPlaybackState;
+    int _mediaPlaybackTrigger;
+    unsigned long long _mediaPlaybackStateModifier;
+    unsigned long long _mediaPlaybackTriggerModifier;
+    NSTimer *_backgroundedTimer;
+    struct { BOOL hasShouldEnableUIModeImplicitly; BOOL hasPresentPlaybackController; } _delegateFlags;
+    BOOL _isFirstAppearance;
+}
+
+@property (readonly, nonatomic) VUIMediaController *mediaController;
+@property (weak, nonatomic) id<VUIMediaPlaybackManagerDelegate> delegate;
+@property (nonatomic) double showcaseFactor;
+@property (readonly, nonatomic) BOOL shouldHideUI;
+@property (readonly, nonatomic) long long currentUIMode;
+@property (nonatomic) BOOL goesToForegroundOnFirstAppear;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (BOOL)_shouldPause;
+- (void)onDisappear;
+- (void)onAppear;
+- (id)initWithMediaController:(id)a0;
+- (void)_processTrigger;
+- (void)onEvent;
+- (void)onMediaControllerStateDidChange;
+- (BOOL)_canMenu;
+- (BOOL)_canSwipeUp;
+- (void)_onShowcaseFactorDidChange;
+- (void)_onTimeout;
+- (int)_processBackgroundedStateTriggers;
+- (int)_processForegroundedStateTriggers;
+- (int)_processPausedStateTriggers;
+- (void)_processStateEnter;
+- (void)_processStateExit;
+- (int)_processUndefinedStateTriggers;
+- (int)_processWaitingForTimeoutStateTriggers;
+- (int)_processWillBeBackgroundedStateTriggers;
+- (int)_processWillBeForegroundedStateTriggers;
+- (void)_scheduleBackgroundedTimer;
+- (void)onSupplementaryUIShouldDismiss;
+- (BOOL)onSupplementaryUIShouldPresent;
+
+@end

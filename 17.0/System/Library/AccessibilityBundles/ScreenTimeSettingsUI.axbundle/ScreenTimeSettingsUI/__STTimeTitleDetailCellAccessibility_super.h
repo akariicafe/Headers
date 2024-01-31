@@ -1,0 +1,3 @@
+@interface __STTimeTitleDetailCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

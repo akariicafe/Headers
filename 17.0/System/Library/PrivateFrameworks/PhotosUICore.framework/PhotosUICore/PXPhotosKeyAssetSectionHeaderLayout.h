@@ -1,0 +1,80 @@
+@class UIView, NSString, PXAssetsDataSource, PXNumberAnimator, PXPhotosLayoutSpec, NSDictionary, PXPhotosViewModel, PXSelectionSnapshot;
+@protocol PXDisplayAssetFetchResult, PXPhotosBannerProvider, PXPhotosBannerView;
+
+@interface PXPhotosKeyAssetSectionHeaderLayout : PXGLayout <PXGDisplayAssetSource, PXGStringSource, PXGViewSource, PXChangeObserver, PXPhotosBannerInvalidationDelegate, PXPhotosSectionedLayoutHeader> {
+    struct { unsigned long long needsUpdate; unsigned long long updated; BOOL isPerformingUpdate; BOOL willPerformUpdate; } _updateFlags;
+    struct { unsigned long long needsUpdate; unsigned long long updated; BOOL isPerformingUpdate; BOOL willPerformUpdate; } _postUpdateFlags;
+    id<PXDisplayAssetFetchResult> _keyAssetFetch;
+    unsigned short _keyAssetVersion;
+    unsigned short _titleVersion;
+    unsigned short _bannerVersion;
+    long long _currentBannerRequestVersion;
+    long long _desiredBannerRequestVersion;
+    PXNumberAnimator *_bannerAppearanceAnimator;
+    BOOL _isDisplayingBanner;
+}
+
+@property (copy, nonatomic) NSString *title;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } titleBaseFrame;
+@property (copy, nonatomic) NSDictionary *titleAttributes;
+@property (retain, nonatomic) UIView<PXPhotosBannerView> *bannerView;
+@property (nonatomic) struct CGSize { double width; double height; } bannerViewSize;
+@property (nonatomic) BOOL shouldHideBanner;
+@property (readonly, nonatomic) PXPhotosViewModel *viewModel;
+@property (retain, nonatomic) PXAssetsDataSource *dataSource;
+@property (nonatomic) struct PXSimpleIndexPath { long long dataSourceIdentifier; long long section; long long item; long long subitem; } sectionIndexPath;
+@property (retain, nonatomic) id<PXPhotosBannerProvider> bannerProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) PXPhotosLayoutSpec *spec;
+@property (nonatomic) BOOL isInSelectMode;
+@property (retain, nonatomic) PXSelectionSnapshot *selectionSnapshot;
+
+- (void)didUpdate;
+- (id)initWithViewModel:(id)a0;
+- (void)_updateContentSize;
+- (Class)viewClassForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)willUpdate;
+- (void)_invalidateTitle;
+- (id)axSpriteIndexes;
+- (void)update;
+- (void)visibleRectDidChange;
+- (unsigned long long)desiredPlaceholderStyleInLayout:(id)a0;
+- (void)appearStateDidChange;
+- (void)_invalidateContent;
+- (id)attributedStringForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (id)stringAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)_invalidateContentSize;
+- (void)_updateContent;
+- (void).cxx_destruct;
+- (id)viewUserDataForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (long long)verticalAlignmentForStringAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (id)displayAssetFetchResultForSpritesInRange:(struct _PXGSpriteIndexRange { unsigned int x0; unsigned int x1; })a0 inLayout:(id)a1;
+- (void)_updateTitle;
+- (void)referenceSizeDidChange;
+- (id)stringAttributesAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_bestCropRectForAspectRatio:(double)a0;
+- (void)_bumpAssetVersion;
+- (void)_bumpBannerVersion;
+- (void)_bumpTitleVersion;
+- (double)_floatOffset;
+- (void)_invalidateAnimations;
+- (void)_invalidateBannerRequest;
+- (void)_invalidateBannerView;
+- (void)_invalidateFloatParameters;
+- (void)_invalidateKeyAssetFetch;
+- (void)_invalidateTitleMetrics;
+- (struct CGSize { double x0; double x1; })_keyAssetSize;
+- (void)_loadBannerIfNecessary;
+- (void)_transitionToBannerView:(id)a0 version:(long long)a1;
+- (void)_updateAnimations;
+- (void)_updateBannerView;
+- (void)_updateFloatParameters;
+- (void)_updateKeyAssetFetch;
+- (void)_updateTitleMetrics;
+- (void)photosBannerProviderInvalidateLoadedBanner:(id)a0;
+
+@end

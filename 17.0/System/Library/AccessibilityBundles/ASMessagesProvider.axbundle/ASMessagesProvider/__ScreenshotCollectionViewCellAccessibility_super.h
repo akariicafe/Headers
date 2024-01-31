@@ -1,0 +1,3 @@
+@interface __ScreenshotCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SiriRestaurantsLogoButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

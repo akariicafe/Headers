@@ -1,0 +1,3 @@
+@interface __TipsWidgetExtensionUIViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

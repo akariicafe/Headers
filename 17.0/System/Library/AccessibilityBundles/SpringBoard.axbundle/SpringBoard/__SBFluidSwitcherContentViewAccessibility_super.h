@@ -1,0 +1,3 @@
+@interface __SBFluidSwitcherContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

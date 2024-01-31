@@ -1,0 +1,3 @@
+@interface __VMMessageMetadataViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

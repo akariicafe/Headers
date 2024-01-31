@@ -1,0 +1,3 @@
+@interface __CNContactListBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

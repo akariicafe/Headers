@@ -1,0 +1,3 @@
+@interface __NCFullScreenPresentableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

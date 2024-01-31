@@ -1,0 +1,3 @@
+@interface __CNVisualIdentityAvatarViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

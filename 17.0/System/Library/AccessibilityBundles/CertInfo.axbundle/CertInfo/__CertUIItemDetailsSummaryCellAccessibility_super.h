@@ -1,0 +1,3 @@
+@interface __CertUIItemDetailsSummaryCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

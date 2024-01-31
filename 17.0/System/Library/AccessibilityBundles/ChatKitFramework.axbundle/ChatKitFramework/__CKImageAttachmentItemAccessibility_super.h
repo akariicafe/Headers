@@ -1,0 +1,3 @@
+@interface __CKImageAttachmentItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

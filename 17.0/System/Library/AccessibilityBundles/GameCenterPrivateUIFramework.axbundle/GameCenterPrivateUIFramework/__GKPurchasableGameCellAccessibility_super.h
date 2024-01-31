@@ -1,0 +1,3 @@
+@interface __GKPurchasableGameCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ScheduleOccurrenceDayPickerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

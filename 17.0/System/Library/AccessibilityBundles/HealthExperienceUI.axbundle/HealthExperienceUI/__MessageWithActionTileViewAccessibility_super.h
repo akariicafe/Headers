@@ -1,0 +1,3 @@
+@interface __MessageWithActionTileViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __HRAtrialFibrillationDataTypeDescriptionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBSystemApertureViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SKUIStackListCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

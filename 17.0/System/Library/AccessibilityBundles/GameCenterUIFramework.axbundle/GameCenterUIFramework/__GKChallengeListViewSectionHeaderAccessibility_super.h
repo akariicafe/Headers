@@ -1,0 +1,3 @@
+@interface __GKChallengeListViewSectionHeaderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

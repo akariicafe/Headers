@@ -1,0 +1,3 @@
+@interface __PHVoicemailPlayerControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

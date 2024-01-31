@@ -1,0 +1,3 @@
+@interface __PREditingColorSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

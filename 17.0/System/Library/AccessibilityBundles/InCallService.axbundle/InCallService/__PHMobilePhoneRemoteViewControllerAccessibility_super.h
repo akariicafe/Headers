@@ -1,0 +1,3 @@
+@interface __PHMobilePhoneRemoteViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

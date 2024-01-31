@@ -1,0 +1,3 @@
+@interface __FaceIdViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,6 @@
+@interface ProximityAppleIDSetup.PASAccountStore : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ accountStore;
+    void /* unknown type, empty encoding */ accountManager;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface __HROnboardingAtrialFibrillationEnableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

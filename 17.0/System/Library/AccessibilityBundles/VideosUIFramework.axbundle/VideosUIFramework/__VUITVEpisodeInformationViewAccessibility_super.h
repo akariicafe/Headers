@@ -1,0 +1,3 @@
+@interface __VUITVEpisodeInformationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VUIProductLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,91 @@
+@class NSArray, NSString, TSClock;
+
+@interface TSXgPTPClock : TSXKernelClock <TSXgPTPClockClientProtocol> {
+    struct { BOOL syncInfoValid; unsigned char syncFlags; unsigned long long timeSyncTime; struct IOTS_U128 { unsigned long long lo; unsigned long long hi; } domainTime; unsigned long long cumulativeScaledRate; unsigned long long inverseCumulativeScaledRate; unsigned long long grandmasterID; unsigned short localPortNumber; } _timeInfo[8];
+    unsigned int _validIndex;
+    TSClock *_translationClock;
+    TSClock *_timeSyncClock;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _updateLock;
+    int _internalLockState;
+}
+
+@property (copy, nonatomic) NSArray *gptpPath;
+@property (nonatomic) unsigned long long grandmasterIdentity;
+@property (nonatomic) unsigned char clockPriority1;
+@property (nonatomic) unsigned char clockPriority2;
+@property (nonatomic) unsigned char clockClass;
+@property (nonatomic) unsigned char clockAccuracy;
+@property (readonly, nonatomic) unsigned long long clockIdentity;
+@property (readonly, copy, nonatomic) NSArray *ports;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)serverProtocol;
++ (id)clientProtocol;
+
+- (id)exportedObject;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (unsigned long long)convertFromDomainTimeToTimeSyncTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (unsigned long long)convertFromMachAbsoluteToDomainTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (unsigned long long)convertFromDomainToMachAbsoluteTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (unsigned long long)convertFromTimeSyncTimeToDomainTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (void)_getInitialSyncInfo;
+- (BOOL)addLinkLayerPortOnInterfaceNamed:(id)a0 allocatedPortNumber:(unsigned short *)a1 error:(id *)a2;
+- (BOOL)addReverseSyncOnInterfaceNamed:(id)a0 withDomainNumner:(unsigned char)a1 syncInterval:(unsigned int)a2 error:(id *)a3;
+- (BOOL)addUnicastLinkLayerEtEPortOnInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (BOOL)addUnicastLinkLayerPtPPortOnInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (BOOL)addUnicastUDPv4EtEPortOnInterfaceNamed:(id)a0 withDestinationAddress:(unsigned int)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (BOOL)addUnicastUDPv4PtPPortOnInterfaceNamed:(id)a0 withDestinationAddress:(unsigned int)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (BOOL)addUnicastUDPv6EtEPortOnInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (BOOL)addUnicastUDPv6PtPPortOnInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 allocatedPortNumber:(unsigned short *)a2 error:(id *)a3;
+- (void)beginGrandmasterChangeWithGrandmasterID:(unsigned long long)a0 localPort:(unsigned short)a1;
+- (void)changeLocalPortGrandmasterChangeWithGrandmasterID:(unsigned long long)a0 localPort:(unsigned short)a1;
+- (id)clockName;
+- (unsigned long long)convertFrom128BitgPTPTimeToMachAbsoluteTime:(struct { unsigned long long x0; unsigned long long x1; })a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (unsigned long long)convertFrom128BitgPTPTimeToTimeSyncTime:(struct { unsigned long long x0; unsigned long long x1; })a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (BOOL)convertFrom32BitASTime:(unsigned int *)a0 toMachAbsoluteTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (BOOL)convertFrom32BitASTime:(unsigned int *)a0 toTimeSyncTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (unsigned long long)convertFrom32BitASToMachAbsoluteTime:(unsigned int)a0;
+- (unsigned long long)convertFrom32BitASToTimeSyncTime:(unsigned int)a0;
+- (unsigned long long)convertFromDomainIntervalToMachAbsoluteInterval:(unsigned long long)a0;
+- (unsigned long long)convertFromDomainIntervalToTimeSyncTimeInterval:(unsigned long long)a0;
+- (BOOL)convertFromDomainTime:(unsigned long long *)a0 toMachAbsoluteTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (BOOL)convertFromDomainTime:(unsigned long long *)a0 toTimeSyncTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (unsigned long long)convertFromDomainToMachAbsoluteTime:(unsigned long long)a0;
+- (unsigned long long)convertFromDomainToTimeSyncTime:(unsigned long long)a0;
+- (unsigned long long)convertFromMachAbsoluteIntervalToDomainInterval:(unsigned long long)a0;
+- (BOOL)convertFromMachAbsoluteTime:(unsigned long long *)a0 toDomainTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (struct { unsigned long long x0; unsigned long long x1; })convertFromMachAbsoluteTo128BitgPTPTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (unsigned long long)convertFromMachAbsoluteToDomainTime:(unsigned long long)a0;
+- (BOOL)convertFromTimeSyncTime:(unsigned long long *)a0 toDomainTime:(unsigned long long *)a1 withCount:(unsigned int)a2;
+- (unsigned long long)convertFromTimeSyncTimeIntervalToDomainInterval:(unsigned long long)a0;
+- (struct { unsigned long long x0; unsigned long long x1; })convertFromTimeSyncTimeTo128BitgPTPTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2;
+- (struct { unsigned long long x0; unsigned long long x1; })convertFromTimeSyncTimeTo128BitgPTPTime:(unsigned long long)a0 grandmasterUsed:(unsigned long long *)a1 portNumber:(unsigned short *)a2 flags:(unsigned long long *)a3;
+- (unsigned long long)convertFromTimeSyncToDomainTime:(unsigned long long)a0;
+- (void)endGrandmasterChangeWithGrandmasterID:(unsigned long long)a0 localPort:(unsigned short)a1;
+- (id)gPTPTimeFromMachAbsoluteTime:(unsigned long long)a0;
+- (id)gPTPTimeFromTimeSyncTime:(unsigned long long)a0;
+- (BOOL)getMachAbsoluteRateRatioNumerator:(unsigned long long *)a0 denominator:(unsigned long long *)a1 machAnchor:(unsigned long long *)a2 andDomainAnchor:(unsigned long long *)a3 forGrandmasterIdentity:(unsigned long long *)a4 portNumber:(unsigned short *)a5 withError:(id *)a6;
+- (BOOL)getMachAbsoluteRateRatioNumerator:(unsigned long long *)a0 denominator:(unsigned long long *)a1 machAnchor:(unsigned long long *)a2 andDomainAnchor:(unsigned long long *)a3 withError:(id *)a4;
+- (BOOL)getTimeSyncTimeRateRatioNumerator:(unsigned long long *)a0 denominator:(unsigned long long *)a1 timeSyncAnchor:(unsigned long long *)a2 andDomainAnchor:(unsigned long long *)a3 forGrandmasterIdentity:(unsigned long long *)a4 portNumber:(unsigned short *)a5 withError:(id *)a6;
+- (BOOL)getTimeSyncTimeRateRatioNumerator:(unsigned long long *)a0 denominator:(unsigned long long *)a1 timeSyncAnchor:(unsigned long long *)a2 andDomainAnchor:(unsigned long long *)a3 withError:(id *)a4;
+- (id)initWithEndpoint:(id)a0 clockIdentifier:(unsigned long long)a1;
+- (unsigned long long)machAbsoluteFromgPTPTime:(id)a0;
+- (id)portWithPortNumber:(unsigned short)a0;
+- (BOOL)removeLinkLayerPortFromInterfaceNamed:(id)a0 error:(id *)a1;
+- (BOOL)removeReverseSyncFromInterfaceNamed:(id)a0 withDomainNumner:(unsigned char)a1 error:(id *)a2;
+- (BOOL)removeUnicastLinkLayerEtEPortFromInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 error:(id *)a2;
+- (BOOL)removeUnicastLinkLayerPtPPortFromInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 error:(id *)a2;
+- (BOOL)removeUnicastUDPv4EtEPortFromInterfaceNamed:(id)a0 withDestinationAddress:(unsigned int)a1 error:(id *)a2;
+- (BOOL)removeUnicastUDPv4PtPPortFromInterfaceNamed:(id)a0 withDestinationAddress:(unsigned int)a1 error:(id *)a2;
+- (BOOL)removeUnicastUDPv6EtEPortFromInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 error:(id *)a2;
+- (BOOL)removeUnicastUDPv6PtPPortFromInterfaceNamed:(id)a0 withDestinationAddress:(const char *)a1 error:(id *)a2;
+- (unsigned long long)timeSyncTimeFromgPTPTime:(id)a0;
+- (void)updateGrandmasterIdentity:(unsigned long long)a0 andgPTPPath:(id)a1;
+- (void)updateLockState:(int)a0;
+- (void)updateWithSyncInfoValid:(BOOL)a0 syncFlags:(unsigned char)a1 timeSyncTime:(unsigned long long)a2 domainTimeHi:(unsigned long long)a3 domainTimeLo:(unsigned long long)a4 cumulativeScaledRate:(unsigned long long)a5 inverseCumulativeScaledRate:(unsigned long long)a6 grandmasterID:(unsigned long long)a7 localPortNumber:(unsigned short)a8;
+
+@end

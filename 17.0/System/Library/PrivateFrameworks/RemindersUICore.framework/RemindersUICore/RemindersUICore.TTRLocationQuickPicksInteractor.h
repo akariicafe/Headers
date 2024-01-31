@@ -1,0 +1,10 @@
+@interface RemindersUICore.TTRLocationQuickPicksInteractor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ quickPickItems;
+    void /* unknown type, empty encoding */ geoService;
+    void /* unknown type, empty encoding */ locationOptionsProvider;
+    void /* unknown type, empty encoding */ cancellable;
+    void /* unknown type, empty encoding */ lastNotifiedItems;
+}
+
+@end

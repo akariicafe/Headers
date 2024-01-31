@@ -1,0 +1,3 @@
+@interface __SBAppToAppWorkspaceTransactionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

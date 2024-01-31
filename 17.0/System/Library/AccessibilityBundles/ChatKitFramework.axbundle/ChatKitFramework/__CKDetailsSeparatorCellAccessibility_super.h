@@ -1,0 +1,3 @@
+@interface __CKDetailsSeparatorCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

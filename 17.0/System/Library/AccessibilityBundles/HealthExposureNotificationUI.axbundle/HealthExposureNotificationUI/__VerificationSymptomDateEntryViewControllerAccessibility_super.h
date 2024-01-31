@@ -1,0 +1,3 @@
+@interface __VerificationSymptomDateEntryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

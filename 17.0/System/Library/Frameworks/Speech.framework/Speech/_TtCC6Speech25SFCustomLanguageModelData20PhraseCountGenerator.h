@@ -1,0 +1,3 @@
+@interface _TtCC6Speech25SFCustomLanguageModelData20PhraseCountGenerator : _TtCs12_SwiftObject
+
+@end

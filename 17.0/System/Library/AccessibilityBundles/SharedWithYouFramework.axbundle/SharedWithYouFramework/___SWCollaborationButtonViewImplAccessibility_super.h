@@ -1,0 +1,3 @@
+@interface ___SWCollaborationButtonViewImplAccessibility_super : UIAccessibilitySafeCategory
+
+@end

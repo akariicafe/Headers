@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerGlyphProviderItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

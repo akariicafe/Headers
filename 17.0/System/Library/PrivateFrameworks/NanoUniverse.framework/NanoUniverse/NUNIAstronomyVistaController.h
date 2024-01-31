@@ -1,0 +1,86 @@
+@class NSDate, NSString, UITapGestureRecognizer, NSArray, NUNIAstronomyRotationModel, UIPanGestureRecognizer, CLLocation, NUNIAstronomyVistaView, CLKClockTimerToken;
+@protocol NUNIAstronomyPulseAnimationDelegate, NUNIAstronomyVistaControllerDelegate, NUNIAstronomyStyleAnimationDelegate;
+
+@interface NUNIAstronomyVistaController : NSObject <NUNIAstronomyRotationModelObserver, UIGestureRecognizerDelegate, NUNIAnimationObserver> {
+    NUNIAstronomyVistaView *_vistaView;
+    NSArray *_editingVistaAnimations[11];
+    struct CLLocationCoordinate2D { double latitude; double longitude; } _initialCoordinate;
+    void /* unknown type, empty encoding */ _previousTranslation;
+    float _recentMovement;
+    CLKClockTimerToken *_clockTimerToken;
+    BOOL _isFallbackLocation;
+    BOOL _isAnimatingStyleDefinition;
+}
+
+@property (retain, nonatomic) NSDate *overrideDate;
+@property (nonatomic, getter=isPreparedForTransitions) BOOL preparedForTransitions;
+@property (weak, nonatomic) id<NUNIAstronomyVistaControllerDelegate> delegate;
+@property (readonly, nonatomic) NUNIAstronomyVistaView *vistaView;
+@property (readonly, nonatomic) NUNIAstronomyRotationModel *rotationModel;
+@property (readonly, nonatomic) UIPanGestureRecognizer *spheroidPanGesture;
+@property (readonly, nonatomic) UITapGestureRecognizer *supplementalModeDoubleTapGesture;
+@property (readonly, nonatomic) UITapGestureRecognizer *interactiveModeTapGesture;
+@property (readonly, nonatomic) long long mode;
+@property (nonatomic) unsigned long long style;
+@property (nonatomic) struct NUNIAegirStyleDefinition { float orbit; void /* unknown type, empty encoding */ cameraOffset; void /* unknown type, empty encoding */ homeCoordinateOffset; float cloudOpacity; } styleDefinition;
+@property (weak, nonatomic) id<NUNIAstronomyStyleAnimationDelegate> styleAnimationDelegate;
+@property (weak, nonatomic) id<NUNIAstronomyPulseAnimationDelegate> pulseAnimationDelegate;
+@property (nonatomic) BOOL forceDisableLocationDot;
+@property (nonatomic) unsigned long long vista;
+@property (nonatomic) unsigned long long vistaTransitionStyle;
+@property (nonatomic) BOOL isBacklightTransitionEnabled;
+@property (nonatomic) long long activeModeFrameInterval;
+@property (readonly, nonatomic) CLLocation *currentLocation;
+@property (nonatomic) double numberOfPulses;
+@property (nonatomic) double pulseAnimationDuration;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)activeMode;
+- (void)applyStyle:(unsigned long long)a0;
+- (void)setCacheDirectory:(id)a0;
+- (void)interactiveMode;
+- (void)_handleSupplementalModeGesture:(id)a0;
+- (void)_applyVista:(unsigned long long)a0;
+- (void)_handleInteractiveModeGesture:(id)a0;
+- (void)_handleSpheroidPanGesture:(id)a0;
+- (void)applyTransitionFraction:(double)a0 fromStyle:(unsigned long long)a1 toStyle:(unsigned long long)a2;
+- (void)rotationModelStoppedByDecelerating:(id)a0;
+- (void)_animateToStyle:(unsigned long long)a0;
+- (void)_animateToStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a0;
+- (void)_updateFrameInterval;
+- (void)animateToStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a0 duration:(float)a1;
+- (void)animateToVista:(unsigned long long)a0 styleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a1 duration:(float)a2;
+- (void)animateTransitionToMode:(long long)a0;
+- (void)applyMode:(long long)a0;
+- (void)applyStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a0;
+- (void)applyTransitionFraction:(double)a0 fromStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a1 toStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a2;
+- (void)applyTransitionFraction:(double)a0 fromVista:(unsigned long long)a1 fromStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a2 toVista:(unsigned long long)a3 toStyleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a4;
+- (void)applyTransitionFraction:(double)a0 fromVista:(unsigned long long)a1 toVista:(unsigned long long)a2;
+- (void)astronomyAnimationFinished:(id)a0;
+- (void)cleanUpAfterTransitions;
+- (void)deactiveMode;
+- (void)disableCloudDataFetch:(BOOL)a0;
+- (id)generateAnimationToVista:(unsigned long long)a0 styleDefinition:(struct NUNIAegirStyleDefinition { float x0; float x1; })a1;
+- (void)hideLocationDotAnimated:(BOOL)a0;
+- (void)hideLocationDotPulse;
+- (id)initWithVistaView:(id)a0;
+- (void)prepareForTransitions;
+- (void)pulseLocationDot;
+- (void)setLocationDotAlpha:(double)a0;
+- (void)setOverrideDate:(id)a0 animated:(BOOL)a1;
+- (void)setVistaView:(id)a0;
+- (BOOL)shouldShowLocationDot;
+- (void)showLocationDotAnimated:(BOOL)a0;
+- (void)startClockUpdates;
+- (void)stopClockUpdates;
+- (void)stopLocationDotPulse;
+- (void)supplementalMode;
+- (void)updateLocation:(id)a0 fallbackLocation:(id)a1;
+- (void)updateLocation:(id)a0 fallbackLocation:(id)a1 animated:(BOOL)a2;
+- (void)updateTimeAnimated:(BOOL)a0;
+
+@end

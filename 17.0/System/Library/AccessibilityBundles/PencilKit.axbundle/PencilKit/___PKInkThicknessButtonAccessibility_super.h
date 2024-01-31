@@ -1,0 +1,3 @@
+@interface ___PKInkThicknessButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

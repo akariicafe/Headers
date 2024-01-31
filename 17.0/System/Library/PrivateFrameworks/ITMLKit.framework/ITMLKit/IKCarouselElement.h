@@ -1,0 +1,3 @@
+@interface IKCarouselElement : IKCollectionElement
+
+@end

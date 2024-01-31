@@ -1,0 +1,3 @@
+@interface __EKEventDetailURLCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTAAlarmTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

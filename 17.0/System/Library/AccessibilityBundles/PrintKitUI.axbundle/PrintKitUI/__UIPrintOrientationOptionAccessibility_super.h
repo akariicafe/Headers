@@ -1,0 +1,3 @@
+@interface __UIPrintOrientationOptionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

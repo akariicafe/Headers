@@ -1,0 +1,3 @@
+@interface __SBUISegmentedControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

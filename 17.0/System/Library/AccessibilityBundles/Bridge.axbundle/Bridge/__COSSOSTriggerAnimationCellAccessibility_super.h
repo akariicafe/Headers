@@ -1,0 +1,3 @@
+@interface __COSSOSTriggerAnimationCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

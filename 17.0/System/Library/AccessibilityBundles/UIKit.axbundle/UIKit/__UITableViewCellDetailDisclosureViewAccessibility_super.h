@@ -1,0 +1,3 @@
+@interface __UITableViewCellDetailDisclosureViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

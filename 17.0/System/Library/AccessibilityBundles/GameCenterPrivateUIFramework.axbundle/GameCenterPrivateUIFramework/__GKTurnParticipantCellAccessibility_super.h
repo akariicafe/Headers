@@ -1,0 +1,3 @@
+@interface __GKTurnParticipantCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

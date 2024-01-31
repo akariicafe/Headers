@@ -1,0 +1,3 @@
+@interface __AVMobileChromelessControlsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

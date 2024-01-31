@@ -1,0 +1,3 @@
+@interface __VideosUI_SportsFavoritesSplitTemplateControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.DeleteDaemonStateEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

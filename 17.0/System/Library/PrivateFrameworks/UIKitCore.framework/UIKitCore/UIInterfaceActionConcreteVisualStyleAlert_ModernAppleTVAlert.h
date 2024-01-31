@@ -1,0 +1,3 @@
+@interface UIInterfaceActionConcreteVisualStyleAlert_ModernAppleTVAlert : UIInterfaceActionConcreteVisualStyle_ModernAppleTV
+
+@end

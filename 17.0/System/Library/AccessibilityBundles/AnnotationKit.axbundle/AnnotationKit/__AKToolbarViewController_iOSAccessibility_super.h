@@ -1,0 +1,3 @@
+@interface __AKToolbarViewController_iOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

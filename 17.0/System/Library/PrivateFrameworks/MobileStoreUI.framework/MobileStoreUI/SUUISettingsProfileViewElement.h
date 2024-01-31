@@ -1,0 +1,3 @@
+@interface SUUISettingsProfileViewElement : SUUIViewElement
+
+@end

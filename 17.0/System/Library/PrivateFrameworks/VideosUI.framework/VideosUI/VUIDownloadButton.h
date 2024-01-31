@@ -1,0 +1,76 @@
+@class UIView, UIImage, VUIDownloadButtonViewModel, VUITextLayout, VUIDownloadButtonActionHandler, CAShapeLayer, UIViewController, VUICircularProgress, UIImageSymbolConfiguration, UIColor;
+
+@interface VUIDownloadButton : VUIButton
+
+@property (retain, nonatomic) UIImage *notDownloadedImage;
+@property (retain, nonatomic) UIImage *connectingImage;
+@property (retain, nonatomic) UIImage *downloadingImage;
+@property (retain, nonatomic) UIImage *downloadedImage;
+@property (retain, nonatomic) UIImage *expiredDownloadImage;
+@property (retain, nonatomic) VUIDownloadButtonViewModel *viewModel;
+@property (retain, nonatomic) VUICircularProgress *progressIndicator;
+@property (nonatomic) BOOL observingDownloadProgress;
+@property (nonatomic) BOOL wasDeleted;
+@property (nonatomic) BOOL wasCanceled;
+@property (nonatomic) BOOL isForLibrary;
+@property (retain, nonatomic) VUITextLayout *textLayout;
+@property (retain, nonatomic) UIImageSymbolConfiguration *primarySymbolConfiguration;
+@property (retain, nonatomic) VUIDownloadButtonActionHandler *actionHandler;
+@property (retain, nonatomic) UIView *backgroundView;
+@property (retain, nonatomic) UIColor *keyBackgroundColor;
+@property (retain, nonatomic) UIColor *saturatedTintColor;
+@property (retain, nonatomic) CAShapeLayer *backgroundMaskingLayer;
+@property (retain, nonatomic) CAShapeLayer *backdropMaskingLayer;
+@property (nonatomic) BOOL showsTextInDownloadedState;
+@property (nonatomic) BOOL usesDefaultConfiguration;
+@property (weak, nonatomic) UIViewController *presentingViewController;
+@property (copy, nonatomic) id /* block */ downloadStateChangeHandler;
+
+- (void)dealloc;
+- (void)setTintColor:(id)a0;
+- (void)_setImage:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void).cxx_destruct;
+- (id)_downloadedImage;
+- (void)vui_didMoveToWindow;
+- (struct CGSize { double x0; double x1; })vui_layoutSubviews:(struct CGSize { double x0; double x1; })a0 computationOnly:(BOOL)a1;
+- (void)_stopObservingDownloadProgress:(id)a0;
+- (void)revertTintColor;
+- (id)_buttonPropertiesForState:(unsigned long long)a0 isExpired:(BOOL)a1 isExpiringSoon:(BOOL)a2 hasFailed:(BOOL)a3;
+- (void)_clearMasks;
+- (void)_configureProgressIndicatorWithProperties:(id)a0;
+- (id)_connectingImage;
+- (id)_downloadingImage;
+- (id)_expiredDownloadImage;
+- (id)_imageForDownloadState:(unsigned long long)a0 isExpired:(BOOL)a1 isExpiringSoon:(BOOL)a2 hasFailed:(BOOL)a3;
+- (struct CGSize { double x0; double x1; })_imageSizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_insertProgressIndicatorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_layoutProgressIndicator;
+- (id)_notDownloadedImage;
+- (id)_pausedImage;
+- (void)_setTitleWithProperties:(id)a0;
+- (void)_setupDownloadButton;
+- (void)_startObservingDownloadProgress:(id)a0;
+- (void)_startObservingViewModel:(id)a0;
+- (void)_stopObservingViewModel:(id)a0;
+- (void)_updateButtonToConnectingWithProperties:(id)a0;
+- (void)_updateButtonToDownloadedWithProperties:(id)a0;
+- (void)_updateButtonToDownloadingWithProperties:(id)a0;
+- (void)_updateButtonToNotDownloadedWithProperties:(id)a0;
+- (void)_updateButtonToState:(unsigned long long)a0 isExpired:(BOOL)a1 isExpiringSoon:(BOOL)a2 hasFailed:(BOOL)a3;
+- (void)_updateButtonToState:(unsigned long long)a0 oldState:(unsigned long long)a1;
+- (void)_updateDownloadProgress:(double)a0 animated:(BOOL)a1;
+- (void)_updateImageViewTintColorWithDownloadState:(unsigned long long)a0;
+- (void)_updateMaskForProgressLayer;
+- (void)configureActionHandler;
+- (void)configureWithLayoutProperties;
+- (id)initWithAssetController:(id)a0 type:(unsigned long long)a1;
+- (id)initWithDownloadButtonViewModel:(id)a0 type:(unsigned long long)a1;
+- (id)initWithMediaEntity:(id)a0 type:(unsigned long long)a1;
+- (id)initWithPlayable:(id)a0 type:(unsigned long long)a1 textLayout:(id)a2;
+- (void)saturateTintColorAndBackgroundColor;
+- (void)setScrolledNonUberPercentage:(double)a0;
+- (void)updateWithAssetController:(id)a0;
+- (void)updateWithPlayable:(id)a0 textLayout:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface __LaunchViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

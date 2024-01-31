@@ -1,0 +1,3 @@
+@interface __ShortcutsRowCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

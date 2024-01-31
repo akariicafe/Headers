@@ -1,0 +1,3 @@
+@interface __PSFooterHyperlinkViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

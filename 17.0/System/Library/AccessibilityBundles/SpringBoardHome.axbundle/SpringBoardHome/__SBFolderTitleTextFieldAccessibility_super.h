@@ -1,0 +1,3 @@
+@interface __SBFolderTitleTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

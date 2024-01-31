@@ -1,0 +1,3 @@
+@interface __LookAroundFloatingButtonsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

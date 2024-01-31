@@ -1,0 +1,3 @@
+@interface __WFRunWorkflowToolbarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

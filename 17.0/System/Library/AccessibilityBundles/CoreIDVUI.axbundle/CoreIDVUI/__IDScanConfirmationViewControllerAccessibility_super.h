@@ -1,0 +1,3 @@
+@interface __IDScanConfirmationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

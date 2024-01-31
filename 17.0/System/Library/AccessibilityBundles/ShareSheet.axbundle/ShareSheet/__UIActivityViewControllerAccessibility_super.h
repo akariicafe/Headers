@@ -1,0 +1,3 @@
+@interface __UIActivityViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

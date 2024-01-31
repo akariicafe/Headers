@@ -1,0 +1,85 @@
+@class UIBarButtonItem, HKProfileStore, NSMutableDictionary, NSDictionary, HKDisplayCategory, HKHealthStore, NSMutableArray, HKTitledIconHeaderView, NSSet, HKDisplayType, HKAuthorizationStore, NSArray, WDProfile, WDSourceOrderController, HKSourceListDataSource, NSMutableSet;
+
+@interface WDDisplayTypeDataSourcesTableViewController : HKTableViewController <HKSwitchTableViewCellDelegate, HKSourceListDataSourceObserver, HKAdaptiveModalPresented> {
+    BOOL _isLoaded;
+    HKDisplayCategory *_displayCategory;
+    HKDisplayType *_displayType;
+    WDProfile *_profile;
+    HKHealthStore *_healthStore;
+    HKProfileStore *_profileStore;
+    HKAuthorizationStore *_authorizationStore;
+    WDSourceOrderController *_sourceOrderController;
+    NSMutableSet *_dataSources;
+    NSArray *_preEditSourcesOrdered;
+    NSArray *_readerAppSources;
+    NSArray *_readerResearchStudySources;
+    NSMutableDictionary *_authorizationRecordsBySource;
+    HKTitledIconHeaderView *_headerView;
+    NSMutableSet *_sourcesPendingToggleOff;
+    NSMutableSet *_sourcesPendingToggleOn;
+    NSArray *_sectionIdentifiers;
+}
+
+@property (retain, nonatomic) HKSourceListDataSource *sourceListDataSource;
+@property (copy, nonatomic) NSArray *loadedOrderedDataSources;
+@property (retain, nonatomic) NSMutableArray *orderedDataSources;
+@property (copy, nonatomic) NSSet *loadedAllDataSources;
+@property (copy, nonatomic) NSDictionary *loadedAuthorizationRecordsBySource;
+@property (retain, nonatomic) UIBarButtonItem *leftBarButtonItemReference;
+@property (nonatomic) BOOL shouldInsetSectionContentForDataSourceDataList;
+
+- (id)tableView:(id)a0 willSelectRowAtIndexPath:(id)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (id)initWithStyle:(long long)a0;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (id)tableView:(id)a0 titleForHeaderInSection:(long long)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (long long)sectionForSectionIdentifier:(long long)a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (BOOL)tableView:(id)a0 canEditRowAtIndexPath:(id)a1;
+- (BOOL)tableView:(id)a0 canMoveRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 editingStyleForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 moveRowAtIndexPath:(id)a1 toIndexPath:(id)a2;
+- (BOOL)tableView:(id)a0 shouldHighlightRowAtIndexPath:(id)a1;
+- (BOOL)tableView:(id)a0 shouldIndentWhileEditingRowAtIndexPath:(id)a1;
+- (id)tableView:(id)a0 targetIndexPathForMoveFromRowAtIndexPath:(id)a1 toProposedIndexPath:(id)a2;
+- (id)tableView:(id)a0 titleForFooterInSection:(long long)a1;
+- (void)_handleReturnedImage:(id)a0 forSource:(id)a1 cell:(id)a2 tableView:(id)a3 fetchError:(id)a4;
+- (void)sourceListDataSourceDidUpdate:(id)a0;
+- (void)switchCellValueChanged:(id)a0 value:(BOOL)a1;
+- (void)viewControllerDidLeaveAdaptiveModal;
+- (void)viewControllerWillEnterAdaptiveModal;
+- (void)_refreshUI;
+- (void)_loadDataSource;
+- (void)_addDataSources:(id)a0;
+- (BOOL)_canEditDataSources;
+- (id)_createIndexPathsWithSection:(long long)a0 startingRow:(long long)a1 numIndices:(long long)a2;
+- (id)_dataSourceCellForTableView:(id)a0 row:(unsigned long long)a1;
+- (void)_fetchAuthorizationRecordsBySourceForType:(id)a0 completion:(id /* block */)a1;
+- (void)_fetchDataSourcesForSampleType:(id)a0 completion:(id /* block */)a1;
+- (void)_fetchOrderedSourcesForType:(id)a0 completion:(id /* block */)a1;
+- (void)_gatherDataFromDataSource:(id)a0;
+- (BOOL)_isPrimaryProfile;
+- (id)_makeDataListViewControllerForSource:(id)a0;
+- (id)_noneTableViewCell;
+- (BOOL)_objectTypeRequiresPerObjectAuthorization;
+- (id)_readerSourceCellForTableView:(id)a0 sourceArray:(id)a1 row:(unsigned long long)a2 group:(long long)a3;
+- (void)_sortDataSources;
+- (BOOL)_sourceIsEnabled:(id)a0;
+- (void)_sourceIsEnabledDidChange:(id)a0;
+- (void)_updateOrderedSources;
+- (void)_willDisableSource:(id)a0;
+- (void)_willEnableSource:(id)a0;
+- (id)createSectionIdentifiers;
+- (id)initWithDisplayType:(id)a0 displayCategory:(id)a1 sourceOrderController:(id)a2 profile:(id)a3;
+- (long long)sectionIdentifierForSection:(long long)a0;
+- (BOOL)showDataSourcesSectionOnly;
+- (void)updateHeaderView;
+
+@end

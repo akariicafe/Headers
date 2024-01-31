@@ -1,0 +1,3 @@
+@interface __PKDashboardBalanceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

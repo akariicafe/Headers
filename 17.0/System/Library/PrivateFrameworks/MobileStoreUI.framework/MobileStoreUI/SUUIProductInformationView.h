@@ -1,0 +1,24 @@
+@class SUUIColorScheme, NSArray, NSString, UIView, NSMutableArray, UILabel;
+
+@interface SUUIProductInformationView : UIView {
+    NSMutableArray *_imageValues;
+    NSMutableArray *_keyLabels;
+    UIView *_separatorView;
+    UILabel *_titleLabel;
+    NSMutableArray *_valueLabels;
+}
+
+@property (retain, nonatomic) SUUIColorScheme *colorScheme;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } contentInset;
+@property (retain, nonatomic) NSArray *informationLines;
+@property (nonatomic) BOOL hidesSeparatorView;
+@property (retain, nonatomic) NSString *title;
+
+- (void)setBackgroundColor:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (double)_keyWidth;
+
+@end

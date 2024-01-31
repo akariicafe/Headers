@@ -1,0 +1,3 @@
+@interface __CKMediaObjectBackedAssetAccessibility_super : UIAccessibilitySafeCategory
+
+@end

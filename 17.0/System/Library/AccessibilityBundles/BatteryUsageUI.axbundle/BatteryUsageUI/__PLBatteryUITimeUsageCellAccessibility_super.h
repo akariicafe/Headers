@@ -1,0 +1,3 @@
+@interface __PLBatteryUITimeUsageCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

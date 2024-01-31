@@ -1,0 +1,3 @@
+@interface __SBUITableViewCellAccessibilityElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

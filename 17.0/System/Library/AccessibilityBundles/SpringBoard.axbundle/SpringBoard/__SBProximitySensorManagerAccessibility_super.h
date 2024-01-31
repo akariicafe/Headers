@@ -1,0 +1,3 @@
+@interface __SBProximitySensorManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

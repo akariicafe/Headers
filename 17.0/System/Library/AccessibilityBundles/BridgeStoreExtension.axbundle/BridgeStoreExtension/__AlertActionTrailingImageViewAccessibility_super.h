@@ -1,0 +1,3 @@
+@interface __AlertActionTrailingImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBTitledHomeScreenButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

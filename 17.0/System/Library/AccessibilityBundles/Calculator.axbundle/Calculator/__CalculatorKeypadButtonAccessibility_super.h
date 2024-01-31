@@ -1,0 +1,3 @@
+@interface __CalculatorKeypadButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

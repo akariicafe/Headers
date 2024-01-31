@@ -1,0 +1,3 @@
+@interface __MapsDebugCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

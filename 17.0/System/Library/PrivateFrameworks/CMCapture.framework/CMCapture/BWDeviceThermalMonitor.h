@@ -1,0 +1,20 @@
+@class NSObject;
+@protocol OS_dispatch_queue;
+
+@interface BWDeviceThermalMonitor : NSObject {
+    NSObject<OS_dispatch_queue> *_notificationQueue;
+    int _registrationToken;
+    id /* block */ _thermalHandler;
+    struct OpaqueFigSimpleMutex { } *_thermalNotificationLock;
+    int _thermalLevel;
+}
+
+@property (readonly) int thermalLevel;
+
++ (void)initialize;
+
+- (id)init;
+- (void)dealloc;
+- (void)setThermalHandler:(id /* block */)a0;
+
+@end

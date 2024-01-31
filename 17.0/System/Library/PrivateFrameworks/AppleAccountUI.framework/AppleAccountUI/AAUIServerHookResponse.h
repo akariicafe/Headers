@@ -1,0 +1,3 @@
+@interface AAUIServerHookResponse : RUIServerHookResponse
+
+@end

@@ -1,0 +1,3 @@
+@interface __QLImageDisplayBundleAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __WDUnitPreferenceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTAAlarmCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

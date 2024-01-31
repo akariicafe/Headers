@@ -1,0 +1,3 @@
+@interface __MKMapViewAccessibility__Maps__MapKit_super : UIAccessibilitySafeCategory
+
+@end

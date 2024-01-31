@@ -1,0 +1,3 @@
+@interface CATEvent : CATStateMachineEvent
+
+@end

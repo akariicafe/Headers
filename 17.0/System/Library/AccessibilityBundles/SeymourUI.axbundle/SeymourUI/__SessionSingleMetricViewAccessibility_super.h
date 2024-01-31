@@ -1,0 +1,3 @@
+@interface __SessionSingleMetricViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

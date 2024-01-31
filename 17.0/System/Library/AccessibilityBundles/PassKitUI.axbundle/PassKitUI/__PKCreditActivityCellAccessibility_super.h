@@ -1,0 +1,3 @@
+@interface __PKCreditActivityCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

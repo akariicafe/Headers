@@ -1,0 +1,3 @@
+@interface __STDeviceBedtimeListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

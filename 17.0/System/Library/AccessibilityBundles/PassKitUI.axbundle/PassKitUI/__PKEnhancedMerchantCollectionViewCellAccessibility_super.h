@@ -1,0 +1,3 @@
+@interface __PKEnhancedMerchantCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

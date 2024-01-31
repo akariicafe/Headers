@@ -1,0 +1,3 @@
+@interface __PKPaymentAuthorizationServiceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

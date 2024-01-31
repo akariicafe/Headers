@@ -1,0 +1,3 @@
+@interface __HSPCCameraScanViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

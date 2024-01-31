@@ -1,0 +1,3 @@
+@interface VisionHealthAppPlugin.VisionPrescriptionValidationController : _TtCs12_SwiftObject
+
+@end

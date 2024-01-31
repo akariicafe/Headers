@@ -1,0 +1,3 @@
+@interface DocumentUnderstanding.DUConcatenatedDocumentTextDefaultImplementation : _TtCs12_SwiftObject
+
+@end

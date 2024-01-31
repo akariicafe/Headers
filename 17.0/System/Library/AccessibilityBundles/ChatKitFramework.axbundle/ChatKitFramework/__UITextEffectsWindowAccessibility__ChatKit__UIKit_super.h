@@ -1,0 +1,3 @@
+@interface __UITextEffectsWindowAccessibility__ChatKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

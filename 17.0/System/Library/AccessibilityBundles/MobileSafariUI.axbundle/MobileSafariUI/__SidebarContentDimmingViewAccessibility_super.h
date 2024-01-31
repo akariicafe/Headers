@@ -1,0 +1,3 @@
+@interface __SidebarContentDimmingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __OBTintInheritingImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

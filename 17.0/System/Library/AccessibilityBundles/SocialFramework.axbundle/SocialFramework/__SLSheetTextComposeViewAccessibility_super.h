@@ -1,0 +1,3 @@
+@interface __SLSheetTextComposeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

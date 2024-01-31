@@ -1,0 +1,3 @@
+@interface __CKTranscriptTypingIndicatorCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

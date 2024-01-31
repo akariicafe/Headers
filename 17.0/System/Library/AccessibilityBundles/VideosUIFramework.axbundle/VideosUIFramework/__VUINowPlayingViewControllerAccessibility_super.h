@@ -1,0 +1,3 @@
+@interface __VUINowPlayingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ENUIExposureCheckCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

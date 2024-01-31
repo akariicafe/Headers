@@ -1,0 +1,3 @@
+@interface __MSTrackListLinkCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

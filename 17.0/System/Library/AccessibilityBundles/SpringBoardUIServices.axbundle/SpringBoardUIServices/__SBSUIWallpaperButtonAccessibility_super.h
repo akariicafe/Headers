@@ -1,0 +1,3 @@
+@interface __SBSUIWallpaperButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

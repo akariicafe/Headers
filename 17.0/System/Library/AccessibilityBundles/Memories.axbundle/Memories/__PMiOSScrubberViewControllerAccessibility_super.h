@@ -1,0 +1,3 @@
+@interface __PMiOSScrubberViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

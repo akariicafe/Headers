@@ -1,0 +1,3 @@
+@interface __MRUNowPlayingHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

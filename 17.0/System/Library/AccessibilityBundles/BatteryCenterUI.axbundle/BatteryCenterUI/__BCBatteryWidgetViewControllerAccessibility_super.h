@@ -1,0 +1,3 @@
+@interface __BCBatteryWidgetViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

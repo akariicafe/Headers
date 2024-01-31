@@ -1,0 +1,3 @@
+@interface __MTUIDigitalClockLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

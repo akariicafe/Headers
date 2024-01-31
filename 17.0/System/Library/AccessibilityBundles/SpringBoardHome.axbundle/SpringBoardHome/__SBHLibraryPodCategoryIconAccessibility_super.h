@@ -1,0 +1,3 @@
+@interface __SBHLibraryPodCategoryIconAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SearchUISplitCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

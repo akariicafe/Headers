@@ -1,0 +1,3 @@
+@interface __MobileCalUIAccessibilityElementMockViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

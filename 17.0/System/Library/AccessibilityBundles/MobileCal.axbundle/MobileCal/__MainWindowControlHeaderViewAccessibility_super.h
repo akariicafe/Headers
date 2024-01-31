@@ -1,0 +1,3 @@
+@interface __MainWindowControlHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

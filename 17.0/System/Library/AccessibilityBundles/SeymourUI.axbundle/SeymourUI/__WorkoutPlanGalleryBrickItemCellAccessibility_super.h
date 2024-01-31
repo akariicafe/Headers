@@ -1,0 +1,3 @@
+@interface __WorkoutPlanGalleryBrickItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

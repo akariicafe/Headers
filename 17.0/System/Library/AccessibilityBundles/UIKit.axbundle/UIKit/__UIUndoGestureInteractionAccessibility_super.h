@@ -1,0 +1,3 @@
+@interface __UIUndoGestureInteractionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

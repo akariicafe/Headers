@@ -1,0 +1,3 @@
+@interface __PosterSectionRemovalViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

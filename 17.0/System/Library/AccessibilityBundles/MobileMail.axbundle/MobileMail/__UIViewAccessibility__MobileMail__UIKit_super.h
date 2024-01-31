@@ -1,0 +1,3 @@
+@interface __UIViewAccessibility__MobileMail__UIKit_super : UIAccessibilitySafeCategory
+
+@end

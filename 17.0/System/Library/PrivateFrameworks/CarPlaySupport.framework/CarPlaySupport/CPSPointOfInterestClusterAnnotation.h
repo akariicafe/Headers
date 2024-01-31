@@ -1,0 +1,3 @@
+@interface CPSPointOfInterestClusterAnnotation : NSObject
+
+@end

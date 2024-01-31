@@ -1,0 +1,3 @@
+@interface __HomeScreenConfigurationControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

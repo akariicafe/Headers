@@ -1,0 +1,3 @@
+@interface __SUUIShelfPageSectionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

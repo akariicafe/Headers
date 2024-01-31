@@ -1,0 +1,3 @@
+@interface __MediaControlsRelativeVolumeStepperAccessibility_super : UIAccessibilitySafeCategory
+
+@end

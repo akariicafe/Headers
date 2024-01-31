@@ -1,0 +1,3 @@
+@interface __MTAStopwatchViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

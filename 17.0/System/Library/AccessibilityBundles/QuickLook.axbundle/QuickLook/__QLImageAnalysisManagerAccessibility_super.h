@@ -1,0 +1,3 @@
+@interface __QLImageAnalysisManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

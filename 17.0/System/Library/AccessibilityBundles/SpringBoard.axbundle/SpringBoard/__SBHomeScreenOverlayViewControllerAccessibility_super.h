@@ -1,0 +1,3 @@
+@interface __SBHomeScreenOverlayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

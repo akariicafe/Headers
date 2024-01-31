@@ -1,0 +1,3 @@
+@interface __MKMapViewAccessibility__Weather__MapKit_super : UIAccessibilitySafeCategory
+
+@end

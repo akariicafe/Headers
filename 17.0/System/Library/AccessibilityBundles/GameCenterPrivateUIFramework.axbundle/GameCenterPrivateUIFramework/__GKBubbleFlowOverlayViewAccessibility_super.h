@@ -1,0 +1,3 @@
+@interface __GKBubbleFlowOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

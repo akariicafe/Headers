@@ -1,0 +1,3 @@
+@interface __PSStaticTextTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

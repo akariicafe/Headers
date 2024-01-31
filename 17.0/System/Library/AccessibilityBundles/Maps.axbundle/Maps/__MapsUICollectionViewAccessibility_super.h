@@ -1,0 +1,3 @@
+@interface __MapsUICollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

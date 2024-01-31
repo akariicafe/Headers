@@ -1,0 +1,3 @@
+@interface __PKLinkedAppUserRatingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

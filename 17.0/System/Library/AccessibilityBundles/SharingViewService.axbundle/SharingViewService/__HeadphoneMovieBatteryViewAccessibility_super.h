@@ -1,0 +1,3 @@
+@interface __HeadphoneMovieBatteryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

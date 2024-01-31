@@ -1,0 +1,3 @@
+@interface __PXPhotosContentControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

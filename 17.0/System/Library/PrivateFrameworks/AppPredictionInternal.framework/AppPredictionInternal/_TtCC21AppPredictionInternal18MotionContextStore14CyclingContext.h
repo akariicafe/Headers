@@ -1,0 +1,3 @@
+@interface _TtCC21AppPredictionInternal18MotionContextStore14CyclingContext : AppPredictionInternal.MotionContext
+
+@end

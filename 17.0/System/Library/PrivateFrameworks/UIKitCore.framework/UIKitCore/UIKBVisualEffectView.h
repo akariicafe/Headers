@@ -1,0 +1,3 @@
+@interface UIKBVisualEffectView : UIKBBackdropView
+
+@end

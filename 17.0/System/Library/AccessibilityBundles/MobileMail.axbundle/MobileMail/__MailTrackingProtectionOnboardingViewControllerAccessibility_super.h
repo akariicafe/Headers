@@ -1,0 +1,3 @@
+@interface __MailTrackingProtectionOnboardingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

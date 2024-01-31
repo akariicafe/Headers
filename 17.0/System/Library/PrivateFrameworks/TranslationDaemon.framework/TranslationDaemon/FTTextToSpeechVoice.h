@@ -1,0 +1,26 @@
+@class NSString, NSMutableDictionary, NSData;
+
+@interface FTTextToSpeechVoice : NSObject <FLTBFBufferAccessor, NSCopying> {
+    NSMutableDictionary *_storage;
+    NSData *_data;
+    const struct TextToSpeechVoice { unsigned char x0[1]; } *_root;
+}
+
+@property (readonly, nonatomic) NSString *language;
+@property (readonly, nonatomic) NSString *gender;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSString *version;
+@property (readonly, nonatomic) NSString *quality;
+@property (readonly, nonatomic) NSString *type;
+@property (readonly, nonatomic) NSString *identifier;
+
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (struct Offset<siri::speech::schema_fb::TextToSpeechVoice> { unsigned int x0; })addObjectToBuffer:(void *)a0;
+- (id)flatbuffData;
+- (id)initAndVerifyWithFlatbuffData:(id)a0;
+- (id)initWithFlatbuffData:(id)a0;
+- (id)initWithFlatbuffData:(id)a0 root:(const struct TextToSpeechVoice { unsigned char x0[1]; } *)a1;
+- (id)initWithFlatbuffData:(id)a0 root:(const struct TextToSpeechVoice { unsigned char x0[1]; } *)a1 verify:(BOOL)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.MLModelPerformanceEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

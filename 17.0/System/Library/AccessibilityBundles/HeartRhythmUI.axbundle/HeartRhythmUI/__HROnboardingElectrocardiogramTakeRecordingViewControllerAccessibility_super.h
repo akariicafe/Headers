@@ -1,0 +1,3 @@
+@interface __HROnboardingElectrocardiogramTakeRecordingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

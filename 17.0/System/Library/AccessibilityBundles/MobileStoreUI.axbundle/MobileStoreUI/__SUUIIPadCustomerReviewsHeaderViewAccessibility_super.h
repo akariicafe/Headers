@@ -1,0 +1,3 @@
+@interface __SUUIIPadCustomerReviewsHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

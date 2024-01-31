@@ -1,0 +1,3 @@
+@interface __SeymourUI_WorkoutPlayButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

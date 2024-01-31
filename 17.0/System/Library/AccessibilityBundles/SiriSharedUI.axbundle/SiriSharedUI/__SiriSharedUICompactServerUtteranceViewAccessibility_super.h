@@ -1,0 +1,3 @@
+@interface __SiriSharedUICompactServerUtteranceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VerticalToggleSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

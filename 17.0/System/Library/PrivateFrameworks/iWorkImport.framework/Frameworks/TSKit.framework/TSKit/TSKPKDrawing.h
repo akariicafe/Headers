@@ -1,0 +1,83 @@
+@class CHRecognizer, NSArray, PKDrawing, NSCache;
+
+@interface TSKPKDrawing : NSObject <NSCopying>
+
+@property (retain, nonatomic) PKDrawing *pencilKitDrawing;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } cachedRenderedFrame;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } cachedStrokePointsFrame;
+@property (nonatomic) struct CGPoint { double x; double y; } cachedAverageUnscaledPoint;
+@property (retain, nonatomic) NSArray *cachedStrokes;
+@property (retain, nonatomic) CHRecognizer *textRecognizer;
+@property (retain, nonatomic) CHRecognizer *lineRecognizer;
+@property (retain, nonatomic) NSCache *subDrawingCache;
+@property (readonly, nonatomic) double pencilAnnotationDrawingScale;
+@property (readonly, nonatomic) NSArray *strokes;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } unscaledRenderedFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } renderedFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } incorrectUnscaledFastFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } unscaledStrokePointsFrame;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } strokePointsFrame;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } estimatedExcessPaddingOnIncorrectUnscaledFastFrame;
+
++ (void)initialize;
++ (id)copyAndAddStroke:(id)a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1 intoDrawing:(id)a2;
++ (id)copyPKDrawing:(id)a0;
++ (id)copyPKDrawing:(id)a0 withTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
++ (id)p_strokesForPencilKitDrawing:(id)a0;
++ (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })transparencyInsetsForCGImage:(struct CGImage { } *)a0;
+
+- (id)description;
+- (void).cxx_destruct;
+- (double)endTimestamp;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)isCircle;
+- (BOOL)isRectangle;
+- (id)CHDrawing;
+- (id)copyAndAddStroke:(id)a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
+- (id)initWithStrokes:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertUnscaledCanvasToStrokeRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)isLine;
+- (id)anchorBaseColor;
+- (BOOL)isMarginBracket;
+- (BOOL)isText:(id)a0;
+- (BOOL)isXMark;
+- (void)addSubStrokeFromStroke:(id)a0 fromStartIndex:(unsigned long long)a1 toEndIndex:(unsigned long long)a2 andAdjustStart:(BOOL)a3 andAdjustEnd:(BOOL)a4 toEdgesOfRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a5;
+- (struct CGPoint { double x0; double x1; })averageUnscaledPoint;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertStrokeToUnscaledCanvasRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)copyAndAddStroke:(id)a0;
+- (void)copyAndAddStrokes:(id)a0;
+- (id)drawingByCroppingToClipRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)drawingByFilteringStrokesWithFilter:(id /* block */)a0;
+- (id)drawingByScaling:(struct CGSize { double x0; double x1; })a0;
+- (id)drawingByScaling:(struct CGSize { double x0; double x1; })a0 andMovingByDelta:(struct CGPoint { double x0; double x1; })a1;
+- (id)drawingByScaling:(struct CGSize { double x0; double x1; })a0 andMovingByDelta:(struct CGPoint { double x0; double x1; })a1 andCroppingToClipRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (id)drawingContainingStrokesMatchingBlock:(id /* block */)a0;
+- (id)drawingTransformedWith:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (id)firstStrokeByTime;
+- (BOOL)hasLargeBracketAnchorStroke;
+- (BOOL)hasLargeVerticalLineAnchorStroke;
+- (id)initWithData:(id)a0 cachedRenderedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 cachedStrokePointsFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 pencilAnnotationDrawingScale:(double)a3;
+- (id)initWithData:(id)a0 pencilAnnotationDrawingScale:(double)a1;
+- (id)initWithPKDrawing:(id)a0 cachedRenderedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 cachedStrokePointsFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 pencilAnnotationDrawingScale:(double)a3;
+- (id)initWithPKDrawing:(id)a0 pencilAnnotationDrawingScale:(double)a1;
+- (id)initWithPencilAnnotationDrawingScale:(double)a0;
+- (BOOL)isHorizontalLine;
+- (BOOL)isLinePerpendicularToTextWithVerticalTextLayout:(BOOL)a0;
+- (BOOL)isVerticalLine;
+- (void)p_clearSubDrawingCache;
+- (id)p_drawingByCroppingToClipRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)p_drawingByTransformingByDeltaPosition:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })p_incorrectPencilCoordinatesFastFrame;
+- (id)p_paragraphAnnotationAnchorComponentsPassingFilterBlock:(id /* block */)a0;
+- (void)p_saveSubDrawingToCache:(id)a0 atScale:(struct CGSize { double x0; double x1; })a1 movedToDelta:(struct CGPoint { double x0; double x1; })a2 cropRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3;
+- (id)p_subDrawingCacheKeyForScale:(struct CGSize { double x0; double x1; })a0 movedToDelta:(struct CGPoint { double x0; double x1; })a1 cropRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (id)p_subDrawingFromCacheAtScale:(struct CGSize { double x0; double x1; })a0 movedToDelta:(struct CGPoint { double x0; double x1; })a1 cropRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (id)renderImageWithContentsScale:(double)a0;
+- (id)renderImageWithContentsScale:(double)a0 drawingScale:(double)a1;
+- (id)renderImageWithContentsScale:(double)a0 drawingScale:(double)a1 drawingFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (struct CGSize { double x0; double x1; })scaleForPointsBasedOnRenderingScale:(struct CGSize { double x0; double x1; })a0;
+- (id)strokesOrderedByCoordinateComparator:(id /* block */)a0;
+- (long long)toolTypeForFirstStroke;
+
+@end

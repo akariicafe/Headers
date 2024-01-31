@@ -1,0 +1,3 @@
+@interface __STLockoutViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

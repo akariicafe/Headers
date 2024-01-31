@@ -1,0 +1,3 @@
+@interface __InCallControlsStatusCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface MenstrualCyclesAppPlugin.MenstrualCyclesHealthPluginDelegate : _TtCs12_SwiftObject
+
+@end

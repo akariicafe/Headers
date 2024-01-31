@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.HomeAutomationHumidityResponses : HomeAutomationInternal.HomeAutomationNumericEntityResponses
+
+@end

@@ -1,0 +1,3 @@
+@interface __MKPlaceHoursViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

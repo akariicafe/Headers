@@ -1,0 +1,3 @@
+@interface __BookmarksBarLabelButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

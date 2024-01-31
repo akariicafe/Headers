@@ -1,0 +1,80 @@
+@class NSString, IMStateCaptureAssistant;
+@protocol IMDRemoteDatabaseProtocol, IMDMessagePTaskStore;
+
+@interface IMDChatStore : NSObject <IMStateLoggable, RecordStoreProviding, RecordStoreDeleting>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain) NSString *modificationStamp;
+@property (retain) id<IMDMessagePTaskStore> messagePTaskStore;
+@property (retain, nonatomic) IMStateCaptureAssistant *stateCaptureAssistant;
+@property (readonly, nonatomic) id<IMDRemoteDatabaseProtocol> database;
+
++ (id)sharedInstance;
+
+- (id)chatsWithHandle:(id)a0 onService:(id)a1;
+- (void)resetLocalSyncStateIfAppropriate;
+- (BOOL)updateHandle:(id)a0 sourceMessage:(id)a1 personCentricID:(id)a2 onService:(id)a3;
+- (id)batchOfRecordIDsToDeleteWithLimit:(long long)a0 error:(id *)a1;
+- (id)init;
+- (id)chatsWithIdentifier:(id)a0 onService:(id)a1;
+- (void)clearTombstonesForRecordIDs:(id)a0;
+- (void)_hasMarkedAllChatsAsNeedingSync;
+- (void)removeMessageWithGUID:(id)a0 fromChat:(id)a1;
+- (id)batchOfRecordsToWriteWithLimit:(long long)a0 error:(id *)a1;
+- (id)stateDictionaryForDiagnosticsRequest;
+- (void)_updateModificationDate;
+- (void)deleteChat:(id)a0;
+- (id)_generateCKRecordsFromChatRecords:(id)a0;
+- (void)unarchiveChat:(id)a0;
+- (void)setSyncStatusForGUIDs:(id)a0 toStatus:(long long)a1;
+- (id)chatsFilteredUsingPredicate:(id)a0 sortedUsingLastMessageDateAscending:(BOOL)a1 olderThan:(id)a2 limit:(unsigned long long)a3;
+- (id)_chatRegistry;
+- (void)_addGroupPhotoToTransferCenterForChat:(id)a0;
+- (unsigned long long)_maxFetchChatAttempts;
+- (id)chatsWithGroupID:(id)a0;
+- (void)addMessageWithGUID:(id)a0 toChat:(id)a1;
+- (id)chatsFilteredUsingPredicate:(id)a0;
+- (void)_processIncomingChat:(id)a0;
+- (id)chatsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 limit:(unsigned long long)a2;
+- (void)recordUpdateFailedWithID:(id)a0 localGUID:(id)a1 error:(id)a2;
+- (void)setChatIsFiltered:(long long)a0 withChatGuid:(id)a1;
+- (BOOL)storeChat:(id)a0;
+- (BOOL)_shouldMarkAllChatsAsNeedingSync;
+- (id)_loadChatsIncludingAllChats:(BOOL)a0;
+- (void)_broadcastToForceReloadChats;
+- (unsigned long long)unreadCountForChat:(id)a0;
+- (id)chatsWithHandles:(id)a0 onService:(id)a1 displayName:(id)a2 groupID:(id)a3 style:(unsigned char)a4;
+- (void)enumerateBatchedChatsFilteredUsingPredicate:(id)a0 batchSize:(unsigned long long)a1 block:(id /* block */)a2;
+- (id)loadRecentChats;
+- (void).cxx_destruct;
+- (void)remapMessageError:(unsigned int)a0 toError:(unsigned int)a1 forChat:(id)a2 completion:(id /* block */)a3;
+- (void)_markAllChatsAsNeedingSync;
+- (id)_incomingChatsWithChatRecords:(id)a0;
+- (id)chatsWithRoomname:(id)a0 onService:(id)a1;
+- (id)chatsWithPinningIdentifier:(id)a0;
+- (void)unblackholeChat:(id)a0;
+- (id)newestChatWithOriginalGroupID:(id)a0 onService:(id)a1;
+- (BOOL)updatePersonCentricIDForHandlesInChatWithMessage:(id)a0 fromIdentifier:(id)a1 personCentricID:(id)a2 chat:(id)a3;
+- (id)chatsGUIDsForMessageWithGUID:(id)a0;
+- (id)loadAllChats;
+- (void)blackholeChat:(id)a0;
+- (id)syncTokenStore;
+- (id)newestChatWithGroupID:(id)a0 onService:(id)a1;
+- (void)addMessageWithGUID:(id)a0 toChat:(id)a1 deferSpotlightIndexing:(BOOL)a2;
+- (void)archiveChat:(id)a0;
+- (id)_incomingChatWithChatRecord:(id)a0;
+- (id)_lockRecord;
+- (void)clearLocalSyncState:(unsigned long long)a0;
+- (void)recordUpdateSucceededWithRecord:(id)a0;
+- (void)legacyImport:(id)a0;
+- (void)enumerateBatchedChatsFilteredUsingPredicate:(id)a0 block:(id /* block */)a1;
+- (id)_fetchChatRecordsToUploadWithLimit:(unsigned long long)a0;
+- (id)chatsWithIdentifier:(id)a0;
+- (id)chatsGUIDsForMessageWithIdentifier:(long long)a0;
+- (id)chatWithGUID:(id)a0;
+- (void)_performOrScheduleSpotlightIndexingOfAddedMessageWithGUID:(id)a0 chat:(id)a1 shouldDeferIndexing:(BOOL)a2;
+
+@end

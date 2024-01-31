@@ -1,0 +1,3 @@
+@interface __CKAppMenuViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

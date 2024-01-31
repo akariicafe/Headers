@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.MlDelayProviderEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

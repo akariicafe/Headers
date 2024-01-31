@@ -1,0 +1,3 @@
+@interface ICLinkAttachmentView : ICInlineAttachmentView
+
+@end

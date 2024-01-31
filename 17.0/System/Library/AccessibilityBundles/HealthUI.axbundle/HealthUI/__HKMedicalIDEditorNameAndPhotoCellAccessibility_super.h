@@ -1,0 +1,3 @@
+@interface __HKMedicalIDEditorNameAndPhotoCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AVMobileChromelessTimelineViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

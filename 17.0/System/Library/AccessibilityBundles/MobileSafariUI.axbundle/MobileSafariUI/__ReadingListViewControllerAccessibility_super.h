@@ -1,0 +1,3 @@
+@interface __ReadingListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface VUIMovieManagedObject : VUIVideoManagedObject
+
+@end

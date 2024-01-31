@@ -1,0 +1,3 @@
+@interface ___WGWidgetRemoteViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

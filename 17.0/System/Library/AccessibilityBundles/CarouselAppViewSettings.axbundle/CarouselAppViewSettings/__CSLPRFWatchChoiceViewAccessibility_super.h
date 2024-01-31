@@ -1,0 +1,3 @@
+@interface __CSLPRFWatchChoiceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

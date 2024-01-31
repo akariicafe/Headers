@@ -1,0 +1,3 @@
+@interface __CCUIMenuModuleStackViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

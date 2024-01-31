@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation13EventFeatures18SiriExecutionEvent : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __BSUIVibrancyEffectViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

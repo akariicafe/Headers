@@ -1,0 +1,84 @@
+@class UILongPressGestureRecognizer, NSString, UITextChecker, _UITextServiceSession, UITapGestureRecognizer;
+@protocol UITextCursorAssertion;
+
+@interface UIWKTextInteractionAssistant : UITextInteractionAssistant <UIResponderStandardEditActions> {
+    long long _selectionOperation;
+    _UITextServiceSession *_definitionSession;
+    _UITextServiceSession *_learnSession;
+    _UITextServiceSession *_shareSession;
+    _UITextServiceSession *_lookupSession;
+    _UITextServiceSession *_translateSession;
+    UITextChecker *_textChecker;
+    unsigned long long _options;
+    id<UITextCursorAssertion> _blinkAssertion;
+}
+
+@property (retain, nonatomic) NSString *wordBeforeTap;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } caretBeforeTap;
+@property (nonatomic) BOOL hadCaretSelectionBeforeTap;
+@property (readonly, nonatomic) UITapGestureRecognizer *singleTapGesture;
+@property (readonly, nonatomic) UILongPressGestureRecognizer *loupeGesture;
+@property (readonly, nonatomic) UILongPressGestureRecognizer *forcePressGesture;
+@property (nonatomic) BOOL shouldDelayActivatingSelectionView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithView:(id)a0;
+- (id)textChecker;
+- (void)scheduleReplacementsWithOptions:(unsigned long long)a0;
+- (void)selectionChanged;
+- (void)selectAll:(id)a0;
+- (void)scrollSelectionToVisible:(BOOL)a0;
+- (void)rangeSelectionStarted:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)containerIsBrowserView;
+- (void)dealloc;
+- (BOOL)shouldSuppressSelectionCommands;
+- (void)showDictionaryFor:(id)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)showReplacementsForText:(id)a0 withOptions:(unsigned long long)a1;
+- (void)lookup:(id)a0 withRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (void)updateSelectionWithPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)showTextStyleOptions;
+- (void)scheduleChineseTransliterationForText:(id)a0;
+- (void)addGestureRecognizersToView:(id)a0;
+- (void)showSelectionView;
+- (void)rangeSelectionCanceled;
+- (void)hideTextStyleOptions;
+- (void)showShareSheetFor:(id)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)showReplacementsForText:(id)a0 withOptions:(unsigned long long)a1 rects:(id)a2;
+- (id)_asText;
+- (void)rangeSelectionEnded:(struct CGPoint { double x0; double x1; })a0;
+- (void)selectWord;
+- (void)willStartScrollingOverflow;
+- (BOOL)containerAllowsSelection;
+- (void)selectionChangedWithGestureAt:(struct CGPoint { double x0; double x1; })a0 withGesture:(long long)a1 withState:(long long)a2 withFlags:(long long)a3;
+- (BOOL)wantsLinkInteraction;
+- (void)translate:(id)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)lookup:(id)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)textRangeAdjustmentInteraction:(id)a0 selectionMoved:(struct CGPoint { double x0; double x1; })a1 withTouchPoint:(struct CGPoint { double x0; double x1; })a2;
+- (void)willChangeSelection;
+- (BOOL)requiresImmediateUpdate;
+- (void)scheduleReplacementsForText:(id)a0 withOptions:(unsigned long long)a1;
+- (void)selectTextForReplacement:(id)a0 withOptions:(unsigned long long)a1;
+- (long long)currentCursorBehavior;
+- (BOOL)usesAsynchronousSelectionController;
+- (void)textRangeAdjustmentInteraction:(id)a0 didBeginAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (BOOL)overrideGestureRecognizerShouldBegin:(id)a0;
+- (id)generatorForRange:(id)a0 withOptions:(unsigned long long)a1;
+- (BOOL)overrideGestureRecognizer:(id)a0 shouldReceiveTouch:(id)a1;
+- (void)selectionChangedWithTouchAt:(struct CGPoint { double x0; double x1; })a0 withSelectionTouch:(long long)a1 withFlags:(long long)a2;
+- (void)updateActivatingSelectionView;
+- (void)textRangeAdjustmentInteractionWasCancelled:(id)a0;
+- (void)updateWithMagnifierTerminalPoint:(BOOL)a0;
+- (void)scheduleReplacementsForText:(id)a0;
+- (BOOL)containerIsAtom;
+- (void)textRangeAdjustmentInteraction:(id)a0 didEndAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)rangeSelectionMoved:(struct CGPoint { double x0; double x1; })a0 withTouchPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)showTextServiceFor:(id)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (BOOL)shouldTryReplacementsForText:(id)a0 withOptions:(unsigned long long)a1;
+- (Class)selectionInteractionClass;
+- (void)didEndScrollingOverflow;
+- (BOOL)containerAllowsSelectionTintOnly;
+
+@end

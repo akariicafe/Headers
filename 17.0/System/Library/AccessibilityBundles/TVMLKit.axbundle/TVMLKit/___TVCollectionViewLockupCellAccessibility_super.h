@@ -1,0 +1,3 @@
+@interface ___TVCollectionViewLockupCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

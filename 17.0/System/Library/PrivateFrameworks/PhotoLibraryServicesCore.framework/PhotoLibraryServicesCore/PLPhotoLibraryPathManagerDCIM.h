@@ -1,0 +1,91 @@
+@class NSString, PLSimpleDCIMDirectory, PLImportFileManager, PLLazyObject;
+
+@interface PLPhotoLibraryPathManagerDCIM : PLPhotoLibraryPathManagerCore {
+    unsigned long long _persistedAlbumDataDirectoryExists;
+    NSString *_photoDataDirectory;
+    NSString *_photoDataCachesDirectory;
+    NSString *_photoDataAnalyticsDirectory;
+    NSString *_photoDataSmartSharingDirectory;
+    NSString *_photoDataSearchDirectory;
+    NSString *_restoreInfoDirectory;
+    NSString *_photoDataComputeDirectory;
+    NSString *_dcimDirectory;
+    NSString *_cplAssetsDirectory;
+    NSString *_cmmAssetsDirectory;
+    NSString *_journalsDirectory;
+    NSString *_projectsDirectory;
+    NSString *_privateDirectory;
+    NSString *_internalDirectory;
+    NSString *_partialVideoDirectory;
+    NSString *_externalDirectory;
+    NSString *_lockedDirectory;
+    NSString *_changeStoreDatabasePath;
+    NSString *_thumbnailsDirectory;
+    NSString *_thumbnailsV2Directory;
+    NSString *_thumbnailsVideoKeyFramesDirectory;
+    BOOL _assetAlbumOrderStructurePathCreated;
+    PLSimpleDCIMDirectory *_simpleDCIMDirectory;
+    PLLazyObject *_lazyPathManagerForUBFOnDCIM;
+}
+
+@property (retain, nonatomic) PLImportFileManager *importFileManager;
+
++ (id)deferredPhotoPreviewDestinationURLForPrimaryAssetURL:(id)a0;
++ (id)allPhotosPathsOnThisDevice;
+
+- (id)cloudRestoreForegroundPhaseCompleteTokenPath;
+- (id)externalDirectoryWithSubType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (void)obtainAccessAndWaitWithFileWithIdentifier:(id)a0 mode:(unsigned char)a1 toURLWithHandler:(id /* block */)a2;
+- (id)photoDirectoryWithType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)iTunesSyncedAssetsDirectory;
+- (id)iTunesPhotosSyncMetadataFilePath;
+- (id)pathToAssetsToAlbumsMapping;
+- (id)modelRestorePostProcessingCompleteTokenPath;
+- (id)assetBaseFilenameForAdjustmentFilePath:(id)a0;
+- (id)initWithLibraryURL:(id)a0 bundleScope:(unsigned short)a1;
+- (id)iTunesSyncedFaceAlbumThumbnailsDirectory;
+- (id)cloudRestoreCompleteTokenPath;
+- (id)assetMainFilePathWithDirectory:(id)a0 filename:(id)a1 bundleScope:(unsigned short)a2;
+- (id)photoMetadataDirectory;
+- (id)pathsForExternalWriters;
+- (id)internalDirectoryWithSubType:(unsigned char)a0 additionalPathComponents:(id)a1;
+- (unsigned char)photoLibraryPathTypeForBundleScope:(unsigned short)a0;
+- (BOOL)isDeviceRestoreSupported;
+- (BOOL)shouldUseFileIdentifierForBundleScope:(unsigned short)a0;
+- (id)basePrivateDirectoryPath;
+- (id)photoMutationsDirectory;
+- (id)iTunesSyncedAssetMetadataThumbnailsDirectory;
+- (id)createPathsForNewLibraries;
+- (id)persistedAlbumDataDirectoryCreateIfNeeded:(BOOL)a0 error:(id *)a1;
+- (id)convertPhotoLibraryPathType:(unsigned char)a0;
+- (id)privateDirectoryWithSubType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)readOnlyUrlWithIdentifier:(id)a0;
+- (id)privateCacheDirectoryWithSubType:(unsigned char)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (id)getImportFileManager;
+- (id)addToPath:(id)a0 leafType:(unsigned char)a1 additionalPathComponents:(id)a2;
+- (void).cxx_destruct;
+- (id)cloudRestoreBackgroundPhaseInProgressTokenPath;
+- (BOOL)updateTimeMachineExclusionAttributeForExcludePath:(id)a0 error:(id *)a1;
+- (id)simpleDCIMDirectory;
+- (id)syncInfoPath;
+- (BOOL)ensureFileProviderSyncExclusionAttributeIsSetWithError:(id *)a0;
+- (id)pathsForPermissionCheck;
+- (id)iTunesSyncedFaceDataDirectory;
+- (id)iTunesSyncedAssetSmallThumbnailsDirectory;
+- (id)pathsForFinderSyncFilesystemSizeCalculation;
+- (id)_externalDirectoryWithBundleIdentifier:(id)a0 createIfNeeded:(BOOL)a1;
+- (void)setExtendedAttributesWithIdentifier:(id)a0 andURL:(id)a1;
+- (id)iTunesPhotosSyncDirectory;
+- (id)photosDatabasePath;
+- (id)iTunesPhotosSyncCurrentLibraryUUIDPath;
+- (id)photoMetadataDirectoryForMediaInMainDirectory:(id)a0;
+- (id)pathsForClientAccess:(id)a0;
+- (void)enumerateBundleScopesWithBlock:(id /* block */)a0;
+- (id)pathsForLibraryFilesystemSizeCalculation;
+- (void)setExtendedAttributesWithIdentifier:(id)a0;
+- (id)assetAbbreviatedMetadataDirectoryForDirectory:(id)a0 type:(unsigned char)a1 bundleScope:(unsigned short)a2;
+- (id)pathsGroupedByAssetBasePathFromFilePaths:(id)a0 populateInvalidAdjustmentPaths:(id)a1;
+- (id)pathToAssetAlbumOrderStructure;
+- (id)iTunesPhotosLastSyncMetadataFilePath;
+
+@end

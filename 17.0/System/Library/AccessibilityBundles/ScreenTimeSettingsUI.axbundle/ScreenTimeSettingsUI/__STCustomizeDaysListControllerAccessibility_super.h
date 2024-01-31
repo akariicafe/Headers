@@ -1,0 +1,3 @@
+@interface __STCustomizeDaysListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

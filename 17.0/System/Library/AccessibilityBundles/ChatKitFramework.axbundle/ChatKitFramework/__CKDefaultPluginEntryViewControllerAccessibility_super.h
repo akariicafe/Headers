@@ -1,0 +1,3 @@
+@interface __CKDefaultPluginEntryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

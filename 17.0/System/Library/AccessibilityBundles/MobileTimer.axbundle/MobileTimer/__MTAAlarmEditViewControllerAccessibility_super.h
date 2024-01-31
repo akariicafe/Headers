@@ -1,0 +1,3 @@
+@interface __MTAAlarmEditViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

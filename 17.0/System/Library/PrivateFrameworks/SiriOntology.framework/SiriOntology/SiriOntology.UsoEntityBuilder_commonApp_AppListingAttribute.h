@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonApp_AppListingAttribute : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

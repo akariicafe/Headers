@@ -1,0 +1,3 @@
+@interface __BroadwayActivationDoneViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

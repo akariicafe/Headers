@@ -1,0 +1,3 @@
+@interface __NCNotificationListCoalescingHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SLHighlightDisambiguationPillViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

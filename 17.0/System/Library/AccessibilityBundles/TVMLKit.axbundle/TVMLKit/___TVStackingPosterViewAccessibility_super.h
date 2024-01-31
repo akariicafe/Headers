@@ -1,0 +1,3 @@
+@interface ___TVStackingPosterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

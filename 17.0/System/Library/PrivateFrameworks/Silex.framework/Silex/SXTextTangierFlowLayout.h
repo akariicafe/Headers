@@ -1,0 +1,70 @@
+@class TSPObject, NSString, TSDCanvas, TSDLayout, NSMutableArray;
+@protocol TSWPFootnoteHeightMeasurer, TSWPOffscreenColumn, TSDHint, TSWPFootnoteMarkProvider;
+
+@interface SXTextTangierFlowLayout : TSDLayout <TSWPLayoutTarget>
+
+@property (retain, nonatomic) NSMutableArray *columns;
+@property (readonly, retain, nonatomic) id<TSWPOffscreenColumn> previousTargetLastColumn;
+@property (readonly, nonatomic) const void *previousTargetTopicNumbers;
+@property (readonly, retain, nonatomic) id<TSWPOffscreenColumn> nextTargetFirstColumn;
+@property (readonly, nonatomic) const void *nextTargetTopicNumbers;
+@property (readonly, nonatomic) id<TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
+@property (readonly, nonatomic) id<TSWPFootnoteMarkProvider> footnoteMarkProvider;
+@property (readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } minSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } maxSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } currentSize;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } position;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } anchorPoint;
+@property (readonly, nonatomic) unsigned int autosizeFlags;
+@property (readonly, nonatomic) unsigned int verticalAlignment;
+@property (readonly, nonatomic) unsigned int naturalAlignment;
+@property (readonly, nonatomic) int naturalDirection;
+@property (readonly, nonatomic) BOOL wantsLineFragments;
+@property (readonly, nonatomic) unsigned long long pageNumber;
+@property (readonly, nonatomic) unsigned long long pageCount;
+@property (readonly, nonatomic) BOOL textIsVertical;
+@property (readonly, nonatomic) BOOL layoutIsValid;
+@property (readonly, nonatomic) double maxAnchorY;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } maskRect;
+@property (retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout;
+@property (readonly, nonatomic) TSDCanvas *canvas;
+@property (readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
+@property (readonly, nonatomic) BOOL shouldHyphenate;
+@property (readonly, nonatomic) struct __CFLocale { } *hyphenationLocale;
+@property (readonly, nonatomic) BOOL allowsLastLineTruncation;
+@property (readonly, nonatomic) double reservedWidthWhenTruncating;
+@property (readonly, nonatomic) unsigned int maxLineCount;
+@property (readonly, nonatomic) BOOL ignoresEquationAlignment;
+@property (readonly, nonatomic) BOOL allowsDescendersToClip;
+@property (readonly, nonatomic) BOOL pushAscendersIntoColumn;
+@property (readonly, nonatomic) BOOL alwaysAllowWordSplit;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)validate;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)addAttachmentLayout:(id)a0;
+- (struct CGPoint { double x0; double x1; })capturedInfoPositionForAttachment;
+- (unsigned long long)characterPositionForPoint:(struct CGPoint { double x0; double x1; })a0;
+- (id)columnMetricsForCharIndex:(unsigned long long)a0 outRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a1;
+- (id)currentAnchoredDrawableLayouts;
+- (id)currentInlineDrawableLayouts;
+- (id)initWithInfo:(id)a0 layout:(id)a1 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+- (BOOL)isLastTarget;
+- (BOOL)isLayoutOffscreen;
+- (unsigned long long)iterativeAttachmentPositioningMaxPassCount;
+- (id)layoutForInlineDrawable:(id)a0;
+- (id)layoutGeometryFromInfo;
+- (struct CGPoint { double x0; double x1; })pointForCharacterPosition:(unsigned long long)a0;
+- (void)setNeedsDisplayInTargetRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)shouldDisplayGuides;
+- (BOOL)shouldPositionAttachmentsIteratively;
+- (BOOL)shouldProvideSizingGuides;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })targetRectForCanvasRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)validatedLayoutForAnchoredDrawable:(id)a0;
+
+@end

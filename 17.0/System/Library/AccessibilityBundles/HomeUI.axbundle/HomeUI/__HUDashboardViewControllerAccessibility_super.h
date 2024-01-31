@@ -1,0 +1,3 @@
+@interface __HUDashboardViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

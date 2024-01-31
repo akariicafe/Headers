@@ -1,0 +1,3 @@
+@interface __SBUIPasscodePillButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

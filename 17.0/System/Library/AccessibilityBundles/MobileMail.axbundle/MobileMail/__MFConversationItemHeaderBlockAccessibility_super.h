@@ -1,0 +1,3 @@
+@interface __MFConversationItemHeaderBlockAccessibility_super : UIAccessibilitySafeCategory
+
+@end

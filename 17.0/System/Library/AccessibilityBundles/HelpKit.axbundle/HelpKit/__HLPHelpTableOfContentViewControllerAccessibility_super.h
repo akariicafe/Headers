@@ -1,0 +1,3 @@
+@interface __HLPHelpTableOfContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

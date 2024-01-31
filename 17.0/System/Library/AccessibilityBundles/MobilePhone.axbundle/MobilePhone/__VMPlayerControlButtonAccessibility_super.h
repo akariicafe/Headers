@@ -1,0 +1,3 @@
+@interface __VMPlayerControlButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

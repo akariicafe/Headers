@@ -1,0 +1,3 @@
+@interface ___TVStackCommonTemplateControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

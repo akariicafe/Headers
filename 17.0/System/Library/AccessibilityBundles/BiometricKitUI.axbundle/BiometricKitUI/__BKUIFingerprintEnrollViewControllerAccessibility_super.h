@@ -1,0 +1,3 @@
+@interface __BKUIFingerprintEnrollViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

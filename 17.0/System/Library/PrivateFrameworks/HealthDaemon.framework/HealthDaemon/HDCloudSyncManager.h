@@ -1,0 +1,98 @@
+@class HDCloudSyncOwnerIdentifierManager, NSString, HDAssertion, HDCloudSyncContextSyncManager, NSDate, HKObserverSet, HDProfile, NSObject, HDCloudSyncStatus, HDCloudSyncSharedSummaryManager, HDAssertionManager;
+@protocol OS_dispatch_queue;
+
+@interface HDCloudSyncManager : NSObject <HDAnalyticsSubmissionCoordinatorDelegate, HDContentProtectionObserver, HDDatabaseProtectedDataObserver, HDProfileReadyObserver, HDAssertionObserver> {
+    HDAssertion *_preparedDatabaseAccessibilityAssertion;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSDate *_lock_lastSuccessfulPullDate;
+    NSDate *_lock_lastSuccessfulPushDate;
+    NSDate *_lock_lastSuccessfulLitePushDate;
+    NSDate *_lock_lastDataUploadRequestStartDate;
+    NSDate *_lock_lastDataUploadRequestCompletionDate;
+    long long _lock_uploadRequestStatus;
+    NSString *_inProgressDownloadDirectoryPath;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _inProgressDownloadDirectoryLock;
+    HKObserverSet *_observers;
+    long long _inProgressSyncCount;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) id /* block */ unitTest_assertionInvalidatedHandler;
+@property (readonly, weak, nonatomic) HDProfile *profile;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) HDCloudSyncOwnerIdentifierManager *ownerIdentifierManager;
+@property (readonly) HDAssertion *preparedDatabaseAccessibilityAssertion;
+@property (readonly) long long bytesPerChangeRecordAssetThreshold;
+@property (readonly) long long bytesPerChangeRecordAssetThresholdHardLimit;
+@property (readonly, nonatomic) BOOL supportsRebase;
+@property (readonly, nonatomic) BOOL isChild;
+@property (readonly, nonatomic) HDCloudSyncStatus *status;
+@property (readonly, nonatomic) HDCloudSyncSharedSummaryManager *sharedSummaryManager;
+@property (readonly, nonatomic) HDCloudSyncContextSyncManager *contextSyncManager;
+@property (readonly, nonatomic) HDAssertionManager *assertionManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_containerIdentifiersWithEncryptionSupportEnabled:(BOOL)a0 accountManateeEnabled:(BOOL)a1 resultHandler:(id /* block */)a2;
+
+- (void)database:(id)a0 protectedDataDidBecomeAvailable:(BOOL)a1;
+- (void)profileDidBecomeReady:(id)a0;
+- (void)didCompleteSuccessfulPullWithDate:(id)a0;
+- (void)assertionManager:(id)a0 assertionInvalidated:(id)a1;
+- (void)addObserver:(id)a0 queue:(id)a1;
+- (void)_workoutSamplesAssociated:(id)a0;
+- (void)dealloc;
+- (void)fetchSyncStatusWithCompletion:(id /* block */)a0;
+- (void)removeObserver:(id)a0;
+- (id)assetDownloadStagingManagerWithAssertion:(id)a0;
+- (id)initWithProfile:(id)a0;
+- (id)fetchSharingStatusForCurrentAppleIDWithOwnerEmailAddress:(id)a0 completion:(id /* block */)a1;
+- (id)restoreCompletionDateWithError:(id *)a0;
+- (void)accountDeviceToDeviceEncryptionAvailabilityStatusWithCompletion:(id /* block */)a0;
+- (id)lastPushForwardProgressDate;
+- (id)shareOwnerParticipantWithError:(id *)a0;
+- (void)unitTest_setSupportsRebase:(BOOL)a0;
+- (void)subscribeToDataAvailableNotificationsWithCompletion:(id /* block */)a0;
+- (BOOL)persistRestoreCompletionDate:(id)a0 error:(id *)a1;
+- (void)cloudSyncRepositoriesForClient:(id)a0 completion:(id /* block */)a1;
+- (id)leaveSharesWithCompletion:(id /* block */)a0;
+- (id)prepareForSharingWithCompletion:(id /* block */)a0;
+- (id)removeParticipants:(id)a0 fromSharesWithCompletion:(id /* block */)a1;
+- (void)fetchServerPreferredPushEnvironmentWithCompletion:(id /* block */)a0;
+- (BOOL)canPerformCloudSyncWithError:(id *)a0;
+- (BOOL)setShareOwnerParticipant:(id)a0 error:(id *)a1;
+- (void)subscribeToDataUploadRequestsWithCompletion:(id /* block */)a0;
+- (void)reportDailyAnalyticsWithCoordinator:(id)a0 completion:(id /* block */)a1;
+- (id)resetWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)removeAllParticipantsForSharingType:(unsigned long long)a0 completion:(id /* block */)a1;
+- (id)_containerWithIdentifier:(id)a0 client:(id)a1 error:(id *)a2;
+- (id)syncMedicalIDDataWithContext:(id)a0 completion:(id /* block */)a1;
+- (void)didCompleteSuccessfulPullOfUpdateWithDate:(id)a0;
+- (id)fetchShareParticipantsForSharingType:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)unitTest_setIsChild:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)configureForShareSetupMetadata:(id)a0 acceptedShares:(id)a1 completion:(id /* block */)a2;
+- (id)fetchDescriptionWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)setupSharingToAccountWithIdentityLookupInfo:(id)a0 requireExistingRelationship:(BOOL)a1 requireZoneDeviceMode:(id)a2 completion:(id /* block */)a3;
+- (void)didCompleteSuccessfulPushWithDate:(id)a0;
+- (void)didCompleteSuccessfulLitePushWithDate:(id)a0;
+- (void)prepareForPeriodicSync;
+- (void)_scheduleResetReceivedCloudSyncAnchorsAndRebaseForHFDRecovery;
+- (id)syncWithContext:(id)a0 completion:(id /* block */)a1;
+- (id)syncSessionForSyncStore:(id)a0 reason:(id)a1 delegate:(id)a2 accessibilityAssertion:(id)a3 excludedStores:(id)a4 excludedSyncIdentities:(id)a5;
+- (void)acceptShare:(id)a0 completion:(id /* block */)a1;
+- (void)fetchCloudKitAccountInfoWithCompletion:(id /* block */)a0;
+- (id)lookupParticipantWithIdentityLookUpInfo:(id)a0 completion:(id /* block */)a1;
+- (void)syncWithRequest:(id)a0 reason:(id)a1 completion:(id /* block */)a2;
+- (void)requestDataUploadWithCompletion:(id /* block */)a0;
+- (id)disableAndDeleteAllSyncDataWithCompletion:(id /* block */)a0;
+- (void)containerIdentifiersForCurrentAccountWithCompletion:(id /* block */)a0;
+- (void)updateErrorRequiringUserAction:(id)a0;
+- (void)contentProtectionStateChanged:(long long)a0 previousState:(long long)a1;
+
+@end

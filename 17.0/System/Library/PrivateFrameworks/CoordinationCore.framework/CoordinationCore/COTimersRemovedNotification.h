@@ -1,0 +1,3 @@
+@interface COTimersRemovedNotification : COTimerNotification
+
+@end

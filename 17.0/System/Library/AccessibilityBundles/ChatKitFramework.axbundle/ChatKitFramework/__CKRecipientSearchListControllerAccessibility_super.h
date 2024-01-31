@@ -1,0 +1,3 @@
+@interface __CKRecipientSearchListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

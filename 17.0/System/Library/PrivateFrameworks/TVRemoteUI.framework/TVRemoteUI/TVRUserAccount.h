@@ -1,0 +1,3 @@
+@interface TVRUserAccount : INObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __APUIWidgetContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

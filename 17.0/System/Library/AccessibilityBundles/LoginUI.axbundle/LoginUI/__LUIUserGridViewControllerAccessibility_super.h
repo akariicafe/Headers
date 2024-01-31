@@ -1,0 +1,3 @@
+@interface __LUIUserGridViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ___FCUIActivityPickerOnboardingDismissControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

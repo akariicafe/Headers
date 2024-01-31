@@ -1,0 +1,3 @@
+@interface WFActionWillRunTestingEvent : WFActionTestingEvent
+
+@end

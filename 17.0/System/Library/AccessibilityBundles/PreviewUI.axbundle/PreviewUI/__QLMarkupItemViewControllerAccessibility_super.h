@@ -1,0 +1,3 @@
+@interface __QLMarkupItemViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

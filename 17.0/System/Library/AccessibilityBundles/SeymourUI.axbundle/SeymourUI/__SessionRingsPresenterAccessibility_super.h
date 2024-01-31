@@ -1,0 +1,3 @@
+@interface __SessionRingsPresenterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

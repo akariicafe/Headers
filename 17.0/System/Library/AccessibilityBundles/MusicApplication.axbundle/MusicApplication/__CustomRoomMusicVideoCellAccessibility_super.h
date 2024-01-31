@@ -1,0 +1,3 @@
+@interface __CustomRoomMusicVideoCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

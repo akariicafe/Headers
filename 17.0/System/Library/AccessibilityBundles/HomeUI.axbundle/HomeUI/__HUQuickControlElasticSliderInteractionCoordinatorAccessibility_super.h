@@ -1,0 +1,3 @@
+@interface __HUQuickControlElasticSliderInteractionCoordinatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

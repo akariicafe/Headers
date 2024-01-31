@@ -1,0 +1,3 @@
+@interface __MKTransitArtworkManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

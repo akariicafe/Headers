@@ -1,0 +1,3 @@
+@interface __STStorageHeaderLabelCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

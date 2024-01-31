@@ -1,0 +1,3 @@
+@interface __WBSFluidProgressControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

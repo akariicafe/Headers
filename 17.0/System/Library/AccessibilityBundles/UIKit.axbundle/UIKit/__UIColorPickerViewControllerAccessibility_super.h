@@ -1,0 +1,3 @@
+@interface __UIColorPickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

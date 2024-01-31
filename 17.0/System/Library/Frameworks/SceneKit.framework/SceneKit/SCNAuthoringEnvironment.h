@@ -1,0 +1,98 @@
+@class SCNAuthoringEnvironment2, NSArray, SCNNode, NSSet, NSMutableSet, NSMutableArray, NSMutableOrderedSet, SCNManipulator;
+@protocol SCNSceneRenderer;
+
+@interface SCNAuthoringEnvironment : NSObject {
+    struct __C3DEngineContext { } *_engineContext;
+    id<SCNSceneRenderer> _sceneRenderer;
+    BOOL _sceneRendererIsSCNView;
+    struct __C3DFXProgram { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __C3DScene *x5; long long x6; } x0; int x1; unsigned char x2 : 1; unsigned char x3 : 1; struct __C3DFXProgramDelegate *x4; } *_noColorProgram;
+    struct __C3DFXProgram { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __C3DScene *x5; long long x6; } x0; int x1; unsigned char x2 : 1; unsigned char x3 : 1; struct __C3DFXProgramDelegate *x4; } *_colorOnlyProgram;
+    struct __C3DFXProgram { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __C3DScene *x5; long long x6; } x0; int x1; unsigned char x2 : 1; unsigned char x3 : 1; struct __C3DFXProgramDelegate *x4; } *_colorAndTextureProgram;
+    struct __C3DFXProgram { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __C3DScene *x5; long long x6; } x0; int x1; unsigned char x2 : 1; unsigned char x3 : 1; struct __C3DFXProgramDelegate *x4; } *_lightProbesProgram;
+    struct __C3DFXProgram { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; void *x1; struct __CFString *x2; struct __CFString *x3; struct __CFDictionary *x4; struct __C3DScene *x5; long long x6; } x0; int x1; unsigned char x2 : 1; unsigned char x3 : 1; struct __C3DFXProgramDelegate *x4; } *_wireframeProgram;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _logsInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _boldLogsInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _dynamicLinesInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _dynamicLinesNoDepthTestInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _dynamicTrianglesInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _overlayDynamicLinesInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _overlayDynamicTriangleInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _textInfo;
+    struct { struct __C3DFXProgram *weakProgram; unsigned int baseIndex; unsigned int baseVertex; unsigned int vertexSize; unsigned int allocatedVerticesSize; unsigned int allocatedIndicesSize; struct __C3DImage *textureImage; struct __C3DTexture *texture; unsigned char drawMode; BOOL orthographic; BOOL clearDepthBuffer; BOOL enableDepthTest; BOOL enableCulling; BOOL isDynamic; struct __C3DMesh *mesh; struct __C3DMeshElement *meshElement; struct { unsigned long long verticesStride; unsigned long long colorsStride; unsigned long long uvsStride; char *verticesData; char *colorsData; char *uvsData; } _cache; NSMutableSet *_usedMeshes; NSMutableSet *_freeMeshes; NSMutableSet *_usedMeshElements; NSMutableSet *_freeMeshElements; } _lightProbesInfo;
+    struct { struct { struct __C3DImage *texture; struct CGSize { double width; double height; } textureSize; BOOL isRetina; } textureInfo; double lineHeight; short characterWidth_texture; double *characterWidth_typography; short characterHeight_texture; struct *symbolRects; } _normalTextInfo;
+    struct { struct { struct __C3DImage *texture; struct CGSize { double width; double height; } textureSize; BOOL isRetina; } textureInfo; double lineHeight; short characterWidth_texture; double *characterWidth_typography; short characterHeight_texture; struct *symbolRects; } _boldTextInfo;
+    struct __C3DRasterizerStates { } *_depthOnCullOnStates;
+    struct __C3DRasterizerStates { } *_depthOffCullOnStates;
+    struct __C3DRasterizerStates { } *_depthOnCullOffStates;
+    struct __C3DRasterizerStates { } *_depthOffCullOffStates;
+    const void *_arrowIndicesOffset;
+    unsigned short _arrowIndicesCount;
+    const void *_quadrantIndicesOffset;
+    unsigned short _quadrantIndicesCount;
+    const void *_quadrantRingIndicesOffset;
+    unsigned short _quadrantRingIndicesCount;
+    double _timedRecordingExpirationTime;
+    unsigned char _timedRecordingBuffer[64000];
+    unsigned int _timedRecordingBufferStart;
+    unsigned int _timedRecordingBufferEnd;
+    long long _authoringDisplayMask;
+    unsigned char _hasLighting : 1;
+    BOOL _selectionIsReadonly;
+    void /* unknown type, empty encoding */ _selectionP0;
+    void /* unknown type, empty encoding */ _selectionP1;
+    BOOL _selecting;
+    NSSet *_initialSelection;
+    NSMutableOrderedSet *_selection;
+    NSArray *_selectedNodes;
+    BOOL _isOrbiting;
+    float _lastGridDistance;
+    NSMutableArray *_visibleManipulableItems;
+    void *_wireframeRenderer;
+    unsigned int _consoleLineCount;
+    struct { BOOL initialized; BOOL showFullStatistics; BOOL showRenderOptionsPanel; float fps; float waitDisplayLinkTime; long long pressedButtonIndex; struct __CFString *fpsString; struct __CFString *shortString; struct __CFString *internalString; unsigned int lightingStatistics[9]; struct __C3DEngineStats { unsigned int verticesProcessed; unsigned int primitivesProcessed; unsigned int drawCount; unsigned int drawStep; unsigned int frameCount; unsigned int fboSwitches; unsigned int vboSwitches; unsigned int attSwitches; unsigned int attEnabling; unsigned int iboSwitches; unsigned int vaoSwitches; unsigned int prgSwitches; unsigned int texSwitches; unsigned int rssSwitches; unsigned int getCount; unsigned int uniformFloatSent; unsigned int uniformIntSent; unsigned int uniformVector2Sent; unsigned int uniformVector3Sent; unsigned int uniformVector4Sent; unsigned int uniformMatrix4Sent; unsigned int vboUploaded; unsigned int iboUploaded; unsigned int texUploaded; double cpuTime; double cstrTime; double phyTime; double prtTime; double animTime; double skinTime; double mrphTime; double rendTime; double twoDTime; double delegateTime; double glFlushTime; double waitDisplayLinkTime; double drawableWaitTime; double gpuTime; double lastDisplayLinkTime; unsigned int prgCount; unsigned int texCount; unsigned int fboCount; unsigned int vboCount; unsigned int rboCount; unsigned int iboCount; unsigned int cboCount; unsigned int vaoCount; unsigned int fboMemory; unsigned int rboMemory; unsigned int vboMemory; unsigned int iboMemory; unsigned int cboMemory; unsigned int texMemory; unsigned int backBufferMemory; unsigned int depthBuffersMemory; unsigned int onlineShaderCount; double onlineShaderCompilationTime; unsigned int renderPipelineCount; double renderPipelineCompilationTime; unsigned int computePipelineCount; double computePipelineCompilationTime; double frmAvgTime; double frmMinTime; double frmMaxTime; double frameTimeHistory[60]; unsigned int frameTimeCurrentIndex; double startTime; double lastFrameTime; } stats; } _statisticsInfo;
+    float _drawScale;
+    SCNAuthoringEnvironment2 *_authEnv2;
+}
+
+@property (readonly) id<SCNSceneRenderer> sceneRenderer;
+@property (readonly, nonatomic) NSArray *selectedNodes;
+@property (nonatomic) BOOL selectionIsReadonly;
+@property (readonly, nonatomic) SCNManipulator *manipulator;
+@property (readonly, nonatomic) SCNNode *authoringOverlayLayer;
+@property (nonatomic) BOOL shouldSnapOnGrid;
+@property (nonatomic) BOOL shouldSnapToAlign;
+@property (nonatomic) BOOL graphicalSelectionEnabled;
+@property (nonatomic) BOOL surroundToSelect;
+@property (nonatomic) long long authoringDisplayMask;
+@property (readonly, nonatomic) double gridUnit;
+@property (nonatomic) long long editingSpace;
+@property (readonly, nonatomic) struct SCNMatrix4 { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; } viewMatrix;
+@property (nonatomic) id delegate;
+
++ (id)authoringEnvironmentForSceneRenderer:(id)a0;
++ (id)authoringEnvironmentForSceneRenderer:(id)a0 createIfNeeded:(BOOL)a1;
++ (long long)defaultAuthoringDisplayMask;
++ (id)rendererForSceneRenderer:(id)a0;
+
+- (id)init;
+- (void)dealloc;
+- (void)update;
+- (id)renderer;
+- (id)selectedItems;
+- (void)sceneDidChange:(id)a0;
+- (id)_initWithEngineContext:(struct __C3DEngineContext { } *)a0;
+- (void)_setupAuthoringEnv2:(id)a0;
+- (id)authoringEnvironment2;
+- (void)beginEditingNode:(id)a0;
+- (void)beginEditingNodes:(id)a0;
+- (void)beginOrbiting;
+- (void)cancelEdition;
+- (BOOL)didTapAtPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)drawLineFromPoint:(struct SCNVector3 { float x0; float x1; float x2; })a0 toPoint:(struct SCNVector3 { float x0; float x1; float x2; })a1 color:(id)a2;
+- (void)drawString:(id)a0 atPoint:(struct CGPoint { double x0; double x1; })a1 color:(id)a2;
+- (void)endOrbiting;
+- (BOOL)isEditingSubComponent;
+- (void)saveInitialSelection;
+- (void)setupAuthoringEnv2;
+
+@end

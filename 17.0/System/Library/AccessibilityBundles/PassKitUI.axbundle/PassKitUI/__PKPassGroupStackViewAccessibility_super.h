@@ -1,0 +1,3 @@
+@interface __PKPassGroupStackViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

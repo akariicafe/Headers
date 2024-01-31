@@ -1,0 +1,3 @@
+@interface __CKDetailsLocationShareCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

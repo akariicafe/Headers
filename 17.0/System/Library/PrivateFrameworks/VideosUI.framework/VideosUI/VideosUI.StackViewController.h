@@ -1,0 +1,62 @@
+@interface VideosUI.StackViewController : VideosUI.VUIViewController <VideosUI.VUICollectionViewDelegate, VideosUI.VUICollectionViewContextMenuDelegate, VideosUI.VUIScrollViewDelegate, VideosUI.StackCollectionViewCompositionalLayoutDelegate, VUICollectionViewCellInteractor, UICollectionViewDragDelegate, UICollectionViewDropDelegate> {
+    void /* unknown type, empty encoding */ peekingEnabled;
+    void /* unknown type, empty encoding */ collectionImpressioner;
+    void /* unknown type, empty encoding */ stackType;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_collectionView;
+    void /* unknown type, empty encoding */ supplementaryHeaderTypeToKindMap;
+    void /* unknown type, empty encoding */ supplementaryFooterTypeToKindMap;
+    void /* unknown type, empty encoding */ supplementaryKindToReuseIdentifierMap;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_dataSource;
+    void /* unknown type, empty encoding */ templateViewModel;
+    void /* unknown type, empty encoding */ collectionViewModel;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_prototypeCells;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_supplementaryCells;
+    void /* unknown type, empty encoding */ sectionViewModels;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_hostingCellViewControllers;
+    void /* unknown type, empty encoding */ cellConfigurator;
+    void /* unknown type, empty encoding */ cellActionInterceptor;
+    void /* unknown type, empty encoding */ shouldOverrideScrollToTopBehavior;
+    void /* unknown type, empty encoding */ isDragAndDropEnabled;
+    void /* unknown type, empty encoding */ sectionMetrics;
+    void /* unknown type, empty encoding */ _showcasePercentage;
+    void /* unknown type, empty encoding */ showcasePercentageContentTopAdjustment;
+    void /* unknown type, empty encoding */ _showcaseHeight;
+    void /* unknown type, empty encoding */ verticalPaginationMonitor;
+    void /* unknown type, empty encoding */ contextMenuInteractor;
+}
+
+- (void)vuiCollectionView:(id)a0 willPerformPreviewActionForMenuWith:(id)a1 animator:(id)a2;
+- (BOOL)vuiScrollViewShouldScrollToTop:(id)a0;
+- (BOOL)shouldRubberbandElementWithCategory:(unsigned long long)a0 in:(id)a1 at:(id)a2;
+- (id)vuiCollectionView:(id)a0 contextMenuConfigurationForItemAt:(id)a1 point:(struct CGPoint { double x0; double x1; })a2;
+- (void)vuiCollectionView:(id)a0 didEndDisplaying:(id)a1 for:(id)a2;
+- (void)vuiCollectionView:(id)a0 didSelectItemAt:(id)a1;
+- (void)vuiCollectionView:(id)a0 orthogonalScrollViewDidScroll:(id)a1 section:(long long)a2;
+- (id)vuiCollectionView:(id)a0 previewForDismissingContextMenuWithConfiguration:(id)a1;
+- (id)vuiCollectionView:(id)a0 previewForHighlightingContextMenuWithConfiguration:(id)a1;
+- (void)vuiCollectionView:(id)a0 willDisplay:(id)a1 for:(id)a2;
+- (void)vuiCollectionView:(id)a0 willDisplaySupplementaryView:(id)a1 forElementKind:(id)a2 at:(id)a3;
+- (void)vuiCollectionView:(id)a0 willEndContextMenuInteraction:(id)a1 animator:(id)a2;
+- (void)vuiScrollViewDidEndDecelerating:(id)a0;
+- (void)vuiScrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (void)vuiScrollViewDidEndScrollingAnimation:(id)a0;
+- (void)vuiScrollViewDidScroll:(id)a0;
+- (void)vuiScrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(struct CGPoint { double x0; double x1; } *)a2;
+- (void)vui_cellNeedsReloading:(id)a0;
+- (BOOL)vui_handleActionInCell:(id)a0 fromSubview:(id)a1 details:(id)a2;
+- (id)collectionView:(id)a0 dropPreviewParametersForItemAtIndexPath:(id)a1;
+- (BOOL)collectionView:(id)a0 dragSessionIsRestrictedToDraggingApplication:(id)a1;
+- (id)collectionView:(id)a0 dragPreviewParametersForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 performDropWithCoordinator:(id)a1;
+- (BOOL)collectionView:(id)a0 dragSessionAllowsMoveOperation:(id)a1;
+- (id)collectionView:(id)a0 dropSessionDidUpdate:(id)a1 withDestinationIndexPath:(id)a2;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void).cxx_destruct;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (id)collectionView:(id)a0 itemsForBeginningDragSession:(id)a1 atIndexPath:(id)a2;
+- (void)vui_viewDidLoad;
+- (void)vui_viewDidAppear:(BOOL)a0;
+- (void)vui_viewDidLayoutSubviews;
+
+@end

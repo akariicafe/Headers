@@ -1,0 +1,3 @@
+@interface __SUUIFlexibleSegmentedControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,73 @@
+@class ICQCloudStorageSummary, ICQPreferencesRemoteUIDelegate, NSString, PSSpecifier, ICQPreferencesFreshmintManager, ICQUIRemoteUIPresenter, AIDAAccountManager, ICQLiftUIPresenter;
+@protocol AAUISpecifierProvider;
+
+@interface ICQUINativeManageStorageController : PSListController <AAUISpecifierProviderDelegate, ICQUIManageStorageSpecifierProviderDelegate, ICQLiftUIPresenterDelegate, ICQUIRemoteUIPresenterDelegate, ICQUpgradeFlowManagerDelegate>
+
+@property (retain, nonatomic) ICQCloudStorageSummary *storageSummary;
+@property (retain, nonatomic) ICQUIRemoteUIPresenter *remoteUIPresenter;
+@property (retain, nonatomic) ICQLiftUIPresenter *liftUIPresenter;
+@property (retain, nonatomic) AIDAAccountManager *accountManager;
+@property (retain, nonatomic) PSSpecifier *activeSpecifier;
+@property (retain, nonatomic) id<AAUISpecifierProvider> headerSpecifierProvider;
+@property (retain, nonatomic) id<AAUISpecifierProvider> tipSpecifierProvider;
+@property (retain, nonatomic) id<AAUISpecifierProvider> appListSpecifierProvider;
+@property (retain, nonatomic) ICQPreferencesFreshmintManager *freshmintManager;
+@property (nonatomic) BOOL shouldLaunchPhotosDrilldown;
+@property (nonatomic) BOOL shouldLaunchBackupDrilldown;
+@property (retain, nonatomic) ICQPreferencesRemoteUIDelegate *ruiDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)specifierProvider:(id)a0 willBeginLoadingSpecifier:(id)a1;
+- (void)dealloc;
+- (id)account;
+- (void)specifierProvider:(id)a0 showViewController:(id)a1;
+- (id)specifiers;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)reloadSpecifiersForProvider:(id)a0 oldSpecifiers:(id)a1 animated:(BOOL)a2;
+- (void).cxx_destruct;
+- (void)handleURL:(id)a0 withCompletion:(id /* block */)a1;
+- (void)specifierProvider:(id)a0 didFinishLoadingSpecifier:(id)a1;
+- (void)upgradeFlowManagerDidCancel:(id)a0;
+- (void)upgradeFlowManagerDidComplete:(id)a0;
+- (void)_startSpinnerInSpecifier:(id)a0;
+- (void)launchFreshmint;
+- (BOOL)_didFetchBackupSpecifier;
+- (BOOL)_didFetchPhotosSpecifier;
+- (void)_fetchStorageSummary;
+- (void)_fetchStorageSummaryIgnoreCache:(BOOL)a0 completion:(id /* block */)a1;
+- (BOOL)_isFreshmintLink:(id)a0;
+- (void)_launchBackupDrilldown;
+- (void)_launchDeeplinksIfNeeded;
+- (void)_launchLocalBackupController;
+- (void)_launchPhotosDrilldown;
+- (void)_stopSpinnerInSpecifier:(id)a0;
+- (void)_updateStorageSummaryAndNotify;
+- (id)actionInfoForSpecifier:(id)a0;
+- (id)icqLinkForSpecifier:(id)a0;
+- (id)initWithAccountManager:(id)a0 summary:(id)a1 ruiDelegate:(id)a2;
+- (void)launchFreshmintFlowForLink:(id)a0;
+- (void)launchFreshmintFlowForSpecifier:(id)a0;
+- (void)launchICQLinkFromSpecifier:(id)a0;
+- (void)launchLegacyPurchase;
+- (void)launchLegacyPurchaseFromSpecifier:(id)a0;
+- (void)liftUIPresenterDidCancel:(id)a0;
+- (void)liftUIPresenterDidCancel:(id)a0 userInfo:(id)a1;
+- (void)liftUIPresenterDidComplete:(id)a0;
+- (void)liftUIPresenterDidComplete:(id)a0 userInfo:(id)a1;
+- (void)loadDrilldownFromSpecifier:(id)a0;
+- (void)loadLiftUIDrilldownFromSpecifier:(id)a0;
+- (void)loadRemoteUIDrilldownFromSpecifier:(id)a0;
+- (void)presentLiftUISheetFromSpecifier:(id)a0;
+- (void)presentRemoteUISheetFromSpecifier:(id)a0;
+- (void)presentServerUISheetFromSpecifier:(id)a0;
+- (void)provider:(id)a0 loadActionFromSpecifier:(id)a1;
+- (void)refreshAppList;
+- (void)showAlertFromSpecifier:(id)a0;
+- (void)startFamilySharingFromSpecifier:(id)a0;
+- (void)stopActiveSpecifier;
+- (id)urlForSpecifier:(id)a0;
+
+@end

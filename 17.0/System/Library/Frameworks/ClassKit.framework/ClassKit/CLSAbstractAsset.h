@@ -1,0 +1,93 @@
+@class NSString, UTType, NSURL, NSDate, NSError, NSMutableArray;
+
+@interface CLSAbstractAsset : CLSObject <CLSAssetDownloadProgressNotifiable, CLSAssetDownloadObservable, NSCopying> {
+    NSURL *_URL;
+    NSURL *_thumbnailURL;
+    BOOL _URLIsSecurityScoped;
+    BOOL _downloaded;
+    NSMutableArray *_downloadObservers;
+    long long _schoolworkSyncStatus;
+    UTType *_fileUTType;
+    NSString *_title;
+    long long _displayOrder;
+    struct atomic_flag { _Atomic BOOL _Value; } _thumbnailURLRequested;
+    struct atomic_flag { _Atomic BOOL _Value; } _URLRequested;
+    struct atomic_flag { _Atomic BOOL _Value; } _streamingURLRequested;
+    NSMutableArray *_pendingURLCompletions;
+    NSMutableArray *_pendingStreamingURLCompletions;
+    NSMutableArray *_pendingThumbnailURLCompletions;
+}
+
+@property (nonatomic) long long type;
+@property (copy, nonatomic) NSURL *URL;
+@property (copy, nonatomic) NSURL *thumbnailURL;
+@property (nonatomic, getter=isOriginal) BOOL original;
+@property (nonatomic) long long schoolworkSyncStatus;
+@property (nonatomic) long long fileSizeInBytes;
+@property (copy, nonatomic) UTType *fileUTType;
+@property (copy, nonatomic) NSString *originalFilename;
+@property (copy, nonatomic) NSString *title;
+@property (nonatomic) long long displayOrder;
+@property (nonatomic) double durationInSeconds;
+@property (copy, nonatomic) NSString *ownerPersonID;
+@property (retain, nonatomic) NSDate *urlExpirationDate;
+@property (copy, nonatomic) NSString *filenameExtension;
+@property (nonatomic) long long parentEntityType;
+@property (copy, nonatomic) NSString *brItemID;
+@property (copy, nonatomic) NSString *brOwnerName;
+@property (copy, nonatomic) NSString *brZoneName;
+@property (copy, nonatomic) NSString *brShareName;
+@property (copy, nonatomic) NSString *ubiquitousContainerName;
+@property (copy, nonatomic) NSString *relativePathWithinContainer;
+@property (nonatomic, getter=isDownloaded) BOOL downloaded;
+@property (nonatomic) double fractionDownloaded;
+@property (copy, nonatomic) NSError *downloadError;
+@property (readonly, nonatomic) Class parentEntityClass;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)supportsSecureCoding;
+
+- (void)dealloc;
+- (id)_init;
+- (void)removeDownloadObserver:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)addDownloadObserver:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)mergeWithObject:(id)a0;
+- (void)queued_notifyDownloadCompletion;
+- (BOOL)validateObject:(id *)a0;
+- (void)addToPendingStreamingURLCompletions:(id /* block */)a0;
+- (void)addToPendingThumbnailURLCompletions:(id /* block */)a0;
+- (void)addToPendingURLCompletions:(id /* block */)a0;
+- (void)becomeChildOf:(id)a0;
+- (oneway void)clientRemote_downloadCompleted:(BOOL)a0 error:(id)a1;
+- (oneway void)clientRemote_downloadProgressFraction:(double)a0 error:(id)a1;
+- (oneway void)clientRemote_invalidate;
+- (void)cloudKitAssetUrlSuitableForOpeningWithCompletion:(id /* block */)a0;
+- (void)cloudKitThumbnailUrlSuitableForOpeningWithCompletion:(id /* block */)a0;
+- (BOOL)devModeOn;
+- (id)downloadObservers;
+- (void)driveAssetUrlSuitableForOpeningWithCompletion:(id /* block */)a0;
+- (id)filenameForCKContentStoreCache;
+- (BOOL)hasNotBeenRereferencedByServer;
+- (BOOL)isValidFileURL:(id)a0 isThumbnail:(BOOL)a1;
+- (BOOL)isValidStreamingURL:(id)a0;
+- (id)pendingStreamingURLCompletions;
+- (id)pendingThumbnailURLCompletions;
+- (id)pendingURLCompletions;
+- (void)queued_notifyDownloadProgressFraction:(double)a0;
+- (void)setFileSizeInBytesFromURL:(id)a0;
+- (void)setFileUTTypeFromURL:(id)a0;
+- (id)thumbnailFilenameForCKContentStoreCache;
+- (void)thumbnailURLSuitableForOpeningWithCompletion:(id /* block */)a0;
+- (void)urlSuitableForOpeningWithCompletion:(id /* block */)a0;
+- (void)urlSuitableForStreamingWithCompletion:(id /* block */)a0;
+- (void)willSaveObject;
+
+@end

@@ -1,0 +1,3 @@
+@interface __STOverallUsageSummaryCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

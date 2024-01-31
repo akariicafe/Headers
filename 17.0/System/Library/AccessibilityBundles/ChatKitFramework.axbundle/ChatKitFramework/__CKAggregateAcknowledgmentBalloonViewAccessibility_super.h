@@ -1,0 +1,3 @@
+@interface __CKAggregateAcknowledgmentBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

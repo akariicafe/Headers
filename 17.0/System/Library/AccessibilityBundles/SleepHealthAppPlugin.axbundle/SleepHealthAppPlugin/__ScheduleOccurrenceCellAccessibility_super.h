@@ -1,0 +1,3 @@
+@interface __ScheduleOccurrenceCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

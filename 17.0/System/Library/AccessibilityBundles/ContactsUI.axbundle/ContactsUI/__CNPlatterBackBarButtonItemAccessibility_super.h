@@ -1,0 +1,3 @@
+@interface __CNPlatterBackBarButtonItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

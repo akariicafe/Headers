@@ -1,0 +1,3 @@
+@interface __SBIconWidgetIntroductionPopoverViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

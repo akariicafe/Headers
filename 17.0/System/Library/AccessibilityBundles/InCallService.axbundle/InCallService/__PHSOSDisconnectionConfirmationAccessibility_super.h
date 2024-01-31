@@ -1,0 +1,3 @@
+@interface __PHSOSDisconnectionConfirmationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

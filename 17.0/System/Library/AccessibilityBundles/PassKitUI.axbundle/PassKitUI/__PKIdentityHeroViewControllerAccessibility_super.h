@@ -1,0 +1,3 @@
+@interface __PKIdentityHeroViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

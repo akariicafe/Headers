@@ -1,0 +1,3 @@
+@interface __SFAccountDetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

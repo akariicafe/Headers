@@ -1,0 +1,3 @@
+@interface _TtCC16SiriAudioSupport19ForegroundAppSignal17KnowledgeProvider : _TtCs12_SwiftObject
+
+@end

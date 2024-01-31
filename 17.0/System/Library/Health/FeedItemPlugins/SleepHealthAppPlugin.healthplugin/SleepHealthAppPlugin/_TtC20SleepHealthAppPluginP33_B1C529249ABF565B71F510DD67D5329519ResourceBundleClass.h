@@ -1,0 +1,3 @@
+@interface _TtC20SleepHealthAppPluginP33_B1C529249ABF565B71F510DD67D5329519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

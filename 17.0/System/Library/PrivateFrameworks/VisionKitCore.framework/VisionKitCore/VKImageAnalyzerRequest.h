@@ -1,0 +1,3 @@
+@interface VKImageAnalyzerRequest : VKCImageAnalyzerRequest
+
+@end

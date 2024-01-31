@@ -1,0 +1,3 @@
+@interface __PUPhotosAlbumViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

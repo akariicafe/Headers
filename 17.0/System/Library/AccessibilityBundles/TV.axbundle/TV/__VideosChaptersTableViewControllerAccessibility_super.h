@@ -1,0 +1,3 @@
+@interface __VideosChaptersTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

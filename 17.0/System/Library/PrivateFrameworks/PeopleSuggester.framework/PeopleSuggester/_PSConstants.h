@@ -1,0 +1,54 @@
+@interface _PSConstants : NSObject
+
++ (id)mobileMailBundleId;
++ (id)facetimeBundleId;
++ (id)findMyBundleId;
++ (id)mobileFacetimeBundleId;
++ (id)mobileSafariBundleId;
++ (id)returnToSenderReason;
++ (id)collaborationSuggestionBundleId;
++ (id)mobileCameraBundleId;
++ (id)contactsAutocompleteBundleId;
++ (id)mobileMailAccountSettingsBundleId;
++ (id)mobileCalendarBundleId;
++ (id)sharePlayBundleId;
++ (id)inCallHeuristicReason;
++ (id)ShareSheetDataHarvestingPluginCompletedNotificationName;
++ (id)inCallCollaborationHeuristicReason;
++ (id)macSharePlayPeoplePickerBundleId;
++ (id)eligibleShareSheetTargets;
++ (id)mobileMessagesComposeBundleId;
++ (id)macSafariTechnologyPreviewBundleId;
++ (id)macKnowledgeAgentBundleId;
++ (id)mobileScreenshotsBundleId;
++ (id)mobilePhoneBundleId;
++ (id)passwordsSettingsBundleId;
++ (id)macSafariBundleId;
++ (id)shareSheetTargetBundleIdMessages;
++ (id)instagramBundleId;
++ (id)psDefaultsDomain;
++ (id)mobileCoreDuetBundleId;
++ (id)inExpanseSessionHeuristicReason;
++ (id)shareplayBundleIds;
++ (id)messagesBundleIds;
++ (id)macSafariPlatformSupportBundleId;
++ (id)passwordsDebugAppBundleId;
++ (id)whatsappBundleId;
++ (id)macCalendarBundleId;
++ (id)photoAssetPresenceHeuristicReason;
++ (id)preferencesBundleId;
++ (id)twitterBundleId;
++ (id)mobilePhotosBundleId;
++ (id)macMessagesBundleId;
++ (id)mobileMessagesBundleId;
++ (id)macMailBundleId;
++ (id)mobileSharePlayPeoplePickerBundleId;
++ (id)passwordsSettingsDevelopmentBundleId;
++ (id)systemBundleIds;
++ (id)coreMLModel;
++ (id)mailBundleIds;
++ (id)ensembleModel;
++ (id)macFacetimeBundleId;
++ (id)shareSheetTargetBundleIdMail;
+
+@end

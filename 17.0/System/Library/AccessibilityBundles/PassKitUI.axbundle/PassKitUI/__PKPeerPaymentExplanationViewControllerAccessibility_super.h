@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentExplanationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

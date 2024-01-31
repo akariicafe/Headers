@@ -1,0 +1,3 @@
+@interface AXSpringBoardUtilities : NSObject
+
+@end

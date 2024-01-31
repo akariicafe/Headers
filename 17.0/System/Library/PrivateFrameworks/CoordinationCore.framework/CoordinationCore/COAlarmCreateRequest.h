@@ -1,0 +1,3 @@
+@interface COAlarmCreateRequest : COAlarmRequest
+
+@end

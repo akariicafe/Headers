@@ -1,0 +1,3 @@
+@interface __SBFloatingDockWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

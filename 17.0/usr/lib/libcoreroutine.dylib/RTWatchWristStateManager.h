@@ -1,0 +1,3 @@
+@interface RTWatchWristStateManager : RTService
+
+@end

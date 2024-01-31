@@ -1,0 +1,9 @@
+@interface AppStore_UIButtonBarButtonAccessibility : __AppStore_UIButtonBarButtonAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (BOOL)isAccessibilityElement;
+
+@end

@@ -1,0 +1,3 @@
+@interface __TUISystemInputAssistantViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

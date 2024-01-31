@@ -1,0 +1,3 @@
+@interface __SearchUIMovieCardSectionBuyButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

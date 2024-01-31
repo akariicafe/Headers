@@ -1,0 +1,3 @@
+@interface SUUIMenuItemViewElement : SUUIViewElement
+
+@end

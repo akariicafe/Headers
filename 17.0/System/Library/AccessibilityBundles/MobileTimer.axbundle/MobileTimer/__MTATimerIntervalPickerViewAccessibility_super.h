@@ -1,0 +1,3 @@
+@interface __MTATimerIntervalPickerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

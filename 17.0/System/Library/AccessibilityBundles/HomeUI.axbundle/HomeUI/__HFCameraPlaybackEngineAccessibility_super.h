@@ -1,0 +1,3 @@
+@interface __HFCameraPlaybackEngineAccessibility_super : UIAccessibilitySafeCategory
+
+@end

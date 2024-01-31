@@ -1,0 +1,3 @@
+@interface __RoutePlanningRefinementBarButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

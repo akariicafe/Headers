@@ -1,0 +1,3 @@
+@interface __HRSpeedBumpViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

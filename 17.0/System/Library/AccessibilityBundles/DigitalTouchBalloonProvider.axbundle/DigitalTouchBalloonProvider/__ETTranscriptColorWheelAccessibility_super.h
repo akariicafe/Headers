@@ -1,0 +1,3 @@
+@interface __ETTranscriptColorWheelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

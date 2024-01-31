@@ -1,0 +1,3 @@
+@interface TDCursorPhotoshopProduction : TDPhotoshopElementProduction
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUITabBarControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

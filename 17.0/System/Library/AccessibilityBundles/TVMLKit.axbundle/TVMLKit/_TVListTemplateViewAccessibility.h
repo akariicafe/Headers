@@ -1,0 +1,12 @@
+@interface _TVListTemplateViewAccessibility : ___TVListTemplateViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (void)setPreviewView:(id)a0;
+- (void)setListView:(id)a0;
+- (void)setBannerView:(id)a0;
+- (void)_accessibilityLoadAccessibilityInformation;
+
+@end

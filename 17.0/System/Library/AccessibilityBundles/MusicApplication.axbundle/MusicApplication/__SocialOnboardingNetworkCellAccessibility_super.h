@@ -1,0 +1,3 @@
+@interface __SocialOnboardingNetworkCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

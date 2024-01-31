@@ -1,0 +1,3 @@
+@interface __GKMultiplayerStatusViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

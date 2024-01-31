@@ -1,0 +1,3 @@
+@interface __HKSwitchTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SFScreenTimeOverlayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

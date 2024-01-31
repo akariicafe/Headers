@@ -1,0 +1,3 @@
+@interface __SUUIStackListCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

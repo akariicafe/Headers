@@ -1,0 +1,3 @@
+@interface CCFacePoints : UnifiedRenderingFacePoints
+
+@end

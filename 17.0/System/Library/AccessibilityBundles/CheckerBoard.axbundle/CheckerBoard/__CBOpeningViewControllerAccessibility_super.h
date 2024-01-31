@@ -1,0 +1,3 @@
+@interface __CBOpeningViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SRCompactTextRequestViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

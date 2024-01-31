@@ -1,0 +1,82 @@
+@class NSString;
+@protocol MTLDevice, MTLHeap, MTLIndirectCommandBufferSPI, MTLBuffer;
+
+@interface MTLGPUDebugIndirectCommandBuffer : MTLToolsIndirectCommandBuffer <MTLGPUDebugResource> {
+    BOOL _hasRender;
+    BOOL _hasCompute;
+    BOOL _inheritsBuffers;
+    BOOL _inheritsPipelineState;
+    id<MTLBuffer> _argumentStorage;
+    id<MTLBuffer> _vertexKernelDrawOrDispatchIDBuffer;
+    id<MTLBuffer> _fragmentDrawIDBuffer;
+    id<MTLBuffer> _meshDrawIDBuffer;
+    id<MTLBuffer> _objectDrawIDBuffer;
+    unsigned short _maxCommands;
+    unsigned char _maxVertexBindings;
+    unsigned char _maxFragmentBindings;
+    unsigned char _maxKernelBindings;
+    unsigned char _maxThreadgroupBindings;
+    unsigned char _maxObjectBindings;
+    unsigned char _maxMeshBindings;
+    BOOL _mayContainDrawMeshes;
+    unsigned short _commandByteStride;
+    unsigned long long _originalResourceOptions;
+}
+
+@property (readonly, nonatomic) id<MTLBuffer> internalICBBuffer;
+@property (readonly, nonatomic) id<MTLBuffer> internalDispatchIDBuffer;
+@property (readonly, nonatomic) id<MTLBuffer> internalVertexDrawIDBuffer;
+@property (readonly, nonatomic) id<MTLBuffer> internalFragmentDrawIDBuffer;
+@property (readonly, nonatomic) id<MTLBuffer> internalMeshDrawIDBuffer;
+@property (readonly, nonatomic) id<MTLBuffer> internalObjectDrawIDBuffer;
+@property (readonly, nonatomic) unsigned long long maxCommands;
+@property (readonly, nonatomic) unsigned long long maxVertexBindings;
+@property (readonly, nonatomic) unsigned long long maxFragmentBindings;
+@property (readonly, nonatomic) unsigned long long maxKernelBindings;
+@property (readonly, nonatomic) unsigned long long maxObjectBindings;
+@property (readonly, nonatomic) unsigned long long maxMeshBindings;
+@property (readonly, nonatomic) BOOL mayContainDrawMeshes;
+@property (readonly, nonatomic) unsigned long long commandByteStride;
+@property (readonly, nonatomic) BOOL inheritsPipelineState;
+@property (readonly, nonatomic) BOOL inheritsBuffers;
+@property (retain, nonatomic) id<MTLIndirectCommandBufferSPI> baseObject;
+@property (readonly, nonatomic) unsigned long long length;
+@property (readonly, nonatomic) unsigned long long gpuAddress;
+@property (readonly, nonatomic) unsigned long long underlyingGPUAddress;
+@property int responsibleProcess;
+@property (readonly) unsigned long long allocationID;
+@property (readonly) unsigned long long protectionOptions;
+@property (readonly) unsigned long long unfilteredResourceOptions;
+@property (copy) NSString *label;
+@property (readonly) id<MTLDevice> device;
+@property (readonly) unsigned long long cpuCacheMode;
+@property (readonly) unsigned long long storageMode;
+@property (readonly) unsigned long long hazardTrackingMode;
+@property (readonly) unsigned long long resourceOptions;
+@property (readonly) id<MTLHeap> heap;
+@property (readonly) unsigned long long heapOffset;
+@property (readonly) unsigned long long allocatedSize;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (struct MTLResourceID { unsigned long long x0; })gpuResourceID;
+- (id)indirectRenderCommandAtIndex:(unsigned long long)a0;
+- (id)indirectComputeCommandAtIndex:(unsigned long long)a0;
+- (void)setBuffer:(id)a0 offset:(unsigned long long)a1 attributeStride:(unsigned long long)a2 atIndex:(unsigned long long)a3 forStage:(unsigned long long)a4 commandIndex:(unsigned long long)a5;
+- (unsigned long long)handleForOffset:(unsigned long long)a0;
+- (id)initWithIndirectCommandBuffer:(id)a0 descriptor:(id)a1 maxCommandCount:(unsigned long long)a2 resourceOptions:(unsigned long long)a3 device:(id)a4;
+- (void)onExecuteWithComputeEncoder:(id)a0;
+- (void)onExecuteWithRenderEncoder:(id)a0;
+- (void)resetAtIndex:(unsigned long long)a0;
+- (void)setBuffer:(id)a0 offset:(unsigned long long)a1 atIndex:(unsigned long long)a2 forStage:(unsigned long long)a3 commandIndex:(unsigned long long)a4;
+- (void)setComputePipelineStateBuffers:(id)a0 commandIndex:(unsigned long long)a1;
+- (void)setRenderPipelineStateBuffers:(id)a0 commandIndex:(unsigned long long)a1;
+- (void)setTessellationControlPointIndexBuffer:(id)a0 offset:(unsigned long long)a1 commandIndex:(unsigned long long)a2;
+- (void)setThreadgroupMemoryLength:(unsigned long long)a0 atIndex:(unsigned long long)a1 commandIndex:(unsigned long long)a2;
+- (void)useWithComputeEncoder:(id)a0 usage:(unsigned long long)a1;
+- (void)useWithRenderEncoder:(id)a0 usage:(unsigned long long)a1 stages:(struct optional<unsigned long> { union { char x0; unsigned long long x1; } x0; BOOL x1; })a2;
+
+@end

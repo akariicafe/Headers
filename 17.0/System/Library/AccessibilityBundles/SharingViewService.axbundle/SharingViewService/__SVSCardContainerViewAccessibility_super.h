@@ -1,0 +1,3 @@
+@interface __SVSCardContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

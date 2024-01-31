@@ -1,0 +1,3 @@
+@interface __HUAnnouncementGlobeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SearchUITableHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

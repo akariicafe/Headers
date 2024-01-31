@@ -1,0 +1,3 @@
+@interface __STUIStatusBarThermalItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

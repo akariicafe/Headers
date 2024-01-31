@@ -1,0 +1,3 @@
+@interface SlideshowKit : NSObject
+
+@end

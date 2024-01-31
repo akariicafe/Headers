@@ -1,0 +1,3 @@
+@interface ___SFSettingsAlertStepperAccessibility_super : UIAccessibilitySafeCategory
+
+@end

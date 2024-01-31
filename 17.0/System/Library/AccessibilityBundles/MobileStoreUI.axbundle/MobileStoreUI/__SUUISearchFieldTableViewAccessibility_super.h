@@ -1,0 +1,3 @@
+@interface __SUUISearchFieldTableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

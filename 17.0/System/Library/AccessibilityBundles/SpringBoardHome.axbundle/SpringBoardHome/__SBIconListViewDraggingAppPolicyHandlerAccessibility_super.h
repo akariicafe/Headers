@@ -1,0 +1,3 @@
+@interface __SBIconListViewDraggingAppPolicyHandlerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

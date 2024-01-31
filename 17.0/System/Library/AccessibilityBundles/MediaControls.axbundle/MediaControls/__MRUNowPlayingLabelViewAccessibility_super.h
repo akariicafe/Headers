@@ -1,0 +1,3 @@
+@interface __MRUNowPlayingLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

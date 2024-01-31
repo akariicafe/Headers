@@ -1,0 +1,3 @@
+@interface __GutterizedEventTrailingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

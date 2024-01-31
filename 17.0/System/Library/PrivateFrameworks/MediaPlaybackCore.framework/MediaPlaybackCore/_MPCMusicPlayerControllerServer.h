@@ -1,0 +1,83 @@
+@class NSUUID, NSString, NSXPCListenerEndpoint, MPMusicPlayerQueueDescriptor, NSMutableArray, MPMusicPlayerControllerSystemCache, NSXPCListener, MPCPlaybackEngine;
+
+@interface _MPCMusicPlayerControllerServer : NSObject <MPMusicPlayerControllerSystemServer, MPMusicPlayerControllerApplicationServer, NSXPCListenerDelegate, _MPCPlaybackEngineEventObserving> {
+    MPMusicPlayerQueueDescriptor *_queueDescriptor;
+    MPMusicPlayerQueueDescriptor *_preparingDescriptor;
+    id /* block */ _prepareCompletionHandler;
+    BOOL _skipWaitingForLikelyToKeepUp;
+    BOOL _waitingForAdditionalPlaybackContexts;
+    BOOL _resumed;
+    NSUUID *_settingMultiplePlaybackContextsUUID;
+}
+
+@property (readonly, nonatomic) MPMusicPlayerControllerSystemCache *systemCache;
+@property (readonly, nonatomic) NSXPCListener *listener;
+@property (readonly, nonatomic) NSMutableArray *activeConnections;
+@property (readonly, weak, nonatomic) MPCPlaybackEngine *playbackEngine;
+@property (readonly, nonatomic) NSXPCListenerEndpoint *endpoint;
+@property (readonly, nonatomic, getter=isRunning) BOOL running;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)engine:(id)a0 didChangeToState:(unsigned long long)a1;
+- (void)engine:(id)a0 didChangeCurrentItemVariantID:(id)a1;
+- (void)getNowPlayingWithReply:(id /* block */)a0;
+- (id)initWithPlaybackEngine:(id)a0;
+- (void)play;
+- (void)setDescriptor:(id)a0 completion:(id /* block */)a1;
+- (void)setRepeatMode:(long long)a0;
+- (void)appendDescriptor:(id)a0 completion:(id /* block */)a1;
+- (void)_onQueue_setNowPlayingItem:(id)a0 itemIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)engine:(id)a0 didChangeShuffleType:(long long)a1;
+- (void)getNowPlayingsForContentItemIDs:(id)a0 reply:(id /* block */)a1;
+- (void)_applyServerStateUpdateRecord:(id)a0;
+- (void)_appendPlaybackContexts:(id)a0 completion:(id /* block */)a1;
+- (void)_prependPlaybackContexts:(id)a0 completion:(id /* block */)a1;
+- (void)setNowPlayingUID:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)setShuffleMode:(long long)a0;
+- (void)skipWithBehavior:(long long)a0;
+- (void)setPlaybackRate:(float)a0 completion:(id /* block */)a1;
+- (void)engine:(id)a0 didReachEndOfQueueWithReason:(id)a1;
+- (void)startServer;
+- (void)engine:(id)a0 didChangeQueueWithReason:(id)a1;
+- (void)resumeIfNeeded;
+- (void)getTimeSnapshotWithReply:(id /* block */)a0;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)engine:(id)a0 didResetQueueWithPlaybackContext:(id)a1 error:(id)a2;
+- (void)setDisableAutomaticCanBeNowPlaying:(BOOL)a0;
+- (void)stop;
+- (void)setElapsedTime:(double)a0 completion:(id /* block */)a1;
+- (id)_nowPlayingWithItem:(id)a0;
+- (void)setDisableRepeat:(BOOL)a0;
+- (void)getDescriptorWithReply:(id /* block */)a0;
+- (void)_registerForCommandHandlersRegisteredNotification;
+- (void)_addContentItemIDsToUpdateRecord:(id)a0;
+- (void)beginSeekWithDirection:(long long)a0;
+- (void)prependDescriptor:(id)a0 completion:(id /* block */)a1;
+- (void)endSeek;
+- (void)setDisableAutoPlay:(BOOL)a0;
+- (void)reshuffle;
+- (void)engine:(id)a0 didEndPlaybackOfItem:(id)a1;
+- (void)getNowPlayingAtIndex:(long long)a0 reply:(id /* block */)a1;
+- (void)performQueueModifications:(id)a0 completion:(id /* block */)a1;
+- (void)_handleCommandHandlersRegistered:(id)a0;
+- (void).cxx_destruct;
+- (void)engine:(id)a0 didAchieveLikelyToKeepUpWithItem:(id)a1;
+- (void)engine:(id)a0 didChangeItemElapsedTime:(double)a1 rate:(float)a2;
+- (void)getRepeatModeWithReply:(id /* block */)a0;
+- (void)beginPlaybackAtHostTime:(id)a0;
+- (void)engine:(id)a0 didChangeToItem:(id)a1;
+- (void)getImageForArtworkIdentifier:(id)a0 itemIdentifier:(id)a1 atSize:(struct CGSize { double x0; double x1; })a2 reply:(id /* block */)a3;
+- (id)_timeSnapshotWithElapsedTime:(double)a0 rate:(float)a1;
+- (void)setRelativeVolume:(float)a0;
+- (void)stopServer;
+- (void)getShuffleModeWithReply:(id /* block */)a0;
+- (void)pauseWithFadeDuration:(long long)a0;
+- (void)setDisableShuffle:(BOOL)a0;
+- (void)engine:(id)a0 didChangeRepeatType:(long long)a1;
+- (void)setNowPlayingItem:(id)a0 itemIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)prerollWithCompletion:(id /* block */)a0;
+
+@end

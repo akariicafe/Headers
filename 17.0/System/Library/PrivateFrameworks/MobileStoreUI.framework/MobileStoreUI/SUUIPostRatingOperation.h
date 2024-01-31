@@ -1,0 +1,16 @@
+@class NSDictionary, NSString, SUUIReviewConfiguration;
+
+@interface SUUIPostRatingOperation : ISOperation {
+    NSDictionary *_responseDictionary;
+    NSString *_itemID;
+    long long _rating;
+    SUUIReviewConfiguration *_reviewConfiguration;
+}
+
+@property (readonly) NSDictionary *responseDictionary;
+
+- (void)run;
+- (void).cxx_destruct;
+- (id)initWithRating:(long long)a0 forItemID:(id)a1 reviewConfiguration:(id)a2;
+
+@end

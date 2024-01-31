@@ -1,0 +1,3 @@
+@interface __SiriMoviesMovieListCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

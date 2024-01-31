@@ -1,0 +1,3 @@
+@interface __SUCellConfigurationCacheAccessibility_super : UIAccessibilitySafeCategory
+
+@end

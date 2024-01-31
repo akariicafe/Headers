@@ -1,0 +1,3 @@
+@interface ___TVProductTemplateControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

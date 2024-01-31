@@ -1,0 +1,3 @@
+@interface __CertInfoCertificateHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

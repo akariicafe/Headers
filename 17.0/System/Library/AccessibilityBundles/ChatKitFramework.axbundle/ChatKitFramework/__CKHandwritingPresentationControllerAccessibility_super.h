@@ -1,0 +1,3 @@
+@interface __CKHandwritingPresentationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

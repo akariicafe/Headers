@@ -1,0 +1,3 @@
+@interface __SiriRestaurantsDetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

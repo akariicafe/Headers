@@ -1,0 +1,3 @@
+@interface __VideosUITableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

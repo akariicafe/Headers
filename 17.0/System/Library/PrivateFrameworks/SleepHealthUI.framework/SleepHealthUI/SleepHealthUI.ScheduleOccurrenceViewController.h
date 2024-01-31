@@ -1,0 +1,48 @@
+@interface SleepHealthUI.ScheduleOccurrenceViewController : SleepHealthUI.SleepTableWelcomeController <SleepHealthUI.SleepScheduleComponentsEditViewHandling, SleepHealthUI.ScheduleOccurrenceAlarmVolumeTableViewCellHandler, HKSwitchTableViewCellDelegate, TKTonePickerViewControllerDelegate, TKVibrationPickerViewControllerDelegate, UITableViewDelegate> {
+    void /* unknown type, empty encoding */ model;
+    void /* unknown type, empty encoding */ alarmPreviewPlayer;
+    void /* unknown type, empty encoding */ alarmConfigurationObserver;
+    void /* unknown type, empty encoding */ modelEditObserver;
+    void /* unknown type, empty encoding */ significantTimeChangeObserver;
+    void /* unknown type, empty encoding */ localeChangeObserver;
+    void /* unknown type, empty encoding */ sleepDurationGoalObserver;
+    void /* unknown type, empty encoding */ scheduleChangeObserver;
+    void /* unknown type, empty encoding */ validScheduleRangeObserver;
+    void /* unknown type, empty encoding */ willResignActiveObserver;
+    void /* unknown type, empty encoding */ sleepScheduleProvider;
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ allowsDeletion;
+    void /* unknown type, empty encoding */ hasFinishedNotifyingDelegate;
+    void /* unknown type, empty encoding */ modelHasChanged;
+    void /* unknown type, empty encoding */ dataSource;
+    void /* unknown type, empty encoding */ isIn24HourTime;
+}
+
+- (void)handleSignificantTimeChange;
+- (void)cancelButtonPressed;
+- (void)switchCellValueChanged:(id)a0 value:(BOOL)a1;
+- (void)handleLocaleDidChange;
+- (void)saveButtonPressed;
+- (void)scheduleDayPickerDidChange:(id)a0;
+- (void)scheduleOccurrenceAlarmVolumeEditingDidEnd:(id)a0;
+- (void)sleepScheduleComponentsEditViewEditingDidChange:(id)a0;
+- (void)sleepScheduleComponentsEditViewEditingDidEnd:(id)a0;
+- (void)tonePickerViewController:(id)a0 didDismissVibrationPickerViewController:(id)a1;
+- (void)tonePickerViewController:(id)a0 selectedToneWithIdentifier:(id)a1;
+- (void)tonePickerViewController:(id)a0 willPresentVibrationPickerViewController:(id)a1;
+- (void)vibrationPickerViewController:(id)a0 selectedVibrationWithIdentifier:(id)a1;
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)viewDidLoad;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)restoreUserActivityState:(id)a0;
+- (double)tableView:(id)a0 estimatedHeightForHeaderInSection:(long long)a1;
+- (double)tableView:(id)a0 heightForFooterInSection:(long long)a1;
+- (BOOL)tableView:(id)a0 shouldHighlightRowAtIndexPath:(id)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void)handleAppWillResignActive;
+
+@end

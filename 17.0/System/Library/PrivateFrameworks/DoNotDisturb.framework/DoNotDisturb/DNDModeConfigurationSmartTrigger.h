@@ -1,0 +1,3 @@
+@interface DNDModeConfigurationSmartTrigger : DNDModeConfigurationTrigger
+
+@end

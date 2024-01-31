@@ -1,0 +1,3 @@
+@interface __FCUIActivityControlMenuItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SFContactAutoFillTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

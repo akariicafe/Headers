@@ -1,0 +1,3 @@
+@interface __HUDownloadProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

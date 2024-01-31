@@ -1,0 +1,3 @@
+@interface __UIScrollViewAccessibility__Podcasts__UIKit_super : UIAccessibilitySafeCategory
+
+@end

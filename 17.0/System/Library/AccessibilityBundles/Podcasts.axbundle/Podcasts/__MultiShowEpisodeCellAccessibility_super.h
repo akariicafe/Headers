@@ -1,0 +1,3 @@
+@interface __MultiShowEpisodeCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SRSuggestionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

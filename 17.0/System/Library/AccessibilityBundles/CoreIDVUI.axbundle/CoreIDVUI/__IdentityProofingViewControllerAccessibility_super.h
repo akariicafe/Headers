@@ -1,0 +1,3 @@
+@interface __IdentityProofingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

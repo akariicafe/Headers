@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__UIKit__HomeUI_super : UIAccessibilitySafeCategory
+
+@end

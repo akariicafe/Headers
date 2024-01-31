@@ -1,0 +1,3 @@
+@interface __SSSDittoRootViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

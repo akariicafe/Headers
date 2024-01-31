@@ -1,0 +1,3 @@
+@interface __CPSLabelWithPlaceholderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

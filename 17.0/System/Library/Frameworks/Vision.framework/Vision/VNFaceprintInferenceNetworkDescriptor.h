@@ -1,0 +1,3 @@
+@interface VNFaceprintInferenceNetworkDescriptor : VisionCoreFaceprintInferenceNetworkDescriptor
+
+@end

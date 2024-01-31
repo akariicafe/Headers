@@ -1,0 +1,77 @@
+@class CKAvatarTitleCollectionReusableView, CKEntity, UILabel, NSObject, NSString, CKConversation, CNContactStore, CKAvatarPickerLayout, CNGroupAvatarViewController, NSMapTable, UICollectionView;
+@protocol CKAvatarPickerViewControllerDelegate;
+
+@interface CKAvatarPickerViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CNAvatarViewDelegate, CKAvatarPickerLayoutDelegate, CKAvatarTitleCollectionReusableViewDelegate>
+
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (retain, nonatomic) CNGroupAvatarViewController *groupAvatarViewController;
+@property (retain, nonatomic) CKAvatarPickerLayout *layout;
+@property (retain, nonatomic) CKConversation *conversation;
+@property (retain, nonatomic) CNContactStore *suggestionsEnabledContactStore;
+@property (retain, nonatomic) CKAvatarTitleCollectionReusableView *titleView;
+@property (retain, nonatomic) NSMapTable *visibleTitleViews;
+@property (retain, nonatomic) CKEntity *cachedAppleEntity;
+@property (retain, nonatomic) UILabel *locationLabel;
+@property (retain, nonatomic) NSObject *sharedProfileStateOracle;
+@property (nonatomic) long long style;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } titleViewFrame;
+@property (nonatomic) long long indicatorType;
+@property (weak, nonatomic) id<CKAvatarPickerViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 didUnhighlightItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didHighlightItemAtIndexPath:(id)a1;
+- (void)dealloc;
+- (BOOL)collectionView:(id)a0 shouldHighlightItemAtIndexPath:(id)a1;
+- (void)loadView;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (id)presentingViewControllerForAvatarView:(id)a0;
+- (id)collectionView:(id)a0 viewForSupplementaryElementOfKind:(id)a1 atIndexPath:(id)a2;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (BOOL)hasTitle;
+- (void)_setTitle:(id)a0 animated:(BOOL)a1;
+- (id)avatarView:(id)a0 orderedPropertiesForProperties:(id)a1 category:(id)a2;
+- (BOOL)avatarWantsTapAtPoint:(struct CGPoint { double x0; double x1; })a0 fromView:(id)a1;
+- (void)_animateInTitleView;
+- (void)_animateOutTitleView;
+- (long long)_avatarTitleAccessoryImageType;
+- (void)_chatItemsDidChange:(id)a0;
+- (void)_chatPropertiesChanged:(id)a0;
+- (id)_configureCollectionView:(id)a0 avatarViewCellForItemAtIndexPath:(id)a1;
+- (id)_configureCollectionView:(id)a0 bannerViewCellForItemAtIndexPath:(id)a1;
+- (id)_configureCollectionView:(id)a0 groupIdentityCellForItemAtIndexPath:(id)a1;
+- (id)_contactNameSupplementaryViewAtIndexPath:(id)a0;
+- (id)_cutoutSupplementaryViewAtIndexPath:(id)a0;
+- (id)_groupAvatarViewControllerRequiredContactKeys;
+- (void)_handleAddressBookChange:(id)a0;
+- (void)_handleConversationIsFilteredChange:(id)a0;
+- (void)_handleConversationRecipientsDidChange:(id)a0;
+- (void)_handleGroupNameChange:(id)a0;
+- (unsigned long long)_preferredAvatarLayoutMode;
+- (id)_titleSupplementaryViewAtIndexPath:(id)a0;
+- (id)avatarDisplayName;
+- (BOOL)avatarPickerLayoutShouldShowTitle:(id)a0;
+- (void)beganTouchingAvatarView;
+- (void)beganTouchingTitleLabel;
+- (BOOL)chatIsReportedAsSpam;
+- (int)chatWasDetectedAsSMSSpam;
+- (void)endedTouchingAvatarView;
+- (void)endedTouchingTitleLabel;
+- (id)initWithConversation:(id)a0;
+- (void)nicknameStoreDidChange:(id)a0;
+- (void)performAnimationForPhotoUpdate;
+- (void)sendUpdatedRecentParticipantsToContacts;
+- (void)setAvatarPickerActive:(BOOL)a0;
+- (BOOL)shouldBeginTouchingAvatarView;
+- (void)tappedAvatarPickerViewController;
+- (void)updateContentsForConversation:(id)a0;
+- (void)updateGroupAvatarView;
+
+@end

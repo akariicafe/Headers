@@ -1,0 +1,3 @@
+@interface __MonogramPosterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

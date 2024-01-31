@@ -1,0 +1,33 @@
+@class NSString, DNDContactHandle;
+
+@interface DNDClientEventDetails : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) BOOL notifyAnyway;
+@property (readonly, nonatomic) unsigned long long behavior;
+@property (readonly, copy, nonatomic) NSString *identifier;
+@property (readonly, copy, nonatomic) NSString *bundleIdentifier;
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic) unsigned long long urgency;
+@property (readonly, copy, nonatomic) DNDContactHandle *sender;
+@property (readonly, copy, nonatomic) NSString *threadIdentifier;
+@property (readonly, copy, nonatomic) NSString *filterCriteria;
+@property (readonly, nonatomic) BOOL shouldAlwaysInterrupt;
+
+- (id)init;
+- (unsigned long long)hash;
+- (id)redactedDescription;
+- (void)encodeWithCoder:(id)a0;
+- (id)_initWithDetails:(id)a0;
+- (id)description;
+- (BOOL)shouldAlwaysInterrupt;
+- (void).cxx_destruct;
+- (id)_descriptionForRedacted:(BOOL)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)_initWithIdentifier:(id)a0 bundleIdentifier:(id)a1 type:(unsigned long long)a2 urgency:(unsigned long long)a3 sender:(id)a4 threadIdentifier:(id)a5 filterCriteria:(id)a6 notifyAnyway:(BOOL)a7 behavior:(unsigned long long)a8;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

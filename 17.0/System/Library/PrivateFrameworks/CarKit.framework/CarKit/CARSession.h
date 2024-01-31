@@ -1,0 +1,93 @@
+@class NSData, CARObserverHashTable, NSArray, CARSessionConfiguration, NSString, NSObject, CARAppearanceManager, CARInputDeviceManager, NSNumber;
+@protocol OS_dispatch_queue;
+
+@interface CARSession : NSObject <CARAppearanceManagerDelegate> {
+    struct OpaqueFigEndpoint { } *_endpoint;
+}
+
+@property (readonly, nonatomic, getter=isAuthenticated) BOOL authenticated;
+@property (readonly, copy, nonatomic) NSData *MFiCertificateSerialNumber;
+@property (retain, nonatomic) CARInputDeviceManager *inputDeviceManager;
+@property (readonly, nonatomic, getter=isActivated) BOOL activated;
+@property (retain, nonatomic) NSNumber *systemNightMode;
+@property (retain, nonatomic) NSNumber *fallbackNightMode;
+@property (nonatomic) int nightFallbackNotifyToken;
+@property (retain, nonatomic) CARObserverHashTable *observers;
+@property (readonly, nonatomic) BOOL clientIsCarPlayShell;
+@property (nonatomic) BOOL requiresCarCapabilitiesValues;
+@property (readonly, nonatomic) BOOL saveInfoResponse;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *clusterURLUpdateQueue;
+@property (retain, nonatomic) CARAppearanceManager *appearanceManager;
+@property (retain, nonatomic) NSArray *clusterSessionURLs;
+@property (readonly, nonatomic) CARSessionConfiguration *configuration;
+@property (readonly, nonatomic) BOOL isPaired;
+@property (readonly, copy, nonatomic) NSNumber *electronicTollCollectionAvailable;
+@property (readonly, copy, nonatomic) NSNumber *nightMode;
+@property (readonly, copy, nonatomic) NSNumber *limitUserInterfaces;
+@property (readonly, nonatomic) long long voiceTriggerMode;
+@property (readonly, copy, nonatomic) NSString *sourceVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)_siriRequestEventForEndpointAction:(id)a0;
++ (id)_stringForNightModeNumber:(id)a0;
+
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (id)lastNavigatingBundleIdentifier;
+- (void).cxx_destruct;
+- (struct OpaqueFigEndpoint { } *)endpoint;
+- (void)_updateConfiguration;
+- (void)addObserver:(id)a0;
+- (void)setInputMode:(unsigned long long)a0 forInputDevice:(id)a1;
+- (id)borrowScreenForClient:(id)a0 reason:(id)a1;
+- (BOOL)recognizingSpeech;
+- (void)requestCarUI;
+- (void)requestCarUIForURL:(id)a0;
+- (void)sendCommand:(id)a0 withParameters:(id)a1;
+- (void)takeScreenForClient:(id)a0 reason:(id)a1;
+- (void)takeScreenForConnection;
+- (id)APEndPointInfo;
+- (void)_performExtendedEndpointAction:(id /* block */)a0;
+- (unsigned long long)navigationOwner;
+- (void)_fetchFallbackIsNightWithToken:(int)a0;
+- (void)_handleOpenURL:(id)a0;
+- (long long)mapInterfaceStyleForScreenUUID:(id)a0;
+- (id)_capabilitiesIdentifier;
+- (long long)_carUserInterfaceStyleForAppearanceMode:(unsigned long long)a0;
+- (void)_clusterURLsUpdated:(id)a0;
+- (id)_endpointValueForKey:(struct __CFString { } *)a0;
+- (void)_fetchActivationStatus;
+- (void)_fetchAuthenticationStatus;
+- (id)_fig_safe_description;
+- (void)_handleAppearanceModeUpdateWithParameters:(id)a0;
+- (void)_handleDisplayPanelsUpdateWithParameters:(id)a0;
+- (void)_handleMapAppearanceModeUpdateWithParameters:(id)a0;
+- (void)_handleNightModeChange;
+- (void)_handleShowUIWithParameters:(id)a0;
+- (void)_handleSiriRequestEvent:(long long)a0 withPayload:(id)a1;
+- (void)_handleStopUIWithParameters:(id)a0;
+- (void)_handleViewAreaChangeWithPayload:(id)a0;
+- (void)_newObserverAdded:(id)a0;
+- (BOOL)_sessionReady;
+- (void)_setEndpointValue:(void *)a0 forKey:(struct __CFString { } *)a1;
+- (void)_updateCarCapabilities;
+- (void)_updateScreenInfo:(id)a0 currentViewAreaToViewArea:(id)a1 duration:(double)a2 transitionControlType:(unsigned long long)a3;
+- (void)appearanceManager:(id)a0 didUpdateMapAppearanceStyle:(long long)a1 forScreenUUIDs:(id)a2;
+- (void)appearanceManager:(id)a0 didUpdateUIAppearanceStyle:(long long)a1 forScreenUUIDs:(id)a2;
+- (BOOL)carOwnsMainAudio;
+- (BOOL)carOwnsScreen;
+- (struct OpaqueFigEndpointRemoteControlSession { } *)createRemoteControlSession:(id)a0 channelID:(id)a1 withoutReply:(BOOL)a2 qualityOfService:(id)a3 streamPriority:(id)a4 error:(id *)a5;
+- (id)initWithFigEndpoint:(struct OpaqueFigEndpoint { } *)a0 clientIsCarPlayShell:(BOOL)a1 saveInfoResponse:(BOOL)a2;
+- (void)releaseTurnByTurnOwnership;
+- (void)requestAdjacentViewAreaForScreenID:(id)a0;
+- (void)requestTurnByTurnOwnership;
+- (void)setCornerMaskImageData:(id)a0 forScreenInfo:(id)a1;
+- (void)setSiriForwardingEnabled:(BOOL)a0;
+- (void)suggestUI:(id)a0;
+- (void)unborrowScreenForToken:(id)a0;
+- (long long)userInterfaceStyleForScreenUUID:(id)a0;
+
+@end

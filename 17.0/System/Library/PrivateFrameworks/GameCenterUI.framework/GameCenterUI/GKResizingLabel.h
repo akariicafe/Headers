@@ -1,0 +1,3 @@
+@interface GKResizingLabel : UILabel
+
+@end

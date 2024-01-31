@@ -1,0 +1,3 @@
+@interface ___SFBrowserContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

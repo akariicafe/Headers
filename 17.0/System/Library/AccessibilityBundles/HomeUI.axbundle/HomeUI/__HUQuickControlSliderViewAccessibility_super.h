@@ -1,0 +1,3 @@
+@interface __HUQuickControlSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

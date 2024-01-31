@@ -1,0 +1,3 @@
+@interface __AppStore_UITransitionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

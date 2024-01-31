@@ -1,0 +1,3 @@
+@interface ___SFSettingsAlertButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ___TVStackViewFlowLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

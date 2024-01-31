@@ -1,0 +1,3 @@
+@interface __PREditingTimeFontPickerCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

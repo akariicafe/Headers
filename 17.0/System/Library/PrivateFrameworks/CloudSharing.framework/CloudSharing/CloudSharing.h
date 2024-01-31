@@ -1,0 +1,3 @@
+@interface CloudSharing : CSCloudSharing
+
+@end

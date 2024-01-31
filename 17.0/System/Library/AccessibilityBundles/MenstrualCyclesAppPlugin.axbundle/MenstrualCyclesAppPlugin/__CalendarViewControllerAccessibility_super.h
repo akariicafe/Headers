@@ -1,0 +1,3 @@
+@interface __CalendarViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

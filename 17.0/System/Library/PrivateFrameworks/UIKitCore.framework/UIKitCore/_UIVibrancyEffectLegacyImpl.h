@@ -1,0 +1,23 @@
+@class UIVibrancyEffect;
+
+@interface _UIVibrancyEffectLegacyImpl : _UIVibrancyEffectImpl {
+    long long _style;
+    BOOL _invertAutomaticStyle;
+    BOOL _ignoreSimpleVibrancy;
+}
+
+@property (nonatomic) UIVibrancyEffect *effect;
+
+- (BOOL)invertAutomaticStyle;
+- (BOOL)_needsUpdateForTransitionFromEnvironment:(id)a0 toEnvironment:(id)a1 usage:(long long)a2;
+- (void)_updateEffectDescriptor:(id)a0 forEnvironment:(id)a1 usage:(long long)a2;
+- (void)appendDescriptionTo:(id)a0;
+- (id)implementationForUserInterfaceStyle:(long long)a0;
+- (unsigned long long)hash;
+- (id)initWithStyle:(long long)a0 invertAutomaticStyle:(BOOL)a1 ignoreSimpleVibrancy:(BOOL)a2;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithStyle:(long long)a0 invertAutomaticStyle:(BOOL)a1;
+- (long long)style;
+- (BOOL)isEqual:(id)a0;
+
+@end

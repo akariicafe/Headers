@@ -1,0 +1,3 @@
+@interface __VideosUI_MonogramLockupCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

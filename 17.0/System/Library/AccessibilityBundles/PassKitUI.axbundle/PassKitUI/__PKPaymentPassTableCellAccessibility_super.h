@@ -1,0 +1,3 @@
+@interface __PKPaymentPassTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

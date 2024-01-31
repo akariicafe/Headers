@@ -1,0 +1,3 @@
+@interface __CKTranscriptPluginBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

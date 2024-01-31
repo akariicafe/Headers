@@ -1,0 +1,3 @@
+@interface __MediaControlsRoutingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

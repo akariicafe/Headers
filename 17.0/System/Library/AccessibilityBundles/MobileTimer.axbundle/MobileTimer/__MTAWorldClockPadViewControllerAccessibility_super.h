@@ -1,0 +1,3 @@
+@interface __MTAWorldClockPadViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VibrancyLabelCompositingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

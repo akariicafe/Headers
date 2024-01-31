@@ -1,0 +1,3 @@
+@interface __PKSpendingSummaryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

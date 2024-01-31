@@ -1,0 +1,3 @@
+@interface CCMakeBlurMapIntermediates : MakeBlurMapIntermediates
+
+@end

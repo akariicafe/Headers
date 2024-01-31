@@ -1,0 +1,75 @@
+@class PXSharedLibraryStatusProvider, NSMapTable, UILabel, PXMoviePresenter, PXPhotosBarButtonItemsController, PXAssetSelectionTypeCounter, PXPhotosGridActionMenuController, PXPhotosContentController, UIButton, NSString, PXActionPerformer, NSArray, PLDateRangeFormatter, PXLibraryFilterState, PXPhotosViewModel;
+@protocol PXPresentationEnvironment, PXMemoryAssetsActionFactory, PXPhotosBarsControllerDelegate, PXBarsControllerDelegate;
+
+@interface PXPhotosBarsController : PXBarsController <PXChangeObserver, PXActionPerformerDelegate, PXPhotosGridActionPerformerDelegate, PXPhotosGridOptionsControllerDelegate, PXAssetCollectionActionPerformerDelegate, PXSettingsKeyObserver>
+
+@property (readonly, nonatomic) PXPhotosViewModel *viewModel;
+@property (readonly, weak, nonatomic) PXPhotosContentController *contentController;
+@property (readonly, nonatomic) id<PXPresentationEnvironment> presentationEnvironment;
+@property (readonly, nonatomic) PXAssetSelectionTypeCounter *assetTypeCounter;
+@property (readonly, nonatomic) PXPhotosBarButtonItemsController *barButtonItemsController;
+@property (retain, nonatomic) NSArray *leftBarButtonItemIdentifiers;
+@property (retain, nonatomic) NSArray *rightBarButtonItemIdentifiers;
+@property (retain, nonatomic) NSArray *toolbarItemIdentifiers;
+@property (readonly, nonatomic) UILabel *selectModeCaptionLabel;
+@property (readonly, nonatomic) UIButton *selectModeChevronButton;
+@property (retain, nonatomic) PXActionPerformer *activeActionPerformer;
+@property (retain, nonatomic) PXActionPerformer *lastActionPerformer;
+@property (retain, nonatomic) PXPhotosGridActionMenuController *menuController;
+@property (retain, nonatomic) PXMoviePresenter *moviePresenter;
+@property (readonly, nonatomic) NSMapTable *actionTypeByBarButtonItem;
+@property (retain, nonatomic) NSString *contentSizeCategory;
+@property (nonatomic) double interButtonSpacing;
+@property (nonatomic) double endButtonSpacing;
+@property (readonly, nonatomic) PLDateRangeFormatter *dateRangeFormatter;
+@property (readonly, nonatomic) PXSharedLibraryStatusProvider *sharedLibraryStatusProvider;
+@property (readonly, nonatomic) PXLibraryFilterState *libraryFilterState;
+@property (weak, nonatomic) id<PXBarsControllerDelegate, PXPhotosBarsControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) id<PXMemoryAssetsActionFactory> memoryAssetsActionFactory;
+
+- (void)handleActionMenuBarButtonItem:(id)a0;
+- (id)init;
+- (void)handleSelectAllBarButtonItem:(id)a0;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)hostViewControllerForActionPerformer:(id)a0;
+- (id)createBarButtonItemForIdentifier:(id)a0 placement:(unsigned long long)a1;
+- (void)handleSelectBarButtonItem:(id)a0;
+- (id)createActionMenuController;
+- (BOOL)_actionPerformer:(id)a0 presentViewController:(id)a1;
+- (void)handleDismissButton:(id)a0;
+- (void)didChangeSystemItemForOptionsController:(id)a0;
+- (void)_updateSelectModeCaption;
+- (id)undoManagerForActionPerformer:(id)a0;
+- (void)actionPerformer:(id)a0 didChangeState:(unsigned long long)a1;
+- (void)_handleActionTypeBarButtonItem:(id)a0;
+- (BOOL)actionPerformer:(id)a0 dismissViewController:(id)a1 completionHandler:(id /* block */)a2;
+- (void)_reloadOptionsButton;
+- (void)didChangeActionPerformerTypeForOptionsController:(id)a0;
+- (void)handleInfoButton:(id)a0;
+- (double)fixedSpaceForInterButtonSpacing;
+- (void)handleDeselectAllBarButtonItem:(id)a0;
+- (id)createAssetActionManagerForAssetReference:(id)a0;
+- (void)settings:(id)a0 changedValueForKey:(id)a1;
+- (id)barAppearance;
+- (id)progressToastViewControllerForActionPerformer:(id)a0;
+- (void)viewControllerDidChange;
+- (void).cxx_destruct;
+- (void)updateBars;
+- (id)presentationEnvironmentForActionPerformer:(id)a0;
+- (id)initWithPhotosContentController:(id)a0;
+- (void)assetCollectionActionPerformer:(id)a0 playMovieForAssetCollection:(id)a1;
+- (void)handleCancelBarButtonItem:(id)a0;
+- (void)handleMergeDuplicatesButton:(id)a0;
+- (id)_identifierForActionType:(id)a0;
+- (BOOL)actionPerformer:(id)a0 transitionToViewController:(id)a1 transitionType:(long long)a2;
+- (void)photosGridActionPerformer:(id)a0 contentFilterStateChanged:(id)a1;
+- (double)fixedSpaceForEndButtonSpacing;
+- (void)handleExplicitBackButton:(id)a0;
+- (id)existingBarItemForIdentifier:(id)a0;
+- (void)handleAddButtonItem:(id)a0;
+
+@end

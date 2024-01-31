@@ -1,0 +1,29 @@
+@class NSString;
+
+@interface _INPBIntentResponsePayloadFailure : PBCodable <_INPBIntentResponsePayloadFailure, NSSecureCoding, NSCopying> {
+    struct { unsigned char appLaunchRequested : 1; unsigned char errorCode : 1; } _has;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) BOOL appLaunchRequested;
+@property (nonatomic) BOOL hasAppLaunchRequested;
+@property (copy, nonatomic) NSString *enumTypeName;
+@property (readonly, nonatomic) BOOL hasEnumTypeName;
+@property (nonatomic) int errorCode;
+@property (nonatomic) BOOL hasErrorCode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (BOOL)readFrom:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void)writeTo:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

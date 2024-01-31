@@ -1,0 +1,18 @@
+@interface VUIMetricsRenderSessionListViewController : UITableViewController {
+    void /* unknown type, empty encoding */ dataSource;
+}
+
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (void)didTapClearAllSessions;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)initWithStyle:(long long)a0;
+- (void)viewDidLoad;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)initWithStorageDataSource:(id)a0;
+
+@end

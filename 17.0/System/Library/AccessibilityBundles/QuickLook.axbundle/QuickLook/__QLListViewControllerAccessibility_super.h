@@ -1,0 +1,3 @@
+@interface __QLListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

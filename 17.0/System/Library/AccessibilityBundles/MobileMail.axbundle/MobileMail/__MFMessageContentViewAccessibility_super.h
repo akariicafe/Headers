@@ -1,0 +1,3 @@
+@interface __MFMessageContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

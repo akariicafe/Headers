@@ -1,0 +1,3 @@
+@interface __MFModernLabelledAtomListAccessibility_super : UIAccessibilitySafeCategory
+
+@end

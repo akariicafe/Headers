@@ -1,0 +1,3 @@
+@interface __SBAppResizeGrabberViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKPaletteUndoRedoViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

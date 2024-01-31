@@ -1,0 +1,3 @@
+@interface ___SFFindOnPageInputBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

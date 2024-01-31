@@ -1,0 +1,3 @@
+@interface ___UITextFieldClearButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

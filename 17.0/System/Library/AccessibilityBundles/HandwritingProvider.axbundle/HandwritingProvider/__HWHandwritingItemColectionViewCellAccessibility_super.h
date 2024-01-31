@@ -1,0 +1,3 @@
+@interface __HWHandwritingItemColectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

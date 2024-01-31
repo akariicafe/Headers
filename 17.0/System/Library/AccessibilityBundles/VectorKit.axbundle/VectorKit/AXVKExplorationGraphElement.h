@@ -1,0 +1,3 @@
+@interface AXVKExplorationGraphElement : NSObject
+
+@end

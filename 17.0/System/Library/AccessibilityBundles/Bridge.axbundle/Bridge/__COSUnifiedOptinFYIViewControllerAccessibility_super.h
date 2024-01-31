@@ -1,0 +1,3 @@
+@interface __COSUnifiedOptinFYIViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

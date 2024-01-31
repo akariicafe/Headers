@@ -1,0 +1,3 @@
+@interface __UICollectionViewDiffableDataSourceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface SNSiriNetwork : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface VNGenerateObjectnessBasedSaliencyImageRequestConfiguration : VNImageBasedRequestConfiguration
+
+@end

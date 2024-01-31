@@ -1,0 +1,3 @@
+@interface __SearchUIRichTitleCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

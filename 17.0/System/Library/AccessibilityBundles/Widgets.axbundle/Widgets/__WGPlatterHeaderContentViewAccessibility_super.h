@@ -1,0 +1,3 @@
+@interface __WGPlatterHeaderContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

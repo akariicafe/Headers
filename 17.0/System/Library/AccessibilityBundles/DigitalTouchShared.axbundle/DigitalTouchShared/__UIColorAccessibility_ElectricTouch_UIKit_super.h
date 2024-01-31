@@ -1,0 +1,3 @@
+@interface __UIColorAccessibility_ElectricTouch_UIKit_super : UIAccessibilitySafeCategory
+
+@end

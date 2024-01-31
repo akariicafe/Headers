@@ -1,0 +1,3 @@
+@interface __PHHandsetDialerLCDViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

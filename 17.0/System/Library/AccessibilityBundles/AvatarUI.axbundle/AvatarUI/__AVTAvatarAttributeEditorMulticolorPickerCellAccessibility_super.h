@@ -1,0 +1,3 @@
+@interface __AVTAvatarAttributeEditorMulticolorPickerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

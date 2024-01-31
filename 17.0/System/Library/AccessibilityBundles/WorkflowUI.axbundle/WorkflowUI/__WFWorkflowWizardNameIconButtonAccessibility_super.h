@@ -1,0 +1,3 @@
+@interface __WFWorkflowWizardNameIconButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

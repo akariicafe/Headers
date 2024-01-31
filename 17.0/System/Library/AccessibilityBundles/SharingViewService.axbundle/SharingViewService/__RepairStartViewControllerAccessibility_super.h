@@ -1,0 +1,3 @@
+@interface __RepairStartViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBAppSwitcherPeopleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC28AccessibilitySharedUISupport4Page18CollectionFinished : _TtCC28AccessibilitySharedUISupport4Page8Practice
+
+@end

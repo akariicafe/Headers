@@ -1,0 +1,3 @@
+@interface __CKInlineReplyCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

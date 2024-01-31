@@ -1,0 +1,3 @@
+@interface __UITabBarButtonAccessibility__MusicUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

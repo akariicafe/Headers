@@ -1,0 +1,3 @@
+@interface __AllRefinementsMultiSelectElementCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface PFCloudKitMetadataPurger : NSObject
+
+@end

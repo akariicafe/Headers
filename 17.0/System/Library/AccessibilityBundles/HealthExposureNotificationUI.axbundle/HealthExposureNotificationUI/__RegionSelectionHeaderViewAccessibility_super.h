@@ -1,0 +1,3 @@
+@interface __RegionSelectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

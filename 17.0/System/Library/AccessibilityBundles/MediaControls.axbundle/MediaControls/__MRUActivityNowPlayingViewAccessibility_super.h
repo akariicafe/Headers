@@ -1,0 +1,3 @@
+@interface __MRUActivityNowPlayingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

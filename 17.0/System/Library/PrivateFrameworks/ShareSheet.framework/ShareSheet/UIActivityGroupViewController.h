@@ -1,0 +1,73 @@
+@class _UIActivityUserDefaults, NSArray, _UIUserDefaultsActivity, NSString, NSIndexPath, UILongPressGestureRecognizer;
+@protocol UIActivityGroupViewControllerDelegate, UIActivityGroupViewControllerDataSource;
+
+@interface UIActivityGroupViewController : UICollectionViewController <_UIActivityGroupViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching, UIGestureRecognizerDelegate>
+
+@property (nonatomic) BOOL hasActivities;
+@property (copy, nonatomic) NSArray *visibleActivities;
+@property (retain, nonatomic) _UIActivityUserDefaults *userDefaults;
+@property (retain, nonatomic) _UIUserDefaultsActivity *userDefaultsActivity;
+@property (retain, nonatomic) UILongPressGestureRecognizer *editingGestureRecognizer;
+@property (nonatomic) struct CGPoint { double x; double y; } initialDraggingLocation;
+@property (nonatomic) BOOL activityIndexDidChangeWhileDragging;
+@property (copy, nonatomic) NSIndexPath *indexPathForMenuActivity;
+@property (nonatomic) BOOL allowsUserCustomization;
+@property (copy, nonatomic) NSArray *visibleActivityProxies;
+@property (nonatomic, getter=isEmbedded) BOOL embedded;
+@property (nonatomic, getter=isPicker) BOOL picker;
+@property (nonatomic) struct UIEdgeInsets { double top; double left; double bottom; double right; } externalSafeInset;
+@property (weak, nonatomic) id<UIActivityGroupViewControllerDataSource> dataSource;
+@property (weak, nonatomic) id<UIActivityGroupViewControllerDelegate> delegate;
+@property (nonatomic) long long activityCategory;
+@property (copy, nonatomic) NSArray *activities;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)collectionView:(id)a0 prefetchItemsAtIndexPaths:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)dealloc;
+- (void)traitCollectionDidChange:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (BOOL)collectionView:(id)a0 shouldHighlightItemAtIndexPath:(id)a1;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)collectionView:(id)a0 willDisplayCell:(id)a1 forItemAtIndexPath:(id)a2;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)canBecomeFirstResponder;
+- (void).cxx_destruct;
+- (BOOL)collectionView:(id)a0 shouldSelectItemAtIndexPath:(id)a1;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)initWithCollectionViewLayout:(id)a0;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)_setVisibleActivities:(id)a0 animated:(BOOL)a1;
+- (void)_dismissPresentedMenuControllers;
+- (void)_performHideActivityForMenuController:(id)a0;
+- (void)_setActivities:(id)a0 animated:(BOOL)a1;
+- (id)_titleTextForActivity:(id)a0;
+- (void)_updateItemSizeIfNeeded;
+- (void)_updateVisibleActivitiesAnimated:(BOOL)a0;
+- (id)activityForItemAtIndexPath:(id)a0;
+- (id)activityGroupViewLayout;
+- (void)activityUserDefaultsDidChange:(id)a0;
+- (id)collectionView:(id)a0 layout:(id)a1 moveItemAtIndexPath:(id)a2 toIndexPath:(id)a3;
+- (id)collectionView:(id)a0 layout:(id)a1 needsContainerViewForDraggingItemAtIndexPath:(id)a2;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 preferredSizeForItemAtIndexPath:(id)a2;
+- (void)handleEditingGesture:(id)a0;
+- (void)hideItemAtIndexPath:(id)a0;
+- (void)ignoreUserDefaultsChangesWhileUsingBlock:(id /* block */)a0;
+- (id)initWithActivityCategory:(long long)a0 activityProxies:(id)a1;
+- (id)initWithActivityCategory:(long long)a0 userDefaults:(id)a1;
+- (id)initWithActivityCategory:(long long)a0 userDefaults:(id)a1 userDefaultsIdentifier:(id)a2;
+- (void)registerClassForContentSizeCategoryChanges;
+- (void)registerForActivityUserDefaultsChanges;
+- (void)setActivities:(id)a0 animated:(BOOL)a1;
+- (id)targetIndexPathForMoveFromRowAtIndexPath:(id)a0 toProposedIndexPath:(id)a1;
+- (void)unregisterForActivityUserDefaultsChanges;
+- (void)updateActivityProxies:(id)a0;
+
+@end

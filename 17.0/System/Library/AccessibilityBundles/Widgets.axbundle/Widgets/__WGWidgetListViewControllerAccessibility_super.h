@@ -1,0 +1,3 @@
+@interface __WGWidgetListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

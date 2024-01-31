@@ -1,0 +1,3 @@
+@interface __UIViewControllerAccessibility__MusicApplication__UIKit_super : UIAccessibilitySafeCategory
+
+@end

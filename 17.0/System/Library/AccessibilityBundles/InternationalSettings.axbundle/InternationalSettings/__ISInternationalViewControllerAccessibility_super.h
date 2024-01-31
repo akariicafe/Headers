@@ -1,0 +1,3 @@
+@interface __ISInternationalViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

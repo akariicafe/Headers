@@ -1,0 +1,3 @@
+@interface __MRUNowPlayingTimeControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

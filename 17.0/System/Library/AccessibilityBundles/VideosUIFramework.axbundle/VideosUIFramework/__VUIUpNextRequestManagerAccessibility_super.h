@@ -1,0 +1,3 @@
+@interface __VUIUpNextRequestManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

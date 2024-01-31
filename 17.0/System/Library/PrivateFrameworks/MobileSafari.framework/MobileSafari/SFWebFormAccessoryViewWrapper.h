@@ -1,0 +1,15 @@
+@class UIView;
+
+@interface SFWebFormAccessoryViewWrapper : UIView {
+    UIView *_webFormAccessoryView;
+}
+
+@property (nonatomic) double bottomBarHeight;
+
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (id)initWithWebFormAccessoryView:(id)a0 bottomBarHeight:(double)a1;
+
+@end

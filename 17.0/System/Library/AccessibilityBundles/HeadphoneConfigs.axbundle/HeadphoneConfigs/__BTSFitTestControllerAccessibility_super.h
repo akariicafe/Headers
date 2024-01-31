@@ -1,0 +1,3 @@
+@interface __BTSFitTestControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

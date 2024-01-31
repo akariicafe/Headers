@@ -1,0 +1,80 @@
+@class _SFSettingsAlertItem, NSString, _SFPageFormatMenuUIMenuBuilder, NSArray, UIViewController;
+@protocol _SFBrowserContentController;
+
+@interface _SFPageFormatMenuController : NSObject <_SFPageFormatMenuItemControllerDelegate, SFMenuConfiguring> {
+    _SFSettingsAlertItem *_readerAlertItem;
+    _SFSettingsAlertItem *_downloadsAlertItem;
+    NSArray *_translationAlertItems;
+    _SFSettingsAlertItem *_siriReaderAlertItem;
+    BOOL _showsListeningControls;
+}
+
+@property (readonly, weak, nonatomic) id<_SFBrowserContentController> browserContentController;
+@property (readonly, weak, nonatomic) UIViewController *viewController;
+@property (readonly, nonatomic) _SFPageFormatMenuUIMenuBuilder *uiMenuBuilder;
+@property (readonly, nonatomic) _SFSettingsAlertItem *readerAlertItem;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_translationAvailabilityDidChange:(id)a0;
+- (void)presentModalViewController:(id)a0 completion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (void)_hasUnviewedDownloadsDidChange:(id)a0;
+- (void)dismissMenu;
+- (void)configureMenuAndAdoptButton:(id)a0;
+- (id)_contentBlockerManager;
+- (id)_webExtensionsController;
+- (void)_addSiriReaderAlertItemToAlert:(id)a0;
+- (BOOL)_canHideToolbar;
+- (id)_contentBlockersToggleAlertItem;
+- (id)_advancedPrivateBrowsingPrivacyProtectionsAlertItem;
+- (void)_anchorInWindowCoordinatesForAlert:(id)a0;
+- (void)_buildTranslationAlertItemsWithSourceInfo:(id)a0;
+- (BOOL)_canShowWebsiteSettings;
+- (BOOL)_canToggleAdvancedPrivateBrowsingPrivacyProtections;
+- (BOOL)_canToggleBetweenDesktopAndMobileSite;
+- (BOOL)_canToggleContentBlockers;
+- (BOOL)_canTogglePrivateRelay;
+- (void)_contructMenuForAlert:(id)a0 orientation:(long long)a1;
+- (id)_desktopMobileToggleAlertItemWithOrientation:(long long)a0;
+- (void)_didFinishLastDownload:(id)a0;
+- (id)_downloadsAlertItem;
+- (id)_endListeningToSiriReaderAlertItem;
+- (id)_exitTranslationAlertItem;
+- (id)_fullScreenAlertItem;
+- (BOOL)_hasStartedTranslation;
+- (id)_internalTapToRadarTranslationAlertItem;
+- (id)_listeningControlsAlertItem;
+- (id)_localizedStringOfRunningDownloads;
+- (id)_manageExtensionsAlertItem;
+- (id)_mediaStateAlertItem;
+- (id)_moreControlsAlertItem;
+- (id)_pageZoomAlertItem;
+- (id)_pauseAllAnimationsAlertItem;
+- (id)_playAllAnimationsAlertItem;
+- (id)_playbackRateAlertItem;
+- (id)_playbackStateAndPositionAlertItem;
+- (id)_privateRelayToggleAlertItem;
+- (id)_readerAlertItem;
+- (void)_readerAvailabilityDidChange:(id)a0;
+- (id)_readerFontAlertItem;
+- (id)_readerTextSizeAlertItem;
+- (id)_readerThemeAlertItem;
+- (void)_reloadAlert:(id)a0;
+- (BOOL)_shouldEnableDownloadsAlert;
+- (BOOL)_shouldShowUnviewedFinishedDownloadsIndicator;
+- (id)_siriReaderAlertItemWithState:(long long)a0 identifier:(id)a1;
+- (id)_titleForPlaybackState:(long long)a0;
+- (void)_totalProgressDidChange:(id)a0;
+- (id)_translateAlertItemForLocaleIdentifier:(id)a0;
+- (void)_updateDownloadsAlertItem:(id)a0;
+- (id)_userFeedbackTranslationAlertItem;
+- (id)_websiteSettingsAlertItem;
+- (id)initWithBrowserContentController:(id)a0;
+- (id)menuForOrientation:(long long)a0 sourceInfo:(id)a1;
+- (void)presentMenuFromViewController:(id)a0 withSourceInfo:(id)a1;
+- (id)viewControllerForPresentationForItemController:(id)a0;
+
+@end

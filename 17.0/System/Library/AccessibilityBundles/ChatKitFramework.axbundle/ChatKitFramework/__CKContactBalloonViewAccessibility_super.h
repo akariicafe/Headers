@@ -1,0 +1,3 @@
+@interface __CKContactBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

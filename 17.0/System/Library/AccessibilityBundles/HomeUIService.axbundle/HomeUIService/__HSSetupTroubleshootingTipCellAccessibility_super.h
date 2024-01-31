@@ -1,0 +1,3 @@
+@interface __HSSetupTroubleshootingTipCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

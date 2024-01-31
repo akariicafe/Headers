@@ -1,0 +1,3 @@
+@interface STCommunicationSafetyViewControllerFactory : NSObject
+
+@end

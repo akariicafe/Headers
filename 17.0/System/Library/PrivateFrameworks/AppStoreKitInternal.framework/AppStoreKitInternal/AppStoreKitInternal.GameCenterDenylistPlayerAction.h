@@ -1,0 +1,5 @@
+@interface AppStoreKitInternal.GameCenterDenylistPlayerAction : AppStoreKitInternal.Action {
+    void /* unknown type, empty encoding */ contactId;
+}
+
+@end

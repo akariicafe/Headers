@@ -1,0 +1,3 @@
+@interface __SBWorkspaceKeyboardFocusControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

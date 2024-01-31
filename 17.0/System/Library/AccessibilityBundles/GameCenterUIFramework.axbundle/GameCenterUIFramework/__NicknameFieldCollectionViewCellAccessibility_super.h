@@ -1,0 +1,3 @@
+@interface __NicknameFieldCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

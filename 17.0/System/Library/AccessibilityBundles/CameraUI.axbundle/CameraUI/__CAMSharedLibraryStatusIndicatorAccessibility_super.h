@@ -1,0 +1,3 @@
+@interface __CAMSharedLibraryStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIAccessibilityElementKBEmojiCategoryChatKitAccessibility_super : UIAccessibilitySafeCategory
+
+@end

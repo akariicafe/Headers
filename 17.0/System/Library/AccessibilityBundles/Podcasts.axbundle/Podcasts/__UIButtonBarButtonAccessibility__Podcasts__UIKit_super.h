@@ -1,0 +1,3 @@
+@interface __UIButtonBarButtonAccessibility__Podcasts__UIKit_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface UnknownServiceException : NSException
+
+@end

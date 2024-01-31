@@ -1,0 +1,3 @@
+@interface __PUOneUpViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MetadataRibbonBorderedLabelWithDescriptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

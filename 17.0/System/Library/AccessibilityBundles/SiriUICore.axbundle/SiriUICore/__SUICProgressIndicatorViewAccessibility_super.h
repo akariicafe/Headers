@@ -1,0 +1,3 @@
+@interface __SUICProgressIndicatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

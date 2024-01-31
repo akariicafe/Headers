@@ -1,0 +1,3 @@
+@interface __MobileTimerAssistantTimerSnippetCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

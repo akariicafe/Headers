@@ -1,0 +1,3 @@
+@interface __SFCapsuleInputAccessorySpacerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MRURoutingTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

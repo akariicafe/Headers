@@ -1,0 +1,71 @@
+@interface TSTConfiguration : NSObject
+
+@property (nonatomic) unsigned int maxNumberOfRows;
+@property (nonatomic) unsigned int maxNumberOfColumns;
+@property (nonatomic) unsigned int maxNumberOfPopulatedCells;
+@property (nonatomic) BOOL supportsContainedTextEditing;
+@property (nonatomic) BOOL supportsResumingTextEditing;
+@property (nonatomic) BOOL beginEditingOnSingleTap;
+@property (nonatomic) BOOL supportsMergedCells;
+@property (nonatomic) BOOL supportsHiddenCells;
+@property (nonatomic) BOOL returnWhileEditingNavigates;
+@property (nonatomic) BOOL tabWhileEditingNavigates;
+@property (nonatomic) BOOL arrowKeyAtEdgeWhileEditingNavigates;
+@property (nonatomic) BOOL arrowKeysWrap;
+@property (nonatomic) BOOL arrowKeysNavigateWhenEditingBeganByTyping;
+@property (nonatomic) BOOL backTabWraps;
+@property (nonatomic) BOOL tabAtEdgeAddsRow;
+@property (nonatomic) BOOL tabAtEdgeAddsColumn;
+@property (nonatomic) BOOL pastesTile;
+@property (nonatomic) BOOL allowHorizontalAutoresize;
+@property (nonatomic) BOOL selectsCellOnInitialTap;
+@property (nonatomic) BOOL dragByHandleOnly;
+@property (nonatomic) BOOL cornersCanDragResize;
+@property (nonatomic) BOOL supportsControlCells;
+@property (nonatomic) BOOL hasLargerFonts;
+@property (nonatomic) BOOL supportsFrozenHeaders;
+@property (nonatomic) BOOL supportsAutoResizedTables;
+@property (nonatomic) BOOL supportsCreateChartFromSelection;
+@property (nonatomic) BOOL showsAddressBarAlways;
+@property (nonatomic) BOOL showsAddressBarHighlights;
+@property (nonatomic) BOOL showsAddressBarLetteringAndNumbering;
+@property (nonatomic) BOOL selectionUsesBezierPath;
+@property (nonatomic) BOOL usesWholeChromeResizer;
+@property (nonatomic) BOOL supportsCanvasReferenceEditing;
+@property (nonatomic) BOOL usesLimitedAutomaticFormatParsing;
+@property (nonatomic) BOOL supportsFormulaEditing;
+@property (nonatomic) BOOL supportsImplicitEditing;
+@property (nonatomic) BOOL formulaEqualsTokenIsSelectable;
+@property (nonatomic) BOOL allowFreeformFormulaText;
+@property (nonatomic) BOOL allowWhitespaceInFormulas;
+@property (nonatomic) BOOL requireMatchedFunctionTokens;
+@property (nonatomic) BOOL showsHideUnhideUI;
+@property (nonatomic) BOOL exportPermanentHidingState;
+@property (nonatomic) BOOL showsCellOverflowIndicator;
+@property (nonatomic) BOOL supportsAutofill;
+@property (nonatomic) BOOL usesLimitedNumberFormatInspector;
+@property (nonatomic) BOOL headersFrozenByDefault;
+@property (nonatomic) BOOL createLargeDefaultTables;
+@property (nonatomic) BOOL tableNameEnabledInNewTables;
+@property (nonatomic) BOOL supportsRowColumnAdderKnob;
+@property (nonatomic) BOOL supportsDragDropMoveMode;
+@property (nonatomic) BOOL formulaEditorEvaluatesFormulas;
+@property (nonatomic) BOOL showReferenceHighlightsOnFormulaCellSelection;
+@property (nonatomic) BOOL tokenizeFormulaStringLiterals;
+@property (nonatomic) BOOL exportsCellComments;
+@property (nonatomic) BOOL exportsCellAnnotations;
+@property (nonatomic) BOOL cellEditorsCanScrollToNonLocalTableSelection;
+@property (nonatomic) BOOL formulaCellEditorSupportsTextTokenEditor;
+@property (nonatomic) BOOL supportsRepeatHeaderRowsOnEachPage;
+@property (nonatomic) BOOL disableImplicitNaming;
+@property (nonatomic) BOOL supportsComplexFilterUI;
+@property (nonatomic) BOOL supportsQuickFilterUI;
+@property (nonatomic) BOOL pasteFilterHidingAsUserHiding;
+@property (nonatomic) BOOL allowsFullyFilteredTables;
+
++ (void)resetSharedTableConfiguration;
++ (id)sharedTableConfiguration;
+
+- (id)init;
+
+@end

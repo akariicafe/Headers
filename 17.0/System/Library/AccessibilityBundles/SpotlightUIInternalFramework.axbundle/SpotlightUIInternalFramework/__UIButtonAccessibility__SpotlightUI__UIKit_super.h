@@ -1,0 +1,3 @@
+@interface __UIButtonAccessibility__SpotlightUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

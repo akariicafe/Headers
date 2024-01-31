@@ -1,0 +1,3 @@
+@interface __PKDashboardMessageCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

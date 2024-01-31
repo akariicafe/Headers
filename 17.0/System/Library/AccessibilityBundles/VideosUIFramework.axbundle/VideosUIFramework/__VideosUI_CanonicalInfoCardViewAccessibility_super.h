@@ -1,0 +1,3 @@
+@interface __VideosUI_CanonicalInfoCardViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

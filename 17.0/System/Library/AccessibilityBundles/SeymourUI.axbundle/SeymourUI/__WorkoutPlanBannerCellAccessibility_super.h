@@ -1,0 +1,3 @@
+@interface __WorkoutPlanBannerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

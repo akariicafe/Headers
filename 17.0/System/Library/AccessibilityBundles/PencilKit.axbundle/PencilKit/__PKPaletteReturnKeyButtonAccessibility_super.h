@@ -1,0 +1,3 @@
+@interface __PKPaletteReturnKeyButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

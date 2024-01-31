@@ -1,0 +1,3 @@
+@interface ___UICollectionViewOrthogonalScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

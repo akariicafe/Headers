@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentMessageBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

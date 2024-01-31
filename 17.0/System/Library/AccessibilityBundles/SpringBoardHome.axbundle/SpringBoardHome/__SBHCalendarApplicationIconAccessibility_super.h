@@ -1,0 +1,3 @@
+@interface __SBHCalendarApplicationIconAccessibility_super : UIAccessibilitySafeCategory
+
+@end

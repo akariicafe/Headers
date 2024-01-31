@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentMessagesNumberPadViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

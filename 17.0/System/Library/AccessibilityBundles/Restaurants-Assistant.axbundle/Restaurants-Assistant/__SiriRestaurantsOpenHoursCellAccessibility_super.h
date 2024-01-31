@@ -1,0 +1,3 @@
+@interface __SiriRestaurantsOpenHoursCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

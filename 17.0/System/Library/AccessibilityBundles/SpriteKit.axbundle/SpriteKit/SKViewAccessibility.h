@@ -1,0 +1,10 @@
+@interface SKViewAccessibility : __SKViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (id)accessibilityElements;
+- (id)_accessibilitySpriteKitScene;
+
+@end

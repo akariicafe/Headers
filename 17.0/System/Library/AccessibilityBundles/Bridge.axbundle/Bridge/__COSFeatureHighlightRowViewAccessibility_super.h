@@ -1,0 +1,3 @@
+@interface __COSFeatureHighlightRowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

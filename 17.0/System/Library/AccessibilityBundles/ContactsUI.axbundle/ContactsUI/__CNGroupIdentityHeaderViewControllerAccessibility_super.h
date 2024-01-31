@@ -1,0 +1,3 @@
+@interface __CNGroupIdentityHeaderViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

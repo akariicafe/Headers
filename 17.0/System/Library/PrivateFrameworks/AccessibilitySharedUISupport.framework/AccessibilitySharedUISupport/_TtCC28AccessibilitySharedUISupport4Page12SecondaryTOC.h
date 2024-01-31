@@ -1,0 +1,3 @@
+@interface _TtCC28AccessibilitySharedUISupport4Page12SecondaryTOC : AccessibilitySharedUISupport.Page
+
+@end

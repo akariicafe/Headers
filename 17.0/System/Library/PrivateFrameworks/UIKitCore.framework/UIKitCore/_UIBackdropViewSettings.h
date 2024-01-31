@@ -1,0 +1,94 @@
+@class UIColor, _UIBackdropView, _UIBackdropColorSettings, NSValue, UIImage, NSString;
+
+@interface _UIBackdropViewSettings : NSObject {
+    struct __CFRunLoopObserver { } *_runLoopObserver;
+    BOOL _shouldDoRasterizationAndAlphaHack;
+    UIColor *_combinedTintColor;
+}
+
+@property (nonatomic) long long suppressSettingsDidChange;
+@property (nonatomic) BOOL explicitlySetGraphicsQuality;
+@property (nonatomic) unsigned long long version;
+@property (nonatomic, setter=setDesignMode:) BOOL designMode;
+@property (nonatomic) BOOL usesBackdropEffectView;
+@property (nonatomic) BOOL usesGrayscaleTintView;
+@property (nonatomic) BOOL usesColorTintView;
+@property (nonatomic) BOOL usesColorBurnTintView;
+@property (nonatomic) BOOL usesContentView;
+@property (nonatomic) BOOL usesDarkeningTintView;
+@property (nonatomic) BOOL usesColorOffset;
+@property (nonatomic) double colorOffsetAlpha;
+@property (retain, nonatomic) NSValue *colorOffsetMatrix;
+@property (nonatomic) BOOL appliesTintAndBlurSettings;
+@property (nonatomic) long long graphicsQuality;
+@property (nonatomic) _UIBackdropView *backdrop;
+@property (readonly, nonatomic) long long style;
+@property (nonatomic) BOOL requiresColorStatistics;
+@property (retain, nonatomic) _UIBackdropColorSettings *colorSettings;
+@property (nonatomic) long long renderingHint;
+@property (nonatomic) long long stackingLevel;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic, getter=isBackdropVisible) BOOL backdropVisible;
+@property (nonatomic) BOOL zoomsBack;
+@property (nonatomic) double zoom;
+@property (nonatomic) double grayscaleTintLevel;
+@property (nonatomic) double grayscaleTintAlpha;
+@property (nonatomic) double grayscaleTintMaskAlpha;
+@property (retain, nonatomic) UIImage *grayscaleTintMaskImage;
+@property (nonatomic) BOOL lightenGrayscaleWithSourceOver;
+@property (retain, nonatomic) UIColor *colorTint;
+@property (nonatomic) double colorTintAlpha;
+@property (nonatomic) double colorTintMaskAlpha;
+@property (retain, nonatomic) UIImage *colorTintMaskImage;
+@property (nonatomic) double colorBurnTintLevel;
+@property (nonatomic) double colorBurnTintAlpha;
+@property (retain, nonatomic) UIImage *colorBurnTintMaskImage;
+@property (nonatomic) double darkeningTintAlpha;
+@property (nonatomic) double darkeningTintHue;
+@property (nonatomic) double darkeningTintSaturation;
+@property (nonatomic) double darkeningTintBrightness;
+@property (retain, nonatomic) UIImage *darkeningTintMaskImage;
+@property (nonatomic) BOOL darkenWithSourceOver;
+@property (nonatomic) double blurRadius;
+@property (copy, nonatomic) NSString *blurQuality;
+@property (nonatomic) long long blurHardEdges;
+@property (nonatomic) BOOL blursWithHardEdges;
+@property (nonatomic) double saturationDeltaFactor;
+@property (nonatomic) double filterMaskAlpha;
+@property (retain, nonatomic) UIImage *filterMaskImage;
+@property (retain, nonatomic) UIColor *legibleColor;
+@property (readonly, nonatomic) UIColor *combinedTintColor;
+@property (nonatomic) double scale;
+@property (nonatomic) double statisticsInterval;
+
++ (id)darkeningTintColor;
++ (id)settingsForPrivateStyle:(long long)a0;
++ (id)settingsForPrivateStyle:(long long)a0 graphicsQuality:(long long)a1;
++ (id)settingsForStyle:(long long)a0;
++ (id)settingsForStyle:(long long)a0 graphicsQuality:(long long)a1;
++ (id)settingsPreservingHintsFromSettings:(id)a0 graphicsQuality:(long long)a1;
+
+- (void)setDefaultValues;
+- (id)init;
+- (void)dealloc;
+- (void)restoreDefaultValues;
+- (id)description;
+- (void)setStyle:(long long)a0;
+- (void).cxx_destruct;
+- (void)setValuesFromModel:(id)a0;
+- (void)computeOutputSettingsUsingModel:(id)a0;
+- (id)initWithDefaultValues;
+- (void)addKeyPathObserver:(id)a0;
+- (BOOL)blursWithHardEdges;
+- (void)clearRunLoopObserver;
+- (void)copyAdditionalSettingsFromSettings:(id)a0;
+- (id)initWithDefaultValuesForGraphicsQuality:(long long)a0;
+- (void)removeKeyPathObserver:(id)a0;
+- (BOOL)requiresBackdropLayer;
+- (void)scheduleSettingsDidChangeIfNeeded;
+- (void)setBlursWithHardEdges:(BOOL)a0;
+- (void)setStackinglevel:(long long)a0;
+
+@end

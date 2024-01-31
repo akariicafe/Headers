@@ -1,0 +1,3 @@
+@interface __CycleTimelineCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

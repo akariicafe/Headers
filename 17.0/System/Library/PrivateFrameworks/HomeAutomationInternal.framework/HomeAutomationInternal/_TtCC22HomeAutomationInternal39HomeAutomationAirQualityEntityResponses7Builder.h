@@ -1,0 +1,3 @@
+@interface _TtCC22HomeAutomationInternal39HomeAutomationAirQualityEntityResponses7Builder : _TtCC22HomeAutomationInternal29HomeAutomationEntityResponses7Builder
+
+@end

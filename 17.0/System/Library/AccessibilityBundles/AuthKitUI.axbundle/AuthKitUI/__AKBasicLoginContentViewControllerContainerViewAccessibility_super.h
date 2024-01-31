@@ -1,0 +1,3 @@
+@interface __AKBasicLoginContentViewControllerContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CSLPRFAppViewChoiceCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __NavActionCoordinatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

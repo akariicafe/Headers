@@ -1,0 +1,3 @@
+@interface __BRShareSettingsButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

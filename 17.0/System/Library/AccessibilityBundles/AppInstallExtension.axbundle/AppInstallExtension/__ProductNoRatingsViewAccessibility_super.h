@@ -1,0 +1,3 @@
+@interface __ProductNoRatingsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

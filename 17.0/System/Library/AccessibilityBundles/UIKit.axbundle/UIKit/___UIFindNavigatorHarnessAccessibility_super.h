@@ -1,0 +1,3 @@
+@interface ___UIFindNavigatorHarnessAccessibility_super : UIAccessibilitySafeCategory
+
+@end

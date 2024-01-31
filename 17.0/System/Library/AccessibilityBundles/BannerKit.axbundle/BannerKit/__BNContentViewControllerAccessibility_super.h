@@ -1,0 +1,3 @@
+@interface __BNContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

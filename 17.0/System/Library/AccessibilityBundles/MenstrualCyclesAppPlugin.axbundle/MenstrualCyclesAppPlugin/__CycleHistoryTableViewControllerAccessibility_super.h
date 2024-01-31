@@ -1,0 +1,3 @@
+@interface __CycleHistoryTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

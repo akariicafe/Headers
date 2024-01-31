@@ -1,0 +1,3 @@
+@interface __AKAuthorizationButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

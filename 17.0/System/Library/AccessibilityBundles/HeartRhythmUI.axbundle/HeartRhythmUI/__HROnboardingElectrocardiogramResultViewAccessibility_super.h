@@ -1,0 +1,3 @@
+@interface __HROnboardingElectrocardiogramResultViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface HealthRecordsUI.UserDomainConceptAlphabeticalViewDataSourceProvider : HealthRecordsUI.UserDomainConceptListViewDataSourceProvider
+
+@end

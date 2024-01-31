@@ -1,0 +1,3 @@
+@interface __CKTranscriptBalloonCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

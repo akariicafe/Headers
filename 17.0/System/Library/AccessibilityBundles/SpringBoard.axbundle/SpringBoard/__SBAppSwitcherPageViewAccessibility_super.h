@@ -1,0 +1,3 @@
+@interface __SBAppSwitcherPageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

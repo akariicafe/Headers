@@ -1,0 +1,3 @@
+@interface __SFReaderTextSizeStepperControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

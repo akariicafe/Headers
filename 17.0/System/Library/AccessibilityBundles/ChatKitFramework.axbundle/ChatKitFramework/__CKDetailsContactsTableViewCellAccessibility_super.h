@@ -1,0 +1,3 @@
+@interface __CKDetailsContactsTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

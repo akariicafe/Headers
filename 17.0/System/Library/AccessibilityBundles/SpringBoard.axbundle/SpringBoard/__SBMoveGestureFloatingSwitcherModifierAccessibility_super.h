@@ -1,0 +1,3 @@
+@interface __SBMoveGestureFloatingSwitcherModifierAccessibility_super : UIAccessibilitySafeCategory
+
+@end

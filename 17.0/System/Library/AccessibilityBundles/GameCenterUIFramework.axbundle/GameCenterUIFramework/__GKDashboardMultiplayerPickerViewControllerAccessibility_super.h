@@ -1,0 +1,3 @@
+@interface __GKDashboardMultiplayerPickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

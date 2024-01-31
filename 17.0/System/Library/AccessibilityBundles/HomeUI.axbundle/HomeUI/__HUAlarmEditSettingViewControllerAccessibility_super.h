@@ -1,0 +1,3 @@
+@interface __HUAlarmEditSettingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

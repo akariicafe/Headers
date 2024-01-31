@@ -1,0 +1,3 @@
+@interface __ScheduleOccurrenceComponentsEditTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

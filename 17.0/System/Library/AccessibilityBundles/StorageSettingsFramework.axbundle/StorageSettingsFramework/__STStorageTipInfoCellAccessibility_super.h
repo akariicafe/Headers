@@ -1,0 +1,3 @@
+@interface __STStorageTipInfoCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

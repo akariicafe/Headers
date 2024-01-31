@@ -1,0 +1,3 @@
+@interface __UIActivityHeroActionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKPaymentSetupFieldsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

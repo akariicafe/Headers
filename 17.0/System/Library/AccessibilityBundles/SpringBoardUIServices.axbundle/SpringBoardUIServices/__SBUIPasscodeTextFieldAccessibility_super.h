@@ -1,0 +1,3 @@
+@interface __SBUIPasscodeTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

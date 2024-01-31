@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation13EventFeatures16CarPlayConnected : _TtCs12_SwiftObject
+
+@end

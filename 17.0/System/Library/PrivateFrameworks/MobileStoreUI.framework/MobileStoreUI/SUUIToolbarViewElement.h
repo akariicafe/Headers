@@ -1,0 +1,3 @@
+@interface SUUIToolbarViewElement : SUUIViewElement
+
+@end

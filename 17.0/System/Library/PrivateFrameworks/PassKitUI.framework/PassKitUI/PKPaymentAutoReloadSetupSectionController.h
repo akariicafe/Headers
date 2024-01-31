@@ -1,0 +1,18 @@
+@protocol PKPaymentPassDetailAutoReloadActionSectionControllerDelegate;
+
+@interface PKPaymentAutoReloadSetupSectionController : PKPaymentPassDetailSectionController {
+    id<PKPaymentPassDetailAutoReloadActionSectionControllerDelegate> _delegate;
+}
+
++ (BOOL)validForPaymentPass:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithDelegate:(id)a0;
+- (id)sectionIdentifiers;
+- (id)allSectionIdentifiers;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1 sectionIdentifier:(id)a2;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1 sectionIdentifier:(id)a2;
+- (long long)tableView:(id)a0 numberOfRowsInSectionIdentifier:(id)a1;
+- (id)titleForFooterInSectionIdentifier:(id)a0;
+
+@end

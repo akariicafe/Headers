@@ -1,0 +1,3 @@
+@interface __SBPasscodeNumberPadButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

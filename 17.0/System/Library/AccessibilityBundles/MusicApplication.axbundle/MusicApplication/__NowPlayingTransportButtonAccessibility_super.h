@@ -1,0 +1,3 @@
+@interface __NowPlayingTransportButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

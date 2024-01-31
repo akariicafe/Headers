@@ -1,0 +1,3 @@
+@interface __AppEventTodayCardCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

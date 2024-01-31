@@ -1,0 +1,3 @@
+@interface __MapsLargerHitTargetButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __DOCFilenameViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

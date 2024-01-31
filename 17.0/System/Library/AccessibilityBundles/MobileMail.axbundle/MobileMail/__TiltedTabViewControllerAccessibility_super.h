@@ -1,0 +1,3 @@
+@interface __TiltedTabViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

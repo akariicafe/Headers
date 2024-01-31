@@ -1,0 +1,3 @@
+@interface __STStorageButtonHeaderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

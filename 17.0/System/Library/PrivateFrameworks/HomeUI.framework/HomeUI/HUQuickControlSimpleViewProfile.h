@@ -1,0 +1,3 @@
+@interface HUQuickControlSimpleViewProfile : HUQuickControlViewProfile
+
+@end

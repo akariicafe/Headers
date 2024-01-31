@@ -1,0 +1,3 @@
+@interface _TtCO24IntelligencePlatformCore14ViewGeneration33NullBiomeIncrementalViewGenerator : _TtCs12_SwiftObject
+
+@end

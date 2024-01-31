@@ -1,0 +1,3 @@
+@interface __VUIVisualEffectLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

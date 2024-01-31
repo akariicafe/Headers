@@ -1,0 +1,3 @@
+@interface __PRComplicationContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

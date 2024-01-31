@@ -1,0 +1,91 @@
+@class GEORPClientCapabilities, GEORPDebugSettings, PBDataReader, GEORPFeedbackUserInfo, GEOABSecondPartyPlaceRequestClientMetaData, NSMutableArray, GEOPDClientMetadata, GEOPDAnalyticMetadata, GEORPFeedbackRequestParameters, PBUnknownFields;
+
+@interface GEORPFeedbackRequest : PBRequest <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct { int *list; unsigned long long count; unsigned long long size; } _feedbackClientCapabilities;
+    GEOABSecondPartyPlaceRequestClientMetaData *_abClientMetadata;
+    GEOPDAnalyticMetadata *_analyticMetadata;
+    GEORPClientCapabilities *_clientCapabilities;
+    GEOPDClientMetadata *_clientMetadata;
+    GEORPDebugSettings *_debugSettings;
+    NSMutableArray *_displayLanguages;
+    GEORPFeedbackRequestParameters *_feedbackRequestParameters;
+    GEORPFeedbackUserInfo *_userInfo;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _feedbackRequestType;
+    struct { unsigned char has_feedbackRequestType : 1; unsigned char read_unknownFields : 1; unsigned char read_feedbackClientCapabilities : 1; unsigned char read_abClientMetadata : 1; unsigned char read_analyticMetadata : 1; unsigned char read_clientCapabilities : 1; unsigned char read_clientMetadata : 1; unsigned char read_debugSettings : 1; unsigned char read_displayLanguages : 1; unsigned char read_feedbackRequestParameters : 1; unsigned char read_userInfo : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasFeedbackRequestType;
+@property (nonatomic) int feedbackRequestType;
+@property (readonly, nonatomic) BOOL hasFeedbackRequestParameters;
+@property (retain, nonatomic) GEORPFeedbackRequestParameters *feedbackRequestParameters;
+@property (readonly, nonatomic) BOOL hasUserInfo;
+@property (retain, nonatomic) GEORPFeedbackUserInfo *userInfo;
+@property (readonly, nonatomic) BOOL hasAnalyticMetadata;
+@property (retain, nonatomic) GEOPDAnalyticMetadata *analyticMetadata;
+@property (readonly, nonatomic) BOOL hasClientMetadata;
+@property (retain, nonatomic) GEOPDClientMetadata *clientMetadata;
+@property (readonly, nonatomic) BOOL hasClientCapabilities;
+@property (retain, nonatomic) GEORPClientCapabilities *clientCapabilities;
+@property (retain, nonatomic) NSMutableArray *displayLanguages;
+@property (readonly, nonatomic) BOOL hasAbClientMetadata;
+@property (retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *abClientMetadata;
+@property (readonly, nonatomic) unsigned long long feedbackClientCapabilitiesCount;
+@property (readonly, nonatomic) int *feedbackClientCapabilities;
+@property (readonly, nonatomic) BOOL hasDebugSettings;
+@property (retain, nonatomic) GEORPDebugSettings *debugSettings;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
++ (Class)displayLanguageType;
++ (id)clientTestingDebugSettings;
++ (id)defaultDebugSettingsMergedWithSettings:(id)a0;
+
+- (void)addDisplayLanguage:(id)a0;
+- (id)init;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (unsigned int)requestTypeCode;
+- (void)clearDisplayLanguages;
+- (Class)responseClass;
+- (BOOL)readFrom:(id)a0;
+- (unsigned long long)displayLanguagesCount;
+- (void)writeTo:(id)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)description;
+- (void)clearUnknownFields:(BOOL)a0;
+- (id)displayLanguageAtIndex:(unsigned long long)a0;
+- (void).cxx_destruct;
+- (id)jsonRepresentation;
+- (void)clearSensitiveFields:(unsigned long long)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)readAll:(BOOL)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithJSON:(id)a0;
+- (int)StringAsFeedbackClientCapabilities:(id)a0;
+- (int)StringAsFeedbackRequestType:(id)a0;
+- (void)_sharedInitWithRequestParameters:(id)a0 userInfo:(id)a1 traits:(id)a2 debugSettings:(id)a3;
+- (void)clearFeedbackClientCapabilities;
+- (BOOL)isPOIEnrichment;
+- (void)_initForSubmissionParameters;
+- (void)_setupSubmissionParameters;
+- (void)addFeedbackClientCapabilities:(int)a0;
+- (id)feedbackClientCapabilitiesAsString:(int)a0;
+- (int)feedbackClientCapabilitiesAtIndex:(unsigned long long)a0;
+- (id)feedbackRequestTypeAsString:(int)a0;
+- (id)initWithFeedbackRequestParameters:(id)a0 traits:(id)a1;
+- (id)initWithFeedbackRequestParameters:(id)a0 userCredentials:(id)a1 pushToken:(id)a2 allowContactBackAtEmailAddress:(id)a3 traits:(id)a4;
+- (id)initWithFeedbackRequestParameters:(id)a0 userInfo:(id)a1 traits:(id)a2;
+- (id)initWithFeedbackRequestParameters:(id)a0 userInfo:(id)a1 traits:(id)a2 debugSettings:(id)a3;
+- (void)setFeedbackClientCapabilities:(int *)a0 count:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface WFSiriUserActivityResponse : WFSiriActionResponse
+
+@end

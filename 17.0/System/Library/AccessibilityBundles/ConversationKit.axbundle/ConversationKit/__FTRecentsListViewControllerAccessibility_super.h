@@ -1,0 +1,3 @@
+@interface __FTRecentsListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

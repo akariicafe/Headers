@@ -1,0 +1,3 @@
+@interface __SBUISystemApertureElementSourceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

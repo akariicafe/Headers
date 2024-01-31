@@ -1,0 +1,3 @@
+@interface __SBSwitcherAppSuggestionBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

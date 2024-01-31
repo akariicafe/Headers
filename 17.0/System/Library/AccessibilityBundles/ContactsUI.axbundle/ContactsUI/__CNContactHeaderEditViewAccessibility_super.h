@@ -1,0 +1,3 @@
+@interface __CNContactHeaderEditViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

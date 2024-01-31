@@ -1,0 +1,3 @@
+@interface ___UITextChoiceAccelerationAssistantAccessibility_super : UIAccessibilitySafeCategory
+
+@end

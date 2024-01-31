@@ -1,0 +1,3 @@
+@interface __UIRemoteKeyboardWindowHostedAccessibility_super : UIAccessibilitySafeCategory
+
+@end

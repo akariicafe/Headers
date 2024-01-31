@@ -1,0 +1,3 @@
+@interface CNDebugHelper : NSObject
+
+@end

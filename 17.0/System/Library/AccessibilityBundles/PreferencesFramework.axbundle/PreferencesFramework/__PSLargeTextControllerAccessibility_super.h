@@ -1,0 +1,3 @@
+@interface __PSLargeTextControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

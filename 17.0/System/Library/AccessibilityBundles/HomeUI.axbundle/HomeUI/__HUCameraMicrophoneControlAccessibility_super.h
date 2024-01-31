@@ -1,0 +1,3 @@
+@interface __HUCameraMicrophoneControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

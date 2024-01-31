@@ -1,0 +1,3 @@
+@interface __CycleFactorsNoneCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface EmptyClass : NSObject
+
+@end

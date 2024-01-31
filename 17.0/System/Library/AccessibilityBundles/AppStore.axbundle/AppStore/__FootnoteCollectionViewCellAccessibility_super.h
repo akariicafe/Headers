@@ -1,0 +1,3 @@
+@interface __FootnoteCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

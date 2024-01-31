@@ -1,0 +1,3 @@
+@interface __GKDashboardPlayerPhotoViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

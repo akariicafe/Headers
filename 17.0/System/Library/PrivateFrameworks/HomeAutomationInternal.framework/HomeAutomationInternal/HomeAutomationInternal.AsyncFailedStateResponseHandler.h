@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AsyncFailedStateResponseHandler : HomeAutomationInternal.BaseAsyncResponseHandler
+
+@end

@@ -1,0 +1,3 @@
+@interface __COSSecurePairingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

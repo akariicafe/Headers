@@ -1,0 +1,3 @@
+@interface __PKAccountAutomaticPaymentsDateFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

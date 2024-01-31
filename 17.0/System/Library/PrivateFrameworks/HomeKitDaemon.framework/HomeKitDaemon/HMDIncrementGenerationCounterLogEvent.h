@@ -1,0 +1,3 @@
+@interface HMDIncrementGenerationCounterLogEvent : HMMLogEvent
+
+@end

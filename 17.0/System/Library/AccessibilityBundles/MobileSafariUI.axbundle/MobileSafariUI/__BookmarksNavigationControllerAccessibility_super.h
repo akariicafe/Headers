@@ -1,0 +1,3 @@
+@interface __BookmarksNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __COSWelcomeToAppleWatchViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

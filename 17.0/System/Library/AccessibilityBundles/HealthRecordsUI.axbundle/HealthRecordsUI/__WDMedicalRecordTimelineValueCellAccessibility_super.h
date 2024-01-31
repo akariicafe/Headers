@@ -1,0 +1,3 @@
+@interface __WDMedicalRecordTimelineValueCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

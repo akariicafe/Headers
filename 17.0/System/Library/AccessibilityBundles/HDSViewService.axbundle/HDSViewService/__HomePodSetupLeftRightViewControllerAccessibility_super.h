@@ -1,0 +1,3 @@
+@interface __HomePodSetupLeftRightViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

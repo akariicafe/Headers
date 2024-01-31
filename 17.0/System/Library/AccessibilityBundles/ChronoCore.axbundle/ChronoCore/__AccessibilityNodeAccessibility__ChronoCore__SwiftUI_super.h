@@ -1,0 +1,3 @@
+@interface __AccessibilityNodeAccessibility__ChronoCore__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,6 @@
+@interface ODCurareEvaluationAndReporting.ODCurareUserDefaults : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ userDefaults;
+    void /* unknown type, empty encoding */ clientBundleIdentifier;
+}
+
+@end

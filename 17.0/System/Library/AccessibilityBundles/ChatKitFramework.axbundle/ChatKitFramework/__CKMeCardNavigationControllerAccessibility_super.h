@@ -1,0 +1,3 @@
+@interface __CKMeCardNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

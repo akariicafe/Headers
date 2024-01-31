@@ -1,0 +1,3 @@
+@interface SBBacklightBlankingWindow : SBFSecureWindow
+
+@end

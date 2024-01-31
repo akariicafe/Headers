@@ -1,0 +1,3 @@
+@interface __PKPaymentPreferenceCardCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

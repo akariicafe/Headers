@@ -1,0 +1,3 @@
+@interface __HUMediaAccessControlEditorTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

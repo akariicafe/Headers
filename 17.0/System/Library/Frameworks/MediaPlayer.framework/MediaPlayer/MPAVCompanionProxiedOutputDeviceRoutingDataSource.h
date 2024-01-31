@@ -1,0 +1,3 @@
+@interface MPAVCompanionProxiedOutputDeviceRoutingDataSource : MPAVOutputDeviceRoutingDataSource
+
+@end

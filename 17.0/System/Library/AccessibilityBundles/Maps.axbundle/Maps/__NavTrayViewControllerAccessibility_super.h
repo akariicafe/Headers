@@ -1,0 +1,3 @@
+@interface __NavTrayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

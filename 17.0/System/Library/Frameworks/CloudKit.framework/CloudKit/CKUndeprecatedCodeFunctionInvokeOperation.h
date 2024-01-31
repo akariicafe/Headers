@@ -1,0 +1,3 @@
+@interface CKUndeprecatedCodeFunctionInvokeOperation : CKCodeFunctionInvokeOperation
+
+@end

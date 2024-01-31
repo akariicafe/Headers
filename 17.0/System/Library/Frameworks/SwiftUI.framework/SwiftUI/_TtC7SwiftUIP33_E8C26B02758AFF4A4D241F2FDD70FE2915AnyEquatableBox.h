@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_E8C26B02758AFF4A4D241F2FDD70FE2915AnyEquatableBox : _TtCs12_SwiftObject
+
+@end

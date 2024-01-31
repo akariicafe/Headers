@@ -1,0 +1,3 @@
+@interface __SurfaceSideMeasurementStackAccessibility_super : UIAccessibilitySafeCategory
+
+@end

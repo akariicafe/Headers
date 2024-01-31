@@ -1,0 +1,3 @@
+@interface __SBHClockApplicationIconAccessibility_super : UIAccessibilitySafeCategory
+
+@end

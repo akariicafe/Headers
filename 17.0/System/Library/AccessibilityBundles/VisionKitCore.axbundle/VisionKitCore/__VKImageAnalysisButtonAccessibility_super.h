@@ -1,0 +1,3 @@
+@interface __VKImageAnalysisButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

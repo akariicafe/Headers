@@ -1,0 +1,3 @@
+@interface __AKCandidatePickerView_iOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

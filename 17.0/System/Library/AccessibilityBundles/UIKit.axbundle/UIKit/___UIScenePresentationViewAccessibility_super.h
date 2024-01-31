@@ -1,0 +1,3 @@
+@interface ___UIScenePresentationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

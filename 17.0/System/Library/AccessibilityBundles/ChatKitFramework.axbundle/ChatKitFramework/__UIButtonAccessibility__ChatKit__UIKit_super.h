@@ -1,0 +1,3 @@
+@interface __UIButtonAccessibility__ChatKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

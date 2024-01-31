@@ -1,0 +1,3 @@
+@interface __AKInlineSignInViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

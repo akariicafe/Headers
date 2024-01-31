@@ -1,0 +1,3 @@
+@interface __WFAutomationTypeExplanationPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

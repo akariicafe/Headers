@@ -1,0 +1,3 @@
+@interface __VideosUI_CanonicalFooterSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

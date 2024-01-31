@@ -1,0 +1,3 @@
+@interface ___UIContextMenuCellContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

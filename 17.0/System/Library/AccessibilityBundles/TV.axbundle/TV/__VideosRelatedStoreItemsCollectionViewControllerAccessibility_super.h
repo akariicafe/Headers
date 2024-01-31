@@ -1,0 +1,3 @@
+@interface __VideosRelatedStoreItemsCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIPrintSegmentedSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

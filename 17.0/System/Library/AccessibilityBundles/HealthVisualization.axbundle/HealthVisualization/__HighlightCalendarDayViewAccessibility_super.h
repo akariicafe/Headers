@@ -1,0 +1,3 @@
+@interface __HighlightCalendarDayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

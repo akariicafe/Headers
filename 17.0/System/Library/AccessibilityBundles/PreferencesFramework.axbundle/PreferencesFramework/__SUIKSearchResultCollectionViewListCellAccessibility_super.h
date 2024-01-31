@@ -1,0 +1,3 @@
+@interface __SUIKSearchResultCollectionViewListCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __STNotificationUsageCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

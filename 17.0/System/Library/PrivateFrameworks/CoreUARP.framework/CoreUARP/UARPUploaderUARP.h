@@ -1,0 +1,86 @@
+@class NSMutableArray, NSObject;
+@protocol OS_os_log, OS_dispatch_queue;
+
+@interface UARPUploaderUARP : UARPUploader {
+    NSObject<OS_os_log> *_log;
+    NSObject<OS_dispatch_queue> *_queue;
+    struct uarpPlatformEndpoint { struct uarpPlatformOptionsObj { unsigned int maxTxPayloadLength; unsigned int maxRxPayloadLength; unsigned int payloadWindowLength; unsigned short protocolVersion; unsigned char reofferFirmwareOnSync; unsigned short responseTimeout; unsigned short retryLimit; } _options; void *pVendorExtension; struct uarpPlatformEndpointCallbacks { void /* function */ *fRequestBuffer; void /* function */ *fReturnBuffer; void /* function */ *fRequestTransmitMsgBuffer; void /* function */ *fReturnTransmitMsgBuffer; void /* function */ *fSendMessage; void /* function */ *fDataTransferPause; void /* function */ *fDataTransferPauseAck; void /* function */ *fDataTransferResume; void /* function */ *fDataTransferResumeAck; void /* function */ *fSuperBinaryOffered; void /* function */ *fDynamicAssetOffered; void /* function */ *fApplyStagedAssets; void /* function */ *fApplyStagedAssetsResponse; void /* function */ *fManufacturerName; void /* function */ *fManufacturerNameResponse; void /* function */ *fModelName; void /* function */ *fModelNameResponse; void /* function */ *fSerialNumber; void /* function */ *fSerialNumberResponse; void /* function */ *fHardwareVersion; void /* function */ *fHardwareVersionResponse; void /* function */ *fActiveFirmwareVersion2; void /* function */ *fActiveFirmwareVersionResponse; void /* function */ *fStagedFirmwareVersion2; void /* function */ *fStagedFirmwareVersionResponse; void /* function */ *fLastError; void /* function */ *fLastErrorResponse; void /* function */ *fStatisticsResponse; void /* function */ *fAssetSolicitation; void /* function */ *fRescindAllAssets; void /* function */ *fRescindAllAssetsAck; void /* function */ *fLayer2WatchdogSet; void /* function */ *fLayer2WatchdogCancel; void /* function */ *fProtocolVersion; void /* function */ *fFriendlyName; void /* function */ *fFriendlyNameResponse; void /* function */ *fDecompressBuffer; void /* function */ *fCompressBuffer; void /* function */ *fHashInfo; void /* function */ *fHashInit; void /* function */ *fHashUpdate; void /* function */ *fHashFinal; void /* function */ *fHashLog; void /* function */ *fLogPacket; void /* function */ *fActiveFirmwareVersion; void /* function */ *fStagedFirmwareVersion; void /* function */ *fAssetRescinded; void /* function */ *fAssetCorrupt; void /* function */ *fAssetOrphaned; void /* function */ *fAssetReleased; void /* function */ *fAssetReady; void /* function */ *fAssetStore; void /* function */ *fAssetMetaDataTLV; void /* function */ *fAssetMetaDataComplete; void /* function */ *fPayloadReady; void /* function */ *fPayloadMetaDataTLV; void /* function */ *fPayloadMetaDataComplete; void /* function */ *fPayloadData; void /* function */ *fPayloadDataComplete; void /* function */ *fTxWatchdogSet; void /* function */ *fTxWatchdogCancel; } protectedCallbacks; void *pDelegate; int role; struct uarpPlatformRemoteEndpoint *pRemoteEPs; struct uarpPlatformAsset *pAssetList; int nextTxAssetID; unsigned char rxLock; int nextRemoteEndpointID; void /* function */ *fVendorSpecific; } _uarpEndpoint;
+    struct uarpPlatformEndpointApple { unsigned char supportsPersonalization; unsigned char supportsHeySiri; unsigned char supportsJustSiri; unsigned char supportsVoiceAssist; struct uarpPlatformEndpointAppleCallbacks { void /* function */ *fAppleModelNumber; void /* function */ *fAppleModelNumberResponse; void /* function */ *fHwFusingType; void /* function */ *fHwFusingTypeResponse; void /* function */ *fManifestPrefix; void /* function */ *fManifestPrefixResponse; void /* function */ *fBoardID; void /* function */ *fBoardIDResponse; void /* function */ *fChipID; void /* function */ *fChipIDResponse; void /* function */ *fChipRevision; void /* function */ *fChipRevisionResponse; void /* function */ *fECID; void /* function */ *fECIDResponse; void /* function */ *fSecurityDomain; void /* function */ *fSecurityDomainResponse; void /* function */ *fSecurityMode; void /* function */ *fSecurityModeResponse; void /* function */ *fProductionMode; void /* function */ *fProductionModeResponse; void /* function */ *fChipEpoch; void /* function */ *fChipEpochResponse; void /* function */ *fEnableMixMatch; void /* function */ *fEnableMixMatchResponse; void /* function */ *fSoCLiveNonce; void /* function */ *fSoCLiveNonceResponse; void /* function */ *fPrefixNeedsLogicalUnitNumber; void /* function */ *fPrefixNeedsLogicalUnitNumberResponse; void /* function */ *fSuffixNeedsLogicalUnitNumber; void /* function */ *fSuffixNeedsLogicalUnitNumberResponse; void /* function */ *fLogicalUnitNumber; void /* function */ *fLogicalUnitNumberResponse; void /* function */ *fTicketLongName; void /* function */ *fTicketLongNameResponse; void /* function */ *fRequiresPersonalization; void /* function */ *fRequiresPersonalizationResponse; void /* function */ *fApBoardID; void /* function */ *fApBoardIDResponse; void /* function */ *fApChipID; void /* function */ *fApChipIDResponse; void /* function */ *fApProductionMode; void /* function */ *fApProductionModeResponse; void /* function */ *fApSecurityMode; void /* function */ *fApSecurityModeResponse; void /* function */ *fHardwareSpecific; void /* function */ *fHardwareSpecificResponse; } callbacks; } _uarpVendorExtension;
+    NSMutableArray *_accessories;
+    NSMutableArray *_assets;
+}
+
+@property (readonly) struct uarpPlatformEndpoint { struct uarpPlatformOptionsObj { unsigned int x0; unsigned int x1; unsigned int x2; unsigned short x3; unsigned char x4; unsigned short x5; unsigned short x6; } x0; void *x1; struct uarpPlatformEndpointCallbacks { void /* function */ *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; void /* function */ *x5; void /* function */ *x6; void /* function */ *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; void /* function */ *x12; void /* function */ *x13; void /* function */ *x14; void /* function */ *x15; void /* function */ *x16; void /* function */ *x17; void /* function */ *x18; void /* function */ *x19; void /* function */ *x20; void /* function */ *x21; void /* function */ *x22; void /* function */ *x23; void /* function */ *x24; void /* function */ *x25; void /* function */ *x26; void /* function */ *x27; void /* function */ *x28; void /* function */ *x29; void /* function */ *x30; void /* function */ *x31; void /* function */ *x32; void /* function */ *x33; void /* function */ *x34; void /* function */ *x35; void /* function */ *x36; void /* function */ *x37; void /* function */ *x38; void /* function */ *x39; void /* function */ *x40; void /* function */ *x41; void /* function */ *x42; void /* function */ *x43; void /* function */ *x44; void /* function */ *x45; void /* function */ *x46; void /* function */ *x47; void /* function */ *x48; void /* function */ *x49; void /* function */ *x50; void /* function */ *x51; void /* function */ *x52; void /* function */ *x53; void /* function */ *x54; void /* function */ *x55; void /* function */ *x56; void /* function */ *x57; void /* function */ *x58; void /* function */ *x59; void /* function */ *x60; } x2; void *x3; int x4; struct uarpPlatformRemoteEndpoint *x5; struct uarpPlatformAsset *x6; int x7; unsigned char x8; int x9; void /* function */ *x10; } *uarpEndpoint;
+@property (readonly) struct uarpPlatformEndpointApple { unsigned char x0; unsigned char x1; unsigned char x2; unsigned char x3; struct uarpPlatformEndpointAppleCallbacks { void /* function */ *x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; void /* function */ *x5; void /* function */ *x6; void /* function */ *x7; void /* function */ *x8; void /* function */ *x9; void /* function */ *x10; void /* function */ *x11; void /* function */ *x12; void /* function */ *x13; void /* function */ *x14; void /* function */ *x15; void /* function */ *x16; void /* function */ *x17; void /* function */ *x18; void /* function */ *x19; void /* function */ *x20; void /* function */ *x21; void /* function */ *x22; void /* function */ *x23; void /* function */ *x24; void /* function */ *x25; void /* function */ *x26; void /* function */ *x27; void /* function */ *x28; void /* function */ *x29; void /* function */ *x30; void /* function */ *x31; void /* function */ *x32; void /* function */ *x33; void /* function */ *x34; void /* function */ *x35; void /* function */ *x36; void /* function */ *x37; void /* function */ *x38; void /* function */ *x39; void /* function */ *x40; void /* function */ *x41; void /* function */ *x42; void /* function */ *x43; void /* function */ *x44; void /* function */ *x45; } x4; } *uarpVendorExtension;
+
+- (BOOL)setController:(id)a0;
+- (id)init;
+- (long long)queryProperty:(unsigned long long)a0 forAccessory:(id)a1;
+- (BOOL)resumeAssetTransfersForAccessory:(id)a0;
+- (void)queryFirmwareUpdateResultForAccessory:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)recvDataFromAccessory:(id)a0 data:(id)a1 error:(id *)a2;
+- (BOOL)pauseAssetTransfersForAccessory:(id)a0;
+- (void)sendMessageToAccessory:(id)a0 uarpMsg:(id)a1;
+- (BOOL)accessoryReachable:(id)a0 error:(id *)a1;
+- (BOOL)accessoryUnreachable:(id)a0 error:(id *)a1;
+- (BOOL)applyStagedAssetsForAccessory:(id)a0 error:(id *)a1;
+- (BOOL)cancelAssetStagingForAccessory:(id)a0 asset:(id)a1;
+- (BOOL)offerAssetToAccessory:(id)a0 asset:(id)a1 error:(id *)a2;
+- (BOOL)rescindStagedAssetsForAccessory:(id)a0 error:(id *)a1;
+- (void)processDynamicAssetVoiceAssist:(id)a0;
+- (void)updateChipEpoch:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateLastError:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateModelName:(id)a0 remoteEndpoint:(id)a1;
+- (BOOL)addAccessory:(id)a0 error:(id *)a1;
+- (void)applyStagedAssetStatus:(id)a0 status:(unsigned long long)a1;
+- (void)assetRelease:(id)a0 asset:(id)a1;
+- (void)assetSolicitationComplete:(id)a0 asset:(id)a1 status:(unsigned long long)a2;
+- (void)assetSolicitationProgress:(id)a0 asset:(id)a1 offset:(unsigned long long)a2 assetLength:(unsigned long long)a3;
+- (void)assetStagingComplete:(id)a0 asset:(id)a1 status:(unsigned long long)a2;
+- (BOOL)genericNotification:(id)a0 notificationName:(id)a1 error:(id *)a2;
+- (BOOL)offerDynamicAssetToAccessory:(id)a0 asset:(id)a1 error:(id *)a2;
+- (void)offerDynamicAssetToAccessory:(id)a0 asset:(id)a1 internalOffer:(BOOL)a2 tag:(id)a3;
+- (void)processDynamicAssetHeySiriCompact:(id)a0;
+- (void)processDynamicAssetVersions:(id)a0 partnerSerialNumbers:(id)a1;
+- (void)protocolVersionSelected:(id)a0 protocolVersion:(unsigned short)a1;
+- (id)qFindRemoteEndpointForAccessory:(id)a0;
+- (void)queryExpectedDynamicAssets:(id)a0;
+- (void)queryNextInfoProperty:(id)a0;
+- (BOOL)removeAccessory:(id)a0 error:(id *)a1;
+- (unsigned int)requestBytesInRangeForAccessory:(id)a0 asset:(id)a1 bytes:(void *)a2 length:(unsigned int)a3 offset:(unsigned int)a4 bytesCopied:(unsigned int *)a5 offsetUsed:(unsigned int *)a6;
+- (void)rescindAssets:(id)a0;
+- (void)rescindStagedAssetsAck:(id)a0 asset:(id)a1;
+- (BOOL)solicitDynamicAssetForAccessory:(id)a0 asset:(id)a1 error:(id *)a2;
+- (BOOL)solicitDynamicAssetForAccessory:(id)a0 asset:(id)a1 internalSolicit:(BOOL)a2 error:(id *)a3;
+- (BOOL)solicitDynamicAssetForAccessory:(id)a0 assetTag:(id)a1 error:(id *)a2;
+- (BOOL)supplementalAssetUpdated:(id)a0 assetName:(id)a1 error:(id *)a2;
+- (void)transferPauseAck:(id)a0;
+- (void)transferResumeAck:(id)a0;
+- (BOOL)unsolicitedDynamicAssetForAccessory:(id)a0 assetTag:(id)a1 error:(id *)a2;
+- (void)updateActiveFirmwareVersion:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateAppleModelNumber:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateBoardID:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateChipID:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateChipRevision:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateECID:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateEnableMixMatch:(BOOL)a0 remoteEndpoint:(id)a1;
+- (void)updateFriendlyName:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateHardwareFusingType:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateHardwareVersion:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateManifestPrefix:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateManufacturerName:(id)a0 remoteEndpoint:(id)a1;
+- (void)updatePrefixNeedsLogicalUnitNumber:(BOOL)a0 remoteEndpoint:(id)a1;
+- (void)updateProductionMode:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateSecurityDomain:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateSecurityMode:(unsigned long long)a0 remoteEndpoint:(id)a1;
+- (void)updateSerialNumber:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateSocLiveNonce:(BOOL)a0 remoteEndpoint:(id)a1;
+- (void)updateStagedFirmwareVersion:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateStatistics:(id)a0 remoteEndpoint:(id)a1;
+- (void)updateSuffixNeedsLogicalUnitNumber:(BOOL)a0 remoteEndpoint:(id)a1;
+- (void)watchdogExpireActiveTransport:(id)a0;
+- (void)watchdogExpireInfoQuery:(id)a0;
+- (void)watchdogExpireLayer2:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.StartUnderstandingDictationRequestMessage : SiriMessageTypes.StartSpeechDictationRequestMessage
+
+@end

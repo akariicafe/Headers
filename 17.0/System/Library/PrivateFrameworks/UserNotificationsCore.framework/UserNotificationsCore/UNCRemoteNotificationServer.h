@@ -1,0 +1,97 @@
+@class NSString, UNCNotificationServiceExtensionManager, BSPlatform, NSSet, NSMutableDictionary, UNCPushRegistrationRepository, UNCBlueListMonitor, NSMutableSet, NSObject;
+@protocol UNCNotificationRepository, OS_dispatch_queue, UNCAttachmentsService, _DASActivityScheduler, UNCRemoteNotificationServerObserver;
+
+@interface UNCRemoteNotificationServer : NSObject <APSConnectionDelegate, UNCBlueListMonitorDelegate> {
+    id<UNCNotificationRepository> _notificationRepository;
+    id<UNCAttachmentsService> _attachmentsService;
+    UNCPushRegistrationRepository *_pushRegistrationRepository;
+    id<_DASActivityScheduler> _duetActivityScheduler;
+    UNCBlueListMonitor *_blueListMonitor;
+    UNCNotificationServiceExtensionManager *_serviceExtensionManager;
+    BSPlatform *_platform;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_apsQueue;
+    NSMutableSet *_cloudKitBundleIdentifiers;
+    NSMutableSet *_contentAvailableBundleIdentifiers;
+    NSMutableSet *_quietServiceExtensionBundleIdentifiers;
+    NSMutableSet *_foregroundBundleIdentifiers;
+    NSMutableSet *_installedBundleIdentifiers;
+    NSMutableSet *_restrictedBundleIdentifiers;
+    NSMutableSet *_runningBundleIdentifiers;
+    NSMutableSet *_userNotificationEnabledBundleIdentifiers;
+    NSMutableSet *_visibleUserNotificationEnabledBundleIdentifiers;
+    NSSet *_backgroundAppRefreshDisabledList;
+    NSMutableDictionary *_bundleIdentifierToRegistration;
+    NSMutableDictionary *_environmentsToConnections;
+    NSMutableSet *_bundleIdentifiersNeedingToken;
+    BOOL _initializationCompleted;
+}
+
+@property (nonatomic) id<UNCRemoteNotificationServerObserver> observer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_newPushServiceConnectionWithEnvironmentName:(id)a0 namedDelegatePort:(id)a1 queue:(id)a2;
+
+- (void)connection:(id)a0 didReceiveToken:(id)a1 forTopic:(id)a2 identifier:(id)a3;
+- (void)connection:(id)a0 didReceivePublicToken:(id)a1;
+- (void)dealloc;
+- (void)connection:(id)a0 didReceiveIncomingMessage:(id)a1;
+- (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)a0;
+- (void)_queue_didChangeNotificationSettings:(id)a0 forBundleIdentifier:(id)a1;
+- (void)notificationSourcesDidInstall:(id)a0;
+- (void).cxx_destruct;
+- (void)performMigration;
+- (void)_queue_performMigration;
+- (void)_queue_didChangeApplicationState:(unsigned int)a0 forBundleIdentifier:(id)a1;
+- (void)didChangeApplicationState:(unsigned int)a0 forBundleIdentifier:(id)a1;
+- (void)notificationSourcesDidUninstall:(id)a0;
+- (void)didChangeNotificationSettings:(id)a0 forBundleIdentifier:(id)a1;
+- (id)_portNameForEnvironmentName:(id)a0;
+- (BOOL)allowsRemoteNotificationsForBundleIdentifier:(id)a0;
+- (void)backgroundRefreshApplicationsDidChange;
+- (void)didCompleteInitialization;
+- (id)initWithNotificationRepository:(id)a0 attachmentsService:(id)a1 pushRegistrationRepository:(id)a2 platform:(id)a3;
+- (void)requestRemoteNotificationTokenWithEnvironment:(id)a0 forBundleIdentifier:(id)a1;
+- (void)_queue_applicationDidTerminate:(id)a0;
+- (id)_queue_allTopicsForApplication:(id)a0;
+- (BOOL)_queue_isApplicationForeground:(id)a0;
+- (BOOL)_canMoveTopic:(id)a0 fromList:(unsigned long long)a1 toList:(unsigned long long)a2 connection:(id)a3;
+- (void)_extensionQueue_modifyNotificationRequest:(id)a0 bundleIdentifier:(id)a1 message:(id)a2 extension:(id)a3 enforcePushType:(BOOL)a4;
+- (id)_initWithNotificationRepository:(id)a0 attachmentsService:(id)a1 pushRegistrationRepository:(id)a2 platform:(id)a3 queue:(id)a4 apsQueue:(id)a5 duetActivityScheduler:(id)a6 serviceExtensionManager:(id)a7;
+- (BOOL)_queue_allowServiceExtensionFilteringForMessage:(id)a0;
+- (void)_queue_applicationDidBecomeBackground:(id)a0;
+- (void)_queue_applicationDidBecomeForeground:(id)a0;
+- (void)_queue_applicationDidLaunch:(id)a0;
+- (void)_queue_backgroundRefreshApplicationsDidChange;
+- (void)_queue_calculateTopics;
+- (BOOL)_queue_canDeliverMessageToBundle:(id)a0;
+- (void)_queue_connection:(id)a0 didReceivePublicToken:(id)a1;
+- (void)_queue_connection:(id)a0 didReceiveToken:(id)a1 forTopic:(id)a2 identifier:(id)a3;
+- (void)_queue_deliverNotificationRequest:(id)a0 bundleIdentifier:(id)a1 message:(id)a2 enforcePushType:(BOOL)a3;
+- (void)_queue_deliverNotificationRequest:(id)a0 bundleIdentifier:(id)a1 message:(id)a2 enforcePushType:(BOOL)a3 extensionStart:(id)a4 extensionEnd:(id)a5;
+- (void)_queue_didCompleteInitialization;
+- (void)_queue_didReceiveIncomingMessage:(id)a0;
+- (BOOL)_queue_enforcePushTypeForMessage:(id)a0;
+- (void)_queue_invalidateTokenForBundleIdentifier:(id)a0;
+- (BOOL)_queue_isApplicationRunning:(id)a0;
+- (BOOL)_queue_isBackgroundAppRefreshAllowedForBundleIdentifier:(id)a0;
+- (BOOL)_queue_isPushEnabledForApplication:(id)a0;
+- (BOOL)_queue_isUserNotificationEnabledForApplication:(id)a0;
+- (BOOL)_queue_isVisibleUserNotificationEnabledForApplication:(id)a0;
+- (BOOL)_queue_messageIsValidForDelivery:(id)a0;
+- (void)_queue_moveTopicsForApplication:(id)a0 fromList:(unsigned long long)a1 toList:(unsigned long long)a2;
+- (void)_queue_registerApplicationWithBundleIdentifier:(id)a0 forEnvironment:(id)a1;
+- (void)_queue_reloadBackgroundAppRefreshDisabledList;
+- (void)_queue_reloadRegistrations;
+- (void)_queue_removeRegistrationForBundleIdentifier:(id)a0;
+- (void)_queue_setPushRegistration:(id)a0 forBundleIdentifier:(id)a1;
+- (BOOL)_queue_shouldBoostTopicToEnabled:(id)a0;
+- (void)_queue_tryToModifyNotificationRequest:(id)a0 bundleIdentifier:(id)a1 message:(id)a2 enforcePushType:(BOOL)a3;
+- (void)_scheduleContentAvailablePushActivityForMessage:(id)a0 bundleIdentifier:(id)a1;
+- (id)_topicsForList:(unsigned long long)a0 connection:(id)a1;
+- (void)bluelistStatusChanged;
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKNavBarUnifiedCallButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface NTKOverrideTextProvider : CLKOverrideTextProvider
+
+@end

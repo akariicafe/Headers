@@ -1,0 +1,3 @@
+@interface __RecentlyPlayedCollectionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

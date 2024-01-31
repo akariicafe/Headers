@@ -1,0 +1,3 @@
+@interface __PHVideoCallInterfaceOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

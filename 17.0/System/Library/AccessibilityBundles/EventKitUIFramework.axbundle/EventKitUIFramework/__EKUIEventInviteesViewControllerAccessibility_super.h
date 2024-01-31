@@ -1,0 +1,3 @@
+@interface __EKUIEventInviteesViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

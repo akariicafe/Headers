@@ -1,0 +1,3 @@
+@interface ___FCUIActivityControlMenuFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __LUIManagedDevicesNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

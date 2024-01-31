@@ -1,0 +1,6 @@
+@interface WFCreatePlaylistAction : WFAction
+
+- (void)runAsynchronouslyWithInput:(id)a0;
+- (id)localizedSmartPromptUsageSentenceWithcontentDescription:(id)a0 contentDestination:(id)a1 workflowName:(id)a2;
+
+@end

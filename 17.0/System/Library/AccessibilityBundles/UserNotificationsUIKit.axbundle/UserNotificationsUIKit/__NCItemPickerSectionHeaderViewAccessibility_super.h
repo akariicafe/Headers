@@ -1,0 +1,3 @@
+@interface __NCItemPickerSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

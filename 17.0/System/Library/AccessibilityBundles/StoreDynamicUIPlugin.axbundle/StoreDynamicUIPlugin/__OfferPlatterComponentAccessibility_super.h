@@ -1,0 +1,3 @@
+@interface __OfferPlatterComponentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

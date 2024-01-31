@@ -1,0 +1,3 @@
+@interface PPSEntryDefinition : NSObject
+
+@end

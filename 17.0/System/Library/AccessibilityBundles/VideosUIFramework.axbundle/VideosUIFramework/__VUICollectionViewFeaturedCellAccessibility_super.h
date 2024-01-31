@@ -1,0 +1,3 @@
+@interface __VUICollectionViewFeaturedCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

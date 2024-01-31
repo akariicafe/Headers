@@ -1,0 +1,20 @@
+@class NSString, BRCAccountSessionFPFS;
+
+@interface BRCZoneHealthReportOperation : _BRCOperation <BRCOperationSubclass> {
+    BOOL shouldPerformAnotherBatch;
+    BRCAccountSessionFPFS *_session;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithSession:(id)a0;
+- (BOOL)shouldRetryForError:(id)a0;
+- (void)main;
+- (void).cxx_destruct;
+- (void)_reportRecords:(id)a0 requestID:(unsigned long long)a1;
+- (BOOL)shouldPerformAnotherBatch;
+
+@end

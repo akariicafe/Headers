@@ -1,0 +1,97 @@
+@class PBUIFixedReplicaSourceProvider, PBUICachedSnapshotEffectProvider, BSAtomicFlag, UIVisualEffectView, PBUISnapshotReplicaView, FBScene, _UILegibilitySettings, PBUIURLBackedSnapshotSource, UIView, UIColor, NSString, PBUIColorStatistics, PRPosterLegibilitySettings, BSUIMappedImageCache, UIImage;
+@protocol UIScenePresenter, PBUIPosterComponentDelegate, UIScenePresentation;
+
+@interface PBUIPosterVariantViewController : UIViewController <BSDescriptionProviding, FBSceneLayerManagerObserver, PBUIURLSourceDelegate, FBSceneObserver, PBUIColorStatisticsDelegate, PBUIPosterComponent> {
+    UIView *_contentContainer;
+    UIView<UIScenePresentation> *_sceneView;
+    PBUIColorStatistics *_posterColorStatistics;
+    PBUIURLBackedSnapshotSource *_snapshotSource;
+    PBUIFixedReplicaSourceProvider *_portalProvider;
+    unsigned long long _lastExtantUpdate;
+    UIVisualEffectView *_blurView;
+    PBUICachedSnapshotEffectProvider *_snapshotProvider;
+    long long _mostRecentSnapshotInterfaceStyle;
+    BSAtomicFlag *_snapshotNeeded;
+    BSAtomicFlag *_snapshotScheduled;
+    BSAtomicFlag *_isRotating;
+    BOOL _parallaxApplied;
+    BOOL _isBlurEnabled;
+    PBUISnapshotReplicaView *_snapshotView;
+}
+
+@property (retain) PRPosterLegibilitySettings *desiredLegibilitySettings;
+@property (readonly, nonatomic) id<UIScenePresenter> presenter;
+@property (readonly, nonatomic) BSUIMappedImageCache *cache;
+@property (readonly, nonatomic) BOOL isSnapshotInCorrectOrientation;
+@property (readonly, nonatomic) PBUIColorStatistics *contentColorStatistics;
+@property (weak, nonatomic) PBUIPosterVariantViewController *counterpart;
+@property (readonly, nonatomic) long long variant;
+@property (nonatomic) long long activeStyle;
+@property (readonly, nonatomic) FBScene *scene;
+@property (readonly, nonatomic) UIColor *averageColor;
+@property (readonly, nonatomic) double averageContrast;
+@property (readonly, nonatomic) UIImage *snapshot;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PBUIPosterComponentDelegate> delegate;
+@property (readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
+
++ (id)snapshotFormat;
+
+- (void)scene:(id)a0 didCompleteUpdateWithContext:(id)a1 error:(id)a2;
+- (void)sceneLayerManagerDidUpdateLayers:(id)a0;
+- (void)scene:(id)a0 didApplyUpdateWithContext:(id)a1;
+- (void)_updatePosterAverageColor:(id)a0 desiredLegibilitySettings:(id)a1;
+- (void)scene:(id)a0 clientDidConnect:(id)a1;
+- (void)performSnapshotOnQueue:(id)a0 completion:(id /* block */)a1;
+- (id)makePortalSourceWithLegibilitySettings:(id)a0;
+- (id)snapshotContentDirectory;
+- (void)_scheduleSnapshotIfNeeded;
+- (void)setBlurEnabled:(BOOL)a0;
+- (void)snapshotSource:(id)a0 failedToReadColorStatisticsAtURL:(id)a1 error:(id)a2;
+- (BOOL)updatePresentation;
+- (void)sceneWillDeactivate:(id)a0 withError:(id)a1;
+- (void)scene:(id)a0 didUpdateClientSettingsWithDiff:(id)a1 oldClientSettings:(id)a2 transitionContext:(id)a3;
+- (id)succinctDescriptionBuilder;
+- (id)_snapshotColorStatisticsURL;
+- (void)legibilitySettingsDidChange;
+- (void)sceneDidActivate:(id)a0;
+- (void)_updateInterfaceStyle;
+- (void)_updateParallax;
+- (void)viewDidLoad;
+- (BOOL)needsSnapshot;
+- (void)invalidate;
+- (id)initWithScene:(id)a0 storagePath:(id)a1;
+- (id)descriptionBuilderWithMultilinePrefix:(id)a0;
+- (id)_posterInstanceURL;
+- (void)setNeedsNewSnapshot;
+- (void)noteWillRotateToInterfaceOrientation:(long long)a0;
+- (id)snapshotSourceProvider;
+- (id)portalSourceProvider;
+- (id)_applicableScene;
+- (void)colorStatisticsDidChange:(id)a0;
+- (id)_snapshotMetadataURL;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (id)descriptionWithMultilinePrefix:(id)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)invalidateSnapshotPreconditions;
+- (void)snapshotIfNeeded;
+- (void)_invalidateSnapshots:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)postprocessNewSnapshot:(id)a0 colorStatistics:(id)a1 metadata:(id)a2 error:(out id *)a3;
+- (id)succinctDescription;
+- (void)noteDidRotateToInterfaceOrientation:(long long)a0;
+- (id)initWithScene:(id)a0 cache:(id)a1;
+- (void)_snapshot;
+- (void)_updatePresentation;
+- (BOOL)areSettingsAppropriateForSnapshotting:(id)a0;
+- (void)sceneContentStateDidChange:(id)a0;
+- (BOOL)evaluateSnapshotPreconditions;
+- (id)initWithCoder:(id)a0;
+- (void)_monitorScene:(id)a0;
+- (id)_snapshotURL;
+- (void)snapshotSource:(id)a0 failedToReadSnapshotAtURL:(id)a1 error:(id)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface ___TVCollectionWrappingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

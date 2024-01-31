@@ -1,0 +1,98 @@
+@class UIView, CEKSliderDotView, CEKSliderTickMarksView, CEKEdgeGradientView, CEKSelectionFeedbackGenerator, NSString, UILabel, UIScrollView;
+@protocol CEKTickMarksConfiguration, CEKSliderDelegate;
+
+@interface CEKSlider : UIControl <UIScrollViewDelegate, CEKSliderTickMarksDelegate, CEKAbstractSlider> {
+    struct { BOOL respondsToWillBeginScrolling; BOOL respondsToDidScroll; BOOL respondsToWillEndScrolling; BOOL respondsToDidEndScrolling; BOOL respondsToWillUpdateValue; } _delegateFlags;
+}
+
+@property (readonly, nonatomic) UIScrollView *_contentScrollView;
+@property (readonly, nonatomic) CEKSliderTickMarksView *_tickMarksView;
+@property (readonly, nonatomic) UIView *_levelIndicatorView;
+@property (readonly, nonatomic) CEKSliderDotView *_dotView;
+@property (retain, nonatomic, setter=_setEdgeGradientView:) CEKEdgeGradientView *_edgeGradientView;
+@property (nonatomic, getter=_isAnimating, setter=_setAnimating:) BOOL _animating;
+@property (nonatomic, getter=_isOverscrolling, setter=_setOverscrolling:) BOOL _overscrolling;
+@property (nonatomic, setter=_setTickMarkIndex:) unsigned long long _tickMarkIndex;
+@property (readonly, nonatomic) CEKSelectionFeedbackGenerator *_feedbackGenerator;
+@property (nonatomic, getter=_isActive, setter=_setActive:) BOOL _active;
+@property (retain, nonatomic) UILabel *_titleLabel;
+@property (retain, nonatomic) UILabel *_valueLabel;
+@property (nonatomic, getter=_isreAdjustingOffsets) BOOL _reAdjustingOffsets;
+@property (nonatomic, getter=_isDimmed, setter=_setDimmed:) BOOL _dimmed;
+@property (retain, nonatomic) UIView *_levelIndicatorBackgroundView;
+@property (weak, nonatomic) id<CEKSliderDelegate> delegate;
+@property (readonly, nonatomic) id<CEKTickMarksConfiguration> tickMarksConfiguration;
+@property (nonatomic) double animationDuration;
+@property (nonatomic) double maximumValue;
+@property (nonatomic) double minimumValue;
+@property (nonatomic) double value;
+@property (nonatomic) double defaultValue;
+@property (nonatomic) double markedValue;
+@property (nonatomic) long long mainTickMarkInterval;
+@property (nonatomic) long long tickMarkCount;
+@property (nonatomic) double tickMarkSpacing;
+@property (nonatomic) struct CGSize { double width; double height; } tickMarkSize;
+@property (retain, nonatomic) NSString *title;
+@property (nonatomic) long long valueLabelVisibility;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) long long sliderVerticalAlignment;
+@property (nonatomic) double sliderVerticalOffset;
+@property (nonatomic) double levelIndicatorHeight;
+@property (nonatomic) double labelVerticalPadding;
+@property (nonatomic) BOOL useTickMarkLegibilityShadows;
+@property (nonatomic) BOOL interactiveWhenHidden;
+@property (nonatomic) long long textOrientation;
+@property (nonatomic) long long titleAlignment;
+@property (nonatomic) struct { double startInset; double endInset; } gradientInsets;
+@property (nonatomic) unsigned long long fontStyle;
+
++ (id)_integerFormatter;
+
+- (void)scrollViewDidEndDecelerating:(id)a0;
+- (id)initWithTitle:(id)a0;
+- (void)_updateFonts;
+- (void)tintColorDidChange;
+- (void)scrollViewDidEndDragging:(id)a0 willDecelerate:(BOOL)a1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)setEnabled:(BOOL)a0 animated:(BOOL)a1;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)layoutSubviews;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2;
+- (void)resetToDefault;
+- (void)_sliderDidEndScrolling;
+- (void)setEnabled:(BOOL)a0 dimmed:(BOOL)a1 animated:(BOOL)a2;
+- (void)setTextOrientation:(long long)a0 animated:(BOOL)a1;
+- (void)setTransparentGradients;
+- (double)xOffsetForValue:(double)a0;
+- (void)_setDimmed:(BOOL)a0 animated:(BOOL)a1;
+- (void)_updateValueLabel;
+- (void)removeGradients;
+- (void)_clampValuesAndUpdateScrollPosition:(BOOL)a0;
+- (void)_createGradientIfNeeded;
+- (BOOL)_markedValueWithinRange;
+- (void)_setActive:(BOOL)a0 animated:(BOOL)a1;
+- (void)_setNormalizedValue:(double)a0;
+- (void)_setShowValueLabel:(BOOL)a0 animated:(BOOL)a1;
+- (void)_setValue:(double)a0 shouldSendActions:(BOOL)a1 shouldUpdateScrollPosition:(BOOL)a2;
+- (void)_updateColorsAnimated:(BOOL)a0;
+- (void)_updateEnableAppearanceStateAnimated:(BOOL)a0;
+- (void)_updateLegibilityBackground;
+- (void)_updateMarkedViewAnimated:(BOOL)a0;
+- (void)_updateScrollViewPosition;
+- (double)_xOffsetForMarkedValue;
+- (id)formattedIntegerStringFromNumber:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForLevelIndicator;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForTicksView;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForTitleLabel;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForValueLabel;
+- (void)setMarkedValue:(double)a0 animated:(BOOL)a1;
+- (void)setOpaqueGradientsWithColor:(id)a0;
+- (void)tickMarksViewDidChangeWidthForTickMarkCount:(id)a0;
+
+@end

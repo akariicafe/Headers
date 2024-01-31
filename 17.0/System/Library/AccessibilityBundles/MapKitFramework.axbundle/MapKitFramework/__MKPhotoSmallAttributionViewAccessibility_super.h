@@ -1,0 +1,3 @@
+@interface __MKPhotoSmallAttributionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

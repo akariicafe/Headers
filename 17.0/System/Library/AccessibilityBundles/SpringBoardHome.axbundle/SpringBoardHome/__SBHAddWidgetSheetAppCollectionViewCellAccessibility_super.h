@@ -1,0 +1,3 @@
+@interface __SBHAddWidgetSheetAppCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

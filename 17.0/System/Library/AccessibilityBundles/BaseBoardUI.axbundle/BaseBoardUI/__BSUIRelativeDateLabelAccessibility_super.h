@@ -1,0 +1,3 @@
+@interface __BSUIRelativeDateLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

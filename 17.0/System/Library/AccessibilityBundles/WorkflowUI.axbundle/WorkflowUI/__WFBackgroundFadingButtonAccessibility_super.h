@@ -1,0 +1,3 @@
+@interface __WFBackgroundFadingButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation13EventFeatures15MediaNowPlaying : _TtCs12_SwiftObject
+
+@end

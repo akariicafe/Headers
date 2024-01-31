@@ -1,0 +1,3 @@
+@interface __SessionTimeProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

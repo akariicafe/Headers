@@ -1,0 +1,3 @@
+@interface __SeymourUI_SessionPromptAlertViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

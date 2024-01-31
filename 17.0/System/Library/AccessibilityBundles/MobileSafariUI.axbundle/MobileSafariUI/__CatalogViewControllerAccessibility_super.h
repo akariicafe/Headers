@@ -1,0 +1,3 @@
+@interface __CatalogViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

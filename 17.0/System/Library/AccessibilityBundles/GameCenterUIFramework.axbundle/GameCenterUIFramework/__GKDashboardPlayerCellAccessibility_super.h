@@ -1,0 +1,3 @@
+@interface __GKDashboardPlayerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VKCImageVisualSearchViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

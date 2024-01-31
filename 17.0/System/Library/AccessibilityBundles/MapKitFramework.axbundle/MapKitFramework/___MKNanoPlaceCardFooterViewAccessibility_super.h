@@ -1,0 +1,3 @@
+@interface ___MKNanoPlaceCardFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

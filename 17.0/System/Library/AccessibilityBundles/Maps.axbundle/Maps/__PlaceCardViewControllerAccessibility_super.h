@@ -1,0 +1,3 @@
+@interface __PlaceCardViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

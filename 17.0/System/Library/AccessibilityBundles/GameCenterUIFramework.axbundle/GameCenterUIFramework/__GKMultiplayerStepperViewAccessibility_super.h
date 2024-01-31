@@ -1,0 +1,3 @@
+@interface __GKMultiplayerStepperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

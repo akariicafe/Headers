@@ -1,0 +1,3 @@
+@interface __CKTranscriptManagementNameFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

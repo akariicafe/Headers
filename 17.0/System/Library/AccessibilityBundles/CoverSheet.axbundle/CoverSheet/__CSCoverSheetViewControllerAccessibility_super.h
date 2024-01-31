@@ -1,0 +1,3 @@
+@interface __CSCoverSheetViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

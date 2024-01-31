@@ -1,0 +1,3 @@
+@interface __WFTableViewFooterLinkViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

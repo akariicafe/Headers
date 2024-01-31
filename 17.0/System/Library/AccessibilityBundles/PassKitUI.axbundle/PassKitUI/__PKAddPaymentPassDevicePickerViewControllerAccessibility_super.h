@@ -1,0 +1,3 @@
+@interface __PKAddPaymentPassDevicePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

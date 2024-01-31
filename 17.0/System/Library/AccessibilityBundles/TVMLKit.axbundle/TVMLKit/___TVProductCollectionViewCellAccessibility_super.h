@@ -1,0 +1,3 @@
+@interface ___TVProductCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

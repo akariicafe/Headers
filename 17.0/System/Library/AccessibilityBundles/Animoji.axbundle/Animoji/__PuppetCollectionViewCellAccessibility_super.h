@@ -1,0 +1,3 @@
+@interface __PuppetCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

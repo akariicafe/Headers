@@ -1,0 +1,3 @@
+@interface __MainWindowRootViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,86 @@
+@class NSString, VKLabelNavJunction, VKLabelNavRoadLabel;
+
+@interface VKLabelNavRoad : NSObject <VKLabelNavFeature> {
+    void *_data;
+    struct optional<gss::LineType> { BOOL _hasValue; union ValueUnion { unsigned char data[1]; unsigned char type; } _value; } _lineType;
+    unsigned long long _vertexIndexA;
+    unsigned long long _vertexIndexB;
+    struct GeoCodecsConnectivityJunction { unsigned int x0; unsigned int x1; struct GeoCodecsPointFeature *x2; unsigned long long x3; unsigned long long x4; } *_junctionA;
+    struct vector<gm::Matrix<double, 2, 1>, geo::StdAllocator<gm::Matrix<double, 2, 1>, mdm::Allocator>> { void *__begin_; void *__end_; struct __compressed_pair<gm::Matrix<double, 2, 1> *, geo::StdAllocator<gm::Matrix<double, 2, 1>, mdm::Allocator>> { void *__value_; struct StdAllocator<gm::Matrix<double, 2, 1>, mdm::Allocator> { struct Allocator *_allocator; } __value_; } __end_cap_; } _simplifiedPoints;
+    struct vector<float, geo::StdAllocator<float, mdm::Allocator>> { float *__begin_; float *__end_; struct __compressed_pair<float *, geo::StdAllocator<float, mdm::Allocator>> { float *__value_; struct StdAllocator<float, mdm::Allocator> { struct Allocator *_allocator; } __value_; } __end_cap_; } _simplifiedPointElevations;
+    double _length;
+    NSString *_shieldDisplayGroup;
+    NSString *_shieldGroup;
+    VKLabelNavRoadLabel *_roadSign;
+    VKLabelNavRoadLabel *_roadShield;
+    BOOL _isVisibilityCached[8];
+    BOOL _cachedSignVisibility[8];
+    BOOL _cachedShieldVisibility[8];
+    BOOL _hasVisibleSigns;
+    BOOL _hasVisibleShields;
+}
+
+@property (readonly, nonatomic) struct shared_ptr<md::LabelTile> { struct LabelTile *__ptr_; struct __shared_weak_count *__cntrl_; } tile;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) const char *cstrName;
+@property (readonly, nonatomic) NSString *shieldDisplayGroup;
+@property (readonly, nonatomic) NSString *shieldGroup;
+@property (readonly, nonatomic) struct GeoCodecsConnectivityJunction { unsigned int x0; unsigned int x1; struct GeoCodecsPointFeature *x2; unsigned long long x3; unsigned long long x4; } *junctionB;
+@property (readonly, weak, nonatomic) VKLabelNavJunction *navJunctionA;
+@property (readonly, nonatomic) struct Matrix<float, 2, 1> { float _e[2]; } direction2D;
+@property (readonly, nonatomic) struct Matrix<float, 3, 1> { float _e[3]; } direction3D;
+@property (nonatomic) BOOL isOnRoute;
+@property (nonatomic) BOOL isStartOfRoadName;
+@property (nonatomic) BOOL isInGuidance;
+@property (nonatomic) BOOL isGuidanceStepStart;
+@property (nonatomic) BOOL areLabelsDisabled;
+@property (nonatomic) struct PolylineCoordinate { unsigned int index; float offset; } routeOffset;
+@property (nonatomic) float routeCrossProduct;
+@property (nonatomic) long long intraRoadPriorityForRoadLabel;
+@property (nonatomic) long long intraRoadPriorityForShieldLabel;
+@property (nonatomic) BOOL isRoadLabelUnique;
+@property (readonly, nonatomic) BOOL isAwayFromRoute;
+@property (readonly, nonatomic) BOOL suppressRoadSignIfShieldPresent;
+@property (nonatomic) BOOL suppressRoadSignIfDeduped;
+@property (readonly, nonatomic) BOOL isRamp;
+@property (readonly, nonatomic) BOOL isOnewayToJunction;
+@property (readonly, nonatomic) int roadClass;
+@property (readonly, nonatomic) unsigned char roadSignAlignment;
+@property (nonatomic) unsigned long long labelVertexIndexA;
+@property (nonatomic) unsigned long long labelVertexIndexB;
+@property (readonly, nonatomic) BOOL isEtaFeature;
+@property (readonly, nonatomic) BOOL isTrafficCameraFeature;
+@property (nonatomic) BOOL isPicked;
+@property (readonly, nonatomic) BOOL isValid;
+
+- (void)dealloc;
+- (double)length;
+- (id).cxx_construct;
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)hasShield;
+- (void)clearRoadShield;
+- (BOOL)hasVisibleSigns;
+- (BOOL)_findLabelAnchorPoint:(void *)a0 isShieldLabel:(BOOL)a1 desiredOffsetDistance:(float)a2 maxOffsetDistance:(float)a3 minJunctionDistance:(float)a4 roadGraph:(id)a5;
+- (float)_findRoadOffsetForDistanceToRay:(float)a0 rayStart:(struct Matrix<double, 3, 1> { double x0[3]; })a1 rayVector:(struct Matrix<float, 2, 1> { float x0[2]; })a2 roadGraph:(id)a3;
+- (id)_newLabelWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0 isShieldLabel:(BOOL)a1 worldPoint:(struct Mercator3<double> { double x0[3]; })a2 alignment:(unsigned char)a3 artworkCache:(void *)a4;
+- (void)_updateWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0;
+- (void)_updateWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0 threshold:(double)a1;
+- (BOOL)_worldPointForRoadOffset:(float)a0 worldPoint:(void *)a1;
+- (void)_worldRoadPoints:(void *)a0 elevations:(void *)a1;
+- (void)appendSimplifiedWorldRoadPoints:(void *)a0 pointElevations:(void *)a1;
+- (void)clearRoadSign;
+- (void)createLabelWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0 isShieldLabel:(BOOL)a1 desiredOffsetDistance:(float)a2 maxOffsetDistance:(float)a3 minJunctionDistance:(float)a4 minRouteDistance:(float)a5 roadGraph:(id)a6 artworkCache:(void *)a7;
+- (void)getRoadEdge:(struct GeoCodecsRoadEdge { struct GeoCodecsMultiSectionFeature *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; struct GeoCodecsConnectivityJunction *x5; struct GeoCodecsConnectivityJunction *x6; } *)a0;
+- (BOOL)hasVisibleShields;
+- (id)initWithRoadEdge:(const struct GeoCodecsRoadEdge { struct GeoCodecsMultiSectionFeature *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; struct GeoCodecsConnectivityJunction *x5; struct GeoCodecsConnectivityJunction *x6; } *)a0 navJunctionA:(id)a1 routeOffset:(struct PolylineCoordinate { unsigned int x0; float x1; })a2 tile:(const void *)a3;
+- (id)labelWithType:(BOOL)a0;
+- (void)layoutWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0;
+- (BOOL)matchesRoad:(id)a0;
+- (BOOL)matchesRoadEdge:(const struct GeoCodecsRoadEdge { struct GeoCodecsMultiSectionFeature *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; struct GeoCodecsConnectivityJunction *x5; struct GeoCodecsConnectivityJunction *x6; } *)a0;
+- (void)prepareStyleVarsWithContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0;
+- (void)recreateRoadShieldWithNavContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a0 artworkCache:(void *)a1;
+- (void)recreateRoadSignWithAlignment:(unsigned char)a0 navContext:(struct NavContext { void /* function */ **x0; struct LabelManager *x1; struct MapNavLabeler *x2; struct LabelLayoutContext *x3; struct LabelNavLayoutContext *x4; } *)a1 artworkCache:(void *)a2;
+- (BOOL)roadHasName;
+
+@end

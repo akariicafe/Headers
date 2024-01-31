@@ -1,0 +1,3 @@
+@interface __SBHLibraryPodFolderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

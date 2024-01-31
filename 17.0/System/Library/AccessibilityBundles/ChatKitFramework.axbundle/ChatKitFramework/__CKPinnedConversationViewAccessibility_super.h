@@ -1,0 +1,3 @@
+@interface __CKPinnedConversationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

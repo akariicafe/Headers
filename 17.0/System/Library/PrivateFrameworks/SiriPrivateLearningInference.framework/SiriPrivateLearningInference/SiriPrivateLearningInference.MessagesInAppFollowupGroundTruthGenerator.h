@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.MessagesInAppFollowupGroundTruthGenerator : _TtCs12_SwiftObject
+
+@end

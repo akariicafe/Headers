@@ -1,0 +1,3 @@
+@interface __CCUISteppedSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

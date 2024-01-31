@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore41MutableStateReplicatorDeviceMetadataStore : _TtCC9ChronoKit19ChronoMetadataStore34StateReplicatorDeviceMetadataStore
+
+@end

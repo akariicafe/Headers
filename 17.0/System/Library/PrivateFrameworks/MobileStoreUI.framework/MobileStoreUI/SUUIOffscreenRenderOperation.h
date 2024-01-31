@@ -1,0 +1,19 @@
+@class UIImage, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SUUIOffscreenRenderOperation : NSOperation {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    id /* block */ _createLayerBlock;
+    UIImage *_outputImage;
+}
+
+@property (copy, nonatomic) id /* block */ createLayerBlock;
+@property (readonly, nonatomic) UIImage *outputImage;
+
++ (void)preheatOffscreenRenderOperations;
+
+- (id)init;
+- (void)main;
+- (void).cxx_destruct;
+
+@end

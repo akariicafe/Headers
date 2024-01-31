@@ -1,0 +1,3 @@
+@interface __PPKPDFIconCollectionViewCell_iOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

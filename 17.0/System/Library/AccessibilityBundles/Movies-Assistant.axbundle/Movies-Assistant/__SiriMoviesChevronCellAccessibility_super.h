@@ -1,0 +1,3 @@
+@interface __SiriMoviesChevronCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

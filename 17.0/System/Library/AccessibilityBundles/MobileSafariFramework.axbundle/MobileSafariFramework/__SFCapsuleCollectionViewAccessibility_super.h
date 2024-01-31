@@ -1,0 +1,3 @@
+@interface __SFCapsuleCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

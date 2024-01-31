@@ -1,0 +1,3 @@
+@interface __CKVideoPlayerBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

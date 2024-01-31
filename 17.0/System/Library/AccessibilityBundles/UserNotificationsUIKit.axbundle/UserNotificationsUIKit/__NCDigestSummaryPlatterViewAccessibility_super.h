@@ -1,0 +1,3 @@
+@interface __NCDigestSummaryPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

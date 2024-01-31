@@ -1,0 +1,3 @@
+@interface __DBSColorTemperatureSliderTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

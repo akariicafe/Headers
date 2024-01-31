@@ -1,0 +1,3 @@
+@interface __SUUIProductPageHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

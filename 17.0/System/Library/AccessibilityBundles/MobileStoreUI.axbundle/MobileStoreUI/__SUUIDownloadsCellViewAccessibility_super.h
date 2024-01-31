@@ -1,0 +1,3 @@
+@interface __SUUIDownloadsCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

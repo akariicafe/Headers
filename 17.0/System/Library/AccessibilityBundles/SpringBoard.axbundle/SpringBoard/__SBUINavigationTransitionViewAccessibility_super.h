@@ -1,0 +1,3 @@
+@interface __SBUINavigationTransitionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

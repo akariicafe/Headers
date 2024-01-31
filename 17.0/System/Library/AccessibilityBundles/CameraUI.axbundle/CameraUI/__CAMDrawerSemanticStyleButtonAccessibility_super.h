@@ -1,0 +1,3 @@
+@interface __CAMDrawerSemanticStyleButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

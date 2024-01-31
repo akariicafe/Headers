@@ -1,0 +1,3 @@
+@interface __STHistoricalPickupsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

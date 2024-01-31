@@ -1,0 +1,82 @@
+@class UIView, NSString, NCFullScreenStagingBannerView, NSHashTable, NCNotificationRequest, NSSet, NSDictionary, NSTimer, MTMaterialView, UIViewController, NCFullScreenPresentableTransitioningDelegate, NSMapTable;
+@protocol NCNotificationStaticContentProviding, NCFullScreenPresentableViewControllerDelegate, BNPresentableContext;
+
+@interface NCFullScreenPresentableViewController : UIViewController <BNPresentable, BNPresentableObservable, NCNotificationRequestPresenting, NCNotificationStaticContentProvidingDelegate, UIViewControllerAnimatedTransitioning> {
+    NSHashTable *_observers;
+    NCFullScreenPresentableTransitioningDelegate *_transitioningDelegate;
+    NSTimer *_detailStageTransitionTimer;
+    long long _detailStageTransitionRemainingAttempts;
+    NSString *_dismissalRequestReason;
+    NSMapTable *_reasonsToTransitionBlockingAssertions;
+}
+
+@property (readonly, nonatomic, getter=_backgroundMaterialView) MTMaterialView *backgroundMaterialView;
+@property (readonly, nonatomic, getter=_backgroundOpaqueView) UIView *backgroundOpaqueView;
+@property (readonly, nonatomic, getter=_bannerView) NCFullScreenStagingBannerView *bannerView;
+@property (nonatomic, getter=_isPanning, setter=_setPanning:) BOOL panning;
+@property (weak, nonatomic) id<NCFullScreenPresentableViewControllerDelegate> delegate;
+@property (readonly, nonatomic) long long bannerStage;
+@property (readonly, nonatomic) id<NCNotificationStaticContentProviding> staticContentProvider;
+@property (readonly, getter=isStaticContentLoadingComplete) BOOL staticContentLoadingComplete;
+@property (readonly, nonatomic) long long presentableBehavior;
+@property (weak, nonatomic) id<BNPresentableContext> presentableContext;
+@property (readonly, nonatomic, getter=isDraggingDismissalEnabled) BOOL draggingDismissalEnabled;
+@property (readonly, nonatomic, getter=isDraggingInteractionEnabled) BOOL draggingInteractionEnabled;
+@property (readonly, nonatomic, getter=isTouchOutsideDismissalEnabled) BOOL touchOutsideDismissalEnabled;
+@property (readonly, nonatomic) UIViewController *viewController;
+@property (readonly, nonatomic) long long presentableType;
+@property (readonly, copy, nonatomic) NSString *requesterIdentifier;
+@property (readonly, copy, nonatomic) NSString *requestIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NCNotificationRequest *notificationRequest;
+@property (readonly, copy, nonatomic) NSDictionary *notificationUsageTrackingState;
+@property (readonly, copy, nonatomic) NSSet *activeTransitionBlockingAssertions;
+
+- (id)initWithNotificationRequest:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (double)transitionDuration:(id)a0;
+- (void)_enumerateObserversRespondingToSelector:(SEL)a0 usingBlock:(id /* block */)a1;
+- (void)viewDidLoad;
+- (void)loadView;
+- (long long)preferredUserInterfaceStyle;
+- (void)animateTransition:(id)a0;
+- (void)userInteractionDidEndForBannerForPresentable:(id)a0;
+- (void)presentableWillDisappearAsBanner:(id)a0 withReason:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)presentableDidDisappearAsBanner:(id)a0 withReason:(id)a1;
+- (void).cxx_destruct;
+- (void)userInteractionWillBeginForBannerForPresentable:(id)a0;
+- (void)presentableDidAppearAsBanner:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)_configureBackgroundMaterialViewIfNecessary;
+- (void)presentableWillAppearAsBanner:(id)a0;
+- (void)viewIsAppearing:(BOOL)a0;
+- (void)draggingDidBeginWithGestureProxy:(id)a0;
+- (struct CGSize { double x0; double x1; })preferredContentSizeWithPresentationSize:(struct CGSize { double x0; double x1; })a0 containerSize:(struct CGSize { double x0; double x1; })a1;
+- (void)addPresentableObserver:(id)a0;
+- (void)removePresentableObserver:(id)a0;
+- (void)_configureBannerViewIfNecessary;
+- (id)contentProviderTraitCollection:(id)a0;
+- (void)_animateDismissalWithAdditionalAnimations:(id /* block */)a0 completion:(id /* block */)a1;
+- (void)_animateTransitionToDetailStateForTrigger:(long long)a0;
+- (void)_askDelegateToExecuteAction:(id)a0 withParameters:(id)a1 animated:(BOOL)a2;
+- (id)_backgroundAnimationSettingsForStage:(long long)a0;
+- (void)_configureBackgroundOpaqueViewIfNecessary;
+- (void)_executeDefaultAction:(BOOL)a0;
+- (void)_handleBannerContentTap;
+- (void)_handleBannerDefaultTap;
+- (void)_invalidateDetailStageTransitionTimerIfNecessary;
+- (void)_requestDismissalWithReason:(id)a0;
+- (double)_rubberbandedTranslationForTranslation:(double)a0;
+- (void)_startDetailStageTransitionTimerIfNecessary;
+- (id)activeTransitionBlockingAssertionForReason:(id)a0;
+- (void)contentProvider:(id)a0 performAction:(id)a1 animated:(BOOL)a2;
+- (void)invalidateStaticContent;
+- (void)loadStaticContentWithCompletion:(id /* block */)a0;
+- (id)requestTransitionBlockingAssertionWithReason:(id)a0;
+
+@end

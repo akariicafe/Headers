@@ -1,0 +1,3 @@
+@interface __PKPassGroupsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

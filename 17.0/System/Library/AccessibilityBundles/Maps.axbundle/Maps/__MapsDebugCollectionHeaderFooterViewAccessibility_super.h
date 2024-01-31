@@ -1,0 +1,3 @@
+@interface __MapsDebugCollectionHeaderFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

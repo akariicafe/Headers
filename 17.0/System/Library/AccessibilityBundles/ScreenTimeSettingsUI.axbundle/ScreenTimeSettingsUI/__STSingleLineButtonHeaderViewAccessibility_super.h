@@ -1,0 +1,3 @@
+@interface __STSingleLineButtonHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

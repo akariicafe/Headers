@@ -1,0 +1,3 @@
+@interface __AVUnifiedPlayerPlaybackControlsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

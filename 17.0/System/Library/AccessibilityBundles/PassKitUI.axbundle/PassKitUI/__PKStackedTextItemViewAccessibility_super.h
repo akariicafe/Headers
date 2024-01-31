@@ -1,0 +1,3 @@
+@interface __PKStackedTextItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

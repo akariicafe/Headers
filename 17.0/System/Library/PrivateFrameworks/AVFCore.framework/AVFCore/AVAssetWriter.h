@@ -1,0 +1,93 @@
+@class NSString, NSArray, AVAssetWriterHelper, NSURL, NSError, AVAssetWriterInternal;
+
+@interface AVAssetWriter : NSObject <AVIntegrityChecking, AVWeakObservable, AVKeyPathDependencyHost> {
+    AVAssetWriterInternal *_internal;
+}
+
+@property (readonly, nonatomic, getter=isDefunct) BOOL defunct;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, retain, getter=_helper) AVAssetWriterHelper *helper;
+@property (readonly, copy, nonatomic) NSURL *outputURL;
+@property (readonly, copy, nonatomic) NSString *outputFileType;
+@property (readonly, nonatomic) NSArray *availableMediaTypes;
+@property (readonly) long long status;
+@property (readonly) NSError *error;
+@property (copy, nonatomic) NSArray *metadata;
+@property (nonatomic) BOOL shouldOptimizeForNetworkUse;
+@property (copy, nonatomic) NSURL *directoryForTemporaryFiles;
+@property (readonly, nonatomic) NSArray *inputs;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)automaticallyNotifiesObserversForKey:(id)a0;
++ (void)initialize;
++ (id)_errorForOSStatus:(int)a0;
++ (id)assetWriterWithURL:(id)a0 fileType:(id)a1 error:(id *)a2;
+
+- (float)preferredVolume;
+- (void)setUsesVirtualCaptureCard:(BOOL)a0;
+- (void)setMovieFragmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })initialSegmentStartTime;
+- (id)init;
+- (void)dealloc;
+- (void)addInputGroup:(id)a0;
+- (id)delegate;
+- (long long)initialMovieFragmentSequenceNumber;
+- (void)addCallbackToCancelDuringDeallocation:(id)a0;
+- (BOOL)producesCombinableFragments;
+- (void)declareKeyPathDependenciesWithRegistry:(id)a0;
+- (void)setInitialMovieFragmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)flush;
+- (void)setProducesCombinableFragments:(BOOL)a0;
+- (void)setInitialMovieFragmentSequenceNumber:(long long)a0;
+- (BOOL)startWriting;
+- (void)startSessionAtSourceTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })preferredOutputSegmentInterval;
+- (void)endSessionAtSourceTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setPreferredRate:(float)a0;
+- (float)preferredRate;
+- (void)setPreferredVolume:(float)a0;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })preferredTransform;
+- (void)setInitialSegmentStartTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setPreferredTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)setOverallDurationHint:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (id)outputFileTypeProfile;
+- (BOOL)canAddInput:(id)a0;
+- (BOOL)finishWriting;
+- (BOOL)usesVirtualCaptureCard;
+- (void)addInput:(id)a0;
+- (void)setOutputFileTypeProfile:(id)a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })initialMovieFragmentInterval;
+- (void)setRequiresInProcessOperation:(BOOL)a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })overallDurationHint;
+- (BOOL)canAddInputGroup:(id)a0;
+- (void)setPreferredOutputSegmentInterval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })movieFragmentInterval;
+- (void)cancelWriting;
+- (void)setMovieTimeScale:(int)a0;
+- (void)setDelegate:(id)a0;
+- (int)movieTimeScale;
+- (BOOL)requiresInProcessOperation;
+- (void)finishWritingWithCompletionHandler:(id /* block */)a0;
+- (void)flushSegment;
+- (id)inputGroups;
+- (id)initWithContentType:(id)a0;
+- (BOOL)_initInternalObject;
+- (BOOL)_setHelper:(id)a0 ifCurrentHelper:(id)a1;
+- (BOOL)_setHelper:(id)a0 ifCurrentHelper:(id)a1 withBlock:(id /* block */)a2;
+- (BOOL)_supportsSampleReferencesReturningError:(id *)a0;
+- (void)_transitionToFailedStatusWithError:(id)a0;
+- (BOOL)canApplyOutputSettings:(id)a0 forMediaType:(id)a1;
+- (id)finishWritingDelegate;
+- (id)initWithFileType:(id)a0 error:(id *)a1;
+- (id)initWithURL:(id)a0 fileType:(id)a1 error:(id *)a2;
+- (BOOL)isVirtualCaptureCardSupported;
+- (void)setFinishWritingDelegate:(id)a0;
+- (void)setWritesSinglePassUsingPredeterminedFileSize:(long long)a0 mediaDataSize:(long long)a1;
+
+@end

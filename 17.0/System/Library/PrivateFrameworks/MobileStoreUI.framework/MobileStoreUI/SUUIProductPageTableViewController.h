@@ -1,0 +1,46 @@
+@class SUUILayoutCache, NSArray, SUUIClientContext, SUUIProductPageHeaderViewController, NSString, SUUIColorScheme, UITableView, SUUIProductPageTableView, UIColor;
+@protocol SUUIProductPageChildViewControllerDelegate, SUUIProductPageChildViewController;
+
+@interface SUUIProductPageTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    UIColor *_evenColor;
+    UIColor *_color;
+    SUUIProductPageTableView *_tableView;
+}
+
+@property (retain, nonatomic) SUUIClientContext *clientContext;
+@property (copy, nonatomic) SUUIColorScheme *colorScheme;
+@property (copy, nonatomic) NSArray *sections;
+@property (retain, nonatomic) SUUILayoutCache *textLayoutCache;
+@property (readonly, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) id<SUUIProductPageChildViewControllerDelegate> delegate;
+@property (retain, nonatomic) SUUIProductPageHeaderViewController *headerViewController;
+@property (weak, nonatomic) id<SUUIProductPageChildViewController> delegateSender;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)dealloc;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forRowAtIndexPath:(id)a2;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (void)tableView:(id)a0 didSelectRowAtIndexPath:(id)a1;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (void)loadView;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (id)_tableView;
+- (double)tableView:(id)a0 heightForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void)_addHeaderView;
+- (id)_textLayoutRequestWithText:(id)a0;
+- (id)initWithInAppPurchases:(id)a0 clientContext:(id)a1;
+- (id)initWithReleaseNotes:(id)a0 clientContext:(id)a1;
+- (void)scrollToView:(id)a0 animated:(BOOL)a1;
+
+@end

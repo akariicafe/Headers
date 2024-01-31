@@ -1,0 +1,3 @@
+@interface NSPersistentStoreResult : NSObject
+
+@end

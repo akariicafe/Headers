@@ -1,0 +1,3 @@
+@interface __IMBDateTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

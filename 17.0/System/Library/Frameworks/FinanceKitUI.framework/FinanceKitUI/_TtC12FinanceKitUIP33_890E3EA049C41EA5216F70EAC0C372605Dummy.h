@@ -1,0 +1,3 @@
+@interface _TtC12FinanceKitUIP33_890E3EA049C41EA5216F70EAC0C372605Dummy : _TtCs12_SwiftObject
+
+@end

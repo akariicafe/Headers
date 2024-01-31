@@ -1,0 +1,3 @@
+@interface __SBLogoutProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

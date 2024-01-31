@@ -1,0 +1,3 @@
+@interface PHTextFeatureDecoder : NSKeyedUnarchiver
+
+@end

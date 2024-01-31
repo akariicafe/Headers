@@ -1,0 +1,3 @@
+@interface __MKPlaceSectionRowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

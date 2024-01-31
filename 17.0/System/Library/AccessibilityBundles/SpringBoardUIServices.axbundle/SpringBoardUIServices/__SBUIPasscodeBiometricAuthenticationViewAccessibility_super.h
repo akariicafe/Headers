@@ -1,0 +1,3 @@
+@interface __SBUIPasscodeBiometricAuthenticationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VUIAccountSettingsButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

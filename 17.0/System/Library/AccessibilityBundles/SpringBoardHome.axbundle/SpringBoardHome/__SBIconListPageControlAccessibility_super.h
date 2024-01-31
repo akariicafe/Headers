@@ -1,0 +1,3 @@
+@interface __SBIconListPageControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

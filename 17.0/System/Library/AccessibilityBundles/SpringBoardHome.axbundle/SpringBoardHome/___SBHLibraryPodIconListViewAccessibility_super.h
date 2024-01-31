@@ -1,0 +1,3 @@
+@interface ___SBHLibraryPodIconListViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

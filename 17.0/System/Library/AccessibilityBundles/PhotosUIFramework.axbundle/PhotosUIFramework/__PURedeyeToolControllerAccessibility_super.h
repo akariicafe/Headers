@@ -1,0 +1,3 @@
+@interface __PURedeyeToolControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

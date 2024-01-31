@@ -1,0 +1,3 @@
+@interface __SBPowerDownViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

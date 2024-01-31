@@ -1,0 +1,3 @@
+@interface __AchievementHighlightCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

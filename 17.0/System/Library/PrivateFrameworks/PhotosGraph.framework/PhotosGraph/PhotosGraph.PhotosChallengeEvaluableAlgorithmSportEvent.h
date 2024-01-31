@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmSportEvent : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

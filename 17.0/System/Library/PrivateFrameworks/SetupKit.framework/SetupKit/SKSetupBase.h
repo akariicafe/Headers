@@ -1,0 +1,80 @@
+@class NSData, NSString, SKConnection, NSMutableDictionary, CUMessageSessionServer, CUMessageSession, NSObject, SKDevice, NSMutableArray;
+@protocol OS_dispatch_queue, SKStepable;
+
+@interface SKSetupBase : NSObject <CULabelable, CUMessaging> {
+    BOOL _activateCalled;
+    BOOL _invalidateCalled;
+    BOOL _invalidateDone;
+    NSMutableDictionary *_registeredEvents;
+    NSMutableDictionary *_registeredRequests;
+    int _runState;
+    SKConnection *_skCnx;
+    NSMutableArray *_stepArray;
+    NSObject<SKStepable> *_stepCurrent;
+    struct LogCategory { int x0; int x1; char *x2; unsigned int x3; char *x4; char *x5; int x6; struct LogCategory *x7; struct LogOutput *x8; struct LogOutput *x9; unsigned long long x10; unsigned long long x11; unsigned int x12; unsigned int x13; char *x14; struct LogCategoryPrivate *x15; } *_ucat;
+    struct LogCategory { int x0; int x1; char *x2; unsigned int x3; char *x4; char *x5; int x6; struct LogCategory *x7; struct LogOutput *x8; struct LogOutput *x9; unsigned long long x10; unsigned long long x11; unsigned int x12; unsigned int x13; char *x14; struct LogCategoryPrivate *x15; } *_ucatBase;
+    CUMessageSessionServer *_messageSessionServer;
+    CUMessageSession *_messageSessionTemplate;
+}
+
+@property (copy, nonatomic) NSData *authTagOverride;
+@property (nonatomic) unsigned int bluetoothUseCase;
+@property (nonatomic) unsigned int controlFlags;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (copy, nonatomic) id /* block */ eventHandler;
+@property (readonly, nonatomic) CUMessageSession *messageSessionTemplate;
+@property (copy, nonatomic) NSString *password;
+@property (nonatomic) int passwordType;
+@property (copy, nonatomic) id /* block */ passwordTypeChangedHandler;
+@property (retain, nonatomic) SKDevice *peerDevice;
+@property (nonatomic) BOOL persistentPairing;
+@property (copy, nonatomic) NSData *pskData;
+@property (nonatomic) BOOL reversePairing;
+@property (copy, nonatomic) id /* block */ sendDataHandler;
+@property (nonatomic) int setupType;
+@property (copy, nonatomic) NSString *label;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)receivedData:(id)a0;
+- (void)_run;
+- (void)postEvent:(id)a0;
+- (void)_activate;
+- (void)dealloc;
+- (void)_invalidated;
+- (void)_completeWithError:(id)a0;
+- (id)descriptionWithLevel:(int)a0;
+- (void)_invalidate;
+- (void)invalidate;
+- (void)activate;
+- (void).cxx_destruct;
+- (void)reportEvent:(id)a0;
+- (void)addStep:(id)a0;
+- (void)_setupMessageSession;
+- (void)_tearDownMessageSession;
+- (void)postEventType:(int)a0;
+- (void)_receivedEventID:(id)a0 event:(id)a1 options:(id)a2;
+- (void)_receivedRequestID:(id)a0 request:(id)a1 options:(id)a2 responseHandler:(id /* block */)a3;
+- (void)_postEvent:(id)a0;
+- (void)_connectionEnded:(id)a0;
+- (void)_reportEvent:(id)a0;
+- (void)_reportEventType:(int)a0;
+- (void)_addStep:(id)a0;
+- (void)_completedStep:(id)a0 error:(id)a1;
+- (void)_connectionStartWithSKConnection:(id)a0 clientMode:(BOOL)a1 completeOnFailure:(BOOL)a2 completion:(id /* block */)a3;
+- (void)_invalidateSteps;
+- (void)_pairSetupConfig:(id)a0;
+- (void)_prepareSteps;
+- (BOOL)_runSteps;
+- (void)deregisterEventID:(id)a0 completionHandler:(id /* block */)a1;
+- (void)deregisterRequestID:(id)a0 completionHandler:(id /* block */)a1;
+- (id)initWithLogCategory:(struct LogCategory { int x0; int x1; char *x2; unsigned int x3; char *x4; char *x5; int x6; struct LogCategory *x7; struct LogOutput *x8; struct LogOutput *x9; unsigned long long x10; unsigned long long x11; unsigned int x12; unsigned int x13; char *x14; struct LogCategoryPrivate *x15; } *)a0;
+- (void)registerEventID:(id)a0 options:(id)a1 eventHandler:(id /* block */)a2 completionHandler:(id /* block */)a3;
+- (void)registerRequestID:(id)a0 options:(id)a1 requestHandler:(id /* block */)a2 completionHandler:(id /* block */)a3;
+- (void)reportEventType:(int)a0;
+- (void)sendEventID:(id)a0 eventMessage:(id)a1 options:(id)a2 completionHandler:(id /* block */)a3;
+- (void)sendRequestID:(id)a0 requestMessage:(id)a1 options:(id)a2 responseHandler:(id /* block */)a3;
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKBrowserSwitcherFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

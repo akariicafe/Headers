@@ -1,0 +1,3 @@
+@interface _TtC12SiriFindMyUIP33_F657C71DA121968C7BDC9F38E5684D9619ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

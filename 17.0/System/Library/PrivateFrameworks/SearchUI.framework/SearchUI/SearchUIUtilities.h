@@ -1,0 +1,54 @@
+@interface SearchUIUtilities : NSObject
+
++ (id)localizedStringForKey:(id)a0;
++ (double)imageAccessoryAdditionalCompactHorizontalMargin;
++ (BOOL)isWideScreen;
++ (void)prewarmApplicationLibrary;
++ (void)fetchURLForFileResult:(id)a0 completionHandler:(id /* block */)a1;
++ (BOOL)isPortraitForWindow:(id)a0;
++ (void)playNegativeHaptic;
++ (id)stringForSFRichTextArray:(id)a0;
++ (BOOL)bundleIdentifierIsBlockedForScreenTimeExpiration:(id)a0;
++ (void)openPunchout:(id)a0 completion:(id /* block */)a1;
++ (BOOL)isIpad;
++ (id)imageForBlockedApp;
++ (void)performAnimatableChanges:(id /* block */)a0;
++ (id)hyphenatableStringForString:(id)a0;
++ (BOOL)canShowViewController:(id)a0;
++ (id)skHandlesFromContact:(id)a0;
++ (void)dispatchAsyncIfNecessary:(id /* block */)a0;
++ (id)fileProviderItemIDForFileResult:(id)a0;
++ (id)defaultBrowserBundleIdentifier;
++ (id)openApplicationOptions;
++ (id)pointerKeyMapTable;
++ (id)fileProviderItemIDForCoreSpotlightIdentifier:(id)a0 fileProviderIdentifier:(id)a1;
++ (BOOL)appIsValidForBundleIdentifier:(id)a0;
++ (BOOL)isAppInstalledWithBundleId:(id)a0;
++ (void)dispatchMainIfNecessary:(id /* block */)a0;
++ (BOOL)deviceIsAuthenticated;
++ (void)openURL:(id)a0 withCompletion:(id /* block */)a1;
++ (BOOL)isLargeIpad;
++ (BOOL)deviceSupportsRotation;
++ (void)fetchURLForCoreSpotlightIdentifier:(id)a0 fileProviderIdentifier:(id)a1 completionHandler:(id /* block */)a2;
++ (id)addAspectRatioConstraintForSize:(struct CGSize { double x0; double x1; })a0 toView:(id)a1;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
++ (id)environmentForDelegate:(id)a0;
++ (id)bundleIdentifierForApp:(unsigned long long)a0;
++ (id)stringForSFRichText:(id)a0;
++ (void)requestClipInstallWithURL:(id)a0 completion:(id /* block */)a1;
++ (BOOL)resultBlockedForScreenTime:(id)a0;
++ (void)performAnimatableChanges:(id /* block */)a0 animated:(BOOL)a1;
++ (BOOL)isMinimizedHardwareKeyboardMode;
++ (BOOL)downloadDemotedAppIfNecessaryForBundleIdentifier:(id)a0 presentingViewControllerForExplanationAlert:(id)a1;
++ (id)stringHandlesFromContact:(id)a0;
++ (id)fmfHandlesFromContact:(id)a0;
++ (double)standardCompactHorizontalMargin;
++ (void)requestDeviceUnlockWithSuccessHandler:(id /* block */)a0;
++ (void)requestDeviceUnlock:(id /* block */)a0;
++ (void)openPunchout:(id)a0;
++ (double)onePixelForCurrentScreenResolution;
++ (BOOL)resultIsSiriAction:(id)a0;
++ (id)focusGroupIdentifier;
++ (double)standardTableCellContentInset;
+
+@end

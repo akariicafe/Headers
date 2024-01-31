@@ -1,0 +1,3 @@
+@interface __InfoCardViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

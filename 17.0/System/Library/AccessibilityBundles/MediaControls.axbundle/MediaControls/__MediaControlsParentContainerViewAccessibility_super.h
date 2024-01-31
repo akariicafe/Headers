@@ -1,0 +1,3 @@
+@interface __MediaControlsParentContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

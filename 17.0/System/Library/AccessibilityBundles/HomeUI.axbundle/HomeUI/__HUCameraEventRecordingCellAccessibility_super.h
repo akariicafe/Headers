@@ -1,0 +1,3 @@
+@interface __HUCameraEventRecordingCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

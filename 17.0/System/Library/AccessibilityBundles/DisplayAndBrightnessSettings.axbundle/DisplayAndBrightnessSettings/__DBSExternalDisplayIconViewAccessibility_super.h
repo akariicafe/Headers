@@ -1,0 +1,3 @@
+@interface __DBSExternalDisplayIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ETHorizontalColorPickerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

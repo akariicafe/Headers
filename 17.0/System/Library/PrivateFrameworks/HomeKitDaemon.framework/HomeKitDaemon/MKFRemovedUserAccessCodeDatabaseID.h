@@ -1,0 +1,3 @@
+@interface MKFRemovedUserAccessCodeDatabaseID : MKFHomeAccessCodeDatabaseID
+
+@end

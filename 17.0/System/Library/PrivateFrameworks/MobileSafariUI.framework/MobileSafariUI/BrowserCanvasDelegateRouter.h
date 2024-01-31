@@ -1,0 +1,3 @@
+@interface BrowserCanvasDelegateRouter : BrowserSceneDelegateRouter
+
+@end

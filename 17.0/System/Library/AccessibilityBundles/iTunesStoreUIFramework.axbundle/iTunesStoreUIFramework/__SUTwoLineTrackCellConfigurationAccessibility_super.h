@@ -1,0 +1,3 @@
+@interface __SUTwoLineTrackCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

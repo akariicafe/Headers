@@ -1,0 +1,3 @@
+@interface __WKContentViewAccessibility__MessageUI__WebKit_super : UIAccessibilitySafeCategory
+
+@end

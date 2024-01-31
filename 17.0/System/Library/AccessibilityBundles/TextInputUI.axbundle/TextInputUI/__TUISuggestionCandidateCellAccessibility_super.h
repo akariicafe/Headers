@@ -1,0 +1,3 @@
+@interface __TUISuggestionCandidateCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

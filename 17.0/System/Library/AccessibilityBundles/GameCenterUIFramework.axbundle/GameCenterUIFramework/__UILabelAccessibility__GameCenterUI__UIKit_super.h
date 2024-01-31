@@ -1,0 +1,3 @@
+@interface __UILabelAccessibility__GameCenterUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

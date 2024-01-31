@@ -1,0 +1,3 @@
+@interface __ConversationHeaderContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

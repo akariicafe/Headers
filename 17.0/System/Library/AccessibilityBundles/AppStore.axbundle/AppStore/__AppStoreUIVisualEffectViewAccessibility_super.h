@@ -1,0 +1,3 @@
+@interface __AppStoreUIVisualEffectViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

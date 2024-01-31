@@ -1,0 +1,3 @@
+@interface __VMPlayerTimelineSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

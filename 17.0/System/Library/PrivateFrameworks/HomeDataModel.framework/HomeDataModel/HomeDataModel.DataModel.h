@@ -1,0 +1,94 @@
+@class _TtC13HomeDataModel9DataModel, NSArray, HMHomeManagerConfiguration, HMHome;
+
+@interface HomeDataModel.DataModel : NSObject <HMHomeManagerDelegate, HMHomeDelegate, HMHomeDelegatePrivate, HMUserActionPredictionControllerDelegate, HMAccessoryDelegate, HMAccessoryDelegatePrivate, HMMediaSessionDelegate, HMLightProfileDelegate, HMSymptomsHandlerDelegate, HMSoftwareUpdateDelegate, HMAccessorySoftwareUpdateControllerV2Delegate> {
+    void /* unknown type, empty encoding */ _currentStateSnapshot;
+    void /* unknown type, empty encoding */ homesToStateSnapshots;
+    void /* unknown type, empty encoding */ incomingHomeKitMessagesQueue;
+    void /* unknown type, empty encoding */ currentUserActionPredictionControllersDictionary;
+    void /* unknown type, empty encoding */ currentUserActionPredictionsDictionary;
+}
+
+@property (class, nonatomic, readonly) _TtC13HomeDataModel9DataModel *shared;
+@property (class, nonatomic, retain) HMHomeManagerConfiguration *homeManagerConfiguration;
+
+@property (nonatomic, readonly) HMHome *primaryHome;
+@property (nonatomic, readonly) NSArray *sortedHomes;
+@property (nonatomic, readonly) NSArray *alphabeticalHomes;
+@property (nonatomic, retain) void /* unknown type, empty encoding */ homeManager;
+@property (nonatomic, retain) void /* unknown type, empty encoding */ currentHome;
+
+- (id)characteristicFor:(id)a0;
+- (id)serviceFor:(id)a0;
+- (id)accessoryFor:(id)a0;
+- (id)accessoryFor:(id)a0 in:(id)a1;
+- (id)accessoryFromAnyHomeFor:(id)a0;
+- (id)actionSetFor:(id)a0;
+- (id)homeFor:(id)a0;
+- (void)recalculateCurrentHome;
+- (id)roomFor:(id)a0;
+- (id)serviceGroupFor:(id)a0;
+- (id)userFor:(id)a0;
+- (void)home:(id)a0 didRemoveZone:(id)a1;
+- (id)init;
+- (void)home:(id)a0 didAddZone:(id)a1;
+- (void)home:(id)a0 didAddRoom:(id)a1;
+- (void)accessoryDidUpdateName:(id)a0;
+- (void)home:(id)a0 didAddAccessory:(id)a1;
+- (void)homeManager:(id)a0 didRemoveHome:(id)a1;
+- (void)home:(id)a0 didRemoveAccessory:(id)a1;
+- (void)homeManager:(id)a0 didUpdateAuthorizationStatus:(unsigned long long)a1;
+- (void)home:(id)a0 didRemoveUser:(id)a1;
+- (void)home:(id)a0 didAddUser:(id)a1;
+- (void)home:(id)a0 didAddMediaSystem:(id)a1;
+- (void)homeDidUpdateAccessControlForCurrentUser:(id)a0;
+- (void)home:(id)a0 didUpdateRoom:(id)a1 forAccessory:(id)a2;
+- (void)home:(id)a0 didAddRoom:(id)a1 toZone:(id)a2;
+- (void).cxx_destruct;
+- (void)homeManager:(id)a0 didAddHome:(id)a1;
+- (void)accessoryDidUpdateApplicationData:(id)a0;
+- (void)homeManagerDidUpdateCurrentHome:(id)a0;
+- (void)home:(id)a0 didRemoveMediaSystem:(id)a1;
+- (void)home:(id)a0 didRemoveRoom:(id)a1;
+- (void)homeManagerDidUpdateHomes:(id)a0;
+- (void)accessoryDidUpdateReachability:(id)a0;
+- (void)homeDidUpdateSupportedFeatures:(id)a0;
+- (void)home:(id)a0 didUpdateNameForActionSet:(id)a1;
+- (void)accessory:(id)a0 didAddProfile:(id)a1;
+- (void)accessory:(id)a0 didRemoveProfile:(id)a1;
+- (void)accessory:(id)a0 didUpdateApplicationDataForService:(id)a1;
+- (void)accessory:(id)a0 didUpdateAssociatedServiceTypeForService:(id)a1;
+- (void)accessory:(id)a0 didUpdateFirmwareVersion:(id)a1;
+- (void)accessory:(id)a0 didUpdateNameForService:(id)a1;
+- (void)accessory:(id)a0 service:(id)a1 didUpdateValueForCharacteristic:(id)a2;
+- (void)accessoryDidUpdateServices:(id)a0;
+- (void)home:(id)a0 didAddActionSet:(id)a1;
+- (void)home:(id)a0 didAddService:(id)a1 toServiceGroup:(id)a2;
+- (void)home:(id)a0 didAddServiceGroup:(id)a1;
+- (void)home:(id)a0 didAddTrigger:(id)a1;
+- (void)home:(id)a0 didEncounterError:(id)a1 forAccessory:(id)a2;
+- (void)home:(id)a0 didRemoveActionSet:(id)a1;
+- (void)home:(id)a0 didRemoveRoom:(id)a1 fromZone:(id)a2;
+- (void)home:(id)a0 didRemoveService:(id)a1 fromServiceGroup:(id)a2;
+- (void)home:(id)a0 didRemoveServiceGroup:(id)a1;
+- (void)home:(id)a0 didRemoveTrigger:(id)a1;
+- (void)home:(id)a0 didUnblockAccessory:(id)a1;
+- (void)home:(id)a0 didUpdateActionsForActionSet:(id)a1;
+- (void)home:(id)a0 didUpdateHomeHubState:(unsigned long long)a1;
+- (void)home:(id)a0 didUpdateNameForRoom:(id)a1;
+- (void)home:(id)a0 didUpdateNameForServiceGroup:(id)a1;
+- (void)home:(id)a0 didUpdateNameForTrigger:(id)a1;
+- (void)home:(id)a0 didUpdateNameForZone:(id)a1;
+- (void)home:(id)a0 didUpdateTrigger:(id)a1;
+- (void)homeDidUpdateName:(id)a0;
+- (void)homeManagerDidUpdatePrimaryHome:(id)a0;
+- (void)lightProfile:(id)a0 didUpdateSettings:(id)a1;
+- (void)mediaSession:(id)a0 didUpdatePlaybackState:(long long)a1;
+- (void)softwareUpdate:(id)a0 didUpdateDocumentation:(id)a1;
+- (void)softwareUpdate:(id)a0 didUpdateState:(long long)a1;
+- (void)softwareUpdateController:(id)a0 accessory:(id)a1 didReceiveUpdate:(id)a2;
+- (void)softwareUpdateController:(id)a0 accessory:(id)a1 didUpdateProgress:(id)a2;
+- (void)symptomsHandler:(id)a0 didUpdateSymptoms:(id)a1;
+- (void)userActionPredictionController:(id)a0 didUpdatePredictions:(id)a1;
+- (void)softwareUpdateController:(id)a0 accessory:(id)a1 didFailUpdate:(id)a2 withError:(id)a3 timestamp:(id)a4;
+
+@end

@@ -1,0 +1,3 @@
+@interface __VideosExtrasLockupElementViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

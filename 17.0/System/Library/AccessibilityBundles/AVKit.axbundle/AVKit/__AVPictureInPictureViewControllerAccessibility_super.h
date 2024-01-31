@@ -1,0 +1,3 @@
+@interface __AVPictureInPictureViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

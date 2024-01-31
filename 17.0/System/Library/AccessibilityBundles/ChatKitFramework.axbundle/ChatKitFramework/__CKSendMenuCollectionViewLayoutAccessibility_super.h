@@ -1,0 +1,3 @@
+@interface __CKSendMenuCollectionViewLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

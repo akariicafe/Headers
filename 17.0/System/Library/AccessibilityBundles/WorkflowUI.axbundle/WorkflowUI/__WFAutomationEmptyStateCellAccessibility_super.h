@@ -1,0 +1,3 @@
+@interface __WFAutomationEmptyStateCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AAUIAppleAccountHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

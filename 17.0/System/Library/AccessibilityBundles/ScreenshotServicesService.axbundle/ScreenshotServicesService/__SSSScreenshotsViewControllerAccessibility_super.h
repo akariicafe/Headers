@@ -1,0 +1,3 @@
+@interface __SSSScreenshotsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

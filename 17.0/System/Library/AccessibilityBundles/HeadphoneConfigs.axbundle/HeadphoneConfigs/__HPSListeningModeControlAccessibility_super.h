@@ -1,0 +1,3 @@
+@interface __HPSListeningModeControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

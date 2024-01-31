@@ -1,0 +1,3 @@
+@interface __DirectionsStepTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

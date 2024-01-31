@@ -1,0 +1,3 @@
+@interface __SBDeviceApplicationSceneClassicAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

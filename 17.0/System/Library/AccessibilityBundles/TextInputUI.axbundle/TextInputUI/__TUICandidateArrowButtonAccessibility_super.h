@@ -1,0 +1,3 @@
+@interface __TUICandidateArrowButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

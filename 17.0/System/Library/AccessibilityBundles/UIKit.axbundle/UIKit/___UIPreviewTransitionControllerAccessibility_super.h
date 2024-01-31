@@ -1,0 +1,3 @@
+@interface ___UIPreviewTransitionControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

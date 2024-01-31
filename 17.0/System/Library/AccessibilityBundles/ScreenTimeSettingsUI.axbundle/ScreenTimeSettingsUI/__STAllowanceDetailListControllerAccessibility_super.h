@@ -1,0 +1,3 @@
+@interface __STAllowanceDetailListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PlayerProfileInfoBarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

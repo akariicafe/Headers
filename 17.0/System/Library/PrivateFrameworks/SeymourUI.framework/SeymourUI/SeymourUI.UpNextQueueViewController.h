@@ -1,0 +1,39 @@
+@interface SeymourUI.UpNextQueueViewController : UIViewController {
+    void /* unknown type, empty encoding */ visibility;
+    void /* unknown type, empty encoding */ currentContentInsetBehavior;
+    void /* unknown type, empty encoding */ isTransitioningContentInset;
+    void /* unknown type, empty encoding */ resignActiveObserver;
+    void /* unknown type, empty encoding */ bookmarkClient;
+    void /* unknown type, empty encoding */ contentInsetInitialBehavior;
+    void /* unknown type, empty encoding */ dependencies;
+    void /* unknown type, empty encoding */ dataProvider;
+    void /* unknown type, empty encoding */ eventHub;
+    void /* unknown type, empty encoding */ galleryTitle;
+    void /* unknown type, empty encoding */ menuOptions;
+    void /* unknown type, empty encoding */ platform;
+    void /* unknown type, empty encoding */ storefrontLocalizer;
+    void /* unknown type, empty encoding */ subscriptionToken;
+    void /* unknown type, empty encoding */ subscriptionCache;
+    void /* unknown type, empty encoding */ upNextQueueClient;
+    void /* unknown type, empty encoding */ queueActionsView;
+    void /* unknown type, empty encoding */ queueActionsViewPresenter;
+    void /* unknown type, empty encoding */ mediaTagStringBuilder;
+    void /* unknown type, empty encoding */ blurView;
+    void /* unknown type, empty encoding */ layout;
+}
+
+@property (nonatomic, readonly) unsigned long long supportedInterfaceOrientations;
+
+- (void)viewWillAppear:(BOOL)a0;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)initWithCoder:(id)a0;
+- (void)dismissView;
+
+@end

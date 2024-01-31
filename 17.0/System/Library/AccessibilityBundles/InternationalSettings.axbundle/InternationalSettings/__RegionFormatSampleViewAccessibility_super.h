@@ -1,0 +1,3 @@
+@interface __RegionFormatSampleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

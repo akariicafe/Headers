@@ -1,0 +1,3 @@
+@interface __SeymourUI_StandardBrickItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

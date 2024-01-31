@@ -1,0 +1,3 @@
+@interface __LevelPageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

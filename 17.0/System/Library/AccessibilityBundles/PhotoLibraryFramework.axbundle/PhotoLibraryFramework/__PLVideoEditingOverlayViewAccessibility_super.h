@@ -1,0 +1,3 @@
+@interface __PLVideoEditingOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

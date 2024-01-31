@@ -1,0 +1,3 @@
+@interface ___MFConversationViewCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

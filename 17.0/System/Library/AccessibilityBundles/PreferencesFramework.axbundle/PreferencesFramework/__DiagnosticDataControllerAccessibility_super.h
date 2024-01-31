@@ -1,0 +1,3 @@
+@interface __DiagnosticDataControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

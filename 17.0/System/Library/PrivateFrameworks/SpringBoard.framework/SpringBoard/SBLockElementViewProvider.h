@@ -1,0 +1,95 @@
+@class SBUIProudLockIconView, NSString, BSUICAPackageView, SBUISystemApertureContentProvider, SBUIBiometricResource, SBUISystemApertureCustomContentProvider, UIView;
+@protocol SAUILayoutHosting, SAElement, SAElementHosting;
+
+@interface SBLockElementViewProvider : SBActivityProvidedContentElement <SBUIBiometricResourceObserver, SBSystemApertureSuppressible, SAElementViewProviding, SBSystemApertureLayoutCustomizing, SAUIContentTransitioning> {
+    SBUIBiometricResource *_sharedResource;
+    BOOL _allowsBioUnlock;
+    BOOL _isAuthenticated;
+    BOOL _hasActiveUnlockAttempt;
+    BOOL _isEmpty;
+    BOOL _isInBloomMode;
+    BOOL _isAcquiring;
+    unsigned long long _unlockMode;
+    SBUIProudLockIconView *_leadingLock;
+    UIView *_trailingContainerView;
+    SBUIProudLockIconView *_prominentLock;
+    UIView *_trailingView;
+    BSUICAPackageView *_trailingPackageView;
+    id<SAElementHosting> _elementHost;
+    long long _layoutMode;
+    id<SAUILayoutHosting> _layoutHost;
+}
+
+@property (class, readonly, nonatomic) BOOL deviceSupportsElement;
+
+@property (retain, nonatomic) SBUISystemApertureContentProvider *contentProvider;
+@property (retain, nonatomic) SBUISystemApertureCustomContentProvider *lockProvider;
+@property (retain, nonatomic) SBUISystemApertureCustomContentProvider *trailingPackageProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, getter=isSuppressed) BOOL suppressed;
+@property (readonly, weak, nonatomic) id<SAElement> element;
+@property (readonly, nonatomic) long long systemApertureCustomLayout;
+@property (readonly, nonatomic) long long customLayoutRequestingSpecialFlowerBoundsResizingAnimation;
+@property (readonly, nonatomic) long long systemApertureLayoutCustomizingOptions;
+
+- (id)init;
+- (long long)layoutMode;
+- (void)handleBiometricEvent:(long long)a0;
+- (void)setAuthenticated:(BOOL)a0;
+- (id)elementIdentifier;
+- (id)viewProvider;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)setEmpty:(BOOL)a0;
+- (void)biometricResource:(id)a0 observeEvent:(unsigned long long)a1;
+- (id)clientIdentifier;
+- (void)shake;
+- (long long)preferredLayoutMode;
+- (void)biometricResource:(id)a0 matchingEnabledDidChange:(BOOL)a1;
+- (void)_updateLeadingPackageVisibility;
+- (void)setElementHost:(id)a0;
+- (void)_setUnlockMode:(unsigned long long)a0;
+- (BOOL)_treatAsAmbient;
+- (BOOL)_activelyWantsMatching;
+- (BOOL)_allowsBiometricUnlock;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_elementFrameLeading:(BOOL)a0 forLayoutMode:(long long)a1;
+- (BOOL)_isShowingInLandscape;
+- (void)_setAcquiring:(BOOL)a0;
+- (void)_toggleUnlockMode;
+- (BOOL)_treatsAsAmbientSearching;
+- (unsigned long long)_unlockMode;
+- (void)_updateAllowsBioUnlock;
+- (void)_updateContentProvidersForViewProviderMode;
+- (void)_updateLargePackageVisibility;
+- (void)_updateLockLayout;
+- (void)_updateTrailingGlyph;
+- (void)_updateTrailingPackageVisibility;
+- (void)_updateUnlockModeForState;
+- (void)contentProviderWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 inContainerView:(id)a1 transitionCoordinator:(id)a2;
+- (id)elementHost;
+- (BOOL)handleElementViewEvent:(long long)a0;
+- (BOOL)hasActivityBehavior;
+- (BOOL)isMinimalPresentationPossible;
+- (BOOL)isProvidedViewConcentric:(id)a0 inLayoutMode:(long long)a1;
+- (id)layoutHost;
+- (void)layoutHostContainerViewDidLayoutSubviews:(id)a0;
+- (void)layoutHostContainerViewWillLayoutSubviews:(id)a0;
+- (id)leadingLock;
+- (long long)maximumSupportedLayoutMode;
+- (long long)minimumSupportedLayoutMode;
+- (struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; })preferredEdgeOutsetsForLayoutMode:(long long)a0 suggestedOutsets:(struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; })a1 maximumOutsets:(struct NSDirectionalEdgeInsets { double x0; double x1; double x2; double x3; })a2;
+- (BOOL)preventsSwipeToHide;
+- (id)prominentLock;
+- (void)setBloomed:(BOOL)a0;
+- (void)setLayoutHost:(id)a0;
+- (void)setLayoutMode:(long long)a0 reason:(long long)a1;
+- (BOOL)shouldIgnoreSystemChromeSuppression;
+- (BOOL)shouldSuppressElementWhileOnCoversheet;
+- (BOOL)shouldSuppressElementWhileOverLiquidDetectionCriticalU;
+- (struct CGSize { double x0; double x1; })sizeThatFitsSize:(struct CGSize { double x0; double x1; })a0 forProvidedView:(id)a1 inLayoutMode:(long long)a2;
+- (id)trailingPackageView;
+
+@end

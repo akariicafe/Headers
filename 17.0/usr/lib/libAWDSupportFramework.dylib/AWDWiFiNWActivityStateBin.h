@@ -1,0 +1,23 @@
+@class NSString;
+
+@interface AWDWiFiNWActivityStateBin : PBCodable <NSCopying> {
+    struct { unsigned char residentTime : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasState;
+@property (retain, nonatomic) NSString *state;
+@property (nonatomic) BOOL hasResidentTime;
+@property (nonatomic) unsigned long long residentTime;
+
+- (unsigned long long)hash;
+- (void)dealloc;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

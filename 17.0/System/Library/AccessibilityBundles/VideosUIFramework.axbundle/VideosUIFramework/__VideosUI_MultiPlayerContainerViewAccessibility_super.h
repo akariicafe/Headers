@@ -1,0 +1,3 @@
+@interface __VideosUI_MultiPlayerContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

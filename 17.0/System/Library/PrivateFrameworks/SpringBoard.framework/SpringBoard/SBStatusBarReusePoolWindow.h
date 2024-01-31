@@ -1,0 +1,3 @@
+@interface SBStatusBarReusePoolWindow : UIWindow
+
+@end

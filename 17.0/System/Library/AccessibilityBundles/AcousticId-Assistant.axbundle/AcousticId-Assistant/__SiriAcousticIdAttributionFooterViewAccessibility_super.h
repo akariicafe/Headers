@@ -1,0 +1,3 @@
+@interface __SiriAcousticIdAttributionFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

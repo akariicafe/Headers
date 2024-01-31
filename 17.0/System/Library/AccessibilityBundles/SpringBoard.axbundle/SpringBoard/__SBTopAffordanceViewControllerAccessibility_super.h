@@ -1,0 +1,3 @@
+@interface __SBTopAffordanceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

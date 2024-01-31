@@ -1,0 +1,3 @@
+@interface __SearchHintCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MFEmailSnippetComposeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

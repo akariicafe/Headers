@@ -1,0 +1,3 @@
+@interface HVNotifications : NSObject
+
+@end

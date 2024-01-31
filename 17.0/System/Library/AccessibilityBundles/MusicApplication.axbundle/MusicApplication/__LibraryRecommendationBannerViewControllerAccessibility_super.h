@@ -1,0 +1,3 @@
+@interface __LibraryRecommendationBannerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

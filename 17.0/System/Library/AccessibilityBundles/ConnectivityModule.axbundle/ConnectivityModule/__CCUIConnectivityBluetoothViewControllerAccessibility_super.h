@@ -1,0 +1,3 @@
+@interface __CCUIConnectivityBluetoothViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBFloatingDockViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

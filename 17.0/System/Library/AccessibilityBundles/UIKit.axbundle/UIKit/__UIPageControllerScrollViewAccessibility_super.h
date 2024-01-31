@@ -1,0 +1,3 @@
+@interface __UIPageControllerScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

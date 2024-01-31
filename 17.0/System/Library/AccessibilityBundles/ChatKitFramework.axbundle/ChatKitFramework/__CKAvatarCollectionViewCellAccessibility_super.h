@@ -1,0 +1,3 @@
+@interface __CKAvatarCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

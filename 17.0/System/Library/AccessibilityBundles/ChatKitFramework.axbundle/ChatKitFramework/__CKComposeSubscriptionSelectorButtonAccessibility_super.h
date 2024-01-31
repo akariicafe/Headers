@@ -1,0 +1,3 @@
+@interface __CKComposeSubscriptionSelectorButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

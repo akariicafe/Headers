@@ -1,0 +1,3 @@
+@interface FKBridgingUtilities : NSObject
+
+@end

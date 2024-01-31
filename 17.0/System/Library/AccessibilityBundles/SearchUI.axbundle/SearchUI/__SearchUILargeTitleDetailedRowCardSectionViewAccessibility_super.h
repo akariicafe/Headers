@@ -1,0 +1,3 @@
+@interface __SearchUILargeTitleDetailedRowCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

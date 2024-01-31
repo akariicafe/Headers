@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentMessagesAmountStepperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

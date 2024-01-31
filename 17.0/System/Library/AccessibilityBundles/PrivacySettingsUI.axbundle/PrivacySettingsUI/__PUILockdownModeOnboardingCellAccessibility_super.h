@@ -1,0 +1,3 @@
+@interface __PUILockdownModeOnboardingCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

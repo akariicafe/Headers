@@ -1,0 +1,3 @@
+@interface __SharedFlowPluginServiceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIStatusBarTimeItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

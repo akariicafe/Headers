@@ -1,0 +1,3 @@
+@interface __tvOS_AVUnifiedPlayerContextMenuFocusableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,37 @@
+@class NSString;
+
+@interface MagnifierSupport.LensFreezeFrameScrubber : UIControl <UIScrollViewDelegate> {
+    void /* unknown type, empty encoding */ config;
+    void /* unknown type, empty encoding */ scrollView;
+    void /* unknown type, empty encoding */ shouldHighlight;
+    void /* unknown type, empty encoding */ maskedView;
+    void /* unknown type, empty encoding */ subscribers;
+    void /* unknown type, empty encoding */ buttons;
+    void /* unknown type, empty encoding */ feedbackGenerator;
+    void /* unknown type, empty encoding */ activeItemIndexPath;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_overlayBox;
+    void /* unknown type, empty encoding */ overlayBoxLeadingAnchorConstraint;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_addButton;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_activeItemIndicator;
+    void /* unknown type, empty encoding */ shouldCenterButtonsVerticallyInParent;
+    void /* unknown type, empty encoding */ rotationSubscription;
+}
+
+@property (nonatomic) unsigned long long accessibilityTraits;
+@property (nonatomic) BOOL isAccessibilityElement;
+@property (nonatomic, copy) NSString *accessibilityLabel;
+
+- (void)accessibilityIncrement;
+- (void)accessibilityDecrement;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)scrollViewWillBeginDragging:(id)a0;
+- (void)scrollViewWillEndDragging:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(struct CGPoint { double x0; double x1; } *)a2;
+- (id)_accessibilitySupplementaryFooterViews;
+- (void)didTapAddButton:(id)a0;
+- (void)didTapScrollView:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (id)initWithCoder:(id)a0;
+
+@end

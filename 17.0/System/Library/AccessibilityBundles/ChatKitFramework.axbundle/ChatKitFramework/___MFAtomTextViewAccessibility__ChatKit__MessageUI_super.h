@@ -1,0 +1,3 @@
+@interface ___MFAtomTextViewAccessibility__ChatKit__MessageUI_super : UIAccessibilitySafeCategory
+
+@end

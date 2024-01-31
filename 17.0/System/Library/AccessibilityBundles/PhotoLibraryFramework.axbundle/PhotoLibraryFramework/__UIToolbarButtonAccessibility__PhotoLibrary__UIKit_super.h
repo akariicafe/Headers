@@ -1,0 +1,3 @@
+@interface __UIToolbarButtonAccessibility__PhotoLibrary__UIKit_super : UIAccessibilitySafeCategory
+
+@end

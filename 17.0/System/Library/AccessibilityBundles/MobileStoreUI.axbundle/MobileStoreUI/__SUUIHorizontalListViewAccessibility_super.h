@@ -1,0 +1,3 @@
+@interface __SUUIHorizontalListViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

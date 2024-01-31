@@ -1,0 +1,3 @@
+@interface SUUILaunchErrorViewController : UIViewController
+
+@end

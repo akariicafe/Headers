@@ -1,0 +1,3 @@
+@interface __PromotionalImageryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKHyperlinkBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

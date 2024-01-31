@@ -1,0 +1,3 @@
+@interface VKLocalization : NSObject
+
+@end

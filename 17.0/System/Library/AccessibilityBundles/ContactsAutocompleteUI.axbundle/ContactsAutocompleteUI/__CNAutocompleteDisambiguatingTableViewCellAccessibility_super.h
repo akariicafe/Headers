@@ -1,0 +1,3 @@
+@interface __CNAutocompleteDisambiguatingTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

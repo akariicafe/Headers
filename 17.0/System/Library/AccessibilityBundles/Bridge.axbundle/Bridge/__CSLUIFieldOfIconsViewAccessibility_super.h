@@ -1,0 +1,3 @@
+@interface __CSLUIFieldOfIconsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

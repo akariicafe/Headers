@@ -1,0 +1,3 @@
+@interface __SPUITableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

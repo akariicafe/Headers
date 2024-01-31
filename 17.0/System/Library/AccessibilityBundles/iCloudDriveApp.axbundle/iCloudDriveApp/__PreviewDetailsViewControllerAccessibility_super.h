@@ -1,0 +1,3 @@
+@interface __PreviewDetailsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

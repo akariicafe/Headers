@@ -1,0 +1,3 @@
+@interface __FBApplicationProcessAccessibility_super : UIAccessibilitySafeCategory
+
+@end

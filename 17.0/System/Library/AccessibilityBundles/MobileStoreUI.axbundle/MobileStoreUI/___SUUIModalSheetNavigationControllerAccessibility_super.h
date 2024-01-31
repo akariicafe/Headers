@@ -1,0 +1,3 @@
+@interface ___SUUIModalSheetNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

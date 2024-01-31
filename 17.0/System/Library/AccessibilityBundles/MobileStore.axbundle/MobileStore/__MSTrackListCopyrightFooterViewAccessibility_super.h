@@ -1,0 +1,3 @@
+@interface __MSTrackListCopyrightFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

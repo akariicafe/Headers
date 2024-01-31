@@ -1,0 +1,13 @@
+@class HMIVideoEventBuffer;
+
+@interface HMIVideoTimeline : HMFObject {
+    HMIVideoEventBuffer *_buffer;
+}
+
+- (id)initWithMaxCapacity:(long long)a0;
+- (void).cxx_destruct;
+- (void)addDate:(id)a0 atTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1;
+- (id)dateAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (double)timeIntervalSinceDateAtTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+
+@end

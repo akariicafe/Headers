@@ -1,0 +1,3 @@
+@interface PKPeerPaymentWebServiceResponse : PKWebServiceResponse
+
+@end

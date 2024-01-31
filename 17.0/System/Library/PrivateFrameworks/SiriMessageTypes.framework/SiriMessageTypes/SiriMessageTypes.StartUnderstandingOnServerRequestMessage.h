@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.StartUnderstandingOnServerRequestMessage : SiriMessageTypes.StartRequestMessageBase
+
+@end

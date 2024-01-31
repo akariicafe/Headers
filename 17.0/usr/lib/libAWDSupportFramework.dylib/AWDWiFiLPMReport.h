@@ -1,0 +1,76 @@
+@interface AWDWiFiLPMReport : PBCodable <NSCopying> {
+    struct { unsigned char associatedDuration : 1; unsigned char associatedSleepDuration : 1; unsigned char beaconReceivedInLpas : 1; unsigned char beaconsEarlyTerminatedInLpas : 1; unsigned char beaconsMissedInLpas : 1; unsigned char beaconsScheduledInLpas : 1; unsigned char lpasPowerBudgetRemaining : 1; unsigned char lpasPowerPeriodRemaining : 1; unsigned char phyOffDuration : 1; unsigned char powerConsumedInSelfManagedLPASMode : 1; unsigned char powerConsumptionDueToAWDLRx : 1; unsigned char powerConsumptionDueToAWDLTx : 1; unsigned char powerConsumptionDueToAssocScan : 1; unsigned char powerConsumptionDueToEPNOScan : 1; unsigned char powerConsumptionDueToFRTS : 1; unsigned char powerConsumptionDueToMac : 1; unsigned char powerConsumptionDueToRF : 1; unsigned char powerConsumptionDueToRoamScan : 1; unsigned char powerConsumptionDueToRx : 1; unsigned char powerConsumptionDueToTx : 1; unsigned char powerConsumptionDueToUserScan : 1; unsigned char receiveDuration : 1; unsigned char roamDuration : 1; unsigned char sleepDuration : 1; unsigned char timestamp : 1; unsigned char totalLPASDuration : 1; unsigned char totalLpasPowerBudget : 1; unsigned char totalLpasPowerMonitoringPeriod : 1; unsigned char totalTimeForBugetExpiry : 1; unsigned char transmitDuration : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) BOOL hasAssociatedDuration;
+@property (nonatomic) unsigned long long associatedDuration;
+@property (nonatomic) BOOL hasSleepDuration;
+@property (nonatomic) unsigned long long sleepDuration;
+@property (nonatomic) BOOL hasRoamDuration;
+@property (nonatomic) unsigned long long roamDuration;
+@property (nonatomic) BOOL hasPhyOffDuration;
+@property (nonatomic) unsigned long long phyOffDuration;
+@property (nonatomic) BOOL hasTransmitDuration;
+@property (nonatomic) unsigned long long transmitDuration;
+@property (nonatomic) BOOL hasReceiveDuration;
+@property (nonatomic) unsigned long long receiveDuration;
+@property (nonatomic) BOOL hasTotalLPASDuration;
+@property (nonatomic) unsigned long long totalLPASDuration;
+@property (nonatomic) BOOL hasPowerConsumedInSelfManagedLPASMode;
+@property (nonatomic) unsigned long long powerConsumedInSelfManagedLPASMode;
+@property (nonatomic) BOOL hasPowerConsumptionDueToMac;
+@property (nonatomic) unsigned long long powerConsumptionDueToMac;
+@property (nonatomic) BOOL hasPowerConsumptionDueToRF;
+@property (nonatomic) unsigned long long powerConsumptionDueToRF;
+@property (nonatomic) BOOL hasPowerConsumptionDueToUserScan;
+@property (nonatomic) unsigned long long powerConsumptionDueToUserScan;
+@property (nonatomic) BOOL hasPowerConsumptionDueToRoamScan;
+@property (nonatomic) unsigned long long powerConsumptionDueToRoamScan;
+@property (nonatomic) BOOL hasPowerConsumptionDueToAssocScan;
+@property (nonatomic) unsigned long long powerConsumptionDueToAssocScan;
+@property (nonatomic) BOOL hasPowerConsumptionDueToEPNOScan;
+@property (nonatomic) unsigned long long powerConsumptionDueToEPNOScan;
+@property (nonatomic) BOOL hasPowerConsumptionDueToTx;
+@property (nonatomic) unsigned long long powerConsumptionDueToTx;
+@property (nonatomic) BOOL hasPowerConsumptionDueToRx;
+@property (nonatomic) unsigned long long powerConsumptionDueToRx;
+@property (nonatomic) BOOL hasPowerConsumptionDueToFRTS;
+@property (nonatomic) unsigned long long powerConsumptionDueToFRTS;
+@property (nonatomic) BOOL hasPowerConsumptionDueToAWDLTx;
+@property (nonatomic) unsigned long long powerConsumptionDueToAWDLTx;
+@property (nonatomic) BOOL hasPowerConsumptionDueToAWDLRx;
+@property (nonatomic) unsigned long long powerConsumptionDueToAWDLRx;
+@property (nonatomic) BOOL hasBeaconReceivedInLpas;
+@property (nonatomic) unsigned long long beaconReceivedInLpas;
+@property (nonatomic) BOOL hasBeaconsMissedInLpas;
+@property (nonatomic) unsigned long long beaconsMissedInLpas;
+@property (nonatomic) BOOL hasBeaconsEarlyTerminatedInLpas;
+@property (nonatomic) unsigned long long beaconsEarlyTerminatedInLpas;
+@property (nonatomic) BOOL hasBeaconsScheduledInLpas;
+@property (nonatomic) unsigned long long beaconsScheduledInLpas;
+@property (nonatomic) BOOL hasTotalLpasPowerBudget;
+@property (nonatomic) unsigned long long totalLpasPowerBudget;
+@property (nonatomic) BOOL hasLpasPowerBudgetRemaining;
+@property (nonatomic) unsigned long long lpasPowerBudgetRemaining;
+@property (nonatomic) BOOL hasTotalLpasPowerMonitoringPeriod;
+@property (nonatomic) unsigned long long totalLpasPowerMonitoringPeriod;
+@property (nonatomic) BOOL hasLpasPowerPeriodRemaining;
+@property (nonatomic) unsigned long long lpasPowerPeriodRemaining;
+@property (nonatomic) BOOL hasAssociatedSleepDuration;
+@property (nonatomic) unsigned long long associatedSleepDuration;
+@property (nonatomic) BOOL hasTotalTimeForBugetExpiry;
+@property (nonatomic) unsigned long long totalTimeForBugetExpiry;
+
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

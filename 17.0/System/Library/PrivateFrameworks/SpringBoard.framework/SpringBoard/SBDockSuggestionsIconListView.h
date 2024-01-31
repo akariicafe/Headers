@@ -1,0 +1,3 @@
+@interface SBDockSuggestionsIconListView : SBFloatingDockIconListView
+
+@end

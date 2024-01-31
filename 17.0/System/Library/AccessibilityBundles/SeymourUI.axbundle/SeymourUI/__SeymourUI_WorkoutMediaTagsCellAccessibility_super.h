@@ -1,0 +1,3 @@
+@interface __SeymourUI_WorkoutMediaTagsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

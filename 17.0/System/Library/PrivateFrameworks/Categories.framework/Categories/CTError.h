@@ -1,0 +1,3 @@
+@interface CTError : NSError
+
+@end

@@ -1,0 +1,5 @@
+@interface DeepThoughtBiomeFoundation.BiomeAggregatedStream : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ streamsToType;
+}
+
+@end

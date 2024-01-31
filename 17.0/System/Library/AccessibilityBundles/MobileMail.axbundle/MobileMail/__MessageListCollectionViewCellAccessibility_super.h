@@ -1,0 +1,3 @@
+@interface __MessageListCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

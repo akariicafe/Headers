@@ -1,0 +1,85 @@
+@class MFGraphicsDevice;
+
+@interface WMFPlayer : NSObject {
+    MFGraphicsDevice *m_gdi;
+    int m_records;
+    unsigned short m_windowsVersion;
+    BOOL m_boundsSet;
+    BOOL m_ignoreSetWindowOrg;
+}
+
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsInPoints:(id)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })boundsInLogicalUnits:(id)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })placeableBounds:(const char *)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })windowBounds:(id)a0;
+
+- (int)records;
+- (void)done;
+- (void).cxx_destruct;
+- (int)playExcludeClipRect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playOffsetWindowOrg:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetPolyFillMode:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (id)initWithGraphicsDevice:(id)a0;
+- (id)parseRegion:(unsigned int)a0 in_pData:(const char *)a1;
+- (int)play:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playArc:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playBitBlt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playChord:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreateBrushIndirect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreateDIBPatternBrush:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreateFontIndirect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreatePalette:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreatePatternBrush:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreatePenIndirect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playCreateRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playDeleteObject:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playDibBitBlt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playDibStretchBlt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playEllipse:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playExtTextOut:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playFillRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playFrameRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playHeader:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playIntersectClipRect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playInvertRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playLineTo:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playMoveTo:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playOffsetClipRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playOffsetViewportOrg:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPaintRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPatBlt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPie:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPolyPolygon:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPolygon:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playPolyline:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playRealizePalette:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playRectangle:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playResizePalette:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playRestoreDC:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playRoundRect:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSaveDC:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playScaleViewportExt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playScaleWindowExt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSelectClipRegion:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSelectObject:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSelectPalette:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetBkColour:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetBkMode:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetMapMode:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetPaletteEntries:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetROP2:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetStretchBltMode:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetTextAlign:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetTextCharExtra:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetTextColour:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetTextJustification:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetViewportExt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetViewportOrg:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetWindowExt:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playSetWindowOrg:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playStretchDib:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playTextOut:(unsigned int)a0 in_pRecord:(const char *)a1;
+- (int)playUnknown:(unsigned int)a0 in_recordType:(unsigned int)a1 in_pRecord:(const char *)a2;
+- (int)playUnsupported:(unsigned int)a0 in_recordName:(const char *)a1 in_pRecord:(const char *)a2;
+
+@end

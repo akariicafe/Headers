@@ -1,0 +1,3 @@
+@interface __TextViewWithPlaceHolderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

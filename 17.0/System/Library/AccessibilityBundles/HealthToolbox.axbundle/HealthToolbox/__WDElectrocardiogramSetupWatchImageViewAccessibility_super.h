@@ -1,0 +1,3 @@
+@interface __WDElectrocardiogramSetupWatchImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

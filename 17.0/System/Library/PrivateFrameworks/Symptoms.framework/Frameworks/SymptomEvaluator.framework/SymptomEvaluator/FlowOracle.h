@@ -1,0 +1,97 @@
+@class StrictlyPeriodicAVFlowDetector, NSSet, FlowOriginLedger, NSMutableSet, NSString, ContinuousAVFlowDetector, FlowScrutinizer;
+
+@interface FlowOracle : NSObject <FlowScheduledRefreshDelegate> {
+    NSMutableSet *_expectedTransferOrigins;
+    NSMutableSet *_coreMediaAssetDownloadOrigins;
+    NSMutableSet *_likelyBelowThresholdAVFlows;
+    NSMutableSet *_likelyOverThresholdAVFlows;
+    NSMutableSet *_suppressedAVFlows;
+    NSMutableSet *_accumulatedTransferOrigins;
+    NSMutableSet *_accumulatedCoreMediaAssetDownloadOrigins;
+    ContinuousAVFlowDetector *_continuousAVDetector;
+    StrictlyPeriodicAVFlowDetector *_strictlyPeriodicAVDetector;
+    double _prevStateRefreshTimestamp;
+    double _prevStateRefreshTimestampForTputEstimates;
+    double _olderSateRefreshTimestampForTputEstimates;
+    BOOL _avUseCasesSupported;
+    unsigned int _cellNonCoreMediaAudioVideoOperation;
+    double _averageCellAudioVideoTrafficClassRxThroughput;
+    double _averageCellAudioVideoTrafficClassTxThroughput;
+    double _thresholdAudioVideoFlowsClassifiedIntensive;
+    unsigned long long _maxAppFlowMetricForAVDetermination;
+    double _coreMediaAssetDownloadThresholdFailureQuarantineTime;
+    double _minThroughputForNonIdleNonCoreMedia;
+}
+
+@property (retain, nonatomic) FlowScrutinizer *flowScrutinizer;
+@property (readonly, nonatomic) int activeLimitedThroughputAudioVideoTrafficForegroundFlowScore;
+@property (readonly, nonatomic) int activeHighThroughputAudioVideoTrafficForegroundFlowScore;
+@property (readonly, nonatomic) unsigned long long numLowerThresholdTransferSizes;
+@property (readonly, nonatomic) unsigned long long numUpperThresholdTransferSizes;
+@property (readonly, nonatomic) unsigned long long numActiveTransferSizes;
+@property (readonly, nonatomic) unsigned long long numCloakedTransferSizes;
+@property (readonly, nonatomic) double transferSizeRelatedRecentTotalThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentTotalRxThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentTotalTxThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentCellThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentCellRxThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentCellTxThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentWiFiThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentWiFiRxThroughput;
+@property (readonly, nonatomic) double transferSizeRelatedRecentWiFiTxThroughput;
+@property (readonly, nonatomic) unsigned long long numCandidateCoreMediaAssetDownloads;
+@property (readonly, nonatomic) unsigned long long numActiveCoreMediaAssetDownloads;
+@property (readonly, nonatomic) double coreMediaAssetDownloadRelatedRecentThroughput;
+@property (readonly, nonatomic) double backgroundCellTransferRecentThroughput;
+@property (readonly, nonatomic) double backgroundWiFiTransferRecentThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedConservativeHighCellInterfaceThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedResponsiveHighCellInterfaceThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedHighCellInterfaceRxThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedHighCellInterfaceTxThroughput;
+@property (readonly, nonatomic) double busiestCellOriginRecentThroughput;
+@property (readonly, nonatomic) FlowOriginLedger *busiestCellOrigin;
+@property (readonly, nonatomic) BOOL hasSustainedConservativeHighWiFiInterfaceThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedResponsiveHighWiFiInterfaceThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedHighWiFiInterfaceRxThroughput;
+@property (readonly, nonatomic) BOOL hasSustainedHighWiFiInterfaceTxThroughput;
+@property (readonly, nonatomic) double busiestWiFiOriginRecentThroughput;
+@property (readonly, nonatomic) FlowOriginLedger *busiestWiFiOrigin;
+@property (readonly, nonatomic) unsigned int cellNonCoreMediaAudioVideoOperation;
+@property (readonly, nonatomic) double averageCellAudioVideoTrafficClassRxThroughput;
+@property (readonly, nonatomic) double averageCellAudioVideoTrafficClassTxThroughput;
+@property (readonly, nonatomic) NSSet *transferContributors;
+@property (readonly, nonatomic) NSMutableSet *highCellInterfaceUseContributors;
+@property (readonly, nonatomic) NSSet *coreMediaAssetDownloadContributors;
+@property (readonly, nonatomic) NSSet *allContributors;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
+
+- (void)restoreDefaults;
+- (id)init;
+- (void)_clearState;
+- (int)setConfiguration:(id)a0;
+- (int)didPollFlowsCallbackOrder;
+- (void).cxx_destruct;
+- (id)getState:(BOOL)a0;
+- (void)didPollFlowsAt:(double)a0 periodic:(BOOL)a1;
+- (void)applyFlowHeuristics:(id)a0 onBehalfOf:(id)a1;
+- (void)markTransferSizeFlowsAsInactive;
+- (void)evaluatePossibleAVFlows:(id)a0 currentFlowCount:(unsigned long long)a1 activeFlowCount:(unsigned long long)a2;
+- (BOOL)flowQualfiesForAVHeuristics:(id)a0;
+- (BOOL)hadZeroCellInterfaceTrafficForLast:(double)a0;
+- (BOOL)hadZeroWiFiInterfaceTrafficForLast:(double)a0;
+- (void)logCellInterfaceUseContributors:(unsigned long long)a0;
+- (void)logCoreMediaAssetDownloadContributors:(unsigned long long)a0;
+- (void)logTransferContributors:(unsigned long long)a0;
+- (void)markCoreMediaAssetDownloadsAsActive;
+- (void)markCoreMediaAssetDownloadsAsInactiveAt:(double)a0;
+- (void)markTransferSizeFlowsAsActive;
+- (void)refreshState:(id)a0;
+- (void)refreshTransferSizeState;
+- (void)startSamplingPeriod:(id)a0;
+
+@end

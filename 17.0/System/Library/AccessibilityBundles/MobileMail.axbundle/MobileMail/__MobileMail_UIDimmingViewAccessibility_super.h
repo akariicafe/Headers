@@ -1,0 +1,3 @@
+@interface __MobileMail_UIDimmingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

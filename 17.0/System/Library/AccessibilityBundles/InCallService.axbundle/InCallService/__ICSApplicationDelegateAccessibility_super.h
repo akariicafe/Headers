@@ -1,0 +1,3 @@
+@interface __ICSApplicationDelegateAccessibility_super : UIAccessibilitySafeCategory
+
+@end

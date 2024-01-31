@@ -1,0 +1,3 @@
+@interface __PKReaderModeHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

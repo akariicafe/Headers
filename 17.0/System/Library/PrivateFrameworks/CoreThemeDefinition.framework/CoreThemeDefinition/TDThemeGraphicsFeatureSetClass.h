@@ -1,0 +1,3 @@
+@interface TDThemeGraphicsFeatureSetClass : TDThemeConstant
+
+@end

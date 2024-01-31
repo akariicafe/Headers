@@ -1,0 +1,3 @@
+@interface __NowPlayingShuffleButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

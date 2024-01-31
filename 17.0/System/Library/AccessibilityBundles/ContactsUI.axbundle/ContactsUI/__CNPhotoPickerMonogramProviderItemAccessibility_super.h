@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerMonogramProviderItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

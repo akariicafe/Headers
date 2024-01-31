@@ -1,0 +1,3 @@
+@interface ATXAnchorModelPredictionSchedulerGuardedData : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBHAddWidgetDetailSheetTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

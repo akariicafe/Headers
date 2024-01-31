@@ -1,0 +1,3 @@
+@interface __HKMedicalIDViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

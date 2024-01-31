@@ -1,0 +1,3 @@
+@interface __SBIsolatedSceneOrientationFollowingWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKApplyOfferCreditCardViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

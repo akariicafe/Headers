@@ -1,0 +1,3 @@
+@interface _TtC26MedicationsHealthAppPluginP33_023050CE07382EFEAEF8A2A6045BFE4D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

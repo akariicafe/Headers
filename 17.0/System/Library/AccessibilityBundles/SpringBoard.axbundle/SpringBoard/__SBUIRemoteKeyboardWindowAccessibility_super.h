@@ -1,0 +1,3 @@
+@interface __SBUIRemoteKeyboardWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

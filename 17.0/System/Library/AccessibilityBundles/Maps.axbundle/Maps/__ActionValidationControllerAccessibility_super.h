@@ -1,0 +1,3 @@
+@interface __ActionValidationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKTransactionHistoryTransactionGroupHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

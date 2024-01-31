@@ -1,0 +1,3 @@
+@interface ___TVSwipeUpMessageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

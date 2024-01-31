@@ -1,0 +1,3 @@
+@interface __PSSpecifierAccessibility__MobileMail__Preferences_super : UIAccessibilitySafeCategory
+
+@end

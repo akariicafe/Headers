@@ -1,0 +1,81 @@
+@class NSObject, CKConversationListCellLayout, CKDateLabel, NSString, UIImageView, CKConversation, UIButton, CKLabel, CAGradientLayer, CKConversationListTypingIndicatorView, UILabel, CKAvatarView;
+@protocol CKConversationListCellDelegate;
+
+@interface CKConversationListCell : UITableViewCell <CKConversationListCell>
+
+@property (retain, nonatomic) CKDateLabel *dateLabel;
+@property (retain, nonatomic) UILabel *summaryLabel;
+@property (retain, nonatomic) UIButton *closeButton;
+@property (retain, nonatomic) UIImageView *chevronImageView;
+@property (retain, nonatomic) CKLabel *fromLabel;
+@property (nonatomic) BOOL verified;
+@property (nonatomic) BOOL shouldLabelsBeHighlighted;
+@property (nonatomic) BOOL isStewie;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } containerBounds;
+@property (nonatomic) BOOL freezeSummaryText;
+@property (retain, nonatomic) CKConversation *conversation;
+@property (nonatomic) BOOL _editingPins;
+@property (readonly, nonatomic) CKAvatarView *avatarView;
+@property (readonly, nonatomic) CAGradientLayer *gradient;
+@property (retain, nonatomic) UIImageView *muteIndicatorImageView;
+@property (retain, nonatomic) CKConversationListTypingIndicatorView *typingIndicatorView;
+@property (nonatomic, getter=isMuted) BOOL muted;
+@property (nonatomic, getter=isPlaceholder) BOOL placeholder;
+@property (readonly, nonatomic) UILabel *summaryBlockedLabel;
+@property (nonatomic) BOOL shouldHidePreviewSummary;
+@property (weak, nonatomic) NSObject<CKConversationListCellDelegate> *delegate;
+@property (retain, nonatomic) CKConversationListCellLayout *cellLayout;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (long long)_titleIconImageTypeForConversation:(id)a0;
++ (double)cellHeightForDisplayScale:(double)a0;
++ (id)identifierForConversation:(id)a0;
+
+- (void)_contentSizeCategoryDidChange:(id)a0;
+- (void)dealloc;
+- (void)prepareForReuse;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (void)contentSizeCategoryDidChange;
+- (void).cxx_destruct;
+- (id)initWithStyle:(long long)a0 reuseIdentifier:(id)a1;
+- (void)setSelected:(BOOL)a0 animated:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)updateUnreadIndicatorWithImage:(id)a0;
+- (void)_increaseContrastDidChange:(id)a0;
+- (id)_makeSummaryAttributedStringWithText:(id)a0 multiwayConversation:(id)a1;
+- (void)_performBlock:(id /* block */)a0 animated:(BOOL)a1;
+- (void)_prependSummaryLabelWithSIMForConversation:(id)a0;
+- (void)_simLabelImageDidChange:(id)a0;
+- (void)deleteButtonTapped;
+- (void)didHoverOverCell:(id)a0;
+- (BOOL)hasUnreadMessagesForConversation:(id)a0;
+- (void)increaseContrastDidChange;
+- (BOOL)lastMessageIsTypingIndicator;
+- (void)setEditingPins:(BOOL)a0 animated:(BOOL)a1;
+- (BOOL)shouldAlwaysHideAvatar;
+- (BOOL)shouldAlwaysHideUnreadIndicatorForConversation:(id)a0;
+- (BOOL)shouldAppearAsRecoverableConversation;
+- (BOOL)shouldHideMuteIndicator;
+- (BOOL)showingEditControl;
+- (void)simLabelImageDidChange;
+- (id)summaryAttributedTextForBlockedConversationWithIcon:(BOOL)a0;
+- (id)summaryLabelTextColor;
+- (id)unreadIndicatorImageForVisibility:(BOOL)a0 withMuteState:(BOOL)a1;
+- (unsigned long long)unreadMessageCount;
+- (void)updateBlockedSummaryLabelIfNeeded;
+- (void)updateContentsForConversation:(id)a0;
+- (void)updateContentsForConversation:(id)a0 fastPreview:(BOOL)a1;
+- (void)updateDateLabel:(id)a0 conversation:(id)a1;
+- (void)updateForEditing:(BOOL)a0;
+- (void)updateFromLabelWithText:(id)a0;
+- (void)updateLabelTextColors;
+- (void)updateMuteIndicatorColor;
+- (void)updateSummaryLabel:(id)a0 conversation:(id)a1 fastPreview:(BOOL)a2;
+- (void)updateUnreadIndicatorForCurrentConversation;
+- (void)updateVerifiedCheckmarkForBusiness;
+- (void)updateWithForwardedConfigurationState:(id)a0;
+
+@end

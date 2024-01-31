@@ -1,0 +1,3 @@
+@interface HKScoredAssessmentType : HKSampleType
+
+@end

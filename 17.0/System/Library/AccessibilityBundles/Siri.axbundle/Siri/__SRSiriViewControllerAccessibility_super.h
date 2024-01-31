@@ -1,0 +1,3 @@
+@interface __SRSiriViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

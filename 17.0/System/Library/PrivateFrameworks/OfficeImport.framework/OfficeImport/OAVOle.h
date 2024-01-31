@@ -1,0 +1,3 @@
+@interface OAVOle : NSObject
+
+@end

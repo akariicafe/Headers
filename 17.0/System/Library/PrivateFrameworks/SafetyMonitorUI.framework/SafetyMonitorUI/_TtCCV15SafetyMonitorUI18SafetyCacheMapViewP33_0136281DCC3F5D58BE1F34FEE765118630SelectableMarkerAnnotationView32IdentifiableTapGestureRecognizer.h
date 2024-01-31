@@ -1,0 +1,5 @@
+@interface _TtCCV15SafetyMonitorUI18SafetyCacheMapViewP33_0136281DCC3F5D58BE1F34FEE765118630SelectableMarkerAnnotationView32IdentifiableTapGestureRecognizer : UITapGestureRecognizer
+
+- (id)initWithTarget:(id)a0 action:(SEL)a1;
+
+@end

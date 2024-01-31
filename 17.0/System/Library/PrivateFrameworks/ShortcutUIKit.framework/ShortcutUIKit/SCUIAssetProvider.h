@@ -1,0 +1,13 @@
+@class NSURL, _UIAssetManager;
+
+@interface SCUIAssetProvider : NSObject {
+    NSURL *_bundleURL;
+    _UIAssetManager *_assetManager;
+}
+
+- (id)_assetManager;
+- (id)initWithBundleURL:(id)a0;
+- (id)imageNamed:(id)a0;
+- (void).cxx_destruct;
+
+@end

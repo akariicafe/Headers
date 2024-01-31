@@ -1,0 +1,3 @@
+@interface __MTATableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

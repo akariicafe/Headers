@@ -1,0 +1,3 @@
+@interface __SUUIGiftThemePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

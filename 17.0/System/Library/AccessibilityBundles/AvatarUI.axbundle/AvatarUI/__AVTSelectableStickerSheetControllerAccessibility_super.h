@@ -1,0 +1,3 @@
+@interface __AVTSelectableStickerSheetControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

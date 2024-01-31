@@ -1,0 +1,3 @@
+@interface __UGCPOIEnrichmentHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

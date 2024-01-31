@@ -1,0 +1,3 @@
+@interface ___TVListSectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

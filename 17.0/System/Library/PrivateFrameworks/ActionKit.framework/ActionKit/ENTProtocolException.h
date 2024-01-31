@@ -1,0 +1,3 @@
+@interface ENTProtocolException : ENTException
+
+@end

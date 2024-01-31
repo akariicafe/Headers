@@ -1,0 +1,3 @@
+@interface __IOSBasedChromeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

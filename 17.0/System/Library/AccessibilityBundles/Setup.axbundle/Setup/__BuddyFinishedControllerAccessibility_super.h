@@ -1,0 +1,3 @@
+@interface __BuddyFinishedControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

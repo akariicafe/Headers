@@ -1,0 +1,3 @@
+@interface __NCNotificationStructuredSectionListAccessibility_super : UIAccessibilitySafeCategory
+
+@end

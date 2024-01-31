@@ -1,0 +1,3 @@
+@interface __SeymourUI_ActivityTypeIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

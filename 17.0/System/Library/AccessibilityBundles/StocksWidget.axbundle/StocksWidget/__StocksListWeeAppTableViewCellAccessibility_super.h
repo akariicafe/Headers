@@ -1,0 +1,3 @@
+@interface __StocksListWeeAppTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

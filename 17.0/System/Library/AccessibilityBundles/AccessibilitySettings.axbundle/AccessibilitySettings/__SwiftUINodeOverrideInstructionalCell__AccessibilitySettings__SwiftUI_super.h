@@ -1,0 +1,3 @@
+@interface __SwiftUINodeOverrideInstructionalCell__AccessibilitySettings__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

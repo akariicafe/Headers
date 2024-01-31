@@ -1,0 +1,3 @@
+@interface __SeymourUI_GuidedWorkoutBrickRowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

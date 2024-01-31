@@ -1,0 +1,3 @@
+@interface __SLDisambiguationCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

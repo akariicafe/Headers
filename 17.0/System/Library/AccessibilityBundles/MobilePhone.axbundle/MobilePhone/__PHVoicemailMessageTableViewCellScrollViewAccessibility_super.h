@@ -1,0 +1,3 @@
+@interface __PHVoicemailMessageTableViewCellScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

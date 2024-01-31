@@ -1,0 +1,3 @@
+@interface TRITripersistedClientBmltartifactRoot : TRIPBRootObject
+
+@end

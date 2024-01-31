@@ -1,0 +1,3 @@
+@interface __SBRecordingIndicatorViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,83 @@
+@class AVCStatisticsCollector, VCRateControlServerBag, SenderLargeFrameInfo;
+
+@interface VCRateControlMediaController : NSObject {
+    id _mediaControllerDelegate;
+    unsigned int _audioSendingBitrate;
+    unsigned int _minTargetBitrate;
+    BOOL _isVideoStoppedByBaseband;
+    BOOL _isVideoPausedByUser;
+    BOOL _isBasebandFlushing;
+    BOOL _isAudioStall;
+    double _lastAudioFractionChangeTime;
+    double _lastAudioEnoughRateTime;
+    unsigned char _videoPayloadType;
+    unsigned int _videoRefreshFrameTimestamp;
+    unsigned int _videoRefreshFramePacketCount;
+    double _lastVideoKeyFrameTime;
+    SenderLargeFrameInfo *_senderLargeFrameInfo;
+    unsigned int _probingLargeFrameSizeCap;
+    BOOL _shouldDisableLargeFrameRequestsWhenInitialRampUp;
+    BOOL _isRateLimitedMaxTimeExceeded;
+    double _minProbingSpacingAggressive;
+    double _lastBasebandFlushAudioTime;
+    double _lastBasebandFlushVideoTime;
+    unsigned short _videoFlushTransactionID;
+    unsigned int _audioStallBitrate;
+    double _lastAudioStallFlushTime;
+    unsigned int _basebandAverageBitrate;
+    unsigned int _basebandAverageBitrateShort;
+    unsigned int _basebandTotalQueueDepth;
+    unsigned int _basebandFlushableQueueDepth;
+    double _basebandExpectedQueuingDelay;
+    double _basebandNBDCD;
+    double _lastBasebandHighNBDCDTime;
+    BOOL _isBasebandQueuingDelayHigh;
+    void *_logBasebandDump;
+    void *_logBWEDump;
+    BOOL _fromSmartBrake;
+}
+
+@property (retain, nonatomic) AVCStatisticsCollector *statisticsCollector;
+@property (nonatomic) unsigned int videoSendingBitrate;
+@property (readonly, nonatomic) unsigned int targetBitrate;
+@property (nonatomic) int basebandFlushCount;
+@property (nonatomic) double lastBasebandFlushCountChangeTime;
+@property (readonly, nonatomic) int basebandFlushedVideoCount;
+@property (readonly, nonatomic) int basebandFlushedAudioCount;
+@property (readonly, nonatomic) BOOL isVideoStoppedByVCRateControl;
+@property (readonly, nonatomic) BOOL isInThrottlingMode;
+@property (nonatomic) BOOL allowVideoStop;
+@property (nonatomic) BOOL isSenderProbingEnabled;
+@property (nonatomic) BOOL isAudioOnly;
+@property (readonly, nonatomic) unsigned int probingLargeFrameSize;
+@property (readonly, nonatomic) unsigned int probingSequencePacketCount;
+@property (readonly, nonatomic) unsigned int probingSequencePacketSize;
+@property (nonatomic) unsigned int afrcRemoteEstimatedBandwidth;
+@property (nonatomic) BOOL isRTPFlushBasebandFromVCRateControl;
+@property (readonly, nonatomic) int audioFractionTier;
+@property (readonly, nonatomic) double lastVideoRefreshFrameTime;
+@property (nonatomic) BOOL enableAggressiveProbingSequence;
+@property (retain, nonatomic) VCRateControlServerBag *serverBag;
+@property (nonatomic) struct tagVCMediaQueue { } *vcMediaQueue;
+@property (nonatomic) struct tagHANDLE { int x0; } *mediaQueue;
+@property (nonatomic) BOOL isRemoteAudioPaused;
+
+- (void)dealloc;
+- (void)decreaseFlushCount:(int)a0;
+- (BOOL)didMediaGetFlushedWithPayloadType:(unsigned char)a0 transactionID:(unsigned short)a1 packetDropped:(unsigned short)a2 sequenceNumberArray:(unsigned short *)a3;
+- (void)enableBasebandLogDump:(void *)a0;
+- (BOOL)increaseFlushCountForAudioStall:(int)a0 audioStallBitrate:(unsigned int)a1;
+- (BOOL)increaseFlushCountForVideoRefresh:(int)a0 transactionID:(unsigned short)a1;
+- (id)initWithMediaQueue:(struct tagHANDLE { int x0; } *)a0 delegate:(id)a1;
+- (BOOL)isProbingLargeFrameRequiredAtTime:(double)a0;
+- (void)pauseVideoByUser:(BOOL)a0;
+- (void)printLargeFrameStatsAtTime:(double)a0 timestamp:(unsigned int)a1 timeSinceLastProbingSequence:(double)a2 frameSize:(unsigned int)a3 wastedBytes:(unsigned int)a4 fecRatio:(double)a5 isFrameRequested:(BOOL)a6;
+- (BOOL)rampUpAudioFraction;
+- (void)recordVideoRefreshFrameWithTimestamp:(unsigned int)a0 payloadType:(unsigned char)a1 packetCount:(unsigned int)a2 isKeyFrame:(BOOL)a3;
+- (void)scheduleProbingSequenceAtTime:(double)a0;
+- (void)scheduleProbingSequenceWithFrameSize:(unsigned int)a0 paddingBytes:(unsigned int)a1 timestamp:(unsigned int)a2 fecRatio:(double)a3 isProbingSequenceScheduled:(BOOL *)a4;
+- (void)setTargetBitrate:(unsigned int)a0;
+- (void)updateLargeFrameSizeWithBandwidth:(unsigned int)a0;
+- (void)updateProbingLargeFrameSizeCap;
+
+@end

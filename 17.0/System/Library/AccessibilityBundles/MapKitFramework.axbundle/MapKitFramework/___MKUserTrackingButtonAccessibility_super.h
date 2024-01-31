@@ -1,0 +1,3 @@
+@interface ___MKUserTrackingButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

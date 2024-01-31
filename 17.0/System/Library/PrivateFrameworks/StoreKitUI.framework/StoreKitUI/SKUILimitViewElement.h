@@ -1,0 +1,3 @@
+@interface SKUILimitViewElement : SKUIViewElement
+
+@end

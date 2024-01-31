@@ -1,0 +1,71 @@
+@class WFContextualActionSpotlightSyncService, WFDatabase, NSString, HMHomeManager, WFTopHitsAppShortcutsUpdater;
+@protocol WFDatabaseProvider;
+
+@interface VCVoiceShortcutManager : NSObject <HMHomeManagerDelegate>
+
+@property (readonly, nonatomic) HMHomeManager *homeManager;
+@property (retain, nonatomic) WFTopHitsAppShortcutsUpdater *appShortcutsUpdater;
+@property (retain, nonatomic) WFContextualActionSpotlightSyncService *contextualActionSyncService;
+@property (readonly, nonatomic) WFDatabase *database;
+@property (readonly, nonatomic) id<WFDatabaseProvider> databaseProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)createSleepWorkflow:(id)a0 completion:(id /* block */)a1;
+- (void)updateAppShortcutsWithCompletion:(id /* block */)a0;
+- (void)getSpotlightAutoShortcutsEnablementForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)serializedParametersForAppEntityIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)deleteSleepWorkflowWithIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)triggerFullContextualActionReindexWithCompletion:(id /* block */)a0;
+- (void)setSpotlightAutoShortcutsEnablement:(BOOL)a0 forBundleIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)storeSerializedParameters:(id)a0 forAppEntityIdentifier:(id)a1 queryName:(id)a2 completion:(id /* block */)a3;
+- (void)removeAllSerializedParametersForQueryName:(id)a0 completion:(id /* block */)a1;
+- (void)getSiriAutoShortcutsEnablementForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (void)getResultsForQuery:(id)a0 resultClass:(Class)a1 completion:(id /* block */)a2;
+- (void)getInactiveAppsWithAccessSpecifier:(id)a0 completion:(id /* block */)a1;
+- (BOOL)phraseHasHomeKitConflict:(id)a0;
+- (void)archiveAction:(id)a0 withActionMetadata:(id)a1 completion:(id /* block */)a2;
+- (void)updateVoiceShortcutWithIdentifier:(id)a0 phrase:(id)a1 shortcut:(id)a2 accessSpecifier:(id)a3 completion:(id /* block */)a4;
+- (BOOL)isPhraseUsable:(id)a0 inDatabase:(id)a1 error:(id *)a2;
+- (void)getLinkActionWithAppBundleIdentifier:(id)a0 appIntentIdentifier:(id)a1 serializedParameterStates:(id)a2 completion:(id /* block */)a3;
+- (void)addVoiceShortcut:(id)a0 phrase:(id)a1 accessSpecifier:(id)a2 completion:(id /* block */)a3;
+- (void)getVoiceShortcutsForAppsWithBundleIdentifiers:(id)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)deleteStaleSuggestions;
+- (void)getSleepActionSuggestionsForAllAppsFilteringBySleep:(BOOL)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)getVoiceShortcutWithIdentifier:(id)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)isAutoShortcutDisabledForBundleIdentifier:(id)a0 autoShortcutIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)unarchiveActionFromData:(id)a0 withActionMetadata:(id)a1 completion:(id /* block */)a2;
+- (void)getMigratedAppIntentWithINIntent:(id)a0 completion:(id /* block */)a1;
+- (id)initWithDatabaseProvider:(id)a0 eventHandler:(id)a1 appShortcutsUpdater:(id)a2 contextualActionSyncService:(id)a3;
+- (void)getLinkActionWithAppBundleIdentifier:(id)a0 appIntentIdentifier:(id)a1 expandingParameterName:(id)a2 limit:(long long)a3 completion:(id /* block */)a4;
+- (void)setShortcutSuggestions:(id)a0 forAppWithBundleIdentifier:(id)a1 accessSpecifier:(id)a2;
+- (void)getValueForDescriptor:(id)a0 resultClass:(Class)a1 completion:(id /* block */)a2;
+- (BOOL)lsDatabaseChangedSinceLastCheck;
+- (void)deleteVoiceShortcutWithIdentifier:(id)a0 name:(id)a1 accessSpecifier:(id)a2 completion:(id /* block */)a3;
+- (void)getSleepActionSuggestionsForAppWithBundleIdentifier:(id)a0 accessSpecifier:(id)a1 options:(unsigned long long)a2 completion:(id /* block */)a3;
+- (void)requestDataMigrationWithCompletion:(id /* block */)a0;
+- (void)applicationWasUnregistered:(id)a0;
+- (void)setAutoShortcutDisabledForBundleIdentifier:(id)a0 autoShortcutDisabled:(BOOL)a1 autoShortcutIdentifier:(id)a2 completion:(id /* block */)a3;
+- (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void).cxx_destruct;
+- (void)createShortcutWithRecordData:(id)a0 name:(id)a1 shortcutSource:(id)a2 accessSpecifier:(id)a3 completion:(id /* block */)a4;
+- (void)getSleepActionSuggestionsForAllAppsWithOptions:(unsigned long long)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)deleteSuggestionsFromApps:(id)a0;
+- (void)getSerializedParametersForLinkAction:(id)a0 actionMetadata:(id)a1 completion:(id /* block */)a2;
+- (void)logHomescreenFastPathRunEventForShortcutWithWebClip:(id)a0;
+- (void)setSiriAutoShortcutsEnablement:(BOOL)a0 forBundleIdentifier:(id)a1 completion:(id /* block */)a2;
+- (id)actionWithAppBundleIdentifier:(id)a0 appIntentIdentifier:(id)a1 serializedParameters:(id)a2;
+- (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)drawGlyphs:(id)a0 withBackgroundColorValues:(id)a1 padding:(double)a2 rounded:(BOOL)a3 intoContext:(id)a4;
+- (void)requestShortcutsSpotlightFullReindex;
+- (void)getNumberOfVoiceShortcutsWithAccessSpecifier:(id)a0 completion:(id /* block */)a1;
+- (void)setPerWorkflowStateData:(id)a0 forSmartPromptWithActionUUID:(id)a1 reference:(id)a2;
+- (void)getSleepActionSuggestionsForAppWithBundleIdentifier:(id)a0 shouldFilterBySleep:(BOOL)a1 accessSpecifier:(id)a2 completion:(id /* block */)a3;
+- (void)getVoiceShortcutsWithAccessSpecifier:(id)a0 completion:(id /* block */)a1;
+- (id)actionWithSerializedParameters:(id)a0 actionMetadata:(id)a1;
+- (void)getVoiceShortcutWithPhrase:(id)a0 accessSpecifier:(id)a1 completion:(id /* block */)a2;
+- (void)updateLSDatabaseAnchors;
+
+@end

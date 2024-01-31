@@ -1,0 +1,3 @@
+@interface __UIKeyboardEmojiSectionHeaderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

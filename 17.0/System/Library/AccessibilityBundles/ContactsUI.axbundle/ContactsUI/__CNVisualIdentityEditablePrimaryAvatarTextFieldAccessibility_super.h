@@ -1,0 +1,3 @@
+@interface __CNVisualIdentityEditablePrimaryAvatarTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

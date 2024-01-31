@@ -1,0 +1,3 @@
+@interface __CKNavigationButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

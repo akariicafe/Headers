@@ -1,0 +1,80 @@
+@class NSDate, NSString, NSArray, RTCReporting, NSMutableDictionary, VCAggregator, NSObject, NSNumber;
+@protocol OS_nw_activity, OS_os_transaction, OS_dispatch_source, OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface RTCReportingAgent : NSObject <VCAggregatorDelegate, RTCReportingMessageSentNotifier> {
+    unsigned int _callID;
+    void *_symptomReporter;
+    NSObject<OS_dispatch_queue> *_periodicTaskTelemetryCollectionQueue;
+    int _periodicTimerIterationCounter;
+    NSObject<OS_dispatch_semaphore> *_reportingConfigurationCompleteSemaphore;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _aggregatorLock;
+    int _nextUnassignedReportingModuleID;
+    int _dataPath;
+    NSObject<OS_nw_activity> *_nwActivity;
+    NSDate *_conversationTimeBase;
+    NSObject<OS_os_transaction> *_transaction;
+}
+
+@property (readonly) VCAggregator *aggregator;
+@property (readonly) VCAggregator *aggregator2;
+@property (readonly) RTCReporting *reportingObject;
+@property (readonly) NSObject<OS_dispatch_queue> *reportingQueue;
+@property (readonly) NSObject<OS_dispatch_queue> *periodicTaskManagementQueue;
+@property (readonly) NSObject<OS_dispatch_source> *periodicTimer;
+@property (readonly) NSMutableDictionary *periodicServiceRegisteredBlocks;
+@property (copy) NSArray *backends;
+@property int clientType;
+@property (nonatomic) struct tagVCReportingClientExperimentSettings { BOOL networkConditionMonitoringClientExperimentEnabled; BOOL motionBasedDuplicationClientExperimentEnabled; } reportingClientExperimentSettings;
+@property (readonly) int nextUnassignedReportingModuleID;
+@property (readonly) NSMutableDictionary *userInfoMap;
+@property (getter=isABCForceDisabled) BOOL forceDisableABC;
+@property (copy) NSNumber *subSessionId;
+@property (copy) NSString *serviceName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithConfig:(struct { unsigned int x0; struct __CFString *x1; struct __CFDate *x2; int x3; BOOL x4; void *x5; id x6; struct __CFString *x7; struct __CFString *x8; struct __CFDictionary *x9; id /* block */ x10; id x11; BOOL x12; })a0;
+- (void)dealloc;
+- (BOOL)unregisterPeriodTaskForModule:(unsigned int)a0;
+- (void)stopLogTimer;
+- (BOOL)sendMessageWithCategory:(unsigned short)a0 type:(unsigned short)a1 payload:(id)a2 error:(id *)a3;
+- (BOOL)registerPeriodicTaskForModule:(unsigned int)a0 needToUpdate:(BOOL)a1 needToReport:(BOOL)a2 serviceBlock:(id /* block */)a3;
+- (void)startLogTimerWithInterval:(int)a0 reportingMultiplier:(int)a1 category:(unsigned short)a2 type:(unsigned short)a3;
+- (void)didSendMessageForReportingClient:(id)a0 event:(id)a1;
+- (int)learntBitrateForSegment:(id)a0 defaultValue:(int)a1;
+- (id)deriveFromParentHierarchyToken:(id)a0;
+- (void)blockReportingQueueUntilReportingObjectInitialized;
+- (void)collectTelemetryForService:(id)a0 payload:(id)a1 lock:(struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } *)a2;
+- (void)createSecondAggregatorWithOptions:(struct { id x0; BOOL x1; struct __CFDate *x2; BOOL x3; } *)a0;
+- (void)finalizeAggregation:(id)a0;
+- (id)getUserInfoFromReportingConfiguration:(struct { unsigned int x0; struct __CFString *x1; struct __CFDate *x2; int x3; BOOL x4; void *x5; id x6; struct __CFString *x7; struct __CFString *x8; struct __CFDictionary *x9; id /* block */ x10; id x11; BOOL x12; })a0;
+- (id)newAggregatorForClientType:(int)a0 creationOptions:(struct { id x0; BOOL x1; struct __CFDate *x2; BOOL x3; } *)a1;
+- (void)periodicTaskRunner:(unsigned short)a0 type:(unsigned short)a1 intervalMultiplier:(int)a2 updateTimeout:(unsigned long long)a3;
+- (void)releasePeriodicQueues;
+- (void)releaseReportingObject;
+- (void)report:(id)a0 segmentDirection:(int)a1 clientType:(int)a2;
+- (void)reportPeriodicTelemetryWithCategory:(unsigned short)a0 type:(unsigned short)a1 payload:(id)a2 lock:(struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } *)a3;
+- (void)reportQR:(id)a0;
+- (void)reportingAgentGetAlgosScores:(double *)a0 newAlgosScore:(double *)a1;
+- (unsigned short)reportingCallMethodForClientType:(int)a0;
+- (unsigned short)reportingSegmentMethodForClientType:(int)a0;
+- (unsigned short)reportingSessionMethodForClientType:(int)a0;
+- (unsigned short)reportingSessionTypeForClientType:(int)a0;
+- (void)reportingSetNetworkActivityReportingEnabled:(BOOL)a0;
+- (void)reportingSetReportCallback:(void /* function */ *)a0 withContext:(void *)a1;
+- (void)reportingSymptom:(unsigned int)a0 withOptionalDict:(struct __CFDictionary { } *)a1;
+- (void)sendAggregatedCallReport:(id)a0 clientType:(int)a1;
+- (void)sendAggregatedSessionReport:(id)a0 clientType:(int)a1;
+- (void)sendMessageWithCategory:(unsigned short)a0 type:(unsigned short)a1 payload:(id)a2;
+- (void)setAggregatorForClientType:(int)a0 isOneToOneEnabled:(BOOL)a1 shouldCreateSecondAggregator:(BOOL)a2;
+- (void)setDataPath:(int)a0;
+- (void)setupAdaptiveLearningWithParameters:(id)a0;
+- (BOOL)setupConfigurationCompletionSemaphore:(struct { unsigned int x0; struct __CFString *x1; struct __CFDate *x2; int x3; BOOL x4; void *x5; id x6; struct __CFString *x7; struct __CFString *x8; struct __CFDictionary *x9; id /* block */ x10; id x11; BOOL x12; } *)a0;
+- (void)signalConfigurationCompleted;
+- (id)sortedServiceKeys;
+- (void)telemetryReport:(unsigned short)a0 type:(unsigned short)a1 sortedKeys:(id)a2 updateTimeout:(unsigned long long)a3;
+- (void)telemetryUpdate:(id)a0 updateTimeout:(unsigned long long)a1;
+
+@end

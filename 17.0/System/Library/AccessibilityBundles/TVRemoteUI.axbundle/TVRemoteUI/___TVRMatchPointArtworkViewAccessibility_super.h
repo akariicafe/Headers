@@ -1,0 +1,3 @@
+@interface ___TVRMatchPointArtworkViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

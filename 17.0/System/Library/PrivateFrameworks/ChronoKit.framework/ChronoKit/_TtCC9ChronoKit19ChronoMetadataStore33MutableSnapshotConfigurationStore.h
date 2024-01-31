@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore33MutableSnapshotConfigurationStore : _TtCC9ChronoKit19ChronoMetadataStore26SnapshotConfigurationStore
+
+@end

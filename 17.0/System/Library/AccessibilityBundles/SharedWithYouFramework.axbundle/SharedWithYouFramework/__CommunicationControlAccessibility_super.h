@@ -1,0 +1,3 @@
+@interface __CommunicationControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

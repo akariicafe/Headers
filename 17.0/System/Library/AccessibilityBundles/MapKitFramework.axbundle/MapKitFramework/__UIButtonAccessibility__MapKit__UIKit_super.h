@@ -1,0 +1,3 @@
+@interface __UIButtonAccessibility__MapKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

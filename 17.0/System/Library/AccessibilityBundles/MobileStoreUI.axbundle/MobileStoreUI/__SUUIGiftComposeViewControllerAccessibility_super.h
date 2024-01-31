@@ -1,0 +1,3 @@
+@interface __SUUIGiftComposeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

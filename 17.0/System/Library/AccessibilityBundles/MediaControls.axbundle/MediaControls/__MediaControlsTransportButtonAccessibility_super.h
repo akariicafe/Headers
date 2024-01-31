@@ -1,0 +1,3 @@
+@interface __MediaControlsTransportButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

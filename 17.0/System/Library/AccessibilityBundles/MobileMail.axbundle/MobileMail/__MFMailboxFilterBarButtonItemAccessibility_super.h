@@ -1,0 +1,3 @@
+@interface __MFMailboxFilterBarButtonItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

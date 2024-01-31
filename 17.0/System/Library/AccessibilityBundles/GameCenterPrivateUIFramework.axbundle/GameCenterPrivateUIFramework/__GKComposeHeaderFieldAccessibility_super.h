@@ -1,0 +1,3 @@
+@interface __GKComposeHeaderFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

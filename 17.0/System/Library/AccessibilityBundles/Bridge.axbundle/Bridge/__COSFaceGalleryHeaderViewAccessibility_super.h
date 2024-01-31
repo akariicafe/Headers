@@ -1,0 +1,3 @@
+@interface __COSFaceGalleryHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

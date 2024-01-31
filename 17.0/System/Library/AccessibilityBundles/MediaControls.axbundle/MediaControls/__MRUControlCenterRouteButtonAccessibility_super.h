@@ -1,0 +1,3 @@
+@interface __MRUControlCenterRouteButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

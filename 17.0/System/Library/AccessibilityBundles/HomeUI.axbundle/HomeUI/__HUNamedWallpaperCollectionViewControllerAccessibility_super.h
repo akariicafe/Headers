@@ -1,0 +1,3 @@
+@interface __HUNamedWallpaperCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

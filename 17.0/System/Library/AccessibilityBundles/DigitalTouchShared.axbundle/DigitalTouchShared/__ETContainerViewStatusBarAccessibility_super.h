@@ -1,0 +1,3 @@
+@interface __ETContainerViewStatusBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

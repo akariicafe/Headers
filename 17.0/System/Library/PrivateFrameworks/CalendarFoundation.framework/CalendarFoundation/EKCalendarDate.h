@@ -1,0 +1,85 @@
+@class NSDateComponents, NSCalendar, NSDate;
+
+@interface EKCalendarDate : NSObject <NSCopying, NSMutableCopying> {
+    NSCalendar *_calendar;
+    NSDate *_date;
+    NSDateComponents *_components;
+    NSDateComponents *_originalComponents;
+}
+
++ (id)calendarDateWithAbsoluteTime:(double)a0 timeZone:(id)a1;
++ (id)calendarDateWithDate:(id)a0 timeZone:(id)a1;
++ (id)calendarDateWithDateComponents:(id)a0 timeZone:(id)a1;
++ (id)calendarDateWithYear:(long long)a0 month:(long long)a1 day:(long long)a2 timeZone:(id)a3;
+
+- (int)dayOfWeek;
+- (long long)day;
+- (long long)year;
+- (id)calendarDateForYear;
+- (long long)minute;
+- (id)components;
+- (long long)hour;
+- (long long)month;
+- (id)calendar;
+- (id)initWithDate:(id)a0 calendar:(id)a1;
+- (unsigned long long)weeksInYear;
+- (id)initWithDate:(id)a0 timeZone:(id)a1;
+- (id)calendarDateForWeekWithWeekStart:(int)a0 daysSinceWeekStart:(long long *)a1;
+- (id)calendarDateForDay;
+- (long long)differenceInMonths:(id)a0;
+- (id)earlierDate:(id)a0;
+- (long long)second;
+- (id)calendarDateForEndOfMonth;
+- (id)allComponents;
+- (id)calendarDateByAddingMonths:(long long)a0;
+- (id)calendarDateWithDate:(id)a0;
+- (id)weekComponents;
+- (id)differenceAsDateComponents:(id)a0 units:(unsigned long long)a1;
+- (id)calendarDateForEndOfYear;
+- (id)calendarDateByAddingComponents:(id)a0;
+- (unsigned long long)daysInMonth;
+- (id)calendarDateByComponentwiseAddingSeconds:(long long)a0;
+- (id)calendarDateByAddingHours:(long long)a0;
+- (long long)compare:(id)a0;
+- (id)calendarDateForEndOfWeekWithWeekStart:(int)a0;
+- (id)calendarDateForMonth;
+- (long long)differenceInYears:(id)a0;
+- (id)initWithDate:(id)a0 originalComponents:(id)a1 components:(id)a2 timeZone:(id)a3;
+- (id)initWithDateComponents:(id)a0 timeZone:(id)a1;
+- (id)calendarDateByAddingSeconds:(long long)a0;
+- (id)description;
+- (id)calendarDateInTimeZone:(id)a0;
+- (id)date;
+- (id)calendarDateByComponentwiseAddingComponents:(id)a0;
+- (unsigned long long)dayOfYear;
+- (id)calendarDateForWeekWithWeekStart:(int)a0;
+- (unsigned long long)daysInYear;
+- (id)calendarDateForEndOfDay;
+- (long long)differenceInDays:(id)a0;
+- (id)initWithDateComponents:(id)a0 calendar:(id)a1;
+- (id)timeZone;
+- (double)absoluteTime;
+- (void).cxx_destruct;
+- (id)calendarDateByAddingMinutes:(long long)a0;
+- (id)calendarDateByAddingYears:(long long)a0;
+- (id)initWithDate:(id)a0 components:(id)a1 timeZone:(id)a2;
+- (long long)secondsFromGMT;
+- (id)timeComponents;
+- (id)dayComponents;
+- (id)initWithAbsoluteTime:(double)a0 timeZone:(id)a1;
+- (id)laterDate:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)calendarDateByAddingWeeks:(long long)a0;
+- (id)calendarDateByAddingGregorianUnits:(struct { int x0; int x1; int x2; int x3; int x4; double x5; })a0;
+- (id)initWithDate:(id)a0 originalComponents:(id)a1 components:(id)a2 calendar:(id)a3;
+- (double)differenceInSeconds:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)componentsWithoutTime;
+- (long long)era;
+- (id)dayTimeComponents;
+- (unsigned long long)weekOfYear;
+- (struct { int x0; int x1; int x2; int x3; int x4; double x5; })differenceAsGregorianUnits:(id)a0 flags:(unsigned long long)a1;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)calendarDateByAddingDays:(long long)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __DOCTagEditorTextFieldCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

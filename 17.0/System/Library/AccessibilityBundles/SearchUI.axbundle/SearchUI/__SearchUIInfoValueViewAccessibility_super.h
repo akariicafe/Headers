@@ -1,0 +1,3 @@
+@interface __SearchUIInfoValueViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

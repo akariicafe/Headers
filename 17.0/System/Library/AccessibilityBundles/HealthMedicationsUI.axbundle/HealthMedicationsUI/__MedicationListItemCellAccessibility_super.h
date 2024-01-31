@@ -1,0 +1,3 @@
+@interface __MedicationListItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

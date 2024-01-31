@@ -1,0 +1,3 @@
+@interface __ShortcutsRowTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

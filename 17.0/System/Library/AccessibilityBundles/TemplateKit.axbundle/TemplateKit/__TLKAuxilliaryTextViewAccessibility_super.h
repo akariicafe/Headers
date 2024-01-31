@@ -1,0 +1,3 @@
+@interface __TLKAuxilliaryTextViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

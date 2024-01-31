@@ -1,0 +1,3 @@
+@interface _TtC12PhotosUICoreP33_6D1250E01697033C485C462215D935D419ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface ___SFFluidProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

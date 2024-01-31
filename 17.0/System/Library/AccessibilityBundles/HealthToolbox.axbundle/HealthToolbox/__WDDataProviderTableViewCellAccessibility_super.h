@@ -1,0 +1,3 @@
+@interface __WDDataProviderTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

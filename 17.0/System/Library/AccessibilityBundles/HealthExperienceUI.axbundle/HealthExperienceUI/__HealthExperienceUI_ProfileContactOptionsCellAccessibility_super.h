@@ -1,0 +1,3 @@
+@interface __HealthExperienceUI_ProfileContactOptionsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTATimerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

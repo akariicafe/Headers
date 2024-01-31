@@ -1,0 +1,88 @@
+@class PXStoryChromeButtonConfiguration, NSArray, NSAttributedString, NSString, PXCArrayStore, PXStoryFullsizeLayout, PXStoryStyleSelectionDataSource, PXStoryModel, PXGPageControlConfiguration, NSMutableIndexSet;
+@protocol PXGAXResponder;
+
+@interface PXStoryStyleSwitchingFullsizeLayout : PXGAbsoluteCompositeLayout <PXChangeObserver, PXGSublayoutProvider, PXGSublayoutFaultingDelegate, PXGStringSource, PXGViewSource, PXGAXResponder> {
+    struct { unsigned long long needsUpdate; unsigned long long updated; BOOL isPerformingUpdate; BOOL willPerformUpdate; } _updateFlags;
+    unsigned int _styleSwitcherTitleSpriteIndex;
+    unsigned int _pageControlSpriteIndex;
+    unsigned int _restartButtonSpriteIndex;
+    unsigned int _spriteCount;
+    NSMutableIndexSet *_axSpriteIndexes;
+}
+
+@property (retain, nonatomic) PXStoryStyleSelectionDataSource *dataSource;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } displayedStyleRange;
+@property (copy, nonatomic) NSArray *displayedStyleInfos;
+@property (readonly, nonatomic) PXCArrayStore *fullsizeFrameRectsStore;
+@property (copy, nonatomic) NSAttributedString *styleSwitcherTitleString;
+@property (nonatomic) long long styleSwitcherTitleVersion;
+@property (copy, nonatomic) PXStoryChromeButtonConfiguration *restartButtonConfiguration;
+@property (nonatomic) long long restartButtonVersion;
+@property (copy, nonatomic) PXGPageControlConfiguration *pageControlConfiguration;
+@property (nonatomic) long long pageControlVersion;
+@property (readonly, nonatomic) PXStoryModel *model;
+@property (readonly, nonatomic) PXStoryFullsizeLayout *dominantFullsizePlayerLayout;
+@property (nonatomic) double relativeZPositionAboveLegibilityGradients;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<PXGAXResponder> axNextResponder;
+
+- (void)didUpdate;
+- (id)layout:(id)a0 navigationObjectReferenceForSublayoutAtIndex:(long long)a1;
+- (BOOL)layout:(id)a0 shouldPreventFaultOutOfSublayout:(id)a1;
+- (struct CGSize { double x0; double x1; })layout:(id)a0 estimatedContentSizeForSublayoutAtIndex:(long long)a1 referenceSize:(struct CGSize { double x0; double x1; })a2;
+- (BOOL)allowsSublayoutUpdateCycleAssertions;
+- (id)axContentInfoAtSpriteIndex:(unsigned int)a0;
+- (void)alphaDidChange;
+- (id)initWithModel:(id)a0;
+- (id)layout:(id)a0 createSublayoutAtIndex:(long long)a1;
+- (id)init;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })axFrame;
+- (Class)viewClassForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)willUpdate;
+- (id)axSpriteIndexes;
+- (void)update;
+- (id)axSpriteIndexesInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)axGroup:(id)a0 didChange:(unsigned long long)a1 userInfo:(id)a2;
+- (void)_invalidateContent;
+- (unsigned int)axSpriteIndexClosestToSpriteIndex:(unsigned int)a0 inDirection:(unsigned long long)a1;
+- (void)referenceDepthDidChange;
+- (BOOL)axGroup:(id)a0 didRequestToPerformAction:(long long)a1 userInfo:(id)a2;
+- (id)attributedStringForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (id)stringAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (id)axContainingScrollViewForAXGroup:(id)a0;
+- (void)_updateContent;
+- (void).cxx_destruct;
+- (id)axVisibleSpriteIndexes;
+- (id)viewUserDataForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (long long)verticalAlignmentForStringAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)referenceSizeDidChange;
+- (id)stringAttributesAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (id)_axAssetsVisible;
+- (id)_axSongArtistName;
+- (id)_axSongTitle;
+- (id)_axStyleTitle;
+- (unsigned long long)_axSwitcherFractionDenominator;
+- (unsigned long long)_axSwitcherFractionNumerator;
+- (void)_configureTimelineLayout:(id)a0 maskLayout:(id)a1 forIndex:(long long)a2;
+- (void)_handlePageControl:(id)a0;
+- (void)_handleRestartButton:(id)a0;
+- (BOOL)_handleSwitchStyle:(id)a0 inGroup:(id)a1;
+- (void)_invalidateAXSpriteIndexes;
+- (void)_invalidateDisplayedStyleRange;
+- (void)_invalidateDisplayedStyles;
+- (void)_invalidatePageControl;
+- (void)_invalidateRestartButton;
+- (void)_invalidateTitleString;
+- (BOOL)_isFakeAXSpriteIndex:(unsigned long long)a0;
+- (void)_updateAXSpriteIndexes;
+- (void)_updateDisplayedStyleRange;
+- (void)_updateDisplayedStyles;
+- (void)_updatePageControl;
+- (void)_updateRestartButton;
+- (void)_updateTitleString;
+
+@end

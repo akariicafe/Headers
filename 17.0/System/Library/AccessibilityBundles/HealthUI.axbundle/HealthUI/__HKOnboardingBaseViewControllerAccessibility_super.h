@@ -1,0 +1,3 @@
+@interface __HKOnboardingBaseViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

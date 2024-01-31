@@ -1,0 +1,3 @@
+@interface __VerificationCheckmarkCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

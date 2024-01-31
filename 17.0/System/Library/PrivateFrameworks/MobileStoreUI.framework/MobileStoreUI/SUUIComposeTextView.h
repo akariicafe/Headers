@@ -1,0 +1,5 @@
+@interface SUUIComposeTextView : UITextView
+
+- (void)setPlaceholder:(id)a0;
+
+@end

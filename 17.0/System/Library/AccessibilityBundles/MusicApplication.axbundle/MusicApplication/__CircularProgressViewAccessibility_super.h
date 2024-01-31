@@ -1,0 +1,3 @@
+@interface __CircularProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

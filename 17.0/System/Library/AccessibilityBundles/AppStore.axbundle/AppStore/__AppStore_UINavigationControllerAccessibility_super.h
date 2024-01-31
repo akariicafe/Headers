@@ -1,0 +1,3 @@
+@interface __AppStore_UINavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

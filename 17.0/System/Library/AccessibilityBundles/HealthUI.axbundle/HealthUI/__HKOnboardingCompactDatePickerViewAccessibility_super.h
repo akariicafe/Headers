@@ -1,0 +1,3 @@
+@interface __HKOnboardingCompactDatePickerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

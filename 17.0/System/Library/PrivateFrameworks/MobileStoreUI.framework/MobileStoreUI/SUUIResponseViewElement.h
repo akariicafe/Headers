@@ -1,0 +1,3 @@
+@interface SUUIResponseViewElement : SUUIViewElement
+
+@end

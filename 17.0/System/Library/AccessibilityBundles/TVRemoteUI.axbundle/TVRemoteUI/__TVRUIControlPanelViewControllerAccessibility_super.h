@@ -1,0 +1,3 @@
+@interface __TVRUIControlPanelViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

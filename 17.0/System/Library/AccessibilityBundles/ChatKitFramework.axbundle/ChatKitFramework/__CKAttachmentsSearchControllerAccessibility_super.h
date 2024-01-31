@@ -1,0 +1,3 @@
+@interface __CKAttachmentsSearchControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

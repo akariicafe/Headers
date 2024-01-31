@@ -1,0 +1,3 @@
+@interface __PUCompactAdjustmentsModeBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

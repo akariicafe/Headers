@@ -1,0 +1,3 @@
+@interface __JSSocialProfileVerticalStackViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

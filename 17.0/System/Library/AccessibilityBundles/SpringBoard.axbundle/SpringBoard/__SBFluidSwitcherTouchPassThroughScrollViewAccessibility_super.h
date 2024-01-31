@@ -1,0 +1,3 @@
+@interface __SBFluidSwitcherTouchPassThroughScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

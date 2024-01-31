@@ -1,0 +1,3 @@
+@interface SNUtils : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __CNAutocompleteResultsTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

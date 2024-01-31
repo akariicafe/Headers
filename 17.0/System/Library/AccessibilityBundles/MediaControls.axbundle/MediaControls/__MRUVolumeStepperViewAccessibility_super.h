@@ -1,0 +1,3 @@
+@interface __MRUVolumeStepperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,81 @@
+@class _UIDatePickerOverlayPresentation, NSString, NSArray, _UIDatePickerCompactDateLabel, UIPanGestureRecognizer, NSDictionary, UILayoutGuide, _UIDatePickerCompactTimeLabel, _UIDatePickerDataModel, NSDateFormatter, UIDatePicker;
+
+@interface _UIDatePickerIOSCompactView : UIControl <_UIDatePickerCompactTimeLabelDelegate, _UIDatePickerCompactDateLabelDelegate, _UIDatePickerOverlayPresentationDelegate, UIGestureRecognizerDelegate, _UIDatePickerViewComponent> {
+    struct { unsigned char isEnabled : 1; unsigned char implementsCustomDidSelectComponent : 1; } _flags;
+    NSDateFormatter *_dateFormatterMedium;
+    NSDateFormatter *_dateFormatterShort;
+    UILayoutGuide *_timeViewLayoutGuide;
+    UILayoutGuide *_contentLayoutGuide;
+    NSDateFormatter *_layoutFormatter;
+    BOOL _dateOnLeadingSide;
+    NSArray *_dateTimeConstraints;
+    _UIDatePickerOverlayPresentation *_presentation;
+    long long _activeComponent;
+    UIPanGestureRecognizer *_panGestureRecognizer;
+}
+
+@property (readonly, nonatomic) _UIDatePickerCompactDateLabel *dateView;
+@property (readonly, nonatomic) _UIDatePickerCompactTimeLabel *timeView;
+@property (readonly, nonatomic) BOOL alignConstraintsToLayoutGuide;
+@property (retain, nonatomic) NSDictionary *overrideAttributes;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) UIDatePicker *datePicker;
+@property (retain, nonatomic) _UIDatePickerDataModel *data;
+@property (readonly, nonatomic) long long datePickerStyle;
+@property (readonly, nonatomic) struct UIEdgeInsets { double x0; double x1; double x2; double x3; } appliedInsetsToEdgeOfContent;
+@property (nonatomic) double timeInterval;
+@property (readonly, nonatomic) double contentWidth;
+
+- (void)willMoveToSuperview:(id)a0;
+- (void)setContentHorizontalAlignment:(long long)a0;
+- (void)willMoveToWindow:(id)a0;
+- (void)tintColorDidChange;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (void)updateConstraints;
+- (void).cxx_destruct;
+- (struct CGSize { double x0; double x1; })defaultSize;
+- (void)_setEnabled:(BOOL)a0;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)_resignActiveComponentAnimated:(BOOL)a0;
+- (void)compactTimeLabel:(id)a0 didSelectTime:(id)a1;
+- (void)didChangeRoundsToMinuteInterval;
+- (void)didChangeLocale;
+- (void)_contentSizeCategoryDidChange:(id)a0 previousTraits:(id)a1;
+- (void)_datePickerPresentation:(id)a0 didChangeActiveMode:(long long)a1;
+- (void)_didReceivePanGestureRecognizer:(id)a0;
+- (void)_reloadTimeViewTimeFormat;
+- (struct CGSize { double x0; double x1; })_sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateDateBeforeTimeValue;
+- (void)_updateDateViewTextAlignment;
+- (void)_updateEnabledStyling;
+- (void)_updateUI;
+- (void)compactDateLabelDidBeginEditing:(id)a0;
+- (void)compactDateLabelDidEndEditing:(id)a0;
+- (BOOL)compactTimeLabel:(id)a0 shouldDismissForInteractionAtLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void)compactTimeLabelDidBeginEditing:(id)a0;
+- (void)compactTimeLabelDidEndEditing:(id)a0;
+- (void)compactTimeLabelWillBecomeFirstResponder:(id)a0;
+- (id)createDatePickerForCompactDateLabel:(id)a0;
+- (id)createDatePickerForCompactTimeLabel:(id)a0;
+- (void)didChangeCalendar;
+- (void)didChangeCompactStyleDelegate;
+- (void)didChangeDateFrom:(id)a0 animated:(BOOL)a1;
+- (void)didChangeMaximumDate;
+- (void)didChangeMinimumDate;
+- (void)didChangeMinuteInterval;
+- (void)didChangeMode;
+- (void)didChangeTimeZone;
+- (void)didChangeToday;
+- (void)didReset;
+- (void)displaySelectedDateAnimated:(BOOL)a0;
+- (BOOL)hasDefaultSize;
+- (void)setActiveComponent:(long long)a0;
+- (void)updateTimeZoneDisplay;
+- (BOOL)usesAutoLayout;
+
+@end

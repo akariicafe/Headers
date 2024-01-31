@@ -1,0 +1,3 @@
+@interface __SBSwitcherShelfViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

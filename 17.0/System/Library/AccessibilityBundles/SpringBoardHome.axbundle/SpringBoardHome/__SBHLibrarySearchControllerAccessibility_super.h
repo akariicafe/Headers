@@ -1,0 +1,3 @@
+@interface __SBHLibrarySearchControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

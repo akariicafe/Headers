@@ -1,0 +1,3 @@
+@interface _TtC24MenstrualCyclesAppPluginP33_7A7DB51AC6D43B340C1E844AD00CD90219ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

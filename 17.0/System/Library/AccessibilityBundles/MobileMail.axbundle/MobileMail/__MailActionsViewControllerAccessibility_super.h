@@ -1,0 +1,3 @@
+@interface __MailActionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MOSuggestionCollectionViewSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

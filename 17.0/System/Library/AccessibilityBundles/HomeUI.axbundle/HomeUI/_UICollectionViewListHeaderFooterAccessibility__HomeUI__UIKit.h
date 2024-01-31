@@ -1,0 +1,6 @@
+@interface _UICollectionViewListHeaderFooterAccessibility__HomeUI__UIKit : ___UICollectionViewListHeaderFooterAccessibility__HomeUI__UIKit_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
+
+@end

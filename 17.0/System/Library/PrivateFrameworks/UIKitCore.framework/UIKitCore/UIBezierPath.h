@@ -1,0 +1,94 @@
+@interface UIBezierPath : NSObject <NSCopying, NSSecureCoding> {
+    struct CGPath { } *_path;
+    double *_lineDashPattern;
+    unsigned long long _lineDashPatternCount;
+    double _lineDashPhase;
+    struct CGPath { } *_immutablePath;
+    BOOL _immutablePathIsValid;
+    BOOL _isRoundedRect;
+    double _cornerRadius;
+    BOOL _hasContinuousCorners;
+    unsigned long long _cornerMask;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) struct CGPath { } *CGPath;
+@property (readonly, getter=isEmpty) BOOL empty;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } bounds;
+@property (readonly, nonatomic) struct CGPoint { double x0; double x1; } currentPoint;
+@property (nonatomic) double lineWidth;
+@property (nonatomic) int lineCapStyle;
+@property (nonatomic) int lineJoinStyle;
+@property (nonatomic) double miterLimit;
+@property (nonatomic) double flatness;
+@property (nonatomic) BOOL usesEvenOddFillRule;
+
++ (id)_bezierPathWithArcRoundedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 cornerRadius:(double)a1;
++ (id)_bezierPathWithPillRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 cornerRadius:(double)a1;
++ (id)_bezierPathWithRoundedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 byRoundingCorners:(unsigned long long)a1 cornerRadius:(double)a2;
++ (id)_continuousRoundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 cornerRadii:(id)a2 segments:(int)a3 smoothPillShapes:(BOOL)a4;
++ (id)_continuousRoundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 cornerRadius:(struct CGSize { double x0; double x1; })a2 segments:(int)a3;
++ (id)_roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 cornerRadius:(double)a2 segments:(int)a3;
++ (id)_roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 cornerRadius:(double)a2 segments:(int)a3 legacyCorners:(BOOL)a4;
++ (id)bezierPath;
++ (id)bezierPathWithArcCenter:(struct CGPoint { double x0; double x1; })a0 radius:(double)a1 startAngle:(double)a2 endAngle:(double)a3 clockwise:(BOOL)a4;
++ (id)bezierPathWithCGPath:(struct CGPath { } *)a0;
++ (id)bezierPathWithOvalInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
++ (id)bezierPathWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
++ (id)bezierPathWithRoundedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 byRoundingCorners:(unsigned long long)a1 cornerRadii:(struct CGSize { double x0; double x1; })a2;
++ (id)bezierPathWithRoundedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 cornerRadius:(double)a1;
++ (id)roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 withCornerRadii:(id)a2;
++ (id)roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedCorners:(unsigned long long)a1 withCornerRadius:(double)a2;
++ (id)roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedEdges:(unsigned long long)a1;
++ (id)roundedRectBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withTopCornerRadius:(double)a1 withBottomCornerRadius:(double)a2;
++ (id)shadowBezierPath:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 withRoundedEdges:(unsigned long long)a1;
+
+- (id)init;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (double)_cornerRadius;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)containsPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)applyTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (void)addClip;
+- (void)addLineToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)appendBezierPathWithOvalInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)removeAllPoints;
+- (void)_addRoundedCornerWithTrueCorner:(struct CGPoint { double x0; double x1; })a0 radius:(struct CGSize { double x0; double x1; })a1 corner:(unsigned long long)a2 clockwise:(BOOL)a3;
+- (void)_addRoundedCornerWithTrueCorner:(struct CGPoint { double x0; double x1; })a0 radius:(struct CGSize { double x0; double x1; })a1 corner:(unsigned long long)a2 clockwise:(BOOL)a3 leadInIsContinuous:(BOOL)a4 leadOutIsContinuous:(BOOL)a5;
+- (id)_bezierPathConvertedFromCoordinateSpace:(id)a0 toCoordinateSpace:(id)a1;
+- (unsigned long long)_cornerMask;
+- (struct CGPath { } *)_createMutablePathByDecodingData:(id)a0;
+- (BOOL)_hasContinuousCorners;
+- (id)_initWithCGMutablePath:(struct CGPath { } *)a0;
+- (void)_invalidatePathMetadata;
+- (void)_invalidatePathMetadataIncludingCornerRadius:(BOOL)a0;
+- (BOOL)_isRoundedRect;
+- (struct CGPath { } *)_mutablePath;
+- (id)_objcCodeDescription;
+- (struct CGPath { } *)_pathRef;
+- (void)addArcWithCenter:(struct CGPoint { double x0; double x1; })a0 radius:(double)a1 startAngle:(double)a2 endAngle:(double)a3 clockwise:(BOOL)a4;
+- (void)addCurveToPoint:(struct CGPoint { double x0; double x1; })a0 controlPoint1:(struct CGPoint { double x0; double x1; })a1 controlPoint2:(struct CGPoint { double x0; double x1; })a2;
+- (void)addQuadCurveToPoint:(struct CGPoint { double x0; double x1; })a0 controlPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)appendBezierPath:(id)a0;
+- (void)appendBezierPathWithArcWithCenter:(struct CGPoint { double x0; double x1; })a0 radius:(double)a1 startAngle:(double)a2 endAngle:(double)a3 clockwise:(BOOL)a4;
+- (void)appendBezierPathWithOvalInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
+- (void)appendBezierPathWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)appendPath:(id)a0;
+- (id)bezierPathByReversingPath;
+- (void)clip;
+- (void)closePath;
+- (void)fill;
+- (void)fillWithBlendMode:(int)a0 alpha:(double)a1;
+- (void)getLineDash:(double *)a0 count:(long long *)a1 phase:(double *)a2;
+- (void)lineToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)moveToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)setLineDash:(const double *)a0 count:(long long)a1 phase:(double)a2;
+- (void)stroke;
+- (void)strokeWithBlendMode:(int)a0 alpha:(double)a1;
+
+@end

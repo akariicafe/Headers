@@ -1,0 +1,3 @@
+@interface __VideosDetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

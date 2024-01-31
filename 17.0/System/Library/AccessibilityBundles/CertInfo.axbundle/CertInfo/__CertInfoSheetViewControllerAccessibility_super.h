@@ -1,0 +1,3 @@
+@interface __CertInfoSheetViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

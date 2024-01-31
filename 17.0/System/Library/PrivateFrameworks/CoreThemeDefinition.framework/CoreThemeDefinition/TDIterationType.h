@@ -1,0 +1,3 @@
+@interface TDIterationType : TDThemeConstant
+
+@end

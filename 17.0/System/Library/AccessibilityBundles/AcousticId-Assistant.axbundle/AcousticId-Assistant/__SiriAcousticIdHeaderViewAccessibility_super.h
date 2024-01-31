@@ -1,0 +1,3 @@
+@interface __SiriAcousticIdHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

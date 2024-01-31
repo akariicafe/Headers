@@ -1,0 +1,18 @@
+@class AVMetadataBodyObject, NSString, AVMetadataObject;
+
+@interface CAMBodyObjectResult : NSObject <CAMMetadataObjectResult>
+
+@property (retain, nonatomic) AVMetadataBodyObject *_metadataBodyObject;
+@property (readonly, copy, nonatomic) NSString *metadataType;
+@property (readonly, copy, nonatomic) NSString *uniqueIdentifier;
+@property (readonly, nonatomic) AVMetadataObject *underlyingMetadataObject;
+@property (readonly, nonatomic) unsigned long long syntheticFocusMode;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initWithBodyObject:(id)a0;
+
+@end

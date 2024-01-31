@@ -1,0 +1,3 @@
+@interface __PSKeychainSyncSecurityCodeControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUICardViewElementCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

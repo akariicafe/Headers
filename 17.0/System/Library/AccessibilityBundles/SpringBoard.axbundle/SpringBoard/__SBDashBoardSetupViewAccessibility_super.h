@@ -1,0 +1,3 @@
+@interface __SBDashBoardSetupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

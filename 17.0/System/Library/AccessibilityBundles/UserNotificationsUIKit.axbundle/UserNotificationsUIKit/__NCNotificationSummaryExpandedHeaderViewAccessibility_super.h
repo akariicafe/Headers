@@ -1,0 +1,3 @@
+@interface __NCNotificationSummaryExpandedHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

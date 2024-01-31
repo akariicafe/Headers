@@ -1,0 +1,3 @@
+@interface __MKPlaceCardActionSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

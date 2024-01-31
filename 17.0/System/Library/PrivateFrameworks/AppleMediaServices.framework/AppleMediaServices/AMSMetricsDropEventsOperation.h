@@ -1,0 +1,3 @@
+@interface AMSMetricsDropEventsOperation : AMSMetricsOperation
+
+@end

@@ -1,0 +1,3 @@
+@interface __EKUIAvailabilityFreeSpanViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

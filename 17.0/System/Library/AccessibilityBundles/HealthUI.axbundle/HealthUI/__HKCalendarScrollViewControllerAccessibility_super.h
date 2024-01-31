@@ -1,0 +1,3 @@
+@interface __HKCalendarScrollViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

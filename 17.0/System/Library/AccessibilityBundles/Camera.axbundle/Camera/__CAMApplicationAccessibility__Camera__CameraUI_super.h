@@ -1,0 +1,3 @@
+@interface __CAMApplicationAccessibility__Camera__CameraUI_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CAMDrawerVideoStabilizationButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

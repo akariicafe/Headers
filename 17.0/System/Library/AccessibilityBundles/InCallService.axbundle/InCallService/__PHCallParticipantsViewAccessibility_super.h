@@ -1,0 +1,3 @@
+@interface __PHCallParticipantsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

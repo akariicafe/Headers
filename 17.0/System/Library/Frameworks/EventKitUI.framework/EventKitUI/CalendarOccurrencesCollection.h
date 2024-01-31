@@ -1,0 +1,3 @@
+@interface CalendarOccurrencesCollection : CUIKOccurrencesCollection
+
+@end

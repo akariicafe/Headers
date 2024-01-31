@@ -1,0 +1,3 @@
+@interface __AVMobileChromelessFluidSliderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

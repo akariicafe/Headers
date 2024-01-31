@@ -1,0 +1,3 @@
+@interface __PSTableCellAccessibility__DNDSettings__Preferences_super : UIAccessibilitySafeCategory
+
+@end

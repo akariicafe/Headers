@@ -1,0 +1,3 @@
+@interface __LyricsSelectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

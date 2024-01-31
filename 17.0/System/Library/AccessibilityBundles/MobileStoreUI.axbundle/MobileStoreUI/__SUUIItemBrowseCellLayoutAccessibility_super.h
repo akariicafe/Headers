@@ -1,0 +1,3 @@
+@interface __SUUIItemBrowseCellLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

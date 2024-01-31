@@ -1,0 +1,63 @@
+@interface WebDefaultUIKitDelegate : NSObject
+
++ (id)sharedUIKitDelegate;
+
+- (void)addInputString:(id)a0 withFlags:(unsigned long long)a1;
+- (void)deleteFromInput;
+- (BOOL)handleKeyAppCommandForCurrentEvent;
+- (BOOL)handleKeyTextCommandForCurrentEvent;
+- (void)deleteFromInputWithFlags:(unsigned long long)a0;
+- (int)deviceOrientation;
+- (id)supportedPasteboardTypesForCurrentSelection;
+- (void)webViewDidReceiveMobileDocType:(id)a0;
+- (void)webViewDidRestoreFromPageCache:(id)a0;
+- (void)_webthread_webView:(id)a0 attachRootLayer:(id)a1;
+- (id)checkSpellingOfString:(id)a0;
+- (long long)getPasteboardChangeCount;
+- (long long)getPasteboardItemsCount;
+- (BOOL)hasRichlyEditableSelection;
+- (struct CGPoint { double x0; double x1; })interactionLocation;
+- (BOOL)performTwoStepDrop:(id)a0 atDestination:(id)a1 isMove:(BOOL)a2;
+- (BOOL)performsTwoStepPaste:(id)a0;
+- (id)readDataFromPasteboard:(id)a0 withIndex:(long long)a1;
+- (void)revealedSelectionByScrollingWebFrame:(id)a0;
+- (BOOL)shouldRevealCurrentSelectionAfterInsertion;
+- (BOOL)shouldSuppressPasswordEcho;
+- (void)showPlaybackTargetPicker:(BOOL)a0 fromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)webView:(id)a0 addMessageToConsole:(id)a1 withSource:(id)a2;
+- (void)webView:(id)a0 didChangeLocationWithinPageForFrame:(id)a1;
+- (void)webView:(id)a0 didCommitLoadForFrame:(id)a1;
+- (void)webView:(id)a0 didCreateOrUpdateScrollingLayer:(id)a1 withContentsLayer:(id)a2 scrollSize:(id)a3 forNode:(id)a4 allowHorizontalScrollbar:(BOOL)a5 allowVerticalScrollbar:(BOOL)a6;
+- (void)webView:(id)a0 didFailLoadWithError:(id)a1 forFrame:(id)a2;
+- (void)webView:(id)a0 didFinishLoadForFrame:(id)a1;
+- (void)webView:(id)a0 didFirstLayoutInFrame:(id)a1;
+- (void)webView:(id)a0 didFirstVisuallyNonEmptyLayoutInFrame:(id)a1;
+- (void)webView:(id)a0 didHideFullScreenForPlugInView:(id)a1;
+- (void)webView:(id)a0 didObserveDeferredContentChange:(int)a1 forFrame:(id)a2;
+- (void)webView:(id)a0 didReceiveViewportArguments:(id)a1;
+- (void)webView:(id)a0 didStartProvisionalLoadForFrame:(id)a1;
+- (void)webView:(id)a0 elementDidBlurNode:(id)a1;
+- (void)webView:(id)a0 elementDidFocusNode:(id)a1;
+- (void)webView:(id)a0 needsScrollNotifications:(id)a1 forFrame:(id)a2;
+- (id)webView:(id)a0 plugInViewWithArguments:(id)a1 fromPlugInPackage:(id)a2;
+- (void)webView:(id)a0 restoreStateFromHistoryItem:(id)a1 forFrame:(id)a2 force:(BOOL)a3;
+- (void)webView:(id)a0 runOpenPanelForFileButtonWithResultListener:(id)a1 configuration:(id)a2;
+- (void)webView:(id)a0 saveStateToHistoryItem:(id)a1 forFrame:(id)a2;
+- (BOOL)webView:(id)a0 shouldScrollToPoint:(struct CGPoint { double x0; double x1; })a1 forFrame:(id)a2;
+- (void)webView:(id)a0 willAddPlugInView:(id)a1;
+- (void)webView:(id)a0 willCloseFrame:(id)a1;
+- (void)webView:(id)a0 willRemoveScrollingLayer:(id)a1 withContentsLayer:(id)a2 forNode:(id)a3;
+- (void)webView:(id)a0 willShowFullScreenForPlugInView:(id)a1;
+- (void)webViewDidCommitCompositingLayerChanges:(id)a0;
+- (void)webViewDidDrawTiles:(id)a0;
+- (void)webViewDidEndOverflowScroll:(id)a0;
+- (void)webViewDidPreventDefaultForEvent:(id)a0;
+- (void)webViewDidStartOverflowScroll:(id)a0;
+- (void)writeDataToPasteboard:(id)a0;
+- (struct CGPoint { double x0; double x1; })contentsPointForWebView:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })documentVisibleRectForWebView:(id)a0;
+- (void)webView:(id)a0 didFinishDocumentLoadForFrame:(id)a1;
+- (void)webView:(id)a0 didReceiveMessage:(id)a1;
+- (void)webViewDidLayout:(id)a0;
+
+@end

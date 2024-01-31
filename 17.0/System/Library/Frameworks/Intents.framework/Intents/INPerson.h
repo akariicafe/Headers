@@ -1,0 +1,100 @@
+@class NSString, NSArray, INPersonHandle, NSPersonNameComponents, INImage;
+
+@interface INPerson : NSObject <INCacheableContainer, INCodableAttributeRelationComparing, INKeyImageProducing, INImageProxyInjecting, INSpeakable, INPersonExport, NSMutableCopying, NSCopying, NSSecureCoding> {
+    NSString *_displayName;
+    NSString *_userInput;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy, nonatomic) NSString *firstName;
+@property (readonly, copy, nonatomic) NSString *lastName;
+@property (readonly, copy, nonatomic) NSString *userName;
+@property (readonly, copy, nonatomic) NSString *userIdentifier;
+@property (readonly, copy, nonatomic) NSString *userURIString;
+@property (readonly, copy, nonatomic) NSString *fullName;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *aliases;
+@property (readonly, nonatomic) long long suggestionType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) INImage *_keyImage;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *siriMatches;
+@property (readonly, nonatomic) BOOL isMe;
+@property (readonly, nonatomic) NSString *spokenPhrase;
+@property (readonly, nonatomic) NSString *pronunciationHint;
+@property (readonly, nonatomic) NSString *vocabularyIdentifier;
+@property (readonly, nonatomic) NSArray *alternativeSpeakableMatches;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) INPersonHandle *personHandle;
+@property (copy, nonatomic) NSPersonNameComponents *nameComponents;
+@property (copy, nonatomic) NSString *displayName;
+@property (copy, nonatomic) INImage *image;
+@property (copy, nonatomic) NSString *contactIdentifier;
+@property (copy, nonatomic) NSString *customIdentifier;
+@property (copy, nonatomic) NSString *relationship;
+@property (copy, nonatomic) NSArray *aliases;
+@property (nonatomic) long long suggestionType;
+@property (nonatomic) BOOL isMe;
+@property (copy, nonatomic) NSArray *alternatives;
+@property (copy, nonatomic) NSArray *scoredAlternatives;
+@property (copy, nonatomic) NSString *phonemeData;
+@property (copy, nonatomic) NSString *sourceAppBundleIdentifier;
+@property (nonatomic) long long searchProvider;
+@property (readonly, copy, nonatomic) NSArray *alternativeSiriMatches;
+@property (readonly, nonatomic, getter=isContactSuggestion) BOOL contactSuggestion;
+@property (copy, nonatomic) NSString *handle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)expectedCNContactKeys;
++ (id)toNilScoredPersons:(id)a0;
+
+- (id)_initWithUserInput:(id)a0 personHandle:(id)a1 nameComponents:(id)a2 displayName:(id)a3 image:(id)a4 contactIdentifier:(id)a5 customIdentifier:(id)a6 relationship:(id)a7 aliases:(id)a8 suggestionType:(long long)a9 isMe:(BOOL)a10 alternatives:(id)a11 sourceAppBundleIdentifier:(id)a12 phonemeData:(id)a13 isContactSuggestion:(BOOL)a14;
+- (long long)_compareSubProducerOne:(id)a0 subProducerTwo:(id)a1;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isContactSuggestion:(BOOL)a6 suggestionType:(long long)a7;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5;
+- (id)_intents_indexingRepresentation;
+- (BOOL)_intents_compareValue:(id)a0 relation:(unsigned long long)a1;
+- (void)_injectProxiesForImages:(id /* block */)a0 completion:(id /* block */)a1;
+- (id)initWithHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4;
+- (id)_intents_cacheableObjects;
+- (id)spokenPhrases;
+- (id)_displayName;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isMe:(BOOL)a6 suggestionType:(long long)a7;
+- (id)initWithHandle:(id)a0 nameComponents:(id)a1 contactIdentifier:(id)a2;
+- (id)initWithHandle:(id)a0 displayName:(id)a1 contactIdentifier:(id)a2;
+- (id)descriptionAtIndent:(unsigned long long)a0;
+- (id)_dictionaryRepresentation;
+- (id)_userInput;
+- (void)_intents_updateContainerWithCache:(id)a0;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 isMe:(BOOL)a6;
+- (id)initWithContact:(id)a0;
+- (id)_initWithUserInput:(id)a0 personHandle:(id)a1 nameComponents:(id)a2 displayName:(id)a3 image:(id)a4 contactIdentifier:(id)a5 customIdentifier:(id)a6 relationship:(id)a7 aliases:(id)a8 suggestionType:(long long)a9 isMe:(BOOL)a10 scoredAlternatives:(id)a11 sourceAppBundleIdentifier:(id)a12 phonemeData:(id)a13 isContactSuggestion:(BOOL)a14 searchProvider:(long long)a15;
+- (void)encodeWithCoder:(id)a0;
+- (id)_aliases;
+- (id)_intents_readableTitleWithLocalizer:(id)a0 metadata:(id)a1;
+- (void).cxx_destruct;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 relationship:(id)a6;
+- (id)initWithPersonHandle:(id)a0 nameComponents:(id)a1 displayName:(id)a2 image:(id)a3 contactIdentifier:(id)a4 customIdentifier:(id)a5 aliases:(id)a6 suggestionType:(long long)a7;
+- (BOOL)isEqual:(id)a0;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

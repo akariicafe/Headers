@@ -1,0 +1,3 @@
+@interface __CDPRemoteDeviceSecretValidatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

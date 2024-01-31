@@ -1,0 +1,3 @@
+@interface __DayNavigationWeekScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

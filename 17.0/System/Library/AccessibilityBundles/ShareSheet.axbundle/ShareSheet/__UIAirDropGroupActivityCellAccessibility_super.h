@@ -1,0 +1,3 @@
+@interface __UIAirDropGroupActivityCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

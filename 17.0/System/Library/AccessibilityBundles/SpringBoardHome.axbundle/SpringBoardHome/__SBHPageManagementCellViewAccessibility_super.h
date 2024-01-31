@@ -1,0 +1,3 @@
+@interface __SBHPageManagementCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __JSSearchLandingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

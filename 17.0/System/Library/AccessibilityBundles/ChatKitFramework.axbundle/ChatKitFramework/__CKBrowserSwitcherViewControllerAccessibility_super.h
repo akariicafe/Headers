@@ -1,0 +1,3 @@
+@interface __CKBrowserSwitcherViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

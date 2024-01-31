@@ -1,0 +1,3 @@
+@interface __SUUIGiftDateTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

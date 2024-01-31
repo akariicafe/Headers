@@ -1,0 +1,3 @@
+@interface __CKAppGrabberCloseButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

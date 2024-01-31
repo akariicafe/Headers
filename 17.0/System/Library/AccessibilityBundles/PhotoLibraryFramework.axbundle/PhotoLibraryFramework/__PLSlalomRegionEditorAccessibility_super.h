@@ -1,0 +1,3 @@
+@interface __PLSlalomRegionEditorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

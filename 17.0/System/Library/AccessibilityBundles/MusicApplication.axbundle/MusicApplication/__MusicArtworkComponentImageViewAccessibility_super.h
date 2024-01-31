@@ -1,0 +1,3 @@
+@interface __MusicArtworkComponentImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

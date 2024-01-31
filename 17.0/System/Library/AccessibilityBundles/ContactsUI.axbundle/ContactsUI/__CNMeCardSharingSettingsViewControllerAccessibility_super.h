@@ -1,0 +1,3 @@
+@interface __CNMeCardSharingSettingsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

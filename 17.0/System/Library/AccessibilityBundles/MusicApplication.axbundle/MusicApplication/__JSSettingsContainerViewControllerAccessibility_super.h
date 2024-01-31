@@ -1,0 +1,3 @@
+@interface __JSSettingsContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

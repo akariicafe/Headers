@@ -1,0 +1,3 @@
+@interface __SeymourUI_MarketingHeaderBannerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

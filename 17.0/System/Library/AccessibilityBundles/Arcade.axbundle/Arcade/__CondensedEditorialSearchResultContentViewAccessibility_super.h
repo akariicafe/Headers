@@ -1,0 +1,3 @@
+@interface __CondensedEditorialSearchResultContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

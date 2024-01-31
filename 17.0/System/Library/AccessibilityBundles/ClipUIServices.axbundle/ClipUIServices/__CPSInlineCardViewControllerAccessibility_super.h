@@ -1,0 +1,3 @@
+@interface __CPSInlineCardViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

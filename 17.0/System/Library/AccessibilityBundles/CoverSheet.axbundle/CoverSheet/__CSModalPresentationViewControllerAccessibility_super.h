@@ -1,0 +1,3 @@
+@interface __CSModalPresentationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

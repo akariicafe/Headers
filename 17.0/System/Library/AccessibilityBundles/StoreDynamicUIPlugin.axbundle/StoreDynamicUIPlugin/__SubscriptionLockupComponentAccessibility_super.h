@@ -1,0 +1,3 @@
+@interface __SubscriptionLockupComponentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

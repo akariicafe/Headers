@@ -1,0 +1,3 @@
+@interface __SearchUIAppIconsRowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

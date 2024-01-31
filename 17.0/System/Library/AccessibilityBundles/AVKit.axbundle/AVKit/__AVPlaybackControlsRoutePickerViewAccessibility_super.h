@@ -1,0 +1,3 @@
+@interface __AVPlaybackControlsRoutePickerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

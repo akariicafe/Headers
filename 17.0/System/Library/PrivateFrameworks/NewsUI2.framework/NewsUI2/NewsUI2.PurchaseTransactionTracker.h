@@ -1,0 +1,8 @@
+@interface NewsUI2.PurchaseTransactionTracker : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ tracker;
+    void /* unknown type, empty encoding */ channelDataFactory;
+    void /* unknown type, empty encoding */ headlineService;
+    void /* unknown type, empty encoding */ sanitizer;
+}
+
+@end

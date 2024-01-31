@@ -1,0 +1,12 @@
+@interface MTATimerButtonsControllerAccessibility : __MTATimerButtonsControllerAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (void)setState:(unsigned long long)a0;
+- (id)initWithTarget:(id)a0;
+- (void)_accessibilityLoadAccessibilityInformation;
+- (void)_updateCancelButtonState;
+
+@end

@@ -1,0 +1,84 @@
+@class RTDataProtectionManager, SMSessionMonitorContext, NSObject, RTMotionActivityManager, SMSessionConfiguration, RTDefaultsManager, CLLocation, RTPlatform, RTTimerManager, SMSessionStore, NSSet, NSString, RTLearnedLocationManager, RTXPCTimerAlarm, RTLocationManager, RTTimer, SMSessionMetricManager, RTDistanceCalculator, SMSessionMonitorState;
+@protocol OS_dispatch_queue, SMSessionManagerRegistrationProtocol, SMSessionManagerMonitorProtocol;
+
+@interface SMSessionMonitor : NSObject <SMSessionManagerObserverProtocol, SMTriggerManagerProtocol>
+
+@property (retain, nonatomic) RTDataProtectionManager *dataProtectionManager;
+@property (retain, nonatomic) RTDefaultsManager *defaultsManager;
+@property (retain, nonatomic) RTDistanceCalculator *distanceCalculator;
+@property (retain, nonatomic) RTLearnedLocationManager *learnedLocationManager;
+@property (retain, nonatomic) RTLocationManager *locationManager;
+@property (retain, nonatomic) RTMotionActivityManager *motionActivityManager;
+@property (retain, nonatomic) RTPlatform *platform;
+@property (retain, nonatomic) SMSessionMetricManager *sessionMetricManager;
+@property (retain, nonatomic) SMSessionStore *sessionStore;
+@property (retain, nonatomic) RTTimerManager *timerManager;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (weak, nonatomic) id<SMSessionManagerMonitorProtocol, SMSessionManagerRegistrationProtocol> sessionManagerDelegate;
+@property (nonatomic) unsigned long long riskState;
+@property (retain, nonatomic) SMSessionMonitorContext *mostRecentTriggerContext;
+@property (retain, nonatomic) RTTimer *pendingSafeArrivalTimer;
+@property (retain, nonatomic) NSSet *triggers;
+@property (retain, nonatomic) SMSessionConfiguration *configuration;
+@property (retain, nonatomic) RTXPCTimerAlarm *regionInsidePendingTimer;
+@property (retain, nonatomic) CLLocation *currentLocation;
+@property (retain, nonatomic) SMSessionMonitorState *sessionMonitorState;
+@property (nonatomic) double sessionMonitorRegionInsidePendingTimerDelay;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)riskStateToString:(unsigned long long)a0;
+
+- (void)onLocationNotification:(id)a0;
+- (void)_shutdownWithHandler:(id /* block */)a0;
+- (void)_setup;
+- (void)_reset;
+- (void)_addObservers;
+- (void)handleCircularRegionCallback:(long long)a0 region:(id)a1 clientIdentifier:(id)a2;
+- (void).cxx_destruct;
+- (void)_removeObservers;
+- (void)_bootstrap;
+- (void)_persistState;
+- (id)initWithDefaultsManager:(id)a0 dataProtectionManager:(id)a1 locationManager:(id)a2 motionActivityManager:(id)a3 platform:(id)a4 sessionMetricManager:(id)a5 sessionStore:(id)a6;
+- (void)_processSessionResumeWithState:(id)a0;
+- (id)_createTriggersWithConfiguration:(id)a0;
+- (void)_handleCircularRegionCallback:(long long)a0 region:(id)a1 clientIdentifier:(id)a2;
+- (void)_initializeSessionWithConfiguration:(id)a0;
+- (void)_initializeTriggersForRemoteSessionIfNecessary;
+- (void)_onRegionExit;
+- (void)_onRegionInsidePendingTimerExpiry;
+- (void)_processSessionEnd;
+- (void)_processTriggerEstimatedEndDateUpdateNotification:(id)a0;
+- (void)_processTriggerNotification:(id)a0;
+- (void)_processUserTriggerResponse:(long long)a0;
+- (void)_promptDestinationAnomalyVerificationWithContext:(id)a0;
+- (void)_promptDirectTriggerWithContext:(id)a0;
+- (void)_promptEstimatedEndDateUpdateWithContext:(id)a0;
+- (void)_promptRoundTripAnomalyVerificationWithContext:(id)a0;
+- (void)_promptSafeArrivalWithContext:(id)a0;
+- (void)_promptTimerEndedVerificationWithContext:(id)a0;
+- (void)_registerForCircularRegionEventsForIdentifier:(id)a0;
+- (void)_registerForTriggersWithConfiguration:(id)a0;
+- (void)_setupGeofenceWithLocation:(id)a0 regionIdentifier:(id)a1 radius:(double)a2 destinationType:(unsigned long long)a3;
+- (void)_unregisterForCircularRegionEventsForIdentifier:(id)a0;
+- (void)_unregisterForTriggers;
+- (void)_updateDestinationBoundRegionStateWithCircularRegionCallback:(long long)a0;
+- (void)_updateGeofenceWithConfiguration:(id)a0;
+- (void)_updateRegionStateWithCircularRegionCallback:(long long)a0;
+- (void)_updateRoundTripRegionStateWithCircularRegionCallback:(long long)a0;
+- (void)_updateTriggersWithConfiguration:(id)a0;
+- (void)_updateTriggersWithUserResponse:(long long)a0;
+- (void)_updateUserWithTriggerContext:(id)a0;
+- (id)initWithDefaultsManager:(id)a0 dataProtectionManager:(id)a1 locationManager:(id)a2 motionActivityManager:(id)a3 platform:(id)a4 sessionMetricManager:(id)a5 sessionStore:(id)a6 timerManager:(id)a7;
+- (void)onRemoteEmergencyContactsNotified:(unsigned long long)a0;
+- (void)onSessionChangedWithConfiguration:(id)a0;
+- (void)onSessionEndedForActiveDevice:(BOOL)a0;
+- (void)onSessionResumedWithState:(id)a0 forActiveDevice:(BOOL)a1;
+- (void)onSessionStartedWithConfiguration:(id)a0;
+- (void)onShouldReleaseKey;
+- (void)onTriggerNotification:(id)a0;
+- (void)onUserTriggerResponse:(long long)a0;
+
+@end

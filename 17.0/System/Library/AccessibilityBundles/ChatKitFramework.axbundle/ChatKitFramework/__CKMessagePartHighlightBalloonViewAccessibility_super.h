@@ -1,0 +1,3 @@
+@interface __CKMessagePartHighlightBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

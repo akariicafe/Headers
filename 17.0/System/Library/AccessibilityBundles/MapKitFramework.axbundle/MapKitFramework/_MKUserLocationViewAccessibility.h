@@ -1,0 +1,9 @@
+@interface _MKUserLocationViewAccessibility : ___MKUserLocationViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (unsigned long long)accessibilityTraits;
+
+@end

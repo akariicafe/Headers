@@ -1,0 +1,3 @@
+@interface __PKOrderPhysicalCardHeroViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

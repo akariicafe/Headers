@@ -1,0 +1,3 @@
+@interface __LookAroundPuckViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

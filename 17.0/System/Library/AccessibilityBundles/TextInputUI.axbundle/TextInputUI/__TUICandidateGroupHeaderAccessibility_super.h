@@ -1,0 +1,3 @@
+@interface __TUICandidateGroupHeaderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

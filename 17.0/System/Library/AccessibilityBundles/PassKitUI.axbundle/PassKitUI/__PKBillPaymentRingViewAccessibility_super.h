@@ -1,0 +1,3 @@
+@interface __PKBillPaymentRingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

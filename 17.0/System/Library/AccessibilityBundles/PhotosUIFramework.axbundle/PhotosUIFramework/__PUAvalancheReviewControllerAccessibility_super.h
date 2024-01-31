@@ -1,0 +1,3 @@
+@interface __PUAvalancheReviewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

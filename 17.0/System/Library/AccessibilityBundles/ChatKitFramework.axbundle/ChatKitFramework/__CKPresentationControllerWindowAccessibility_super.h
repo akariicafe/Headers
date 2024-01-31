@@ -1,0 +1,3 @@
+@interface __CKPresentationControllerWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

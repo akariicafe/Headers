@@ -1,0 +1,3 @@
+@interface __CAMDrawerFilterButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AMSUICommonCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

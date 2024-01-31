@@ -1,0 +1,3 @@
+@interface __CAMTimerStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MessageListSearchViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

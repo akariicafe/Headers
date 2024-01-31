@@ -1,0 +1,3 @@
+@interface __UIKeyboardDockItemButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __TVRUIDirectionalControlViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

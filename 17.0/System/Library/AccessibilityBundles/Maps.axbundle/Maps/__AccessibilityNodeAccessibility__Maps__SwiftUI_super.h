@@ -1,0 +1,3 @@
+@interface __AccessibilityNodeAccessibility__Maps__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

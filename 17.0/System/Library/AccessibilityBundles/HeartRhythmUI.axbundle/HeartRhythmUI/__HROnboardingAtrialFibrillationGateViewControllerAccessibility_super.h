@@ -1,0 +1,3 @@
+@interface __HROnboardingAtrialFibrillationGateViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

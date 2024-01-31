@@ -1,0 +1,3 @@
+@interface _TtCV16SiriVideoIntents17UserContextSignal15ContextProvider : _TtCs12_SwiftObject
+
+@end

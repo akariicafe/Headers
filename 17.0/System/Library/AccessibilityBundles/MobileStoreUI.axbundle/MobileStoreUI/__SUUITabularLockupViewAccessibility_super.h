@@ -1,0 +1,3 @@
+@interface __SUUITabularLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

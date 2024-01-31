@@ -1,0 +1,3 @@
+@interface __InteractiveTimelineDateIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __TVMLKit_UICollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

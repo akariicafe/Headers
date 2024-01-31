@@ -1,0 +1,3 @@
+@interface __FeaturedShowcaseCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

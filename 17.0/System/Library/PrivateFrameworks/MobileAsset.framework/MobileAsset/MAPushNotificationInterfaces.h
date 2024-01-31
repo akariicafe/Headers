@@ -1,0 +1,3 @@
+@interface MAPushNotificationInterfaces : NSObject
+
+@end

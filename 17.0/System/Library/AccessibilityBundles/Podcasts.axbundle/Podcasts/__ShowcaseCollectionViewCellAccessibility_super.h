@@ -1,0 +1,3 @@
+@interface __ShowcaseCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

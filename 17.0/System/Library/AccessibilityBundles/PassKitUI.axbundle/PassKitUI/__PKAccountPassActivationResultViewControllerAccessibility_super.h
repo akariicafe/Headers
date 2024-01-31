@@ -1,0 +1,3 @@
+@interface __PKAccountPassActivationResultViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

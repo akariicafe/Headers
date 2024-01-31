@@ -1,0 +1,3 @@
+@interface __CheckoutContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

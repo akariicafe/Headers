@@ -1,0 +1,3 @@
+@interface __MusicApplicationUIScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

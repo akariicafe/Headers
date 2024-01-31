@@ -1,0 +1,3 @@
+@interface __CKAvatarContactNameCollectionReusableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CSPasscodeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PosterSectionFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

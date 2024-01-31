@@ -1,0 +1,3 @@
+@interface __PHAudioCallControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

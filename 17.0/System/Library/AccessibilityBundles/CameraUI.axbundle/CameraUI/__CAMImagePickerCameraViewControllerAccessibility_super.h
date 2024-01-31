@@ -1,0 +1,3 @@
+@interface __CAMImagePickerCameraViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

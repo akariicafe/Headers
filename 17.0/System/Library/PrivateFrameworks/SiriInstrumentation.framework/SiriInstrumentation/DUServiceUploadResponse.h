@@ -1,0 +1,3 @@
+@interface DUServiceUploadResponse : DUSchemaDUResponse
+
+@end

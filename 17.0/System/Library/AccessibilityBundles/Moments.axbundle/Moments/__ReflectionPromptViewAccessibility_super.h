@@ -1,0 +1,3 @@
+@interface __ReflectionPromptViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

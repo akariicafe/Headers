@@ -1,0 +1,3 @@
+@interface __PSSubtitleSwitchTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

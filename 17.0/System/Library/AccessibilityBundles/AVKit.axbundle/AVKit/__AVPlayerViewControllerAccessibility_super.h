@@ -1,0 +1,3 @@
+@interface __AVPlayerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

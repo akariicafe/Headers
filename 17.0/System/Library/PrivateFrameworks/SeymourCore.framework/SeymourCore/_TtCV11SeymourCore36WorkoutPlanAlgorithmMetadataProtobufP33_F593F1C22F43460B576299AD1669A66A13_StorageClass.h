@@ -1,0 +1,49 @@
+@interface _TtCV11SeymourCore36WorkoutPlanAlgorithmMetadataProtobufP33_F593F1C22F43460B576299AD1669A66A13_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _maxHiitWorkoutsPerWeek;
+    void /* unknown type, empty encoding */ _defaultMaxWorkoutsPerDay;
+    void /* unknown type, empty encoding */ _extendedDurationMaxWorkoutsPerDay;
+    void /* unknown type, empty encoding */ _defaultNumberOfDaysInWeek;
+    void /* unknown type, empty encoding */ _rolloutGreedyRetries;
+    void /* unknown type, empty encoding */ _useGroupCompression;
+    void /* unknown type, empty encoding */ _temperature;
+    void /* unknown type, empty encoding */ _lambdaCover;
+    void /* unknown type, empty encoding */ _lambdaEntropy;
+    void /* unknown type, empty encoding */ _lambdaAdjacentStrengths;
+    void /* unknown type, empty encoding */ _lambdaRepeatedModalitiesWithinCategories;
+    void /* unknown type, empty encoding */ _lambdaRepeatedModalitiesWithinDay;
+    void /* unknown type, empty encoding */ _lambdaRepeatedCategoriesWithinDay;
+    void /* unknown type, empty encoding */ _lambdaYogaCardioDuration;
+    void /* unknown type, empty encoding */ _lambdaAlternatingCategories;
+    void /* unknown type, empty encoding */ _yogaCardioBuffer;
+    void /* unknown type, empty encoding */ _lambdaYogaMindfulCooldown;
+    void /* unknown type, empty encoding */ _lambdaRepeatedCooldownsAcrossDays;
+    void /* unknown type, empty encoding */ _lambdaRepeatedCooldownsWithinDay;
+    void /* unknown type, empty encoding */ _lambdaHiit;
+    void /* unknown type, empty encoding */ _lambdaConsecutiveSplits;
+    void /* unknown type, empty encoding */ _lambdaCoreDuration;
+    void /* unknown type, empty encoding */ _musicGenreEntropy;
+    void /* unknown type, empty encoding */ _trainerEntropy;
+    void /* unknown type, empty encoding */ _lambdaContentRecency;
+    void /* unknown type, empty encoding */ _lambdaMusicGenres;
+    void /* unknown type, empty encoding */ _lambdaTrainer;
+    void /* unknown type, empty encoding */ _lambdaRepeatedVideo;
+    void /* unknown type, empty encoding */ _lambdaPreviouslyCompletedWorkout;
+    void /* unknown type, empty encoding */ _lambdaHighFrequencyWorkout;
+    void /* unknown type, empty encoding */ _archivedSessionMaximumAgeInDays;
+    void /* unknown type, empty encoding */ _archivedSessionMinimumPercentComplete;
+    void /* unknown type, empty encoding */ _archivedSessionRepetitionsToKeepWorkout;
+    void /* unknown type, empty encoding */ _maxAlternativesPerDuration;
+    void /* unknown type, empty encoding */ _lambdaAlternativeNotInPlan;
+    void /* unknown type, empty encoding */ _lambdaAlternativeHasSameEquipment;
+    void /* unknown type, empty encoding */ _lambdaAlternativeDowngradesEquipment;
+    void /* unknown type, empty encoding */ _lambdaAlternativeHasPreferredTrainer;
+    void /* unknown type, empty encoding */ _lambdaAlternativeHasPreferredMusicGenre;
+    void /* unknown type, empty encoding */ _lambdaSoftFilterContributor;
+    void /* unknown type, empty encoding */ _lambdaSoftFilterMusicGenre;
+    void /* unknown type, empty encoding */ _lambdaSoftFilterTrainer;
+    void /* unknown type, empty encoding */ _lambdaSoftFilterTrait;
+    void /* unknown type, empty encoding */ _lambdaSoftFilterWorkout;
+    void /* unknown type, empty encoding */ _lambdaHighFrequencyWorkoutThreshold;
+}
+
+@end

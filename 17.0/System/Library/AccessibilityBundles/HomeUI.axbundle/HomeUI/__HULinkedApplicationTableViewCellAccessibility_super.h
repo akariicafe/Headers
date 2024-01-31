@@ -1,0 +1,3 @@
+@interface __HULinkedApplicationTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

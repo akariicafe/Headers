@@ -1,0 +1,9 @@
+@interface _SFBrowserContentViewControllerAccessibility : ___SFBrowserContentViewControllerAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (BOOL)accessibilityPerformEscape;
+
+@end

@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterBooleanResponseParams : MTRUnitTestingClusterBooleanResponseParams
+
+@end

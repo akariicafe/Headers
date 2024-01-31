@@ -1,0 +1,81 @@
+@class NSLock, NSString, HKAxisStyle, HKAxisLabelCache, HKValueRange, HKCoordinateTransform, NSMutableArray, NSNumber;
+@protocol HKZoomScale, HKAxisLabelDataSource;
+
+@interface HKAxis : NSObject <HKAxisLabelDataSource>
+
+@property (readonly, nonatomic) HKAxisLabelCache *axisLabelCache;
+@property (readonly, nonatomic) NSLock *axisMutableStateLock;
+@property (retain, nonatomic) NSMutableArray *axisAnnotations;
+@property (retain, nonatomic) NSMutableArray *axisAnnotationsStorage;
+@property (nonatomic) BOOL requiresScalingStorage;
+@property (nonatomic) long long axisLabelEndingsStorage;
+@property (nonatomic) struct HKLinearTransform { double offset; double scale; } pointTransformStorage;
+@property (retain, nonatomic) HKValueRange *axisChartableValueRangeStorage;
+@property (readonly, nonatomic) HKAxisStyle *preferredStyle;
+@property (readonly, nonatomic) long long maxLabels;
+@property (readonly, nonatomic) long long minLabels;
+@property (retain, nonatomic) NSNumber *maxLabelWidth;
+@property (readonly, nonatomic) HKCoordinateTransform *transform;
+@property (readonly, nonatomic) id<HKZoomScale> zoomScaleEngine;
+@property (readonly, weak, nonatomic) id<HKAxisLabelDataSource> labelDataSource;
+@property (readonly, nonatomic) BOOL overrideNoTopBaseline;
+@property (readonly, nonatomic) BOOL requiresScaling;
+@property (nonatomic) long long axisLabelEndings;
+@property (nonatomic) struct HKLinearTransform { double x0; double x1; } pointTransform;
+@property (retain, nonatomic) HKValueRange *axisChartableValueRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (struct HKAxisMinMaxDefinition { double x0; double x1; })contractByPointsLow:(double)a0 high:(double)a1 modelRange:(struct HKAxisMinMaxDefinition { double x0; double x1; })a2 pointRange:(struct HKAxisMinMaxDefinition { double x0; double x1; })a3;
++ (struct HKAxisMinMaxDefinition { double x0; double x1; })expandByPointsLow:(double)a0 high:(double)a1 modelRange:(struct HKAxisMinMaxDefinition { double x0; double x1; })a2 pointRange:(struct HKAxisMinMaxDefinition { double x0; double x1; })a3;
+
+- (void)clearCache;
+- (id)initWithConfiguration:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)clearAnnotations;
+- (void)_addTickMarksForPosition:(unsigned long long)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 modelRange:(id)a2 zoomScale:(double)a3 contentOffset:(struct CGPoint { double x0; double x1; })a4 toBezierPath:(id)a5 style:(id)a6;
+- (double)_axisFillWidthForStyle:(id)a0 labels:(id)a1 font:(id)a2;
+- (long long)_axisLabelCountWithTextInModelRange:(id)a0 zoomScale:(double)a1;
+- (double)_axisOffsetWithStyle:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 horizontalAlignmentOut:(long long *)a2;
+- (id)_baselineForModelRange:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 style:(id)a4;
+- (struct HKRange { double x0; double x1; })_chartRangeForChartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 zoomScale:(double)a1 contentOffset:(struct CGPoint { double x0; double x1; })a2;
+- (BOOL)_containsTopBaselineWithModelRange:(id)a0 zoomScale:(double)a1;
+- (void)_drawTextBackgroundWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 style:(id)a1 renderView:(id)a2;
+- (void)_drawTextForModelRange:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 renderView:(id)a4 style:(id)a5 maximumLabelSize:(struct CGSize { double x0; double x1; } *)a6 omitOffscreenLabels:(BOOL)a7;
+- (void)_enumerateAxisLabelsForTextInRange:(id)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 constantOffset:(double)a4 isHorizontal:(BOOL)a5 optionalOffset:(struct CGPoint { double x0; double x1; })a6 gridlineWidth:(double)a7 usingBlock:(id /* block */)a8;
+- (id)_gridLinesForModelRange:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 gridlineRanges:(id)a2 zoomScale:(double)a3 contentOffset:(struct CGPoint { double x0; double x1; })a4 style:(id)a5 gridLineType:(long long)a6;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_labelBackgroundRectWithLabels:(id)a0 font:(id)a1 maxAnnotationWidth:(double)a2 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 style:(id)a4;
+- (double)_maxLabelWidthFromLabels:(id)a0 font:(id)a1;
+- (double)_maximumWidthOfAnnotations:(id)a0 axisStyle:(id)a1;
+- (void)_offsetForChartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 chartRange:(struct HKRange { double x0; double x1; })a1 zoomScaleOut:(double *)a2 contentOffsetOut:(struct CGPoint { double x0; double x1; } *)a3;
+- (struct HKLinearTransform { double x0; double x1; })_pointTransformFromSeriesRanges:(id)a0 linearTransform:(struct HKLinearTransform { double x0; double x1; })a1 chartRange:(struct HKRange { double x0; double x1; })a2;
+- (void)_renderTickMarksForModelRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 style:(id)a4 renderView:(id)a5;
+- (BOOL)_styleIsHorizontal:(id)a0;
+- (void)addAxisAnnotation:(id)a0 modelCoordinate:(id)a1;
+- (id)adjustValueRangeForLabels:(id)a0;
+- (id)adjustedRangeForFittedRange:(id)a0 chartRange:(struct HKRange { double x0; double x1; })a1;
+- (long long)axisAnnotationCount;
+- (id)axisLabelsInModelRangeFromCache:(id)a0 zoomScale:(double)a1;
+- (double)bottomBaselineYCoordinateForModelRange:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2;
+- (id)cacheKeysForModelRange:(id)a0 zoomScale:(double)a1;
+- (long long)dateZoomForZoomScale:(double)a0;
+- (void)drawBaselineForModelRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 renderView:(id)a4;
+- (void)drawGridlinesForModelRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 gridlineRanges:(id)a2 zoomScale:(double)a3 contentOffset:(struct CGPoint { double x0; double x1; })a4 renderView:(id)a5 blendMode:(int)a6;
+- (void)drawLabelsWithModelRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 renderView:(id)a4 maximumLabelSize:(struct CGSize { double x0; double x1; } *)a5 omitOffscreenLabels:(BOOL)a6;
+- (void)enumerateTickCoordinatesInModelRange:(id)a0 zoomScale:(double)a1 handler:(id /* block */)a2;
+- (id)extendModelRangeWithRange:(id)a0 zoomScale:(double)a1;
+- (id)findAxisLabelsInModelRange:(id)a0 zoomScale:(double)a1;
+- (void)invalidateAxisLabelCache;
+- (BOOL)isEqualToAxis:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })labelRectWithModelRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2;
+- (double)offsetForLegendView;
+- (void)offsetForValueRange:(id)a0 chartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScaleOut:(double *)a2 contentOffsetOut:(struct CGPoint { double x0; double x1; } *)a3;
+- (struct HKLinearTransform { double x0; double x1; })pointTransformFittingValueRange:(id)a0 toChartRange:(struct HKRange { double x0; double x1; })a1;
+- (id)rangeForChartRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 zoomScale:(double)a1 contentOffset:(struct CGPoint { double x0; double x1; })a2;
+- (struct CGPoint { double x0; double x1; })renderPositionForLabelLocation:(id)a0 rect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2 contentOffset:(struct CGPoint { double x0; double x1; })a3 constantOffset:(double)a4 isHorizontal:(BOOL)a5 optionalOffset:(struct CGPoint { double x0; double x1; })a6;
+- (double)topBaselineYCoordinateForModelRange:(id)a0 axisRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 zoomScale:(double)a2;
+
+@end

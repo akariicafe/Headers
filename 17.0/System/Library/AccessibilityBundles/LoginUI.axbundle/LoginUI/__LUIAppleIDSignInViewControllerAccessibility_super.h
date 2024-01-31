@@ -1,0 +1,3 @@
+@interface __LUIAppleIDSignInViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MRUControlCenterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

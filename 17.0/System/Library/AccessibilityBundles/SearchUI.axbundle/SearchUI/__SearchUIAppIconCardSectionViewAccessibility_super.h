@@ -1,0 +1,3 @@
+@interface __SearchUIAppIconCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

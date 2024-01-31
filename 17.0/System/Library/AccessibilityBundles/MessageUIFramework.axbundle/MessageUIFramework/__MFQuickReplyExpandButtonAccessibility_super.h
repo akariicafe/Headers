@@ -1,0 +1,3 @@
+@interface __MFQuickReplyExpandButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

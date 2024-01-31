@@ -1,0 +1,3 @@
+@interface __SeymourUI_TabletIndexedBrickItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

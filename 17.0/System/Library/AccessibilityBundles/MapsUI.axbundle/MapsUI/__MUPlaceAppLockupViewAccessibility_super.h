@@ -1,0 +1,3 @@
+@interface __MUPlaceAppLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

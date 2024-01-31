@@ -1,0 +1,3 @@
+@interface __MRUContinuousSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VideosUI_UnifiedOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

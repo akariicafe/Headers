@@ -1,0 +1,3 @@
+@interface __SFPageZoomStepperControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

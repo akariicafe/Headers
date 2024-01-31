@@ -1,0 +1,3 @@
+@interface __SBUIRemoteAlertServiceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

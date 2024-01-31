@@ -1,0 +1,3 @@
+@interface __SKUIChartColumnHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

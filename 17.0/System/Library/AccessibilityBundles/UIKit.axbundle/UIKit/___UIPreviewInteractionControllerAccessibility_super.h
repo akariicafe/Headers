@@ -1,0 +1,3 @@
+@interface ___UIPreviewInteractionControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

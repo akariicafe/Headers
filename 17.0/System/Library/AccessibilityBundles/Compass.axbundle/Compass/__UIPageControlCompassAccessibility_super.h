@@ -1,0 +1,3 @@
+@interface __UIPageControlCompassAccessibility_super : UIAccessibilitySafeCategory
+
+@end

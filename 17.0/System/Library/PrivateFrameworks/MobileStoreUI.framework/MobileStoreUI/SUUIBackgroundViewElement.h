@@ -1,0 +1,3 @@
+@interface SUUIBackgroundViewElement : SUUIViewElement
+
+@end

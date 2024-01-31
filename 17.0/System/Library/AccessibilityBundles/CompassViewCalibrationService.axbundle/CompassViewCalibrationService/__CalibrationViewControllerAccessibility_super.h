@@ -1,0 +1,3 @@
+@interface __CalibrationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

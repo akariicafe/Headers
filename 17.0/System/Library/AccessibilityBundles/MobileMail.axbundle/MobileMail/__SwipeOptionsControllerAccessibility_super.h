@@ -1,0 +1,3 @@
+@interface __SwipeOptionsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

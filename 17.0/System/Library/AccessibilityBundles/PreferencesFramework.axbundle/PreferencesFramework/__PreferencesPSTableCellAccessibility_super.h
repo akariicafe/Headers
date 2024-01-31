@@ -1,0 +1,3 @@
+@interface __PreferencesPSTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PSGCarrierRejectCodePaneAccessibility_super : UIAccessibilitySafeCategory
+
+@end

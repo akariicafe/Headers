@@ -1,0 +1,3 @@
+@interface ___UIBarCustomizationReservoirCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MKAnnotationViewAccessibility_iOS_super : UIAccessibilitySafeCategory
+
+@end

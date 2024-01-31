@@ -1,0 +1,80 @@
+@class UIImpactFeedbackGenerator, CSQuickActionsComponent, CSDashBoardRemoteContentSettings, SBSRemoteContentDefinition, UIView, CSRemoteContentHostViewController, NSString, CSDateViewComponent, CSLockScreenSettings, UIViewFloatAnimatableProperty, SBFFluidBehaviorSettings, SBSRemoteContentPreferences, CSProudLockComponent, NSArray, CSContentComponent;
+@protocol SBFAuthenticationStatusProvider, CSRemoteContentViewControllerDelegate;
+
+@interface CSRemoteContentModalViewController : CSModalViewControllerBase <CSDismissableModalViewControllerDelegate, CSRemoteModalContentViewTouchDelegate, PTSettingsKeyObserver, CSRemoteContentViewControllerProtocol> {
+    struct CGPoint { double x; double y; } _previousTranslation;
+    UIViewFloatAnimatableProperty *_scaleProperty;
+    SBFFluidBehaviorSettings *_scaleSettings;
+    UIViewFloatAnimatableProperty *_alphaProperty;
+    SBFFluidBehaviorSettings *_alphaSettings;
+    UIView *_grabberView;
+    BOOL _userHasInteractedSinceWake;
+    BOOL _dismissing;
+    SBSRemoteContentDefinition *_definition;
+    SBSRemoteContentPreferences *_remoteContentPreferences;
+    NSArray *_components;
+}
+
+@property (retain, nonatomic) CSLockScreenSettings *lockScreenSettings;
+@property (retain, nonatomic) UIImpactFeedbackGenerator *rubberBandFeedbackGenerator;
+@property (retain, nonatomic) CSContentComponent *content;
+@property (retain, nonatomic) CSDateViewComponent *dateTimeComponent;
+@property (retain, nonatomic) CSProudLockComponent *proudLockComponent;
+@property (retain, nonatomic) CSQuickActionsComponent *quickActionsComponent;
+@property (retain, nonatomic) CSDashBoardRemoteContentSettings *remoteContentSettings;
+@property (weak, nonatomic) id<CSRemoteContentViewControllerDelegate> delegate;
+@property (readonly, nonatomic) id<SBFAuthenticationStatusProvider> authenticationStatusProvider;
+@property (weak, nonatomic) CSRemoteContentHostViewController *hostViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)_createProperties;
+- (void)viewDidLoad;
+- (void)loadView;
+- (void)aggregateAppearance:(id)a0;
+- (void)settings:(id)a0 changedValueForKey:(id)a1;
+- (void).cxx_destruct;
+- (void)_setCornerRounded:(BOOL)a0;
+- (void)_updateDisplayLayoutElementForActivation:(id)a0;
+- (void)aggregateBehavior:(id)a0;
+- (id)_newDisplayLayoutElement;
+- (BOOL)_shouldCancelInteractiveDismissGesture;
+- (BOOL)handleEvent:(id)a0;
+- (void)addGrabberView:(id)a0;
+- (long long)_dateTimeStyle;
+- (long long)_backgroundStyle;
+- (BOOL)_dismissesOnTap;
+- (long long)_homeGestureMode;
+- (BOOL)_reducesWhitePoint;
+- (BOOL)_suppressesBottomEdgeContent;
+- (long long)preferredNotificationListMode;
+- (void)didReceiveTouch;
+- (void)handleBottomEdgeGestureChanged:(id)a0;
+- (void)_setUserHasInteractedSinceWake:(BOOL)a0;
+- (void)_addChildHostViewController:(id)a0;
+- (void)_dismissForced:(BOOL)a0 animated:(BOOL)a1;
+- (void)_removeChildHostViewController;
+- (BOOL)_supportsLuminanceReductionForCurrentBackgroundStyle;
+- (void)_updateContentAlpha:(double)a0 interactive:(BOOL)a1;
+- (void)_updateContentScale:(double)a0 interactive:(BOOL)a1;
+- (void)_updateForPropertyChanged;
+- (void)_updateGrabberViewVisibility;
+- (void)_updateSecondaryActionButtonText;
+- (long long)contentPresentationType;
+- (BOOL)dismissForDismissType:(long long)a0 completion:(id /* block */)a1;
+- (void)dismissForHomeButton;
+- (void)handleBottomEdgeGestureBegan:(id)a0;
+- (void)handleBottomEdgeGestureEnded:(id)a0;
+- (void)handleSecondaryActionForView:(id)a0;
+- (id)initWithContentDefinition:(id)a0 preferences:(id)a1 hostViewController:(id)a2 authenticationStatusProvider:(id)a3;
+- (BOOL)isInUnlockGestureMode;
+- (void)remoteDidChangeStyle;
+- (BOOL)shouldCaptureHomeGesture;
+- (BOOL)shouldHideHomeAffordance;
+- (BOOL)suppressesDismissalForNotification;
+- (BOOL)suppressesDismissalGesture;
+
+@end

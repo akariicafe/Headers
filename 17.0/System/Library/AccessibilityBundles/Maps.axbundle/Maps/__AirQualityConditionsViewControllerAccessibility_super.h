@@ -1,0 +1,3 @@
+@interface __AirQualityConditionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VideosUI_ChannelLogoViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

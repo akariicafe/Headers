@@ -1,0 +1,3 @@
+@interface __DOCSidebarViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

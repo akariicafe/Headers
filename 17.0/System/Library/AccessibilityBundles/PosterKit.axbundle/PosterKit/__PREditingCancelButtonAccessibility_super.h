@@ -1,0 +1,3 @@
+@interface __PREditingCancelButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

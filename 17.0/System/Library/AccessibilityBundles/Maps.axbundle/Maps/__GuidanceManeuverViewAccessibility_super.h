@@ -1,0 +1,3 @@
+@interface __GuidanceManeuverViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

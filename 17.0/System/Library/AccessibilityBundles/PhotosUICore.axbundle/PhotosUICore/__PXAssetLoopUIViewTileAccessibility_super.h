@@ -1,0 +1,3 @@
+@interface __PXAssetLoopUIViewTileAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CNUINavigationListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UpNextQueueHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

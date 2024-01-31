@@ -1,0 +1,3 @@
+@interface ___SFPageFormatMenuControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

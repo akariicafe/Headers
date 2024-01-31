@@ -1,0 +1,3 @@
+@interface PBUIStaticWallpaperImageView : UIImageView
+
+@end

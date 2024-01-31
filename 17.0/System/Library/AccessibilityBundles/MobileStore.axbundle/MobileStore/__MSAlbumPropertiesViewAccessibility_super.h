@@ -1,0 +1,3 @@
+@interface __MSAlbumPropertiesViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface MTRApplicationBasicClusterApplicationBasicApplication : MTRApplicationBasicClusterApplicationStruct
+
+@end

@@ -1,0 +1,3 @@
+@interface __DisplayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __GKMultiplayerParticipantCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

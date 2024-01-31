@@ -1,0 +1,25 @@
+@class NSMutableDictionary;
+
+@interface MFError : NSError {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _moreUserInfoLock;
+    NSMutableDictionary *_moreUserInfo;
+}
+
++ (id)errorWithDomain:(id)a0 code:(long long)a1 localizedDescription:(id)a2;
++ (id)errorWithDomain:(id)a0 code:(long long)a1 localizedDescription:(id)a2 title:(id)a3 userInfo:(id)a4;
++ (id)errorWithException:(id)a0;
+
+- (void)setLocalizedDescription:(id)a0;
+- (id)userInfo;
+- (void)setUserInfoObject:(id)a0 forKey:(id)a1;
+- (id)localizedDescription;
+- (void).cxx_destruct;
+- (id)initWithDomain:(id)a0 code:(long long)a1 userInfo:(id)a2;
+- (id)recoveryAttempter;
+- (void)setShortDescription:(id)a0;
+- (id)mf_moreInfo;
+- (id)mf_shortDescription;
+- (void)setMoreInfo:(id)a0;
+- (void)useGenericDescription:(id)a0;
+
+@end

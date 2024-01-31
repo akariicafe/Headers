@@ -1,0 +1,3 @@
+@interface __HUBannerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

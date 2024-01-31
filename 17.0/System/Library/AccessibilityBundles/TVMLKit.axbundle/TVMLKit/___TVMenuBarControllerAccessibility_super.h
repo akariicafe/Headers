@@ -1,0 +1,3 @@
+@interface ___TVMenuBarControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,93 @@
+@class NSString;
+
+@interface UAFSubscriptionStoreManager : NSObject {
+    struct sqlite3 { } *_store;
+    struct sqlite3_stmt { } *_writeSubscription;
+    struct sqlite3_stmt { } *_readSubscriptionsForSubscriber;
+    struct sqlite3_stmt { } *_readSubscription;
+    struct sqlite3_stmt { } *_readAllSubscriptions;
+    struct sqlite3_stmt { } *_readAllSubscribers;
+    struct sqlite3_stmt { } *_removeSubscription;
+    struct sqlite3_stmt { } *_removeAllSubscriptions;
+    struct sqlite3_stmt { } *_fetchExpiredSubscriptions;
+    struct sqlite3_stmt { } *_setSystemAssetSetUsages;
+    struct sqlite3_stmt { } *_fetchSystemAssetSetUsages;
+    struct sqlite3_stmt { } *_fetchAllSystemAssetSetUsages;
+    struct sqlite3_stmt { } *_clearSystemAssetSetUsages;
+    struct sqlite3_stmt { } *_removeAllSystemAssetSetUsages;
+    struct sqlite3_stmt { } *_setDbVersion;
+    struct sqlite3_stmt { } *_readDbVersion;
+    struct sqlite3_stmt { } *_readConfigurationKey;
+    struct sqlite3_stmt { } *_writeConfigurationKey;
+    struct sqlite3_stmt { } *_fetchAllConfiguration;
+    NSString *_databaseName;
+    NSString *_oldDatabaseName;
+    BOOL _dbUpToDate;
+    BOOL _readOnly;
+    BOOL _allowCreate;
+}
+
+@property (readonly) unsigned long long updateCount;
+
++ (id)defaultManager;
++ (id)_getManagerReadOnly:(BOOL)a0;
++ (id)getDefaultDBPath;
++ (id)getSerialQueue;
++ (id)writeManager;
+
+- (void)dealloc;
+- (void)_closeDatabase;
+- (int)executeSQL:(const char *)a0;
+- (void).cxx_destruct;
+- (id)getSubscriptions:(id)a0;
+- (id)getSubscribers;
+- (BOOL)_checkDbVersion;
+- (id)readString:(struct sqlite3_stmt { } *)a0 col:(int)a1;
+- (int)_beginDatabaseTransaction;
+- (BOOL)_createDbVersionTable;
+- (id)_dataFromSystemAssetSetUsages:(id)a0;
+- (id)_dataFromUAFAssetSubscription:(id)a0;
+- (int)_endDatabaseTransaction;
+- (id)_getSubscription:(struct sqlite3_stmt { } *)a0;
+- (id)_getSubscription:(id)a0 subscription:(id)a1;
+- (id)_getSubscriptions:(id)a0;
+- (id)_getSubscriptions:(struct sqlite3_stmt { } *)a0 subscriptionsFor:(id)a1;
+- (BOOL)_isUsageLimitExceeded:(id)a0;
+- (BOOL)_moveDatabase;
+- (BOOL)_openDatabase:(id)a0;
+- (int)_performDbUpgrade:(int)a0;
+- (BOOL)_removeAllSubscriptions;
+- (BOOL)_removeAllSystemAssetSetUsages;
+- (int)_rollbackDatabaseTransaction;
+- (int)_setDbVersion:(int)a0;
+- (BOOL)_setSystemAssetSetUsages:(id)a0;
+- (BOOL)_setSystemAssetSetUsages:(id)a0 usages:(id)a1;
+- (BOOL)_subscribeSubscription:(id)a0 subscriptionName:(id)a1 assetSetSubscription:(id)a2 expires:(id)a3;
+- (id)_subscriptionTime:(id)a0;
+- (id)_systemAssetSetUsagesFromData:(id)a0;
+- (id)_uafAssetSetSubscriptionFromData:(id)a0;
+- (BOOL)_unsubscribeSubscription:(id)a0 subscription:(id)a1;
+- (int)bindData:(struct sqlite3_stmt { } *)a0 col:(int)a1 data:(id)a2;
+- (int)bindDate:(struct sqlite3_stmt { } *)a0 col:(int)a1 date:(id)a2;
+- (int)bindString:(struct sqlite3_stmt { } *)a0 col:(int)a1 string:(id)a2;
+- (BOOL)clearSystemAssetSetUsages:(id)a0;
+- (int)doDatabaseOperation:(id /* block */)a0 useTransaction:(BOOL)a1 logDescription:(id)a2;
+- (void)expireSubscriptions;
+- (id)getAllSystemAssetSetUsages;
+- (id)getAllSystemConfiguration;
+- (id)getSubscription:(id)a0 subscriber:(id)a1;
+- (id)getSystemAssetSetUsages:(id)a0;
+- (id)getSystemConfigurationForKey:(id)a0;
+- (id)initWithDbDirPath:(id)a0 dbName:(id)a1;
+- (id)initWithDbDirPath:(id)a0 dbName:(id)a1 readOnly:(BOOL)a2 allowCreate:(BOOL)a3;
+- (BOOL)performDbUpgradeToVersion:(int)a0;
+- (id)readData:(struct sqlite3_stmt { } *)a0 col:(int)a1;
+- (BOOL)removeAllSubscriptions;
+- (BOOL)removeAllSystemAssetSetUsages;
+- (void)setSystemConfigurationForKey:(id)a0 withValue:(id)a1;
+- (BOOL)subscribe:(id)a0 subscriptions:(id)a1 expires:(id)a2;
+- (BOOL)unsubscribe:(id)a0 subscriptions:(id)a1;
+- (id)updateSystemAssetSetUsages;
+- (id)updateSystemAssetSetUsages:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface PBUIBokehImageArbiter : NSObject
+
+@end

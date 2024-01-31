@@ -1,0 +1,3 @@
+@interface __PULivePhotoVideoOverlayTileViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

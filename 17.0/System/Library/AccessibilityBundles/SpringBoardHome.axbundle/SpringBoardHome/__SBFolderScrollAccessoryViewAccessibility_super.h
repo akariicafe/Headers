@@ -1,0 +1,3 @@
+@interface __SBFolderScrollAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

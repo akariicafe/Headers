@@ -1,0 +1,3 @@
+@interface __MRUActivityMirroringViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

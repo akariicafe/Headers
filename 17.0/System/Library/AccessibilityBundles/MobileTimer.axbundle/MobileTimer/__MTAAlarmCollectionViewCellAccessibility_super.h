@@ -1,0 +1,3 @@
+@interface __MTAAlarmCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

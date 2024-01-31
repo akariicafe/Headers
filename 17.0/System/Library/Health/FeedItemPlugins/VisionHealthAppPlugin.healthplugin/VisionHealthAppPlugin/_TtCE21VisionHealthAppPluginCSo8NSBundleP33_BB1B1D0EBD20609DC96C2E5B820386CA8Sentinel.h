@@ -1,0 +1,3 @@
+@interface _TtCE21VisionHealthAppPluginCSo8NSBundleP33_BB1B1D0EBD20609DC96C2E5B820386CA8Sentinel : _TtCs12_SwiftObject
+
+@end

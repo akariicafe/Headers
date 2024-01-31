@@ -1,0 +1,3 @@
+@interface __SUTermsAndConditionsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

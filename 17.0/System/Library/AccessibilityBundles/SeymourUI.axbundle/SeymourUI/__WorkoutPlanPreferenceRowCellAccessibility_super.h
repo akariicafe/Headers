@@ -1,0 +1,3 @@
+@interface __WorkoutPlanPreferenceRowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

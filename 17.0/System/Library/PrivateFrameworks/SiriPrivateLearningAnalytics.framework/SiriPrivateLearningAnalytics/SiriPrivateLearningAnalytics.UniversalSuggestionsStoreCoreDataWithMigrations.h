@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningAnalytics.UniversalSuggestionsStoreCoreDataWithMigrations : SiriPrivateLearningAnalytics.UniversalSuggestionsStoreCoreData
+
+@end

@@ -1,0 +1,70 @@
+@class DMCEnrollmentTableViewIconCell, UIView, DMCEnrollmentTableViewTitleCell, NSArray, NSString, UITableView, NSMutableArray, DMCEnrollmentTableViewTextCell, UIVisualEffectView, NSNumber;
+
+@interface DMCEnrollmentTemplateTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (retain, nonatomic) UIView *bottomView;
+@property (retain, nonatomic) UIView *floatyBottomView;
+@property (retain, nonatomic) UIView *bottomContainerView;
+@property (retain, nonatomic) UIVisualEffectView *effectView;
+@property (retain, nonatomic) DMCEnrollmentTableViewIconCell *iconCell;
+@property (retain, nonatomic) DMCEnrollmentTableViewTitleCell *titleCell;
+@property (retain, nonatomic) DMCEnrollmentTableViewTextCell *subtitleCell;
+@property (nonatomic) unsigned long long headerSection;
+@property (nonatomic) double gapBetweenButtons;
+@property (retain, nonatomic) UITableView *tableView;
+@property (retain, nonatomic) NSMutableArray *cellDataCollection;
+@property (nonatomic) BOOL inProgress;
+@property (copy, nonatomic) NSArray *iconNames;
+@property (copy, nonatomic) NSString *titleText;
+@property (copy, nonatomic) NSString *subtitleText;
+@property (readonly, nonatomic) unsigned long long layoutStyle;
+@property (retain, nonatomic) NSNumber *customTopMargin;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)tableView:(id)a0 viewForHeaderInSection:(long long)a1;
+- (long long)numberOfSectionsInTableView:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (long long)tableView:(id)a0 numberOfRowsInSection:(long long)a1;
+- (void)viewWillLayoutSubviews;
+- (id)initWithStyle:(long long)a0;
+- (double)tableView:(id)a0 heightForRowAtIndexPath:(id)a1;
+- (double)tableView:(id)a0 heightForHeaderInSection:(long long)a1;
+- (double)tableView:(id)a0 estimatedHeightForRowAtIndexPath:(id)a1;
+- (void)keyboardWillShow:(id)a0;
+- (void)keyboardWillHide:(id)a0;
+- (void).cxx_destruct;
+- (void)scrollViewDidScroll:(id)a0;
+- (void)keyboardDidShow:(id)a0;
+- (double)tableView:(id)a0 heightForFooterInSection:(long long)a1;
+- (id)tableView:(id)a0 viewForFooterInSection:(long long)a1;
+- (void)_setUpBackdrops;
+- (void)leftBarButtonTapped:(id)a0;
+- (void)rightBarButtonTapped:(id)a0;
+- (void)_addBottomView:(id)a0;
+- (void)addCellData:(id)a0 toSection:(unsigned long long)a1 animated:(BOOL)a2;
+- (SEL)_actionSelectorForBarButtonPosition:(unsigned long long)a0;
+- (unsigned long long)_addCellData:(id)a0 createNewSection:(BOOL)a1 animated:(BOOL)a2;
+- (void)_adjustFloatyViewFrameWithKeyboardFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 animationDuration:(double)a1;
+- (double)_lastCellBlockedHeight;
+- (void)_maskNavigationBar;
+- (void)_setupHeaderSectionWithIconNames:(id)a0 iconImages:(id)a1 title:(id)a2 subTitle:(id)a3;
+- (void)_setupNotification;
+- (void)_touchViewFrame:(id)a0;
+- (void)_updateEffectiveViewVisibility;
+- (void)_updateFloatyViewForKeyboardFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 duration:(double)a1;
+- (void)addBottomView:(id)a0;
+- (unsigned long long)addCellData:(id)a0 animated:(BOOL)a1;
+- (void)addFloatyBottomView:(id)a0;
+- (unsigned long long)addSectionWithCellData:(id)a0 animated:(BOOL)a1;
+- (id)initWithIconImages:(id)a0 title:(id)a1 subTitle:(id)a2;
+- (id)initWithIconNames:(id)a0 iconImages:(id)a1 title:(id)a2 subTitle:(id)a3 layoutStyle:(unsigned long long)a4;
+- (id)initWithIconNames:(id)a0 title:(id)a1 subTitle:(id)a2;
+- (void)removeCellData:(id)a0 fromSection:(unsigned long long)a1 animated:(BOOL)a2;
+- (void)updateContinueButtonStatus;
+- (void)updateNavBarButtonType:(unsigned long long)a0 forButtonPosition:(unsigned long long)a1 enabled:(BOOL)a2;
+
+@end

@@ -1,0 +1,3 @@
+@interface __MSTrackListHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

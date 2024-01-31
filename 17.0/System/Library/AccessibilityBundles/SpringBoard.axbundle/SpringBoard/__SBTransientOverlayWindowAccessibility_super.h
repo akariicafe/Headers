@@ -1,0 +1,3 @@
+@interface __SBTransientOverlayWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

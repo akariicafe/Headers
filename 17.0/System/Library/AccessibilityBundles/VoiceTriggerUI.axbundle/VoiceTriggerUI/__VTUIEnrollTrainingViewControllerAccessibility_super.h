@@ -1,0 +1,3 @@
+@interface __VTUIEnrollTrainingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKFullScreenAppNavbarManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

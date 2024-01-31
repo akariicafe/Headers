@@ -1,0 +1,3 @@
+@interface COMeshNotification : COMeshCommand
+
+@end

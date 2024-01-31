@@ -1,0 +1,3 @@
+@interface Summaries.PHQ9AssessmentCurrentValueSummarySharableModelGenerator : Summaries.MostRecentSampleCurrentValueSummarySharableModelGenerator
+
+@end

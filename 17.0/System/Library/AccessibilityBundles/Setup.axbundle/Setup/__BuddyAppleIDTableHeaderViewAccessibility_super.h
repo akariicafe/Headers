@@ -1,0 +1,3 @@
+@interface __BuddyAppleIDTableHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

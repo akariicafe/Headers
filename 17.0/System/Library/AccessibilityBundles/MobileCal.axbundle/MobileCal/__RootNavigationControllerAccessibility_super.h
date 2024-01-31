@@ -1,0 +1,3 @@
+@interface __RootNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

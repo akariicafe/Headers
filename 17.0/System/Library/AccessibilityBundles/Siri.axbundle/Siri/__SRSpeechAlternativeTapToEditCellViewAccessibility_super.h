@@ -1,0 +1,3 @@
+@interface __SRSpeechAlternativeTapToEditCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

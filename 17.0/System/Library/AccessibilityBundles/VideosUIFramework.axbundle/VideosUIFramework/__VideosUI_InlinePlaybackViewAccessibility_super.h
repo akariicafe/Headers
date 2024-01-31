@@ -1,0 +1,3 @@
+@interface __VideosUI_InlinePlaybackViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

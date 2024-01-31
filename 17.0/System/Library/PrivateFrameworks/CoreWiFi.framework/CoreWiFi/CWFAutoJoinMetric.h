@@ -1,0 +1,81 @@
+@class NSDictionary, NSString, CWFAutoJoinParameters, NSArray, NSError, CWFScanResult, SFRemoteHotspotDevice;
+
+@interface CWFAutoJoinMetric : NSObject <CWFJSONEncodable, NSCopying, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL result;
+@property (nonatomic) unsigned long long duration;
+@property (nonatomic) unsigned long long durationFromLinkDownTrigger;
+@property (nonatomic) unsigned long long durationFromDisplayOnTrigger;
+@property (nonatomic) unsigned long long durationFromDeviceUnlockTrigger;
+@property (nonatomic) unsigned long long durationFromWiFiPowerOnTrigger;
+@property (nonatomic) long long previousNonRetryAutoJoinTrigger;
+@property (nonatomic) unsigned long long durationFromNonRetryAutoJoinTrigger;
+@property (copy, nonatomic) NSError *error;
+@property (nonatomic) BOOL wasCancelled;
+@property (nonatomic) BOOL wasAborted;
+@property (copy, nonatomic) CWFAutoJoinParameters *autoJoinParameters;
+@property (nonatomic) long long retrySchedule;
+@property (nonatomic) unsigned long long retryScheduleIndex;
+@property (nonatomic) BOOL was6EDisabled;
+@property (nonatomic) BOOL was6EPreferOn;
+@property (nonatomic) BOOL was6GHzDeprioritized;
+@property (nonatomic) BOOL wasAlreadyAssociated;
+@property (nonatomic) BOOL didUseLocationOptimizedChannelList;
+@property (nonatomic) BOOL didDetectColocatedNetworkEnvironment;
+@property (nonatomic) BOOL didDeferJoinToDiscoverMorePreferredNetwork;
+@property (nonatomic) BOOL didFallbackToJoinLessPreferredNetwork;
+@property (nonatomic) unsigned long long scanDuration;
+@property (copy, nonatomic) NSArray *scanChannels;
+@property (nonatomic) unsigned long long preAssociationScanDuration;
+@property (copy, nonatomic) NSArray *preAssociationScanChannels;
+@property (copy, nonatomic) NSArray *scanErrors;
+@property (nonatomic) unsigned long long GASQueryDuration;
+@property (copy, nonatomic) NSArray *GASQueryNetworks;
+@property (copy, nonatomic) NSArray *GASQueryErrors;
+@property (nonatomic) unsigned long long joinDuration;
+@property (copy, nonatomic) NSArray *joinErrors;
+@property (copy, nonatomic) CWFScanResult *network;
+@property (copy, nonatomic) CWFScanResult *associatedNetwork;
+@property (copy, nonatomic) NSArray *candidates;
+@property (copy, nonatomic) NSArray *knownNetworks;
+@property (nonatomic) BOOL didPerformSeamlessSSIDTransition;
+@property (nonatomic) BOOL didTriggerReassoc;
+@property (copy, nonatomic) NSArray *preferredChannelList;
+@property (copy, nonatomic) NSArray *recentChannelList;
+@property (copy, nonatomic) NSArray *remainingChannelList;
+@property (copy, nonatomic) NSArray *optimizedChannelList;
+@property (nonatomic) BOOL wasDiscoveredViaRNR;
+@property (nonatomic) BOOL wasDiscoveredViaFILSD;
+@property (nonatomic) unsigned long long followup6GHzScanDuration;
+@property (copy, nonatomic) NSArray *followup6GHzScanChannels;
+@property (nonatomic) BOOL didIncludeRemainingNon2GHzChannels;
+@property (nonatomic) BOOL autoHotspotWasAttempted;
+@property (nonatomic) BOOL autoHotspotResult;
+@property (nonatomic) unsigned long long autoHotspotDuration;
+@property (nonatomic) BOOL autoHotspotWasAborted;
+@property (copy, nonatomic) NSError *autoHotspotError;
+@property (nonatomic) long long autoHotspotMode;
+@property (nonatomic) unsigned long long autoHotspotBrowseDuration;
+@property (copy, nonatomic) NSError *autoHotspotBrowseError;
+@property (nonatomic) unsigned long long autoHotspotJoinDuration;
+@property (copy, nonatomic) NSArray *autoHotspotJoinErrors;
+@property (retain, nonatomic) SFRemoteHotspotDevice *hotspot;
+@property (readonly) NSString *coreAnalyticsEventName;
+@property (readonly) NSDictionary *coreAnalyticsEventPayload;
+
+- (id)JSONCompatibleKeyValueMap;
+- (BOOL)isEqualToAutoJoinMetric:(id)a0;
+- (void)encodeWithCoder:(id)a0;
+- (void).cxx_destruct;
+- (id)__descriptionForError:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

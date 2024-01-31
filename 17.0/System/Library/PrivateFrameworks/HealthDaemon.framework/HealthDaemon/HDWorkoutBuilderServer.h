@@ -1,0 +1,96 @@
+@class HKDataFlowLink, NSMutableDictionary, HDWorkoutBuilderEntity, HKStateMachine, NSObject, HKWorkoutBuilderConfiguration, HDWorkoutBuilderStatisticsCalculators, NSDate, NSString, NSSet, NSMutableSet, NSDateInterval, NSArray, HKObserverSet, NSError, NSUUID;
+@protocol HDWorkoutDataAccumulator, OS_dispatch_queue;
+
+@interface HDWorkoutBuilderServer : HDStandardTaskServer <HDWorkoutDataAccumulator, HKDataFlowLinkProcessor, HKStateMachineDelegate, HKWorkoutBuilderServerInterface, HDWorkoutDataDestination, HDTaskServerObserver> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    _Atomic BOOL _invalidated;
+    HDWorkoutBuilderEntity *_persistentEntity;
+    NSError *_error;
+    HKObserverSet *_dataAccumulatorObservers;
+    HKObserverSet *_sampleObservers;
+    NSSet *_quantityTypesIncludedWhilePaused;
+    HDWorkoutBuilderStatisticsCalculators *_statisticsCalculators;
+    NSMutableDictionary *_sourceOrderProvidersByType;
+    NSMutableDictionary *_statisticsDataSourcesByType;
+    NSMutableSet *_quantityTypesRequiringCalculatorInvalidation;
+    HKDataFlowLink *_workoutDataFlowLink;
+    NSSet *_expectedDataSourceUUIDs;
+    HKStateMachine *_stateMachine;
+    long long _targetConstructionState;
+    NSObject<OS_dispatch_queue> *_upstreamQueue;
+    BOOL _lock_isAssociatedToSession;
+    HKWorkoutBuilderConfiguration *_configuration;
+    NSMutableDictionary *_metadata;
+    NSArray *_workoutEvents;
+    NSMutableDictionary *_workoutActivitiesByUUID;
+    NSDate *_workoutStartDate;
+    NSDate *_workoutEndDate;
+    NSDateInterval *_dataInterval;
+    NSMutableDictionary *_zonesByType;
+}
+
+@property (readonly) BOOL invalidated;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) HKDataFlowLink *workoutDataFlowLink;
+@property (readonly, copy) NSUUID *workoutDataProcessorUUID;
+@property (readonly) unsigned long long workoutDataDestinationState;
+@property (readonly, nonatomic) id<HDWorkoutDataAccumulator> workoutDataAccumulator;
+
++ (id)requiredEntitlements;
++ (id)taskIdentifier;
++ (Class)configurationClass;
++ (BOOL)validateConfiguration:(id)a0 client:(id)a1 error:(id *)a2;
++ (void)finishDetachedBuilderForEntity:(id)a0 sessionEndDate:(id)a1 profile:(id)a2;
++ (BOOL)finishAllDetachedWorkoutBuildersExcludingSessions:(id)a0 profile:(id)a1 error:(id *)a2;
++ (id)recoveredWorkoutBuilderConfigurationForClient:(id)a0 sessionIdentifier:(id)a1 builderIdentifierOut:(id *)a2 profile:(id)a3 error:(id *)a4;
++ (BOOL)finishAllWorkoutBuildersForClient:(id)a0 profile:(id)a1 error:(id *)a2;
+
+- (id)exportedInterface;
+- (id)initWithUUID:(id)a0 configuration:(id)a1 client:(id)a2 delegate:(id)a3;
+- (id)startDate;
+- (id)remoteInterface;
+- (void)connectionInvalidated;
+- (void)connectionConfigured;
+- (void)didCreateTaskServer:(id)a0;
+- (void).cxx_destruct;
+- (void)remote_setTargetConstructionState:(long long)a0 startDate:(id)a1 endDate:(id)a2 completion:(id /* block */)a3;
+- (void)remote_addDataSourcesWithIdentifiers:(id)a0;
+- (void)remote_addMetadata:(id)a0 completion:(id /* block */)a1;
+- (void)remote_addSamples:(id)a0 completion:(id /* block */)a1;
+- (void)remote_addWorkoutActivity:(id)a0 completion:(id /* block */)a1;
+- (void)remote_addWorkoutEvents:(id)a0 completion:(id /* block */)a1;
+- (void)remote_currentZonesForType:(id)a0 completion:(id /* block */)a1;
+- (void)remote_recoverWithCompletion:(id /* block */)a0;
+- (void)remote_removeDataSourcesWithIdentifiers:(id)a0;
+- (void)remote_removeMetadata:(id)a0 completion:(id /* block */)a1;
+- (void)remote_setShouldCollectEvents:(BOOL)a0;
+- (void)remote_setStatisticsComputationMethod:(long long)a0 forType:(id)a1;
+- (void)remote_setStatisticsMergeStrategy:(unsigned long long)a0 forType:(id)a1;
+- (void)remote_updateActivityWithUUID:(id)a0 addMetadata:(id)a1 completion:(id /* block */)a2;
+- (void)remote_updateActivityWithUUID:(id)a0 endDate:(id)a1 completion:(id /* block */)a2;
+- (void)remote_updateDevice:(id)a0;
+- (void)stateMachine:(id)a0 didEnterState:(id)a1 date:(id)a2 error:(id)a3;
+- (void)stateMachine:(id)a0 didTransition:(id)a1 fromState:(id)a2 toState:(id)a3 date:(id)a4 error:(id)a5;
+- (id)currentEvents;
+- (void)removeDataAccumulationObserver:(id)a0;
+- (id)currentMetadata;
+- (void)addDataAccumulationObserver:(id)a0;
+- (void)addMetadata:(id)a0 dataSource:(id)a1;
+- (void)addOtherSamples:(id)a0 dataSource:(id)a1;
+- (void)addQuantities:(id)a0 dataSource:(id)a1;
+- (void)addSampleObserver:(id)a0;
+- (void)addWorkoutEvents:(id)a0 dataSource:(id)a1;
+- (void)didBeginActivity:(id)a0 dataSource:(id)a1;
+- (void)didEndActivity:(id)a0 dataSource:(id)a1;
+- (void)didInvalidateTaskServer:(id)a0;
+- (void)didReceiveDataFromRemoteWorkoutSession:(id)a0 completion:(id /* block */)a1;
+- (void)didSuggestActivity:(id)a0 dataSource:(id)a1;
+- (BOOL)enumerateQuantitiesOfType:(id)a0 error:(id *)a1 handler:(id /* block */)a2;
+- (BOOL)enumerateSamplesOfTypes:(id)a0 error:(id *)a1 handler:(id /* block */)a2;
+- (void)removeSampleObserver:(id)a0;
+- (void)updateWorkoutConfiguration:(id)a0 dataSource:(id)a1;
+
+@end

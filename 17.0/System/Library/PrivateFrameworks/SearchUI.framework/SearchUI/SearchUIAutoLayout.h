@@ -1,0 +1,57 @@
+@interface SearchUIAutoLayout : NSObject
+
++ (double)sectionCornerRadius;
++ (void)alignViews:(id)a0 withAttribute:(long long)a1;
++ (id)installConstraintsWithVisualFormat:(id)a0 withViews:(id)a1 metrics:(id)a2 options:(unsigned long long)a3;
++ (double)scaledValueForValue:(double)a0 withFont:(id)a1;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1 spacing:(double)a2;
++ (id)alignView:(id)a0 toView:(id)a1 withAttribute:(long long)a2 relatedBy:(long long)a3;
++ (void)fillContainerWithView:(id)a0;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 spacing:(double)a2 isDynamic:(BOOL)a3 forFont:(id)a4 minimum:(BOOL)a5;
++ (id)alignView:(id)a0 attribute:(long long)a1 toView:(id)a2 attribute:(long long)a3 priority:(float)a4;
++ (void)requireIntrinsicSizeForView:(id)a0;
++ (void)setVisibility:(BOOL)a0 forView:(id)a1;
++ (BOOL)frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 isVisibleInBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
++ (void)constrainViewWidthToContainer:(id)a0;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 dynamicSpacing:(double)a2 forFont:(id)a3 minimum:(BOOL)a4;
++ (BOOL)view:(id)a0 isVisibleInBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2;
++ (void)setSize:(struct CGSize { double x0; double x1; })a0 forView:(id)a1;
++ (id)alignView:(id)a0 toView:(id)a1 withAttribute:(long long)a2 priority:(float)a3;
++ (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })customUnscaledBaselineInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0 font:(id)a1;
++ (void)requireIntrinsicSizeForView:(id)a0 withPriority:(float)a1;
++ (void)spanContainerWidthForView:(id)a0;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1 spacing:(double)a2 priority:(float)a3;
++ (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })customBaselineInsets:(struct UIEdgeInsets { double x0; double x1; double x2; double x3; })a0 font:(id)a1;
++ (double)deviceScaledRoundedValue:(double)a0;
++ (double)selectionBorderWidth;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1 spacing:(double)a2 minimum:(BOOL)a3 priority:(float)a4;
++ (id)installConstraintsWithVisualFormat:(id)a0 views:(id)a1;
++ (id)installConstraintsWithVisualFormat:(id)a0 views:(id)a1 options:(unsigned long long)a2;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 spacing:(double)a2 minimum:(BOOL)a3;
++ (id)alignView:(id)a0 attribute:(long long)a1 relatedBy:(long long)a2 toView:(id)a3 attribute:(long long)a4 constant:(double)a5;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 dynamicSpacing:(double)a2;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 dynamicSpacing:(double)a2 minimum:(BOOL)a3;
++ (id)alignView:(id)a0 toView:(id)a1 withAttribute:(long long)a2 constant:(double)a3;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 spacing:(double)a2;
++ (void)constrainViewHeightContainer:(id)a0;
++ (id)alignView:(id)a0 attribute:(long long)a1 relatedBy:(long long)a2 toView:(id)a3 attribute:(long long)a4 constant:(double)a5 priority:(float)a6;
++ (id)setWidth:(double)a0 forView:(id)a1;
++ (void)spanContainerHeightForView:(id)a0;
++ (id)alignView:(id)a0 attribute:(long long)a1 toView:(id)a2 attribute:(long long)a3;
++ (id)setHeight:(double)a0 forView:(id)a1;
++ (id)alignView:(id)a0 attribute:(long long)a1 toView:(id)a2 attribute:(long long)a3 constant:(double)a4;
++ (void)constrainViewToContainer:(id)a0;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 dynamicSpacing:(double)a2 forFont:(id)a3;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1;
++ (double)roundedItemCornerRadius;
++ (id)installConstraintsWithVisualFormat:(id)a0 views:(id)a1 metrics:(id)a2;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 spacing:(double)a2 isDynamic:(BOOL)a3 forFont:(id)a4 minimum:(BOOL)a5 priority:(float)a6;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 spacing:(double)a2 priority:(float)a3;
++ (id)alignView:(id)a0 toView:(id)a1 withAttribute:(long long)a2;
++ (id)baselineAlignBottomView:(id)a0 toTopView:(id)a1 dynamicSpacing:(double)a2 priority:(float)a3;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1 spacing:(double)a2 minimum:(BOOL)a3;
++ (void)enableAutoLayoutForItems:(id)a0;
++ (id)alignLeadingView:(id)a0 toTrailingView:(id)a1 priority:(float)a2;
+
+@end

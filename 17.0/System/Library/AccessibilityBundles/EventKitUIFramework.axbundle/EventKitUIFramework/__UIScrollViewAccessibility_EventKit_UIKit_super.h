@@ -1,0 +1,3 @@
+@interface __UIScrollViewAccessibility_EventKit_UIKit_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUISectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

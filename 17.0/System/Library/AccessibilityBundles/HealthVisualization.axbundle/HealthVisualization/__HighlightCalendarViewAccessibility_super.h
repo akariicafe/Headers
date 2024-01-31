@@ -1,0 +1,3 @@
+@interface __HighlightCalendarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

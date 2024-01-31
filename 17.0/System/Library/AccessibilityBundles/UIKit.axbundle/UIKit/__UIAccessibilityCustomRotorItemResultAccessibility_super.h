@@ -1,0 +1,3 @@
+@interface __UIAccessibilityCustomRotorItemResultAccessibility_super : UIAccessibilitySafeCategory
+
+@end

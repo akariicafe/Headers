@@ -1,0 +1,3 @@
+@interface __UIToolbarButtonAccessibility__AnnotationKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

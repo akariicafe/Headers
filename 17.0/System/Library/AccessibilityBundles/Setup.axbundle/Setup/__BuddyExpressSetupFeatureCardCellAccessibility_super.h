@@ -1,0 +1,3 @@
+@interface __BuddyExpressSetupFeatureCardCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

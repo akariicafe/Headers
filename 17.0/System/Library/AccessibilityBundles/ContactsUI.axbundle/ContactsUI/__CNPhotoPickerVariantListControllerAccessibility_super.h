@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerVariantListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

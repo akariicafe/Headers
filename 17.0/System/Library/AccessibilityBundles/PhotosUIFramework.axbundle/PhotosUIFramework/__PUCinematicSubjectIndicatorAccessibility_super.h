@@ -1,0 +1,3 @@
+@interface __PUCinematicSubjectIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

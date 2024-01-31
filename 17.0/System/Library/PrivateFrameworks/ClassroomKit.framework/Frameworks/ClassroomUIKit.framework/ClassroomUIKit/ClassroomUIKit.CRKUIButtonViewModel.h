@@ -1,0 +1,6 @@
+@interface ClassroomUIKit.CRKUIButtonViewModel : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _type;
+    void /* unknown type, empty encoding */ action;
+}
+
+@end

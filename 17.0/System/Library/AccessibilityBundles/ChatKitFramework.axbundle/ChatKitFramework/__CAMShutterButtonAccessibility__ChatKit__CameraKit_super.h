@@ -1,0 +1,3 @@
+@interface __CAMShutterButtonAccessibility__ChatKit__CameraKit_super : UIAccessibilitySafeCategory
+
+@end

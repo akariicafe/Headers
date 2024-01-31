@@ -1,0 +1,3 @@
+@interface COMeshControllerQueuedPeerRequest : COMeshControllerQueuedRequest
+
+@end

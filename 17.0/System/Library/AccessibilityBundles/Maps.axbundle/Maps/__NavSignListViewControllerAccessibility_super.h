@@ -1,0 +1,3 @@
+@interface __NavSignListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

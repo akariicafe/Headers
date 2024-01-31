@@ -1,0 +1,3 @@
+@interface __SleepScheduleDayPickerDayAccessibility_super : UIAccessibilitySafeCategory
+
+@end

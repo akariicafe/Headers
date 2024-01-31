@@ -1,0 +1,3 @@
+@interface __CKCanvasBackButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

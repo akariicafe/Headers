@@ -1,0 +1,3 @@
+@interface __SUUIRedeemCameraViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

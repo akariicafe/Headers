@@ -1,0 +1,3 @@
+@interface __GKCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

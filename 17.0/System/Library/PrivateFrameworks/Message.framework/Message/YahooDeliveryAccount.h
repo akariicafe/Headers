@@ -1,0 +1,3 @@
+@interface YahooDeliveryAccount : MFYahooSMTPAccount
+
+@end

@@ -1,0 +1,3 @@
+@interface __CFXPreviewViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

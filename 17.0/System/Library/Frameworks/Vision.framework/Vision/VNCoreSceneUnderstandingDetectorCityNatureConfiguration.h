@@ -1,0 +1,3 @@
+@interface VNCoreSceneUnderstandingDetectorCityNatureConfiguration : VNCoreSceneUnderstandingDetectorCustomClassifierConfiguration
+
+@end

@@ -1,0 +1,3 @@
+@interface __DataTypeTileHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

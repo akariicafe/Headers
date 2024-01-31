@@ -1,0 +1,21 @@
+@interface TSWPDropCapSpacing : NSObject <NSCopying>
+
+@property (nonatomic) unsigned long long lineCount;
+@property (nonatomic) unsigned long long elevatedLineCount;
+@property (nonatomic) unsigned long long followingLineCount;
+@property (nonatomic) double padding;
+@property (nonatomic) BOOL allowSpanParagraphs;
+@property (nonatomic) unsigned long long flags;
+@property (nonatomic) double maxWidthFactor;
+
++ (id)dropCapSpacingWithLineCount:(unsigned long long)a0 elevatedLineCount:(unsigned long long)a1;
+
+- (id)init;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)computedFlagsWithPropertyMap:(id)a0;
+
+@end

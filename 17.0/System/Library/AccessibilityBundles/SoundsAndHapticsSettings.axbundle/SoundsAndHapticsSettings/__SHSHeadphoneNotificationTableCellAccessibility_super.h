@@ -1,0 +1,3 @@
+@interface __SHSHeadphoneNotificationTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

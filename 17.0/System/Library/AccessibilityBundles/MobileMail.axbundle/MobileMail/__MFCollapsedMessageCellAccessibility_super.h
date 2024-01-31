@@ -1,0 +1,3 @@
+@interface __MFCollapsedMessageCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

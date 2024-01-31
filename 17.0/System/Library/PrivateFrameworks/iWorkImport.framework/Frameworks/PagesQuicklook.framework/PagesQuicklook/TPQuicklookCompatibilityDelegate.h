@@ -1,0 +1,3 @@
+@interface TPQuicklookCompatibilityDelegate : TPBaseCompatibilityDelegate
+
+@end

@@ -1,0 +1,3 @@
+@interface __HomeScreenPosterCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

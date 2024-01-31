@@ -1,0 +1,3 @@
+@interface ICHashtagAttachmentView : ICInlineAttachmentView
+
+@end

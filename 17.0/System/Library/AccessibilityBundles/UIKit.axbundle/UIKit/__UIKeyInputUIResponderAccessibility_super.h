@@ -1,0 +1,3 @@
+@interface __UIKeyInputUIResponderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE17RealityFoundationC10RealityKit13AudioResource12FileNotFound : _TtCE17RealityFoundationC10RealityKit13AudioResource10AudioError
+
+@end

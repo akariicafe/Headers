@@ -1,0 +1,91 @@
+@class UniLibrary, UniGaussianBlur, UniImage, UniKernel;
+@protocol MTLCommandQueue;
+
+@interface MakeBlurMap : NSObject {
+    id<MTLCommandQueue> _mtlQueue;
+    UniLibrary *_library;
+    UniKernel *_slmMinMax;
+    UniKernel *_slmCalc;
+    UniKernel *_slmCalcEyes;
+    UniImage *_minMaxTex;
+    UniImage *_outputParamsImage;
+    struct disparity_refinement_params { int radius; float weightScaling; float maxReconstructionWeight; float innerSamplingRadius; float outerSamplingRadius; int nSamples; float lumaSigma; float chromaSigma; float segmentationSigma; float disparitySigma; float accumulatedWeightT0; float accumulatedWeightT1; float aaLumaSigma; float aaChromaSigma; float aaSegmentationSigma; float aaSpatialSigma; float fgBlurScale; float fgBlurClamp; float fgDeadZoneOffset; float fgFgBgThreshold; int fgBgDilationSize; } _disparity_refinement_config_params;
+    UniKernel *_calcWeightsX;
+    UniKernel *_calcWeightsY;
+    UniKernel *_preprocessing;
+    UniKernel *_sample;
+    UniKernel *_antialias;
+    UniKernel *_antialiasWithForegroundBlur;
+    UniKernel *_passthrough;
+    UniKernel *_extractPositiveBlurValues;
+    UniKernel *_insertPositiveBlurValues;
+    UniKernel *_thresholdHard;
+    UniGaussianBlur *_gaussian;
+    UniKernel *_mapLinear;
+    UniKernel *_mapLinearNoSecondary;
+    UniKernel *_eyeProtectionFace;
+    UniKernel *_eyeProtectionGlassesFace;
+    UniKernel *_modifyBlurmap;
+    UniKernel *_modifyBlurmapGlasses;
+    UniKernel *_thresholdedSobel;
+    UniKernel *_blendBackgroundBlur;
+    UniKernel *_morphology;
+    UniImage *_faceParamsTex;
+    UniImage *_eyeProtectionFacesTex;
+    UniKernel *_segmentationFusion;
+    UniKernel *_faceMaskCalc;
+    UniKernel *_faceMaskApply;
+    UniImage *_faceMaskOutputParamsTex;
+    UniKernel *_fpDisparityRefinementPreprocessing;
+    UniKernel *_guidedFilter;
+    UniKernel *_sparseRenderingPreprocessingScaled;
+    UniKernel *_crispHairBlurX;
+    UniKernel *_crispHairBlurY;
+    UniKernel *_crispHairBlurSingleX;
+    UniKernel *_crispHairBlurSingleY;
+    UniKernel *_crispHairExpandedDisparityX;
+    UniKernel *_crispHairExpandedDisparityY;
+    UniKernel *_crispHairExpandedDisparitySingleY;
+    UniKernel *_crispHairDownsamplingSingle;
+    UniKernel *_blurmap_x_smoothing;
+    UniKernel *_blurmap_y_smoothing;
+    UniKernel *_blurmap_x_smoothing_scaled;
+    UniKernel *_blurmap_y_smoothing_scaled;
+    UniKernel *_blurmap_x_smoothing_unbiased;
+    UniKernel *_blurmap_y_smoothing_unbiased;
+    UniKernel *_blurmap_x_smoothing_scaled_unbiased;
+    UniKernel *_blurmap_y_smoothing_scaled_unbiased;
+}
+
+@property (class, readonly) unsigned long long maxBlurMapSize;
+
++ (struct CGSize { double x0; double x1; })blurMapSize:(struct CGSize { double x0; double x1; })a0;
+
+- (id)init;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)imageUsingArgs:(id)a0;
+- (id)initWithMetalQueue:(id)a0;
+- (id)_smallerTextureFromTexture:(id)a0 modelTexture:(id)a1 targetSize:(struct CGSize { double x0; double x1; })a2 pixelFormat:(unsigned long long)a3;
+- (id)_smallerTextureFromTexture:(id)a0 modelTexture:(id)a1 targetSize:(struct CGSize { double x0; double x1; })a2 numTextures:(unsigned int)a3;
+- (id)_scaleImage:(id)a0 targetSize:(struct CGSize { double x0; double x1; })a1 device:(id)a2 useBoxFiltering:(BOOL)a3 outputImage:(id)a4 context:(id)a5;
+- (id)_scaleImage:(id)a0 targetSize:(struct CGSize { double x0; double x1; })a1 sourceSize:(struct CGSize { double x0; double x1; })a2 device:(id)a3 outputImage:(id)a4 context:(id)a5;
+- (id)_smallerTextureFromTexture:(id)a0 modelTexture:(id)a1 targetSize:(struct CGSize { double x0; double x1; })a2;
+- (id)_smallerTextureFromTexture:(id)a0 modelTexture:(id)a1 targetSize:(struct CGSize { double x0; double x1; })a2 numTextures:(unsigned int)a3 pixelFormat:(unsigned long long)a4;
+- (int)allocateFakeResources;
+- (int)allocateResourcesForShiftMapWidth:(unsigned long long)a0 shiftMapHeight:(unsigned long long)a1;
+- (struct segmentation_fusion_shader_params { void /* unknown type, blank encoding */ x0; void /* unknown type, blank encoding */ x1; void /* unknown type, blank encoding */ x2; void /* unknown type, blank encoding */ x3; void /* unknown type, blank encoding */ x4; void /* unknown type, blank encoding */ x5; })calcShaderParamsFromConfigParams:(const struct segmentation_fusion_params { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; } *)a0;
+- (id)createBlurMapUsingMetadata:(id)a0 simulatedAperture:(float)a1 focusWindow:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 focalLengthInPixels:(float)a3 normalizedFocalLength:(float)a4 facePoints:(struct CGPoint { double x0; double x1; } *)a5 maxBlur:(float)a6 inputScale:(float)a7 inputsAlreadyScaled:(BOOL)a8 inputShiftMap:(id)a9 inputSegmentation:(id)a10 inputHair:(id)a11 inputGlasses:(id)a12 inputImageLuma:(id)a13 inputImageChroma:(id)a14 inputFaceMaskAdjBlur:(id)a15 inputWeightsX:(id)a16 inputWeightsY:(id)a17 inputPreproc:(id)a18 inputSampledD:(id)a19 inputDisparityRefineBlur:(id)a20 inputAlphaMaskDelta:(id)a21 inputHairMaskDelta:(id)a22 inputBlurRefineIntermediate:(id)a23 resultAdjBlurMap:(id)a24 coreImageRender:(BOOL)a25 context:(id)a26 captureFolderMiscPath:(id)a27;
+- (void)deallocateResources;
+- (int)enqueueBlurMapGenerationUsingArgs:(id)a0;
+- (id)enqueueBoundaryMaskPassForInputTex:(id)a0 inputSecondaryTex:(id)a1 intermediateTex:(id)a2 thresholdValue:(float)a3 boundaryScalingFactor:(float)a4 outputTex:(id)a5 blurRadius:(float)a6 passName:(id)a7 scale:(float)a8 context:(id)a9;
+- (id)enqueueRefinementUsingParams:(const struct blurmap_refinement_params { struct matte_image_shader_params { struct fusion_params { float x0; float x1; float x2; float x3; float x4; float x5; } x0; int x1; float x2; float x3; } x0; struct matte_image_shader_params { struct fusion_params { float x0; float x1; float x2; float x3; float x4; float x5; } x0; int x1; float x2; float x3; } x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; struct subject_distance { float x0; float x1; float x2; float x3; } x9; struct eyeProtection_params { int x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; } x10; float x11; float x12; float x13; float x14; float x15; float x16; } *)a0 maskParams:(const struct face_mask_params { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; } *)a1 inputBlurMap:(id)a2 inputAlpha:(id)a3 inputHair:(id)a4 inputGlasses:(id)a5 inputAlphaMaskDelta:(id)a6 inputHairMaskDelta:(id)a7 inputBlurRefineIntermediate:(id)a8 outputBlurMap:(id)a9 scale:(float)a10 inputsAlreadyScaled:(BOOL)a11 context:(id)a12;
+- (int)loadShaders;
+- (id)performBlurmapSmoothingUsingSmoothingConfig:(const struct blurmap_smoothing_params { int x0; float x1; float x2; float x3; float x4; } *)a0 inputBlurMap:(id)a1 inputIntermediateTex:(id)a2 outputSmoothedBlurmap:(id)a3 scale:(float)a4 version:(int)a5 context:(id)a6;
+- (id)performCrispHairRefinementWithParams:(const struct crisp_hair_params { float x0; float x1; float x2; float x3; float x4; } *)a0 alpha:(id)a1 disparity:(id)a2 tmpImage0:(id)a3 tmpImage1:(id)a4 tmpImage2:(id)a5 editTimeRender:(BOOL)a6 context:(id)a7;
+- (id)performDisparityRefinementUsingParams:(const struct disparity_refinement_params { int x0; float x1; float x2; float x3; float x4; int x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; float x17; float x18; float x19; int x20; } *)a0 inputDisparity:(id)a1 inputSegmentation:(id)a2 inputImageLuma:(id)a3 inputImageChroma:(id)a4 inputSlmParams:(id)a5 inputWeightsX:(id)a6 inputWeightsY:(id)a7 inputPreproc:(id)a8 inputSampledD:(id)a9 outputBlurMap:(id)a10 scale:(float)a11 havePerformedMatting:(BOOL)a12 editTimeRender:(BOOL)a13 context:(id)a14;
+- (id)performDisparityRefinementViaMatting:(id)a0 inputShiftmap:(id)a1 focusRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 inputLuma:(id)a3 inputChroma:(id)a4 simpleLensModelCalculatorImage:(id)a5 disparityConfigIndex:(int)a6 outputRefinedImage:(id)a7 tmpRGB:(id)a8 tmpDisparity:(id)a9 tmpRGBA:(id)a10 SDOFVersion:(int)a11 mattingParams:(struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; unsigned int x11; } *)a12 context:(id)a13;
+- (id)performSLMCalculatorUsingParams:(const struct simple_lens_model_params { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; } *)a0 inputShiftMap:(id)a1 faceMaskParams:(const struct face_mask_params { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; } *)a2 version:(int)a3 context:(id)a4 isFGBlurEnabled:(BOOL)a5;
+- (int)setOptions:(const void *)a0 isPrewarm:(BOOL)a1;
+
+@end

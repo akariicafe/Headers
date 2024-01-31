@@ -1,0 +1,3 @@
+@interface __AVTAvatarAttributeEditorSectionControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

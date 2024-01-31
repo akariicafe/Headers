@@ -1,0 +1,3 @@
+@interface __LargeDayNavigationViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

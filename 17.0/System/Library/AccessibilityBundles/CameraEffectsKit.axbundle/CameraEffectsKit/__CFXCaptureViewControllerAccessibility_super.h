@@ -1,0 +1,3 @@
+@interface __CFXCaptureViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

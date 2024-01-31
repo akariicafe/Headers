@@ -1,0 +1,3 @@
+@interface __CCUIModuleCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

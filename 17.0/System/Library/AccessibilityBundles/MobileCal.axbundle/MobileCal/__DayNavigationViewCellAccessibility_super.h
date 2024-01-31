@@ -1,0 +1,3 @@
+@interface __DayNavigationViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBHLibraryAdditionalItemsIndicatorIconAccessibility_super : UIAccessibilitySafeCategory
+
+@end

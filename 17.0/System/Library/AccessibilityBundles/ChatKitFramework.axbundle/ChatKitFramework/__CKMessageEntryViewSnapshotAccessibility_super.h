@@ -1,0 +1,3 @@
+@interface __CKMessageEntryViewSnapshotAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ACSettingsSliderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

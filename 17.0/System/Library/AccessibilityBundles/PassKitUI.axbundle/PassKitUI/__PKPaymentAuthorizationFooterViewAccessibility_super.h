@@ -1,0 +1,3 @@
+@interface __PKPaymentAuthorizationFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

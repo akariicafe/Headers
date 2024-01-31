@@ -1,0 +1,67 @@
+@class NSString, NSMutableDictionary, NSDateFormatter;
+@protocol ACCSQLiteDelegate;
+
+@interface ACCSQLite : NSObject
+
+@property (nonatomic) struct sqlite3 { } *db;
+@property (nonatomic) unsigned long long openCount;
+@property (nonatomic) BOOL corrupt;
+@property (readonly, nonatomic) NSMutableDictionary *statementsBySQL;
+@property (retain, nonatomic) NSDateFormatter *dateFormatter;
+@property (readonly, nonatomic) NSString *path;
+@property (readonly, nonatomic) NSString *schema;
+@property (readonly, nonatomic) NSString *schemaVersion;
+@property (retain, nonatomic) NSString *objectClassPrefix;
+@property (nonatomic) int userVersion;
+@property (nonatomic) long long synchronousMode;
+@property (readonly, nonatomic) BOOL isOpen;
+@property (readonly, nonatomic) BOOL hasMigrated;
+@property (nonatomic) BOOL shouldVacuum;
+@property (nonatomic) BOOL traced;
+@property (retain, nonatomic) id<ACCSQLiteDelegate> delegate;
+
+- (void)vacuum;
+- (void)remove;
+- (void)close;
+- (void)begin;
+- (void)dealloc;
+- (int)changes;
+- (id)creationDate;
+- (void)open;
+- (void)end;
+- (void)dropAllTables;
+- (void)setDateProperty:(id)a0 forKey:(id)a1;
+- (void)rollback;
+- (BOOL)executeSQL:(id)a0;
+- (void)setProperty:(id)a0 forKey:(id)a1;
+- (long long)lastInsertRowID;
+- (id)datePropertyForKey:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)openWithError:(id *)a0;
+- (void)removePropertyForKey:(id)a0;
+- (void)analyze;
+- (id)propertyForKey:(id)a0;
+- (unsigned long long)selectCountFrom:(id)a0 where:(id)a1 bindings:(id)a2;
+- (id)_tableNameForClass:(Class)a0;
+- (id)allTableNames;
+- (id)columnNamesForTable:(id)a0;
+- (int)dbUserVersion;
+- (void)deleteFrom:(id)a0 matchingValues:(id)a1;
+- (void)deleteFrom:(id)a0 where:(id)a1 bindings:(id)a2;
+- (BOOL)executeSQL:(id)a0 arguments:(char *)a1;
+- (id)initWithPath:(id)a0 schema:(id)a1;
+- (long long)insertOrReplaceInto:(id)a0 values:(id)a1;
+- (id)select:(id)a0 from:(id)a1;
+- (id)select:(id)a0 from:(id)a1 where:(id)a2 bindings:(id)a3;
+- (void)select:(id)a0 from:(id)a1 where:(id)a2 bindings:(id)a3 orderBy:(id)a4 limit:(id)a5 block:(id /* block */)a6;
+- (id)selectAllFrom:(id)a0 where:(id)a1 bindings:(id)a2;
+- (id)selectFrom:(id)a0 where:(id)a1 bindings:(id)a2 limit:(id)a3;
+- (void)selectFrom:(id)a0 where:(id)a1 bindings:(id)a2 orderBy:(id)a3 limit:(id)a4 block:(id /* block */)a5;
+- (void)update:(id)a0 set:(id)a1 where:(id)a2 bindings:(id)a3 limit:(id)a4;
+- (id)_createSchemaHash;
+- (id)_synchronousModeString;
+- (void)removeAllStatements;
+- (id)statementForSQL:(id)a0;
+- (void)_periodicVacuum;
+
+@end

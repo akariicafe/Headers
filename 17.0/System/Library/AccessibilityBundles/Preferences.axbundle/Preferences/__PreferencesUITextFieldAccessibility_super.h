@@ -1,0 +1,3 @@
+@interface __PreferencesUITextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

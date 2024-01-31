@@ -1,0 +1,90 @@
+@class OKPresentation, NSRecursiveLock;
+@protocol OKDocumentDelegate;
+
+@interface OKDocument : UIDocument {
+    NSRecursiveLock *_posterImageLock;
+}
+
+@property BOOL hasPosterImageChanged;
+@property BOOL isClosing;
+@property (retain) OKPresentation *presentation;
+@property struct CGImage { } *posterImage;
+@property (nonatomic) id<OKDocumentDelegate> delegate;
+
++ (struct CGImage { } *)retainedPosterImageForFileURL:(id)a0 withResolution:(unsigned long long)a1 coordinateReading:(BOOL)a2;
++ (id)_fileWrapperPosterImageFilenameKeyWithResolution:(unsigned long long)a0;
++ (id)_hashForImportedResourceURL:(id)a0;
++ (id)_importedMediaURLForImportedResourceURL:(id)a0 withDocumentURL:(id)a1 extension:(id)a2;
++ (id)_importedMetadataURLForImportedResourceURL:(id)a0 withDocumentURL:(id)a1;
++ (id)_importedResourceDirectoryURLForImportedResourceURL:(id)a0 withDocumentURL:(id)a1;
++ (id)_importedResourceURLWithHash:(id)a0;
++ (id)_importedResourcesDirectoryURLForDocumentURL:(id)a0;
++ (id)_importedThumbnailURLForImportedResourceURL:(id)a0 withDocumentURL:(id)a1 withExtension:(id)a2;
++ (id)_posterImageURLForFileURL:(id)a0 withResolution:(unsigned long long)a1;
++ (id)_scriptURLForDocumentURL:(id)a0;
++ (id)infoForFileURL:(id)a0 coordinateReading:(BOOL)a1;
+
+- (void)dealloc;
+- (void)openWithCompletionHandler:(id /* block */)a0;
+- (id)initWithFileURL:(id)a0;
+- (void)_didReceiveMemoryWarningNotification:(id)a0;
+- (id)localizedName;
+- (void)closeWithCompletionHandler:(id /* block */)a0;
+- (void)_commonInit;
+- (id)URLForResource:(id)a0 withExtension:(id)a1;
+- (id)documentURL;
+- (BOOL)writeContents:(id)a0 andAttributes:(id)a1 safelyToURL:(id)a2 forSaveOperation:(long long)a3 error:(id *)a4;
+- (id)contentsForType:(id)a0 error:(id *)a1;
+- (void)disableEditing;
+- (void)enableEditing;
+- (BOOL)loadFromContents:(id)a0 ofType:(id)a1 error:(id *)a2;
+- (BOOL)readFromURL:(id)a0 error:(id *)a1;
+- (void)revertToContentsOfURL:(id)a0 completionHandler:(id /* block */)a1;
+- (void)saveToURL:(id)a0 forSaveOperation:(long long)a1 completionHandler:(id /* block */)a2;
+- (void)_didEnterBackgroundNotification:(id)a0;
+- (void)_willEnterForegroundNotification:(id)a0;
+- (id)_scriptURL;
+- (void)_cleanupUnusedResources;
+- (id)_extensionForImportedResourceURL:(id)a0;
+- (id)_extensionForThumbnailImportedResourceURL:(id)a0;
+- (BOOL)_hasThumbnailForImportedResourceURL:(id)a0;
+- (BOOL)_hasThumbnailForImportedResourceURL:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
+- (BOOL)_hasThumbnailFromMediaForImportedResourceURL:(id)a0;
+- (BOOL)_hasUnusedResources;
+- (id)_importedMediaURLForImportedResourceURL:(id)a0;
+- (id)_importedMediaURLForImportedResourceURL:(id)a0 withImportedResourceDirectoryURL:(id)a1 withExtension:(id)a2;
+- (id)_importedMetadataURLForImportedResourceURL:(id)a0;
+- (id)_importedMetadataURLWithImportedResourceDirectoryURL:(id)a0;
+- (id)_importedResourceDirectoryURLForImportedResourceURL:(id)a0;
+- (id)_importedResourceDirectoryURLForImportedResourceURL:(id)a0 withImportedResourcesDirectoryURL:(id)a1;
+- (id)_importedResourceURLForRessourceURL:(id)a0;
+- (id)_importedResourcesDirectoryURL;
+- (id)_importedThumbnailURLForImportedResourceURL:(id)a0;
+- (id)_importedThumbnailURLForImportedResourceURL:(id)a0 resolution:(unsigned long long)a1;
+- (id)_importedThumbnailURLForImportedResourceURL:(id)a0 withImportedResourceDirectoryURL:(id)a1 withExtension:(id)a2;
+- (id)_importedThumbnailsDirectoryURLForImportedResourceURL:(id)a0;
+- (id)_importedThumbnailsURLWithImportedResourceDirectoryURL:(id)a0;
+- (id)_metadataForImportedResourceURL:(id)a0;
+- (id)_metadataObjectForKey:(id)a0 forImportedResourceURL:(id)a1;
+- (BOOL)_readImportedResourceURL:(id)a0 error:(id *)a1 byMediaAccessor:(id /* block */)a2;
+- (BOOL)_readImportedResourceURL:(id)a0 error:(id *)a1 byMetadataAccessor:(id /* block */)a2;
+- (BOOL)_readImportedResourceURL:(id)a0 error:(id *)a1 byThumbnailAccessor:(id /* block */)a2;
+- (BOOL)_readImportedResourceURL:(id)a0 size:(struct CGSize { double x0; double x1; })a1 error:(id *)a2 byThumbnailAccessor:(id /* block */)a3;
+- (void)_saveThumbnailToDisk:(struct CGImage { } *)a0 forImportedResourceURL:(id)a1 size:(struct CGSize { double x0; double x1; })a2;
+- (struct CGImage { } *)_thumbnailForImportedResourceURL:(id)a0;
+- (struct CGImage { } *)_thumbnailForImportedResourceURL:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
+- (struct CGImage { } *)_thumbnailFromMediaForImportedResourceURL:(id)a0;
+- (struct CGImage { } *)_thumbnailFromMediaForImportedResourceURL:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
+- (void)_updateChangeCount:(unsigned long long)a0;
+- (BOOL)_updateImportedResourceURL:(id)a0 error:(id *)a1 byMetadataAccessor:(id /* block */)a2;
+- (BOOL)_updateImportedResourceURL:(id)a0 size:(struct CGSize { double x0; double x1; })a1 error:(id *)a2 byThumbnailAccessor:(id /* block */)a3;
+- (void)_willTerminateNotification:(id)a0;
+- (BOOL)deleteImportedResourceURLs:(id)a0 progressBlock:(id /* block */)a1 error:(id *)a2;
+- (id)importResourceURL:(id)a0 opaque:(BOOL)a1 force:(BOOL)a2 progressBlock:(id /* block */)a3 error:(id *)a4;
+- (id)importResourceURLs:(id)a0 opaque:(BOOL)a1 force:(BOOL)a2 progressBlock:(id /* block */)a3 error:(id *)a4;
+- (id)importedResourceURLs;
+- (BOOL)isImportedResourceURLEmbedded:(id)a0;
+- (id)prepareMediaURL:(id)a0 force:(BOOL)a1 colorSpace:(id)a2 progressBlock:(id /* block */)a3 error:(id *)a4;
+- (id)prepareMediaURLs:(id)a0 force:(BOOL)a1 colorSpace:(id)a2 progressBlock:(id /* block */)a3 error:(id *)a4;
+
+@end

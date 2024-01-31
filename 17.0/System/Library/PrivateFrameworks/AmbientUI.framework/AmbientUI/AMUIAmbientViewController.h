@@ -1,0 +1,94 @@
+@class AMUIBatteryChargingViewController, AMAmbientDefaults, NSDictionary, AMUIDefaultSelectedPosterCoordinator, UIView, AMUIPosterSwitcherViewController, NSString, AMUINotificationIndicatorView, UILongPressGestureRecognizer, AMUIPosterSwitcherModel, UINotificationFeedbackGenerator, AMUIPosterEditingSwitcherViewController, PRSPosterConfiguration;
+@protocol AMUIPosterSelectionCoordinating, AMUIAmbientViewControllerDelegate, AMUIDateProviding;
+
+@interface AMUIAmbientViewController : UIViewController <AMUIPosterSwitcherModelObserver, AMUIPosterSwitcherViewControllerDelegate, UIGestureRecognizerDelegate, AMUIPosterEditingSwitcherViewControllerDelegate, AMUIPosterSelectionCoordinatingDelegate> {
+    AMUIPosterSwitcherViewController *_posterSwitcherViewController;
+    AMUIPosterSwitcherModel *_posterSwitcherModel;
+    AMUINotificationIndicatorView *_notificationIndicatorView;
+    AMUIDefaultSelectedPosterCoordinator *_defaultPosterSelectionCoordinator;
+    AMAmbientDefaults *_ambientDefaults;
+    AMUIBatteryChargingViewController *_batteryChargingViewController;
+    UILongPressGestureRecognizer *_posterEditingSwitcherGestureRecognizer;
+    UINotificationFeedbackGenerator *_posterEditingSwitcherFeedbackGenerator;
+    AMUIPosterEditingSwitcherViewController *_posterEditingSwitcherVC;
+    PRSPosterConfiguration *_posterConfigurationForEditingSwitcher;
+    BOOL _hasInlineAuthenticated;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _lastViewFrame;
+}
+
+@property (nonatomic, getter=isConfiguringUIVisible) BOOL configuringUIVisible;
+@property (nonatomic, getter=isTemporaryOverlayVisible) BOOL temporaryOverlayVisible;
+@property (weak, nonatomic, getter=_posterSelectionCoordinator, setter=_setPosterSelectionCoordinator:) id<AMUIPosterSelectionCoordinating> posterSelectionCoordinator;
+@property (nonatomic) unsigned long long notificationCount;
+@property (readonly, nonatomic) UIView *contentView;
+@property (readonly, nonatomic) UIView *backgroundView;
+@property (weak, nonatomic) id<AMUIAmbientViewControllerDelegate> delegate;
+@property (retain, nonatomic) id<AMUIDateProviding> dateProvider;
+@property (nonatomic, getter=isAuthenticated) BOOL authenticated;
+@property (readonly, nonatomic) PRSPosterConfiguration *activeConfiguration;
+@property (readonly, nonatomic) NSDictionary *activeConfigurationMetadata;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)prewarm;
+
+- (void)setConfiguration:(id)a0 withAnimationSettings:(id)a1;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (void)invalidate;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (unsigned long long)supportedInterfaceOrientations;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (BOOL)handleDismiss;
+- (id)createUnlockRequestForViewController:(id)a0;
+- (void)requestUnlockForViewController:(id)a0 withRequest:(id)a1 completion:(id /* block */)a2;
+- (void)_animateAllOverlayUIAppearance;
+- (void)_animateAllOverlayUIDismissal;
+- (void)_animateBatteryViewAppearanceIfNecessary;
+- (void)_animateBatteryViewDismissalIfNecessary;
+- (void)_animateNotificationIndicatorViewAppearanceIfNecessary;
+- (void)_animateNotificationIndicatorViewRemoval;
+- (void)_configureNotificationIndicatorViewIfNecessary;
+- (id)_defaultPosterSelectionCoordinator;
+- (void)_dismissPosterEditingSwitcher;
+- (void)_handleAuthenticationChanged:(BOOL)a0;
+- (void)_handlePosterEditingSwitcherGesture:(id)a0;
+- (void)_refreshPosterConfigurationsAnimated:(BOOL)a0;
+- (void)_setNotificationIndicatorHidden:(BOOL)a0;
+- (void)_setupPosterEditingSwitcherGestureRecognizer;
+- (void)_updateBatteryViewLayout;
+- (void)_updateNotificationIndicatorViewLayout;
+- (void)_willBeginConfiguration;
+- (void)_willEndConfiguration;
+- (id)ambientDefaultsForViewController:(id)a0;
+- (id)defaultWidgetDescriptorStacksForViewController:(id)a0;
+- (void)posterEditingSwitcherViewControllerRequestsDismissal:(id)a0;
+- (void)posterSelectionCoordinator:(id)a0 didUpdateLastSelectedPosterConfiguration:(id)a1;
+- (id)posterSelectionCoordinatorRequestsConnectedChargerId:(id)a0;
+- (void)posterSwitcherModel:(id)a0 didUpdateActiveConfiguration:(id)a1;
+- (void)posterSwitcherModel:(id)a0 didUpdateConfigurations:(id)a1;
+- (void)posterSwitcherViewController:(id)a0 didSetInlineAuthenticationViewVisible:(BOOL)a1;
+- (void)posterSwitcherViewController:(id)a0 didSetPasscodeVisible:(BOOL)a1;
+- (void)posterSwitcherViewController:(id)a0 didSettleOnConfiguration:(id)a1 interactive:(BOOL)a2;
+- (void)posterSwitcherViewController:(id)a0 isTransitioningSettled:(BOOL)a1;
+- (id)posterSwitcherViewController:(id)a0 requestsLastSelectedConfigurationUUIDForProviderBundleIdentfier:(id)a1;
+- (id)posterSwitcherViewControllerAuthenticationHandler:(id)a0;
+- (void)posterSwitcherViewControllerDidSuccessfullyCompleteInlineAuthentication:(id)a0;
+- (BOOL)posterSwitcherViewControllerHasInlineAuthenticated:(id)a0;
+- (BOOL)posterSwitcherViewControllerIsAuthenticated:(id)a0;
+- (void)viewController:(id)a0 didUpdateActiveConfigurationMetadata:(id)a1;
+- (void)viewControllerWillBeginConfiguration:(id)a0;
+- (void)viewControllerWillBeginShowingTemporaryOverlay:(id)a0;
+- (void)viewControllerWillEndConfiguration:(id)a0;
+- (void)viewControllerWillEndShowingTemporaryOverlay:(id)a0;
+- (id)widgetHostManagerForViewController:(id)a0;
+
+@end

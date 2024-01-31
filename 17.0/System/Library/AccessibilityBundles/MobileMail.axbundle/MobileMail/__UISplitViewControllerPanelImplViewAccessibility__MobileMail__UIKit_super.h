@@ -1,0 +1,3 @@
+@interface __UISplitViewControllerPanelImplViewAccessibility__MobileMail__UIKit_super : UIAccessibilitySafeCategory
+
+@end

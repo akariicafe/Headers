@@ -1,0 +1,82 @@
+@class PARBag, NSError, NSXPCConnection, PARSessionConfiguration, SFImage, SFImageContext;
+@protocol PARSessionDelegate;
+
+@interface PARSessionSwiftInternal : NSObject <SFImageResourceLoader, SFCardResourceLoader, SFMoreResultsResourceLoader, SFFeedbackListener> {
+    void /* unknown type, empty encoding */ lock;
+    void /* unknown type, empty encoding */ fileManager;
+    void /* unknown type, empty encoding */ _configuration;
+    void /* unknown type, empty encoding */ _mapsListener;
+    void /* unknown type, empty encoding */ _bag;
+    void /* unknown type, empty encoding */ _sampled;
+    void /* unknown type, empty encoding */ _sampleClientTimingEventAllowlist;
+    void /* unknown type, empty encoding */ activityMonitor;
+    void /* unknown type, empty encoding */ skappToken;
+    void /* unknown type, empty encoding */ _delegate;
+    void /* unknown type, empty encoding */ session;
+}
+
+@property (nonatomic, readonly) void /* unknown type, empty encoding */ client;
+@property (nonatomic, retain) id<PARSessionDelegate> delegate;
+@property (nonatomic, retain) PARSessionConfiguration *configuration;
+@property (nonatomic, retain) PARBag *bag;
+@property (nonatomic, readonly) NSXPCConnection *connection;
+@property (nonatomic, readonly) unsigned long long enabledStatus;
+
+- (void)sectionHeaderDidBecomeVisible:(id)a0;
+- (void)resultsDidBecomeVisible:(id)a0;
+- (void)cardViewDidAppear:(id)a0;
+- (void)suggestionsDidBecomeVisible:(id)a0;
+- (void)didClearInput:(id)a0;
+- (void)didReportUserResponseFeedback:(id)a0;
+- (void)didEngageSection:(id)a0;
+- (void)didStartSearch:(id)a0;
+- (void)reportFeedback:(id)a0 queryId:(long long)a1;
+- (void)didPerformCommand:(id)a0;
+- (void)didGradeResultRelevancy:(id)a0;
+- (void)searchViewDidDisappear:(id)a0;
+- (void)didEngageCardSection:(id)a0;
+- (void)didAppendLateSections:(id)a0;
+- (void)sendCustomFeedback:(id)a0;
+- (void)cardViewDidDisappear:(id)a0;
+- (void)didEngageResult:(id)a0;
+- (void)didGoToSearch:(id)a0;
+- (void)didRankSections:(id)a0;
+- (void)didReceiveResultsAfterTimeout:(id)a0;
+- (void)didEngageSuggestion:(id)a0;
+- (void)subscribeToChannel:(id)a0 reply:(id /* block */)a1;
+- (void)searchViewDidAppear:(id)a0;
+- (void)didErrorOccur:(id)a0;
+- (void)didEndSearch:(id)a0;
+- (void)subscriptionStatusForChannel:(id)a0 reply:(id /* block */)a1;
+- (void)addEngagedResults:(id)a0 completion:(id /* block */)a1;
+- (void)updateParametersForSmartSearchV1:(id)a0 smartSearchV2:(id)a1;
+- (void)addEngagedResults:(id)a0;
+- (void)addCompletion:(id)a0 forInput:(id)a1;
+- (void)unsubscribeFromChannel:(id)a0 reply:(id /* block */)a1;
+- (void)didGoToSite:(id)a0;
+- (void)didGradeLookupHintRelevancy:(id)a0;
+- (void)clearEngagedResults:(id)a0 completion:(id /* block */)a1;
+- (void)clearEngagementsWithTitle:(id)a0 type:(id)a1;
+- (void)didSubmitUserReportFeedback:(id)a0;
+- (void)allEngagedResultsFor:(id)a0 maxCount:(long long)a1 completion:(id /* block */)a2;
+- (BOOL)canLoadCard:(id)a0;
+- (BOOL)canLoadImage:(id)a0 context:(id)a1;
+- (BOOL)canLoadMoreResults:(id)a0;
+- (void)clearEngagementsFrom:(id)a0 to:(id)a1;
+- (void)didSkipSearch:(int)a0 input:(id)a1 queryId:(unsigned long long)a2;
+- (void)loadCard:(id)a0 completionHandler:(id /* block */)a1;
+- (void)loadImage:(SFImage *)a0 context:(SFImageContext *)a1 completionHandler:(void (^)(SFImage *, NSError *))a2;
+- (void)loadMoreResults:(id)a0 completionHandler:(id /* block */)a1;
+- (void)send:(id)a0 completion:(id /* block */)a1;
+- (void)topEngagedResultsFor:(id)a0 maxCount:(long long)a1 completion:(id /* block */)a2;
+- (void)sendCBAEngagementFeedback:(id)a0 query:(unsigned long long)a1;
+- (id)init;
+- (void)dealloc;
+- (void)start;
+- (void)fileHandleAndAttributesForResource:(id)a0 completion:(id /* block */)a1;
+- (void).cxx_destruct;
+- (id)initWithSession:(id)a0 configuration:(id)a1 connection:(id)a2 delegate:(id)a3;
+- (void)loadWithTask:(id)a0;
+- (id)taskWith:(id)a0 completion:(id /* block */)a1;
+
+@end

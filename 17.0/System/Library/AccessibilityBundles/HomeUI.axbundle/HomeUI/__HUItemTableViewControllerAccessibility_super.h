@@ -1,0 +1,3 @@
+@interface __HUItemTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

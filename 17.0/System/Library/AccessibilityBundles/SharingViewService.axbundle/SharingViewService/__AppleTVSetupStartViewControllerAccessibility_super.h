@@ -1,0 +1,3 @@
+@interface __AppleTVSetupStartViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

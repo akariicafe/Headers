@@ -1,0 +1,3 @@
+@interface __SVSBaseViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

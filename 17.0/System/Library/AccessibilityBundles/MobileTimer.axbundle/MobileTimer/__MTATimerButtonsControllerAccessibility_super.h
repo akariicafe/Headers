@@ -1,0 +1,3 @@
+@interface __MTATimerButtonsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

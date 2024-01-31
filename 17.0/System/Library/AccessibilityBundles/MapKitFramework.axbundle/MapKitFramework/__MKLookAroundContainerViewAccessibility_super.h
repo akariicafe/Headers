@@ -1,0 +1,3 @@
+@interface __MKLookAroundContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

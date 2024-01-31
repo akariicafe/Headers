@@ -1,0 +1,3 @@
+@interface __MobileCalUIScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

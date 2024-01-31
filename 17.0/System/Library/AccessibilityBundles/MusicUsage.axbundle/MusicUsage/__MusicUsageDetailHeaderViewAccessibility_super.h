@@ -1,0 +1,3 @@
+@interface __MusicUsageDetailHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTUIBaseTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

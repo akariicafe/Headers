@@ -1,0 +1,3 @@
+@interface __ENUIRegionalDetailsHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

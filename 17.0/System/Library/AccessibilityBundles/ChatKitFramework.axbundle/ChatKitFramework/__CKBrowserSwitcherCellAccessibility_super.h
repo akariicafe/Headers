@@ -1,0 +1,3 @@
+@interface __CKBrowserSwitcherCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

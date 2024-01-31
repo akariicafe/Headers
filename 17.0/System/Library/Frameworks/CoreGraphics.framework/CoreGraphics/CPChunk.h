@@ -1,0 +1,77 @@
+@interface CPChunk : CPObject {
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } bounds;
+    BOOL shrinksWithChildren;
+    BOOL dirtyBounds;
+    unsigned int position;
+    long long insertionOrder;
+}
+
++ (float)chooseReferenceFontSizeFrom:(float)a0 and:(float)a1;
+
+- (double)left;
+- (double)center;
+- (void)setAnchor:(struct CGPoint { double x0; double x1; })a0;
+- (struct CGPoint { double x0; double x1; })anchor;
+- (void)removeAll;
+- (id)init;
+- (void)sortUsingSelector:(SEL)a0;
+- (double)right;
+- (void)remove:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounds;
+- (double)top;
+- (float)fontSize;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)bottom;
+- (void)add:(id)a0;
+- (double)rotationAngle;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)accept:(id)a0;
+- (long long)compareAnchorY:(id)a0;
+- (long long)compareYBounds:(id)a0;
+- (float)absoluteGapTo:(id)a0;
+- (void)add:(id)a0 atIndex:(unsigned int)a1;
+- (void)addChildrenOf:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })adjustToPointBoundary:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })advance;
+- (long long)compareAnchorX:(id)a0;
+- (long long)compareXBounds:(id)a0;
+- (id)newTakeChildren;
+- (float)advanceDeltaAfterSpace;
+- (BOOL)boundsEqualsRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 accuracy:(double)a1;
+- (unsigned int)chunkPosition;
+- (float)clusterGapTo:(id)a0;
+- (int)clusterLevelHint;
+- (long long)compareAnchorYDescending:(id)a0;
+- (long long)compareChunkPosition:(id)a0;
+- (long long)compareCommonAnchorX:(id)a0;
+- (long long)compareInsertionOrder:(id)a0;
+- (long long)compareLinearBounds:(id)a0;
+- (long long)compareTopDescending:(id)a0;
+- (long long)compareX:(id)a0;
+- (long long)compareY:(id)a0;
+- (long long)compareYDescending:(id)a0;
+- (long long)compareYDescendingX:(id)a0;
+- (long long)compareZ:(id)a0;
+- (long long)compareZDescending:(id)a0;
+- (id)copyAndSplitChildrenAtIndex:(unsigned int)a0;
+- (id)describeBounds;
+- (void)fitBoundsToChildren;
+- (BOOL)geometricallyContains:(id)a0;
+- (long long)insertionOrder;
+- (BOOL)intersectsChild:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)newTakeChildrenAmong:(id)a0;
+- (float)opticalLeading;
+- (void)orderedInsert:(id)a0 usingSelector:(SEL)a1;
+- (BOOL)overlapsHorizontallyWith:(id)a0;
+- (BOOL)overlapsVerticallyWith:(id)a0;
+- (float)referenceAdvanceWidth;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })renderedBounds;
+- (void)resizeWith:(id)a0;
+- (void)setChildren:(id)a0;
+- (void)setChunkPosition:(unsigned int)a0;
+- (void)setInsertionOrder:(long long)a0;
+- (void)setShrinksWithChildren:(BOOL)a0;
+- (BOOL)shrinksWithChildren;
+- (void)translateObjectYBy:(double)a0;
+
+@end

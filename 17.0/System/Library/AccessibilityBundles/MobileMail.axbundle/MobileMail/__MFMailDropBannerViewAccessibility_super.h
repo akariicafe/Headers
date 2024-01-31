@@ -1,0 +1,3 @@
+@interface __MFMailDropBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

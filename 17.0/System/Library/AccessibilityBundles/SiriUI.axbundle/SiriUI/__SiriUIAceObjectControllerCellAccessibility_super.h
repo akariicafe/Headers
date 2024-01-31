@@ -1,0 +1,3 @@
+@interface __SiriUIAceObjectControllerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

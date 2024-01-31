@@ -1,0 +1,3 @@
+@interface __EKDayViewContentItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

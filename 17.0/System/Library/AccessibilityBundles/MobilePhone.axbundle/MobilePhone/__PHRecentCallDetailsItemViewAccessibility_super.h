@@ -1,0 +1,3 @@
+@interface __PHRecentCallDetailsItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

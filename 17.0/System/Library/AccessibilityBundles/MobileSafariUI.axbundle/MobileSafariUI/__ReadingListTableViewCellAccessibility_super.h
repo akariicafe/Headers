@@ -1,0 +1,3 @@
+@interface __ReadingListTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

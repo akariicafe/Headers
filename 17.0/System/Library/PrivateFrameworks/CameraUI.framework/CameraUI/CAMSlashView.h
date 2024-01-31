@@ -1,0 +1,19 @@
+@class CAShapeLayer;
+
+@interface CAMSlashView : UIView
+
+@property (readonly, nonatomic) CAShapeLayer *_shapeLayer;
+@property (nonatomic, getter=isVisible) BOOL visible;
+
++ (Class)layerClass;
+
+- (void)tintColorDidChange;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)_updateShapeLayerPath;
+- (void)setVisible:(BOOL)a0 animated:(BOOL)a1;
+- (void)_updateShapeLayerColor;
+- (void)_updateShapeLayerLineWidth;
+- (void)_updateShapeLayerProgressAnimated:(BOOL)a0;
+
+@end

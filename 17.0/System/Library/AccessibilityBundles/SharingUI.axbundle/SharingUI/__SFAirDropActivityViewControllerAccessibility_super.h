@@ -1,0 +1,3 @@
+@interface __SFAirDropActivityViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

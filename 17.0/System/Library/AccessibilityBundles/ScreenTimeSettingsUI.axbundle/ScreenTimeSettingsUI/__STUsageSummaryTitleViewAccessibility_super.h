@@ -1,0 +1,3 @@
+@interface __STUsageSummaryTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

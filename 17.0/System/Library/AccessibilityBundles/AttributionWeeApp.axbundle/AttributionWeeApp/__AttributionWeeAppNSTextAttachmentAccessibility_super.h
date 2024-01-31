@@ -1,0 +1,3 @@
+@interface __AttributionWeeAppNSTextAttachmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

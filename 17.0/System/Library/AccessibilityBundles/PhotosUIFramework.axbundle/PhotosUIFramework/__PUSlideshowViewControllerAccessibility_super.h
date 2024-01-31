@@ -1,0 +1,3 @@
+@interface __PUSlideshowViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

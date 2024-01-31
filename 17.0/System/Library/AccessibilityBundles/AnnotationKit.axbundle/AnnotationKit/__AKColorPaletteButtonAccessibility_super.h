@@ -1,0 +1,3 @@
+@interface __AKColorPaletteButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

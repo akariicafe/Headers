@@ -1,0 +1,3 @@
+@interface __WGWidgetHostingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

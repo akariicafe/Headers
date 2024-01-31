@@ -1,0 +1,3 @@
+@interface __NCExpandedPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

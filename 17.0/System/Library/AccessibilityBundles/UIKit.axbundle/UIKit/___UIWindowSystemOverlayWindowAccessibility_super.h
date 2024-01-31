@@ -1,0 +1,3 @@
+@interface ___UIWindowSystemOverlayWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

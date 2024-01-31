@@ -1,0 +1,3 @@
+@interface __CCUISensorAttributionCompactControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

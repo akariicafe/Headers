@@ -1,0 +1,3 @@
+@interface SUUISignInTemplateViewElement : SUUIViewElement
+
+@end

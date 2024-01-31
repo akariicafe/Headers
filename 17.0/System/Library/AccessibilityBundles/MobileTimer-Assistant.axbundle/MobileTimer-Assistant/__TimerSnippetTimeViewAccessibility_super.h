@@ -1,0 +1,3 @@
+@interface __TimerSnippetTimeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

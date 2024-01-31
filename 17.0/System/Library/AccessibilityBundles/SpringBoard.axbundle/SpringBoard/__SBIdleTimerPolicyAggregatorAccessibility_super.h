@@ -1,0 +1,3 @@
+@interface __SBIdleTimerPolicyAggregatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

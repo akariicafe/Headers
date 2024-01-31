@@ -1,0 +1,3 @@
+@interface MobilityAppPlugin.MobilityAdvertisableFeatureSourceProvider : _TtCs12_SwiftObject
+
+@end

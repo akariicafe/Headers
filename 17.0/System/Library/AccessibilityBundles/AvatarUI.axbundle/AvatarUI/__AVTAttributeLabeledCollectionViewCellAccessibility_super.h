@@ -1,0 +1,3 @@
+@interface __AVTAttributeLabeledCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

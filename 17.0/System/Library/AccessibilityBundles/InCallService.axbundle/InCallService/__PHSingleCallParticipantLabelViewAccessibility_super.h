@@ -1,0 +1,3 @@
+@interface __PHSingleCallParticipantLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

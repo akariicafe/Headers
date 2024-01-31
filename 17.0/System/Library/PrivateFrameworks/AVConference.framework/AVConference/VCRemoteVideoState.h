@@ -1,0 +1,20 @@
+@class VideoAttributes, NSString;
+
+@interface VCRemoteVideoState : NSObject
+
+@property BOOL hasReceivedFirstFrame;
+@property BOOL isVideoPaused;
+@property BOOL isMediaStalled;
+@property BOOL isVideoDegraded;
+@property BOOL isVideoSuspended;
+@property BOOL isNetworkDegraded;
+@property BOOL isLocalNetworkDegraded;
+@property (retain) VideoAttributes *remoteScreenAttributes;
+@property (retain) VideoAttributes *remoteVideoAttributes;
+@property (copy, nonatomic) NSString *localInterfaceType;
+@property (copy, nonatomic) NSString *remoteInterfaceType;
+
+- (void)dealloc;
+- (id)description;
+
+@end

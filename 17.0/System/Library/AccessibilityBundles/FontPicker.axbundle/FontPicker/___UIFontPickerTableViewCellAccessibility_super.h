@@ -1,0 +1,3 @@
+@interface ___UIFontPickerTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

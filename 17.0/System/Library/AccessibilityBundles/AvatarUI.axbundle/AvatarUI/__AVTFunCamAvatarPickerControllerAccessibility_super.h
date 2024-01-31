@@ -1,0 +1,3 @@
+@interface __AVTFunCamAvatarPickerControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

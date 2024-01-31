@@ -1,0 +1,3 @@
+@interface __NCNotificationAppSectionListHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

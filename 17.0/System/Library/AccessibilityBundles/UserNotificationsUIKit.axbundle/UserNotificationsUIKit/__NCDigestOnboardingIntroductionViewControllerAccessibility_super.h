@@ -1,0 +1,3 @@
+@interface __NCDigestOnboardingIntroductionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

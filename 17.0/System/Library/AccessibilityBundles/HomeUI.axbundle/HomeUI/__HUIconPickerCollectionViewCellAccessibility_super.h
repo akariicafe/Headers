@@ -1,0 +1,3 @@
+@interface __HUIconPickerCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

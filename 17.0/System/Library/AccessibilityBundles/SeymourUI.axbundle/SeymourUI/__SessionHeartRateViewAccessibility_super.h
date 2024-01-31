@@ -1,0 +1,3 @@
+@interface __SessionHeartRateViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

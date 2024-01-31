@@ -1,0 +1,3 @@
+@interface __VUILibraryLockupViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

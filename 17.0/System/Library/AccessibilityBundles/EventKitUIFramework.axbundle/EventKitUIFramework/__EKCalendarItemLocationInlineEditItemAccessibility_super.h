@@ -1,0 +1,3 @@
+@interface __EKCalendarItemLocationInlineEditItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

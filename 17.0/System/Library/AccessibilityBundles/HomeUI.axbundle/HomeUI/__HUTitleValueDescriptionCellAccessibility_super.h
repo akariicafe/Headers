@@ -1,0 +1,3 @@
+@interface __HUTitleValueDescriptionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKLargeTitleAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

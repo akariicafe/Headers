@@ -1,0 +1,3 @@
+@interface __ArtworkWithPlaybackStatusViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

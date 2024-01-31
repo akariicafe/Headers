@@ -1,0 +1,91 @@
+@class NSString, NSMutableOrderedSet, BMFileHandle, BMMemoryMapping;
+
+@interface BMFrameStore : NSObject {
+    NSMutableOrderedSet *_framePointers;
+    NSString *_cachedPrintablePath;
+}
+
+@property (readonly) unsigned int bytesUsed;
+@property (retain, nonatomic) NSString *cachedPrintablePathV2;
+@property (readonly, nonatomic) NSString *segmentName;
+@property (readonly, nonatomic) NSString *segmentPath;
+@property (nonatomic) BOOL filterByAgeOnRead;
+@property (nonatomic) BOOL pruneOnAccess;
+@property (nonatomic) double maxAge;
+@property (nonatomic) unsigned long long frameStoreSize;
+@property (nonatomic) unsigned int datastoreVersion;
+@property (retain, nonatomic) BMMemoryMapping *header;
+@property (retain, nonatomic) BMMemoryMapping *frames;
+@property (readonly, nonatomic) BMFileHandle *backingFile;
+@property (nonatomic) unsigned long long permission;
+@property (nonatomic) double lastAbsoluteTimestamp;
+
++ (id)new;
++ (BOOL)expectedTimestamp:(double)a0;
++ (unsigned int)getSegmentVersion:(id)a0 config:(id)a1 stream:(id)a2;
++ (unsigned long long)maxEventsPerFrameStoreVersion:(unsigned long long)a0 averageEventSize:(unsigned long long)a1 segmentSize:(unsigned long long)a2;
++ (BOOL)writeEmptyFrameStoreWithFileHandle:(id)a0 fileSize:(unsigned long long)a1 datastoreVersion:(unsigned long long)a2;
++ (BOOL)writeEmptySegmentHeaderWithFileHandleV1:(id)a0 segmentHeaderSize:(unsigned long long *)a1;
++ (BOOL)writeEmptySegmentHeaderWithFileHandleV2:(id)a0 segmentHeaderSize:(unsigned long long *)a1;
+
+- (void)sync;
+- (long long)getReverseOffsetIndex:(unsigned long long)a0;
+- (unsigned int)bytesUsedV1;
+- (id)init;
+- (unsigned char)writeFrameForBytes:(const void *)a0 length:(unsigned long long)a1 dataVersion:(unsigned int)a2 timestamp:(double)a3;
+- (unsigned int)offsetOfFrameV2:(unsigned int)a0;
+- (void)dealloc;
+- (id)_printablePath;
+- (id)initWithFileHandleV1:(id)a0 permission:(unsigned long long)a1;
+- (void *)start;
+- (void)updateHighestDeletedFrameV2:(id)a0 addToDeletedFrameCount:(unsigned int)a1;
+- (void)enumerateFromOffset:(unsigned long long)a0 withCallback:(id /* block */)a1;
+- (unsigned int)stateOfFrameV2:(unsigned int)a0;
+- (id)frameWithOffsetV2:(unsigned long long)a0 expectedState:(unsigned int)a1;
+- (id)initWithFileHandle:(id)a0 permission:(unsigned long long)a1 datastoreVersion:(unsigned long long)a2;
+- (BOOL)isValidFrameV1:(void *)a0 expectedState:(unsigned int)a1 copyOfData:(id *)a2 frameStatus:(struct { unsigned int x0; unsigned int x1; })a3 validations:(BOOL)a4 enumerationOptions:(unsigned long long)a5 errorCode:(int *)a6;
+- (BOOL)isValidFrameV2:(void *)a0 currentFrame:(unsigned int)a1 expectedState:(unsigned int)a2 copyOfData:(id *)a3 frameState:(unsigned int)a4 frameSize:(unsigned int)a5 validations:(BOOL)a6 enumerationOptions:(unsigned long long)a7 errorCode:(int *)a8;
+- (BOOL)offsetIsStartOfFrameStore:(unsigned long long)a0;
+- (void)updateToMaxOfValueAtOffset:(unsigned int)a0 newValue:(int)a1;
+- (unsigned char)writeFrameV2ForBytes:(const void *)a0 length:(unsigned long long)a1 dataVersion:(unsigned int)a2 timestamp:(double)a3 outOffset:(unsigned long long *)a4;
+- (void)addToDeletedFrameCount:(unsigned int)a0;
+- (double)creationTimeOfFrameV2:(unsigned int)a0;
+- (unsigned char)writeFrameForBytes:(const void *)a0 length:(unsigned long long)a1 dataVersion:(unsigned int)a2 timestamp:(double)a3 outOffset:(unsigned long long *)a4;
+- (void)updateFrameStoreIndex;
+- (void)updateToMaxOfTotalFramesAnd:(unsigned int)a0;
+- (BOOL)isCheckSumValidAtOffsetV2:(unsigned long long)a0 frameNumber:(int)a1;
+- (void)enumerateWithOptionsV1:(unsigned long long)a0 fromOffset:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (void)markFrameAsRemovedV1:(id)a0;
+- (id)_printablePathV2;
+- (int)eraseFrameAtOffsetTableV2:(struct { union { struct { unsigned int x0; unsigned int x1; } x0; unsigned long long x1; } x0; double x1; } *)a0;
+- (int)frameNumberFromOffsetToOffsetTableEntryV2:(unsigned int)a0;
+- (void)updateToMaxOfHighestDeletedFrameAnd:(unsigned int)a0;
+- (unsigned int)offsetTableOffsetFromFrameNumberV2:(unsigned int)a0;
+- (void)setBackingFile:(id)a0;
+- (unsigned int)bytesUsedV2;
+- (void)updateHeader;
+- (void)enumerateWithOptionsV2:(unsigned long long)a0 fromOffset:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (void).cxx_destruct;
+- (id)frameWithOffset:(unsigned long long)a0 expectedState:(unsigned int)a1;
+- (unsigned int)endOfFrameDataV2;
+- (BOOL)getSegmentHeader:(union { struct { unsigned long long x0[2]; unsigned int x1; } x0; struct { unsigned long long x0; double x1; unsigned int x2; char x3[32]; char x4[4]; } x1; struct { char x0[4]; unsigned int x1; double x2; unsigned int x3; int x4; unsigned int x5; unsigned int x6; } x2; } *)a0 fromFileV2:(id)a1 fileSize:(unsigned long long *)a2;
+- (unsigned char)appendFrameHeaderV1:(struct { union { struct { unsigned int x0; unsigned int x1; } x0; unsigned long long x1; } x0; struct { double x0; double x1; unsigned int x2; unsigned int x3; } x1; } *)a0 offset:(unsigned long long *)a1;
+- (unsigned int)atomicReadTotalFramesV2;
+- (struct { union { struct { unsigned int x0; unsigned int x1; } x0; unsigned long long x1; } x0; double x1; } *)offsetTablePtrFromFrameNumberV2:(unsigned int)a0;
+- (BOOL)isCheckSumValidAtOffsetV1:(unsigned long long)a0;
+- (id)frameWithOffsetV1:(unsigned long long)a0 expectedState:(unsigned int)a1;
+- (void)enumerateWithOptions:(unsigned long long)a0 fromOffset:(unsigned long long)a1 usingBlock:(id /* block */)a2;
+- (void)addToValueAtOffset:(unsigned int)a0 increment:(unsigned int)a1;
+- (unsigned int)frameOffsetFromOffsetTableV2:(struct { union { struct { unsigned int x0; unsigned int x1; } x0; unsigned long long x1; } x0; double x1; } *)a0;
+- (void)updateHighestDeletedFrame:(id)a0;
+- (id)initWithFileHandleV2:(id)a0 permission:(unsigned long long)a1;
+- (void)markFrameAsRemovedV2:(id)a0;
+- (void)markFrameAsRemoved:(id)a0;
+- (unsigned int)sizeOfFrameV2:(unsigned int)a0;
+- (unsigned char)appendOffsetTableEntry:(struct { union { struct { unsigned int x0; unsigned int x1; } x0; unsigned long long x1; } x0; double x1; } *)a0 outOffsetForFrame:(unsigned int *)a1 length:(unsigned int)a2 frameCount:(unsigned int *)a3;
+- (BOOL)getSegmentHeader:(union { struct { unsigned long long x0[2]; unsigned int x1; } x0; struct { unsigned long long x0; double x1; unsigned int x2; char x3[32]; char x4[4]; } x1; struct { char x0[4]; unsigned int x1; double x2; unsigned int x3; int x4; unsigned int x5; unsigned int x6; } x2; } *)a0 fromFileV1:(id)a1 fileSize:(unsigned long long *)a2;
+- (unsigned char)writeFrameV1ForBytes:(const void *)a0 length:(unsigned long long)a1 dataVersion:(unsigned int)a2 timestamp:(double)a3 outOffset:(unsigned long long *)a4;
+- (int)frameNumberFromFrameOffsetV2:(unsigned int)a0;
+- (int)firstFrameNumberForTimestampV2:(double)a0 reverse:(BOOL)a1;
+
+@end

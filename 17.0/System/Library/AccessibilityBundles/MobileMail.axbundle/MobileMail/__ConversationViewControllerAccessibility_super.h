@@ -1,0 +1,3 @@
+@interface __ConversationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

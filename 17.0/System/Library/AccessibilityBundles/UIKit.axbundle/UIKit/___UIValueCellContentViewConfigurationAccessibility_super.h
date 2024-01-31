@@ -1,0 +1,3 @@
+@interface ___UIValueCellContentViewConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

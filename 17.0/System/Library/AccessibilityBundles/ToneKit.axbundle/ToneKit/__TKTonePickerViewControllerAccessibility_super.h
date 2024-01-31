@@ -1,0 +1,3 @@
+@interface __TKTonePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

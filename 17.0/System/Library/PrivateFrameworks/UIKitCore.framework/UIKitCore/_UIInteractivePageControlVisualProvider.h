@@ -1,0 +1,88 @@
+@class CAMediaTimingFunction, _UIPageIndicatorFeed, UITapGestureRecognizer, _UIPageControlInteractor, UISelectionFeedbackGenerator, UIView, UILongPressGestureRecognizer, NSString, UIDelayedAction, UIViewFloatAnimatableProperty, _UIPageIndicatorStore, _UIPageControlIndicatorContentView, _UIPageControlContentView, CADisplayLink, UIImpactFeedbackGenerator;
+
+@interface _UIInteractivePageControlVisualProvider : _UIPageControlVisualProvider <_UIPageIndicatorFeedDelegate, _UIPageIndicatorStoreDelegate, UIGestureRecognizerDelegate, _UIControlEventsGestureRecognizerDelegate> {
+    struct { unsigned char scrubbing : 1; unsigned char platterExpanded : 1; unsigned char didScrubPastInitialThreshold : 1; } _state;
+    long long _indicatorStartIndex;
+    long long _numberOfVisibleIndicators;
+    long long _targetPage;
+    long long _currentTick;
+    long long _tickThreshold;
+    double _panDistance;
+    double _indicatorPaddingOffset;
+    double _continuousStartIndex;
+    UIView *_backgroundView;
+}
+
+@property (retain, nonatomic) _UIPageControlContentView *contentView;
+@property (retain, nonatomic) _UIPageControlIndicatorContentView *indicatorContentView;
+@property (nonatomic, getter=isPlatterExpanded) BOOL platterExpanded;
+@property (nonatomic, getter=isScrubbing) BOOL scrubbing;
+@property (retain, nonatomic) CADisplayLink *displayLink;
+@property (retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (retain, nonatomic) UILongPressGestureRecognizer *scrubbingGestureRecognizer;
+@property (retain, nonatomic) UIDelayedAction *successiveTapAction;
+@property (nonatomic) long long previousMoveDirection;
+@property (nonatomic) struct CGPoint { double x; double y; } previousTouchLocation;
+@property (retain, nonatomic) _UIPageIndicatorFeed *indicatorFeed;
+@property (retain, nonatomic) _UIPageIndicatorStore *indicatorStore;
+@property (retain, nonatomic) _UIPageControlInteractor *interactor;
+@property (retain, nonatomic) UIViewFloatAnimatableProperty *continuousDisplayedPage;
+@property (retain, nonatomic) UIViewFloatAnimatableProperty *scrubProgress;
+@property (retain, nonatomic) CAMediaTimingFunction *indicatorTransformCurve;
+@property (readonly, nonatomic) long long resolvedDirection;
+@property (retain, nonatomic) UISelectionFeedbackGenerator *selectionFeedbackGenerator;
+@property (retain, nonatomic) UIImpactFeedbackGenerator *joggingFeedbackGenerator;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)didUpdatePageProgress;
+- (void)traitCollectionDidChangeOnSubtree:(id)a0;
+- (void)setCustomIndicatorImage:(id)a0 forPage:(long long)a1;
+- (void)setIndicatorOpacity:(double)a0;
+- (void)didUpdateLayoutDirection;
+- (id)preferredIndicatorImage;
+- (id)preferredActiveIndicatorImage;
+- (void)didUpdateCurrentPageProgress;
+- (void)setPage:(long long)a0 interactionState:(long long)a1;
+- (void)didUpdateCustomLayoutValues;
+- (void)invalidateIndicators;
+- (void)didUpdateBackgroundEffect;
+- (id)customActiveIndicatorImageForPage:(long long)a0;
+- (struct CGSize { double x0; double x1; })sizeForNumberOfPages:(long long)a0;
+- (void)didUpdateInteractionTypeAvailability;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })indicatorFrameForPage:(long long)a0;
+- (id)customIndicatorImageForPage:(long long)a0;
+- (void)pruneArchivedSubviews:(id)a0;
+- (void)didUpdateBackgroundStyle;
+- (void)didUpdateCurrentPageIndicatorTintColor;
+- (BOOL)shouldDisableTouchTracking;
+- (void)setCustomActiveIndicatorImage:(id)a0 forPage:(long long)a1;
+- (void)setPreferredActiveIndicatorImage:(id)a0;
+- (BOOL)supportsContinuousInteraction;
+- (void)didUpdateNumberOfPages;
+- (double)indicatorOpacity;
+- (void)setPreferredIndicatorImage:(id)a0;
+- (void)updateDisplayedPageToCurrentPage;
+- (void)didUpdatePageIndicatorTintColor;
+- (struct CGSize { double x0; double x1; })indicatorSizeForImage:(id)a0;
+- (unsigned long long)maxVisibleIndicators;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (void)controlEventsGestureRecognizer:(id)a0 recognizedControlEvent:(unsigned long long)a1 withEvent:(id)a2;
+- (void)setBackgroundView:(id)a0;
+- (void)resetSuccessiveTapInfo;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (id)backgroundView;
+- (void)didScrubPageControl:(id)a0;
+- (void)displayLinkTicked:(id)a0;
+- (void).cxx_destruct;
+- (void)prepare;
+- (void)layoutSubviews;
+- (void)didTapPageControl:(id)a0;
+- (void)configureIndicatorImagesForIndicator:(id)a0 atPage:(long long)a1;
+- (BOOL)gestureRecognizer:(id)a0 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)a1;
+- (void)configureIndicator:(id)a0 atPage:(long long)a1;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+
+@end

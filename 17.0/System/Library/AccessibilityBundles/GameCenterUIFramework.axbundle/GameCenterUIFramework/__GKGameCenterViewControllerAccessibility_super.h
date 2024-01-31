@@ -1,0 +1,3 @@
+@interface __GKGameCenterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

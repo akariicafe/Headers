@@ -1,0 +1,3 @@
+@interface __WKAccessibilityWebPageObjectAccessibility_super : UIAccessibilitySafeCategory
+
+@end

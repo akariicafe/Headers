@@ -1,0 +1,3 @@
+@interface __SBCommandTabControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

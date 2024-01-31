@@ -1,0 +1,3 @@
+@interface __CNContactHeaderStaticDisplayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

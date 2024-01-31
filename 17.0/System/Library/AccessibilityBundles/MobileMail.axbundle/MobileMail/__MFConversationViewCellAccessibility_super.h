@@ -1,0 +1,3 @@
+@interface __MFConversationViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

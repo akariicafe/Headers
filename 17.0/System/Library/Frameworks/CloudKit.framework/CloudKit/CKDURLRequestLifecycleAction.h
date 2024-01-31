@@ -1,0 +1,3 @@
+@interface CKDURLRequestLifecycleAction : NSObject
+
+@end

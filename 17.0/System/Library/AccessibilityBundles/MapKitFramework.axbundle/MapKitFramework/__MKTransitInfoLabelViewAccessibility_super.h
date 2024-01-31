@@ -1,0 +1,3 @@
+@interface __MKTransitInfoLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UITableViewAccessibility__BatteryUsageUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

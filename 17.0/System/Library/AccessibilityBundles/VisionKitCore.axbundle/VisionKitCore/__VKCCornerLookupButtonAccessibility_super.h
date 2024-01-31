@@ -1,0 +1,3 @@
+@interface __VKCCornerLookupButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

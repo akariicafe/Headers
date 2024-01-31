@@ -1,0 +1,3 @@
+@interface __SearchAdTransparencyLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

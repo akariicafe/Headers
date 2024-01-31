@@ -1,0 +1,3 @@
+@interface __FullScreenWorldClockCollectionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

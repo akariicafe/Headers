@@ -1,0 +1,3 @@
+@interface __tvOS_AVInfoPanelAudioViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

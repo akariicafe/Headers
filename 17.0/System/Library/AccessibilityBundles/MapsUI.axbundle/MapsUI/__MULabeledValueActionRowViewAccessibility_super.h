@@ -1,0 +1,3 @@
+@interface __MULabeledValueActionRowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __UILabelAccessibility__EventKitUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ASAuthorizationAppleIDButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

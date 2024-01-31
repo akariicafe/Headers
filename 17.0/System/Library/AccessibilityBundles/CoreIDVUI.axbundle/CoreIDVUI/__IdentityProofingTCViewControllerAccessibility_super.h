@@ -1,0 +1,3 @@
+@interface __IdentityProofingTCViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

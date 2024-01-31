@@ -1,0 +1,3 @@
+@interface __PMiOSMainViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

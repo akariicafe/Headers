@@ -1,0 +1,3 @@
+@interface _TtCO24IntelligencePlatformCore14ViewGeneration31PersonEmbeddingViewRecordLoader : _TtCO24IntelligencePlatformCore14ViewGeneration25EmbeddingViewRecordLoader
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBHStackConfigurationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

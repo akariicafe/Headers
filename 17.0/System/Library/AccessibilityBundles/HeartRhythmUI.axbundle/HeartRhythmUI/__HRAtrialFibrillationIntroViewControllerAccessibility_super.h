@@ -1,0 +1,3 @@
+@interface __HRAtrialFibrillationIntroViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

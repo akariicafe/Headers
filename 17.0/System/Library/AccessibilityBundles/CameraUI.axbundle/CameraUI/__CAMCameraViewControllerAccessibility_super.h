@@ -1,0 +1,3 @@
+@interface __CAMCameraViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

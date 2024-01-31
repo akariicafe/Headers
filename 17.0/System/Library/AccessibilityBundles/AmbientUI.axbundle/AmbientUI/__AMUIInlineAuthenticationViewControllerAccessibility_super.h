@@ -1,0 +1,3 @@
+@interface __AMUIInlineAuthenticationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

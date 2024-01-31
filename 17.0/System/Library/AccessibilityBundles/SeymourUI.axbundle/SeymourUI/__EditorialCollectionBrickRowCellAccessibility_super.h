@@ -1,0 +1,3 @@
+@interface __EditorialCollectionBrickRowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

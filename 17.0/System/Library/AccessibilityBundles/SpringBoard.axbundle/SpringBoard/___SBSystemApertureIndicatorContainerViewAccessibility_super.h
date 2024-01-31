@@ -1,0 +1,3 @@
+@interface ___SBSystemApertureIndicatorContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

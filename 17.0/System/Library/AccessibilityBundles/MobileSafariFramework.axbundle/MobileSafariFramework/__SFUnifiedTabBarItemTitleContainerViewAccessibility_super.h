@@ -1,0 +1,3 @@
+@interface __SFUnifiedTabBarItemTitleContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

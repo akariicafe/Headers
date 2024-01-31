@@ -1,0 +1,3 @@
+@interface __SUUIIPhoneProductPageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

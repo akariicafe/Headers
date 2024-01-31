@@ -1,0 +1,3 @@
+@interface __SKUIAttributedStringViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

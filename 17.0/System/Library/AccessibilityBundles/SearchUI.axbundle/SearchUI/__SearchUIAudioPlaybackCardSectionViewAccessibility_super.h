@@ -1,0 +1,3 @@
+@interface __SearchUIAudioPlaybackCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

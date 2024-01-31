@@ -1,0 +1,3 @@
+@interface __VUIStackingPosterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

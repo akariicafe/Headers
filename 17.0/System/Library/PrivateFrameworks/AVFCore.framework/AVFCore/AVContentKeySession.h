@@ -1,0 +1,97 @@
+@class AVContentKeySessionInternal, NSString, NSURL, NSData, AVContentKeyReportGroup, NSObject;
+@protocol AVContentKeySessionDelegate, OS_dispatch_queue;
+
+@interface AVContentKeySession : NSObject <AVIntegrityChecking> {
+    AVContentKeySessionInternal *_session;
+}
+
+@property (readonly, nonatomic, getter=isInternal) BOOL internal;
+@property (readonly) AVContentKeyReportGroup *defaultContentKeyGroup;
+@property (readonly, nonatomic, getter=isDefunct) BOOL defunct;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, weak) id<AVContentKeySessionDelegate> delegate;
+@property (readonly) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (readonly) NSURL *storageURL;
+@property (readonly) NSString *keySystem;
+@property (readonly) NSData *contentProtectionSessionIdentifier;
+
++ (void)initialize;
++ (id)contentKeySessionWithKeySystem:(id)a0;
++ (id)_uniqueIDForCyptorUUID:(id)a0 cryptorKeyRequestID:(unsigned long long)a1;
++ (id)contentKeySessionWithKeySystem:(id)a0 storageDirectoryAtURL:(id)a1;
++ (id)contentKeySessionWithLegacyWebKitCompatibilityModeAndKeySystem:(id)a0 storageDirectoryAtURL:(id)a1;
++ (struct OpaqueFigSecureStopManager { } *)copyDefaultSecureStopManagerForAppIdentifier:(id)a0 storageDirectoryAtURL:(id)a1;
++ (id)pendingExpiredSessionReportsWithAppIdentifier:(id)a0 storageDirectoryAtURL:(id)a1;
++ (void)removePendingExpiredSessionReports:(id)a0 withAppIdentifier:(id)a1 storageDirectoryAtURL:(id)a2;
+
+- (id)init;
+- (void)dealloc;
+- (int)setAppIdentifier:(id)a0;
+- (id)_internalQueue;
+- (void)setDelegate:(id)a0 queue:(id)a1;
+- (void)expire;
+- (void)setDelegate:(id)a0;
+- (id)_weakReference;
+- (id)keyRequestByID:(unsigned long long)a0;
+- (id)_contentKeyGroups;
+- (id)_contentKeyRequestForCryptorUUID:(id)a0 cryptorKeyRequestID:(unsigned long long)a1;
+- (void)_handleContentProtectionSessionIdentifierDidChange:(id)a0;
+- (void)_handleExternalProtectionStateChangedCallbackForCryptKeyIdentifier:(id)a0;
+- (void)_handleKeyResponseError:(id)a0 forCryptorUUID:(id)a1 andCryptorKeyRequestID:(unsigned long long)a2;
+- (void)_handleKeyResponseSuccessfullyProcessedForCryptorUUID:(id)a0 andCryptorKeyRequestID:(unsigned long long)a1;
+- (void)_handleRequest:(struct __CFDictionary { } *)a0 withRequestID:(unsigned long long)a1 fromHandler:(struct OpaqueFigCustomURLHandler { } *)a2 willHandleRequest:(BOOL *)a3;
+- (void)_handleSecureStopDidFinalizeRecordCallback;
+- (void)_handleUpdateToPersistentKey:(id)a0 forKeyIdentifier:(id)a1;
+- (void)_invokeDelegateCallbackWithBlock:(id /* block */)a0 synchronouslyWhenDelegateQueueIsNULL:(BOOL)a1;
+- (BOOL)_makeContentKeyGroupWithIDOut:(unsigned long long *)a0 error:(id *)a1;
+- (unsigned long long)_processContentKeyRequestWithIdentifier:(id)a0 encryptionMode:(int)a1 supportedProtocolVersions:(id)a2 groupID:(unsigned long long)a3 error:(id *)a4;
+- (void)_processContentKeyRequestWithIdentifier:(id)a0 initializationData:(id)a1 options:(id)a2 groupID:(unsigned long long)a3;
+- (void)_removeContentKeyRequestForCryptorUUID:(id)a0 cryptorKeyRequestID:(unsigned long long)a1;
+- (unsigned long long)_renewKeyWithIdentifier:(id)a0 encryptionMode:(int)a1 initializationData:(id)a2 contentIdentifier:(id)a3 keyIDFromInitializationData:(id)a4 options:(id)a5 error:(id *)a6;
+- (void)_sendFinishLoadingForPreloadedKeyRequest:(struct __CFDictionary { } *)a0 withRequestID:(unsigned long long)a1 fromHandler:(struct OpaqueFigCustomURLHandler { } *)a2 error:(id)a3;
+- (void)_setContentKeyRequest:(id)a0 forCryptorUUID:(id)a1 cryptorKeyRequestID:(unsigned long long)a2;
+- (void)_setWeakReferenceForContentKeyRequest:(id)a0 withCryptorUUID:(id)a1;
+- (void)_willDeallocOrFinalize;
+- (void)addContentKeyRecipient:(id)a0;
+- (BOOL)clientCanReceivePersistableContentKeyRequest;
+- (id)contentKeyRecipients;
+- (void)contentKeyRequestDidProduceContentKey:(id)a0;
+- (void)contentKeyRequestDidSucceedWithBoss:(struct CMBaseObject { } *)a0 keySpecifier:(struct FigContentKeySpecifier { } *)a1 requestID:(unsigned long long)a2 cryptor:(struct OpaqueFigCPECryptor { } *)a3;
+- (struct OpaqueFigCPECryptor { } *)copyCryptorForCryptKeyAttributes:(id)a0;
+- (BOOL)copyCryptorForFormatDescription:(struct opaqueCMFormatDescription { } *)a0 cryptorOut:(const struct OpaqueFigCPECryptor **)a1 errorOut:(id *)a2;
+- (struct OpaqueFigCPECryptor { } *)copyCryptorForInitializationData:(id)a0;
+- (int)createAndInstallCustomURLHandlerForAsset:(id)a0 outHandler:(struct OpaqueFigCustomURLHandler **)a1;
+- (struct OpaqueFigCPECryptor { } *)createCryptorIfNecessaryForInitializationData:(id)a0 formatDescription:(struct opaqueCMFormatDescription { } *)a1 error:(id *)a2;
+- (unsigned long long)defaultGroupID;
+- (void)didProvideKeyRequestWithBoss:(struct CMBaseObject { } *)a0 keySpecifier:(struct FigContentKeySpecifier { } *)a1 requestID:(unsigned long long)a2 renewalRequest:(BOOL)a3;
+- (void)externalProtectionStateChangedCallbackWithBoss:(struct CMBaseObject { } *)a0 keySpecifier:(struct FigContentKeySpecifier { } *)a1;
+- (BOOL)hasProtector;
+- (id)initWithKeySystem:(id)a0 storageDirectoryAtURL:(id)a1 internal:(BOOL)a2;
+- (id)initWithKeySystem:(id)a0 storageDirectoryAtURL:(id)a1 legacyWebKitCompatibilityMode:(BOOL)a2;
+- (id)initWithStorageDirectoryAtURL:(id)a0;
+- (void)invalidateAllPersistableContentKeysForApp:(id)a0 options:(id)a1 completionHandler:(id /* block */)a2;
+- (void)invalidatePersistableContentKey:(id)a0 options:(id)a1 completionHandler:(id /* block */)a2;
+- (void)issueContentKeyRequest:(id)a0;
+- (void)issueContentKeyRequest:(id)a0 toDelegateWithCallbackSelector:(SEL)a1;
+- (id)issueContentKeyRequestForInitializationData:(id)a0;
+- (void)issueContentKeyRequestWithCustomURLHandler:(struct OpaqueFigCustomURLHandler { } *)a0 identifier:(id)a1 requestInfo:(struct __CFDictionary { } *)a2 requestID:(unsigned long long)a3 providesPersistableKey:(BOOL)a4;
+- (void)issueContentKeyRequestWithPreloadingRequestOptions:(id)a0 identifier:(id)a1 initializationData:(id)a2 providesPersistableKey:(BOOL)a3;
+- (void)issueContentKeyRequests:(id)a0 forInitializationData:(id)a1;
+- (void)issuePersistableContentKeyRequest:(id)a0;
+- (void)issuePersistableContentKeyRequestForKeySpecifier:(struct FigContentKeySpecifier { } *)a0 initializationData:(id)a1 keyIDFromInitializationData:(id)a2 contentIdentifier:(id)a3 requestID:(unsigned long long)a4 preloadingRequestOptions:(id)a5 identifier:(id)a6;
+- (void)issueRenewableContentKeyRequest:(id)a0;
+- (id)makeContentKeyGroup;
+- (void)makeSecureTokenForExpirationDateOfPersistableContentKey:(id)a0 completionHandler:(id /* block */)a1;
+- (void)processContentKeyRequestForPSSHEntries:(id)a0 initializationData:(id)a1 groupID:(unsigned long long)a2 options:(id)a3;
+- (void)processContentKeyRequestForSinf:(id)a0 initializationData:(id)a1 groupID:(unsigned long long)a2 options:(id)a3;
+- (void)processContentKeyRequestForTransportStreamWithCodecType:(id)a0 initializationData:(id)a1 groupID:(unsigned long long)a2 options:(id)a3;
+- (void)processContentKeyRequestWithIdentifier:(id)a0 initializationData:(id)a1 options:(id)a2;
+- (void)removeContentKeyRecipient:(id)a0;
+- (void)removeResourcesForID:(unsigned long long)a0;
+- (void)renewExpiringResponseDataForContentKeyRequest:(id)a0;
+- (void)trackRequest:(id)a0 byRequestID:(unsigned long long)a1;
+
+@end

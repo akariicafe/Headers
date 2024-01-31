@@ -1,0 +1,10 @@
+@interface PXStoryMultipartPanoramaParameters : NSObject
+
+@property (readonly, nonatomic) struct { struct { struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } t; } s; struct { struct CGAffineTransform { double a; double b; double c; double d; double tx; double ty; } t; } t; } normalizedKenBurnsEffectParameters;
+@property (readonly, nonatomic) struct { struct { long long value; int timescale; unsigned int flags; long long epoch; } minimumDuration; struct { long long value; int timescale; unsigned int flags; long long epoch; } preferredDuration; struct { long long value; int timescale; unsigned int flags; long long epoch; } maximumDuration; struct { struct { long long value; int timescale; unsigned int flags; long long epoch; } time; long long rank; } preferredCue; char expectedTransitionKind; } partDurationInfo;
+@property (readonly, nonatomic) struct { char orderOutTransition; unsigned char options; struct { long long value; int timescale; unsigned int flags; long long epoch; } duration; char fallbackFromTransitionKind; union { char panDirection; char scaleDirection; char rotateDirection; char wipeKind; } ; union { double scaleRelativeFactor; double rotateAngleInDegrees; char wipeFirstAssetDirection; } ; } transitionInfo;
+
+- (id)init;
+- (id)initWithNormalizedKenBurnsEffectParameters:(struct { struct { struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } x0; } x0; struct { struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } x0; } x1; })a0 partDurationInfo:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; struct { long long x0; int x1; unsigned int x2; long long x3; } x2; struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; long long x1; } x3; char x4; })a1 transitionInfo:(struct { char x0; unsigned char x1; struct { long long x0; int x1; unsigned int x2; long long x3; } x2; char x3; union { char x0; char x1; char x2; char x3; } x4; union { double x0; double x1; char x2; } x5; })a2;
+
+@end

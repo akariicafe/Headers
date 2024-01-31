@@ -1,0 +1,3 @@
+@interface ___TVCarouselViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

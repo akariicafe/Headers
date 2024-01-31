@@ -1,0 +1,3 @@
+@interface __IMBTimeslotsContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

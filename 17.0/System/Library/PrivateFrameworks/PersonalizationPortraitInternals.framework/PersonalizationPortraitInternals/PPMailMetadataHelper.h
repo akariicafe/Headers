@@ -1,0 +1,3 @@
+@interface PPMailMetadataHelper : NSObject
+
+@end

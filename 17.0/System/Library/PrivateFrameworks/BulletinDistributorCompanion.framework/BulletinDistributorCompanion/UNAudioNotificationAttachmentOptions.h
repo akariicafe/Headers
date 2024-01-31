@@ -1,0 +1,3 @@
+@interface UNAudioNotificationAttachmentOptions : UNNotificationAttachmentOptions
+
+@end

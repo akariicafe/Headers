@@ -1,0 +1,3 @@
+@interface __SBInCallPresentationSessionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

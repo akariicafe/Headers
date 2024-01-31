@@ -1,0 +1,3 @@
+@interface __BKUIPearlPillContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

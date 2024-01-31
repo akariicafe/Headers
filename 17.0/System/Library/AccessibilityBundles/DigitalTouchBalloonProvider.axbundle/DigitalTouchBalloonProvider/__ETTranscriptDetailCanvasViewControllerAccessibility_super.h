@@ -1,0 +1,3 @@
+@interface __ETTranscriptDetailCanvasViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

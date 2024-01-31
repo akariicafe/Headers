@@ -1,0 +1,3 @@
+@interface __MRUAmbientNowPlayingVolumeControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

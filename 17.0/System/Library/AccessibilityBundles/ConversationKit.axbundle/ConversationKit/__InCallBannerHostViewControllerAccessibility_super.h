@@ -1,0 +1,3 @@
+@interface __InCallBannerHostViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

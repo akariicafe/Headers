@@ -1,0 +1,3 @@
+@interface __CCUISensorAttributionSensorButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

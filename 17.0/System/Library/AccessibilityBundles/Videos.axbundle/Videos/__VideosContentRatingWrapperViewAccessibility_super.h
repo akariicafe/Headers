@@ -1,0 +1,3 @@
+@interface __VideosContentRatingWrapperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

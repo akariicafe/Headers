@@ -1,0 +1,3 @@
+@interface __SeymourUI_PhoneStandardBrickRowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

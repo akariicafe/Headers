@@ -1,0 +1,3 @@
+@interface __SFMagicHeadPlaceholderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

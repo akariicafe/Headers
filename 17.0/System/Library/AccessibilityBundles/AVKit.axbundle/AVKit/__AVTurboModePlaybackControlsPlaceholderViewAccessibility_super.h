@@ -1,0 +1,3 @@
+@interface __AVTurboModePlaybackControlsPlaceholderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

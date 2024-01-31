@@ -1,0 +1,3 @@
+@interface __ACSportsTeamHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

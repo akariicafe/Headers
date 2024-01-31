@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AsyncInProgressResponseHandler : HomeAutomationInternal.BaseAsyncResponseHandler
+
+@end

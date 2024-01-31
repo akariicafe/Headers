@@ -1,0 +1,3 @@
+@interface __VUIEpisodeDetailViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUIVerticalLockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKChatInputControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

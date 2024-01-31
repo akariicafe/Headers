@@ -1,0 +1,3 @@
+@interface __TUIEmojiSearchResultsCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

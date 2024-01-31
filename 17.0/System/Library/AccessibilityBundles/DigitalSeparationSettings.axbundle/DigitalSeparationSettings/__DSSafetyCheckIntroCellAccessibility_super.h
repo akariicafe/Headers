@@ -1,0 +1,3 @@
+@interface __DSSafetyCheckIntroCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

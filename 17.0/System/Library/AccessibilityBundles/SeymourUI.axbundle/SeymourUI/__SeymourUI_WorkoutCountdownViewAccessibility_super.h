@@ -1,0 +1,3 @@
+@interface __SeymourUI_WorkoutCountdownViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

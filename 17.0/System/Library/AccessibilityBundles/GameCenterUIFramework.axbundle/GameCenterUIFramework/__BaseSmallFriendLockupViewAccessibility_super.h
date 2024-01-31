@@ -1,0 +1,3 @@
+@interface __BaseSmallFriendLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

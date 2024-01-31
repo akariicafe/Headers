@@ -1,0 +1,3 @@
+@interface __MobileCalUIDimmingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

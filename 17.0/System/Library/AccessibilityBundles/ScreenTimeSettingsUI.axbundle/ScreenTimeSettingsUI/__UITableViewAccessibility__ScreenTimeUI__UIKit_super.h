@@ -1,0 +1,3 @@
+@interface __UITableViewAccessibility__ScreenTimeUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

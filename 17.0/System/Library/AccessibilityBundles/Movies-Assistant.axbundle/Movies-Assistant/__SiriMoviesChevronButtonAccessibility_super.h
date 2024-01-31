@@ -1,0 +1,3 @@
+@interface __SiriMoviesChevronButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

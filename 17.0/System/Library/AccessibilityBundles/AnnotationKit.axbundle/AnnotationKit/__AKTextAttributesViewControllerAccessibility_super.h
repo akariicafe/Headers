@@ -1,0 +1,3 @@
+@interface __AKTextAttributesViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __AVTCarouselControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

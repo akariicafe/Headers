@@ -1,0 +1,3 @@
+@interface __CUIKCalendarModelAccessibility__MobileCal__CalendarUIKit_super : UIAccessibilitySafeCategory
+
+@end

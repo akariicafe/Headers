@@ -1,0 +1,3 @@
+@interface __EKEventGestureControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

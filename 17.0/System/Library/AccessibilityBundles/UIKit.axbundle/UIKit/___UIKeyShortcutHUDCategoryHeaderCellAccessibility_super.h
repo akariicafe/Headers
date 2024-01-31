@@ -1,0 +1,3 @@
+@interface ___UIKeyShortcutHUDCategoryHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ENUILoggingStatusCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

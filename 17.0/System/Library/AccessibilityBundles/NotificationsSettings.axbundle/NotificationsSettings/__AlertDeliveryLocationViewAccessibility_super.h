@@ -1,0 +1,3 @@
+@interface __AlertDeliveryLocationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

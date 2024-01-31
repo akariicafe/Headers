@@ -1,0 +1,3 @@
+@interface __MOSuggestionSheetMosaicCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

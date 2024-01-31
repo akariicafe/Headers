@@ -1,0 +1,3 @@
+@interface MTLIndirectCommandBufferDescriptorInternal : MTLIndirectCommandBufferDescriptor
+
+@end

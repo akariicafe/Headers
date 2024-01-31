@@ -1,0 +1,3 @@
+@interface __SRGuideDetailSectionHeaderCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

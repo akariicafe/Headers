@@ -1,0 +1,3 @@
+@interface __HUUIPageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

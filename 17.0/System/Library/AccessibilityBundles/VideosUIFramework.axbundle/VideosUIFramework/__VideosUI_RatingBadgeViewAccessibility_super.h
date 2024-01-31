@@ -1,0 +1,3 @@
+@interface __VideosUI_RatingBadgeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

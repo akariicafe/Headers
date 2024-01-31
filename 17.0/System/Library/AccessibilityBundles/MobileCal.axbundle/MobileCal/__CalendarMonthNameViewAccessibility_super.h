@@ -1,0 +1,3 @@
+@interface __CalendarMonthNameViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

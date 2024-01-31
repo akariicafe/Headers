@@ -1,0 +1,3 @@
+@interface __SearchUIVerticalLayoutCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,9 @@
+@interface SUUICircleProgressIndicatorAccessibility : __SUUICircleProgressIndicatorAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
+
+- (id)accessibilityLabel;
+- (BOOL)isAccessibilityElement;
+
+@end

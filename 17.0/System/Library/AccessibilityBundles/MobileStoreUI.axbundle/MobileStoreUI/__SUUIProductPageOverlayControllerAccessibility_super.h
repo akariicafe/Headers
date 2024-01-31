@@ -1,0 +1,3 @@
+@interface __SUUIProductPageOverlayControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

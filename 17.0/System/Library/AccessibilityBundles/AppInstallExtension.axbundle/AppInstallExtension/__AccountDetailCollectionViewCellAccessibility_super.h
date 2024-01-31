@@ -1,0 +1,3 @@
+@interface __AccountDetailCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

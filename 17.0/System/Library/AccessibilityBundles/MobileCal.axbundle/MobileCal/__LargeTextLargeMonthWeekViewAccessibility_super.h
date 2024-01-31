@@ -1,0 +1,3 @@
+@interface __LargeTextLargeMonthWeekViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MultiselectTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CertInfoGradientLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

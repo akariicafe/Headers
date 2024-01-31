@@ -1,0 +1,3 @@
+@interface _TtC26RespiratoryHealthAppPluginP33_675A22035C53C40DEBFC2E964F6A1BCA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

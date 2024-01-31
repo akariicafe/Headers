@@ -1,0 +1,3 @@
+@interface __MRUNowPlayingTransportControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

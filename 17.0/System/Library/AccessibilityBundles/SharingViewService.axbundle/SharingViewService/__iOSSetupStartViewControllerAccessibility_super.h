@@ -1,0 +1,3 @@
+@interface __iOSSetupStartViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

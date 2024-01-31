@@ -1,0 +1,3 @@
+@interface __PREditorRootViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

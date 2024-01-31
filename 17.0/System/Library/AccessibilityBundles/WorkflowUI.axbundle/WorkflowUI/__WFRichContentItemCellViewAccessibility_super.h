@@ -1,0 +1,3 @@
+@interface __WFRichContentItemCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

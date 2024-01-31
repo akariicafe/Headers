@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.AsyncUnreachableResponseHandler : HomeAutomationInternal.BaseAsyncResponseHandler
+
+@end

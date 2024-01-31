@@ -1,0 +1,3 @@
+@interface __AKBasicLoginAlertControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

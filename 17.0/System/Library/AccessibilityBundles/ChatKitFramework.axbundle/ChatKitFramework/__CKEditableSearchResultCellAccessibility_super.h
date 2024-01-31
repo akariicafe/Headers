@@ -1,0 +1,3 @@
+@interface __CKEditableSearchResultCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

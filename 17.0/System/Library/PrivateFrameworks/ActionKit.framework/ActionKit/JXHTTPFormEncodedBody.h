@@ -1,0 +1,21 @@
+@class NSString, NSMutableDictionary;
+
+@interface JXHTTPFormEncodedBody : NSObject <JXHTTPRequestBody>
+
+@property (retain, nonatomic) NSMutableDictionary *dictionary;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)withDictionary:(id)a0;
+
+- (id)init;
+- (id)initWithDictionary:(id)a0;
+- (void).cxx_destruct;
+- (id)requestData;
+- (id)httpInputStream;
+- (id)httpContentType;
+- (long long)httpContentLength;
+
+@end

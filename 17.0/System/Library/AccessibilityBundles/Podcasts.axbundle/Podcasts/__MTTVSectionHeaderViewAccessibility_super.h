@@ -1,0 +1,3 @@
+@interface __MTTVSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

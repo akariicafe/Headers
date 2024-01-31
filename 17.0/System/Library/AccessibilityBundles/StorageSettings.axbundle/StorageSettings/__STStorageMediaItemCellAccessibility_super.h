@@ -1,0 +1,3 @@
+@interface __STStorageMediaItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKMessageEntryContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

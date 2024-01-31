@@ -1,0 +1,3 @@
+@interface __COSPasskeyEntryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

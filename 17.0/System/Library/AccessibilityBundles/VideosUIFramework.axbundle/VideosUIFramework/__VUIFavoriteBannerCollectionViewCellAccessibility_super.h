@@ -1,0 +1,3 @@
+@interface __VUIFavoriteBannerCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

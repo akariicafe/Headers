@@ -1,0 +1,3 @@
+@interface __PXPhotosDetailsHeaderTileWidgetAccessibility_super : UIAccessibilitySafeCategory
+
+@end

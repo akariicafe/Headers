@@ -1,0 +1,3 @@
+@interface __CNContactListCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __VideoHeaderLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

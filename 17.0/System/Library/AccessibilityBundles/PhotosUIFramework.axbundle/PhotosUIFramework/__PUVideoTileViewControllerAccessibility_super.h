@@ -1,0 +1,3 @@
+@interface __PUVideoTileViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

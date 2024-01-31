@@ -1,0 +1,3 @@
+@interface SKUIDecorationImageViewElement : SKUIImageViewElement
+
+@end

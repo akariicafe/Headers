@@ -1,0 +1,91 @@
+@class NSCoreDataCoreSpotlightDelegate, NSString, NSDictionary, NSPersistentStoreCoordinator, NSURL;
+
+@interface NSPersistentStore : NSObject {
+    NSPersistentStoreCoordinator *_coordinator;
+    NSString *_configurationName;
+    NSURL *_url;
+    NSDictionary *_options;
+    id *_oidFactories;
+    id _defaultFaultHandler;
+    struct _objectStoreFlags { unsigned char isReadOnly : 1; unsigned char cleanOnRemove : 1; unsigned char isMDDirty : 1; unsigned int _RESERVED : 29; } _flags;
+    void *_temporaryIDClass;
+    id _coreSpotlightDelegate;
+    id _managedObjectModel;
+    struct __CFSet { } *_entitiesInConfiguration;
+}
+
+@property (readonly, weak, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (readonly, copy) NSString *configurationName;
+@property (readonly) NSDictionary *options;
+@property (retain) NSURL *URL;
+@property (copy) NSString *identifier;
+@property (readonly, copy) NSString *type;
+@property (getter=isReadOnly) BOOL readOnly;
+@property (retain, nonatomic) NSDictionary *metadata;
+@property (readonly, nonatomic) NSCoreDataCoreSpotlightDelegate *coreSpotlightExporter;
+
++ (BOOL)accessInstanceVariablesDirectly;
++ (void)initialize;
++ (id)metadataForPersistentStoreWithURL:(id)a0 error:(id *)a1;
++ (BOOL)_replacePersistentStoreAtURL:(id)a0 destinationOptions:(id)a1 withPersistentStoreFromURL:(id)a2 sourceOptions:(id)a3 error:(id *)a4;
++ (BOOL)setMetadata:(id)a0 forPersistentStoreWithURL:(id)a1 error:(id *)a2;
++ (BOOL)_rekeyPersistentStoreAtURL:(id)a0 options:(id)a1 withKey:(id)a2 error:(id *)a3;
++ (id)_figureOutWhereExternalReferencesEndedUpRelativeTo:(id)a0;
++ (Class)migrationManagerClass;
++ (BOOL)doURLStuff:(id)a0 createdStubFile:(BOOL *)a1 readOnly:(BOOL *)a2 error:(id *)a3 options:(id)a4;
++ (Class)rowCacheClass;
++ (id)cachedModelForPersistentStoreWithURL:(id)a0 options:(id)a1 error:(id *)a2;
++ (BOOL)_destroyPersistentStoreAtURL:(id)a0 options:(id)a1 error:(id *)a2;
+
+- (void)_rebuildIndiciesSynchronously:(BOOL)a0;
+- (id)_updatedMetadataWithSeed:(id)a0 includeVersioning:(BOOL)a1;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (id)objectIDFactoryForEntity:(id)a0;
+- (void)doFilesystemCleanupOnRemove:(BOOL)a0;
+- (id)currentQueryGeneration;
+- (BOOL)load:(id *)a0;
+- (Class)_objectIDClass;
+- (BOOL)_isPersistentStoreAlive;
+- (void)_didLoadMetadata;
+- (id)mirroringDelegate;
+- (id)_storeInfoForEntityDescription:(id)a0;
+- (void)_mapsSyncDidUnregisterObjectsWithIDs_112229675:(id)a0;
+- (id)_newOrderedRelationshipInformationForRelationship:(id)a0 forObjectWithID:(id)a1 withContext:(id)a2 error:(id *)a3;
+- (void)willRemoveFromPersistentStoreCoordinator:(id)a0;
+- (id)_rawMetadata__;
+- (id)initWithPersistentStoreCoordinator:(id)a0 configurationName:(id)a1 URL:(id)a2 options:(id)a3;
+- (id)_allOrderKeysForDestination:(id)a0 inRelationship:(id)a1 error:(id *)a2;
+- (void)_setupObserver;
+- (BOOL)loadMetadata:(id *)a0;
+- (id)ancillaryModels;
+- (struct __CFSet { } *)_entitiesForConfiguration;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)a0;
+- (void)freeQueryGenerationWithIdentifier:(id)a0;
+- (id)executeRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)currentChangeToken;
+- (BOOL)finishDeferredLightweightMigration:(BOOL)a0 withError:(id *)a1;
+- (void)_setMetadataDirty:(BOOL)a0;
+- (id)propertyNamesInHistoryChangeDataForEntityDescription:(id)a0;
+- (BOOL)supportsConcurrentRequestHandling;
+- (BOOL)_isCloudKitOptioned;
+- (id)newValueForRelationship:(id)a0 forObjectWithID:(id)a1 withContext:(id)a2 error:(id *)a3;
+- (id)reopenQueryGenerationWithIdentifier:(id)a0 error:(id *)a1;
+- (id)_persistentStoreCoordinator;
+- (id)obtainPermanentIDsForObjects:(id)a0 error:(id *)a1;
+- (void)didAddToPersistentStoreCoordinator:(id)a0;
+- (BOOL)isCloudKitEnabled;
+- (BOOL)supportsGenerationalQuerying;
+- (BOOL)_hasActiveGenerations;
+- (BOOL)_prepareForExecuteRequest:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (id)init;
+- (id)newValuesForObjectWithID:(id)a0 withContext:(id)a1 error:(id *)a2;
+- (void)managedObjectContextDidRegisterObjectsWithIDs:(id)a0 generation:(id)a1;
+- (void)managedObjectContextDidUnregisterObjectsWithIDs:(id)a0;
+- (void)_preflightCrossCheck;
+- (BOOL)_unload:(id *)a0;
+- (unsigned long long)entityIDForEntityDescription:(id)a0;
+- (void)dealloc;
+- (id)description;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUIOnboardingProgressViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

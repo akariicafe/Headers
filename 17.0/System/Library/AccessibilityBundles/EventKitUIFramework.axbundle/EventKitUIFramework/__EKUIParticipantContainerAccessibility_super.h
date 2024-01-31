@@ -1,0 +1,3 @@
+@interface __EKUIParticipantContainerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

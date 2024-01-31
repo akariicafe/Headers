@@ -1,0 +1,3 @@
+@interface __VUIFeaturedCellOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

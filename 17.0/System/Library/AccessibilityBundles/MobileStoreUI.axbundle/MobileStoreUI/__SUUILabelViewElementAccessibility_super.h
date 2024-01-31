@@ -1,0 +1,3 @@
+@interface __SUUILabelViewElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKExpandedAppViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

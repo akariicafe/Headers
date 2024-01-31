@@ -1,0 +1,3 @@
+@interface __CKDetailsChatOptionsCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

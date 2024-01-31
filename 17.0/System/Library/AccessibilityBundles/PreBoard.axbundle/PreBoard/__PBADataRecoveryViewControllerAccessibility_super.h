@@ -1,0 +1,3 @@
+@interface __PBADataRecoveryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

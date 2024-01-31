@@ -1,0 +1,3 @@
+@interface __PXPeopleMeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

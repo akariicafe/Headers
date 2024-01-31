@@ -1,0 +1,3 @@
+@interface __CKQuickActionSaveButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __TVRMContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

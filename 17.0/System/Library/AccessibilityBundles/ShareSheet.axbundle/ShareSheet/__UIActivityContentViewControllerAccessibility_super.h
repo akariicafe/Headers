@@ -1,0 +1,3 @@
+@interface __UIActivityContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

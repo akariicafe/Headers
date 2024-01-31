@@ -1,0 +1,3 @@
+@interface __MultiwayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

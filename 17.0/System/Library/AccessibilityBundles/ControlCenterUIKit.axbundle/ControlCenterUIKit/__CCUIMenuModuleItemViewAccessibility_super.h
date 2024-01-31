@@ -1,0 +1,3 @@
+@interface __CCUIMenuModuleItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MediaControlsHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

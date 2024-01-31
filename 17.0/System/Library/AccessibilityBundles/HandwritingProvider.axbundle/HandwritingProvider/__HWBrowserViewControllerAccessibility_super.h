@@ -1,0 +1,3 @@
+@interface __HWBrowserViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

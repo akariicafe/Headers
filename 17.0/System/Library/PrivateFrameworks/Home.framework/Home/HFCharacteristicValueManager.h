@@ -1,0 +1,90 @@
+@class NSString, NSRecursiveLock, HFCharacteristicValueCacheManager, NAIdentity, NSMutableDictionary, NACancelationToken, NSSet, HFCharacteristicValueTransaction, NSMutableSet, NSMutableArray, HFCharacteristicReadLogger, NAFuture;
+@protocol HFCharacteristicOperationContextProviding, HFCharacteristicValueReader, HFCharacteristicValueWriter;
+
+@interface HFCharacteristicValueManager : NSObject <HFLightProfileValueSource, HFCharacteristicValueSource> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _errorLock;
+}
+
+@property (class, readonly, nonatomic) NAIdentity *na_identity;
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) id<HFCharacteristicValueReader> valueReader;
+@property (retain, nonatomic) id<HFCharacteristicValueWriter> valueWriter;
+@property (nonatomic) long long _debug_totalNumberOfIssuedBatchReadRequests;
+@property (retain, nonatomic) HFCharacteristicValueTransaction *openTransaction;
+@property (retain, nonatomic) NSMutableArray *runningTransactions;
+@property (retain, nonatomic) NSMutableArray *readTransactionsToExecuteOnNextRunLoop;
+@property (retain, nonatomic) NSMutableArray *completionHandlersForReadTransactionsToExecuteOnNextRunLoop;
+@property (retain, nonatomic) NSRecursiveLock *transactionLock;
+@property (retain, nonatomic) NSMutableSet *mutableAllReadCharacteristics;
+@property (retain, nonatomic) NSMutableSet *characteristicsWithCachedValues;
+@property (retain, nonatomic) NSMutableDictionary *cachedReadErrorsKeyedByCharacteristicIdentifier;
+@property (retain, nonatomic) NSMutableDictionary *cachedWriteErrorsKeyedByCharacteristicIdentifier;
+@property (retain, nonatomic) NSMutableDictionary *cachedExecutionErrorsKeyedByActionSetIdentifier;
+@property (retain, nonatomic) HFCharacteristicValueCacheManager *cacheManager;
+@property (retain, nonatomic) NACancelationToken *inFlightReadCancelationToken;
+@property (retain, nonatomic) HFCharacteristicReadLogger *readsCompleteLogger;
+@property (retain, nonatomic) NSMutableDictionary *testingOverrideLoadingStates;
+@property (readonly, nonatomic) NAFuture *firstReadCompleteFuture;
+@property (readonly, copy, nonatomic) NSSet *allReadCharacteristics;
+@property (readonly, copy, nonatomic) NSSet *characteristicsWithPendingReads;
+@property (readonly, copy, nonatomic) NSSet *characteristicsWithPendingWrites;
+@property (readonly, nonatomic) id<HFCharacteristicOperationContextProviding> contextProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_shouldTrackReadsCompleteForPerformanceTesting;
+
+- (id)readValueForCharacteristic:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (void)executeActionSet:(id)a0 completionHandler:(id /* block */)a1;
+- (id)executeActions:(id)a0;
+- (void)beginTransactionWithReason:(id)a0;
+- (void)beginTransactionWithReason:(id)a0 readPolicy:(id)a1 logger:(id)a2;
+- (id)cachedErrorForExecutionOfActionSet:(id)a0;
+- (id)cachedErrorForWriteToCharacteristic:(id)a0;
+- (id)cachedValueForCharacteristic:(id)a0;
+- (void)commitTransactionWithReason:(id)a0;
+- (id)readValuesForCharacteristicTypes:(id)a0 inServices:(id)a1;
+- (id)readValuesForCharacteristics:(id)a0;
+- (id)writeValue:(id)a0 forCharacteristic:(id)a1;
+- (id)writeValuesForCharacteristics:(id)a0;
+- (id)executeActionSet:(id)a0;
+- (void)_transactionLock_executeActionSetTransaction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_errorLock_lock;
+- (void)_beginReadsCompleteTrackingForCharacteristics:(id)a0 withLogger:(id)a1;
+- (void)_endReadsCompleteTrackingForCharacteristic:(id)a0 withLogger:(id)a1 didRead:(BOOL)a2;
+- (void)_errorLock_unlock;
+- (id)_openTransactionCompletionFuture;
+- (id)_overrideCachedValueForCharacteristic:(id)a0 value:(id)a1;
+- (id)_transactionLock_characteristicsWithPendingWritesInTransacton:(id)a0 includeDirectWrites:(BOOL)a1 includeActionSets:(BOOL)a2 includeActions:(BOOL)a3;
+- (void)_transactionLock_executeActionsTransaction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_transactionLock_executeReadTransaction:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_transactionLock_executeWriteTransaction:(id)a0 completionHandler:(id /* block */)a1;
+- (unsigned long long)cachedLoadingStateForCharacteristics:(id)a0 actionSets:(id)a1;
+- (id)cachedReadErrorForCharacteristic:(id)a0;
+- (void)cancelInFlightReadRequests;
+- (void)clearOverrideLoadingStates;
+- (void)fetchNaturalLightColorTemperatureForBrightness:(long long)a0 lightProfile:(id)a1 completion:(id /* block */)a2;
+- (BOOL)hasCachedReadErrorForAccessory:(id)a0 passingTest:(id /* block */)a1;
+- (id)initWithValueReader:(id)a0 valueWriter:(id)a1;
+- (void)invalidateAllCachedErrors;
+- (void)invalidateCachedErrorForExecutionOfActionSet:(id)a0;
+- (void)invalidateCachedValueForCharacteristic:(id)a0;
+- (void)invalidateCachedValuesForAccessory:(id)a0;
+- (BOOL)isNaturalLightingEnabledForProfile:(id)a0;
+- (BOOL)isNaturalLightingSupportedForProfile:(id)a0;
+- (unsigned long long)loadingStateForCharacteristics:(id)a0 actionSets:(id)a1;
+- (id)readValuesForCharacteristicsPassingTest:(id /* block */)a0 inServices:(id)a1;
+- (void)setOverrideLoadingState:(unsigned long long)a0 forCharacteristic:(id)a1;
+- (id)staticHomeDataModelCachedValueForCharacteristic:(id)a0;
+- (BOOL)staticHomeDataModelHasInProgressWriteForCharacteristic:(id)a0;
+- (id)writeNaturalLightEnabledState:(BOOL)a0 forProfile:(id)a1;
+
+@end

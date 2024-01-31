@@ -1,0 +1,61 @@
+@interface NSObjectAccessibility : __NSObjectAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (id)safeCategoryTargetClassName;
+
+- (id)accessibilityLabel;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (unsigned long long)accessibilityTraits;
+- (id)accessibilityElements;
+- (void)setAccessibilityLabel:(id)a0;
+- (id)accessibilityIdentifier;
+- (id)accessibilityCustomActions;
+- (void)accessibilityIncrement;
+- (void)accessibilityDecrement;
+- (id)accessibilityHint;
+- (void)setAccessibilityHint:(id)a0;
+- (BOOL)isAccessibilityElement;
+- (void)setAccessibilityElements:(id)a0;
+- (BOOL)accessibilityElementsHidden;
+- (id)accessibilityUserInputLabels;
+- (id)accessibilityLocalizedStringKey;
+- (BOOL)accessibilityActivate;
+- (struct CGPoint { double x0; double x1; })accessibilityActivationPoint;
+- (id)accessibilityElementAtIndex:(long long)a0;
+- (long long)accessibilityElementCount;
+- (id)accessibilityHeaderElements;
+- (id)accessibilityLanguage;
+- (long long)accessibilityNavigationStyle;
+- (id)accessibilityPath;
+- (BOOL)accessibilityPerformEscape;
+- (BOOL)accessibilityPerformMagicTap;
+- (BOOL)accessibilityRespondsToUserInteraction;
+- (id)accessibilityValue;
+- (BOOL)accessibilityViewIsModal;
+- (id)automationElements;
+- (long long)indexOfAccessibilityElement:(id)a0;
+- (void)setAccessibilityValue:(id)a0;
+- (void)setAutomationElements:(id)a0;
+- (BOOL)shouldGroupAccessibilityChildren;
+- (id)storedAccessibilityElementsHidden;
+- (id)storedAccessibilityViewIsModal;
+- (id)storedShouldGroupAccessibilityChildren;
+- (id)_accessibilityCapturedImages;
+- (id)accessibilityLocalizationBundleID;
+- (id)accessibilityLocalizationBundlePath;
+- (id)accessibilityLocalizedStringTableName;
+- (id)accessibilityUserDefinedActivationPoint;
+- (id)accessibilityUserDefinedContainer;
+- (id)accessibilityUserDefinedDragSourceDescriptors;
+- (id)accessibilityUserDefinedDropPointDescriptors;
+- (id)accessibilityUserDefinedFrame;
+- (id)accessibilityUserDefinedHint;
+- (id)accessibilityUserDefinedIdentifier;
+- (id)accessibilityUserDefinedLabel;
+- (id)accessibilityUserDefinedLanguage;
+- (id)accessibilityUserDefinedShouldGroupChildren;
+- (id)accessibilityUserDefinedTraits;
+- (id)accessibilityUserDefinedValue;
+- (id)isAccessibilityUserDefinedElement;
+
+@end

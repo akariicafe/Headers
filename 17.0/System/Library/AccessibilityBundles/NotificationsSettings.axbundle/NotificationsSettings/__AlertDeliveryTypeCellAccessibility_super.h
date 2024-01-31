@@ -1,0 +1,3 @@
+@interface __AlertDeliveryTypeCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __HKWeekdayHeaderPaletteViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

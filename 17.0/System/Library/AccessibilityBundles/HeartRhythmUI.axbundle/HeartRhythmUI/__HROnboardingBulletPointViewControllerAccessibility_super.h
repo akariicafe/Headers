@@ -1,0 +1,3 @@
+@interface __HROnboardingBulletPointViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

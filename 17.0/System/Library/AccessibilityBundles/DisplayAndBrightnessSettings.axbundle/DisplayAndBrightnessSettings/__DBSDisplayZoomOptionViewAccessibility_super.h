@@ -1,0 +1,3 @@
+@interface __DBSDisplayZoomOptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

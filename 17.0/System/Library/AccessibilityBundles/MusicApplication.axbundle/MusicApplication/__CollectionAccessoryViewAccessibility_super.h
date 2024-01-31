@@ -1,0 +1,3 @@
+@interface __CollectionAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MFConversationItemFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

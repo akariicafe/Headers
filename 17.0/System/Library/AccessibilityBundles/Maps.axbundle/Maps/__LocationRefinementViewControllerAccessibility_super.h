@@ -1,0 +1,3 @@
+@interface __LocationRefinementViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

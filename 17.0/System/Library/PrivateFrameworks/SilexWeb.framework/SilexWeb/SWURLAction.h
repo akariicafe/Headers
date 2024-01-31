@@ -1,0 +1,21 @@
+@class NSURL, NSDictionary, NSString;
+@protocol SWNavigationManager;
+
+@interface SWURLAction : NSObject <SWEmbedAction>
+
+@property (readonly, nonatomic) id<SWNavigationManager> navigationManager;
+@property (readonly, nonatomic) NSURL *URL;
+@property (readonly, nonatomic) unsigned long long type;
+@property (readonly, nonatomic) NSDictionary *info;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)perform;
+- (void).cxx_destruct;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)canHandle;
+- (id)initWithURL:(id)a0 navigationManager:(id)a1;
+
+@end

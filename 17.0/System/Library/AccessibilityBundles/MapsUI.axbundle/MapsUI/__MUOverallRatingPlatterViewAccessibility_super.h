@@ -1,0 +1,3 @@
+@interface __MUOverallRatingPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

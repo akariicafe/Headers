@@ -1,0 +1,3 @@
+@interface __PKNumberPadInputViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

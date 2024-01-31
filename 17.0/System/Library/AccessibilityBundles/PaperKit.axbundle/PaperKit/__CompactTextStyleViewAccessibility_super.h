@@ -1,0 +1,3 @@
+@interface __CompactTextStyleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

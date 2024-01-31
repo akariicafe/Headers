@@ -1,0 +1,3 @@
+@interface TDCustomArtworkRenditionSpec : TDSimpleArtworkRenditionSpec
+
+@end

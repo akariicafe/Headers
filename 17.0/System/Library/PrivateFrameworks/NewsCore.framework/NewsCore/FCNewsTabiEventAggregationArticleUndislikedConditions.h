@@ -1,0 +1,3 @@
+@interface FCNewsTabiEventAggregationArticleUndislikedConditions : FCNewsTabiEventAggregationBaseEventConditions
+
+@end

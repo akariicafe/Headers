@@ -1,0 +1,3 @@
+@interface __SFCapsuleNavigationBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

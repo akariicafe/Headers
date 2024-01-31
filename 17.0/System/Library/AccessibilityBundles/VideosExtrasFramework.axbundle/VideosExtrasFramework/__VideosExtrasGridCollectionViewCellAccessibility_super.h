@@ -1,0 +1,3 @@
+@interface __VideosExtrasGridCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

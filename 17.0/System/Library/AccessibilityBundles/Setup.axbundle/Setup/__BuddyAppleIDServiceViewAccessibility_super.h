@@ -1,0 +1,3 @@
+@interface __BuddyAppleIDServiceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

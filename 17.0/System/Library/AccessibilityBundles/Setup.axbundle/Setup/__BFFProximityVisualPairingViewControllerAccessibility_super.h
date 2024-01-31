@@ -1,0 +1,3 @@
+@interface __BFFProximityVisualPairingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

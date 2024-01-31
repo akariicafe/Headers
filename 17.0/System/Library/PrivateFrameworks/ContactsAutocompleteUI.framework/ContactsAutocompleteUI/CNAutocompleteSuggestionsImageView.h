@@ -1,0 +1,3 @@
+@interface CNAutocompleteSuggestionsImageView : UIImageView
+
+@end

@@ -1,0 +1,14 @@
+@class UITouch;
+
+@interface SBHPageManagementListTapGestureRecognizer : UIGestureRecognizer
+
+@property (retain, nonatomic) UITouch *activeTouch;
+
+- (void)touchesCancelled:(id)a0 withEvent:(id)a1;
+- (void)reset;
+- (void)touchesBegan:(id)a0 withEvent:(id)a1;
+- (void).cxx_destruct;
+- (void)touchesEnded:(id)a0 withEvent:(id)a1;
+- (void)touchesMoved:(id)a0 withEvent:(id)a1;
+
+@end

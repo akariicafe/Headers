@@ -1,0 +1,3 @@
+@interface __PKSpendingSummaryAccountUserCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

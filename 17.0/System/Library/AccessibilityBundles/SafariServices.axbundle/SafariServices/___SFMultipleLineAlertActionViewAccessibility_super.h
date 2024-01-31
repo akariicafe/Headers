@@ -1,0 +1,3 @@
+@interface ___SFMultipleLineAlertActionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

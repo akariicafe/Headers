@@ -1,0 +1,90 @@
+@class NSData, NSString, CKRecordID, NSArray, NSURL, CKShareParticipant, CKShareID, NSMutableSet, NSMutableArray;
+
+@interface CKShare : CKRecord <CKPropertiesDescription, NSSecureCoding, NSCopying>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property BOOL encodeAllowsReadOnlyParticipantsToSeeEachOther;
+@property (readonly, copy, nonatomic) CKRecordID *rootRecordID;
+@property (copy) NSData *publicSharingIdentity;
+@property long long participantVisibility;
+@property long long participantSelfRemovalBehavior;
+@property BOOL allowsAnonymousPublicAccess;
+@property (retain, nonatomic) NSMutableArray *mutableAllParticipants;
+@property (retain, nonatomic) NSMutableArray *lastFetchedParticipants;
+@property (readonly, nonatomic) NSMutableSet *addedParticipantIDs;
+@property (readonly, nonatomic) NSMutableSet *removedParticipantIDs;
+@property (copy) NSData *invitedProtectionData;
+@property (copy) NSString *invitedProtectionEtag;
+@property (readonly, copy, nonatomic) NSString *previousInvitedProtectionEtag;
+@property (copy) NSData *publicProtectionData;
+@property (copy) NSString *publicProtectionEtag;
+@property (copy) NSString *previousPublicProtectionEtag;
+@property (readonly) BOOL isZoneWideShare;
+@property (copy) NSArray *invitedKeysToRemove;
+@property BOOL serializePersonalInfo;
+@property (copy, nonatomic) CKShareID *shareID;
+@property long long publicPermission;
+@property (readonly, copy) NSURL *URL;
+@property (readonly, copy) NSArray *participants;
+@property (readonly, copy) CKShareParticipant *owner;
+@property (readonly, copy) CKShareParticipant *currentUserParticipant;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
+
+- (void)CKDescribePropertiesUsing:(id)a0;
+- (id)encryptedPublicSharingKey;
+- (id)init;
+- (id)initWithRecordType:(id)a0 recordID:(id)a1;
+- (id)shareURL;
+- (id)redactedDescription;
+- (void)CKAssignToContainerWithID:(id)a0;
+- (void)addParticipant:(id)a0;
+- (id)initWithRecordZoneID:(id)a0;
+- (void).cxx_destruct;
+- (void)removeParticipant:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)encodeSystemFieldsWithCoder:(id)a0;
+- (id)initWithRecordType:(id)a0 zoneID:(id)a1;
+- (BOOL)_participantArray:(id)a0 containsEquivalentWithPermissionsParticipant:(id)a1;
+- (id)allParticipants;
+- (void)_addParticipantBypassingChecks:(id)a0;
+- (void)_addOwnerParticipant;
+- (void)_addParticipantEmails:(id)a0 phoneNumbers:(id)a1 asReadWrite:(BOOL)a2 inContainer:(id)a3 completionHandler:(id /* block */)a4;
+- (void)_commonCKShareInit;
+- (id)_copyWithoutPersonalInfo;
+- (void)_getDecryptedShareInContainer:(id)a0 completionHandler:(id /* block */)a1;
+- (id)_knownParticipantEqualToParticipant:(id)a0;
+- (BOOL)_participantArray:(id)a0 isEquivalentToArray:(id)a1;
+- (void)_removeAllParticipants;
+- (void)_removeParticipantBypassingChecks:(id)a0;
+- (void)_removePendingPrivateAndAdminParticipants;
+- (void)_setPublicPermissionNoSideEffects:(long long)a0;
+- (void)_stripPersonalInfo;
+- (id)addedParticipants;
+- (BOOL)allNonOwnerParticipantsHavePermission:(long long)a0;
+- (BOOL)allNonOwnerParticipantsHaveRole:(long long)a0;
+- (BOOL)allowsReadOnlyParticipantsToSeeEachOther;
+- (BOOL)canHostServerURLInfo;
+- (void)clearModifiedParticipants;
+- (id)copyWithOriginalValues;
+- (id)copyWithZone:(struct _NSZone { } *)a0 userFields:(BOOL)a1;
+- (BOOL)hasEncryptedData;
+- (id)initInternalWithShareRecordID:(id)a0;
+- (id)initWithRecordType:(id)a0;
+- (id)initWithRootRecord:(id)a0;
+- (id)initWithRootRecord:(id)a0 shareID:(id)a1;
+- (void)registerFetchedParticipant:(id)a0;
+- (id)removedParticipants;
+- (void)resetFetchedParticipants;
+- (void)setAllParticipants:(id)a0;
+- (void)setAllowsReadOnlyParticipantsToSeeEachOther:(BOOL)a0;
+- (void)setWantsPublicSharingKey:(BOOL)a0;
+- (id)updateFromServerShare:(id)a0;
+- (void)updateWithSavedRecordXPCMetadata:(id)a0 shouldOnlySaveAssetContent:(BOOL)a1;
+
+@end

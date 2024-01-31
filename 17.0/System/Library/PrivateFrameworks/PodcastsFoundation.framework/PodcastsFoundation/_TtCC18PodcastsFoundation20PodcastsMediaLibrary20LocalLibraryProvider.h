@@ -1,0 +1,3 @@
+@interface _TtCC18PodcastsFoundation20PodcastsMediaLibrary20LocalLibraryProvider : _TtCs12_SwiftObject
+
+@end

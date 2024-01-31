@@ -1,0 +1,74 @@
+@class NSArray;
+
+@interface PXPeopleUtilities : NSObject
+
+@property (class, readonly, nonatomic) NSArray *sortDescriptorsForManualSort;
+@property (class, readonly, nonatomic) NSArray *reverseSortDescriptorsForManualSort;
+
++ (id)fetchMeContact;
++ (id)sharedContactStore;
++ (id)_daysDictionary;
++ (id)locKeyForHasHumans:(BOOL)a0 hasPets:(BOOL)a1 key:(id)a2;
++ (id)peopleArrayFromFastEnumeration:(id)a0;
++ (void)_alertStringsForPerson:(id)a0 alertTitle:(id *)a1 alertMessage:(id *)a2 alternativeLevelActionTitle:(id *)a3 resetActionTitle:(id *)a4;
++ (id)_fetchRemovedPeopleInPhotoLibrary:(id)a0;
++ (id)_fetchUnverifiedPeopleInPhotoLibrary:(id)a0;
++ (BOOL)_hasRecentlyHandledBootstrapOrSuggestionForPerson:(id)a0;
++ (BOOL)_isPhotosProcess;
++ (void)_peopleFaceTilesForFaces:(id)a0 asset:(id)a1 options:(id)a2 completion:(id /* block */)a3;
++ (id)_peopleHomeFetchResultForPersonType:(long long)a0;
++ (void)_setDaysDictionary:(id)a0;
++ (id)_titleStringForPeople:(id)a0 singlePersonFallback:(id)a1 groupFallback:(id)a2;
++ (id)_untaggingLog;
++ (id)alertControllerForRevertingSuggestLess:(id)a0 completion:(id /* block */)a1;
++ (id)alertControllerForUntaggingPerson:(id)a0 asset:(id)a1 completion:(id /* block */)a2;
++ (id)assetCollectionListFetchResultForPeople:(id)a0 assetCollectionFetchResults:(id *)a1;
++ (id)assetCollectionListFetchResultForPerson:(id)a0;
++ (id)bootstrapViewControllerForContext:(id)a0 delegate:(id)a1;
++ (BOOL)canShowSuggestionForPerson:(id)a0;
++ (id /* block */)comparatorByPeopleHomeSortingType:(unsigned long long)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })faceRectForPeopleFaceTile:(id)a0;
++ (id)facesForPerson:(id)a0 inAssets:(id)a1;
++ (id)fetchAddPeopleCandidatesInPhotoLibrary:(id)a0;
++ (id)finalMergeTargetPersonForPersonWithUUID:(id)a0;
++ (id)generateNewFaceTileFromFaceTile:(id)a0;
++ (id)identifiersForPeople:(id)a0;
++ (BOOL)isDetectionTypeHuman:(short)a0;
++ (BOOL)isFavoritePerson:(id)a0;
++ (BOOL)isGreenTeaAndContactsAccessDenied;
++ (BOOL)isPersonHiddenFromPeopleHome:(id)a0;
++ (id)keyAssetForPerson:(id)a0 face:(id)a1;
++ (id)keyFaceForPerson:(id)a0;
++ (id)locKeyForPeople:(id)a0 key:(id)a1;
++ (id)locKeyForPersonOrPet:(id)a0 key:(id)a1;
++ (id)locKeyForPersonOrPet:(id)a0 withVisibility:(unsigned long long)a1 key:(id)a2;
++ (long long)manualOrderForInsertingAtEndOfSectionWithType:(long long)a0;
++ (id)memoryTitleStringFromPeople:(id)a0;
++ (BOOL)mergePersons:(id)a0 withPerson:(id)a1;
++ (void)people:(id)a0 hasHumans:(BOOL *)a1 hasPets:(BOOL *)a2;
++ (void)peopleFaceTilesForAsset:(id)a0 options:(id)a1 completion:(id /* block */)a2;
++ (void)peopleFaceTilesForFaces:(id)a0 asset:(id)a1 options:(id)a2 completion:(id /* block */)a3;
++ (id)peopleFetchResultFromFastEnumeration:(id)a0 photoLibrary:(id)a1;
++ (id)peopleWithPersonUris:(id)a0;
++ (id)personFaceTileByPersonIdForPersons:(id)a0;
++ (id)personWithLocalIdentifier:(id)a0;
++ (id)personWithLocalIdentifier:(id)a0 propertySets:(id)a1;
++ (id)personWithPersonUri:(id)a0;
++ (void)resetTemporarilySuppressedBootstrapOrSuggestions;
++ (BOOL)shouldShowBootstrapForPerson:(id)a0;
++ (BOOL)shouldShowBootstrapForPerson:(id)a0 context:(id)a1;
++ (BOOL)showBootstrapIfNeededWithContext:(id)a0 fromParentVC:(id)a1;
++ (BOOL)showBootstrapIfNeededWithContext:(id)a0 fromParentVC:(id)a1 delegate:(id)a2;
++ (BOOL)showBootstrapIfNeededWithContext:(id)a0 fromParentVC:(id)a1 force:(BOOL)a2 delegate:(id)a3;
++ (BOOL)showBootstrapIfNeededWithContext:(id)a0 fromParentVC:(id)a1 force:(BOOL)a2 flowDelegate:(id)a3 presentationDelegate:(id)a4;
++ (id)slideshowTitleStringForPeople:(id)a0;
++ (id)sortDescriptorsWithPersonAssetSortOrder:(long long)a0;
++ (id)sortedPersons:(id)a0 byPersonMemoryFeatures:(id)a1;
++ (id)suggestLessOptionSelectionViewController:(id)a0 delegate:(id)a1 completionHandler:(id /* block */)a2;
++ (void)temporarilySuppressBootstrapOrSuggestionForPerson:(id)a0;
++ (id)titleStringForPeople:(id)a0;
++ (id)titleStringForPerson:(id)a0;
++ (void)unblockPersonsInLibrary:(id)a0 completion:(id /* block */)a1;
++ (void)unlinkContactInfoForPerson:(id)a0 completion:(id /* block */)a1;
+
+@end

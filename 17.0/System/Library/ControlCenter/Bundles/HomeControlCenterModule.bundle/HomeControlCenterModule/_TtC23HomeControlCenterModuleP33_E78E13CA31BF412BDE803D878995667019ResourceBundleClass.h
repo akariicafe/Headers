@@ -1,0 +1,3 @@
+@interface _TtC23HomeControlCenterModuleP33_E78E13CA31BF412BDE803D878995667019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

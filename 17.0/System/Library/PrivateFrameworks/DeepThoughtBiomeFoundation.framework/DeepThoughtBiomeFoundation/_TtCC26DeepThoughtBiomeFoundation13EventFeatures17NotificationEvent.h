@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation13EventFeatures17NotificationEvent : _TtCs12_SwiftObject
+
+@end

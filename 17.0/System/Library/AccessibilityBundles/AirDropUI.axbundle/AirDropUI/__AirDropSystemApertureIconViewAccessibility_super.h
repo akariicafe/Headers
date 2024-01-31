@@ -1,0 +1,3 @@
+@interface __AirDropSystemApertureIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

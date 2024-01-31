@@ -1,0 +1,3 @@
+@interface __CKInlineStickerBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

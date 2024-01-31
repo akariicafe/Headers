@@ -1,0 +1,3 @@
+@interface __TUICandidateSortControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

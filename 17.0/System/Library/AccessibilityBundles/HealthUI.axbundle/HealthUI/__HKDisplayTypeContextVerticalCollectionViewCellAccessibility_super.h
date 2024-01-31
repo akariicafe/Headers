@@ -1,0 +1,3 @@
+@interface __HKDisplayTypeContextVerticalCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface NTSKUIFYALFManager : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __MusicPlaylistEditingPickerOverlayAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBAlertItemsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

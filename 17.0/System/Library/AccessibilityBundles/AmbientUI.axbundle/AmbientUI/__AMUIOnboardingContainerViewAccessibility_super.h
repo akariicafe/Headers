@@ -1,0 +1,3 @@
+@interface __AMUIOnboardingContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

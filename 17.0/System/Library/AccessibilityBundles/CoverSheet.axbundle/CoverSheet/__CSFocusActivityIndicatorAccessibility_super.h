@@ -1,0 +1,3 @@
+@interface __CSFocusActivityIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

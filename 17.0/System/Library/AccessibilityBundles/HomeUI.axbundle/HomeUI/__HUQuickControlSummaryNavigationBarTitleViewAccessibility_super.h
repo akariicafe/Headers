@@ -1,0 +1,3 @@
+@interface __HUQuickControlSummaryNavigationBarTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKTUConversationBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

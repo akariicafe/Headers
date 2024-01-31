@@ -1,0 +1,3 @@
+@interface __SBUILongNumericPasscodeEntryFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

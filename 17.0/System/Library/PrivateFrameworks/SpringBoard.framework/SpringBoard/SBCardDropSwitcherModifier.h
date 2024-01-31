@@ -1,0 +1,49 @@
+@class SBSwitcherDropRegionContext, SBAppLayout;
+
+@interface SBCardDropSwitcherModifier : SBSwitcherModifier {
+    unsigned long long _phase;
+    SBSwitcherDropRegionContext *_dropContext;
+    SBAppLayout *_finalAppLayout;
+    SBAppLayout *_remainingAppLayout;
+    SBAppLayout *_evictedAppLayout;
+    struct CGPoint { double x; double y; } _referenceCardOffsetFromPageBoundary;
+    BOOL _shouldExpectMainTransitionEvent;
+    BOOL _handledMainTransitionEvent;
+    BOOL _isFinalAppLayoutBlurred;
+    BOOL _waitingForReflowAnimation;
+    BOOL _waitingForHeaderFadeIn;
+}
+
+- (BOOL)shouldScaleContentToFillBoundsAtIndex:(unsigned long long)a0;
+- (BOOL)shouldScaleOverlayToFillBoundsAtIndex:(unsigned long long)a0;
+- (struct CGPoint { double x0; double x1; })contentOffsetForIndex:(unsigned long long)a0 alignment:(long long)a1;
+- (double)modelValueForAnimatableProperty:(id)a0 currentValue:(double)a1 creating:(BOOL)a2;
+- (BOOL)isScrollEnabled;
+- (BOOL)shouldShowBackdropViewAtIndex:(unsigned long long)a0;
+- (BOOL)isLayoutRoleDraggable:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)shouldPerformCrossfadeForReduceMotion;
+- (long long)updateModeForAnimatableProperty:(id)a0;
+- (double)titleAndIconOpacityForIndex:(unsigned long long)a0;
+- (BOOL)isLayoutRoleBlurred:(long long)a0 inAppLayout:(id)a1;
+- (unsigned long long)blurTargetPreferenceForLayoutRole:(long long)a0 inAppLayout:(id)a1;
+- (BOOL)shouldUseAnchorPointToPinLayoutRolesToSpace:(unsigned long long)a0;
+- (BOOL)shouldAccessoryDrawShadowForAppLayout:(id)a0;
+- (id)topMostLayoutElements;
+- (id)handleTransitionEvent:(id)a0;
+- (void).cxx_destruct;
+- (struct SBSwitcherAsyncRenderingAttributes { BOOL x0; BOOL x1; })asyncRenderingAttributesForAppLayout:(id)a0;
+- (id)handleTimerEvent:(id)a0;
+- (BOOL)isLayoutRoleMatchMovedToScene:(long long)a0 inAppLayout:(id)a1;
+- (id)animationAttributesForLayoutElement:(id)a0;
+- (id)settingsForAnimatableProperty:(id)a0;
+- (id)animatablePropertyIdentifiers;
+- (BOOL)_appLayoutContainsModifiedAppLayout:(id)a0;
+- (void)_completeIfNeeded;
+- (void)_recomputeBlurStateWithCompletion:(id /* block */)a0;
+- (id)handleAnimatablePropertyChangedEvent:(id)a0;
+- (id)handleBlurProgressEvent:(id)a0;
+- (id)handleSceneReadyEvent:(id)a0;
+- (id)handleSwitcherDropEvent:(id)a0;
+- (id)initWithDropContext:(id)a0;
+
+@end

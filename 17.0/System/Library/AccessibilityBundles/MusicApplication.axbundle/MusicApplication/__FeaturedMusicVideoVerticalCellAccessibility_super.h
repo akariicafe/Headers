@@ -1,0 +1,3 @@
+@interface __FeaturedMusicVideoVerticalCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

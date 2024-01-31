@@ -1,0 +1,3 @@
+@interface __RecentlyPlayedTodayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

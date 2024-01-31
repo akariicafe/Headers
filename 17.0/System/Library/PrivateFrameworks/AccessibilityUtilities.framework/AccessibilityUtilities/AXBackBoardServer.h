@@ -1,0 +1,97 @@
+@class NSMutableArray;
+
+@interface AXBackBoardServer : AXServer {
+    BOOL _overrideGestureRecognition;
+    NSMutableArray *_eventListeners;
+    NSMutableArray *_zoomAttributeListeners;
+}
+
+@property (nonatomic) BOOL invertColorsEnabled;
+@property (nonatomic) BOOL inPreboardMode;
+@property (nonatomic) BOOL inCheckerBoardMode;
+@property (nonatomic) BOOL preferenceRetrievalRequiresValidConnection;
+
++ (id)server;
+
+- (BOOL)invertColorsEnabled;
+- (struct CGPoint { double x0; double x1; })convertPoint:(struct CGPoint { double x0; double x1; })a0 fromContextId:(unsigned int)a1;
+- (unsigned long long)currentGuidedAccessModeAndSessionApp:(id *)a0;
+- (struct CGPoint { double x0; double x1; })convertPoint:(struct CGPoint { double x0; double x1; })a0 toContextId:(unsigned int)a1;
+- (int)accessibilityAssistiveTouchPID;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toContextId:(unsigned int)a1;
+- (void)registerLiveCaptionsPID:(int)a0;
+- (id)init;
+- (void)setCapsLockLightOn:(BOOL)a0;
+- (void)validateClarityUIAdminPasscode:(id)a0 completion:(id /* block */)a1;
+- (void)dealloc;
+- (unsigned int)contextIdHostingContextId:(unsigned int)a0;
+- (void)setInvertColorsEnabled:(BOOL)a0;
+- (void)guidedAccessEffectiveAppBundleIdentifier:(id /* block */)a0;
+- (void)homeClickSwallowedForGuidedAccess;
+- (void)registerHearingAidServerPID:(int)a0;
+- (BOOL)isGuidedAccessInWorkspace;
+- (int)accessibilityLiveCaptionsPID;
+- (void)postEvent:(id)a0 systemEvent:(BOOL)a1;
+- (BOOL)supportsAccessibilityDisplayFilters;
+- (BOOL)tripleClickHomeButtonPress;
+- (int)accessibilityFullKeyboardAccessDaemonPID;
+- (void)disableBrightnessFilters;
+- (id)backboardServiceInstance;
+- (void)setHearingAidControlIsVisible:(BOOL)a0;
+- (void)restoreCachedBrightnessFilters;
+- (void)_sendRequestGuidedAccessSessionMessage:(id)a0 numberOfRetryAttempts:(unsigned long long)a1 completion:(id /* block */)a2;
+- (id)guidedAccessIgnoredRegions;
+- (void)setDeviceOrientation:(long long)a0;
+- (BOOL)isGuidedAccessActive;
+- (struct AXBColorFilterDescription { double x0[3][3]; })colorFilterFromLastUpdate;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromContextId:(unsigned int)a1 toContextId:(unsigned int)a2;
+- (id)_springboardParametersForGuidedAccessAvailability;
+- (void)setLockScreenDimTimerEnabled:(BOOL)a0;
+- (BOOL)brightnessFiltersEnabled;
+- (void)setAccessibilityPreferenceAsMobile:(id)a0 value:(id)a1 notification:(id)a2;
+- (void)requestGuidedAccessSessionStartWithConfigurationDictionary:(id)a0 completion:(id /* block */)a1;
+- (void)setSessionIsLoginSession:(BOOL)a0;
+- (void)resetAccessibilityFeatures;
+- (BOOL)isGuidedAccessSelfLockedToApp:(id)a0;
+- (int)accessibilityUIServicePID;
+- (void)registerFullKeyboardAccessDaemonPID:(int)a0;
+- (BOOL)isGuidedAccessUnmanagedSelfLocked;
+- (BOOL)supportsAdaptation;
+- (unsigned long long)guidedAccessAvailability;
+- (void)registerSiriViewServicePID:(int)a0;
+- (void)registerAccessibilityUIServicePID:(int)a0;
+- (void)sessionIsLoginSessionWithResult:(id /* block */)a0;
+- (BOOL)loadGAXBundleForUnmanagedASAM;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toContextId:(unsigned int)a1 displayId:(unsigned int)a2;
+- (void)adjustSystemZoom:(int)a0;
+- (void)registerAssistiveTouchPID:(int)a0;
+- (unsigned int)contextIdForPosition:(struct CGPoint { double x0; double x1; })a0;
+- (void)setClarityUIAdminPasscode:(id)a0;
+- (id)guidedAccessEffectiveAppBundleIdentifier;
+- (id)accessibilityPreferenceAsMobile:(id)a0;
+- (void)setSwitchControlRendersDeviceUnusable:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)_serviceName;
+- (id)performGuidedAccessAutomationCommand:(id)a0 error:(id *)a1;
+- (void)toggleGuidedAccess;
+- (void)jetsamThirdPartyApps;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })zoomInitialFocusRectWithQueryingContext:(unsigned int)a0;
+- (struct CGPoint { double x0; double x1; })convertPoint:(struct CGPoint { double x0; double x1; })a0 fromContextId:(unsigned int)a1 displayId:(unsigned int)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromContextId:(unsigned int)a1;
+- (int)hearingAidServerPID;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromContextId:(unsigned int)a1 toContextId:(unsigned int)a2 displayId:(unsigned int)a3;
+- (void)requestGuidedAccessSessionEndWithCompletion:(id /* block */)a0;
+- (BOOL)blueLightStatusEnabled;
+- (BOOL)adaptationEnabled;
+- (void)registerGestureConflictWithZoom:(id)a0;
+- (void)setZoomInitialFocusRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromContext:(unsigned int)a1;
+- (void)setSwitchControlHasScreenSwitch:(BOOL)a0;
+- (struct CGPoint { double x0; double x1; })convertPoint:(struct CGPoint { double x0; double x1; })a0 toContextId:(unsigned int)a1 displayId:(unsigned int)a2;
+- (void)setIsSpeakScreenHighlightVisible:(BOOL)a0;
+- (BOOL)isRestrictedForAAC;
+- (BOOL)_shouldDispatchLocally;
+- (void)postEvent:(id)a0 afterNamedTap:(id)a1 includeTaps:(id)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromContextId:(unsigned int)a1 displayId:(unsigned int)a2;
+- (void)userEventOccurred;
+
+@end

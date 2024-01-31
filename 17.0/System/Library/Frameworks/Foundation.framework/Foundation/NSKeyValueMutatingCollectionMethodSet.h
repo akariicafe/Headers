@@ -1,0 +1,3 @@
+@interface NSKeyValueMutatingCollectionMethodSet : NSObject
+
+@end

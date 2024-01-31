@@ -1,0 +1,3 @@
+@interface VKFrameProcessorResult : NSObject
+
+@end

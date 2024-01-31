@@ -1,0 +1,3 @@
+@interface __AKSignatureTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

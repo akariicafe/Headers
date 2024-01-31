@@ -1,0 +1,3 @@
+@interface __MRUViewServiceRoutingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

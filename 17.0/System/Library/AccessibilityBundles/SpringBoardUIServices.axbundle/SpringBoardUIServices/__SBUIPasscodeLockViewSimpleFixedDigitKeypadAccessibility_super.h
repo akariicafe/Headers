@@ -1,0 +1,3 @@
+@interface __SBUIPasscodeLockViewSimpleFixedDigitKeypadAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKPassBannerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

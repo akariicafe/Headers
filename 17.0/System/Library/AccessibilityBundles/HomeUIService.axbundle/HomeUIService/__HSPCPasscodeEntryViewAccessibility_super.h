@@ -1,0 +1,3 @@
+@interface __HSPCPasscodeEntryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

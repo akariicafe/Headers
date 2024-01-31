@@ -1,0 +1,3 @@
+@interface __HUAlarmTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __STUIStatusBarStringViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

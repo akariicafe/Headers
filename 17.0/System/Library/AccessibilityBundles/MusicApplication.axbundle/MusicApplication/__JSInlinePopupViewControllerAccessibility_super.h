@@ -1,0 +1,3 @@
+@interface __JSInlinePopupViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

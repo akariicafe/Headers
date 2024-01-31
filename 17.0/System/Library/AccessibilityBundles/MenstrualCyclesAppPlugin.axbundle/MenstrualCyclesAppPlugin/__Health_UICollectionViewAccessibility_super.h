@@ -1,0 +1,3 @@
+@interface __Health_UICollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

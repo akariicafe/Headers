@@ -1,0 +1,3 @@
+@interface ___SFCompressedBarButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

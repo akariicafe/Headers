@@ -1,0 +1,3 @@
+@interface __SUUIStyledImageButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

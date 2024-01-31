@@ -1,0 +1,3 @@
+@interface __CDPRemoteSecretEntryPaneAccessibility_super : UIAccessibilitySafeCategory
+
+@end

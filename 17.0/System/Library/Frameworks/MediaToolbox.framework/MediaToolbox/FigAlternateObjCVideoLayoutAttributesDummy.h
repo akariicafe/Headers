@@ -1,0 +1,3 @@
+@interface FigAlternateObjCVideoLayoutAttributesDummy : FigAlternateObjCVideoLayoutAttributes
+
+@end

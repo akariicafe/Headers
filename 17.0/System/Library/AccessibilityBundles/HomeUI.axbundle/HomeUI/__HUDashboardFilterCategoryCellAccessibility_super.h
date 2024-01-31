@@ -1,0 +1,3 @@
+@interface __HUDashboardFilterCategoryCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

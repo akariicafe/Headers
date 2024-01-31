@@ -1,0 +1,3 @@
+@interface __VideosTVEpisodesTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

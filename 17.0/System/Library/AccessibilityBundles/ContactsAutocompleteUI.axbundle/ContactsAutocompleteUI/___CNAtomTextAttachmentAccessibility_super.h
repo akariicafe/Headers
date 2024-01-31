@@ -1,0 +1,3 @@
+@interface ___CNAtomTextAttachmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __BrowserRootViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerDaemon.PetDataCollectionEvent : iCloudSubscriptionOptimizerDaemon.DaemonEvent
+
+@end

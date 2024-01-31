@@ -1,0 +1,15 @@
+@class _UICollectionLayoutSectionGeometryTranslator, NSArray, _UIRTree, _UIOrderedRangeIndexer, NSDictionary;
+
+@interface _UICollectionLayoutSolutionState : NSObject {
+    _UICollectionLayoutSectionGeometryTranslator *_sectionGeometryTranslator;
+    NSArray *_bookmarks;
+    _UIRTree *_geometricIndexer;
+    _UIOrderedRangeIndexer *_itemRangeIndexer;
+    _UIOrderedRangeIndexer *_preferredSizeGroupingIndexer;
+    NSDictionary *_auxillaryRangeIndexerKindDict;
+}
+
+- (id)description;
+- (void).cxx_destruct;
+
+@end

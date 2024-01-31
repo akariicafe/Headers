@@ -1,0 +1,3 @@
+@interface _TtCC24IntelligencePlatformCore16EventLogDatabase6Writer : _TtCC24IntelligencePlatformCore16EventLogDatabase6Reader
+
+@end

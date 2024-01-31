@@ -1,0 +1,3 @@
+@interface __PKPaymentPassDetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

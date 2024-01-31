@@ -1,0 +1,3 @@
+@interface __CSHomeAffordanceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

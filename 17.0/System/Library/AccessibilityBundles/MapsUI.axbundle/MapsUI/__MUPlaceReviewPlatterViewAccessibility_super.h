@@ -1,0 +1,3 @@
+@interface __MUPlaceReviewPlatterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

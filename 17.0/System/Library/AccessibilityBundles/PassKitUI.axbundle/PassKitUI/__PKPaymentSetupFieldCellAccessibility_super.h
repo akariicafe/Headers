@@ -1,0 +1,3 @@
+@interface __PKPaymentSetupFieldCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

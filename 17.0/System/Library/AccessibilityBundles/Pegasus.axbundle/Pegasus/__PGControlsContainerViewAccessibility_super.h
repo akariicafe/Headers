@@ -1,0 +1,3 @@
+@interface __PGControlsContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

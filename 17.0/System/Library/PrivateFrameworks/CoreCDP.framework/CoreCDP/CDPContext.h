@@ -1,0 +1,106 @@
+@class NSData, NSString, NSUUID, CDPCustodianRecoveryInfo, KCAESGCMDuplexSession, CUMessageSession, AKCircleRequestContext, NSNumber;
+@protocol CDPAuthProviderInternal;
+
+@interface CDPContext : NSObject <NSSecureCoding, NSCopying> {
+    NSNumber *_isPrimaryAccountInternal;
+    NSNumber *_keychainSyncAllowedByServerInternal;
+    long long _numberOfTrustedDevices;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) id<CDPAuthProviderInternal> _authProvider;
+@property (retain, nonatomic) KCAESGCMDuplexSession *duplexSession;
+@property (retain, nonatomic) AKCircleRequestContext *resumeContext;
+@property (nonatomic) BOOL failSignInOnError;
+@property (nonatomic) long long validEscrowDeviceCount;
+@property (nonatomic) long long totalEscrowDeviceCount;
+@property (nonatomic) long long totalRecoveryAttempts;
+@property (nonatomic) long long maxDeviceRecoveryAttempts;
+@property (nonatomic) double newestEscrowRecordAge;
+@property (nonatomic) BOOL isManagedAccount;
+@property (nonatomic) BOOL isPrimaryAccount;
+@property (readonly, nonatomic) BOOL isiCDPEligible;
+@property (nonatomic) BOOL multiUserManateeAllowed;
+@property (nonatomic) BOOL managedAccountsAllowedInCDP;
+@property (nonatomic) BOOL keychainSyncAllowedByMDM;
+@property (nonatomic) BOOL keychainSyncAllowedByServer;
+@property (nonatomic) unsigned int endpoint;
+@property (nonatomic) unsigned int backupActivity;
+@property (nonatomic) unsigned long long walrusStatus;
+@property (nonatomic) unsigned long long securityLevel;
+@property (nonatomic) BOOL isSharediPad;
+@property (nonatomic) BOOL _supportsCustodianRecovery;
+@property (readonly, nonatomic) BOOL needsPreflight;
+@property (retain, nonatomic) CUMessageSession *sharingChannel;
+@property (nonatomic) BOOL _forceReset;
+@property (nonatomic) BOOL _disableAsyncSecureBackupEnrollment;
+@property (nonatomic) BOOL _useSecureBackupCachedPassphrase;
+@property (nonatomic) BOOL _alwaysCreateEscrowRecord;
+@property (nonatomic) BOOL _skipEscrowFetches;
+@property (nonatomic) BOOL _ignoreLockAssertErrors;
+@property (nonatomic) BOOL idmsRecovery;
+@property (nonatomic) BOOL idmsMasterKeyRecovery;
+@property (nonatomic) BOOL mandatesRecoveryKey;
+@property (readonly, nonatomic) BOOL isPiggybackingRecovery;
+@property (readonly, nonatomic) BOOL isTTSURecovery;
+@property (nonatomic) long long type;
+@property (nonatomic) BOOL cachedPassphraseMissing;
+@property (retain, nonatomic) CDPCustodianRecoveryInfo *custodianRecoveryInfo;
+@property (retain, nonatomic) NSData *beneficiaryWrappedKeyData;
+@property (copy, nonatomic) NSString *bundleID;
+@property (nonatomic) BOOL isSOSCFUFlow;
+@property (nonatomic) long long keychainSyncSystem;
+@property (nonatomic) unsigned long long sosCompatibilityType;
+@property (retain, nonatomic, getter=telemetryDeviceSessionID) NSString *telemetryDeviceSessionID;
+@property (copy, nonatomic) NSString *telemetryFlowID;
+@property (copy, nonatomic) NSString *followUpType;
+@property (readonly, nonatomic) long long numberOfTrustedDevices;
+@property (copy, nonatomic, setter=setAppleID:) NSString *appleID;
+@property (copy, nonatomic) NSString *password;
+@property (copy, nonatomic) NSString *passwordEquivToken;
+@property (copy, nonatomic, setter=setDsid:) NSNumber *dsid;
+@property (copy, nonatomic, setter=setAltDSID:) NSString *altDSID;
+@property (nonatomic) BOOL isHSA2Account;
+@property (nonatomic) BOOL isFederatedAccount;
+@property (nonatomic) BOOL isBeneficiaryAccount;
+@property (nonatomic) BOOL didUseSMSVerification;
+@property (nonatomic) BOOL isAttemptingBackupRestore;
+@property (copy, nonatomic) NSString *cachedLocalSecret;
+@property (nonatomic) unsigned long long cachedLocalSecretType;
+@property (nonatomic) BOOL guestMode;
+@property (copy) NSString *findMyiPhoneUUID;
+@property (copy, nonatomic) NSUUID *beneficiaryIdentifier;
+
++ (id)contextForPrimaryAccount;
++ (id)preflightContext:(id)a0;
++ (id)contextForAccountWithAppleID:(id)a0;
++ (id)contextWithAuthenticationResults:(id)a0;
++ (id)contextForAccountWithAltDSID:(id)a0;
++ (BOOL)_isKeychainSyncAllowedByMDM;
+
+- (id)init;
+- (id)initWithAccount:(id)a0;
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithAuthenticationResults:(id)a0;
+- (void)purgeResumeData;
+- (void)startObservingTrustedDeviceList;
+- (void)stoptObservingTrustedDeviceList;
+- (void)_fakeSOSFlagsWithUserDefaults;
+- (void)akTrustedDeviceListChanged:(id)a0;
+- (void)augmentWithCredentialsFromContext:(id)a0;
+- (id)cliqueConfiguration;
+- (BOOL)desiresAllRecords;
+- (long long)getNumberOfTrustedDevices;
+- (id)initNeedingPreflight:(BOOL)a0;
+- (BOOL)isSOSCompatibilityOptInNeeded;
+- (BOOL)isSOSNeeded;
+- (BOOL)isiCDPEligibleWithError:(id *)a0;
+- (void)updateWithAuthenticationResults:(id)a0;
+
+@end

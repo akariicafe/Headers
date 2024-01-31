@@ -1,0 +1,3 @@
+@interface __COSPairedDeviceListTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

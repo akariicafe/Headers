@@ -1,0 +1,3 @@
+@interface __VideosPlaybackViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

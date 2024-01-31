@@ -1,0 +1,3 @@
+@interface __PKPeerPaymentNumberPadActionButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

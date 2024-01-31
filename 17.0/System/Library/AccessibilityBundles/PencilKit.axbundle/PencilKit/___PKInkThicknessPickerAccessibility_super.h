@@ -1,0 +1,3 @@
+@interface ___PKInkThicknessPickerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

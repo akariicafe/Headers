@@ -1,0 +1,106 @@
+@class NSString, NSLocale;
+
+@interface NSPersonNameComponentsFormatter : NSFormatter <NSObservable, NSObserver, NSSecureCoding, NSCopying> {
+    id _private;
+    NSString *__preferredLocalizationForExplicitlySetLocale;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly, copy) NSString *_preferredLocalizationForCurrentLocale;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *_preferredLocalizationForExplicitlySetLocale;
+@property BOOL _forceFamilyNameFirst;
+@property BOOL _forceGivenNameFirst;
+@property NSLocale *_locale;
+@property BOOL _ignoresFallbacks;
+@property long long style;
+@property (getter=isPhonetic) BOOL phonetic;
+@property (copy) NSLocale *locale;
+
++ (long long)_nameOrderWithOverridesForComponents:(id)a0 options:(unsigned long long)a1;
++ (id)__givenNameFirstOrdering;
++ (BOOL)__shortStyle:(long long)a0 isRestrictedForScript:(unsigned long long)a1;
++ (void)__registerDefaults;
++ (id)__preferredLanguages;
++ (id)_cjkLocaleIdentifiers;
++ (id)__stringByStrippingNonInitialPunctuationFromString:(id)a0;
++ (long long)_defaultShortNameFormat;
++ (id)__thaiConsonantSet;
++ (SEL)__initialsCreatorForScript:(unsigned long long)a0;
++ (BOOL)__contents:(id)a0 exclusivelyInCharacterSet:(struct USet { } *)a1;
++ (unsigned long long)__inferredScriptIndexFromString:(id)a0;
++ (BOOL)__style:(long long)a0 isRestrictedForLocalization:(id)a1;
++ (void)forEachExistingComponentWithComponents:(id)a0 performBlock:(id /* block */)a1;
++ (long long)__nameOrderForLocalization:(id)a0 usingNativeOrdering:(BOOL)a1;
++ (id)_preferredLocalizationFromLocale:(id)a0;
++ (id)__naiveDelimiterForCombinedNameString:(id)a0;
++ (id)_localizedShortNameForComponents:(id)a0 withStyle:(long long)a1 options:(unsigned long long)a2;
++ (BOOL)_shortNameIsEnabled;
++ (id)__familyNameFirstOrdering;
++ (BOOL)_isMixedScript:(id)a0;
++ (id)__supportedNameDefaultsFromLocalization:(id)a0;
++ (id)_styleFormatterForStyle:(long long)a0 masterFormatter:(id)a1;
++ (id)_cjkLanguagesSet;
++ (id)__supportedScriptDefaultsFromScriptName:(id)a0;
++ (BOOL)isKatakana:(id)a0;
++ (id)__characterSetWithPattern:(id)a0;
++ (BOOL)__shortStyleRestrictionExistsForComponents:(id)a0 shortStyle:(long long)a1;
++ (BOOL)_currentLocaleIsCJK;
++ (BOOL)__style:(long long)a0 isRestrictedForScript:(unsigned long long)a1;
++ (id /* block */)tibetanInitialsCreator;
++ (id)__initialsForString:(id)a0;
++ (id /* block */)arabicInitialsCreator;
++ (BOOL)__shortStyle:(long long)a0 isRestrictedForLocalization:(id)a1;
++ (id)_relevantKeyPathsForStyle:(long long)a0 options:(unsigned long long)a1;
++ (id)_localizedDelimiterForComponents:(id)a0 options:(unsigned long long)a1;
++ (id)_fallbackDescriptorForStyle:(long long)a0 options:(unsigned long long)a1;
++ (long long)__abbreviatedNameFormatForString:(id)a0;
++ (long long)__shortNameFormatForLocalization:(id)a0;
++ (BOOL)_shouldPreferNicknames;
++ (id /* block */)thaiInitialsCreator;
++ (id)__stringValueForShortStyle:(long long)a0;
++ (long long)_defaultDisplayNameOrder;
++ (id)localizedStringFromPersonNameComponents:(id)a0 style:(long long)a1 options:(unsigned long long)a2;
++ (BOOL)_isCJKScript:(id)a0;
++ (unsigned long long)__inferredScriptIndexForComponents:(id)a0;
++ (unsigned long long)__inferredScriptIndexForComponents:(id)a0 ignoreUndeterminedComponents:(BOOL)a1;
++ (id)__stringValueForStyle:(long long)a0;
++ (BOOL)__shouldFallbackToGivenNameInitialForAbbreviatedNameFormatFamilyNameOnly;
++ (struct USet { } *)__getCharacterSetWithPattern:(id)a0;
++ (id /* block */)westernInitialsCreator;
++ (id)__longestComponentFromComponents:(id)a0;
++ (id)_formatterWithStyle:(long long)a0 options:(unsigned long long)a1;
++ (long long)__abbreviatedNameFormatForPersonNameComponents:(id)a0;
++ (id)__scriptIdentifierFromIndex:(unsigned long long)a0;
++ (BOOL)__shouldCacheFallbackToGivenNameInitialForAbbreviatedNameFormatFamilyNameOnly;
++ (id)__currentLocale;
+
+- (void)receiveObservedValue:(id)a0;
+- (id)init;
+- (void)dealloc;
+- (id)stringForObjectValue:(id)a0;
+- (long long)__computedShortNameFormat;
+- (BOOL)__localizedRestrictionExistsForShortStyle:(long long)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)personNameComponentsFromString:(id)a0;
+- (id)stringFromPersonNameComponents:(id)a0;
+- (id)initWithData:(id)a0;
+- (BOOL)getObjectValue:(out id *)a0 forString:(id)a1 errorDescription:(out id *)a2;
+- (long long)_nameOrderWithOverridesForComponents:(id)a0;
+- (long long)__localizedShortNameFormat;
+- (long long)__computedNameOrderForComponents:(id)a0;
+- (BOOL)isEqualToFormatter:(id)a0;
+- (long long)__localizedNameOrderUsingNativeOrdering:(BOOL)a0;
+- (BOOL)__localizedRestrictionExistsForStyle:(long long)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)annotatedStringFromPersonNameComponents:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)__localizedRestrictionExistsForComponents:(id)a0 ignoreUndeterminedComponents:(BOOL)a1;
+
+@end

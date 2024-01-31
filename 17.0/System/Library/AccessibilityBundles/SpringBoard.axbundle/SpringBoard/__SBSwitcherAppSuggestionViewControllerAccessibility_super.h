@@ -1,0 +1,3 @@
+@interface __SBSwitcherAppSuggestionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ___TVStackCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

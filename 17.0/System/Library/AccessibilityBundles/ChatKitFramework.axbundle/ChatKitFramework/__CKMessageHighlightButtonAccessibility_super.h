@@ -1,0 +1,3 @@
+@interface __CKMessageHighlightButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

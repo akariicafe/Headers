@@ -1,0 +1,3 @@
+@interface __HUTriggerListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

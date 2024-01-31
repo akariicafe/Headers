@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.GetBooleanSensorStateResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

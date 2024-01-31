@@ -1,0 +1,3 @@
+@interface __WKContentViewAccessibility__MobileMail__WebKit_super : UIAccessibilitySafeCategory
+
+@end

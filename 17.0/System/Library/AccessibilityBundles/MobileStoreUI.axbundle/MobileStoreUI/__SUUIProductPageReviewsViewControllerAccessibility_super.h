@@ -1,0 +1,3 @@
+@interface __SUUIProductPageReviewsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

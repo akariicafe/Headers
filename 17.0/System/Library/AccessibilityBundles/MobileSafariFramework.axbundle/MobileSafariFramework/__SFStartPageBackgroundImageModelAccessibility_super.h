@@ -1,0 +1,3 @@
+@interface __SFStartPageBackgroundImageModelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

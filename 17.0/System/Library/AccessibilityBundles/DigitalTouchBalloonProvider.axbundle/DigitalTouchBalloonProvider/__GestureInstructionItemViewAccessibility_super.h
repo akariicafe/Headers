@@ -1,0 +1,3 @@
+@interface __GestureInstructionItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

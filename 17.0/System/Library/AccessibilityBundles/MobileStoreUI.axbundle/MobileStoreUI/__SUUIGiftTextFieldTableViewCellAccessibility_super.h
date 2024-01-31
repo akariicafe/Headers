@@ -1,0 +1,3 @@
+@interface __SUUIGiftTextFieldTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

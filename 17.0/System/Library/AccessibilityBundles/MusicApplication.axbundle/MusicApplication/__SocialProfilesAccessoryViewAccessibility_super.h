@@ -1,0 +1,3 @@
+@interface __SocialProfilesAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

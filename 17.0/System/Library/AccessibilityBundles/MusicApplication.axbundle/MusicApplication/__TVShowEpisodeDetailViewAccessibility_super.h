@@ -1,0 +1,3 @@
+@interface __TVShowEpisodeDetailViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

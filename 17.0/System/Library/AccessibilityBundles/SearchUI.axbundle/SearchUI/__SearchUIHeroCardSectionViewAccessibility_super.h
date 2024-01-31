@@ -1,0 +1,3 @@
+@interface __SearchUIHeroCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

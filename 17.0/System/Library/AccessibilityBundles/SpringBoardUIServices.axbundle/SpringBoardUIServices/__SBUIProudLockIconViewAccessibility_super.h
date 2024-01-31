@@ -1,0 +1,3 @@
+@interface __SBUIProudLockIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

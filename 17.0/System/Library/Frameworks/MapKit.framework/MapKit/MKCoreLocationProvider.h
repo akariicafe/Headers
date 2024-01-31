@@ -1,0 +1,84 @@
+@class NSString, NSBundle, CLLocationManager, CLLocation, geo_isolater, NSObject;
+@protocol OS_dispatch_queue, MKLocationProviderDelegate;
+
+@interface MKCoreLocationProvider : NSObject <CLLocationManagerVehicleDelegate, MKLocationProvider> {
+    CLLocationManager *_clLocationManager;
+    BOOL _locationServicesPreferencesDialogEnabled;
+    int _authorizationStatus;
+    long long _accuracyAuthorization;
+    NSBundle *_effectiveBundle;
+    NSString *_effectiveBundleIdentifier;
+    id /* block */ _authorizationRequestBlock;
+    BOOL _waitingForAuthorization;
+    BOOL _hasQueriedAuthorization;
+    geo_isolater *_isolation;
+    NSObject<OS_dispatch_queue> *_coreLocationQueue;
+    double _desiredAccuracy;
+    long long _activityType;
+    double _distanceFilter;
+    BOOL _matchInfoEnabled;
+    BOOL _fusionInfoEnabled;
+    int _headingOrientation;
+    BOOL _hasExternallyProvidedLocationManager;
+}
+
+@property (readonly, nonatomic) CLLocationManager *_clLocationManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) id<MKLocationProviderDelegate> delegate;
+@property (retain, nonatomic) NSBundle *effectiveBundle;
+@property (copy, nonatomic) NSString *effectiveBundleIdentifier;
+@property (nonatomic) double desiredAccuracy;
+@property (nonatomic, getter=isLocationServicesPreferencesDialogEnabled) BOOL locationServicesPreferencesDialogEnabled;
+@property (nonatomic) double distanceFilter;
+@property (nonatomic) BOOL matchInfoEnabled;
+@property (nonatomic) BOOL fusionInfoEnabled;
+@property (nonatomic) int headingOrientation;
+@property (copy, nonatomic) id /* block */ authorizationRequestBlock;
+@property (readonly, nonatomic) double expectedGpsUpdateInterval;
+@property (readonly, nonatomic) int authorizationStatus;
+@property (readonly, nonatomic) long long accuracyAuthorization;
+@property (nonatomic) long long activityType;
+@property (readonly, nonatomic) BOOL usesCLMapCorrection;
+@property (readonly, nonatomic) BOOL shouldShiftIfNecessary;
+@property (readonly, nonatomic) BOOL isTracePlayer;
+@property (readonly, nonatomic) double timeScale;
+@property (readonly, nonatomic) CLLocation *lastLocation;
+
+- (void)locationManager:(id)a0 didUpdateHeading:(id)a1;
+- (void)requestWhenInUseAuthorizationWithPrompt;
+- (id)initWithCLLocationManager:(id)a0;
+- (void)requestTemporaryPreciseLocationAuthorizationWithPurposeKey:(id)a0 completion:(id /* block */)a1;
+- (void)dismissHeadingCalibrationDisplay;
+- (void)requestWhenInUseAuthorization;
+- (id)init;
+- (void)_updateAuthorizationStatus;
+- (void)locationManagerDidPauseLocationUpdates:(id)a0;
+- (void)dealloc;
+- (void)stopUpdatingVehicleHeading;
+- (void)locationManagerDidChangeAuthorization:(id)a0;
+- (void)startUpdatingHeading;
+- (void)stopUpdatingVehicleSpeed;
+- (void)stopUpdatingHeading;
+- (void)locationManager:(id)a0 didUpdateVehicleSpeed:(id)a1;
+- (long long)_accuracyAuthorizationOnQueue;
+- (void)stopUpdatingLocation;
+- (void)startUpdatingVehicleSpeed;
+- (void)_resetForNewEffectiveBundle;
+- (void)locationManagerDidResumeLocationUpdates:(id)a0;
+- (void)startUpdatingVehicleHeading;
+- (void)_createCLLocationManager;
+- (void)startUpdatingLocation;
+- (void)accuracyAuthorizationOnQueue:(id)a0 result:(id /* block */)a1;
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(id)a0;
+- (void)authorizationStatusOnQueue:(id)a0 result:(id /* block */)a1;
+- (void)locationManager:(id)a0 didUpdateVehicleHeading:(id)a1;
+- (void).cxx_destruct;
+- (void)locationManager:(id)a0 didUpdateLocations:(id)a1;
+- (void)locationManager:(id)a0 didFailWithError:(id)a1;
+- (void)_updateAccuracyAuthorizationOnQueue:(id)a0;
+- (int)_authorizationStatusOnQueue;
+
+@end

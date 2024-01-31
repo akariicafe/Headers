@@ -1,0 +1,3 @@
+@interface __UITransitionViewAccessibility__MusicUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

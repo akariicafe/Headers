@@ -1,0 +1,3 @@
+@interface __CKDetailsSearchResultsTitleHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

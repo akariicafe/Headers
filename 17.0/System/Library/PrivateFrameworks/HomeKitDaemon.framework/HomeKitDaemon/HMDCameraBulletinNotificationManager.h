@@ -1,0 +1,88 @@
+@class HMDAppleAccountManager, NSMutableDictionary, NSUUID, HMFMessageDispatcher, NSObject, HMDCameraSignificantEventFaceClassificationResolver, HMDBulletinNotificationRegistrationSource, NSString, HMDNotificationConditionEvaluator, HMDDoorbellPressTracker, NSArray, HMDHome, HMFTimer, NSNotificationCenter;
+@protocol OS_dispatch_queue;
+
+@interface HMDCameraBulletinNotificationManager : HMFObject <HMFLogging, HMFMessageReceiver, HMFTimerDelegate>
+
+@property (readonly, weak) HMDHome *home;
+@property (readonly) NSObject<OS_dispatch_queue> *workQueue;
+@property (readonly) HMFMessageDispatcher *messageDispatcher;
+@property (readonly) NSMutableDictionary *observersByCameraIdentifier;
+@property (readonly, nonatomic) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } lock;
+@property (readonly) HMDCameraSignificantEventFaceClassificationResolver *faceClassificationResolver;
+@property (readonly) HMDAppleAccountManager *accountManager;
+@property (readonly) NSNotificationCenter *notificationCenter;
+@property (readonly) HMDDoorbellPressTracker *doorbellPressTracker;
+@property (readonly) HMDNotificationConditionEvaluator *evaluator;
+@property (readonly) HMDBulletinNotificationRegistrationSource *source;
+@property BOOL currentPrimary;
+@property (retain) HMFTimer *synchronizeWithPrimaryDebounceTimer;
+@property (copy) id /* block */ synchronizeWithPrimaryDebounceTimerFactory;
+@property (readonly) NSArray *cameraSignificantEventRegistrations;
+@property (readonly) NSArray *cameraSignificantEventRegistrationsForCurrentDevice;
+@property (readonly) NSArray *cameraReachabilityRegistrations;
+@property (readonly) NSArray *cameraReachabilityRegistrationsForCurrentDevice;
+@property (readonly) NSArray *cameraAccessModeRegistrations;
+@property (readonly) NSArray *cameraAccessModeRegistrationsForCurrentDevice;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+
++ (id)logCategory;
++ (id)_cameraAccessModeRegistrationsForSource:(id)a0 context:(id)a1;
++ (id)_cameraReachabilityRegistrationsForSource:(id)a0 context:(id)a1;
++ (id)_cameraSignificantEventRegistrationsForSource:(id)a0 context:(id)a1;
+
+- (void)timerDidFire:(id)a0;
+- (id)logIdentifier;
+- (void).cxx_destruct;
+- (id)_homePresenceByPairingIdentity;
+- (void)handlePrimaryResidentUpdateNotification:(id)a0;
+- (id)_mkfLocalCameraAccessModeRegistrationsWithManagedObjectContext:(id)a0;
+- (void)addCameraSignificantEventNotificationObserver:(id)a0 cameraIdentifier:(id)a1;
+- (id)_cameraAccessModeBulletinNotificationRegistrationsForAccessory:(id)a0;
+- (void)_notifyPrimaryResidentOfSignificantEvent:(id)a0 withCameraProfileUUID:(id)a1;
+- (BOOL)_shouldNotifyForActivityForSignificantEvent:(id)a0 remoteRegistration:(id)a1;
+- (id)_cameraProfileWithUUID:(id)a0;
+- (id)_cameraReachabilityBulletinNotificationRegistrationsForAccessory:(id)a0;
+- (id)_cameraSignificantEventBulletinNotificationRegistrationsForCameraIdentifier:(id)a0;
+- (id)_currentHomeCameraAccessoryUUIDs;
+- (id)_deviceToNotifyForRegistration:(id)a0 source:(id)a1;
+- (BOOL)_filterPassesForCameraSignificantEvent:(id)a0 registration:(id)a1;
+- (void)_handleCameraSignificantEventBulletinNotificationRegistration:(id)a0 removed:(BOOL)a1;
+- (void)_handleCameraSignificantEventBulletinNotifyPrimaryResidentMessage:(id)a0;
+- (void)_handleCameraSignificantEventNotificationMessage:(id)a0;
+- (void)_handleCurrentDeviceOrAccountUpdatedNotification:(id)a0;
+- (void)_handleDeviceBecameNotPrimary;
+- (void)_handleDeviceBecamePrimary;
+- (void)_handlePrimaryResidentUpdateNotification:(id)a0;
+- (void)_handleSignificantEvent:(id)a0 cameraProfile:(id)a1 homePresence:(id)a2;
+- (void)_handleSignificantEvent:(id)a0 remoteRegistration:(id)a1;
+- (void)_handleSignificantEventWithUUID:(id)a0 reason:(unsigned long long)a1 dateOfOccurrence:(id)a2 confidenceLevel:(unsigned long long)a3 faceClassifications:(id)a4 cameraProfile:(id)a5 homePresence:(id)a6;
+- (id)_mkfLocalCameraReachabilityRegistrationsWithManagedObjectContext:(id)a0;
+- (id)_mkfLocalCameraSignificantEventRegistrationsWithManagedObjectContext:(id)a0;
+- (void)_notifyDevice:(id)a0 aboutSignificantEvent:(id)a1 notificationReasons:(unsigned long long)a2;
+- (void)_notifyObserversOfSignificantEventUUID:(id)a0 cameraProfileUUID:(id)a1 notificationReasons:(unsigned long long)a2;
+- (id)_recentDoorbellPressIntervalForSignificantEventDate:(id)a0;
+- (void)_requestSynchronizeRegistrations;
+- (BOOL)_shouldNotifyForDoorbellPressForSignificantEvent:(id)a0 registration:(id)a1;
+- (void)_synchronizeLocalRegistrationsWithPrimaryResident;
+- (BOOL)_updateLocalStoreWithCameraAccessModeBulletinRegistration:(id)a0 existingMKFLocalRegistration:(id)a1 enabled:(BOOL)a2 moc:(id)a3;
+- (BOOL)_updateLocalStoreWithCameraReachabilityBulletinRegistration:(id)a0 existingMKFLocalRegistration:(id)a1 enabled:(BOOL)a2 moc:(id)a3;
+- (BOOL)_updateLocalStoreWithCameraSignificantEventBulletinRegistration:(id)a0 existingMKFLocalRegistration:(id)a1 enabled:(BOOL)a2 moc:(id)a3;
+- (void)_updateRegistrationsOnPrimaryWithEnabledRegistrations:(id)a0 disabledRegistrations:(id)a1;
+- (id)cameraUserNotificationSettingsForAccessory:(id)a0;
+- (id)conditionsFromPredicate:(id)a0;
+- (void)configureWithDeviceIsResidentCapable:(BOOL)a0;
+- (id)devicesToNotifyForAccessModeChangeForAccessory:(id)a0;
+- (id)devicesToNotifyForCameraReachabilityForAccessory:(id)a0;
+- (void)handleCurrentDeviceOrAccountUpdatedNotification:(id)a0;
+- (void)handleRemovedCameraAccessory:(id)a0;
+- (void)handleSignificantEvent:(id)a0 cameraProfile:(id)a1 homePresence:(id)a2;
+- (id)initWithHome:(id)a0 workQueue:(id)a1 messageDispatcher:(id)a2 accountManager:(id)a3 faceClassificationResolver:(id)a4 doorbellPressTracker:(id)a5 evaluator:(id)a6 notificationCenter:(id)a7;
+- (void)removeCameraSignificantEventNotificationObserver:(id)a0 cameraIdentifier:(id)a1;
+- (void)updateNotificationRegistrationsWithSettings:(id)a0 accessory:(id)a1 doorbellPressNotificationEnabled:(BOOL)a2 completion:(id /* block */)a3;
+
+@end

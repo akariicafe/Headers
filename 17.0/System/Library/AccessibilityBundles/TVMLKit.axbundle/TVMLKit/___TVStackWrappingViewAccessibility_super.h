@@ -1,0 +1,3 @@
+@interface ___TVStackWrappingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

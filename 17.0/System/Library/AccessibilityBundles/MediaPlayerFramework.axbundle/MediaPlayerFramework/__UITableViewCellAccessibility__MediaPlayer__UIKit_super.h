@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__MediaPlayer__UIKit_super : UIAccessibilitySafeCategory
+
+@end

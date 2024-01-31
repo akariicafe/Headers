@@ -1,0 +1,3 @@
+@interface __TVRUIButtonPanelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

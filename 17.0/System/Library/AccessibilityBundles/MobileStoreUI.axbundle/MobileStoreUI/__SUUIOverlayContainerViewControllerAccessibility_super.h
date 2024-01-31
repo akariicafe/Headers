@@ -1,0 +1,3 @@
+@interface __SUUIOverlayContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

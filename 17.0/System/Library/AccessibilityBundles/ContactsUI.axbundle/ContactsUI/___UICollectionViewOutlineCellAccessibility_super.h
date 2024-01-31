@@ -1,0 +1,3 @@
+@interface ___UICollectionViewOutlineCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

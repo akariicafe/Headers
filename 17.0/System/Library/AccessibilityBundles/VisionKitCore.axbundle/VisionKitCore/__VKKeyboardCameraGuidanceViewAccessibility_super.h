@@ -1,0 +1,3 @@
+@interface __VKKeyboardCameraGuidanceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

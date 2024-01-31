@@ -1,0 +1,3 @@
+@interface __HOTitleDescriptionAlertActionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

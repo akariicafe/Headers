@@ -1,0 +1,3 @@
+@interface ___MKPlaceInlineMapContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

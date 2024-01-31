@@ -1,0 +1,3 @@
+@interface __INUIAddVoiceShortcutButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

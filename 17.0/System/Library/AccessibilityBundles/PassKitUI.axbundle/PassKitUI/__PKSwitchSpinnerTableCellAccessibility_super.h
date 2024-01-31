@@ -1,0 +1,3 @@
+@interface __PKSwitchSpinnerTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __GuidedSearchTokenCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

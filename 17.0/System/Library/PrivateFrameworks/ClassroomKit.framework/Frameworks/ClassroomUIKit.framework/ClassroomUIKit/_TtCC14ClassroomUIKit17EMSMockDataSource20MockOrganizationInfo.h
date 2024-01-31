@@ -1,0 +1,3 @@
+@interface _TtCC14ClassroomUIKit17EMSMockDataSource20MockOrganizationInfo : _TtCs12_SwiftObject
+
+@end

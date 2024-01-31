@@ -1,0 +1,3 @@
+@interface __AccountStatusSummaryTileFeedItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

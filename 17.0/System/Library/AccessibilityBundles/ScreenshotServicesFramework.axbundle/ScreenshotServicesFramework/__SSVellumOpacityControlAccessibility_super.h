@@ -1,0 +1,3 @@
+@interface __SSVellumOpacityControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

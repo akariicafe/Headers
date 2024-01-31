@@ -1,0 +1,3 @@
+@interface __ModernTitleHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

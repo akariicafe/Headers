@@ -1,0 +1,3 @@
+@interface __ASExchangeIdTextViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

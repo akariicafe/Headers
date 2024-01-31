@@ -1,0 +1,5 @@
+@interface ChronoCore.UserManager : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _userManager;
+}
+
+@end

@@ -1,0 +1,44 @@
+@class NSString;
+
+@interface TSWPInteractiveCanvasController : TSDInteractiveCanvasController <TSDGestureTarget>
+
+@property (readonly, nonatomic) BOOL shouldRespondToTextHyperlinks;
+@property (readonly, nonatomic) BOOL handleHyperlinksWithTextGRs;
+@property (readonly, nonatomic) BOOL isEditingText;
+@property (readonly, nonatomic) BOOL isTearingDown;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)teardown;
+- (BOOL)handleGesture:(id)a0;
+- (id)beginEditingRepForInfo:(id)a0;
+- (id)closestRepToPoint:(struct CGPoint { double x0; double x1; })a0 forStorage:(id)a1;
+- (void)willEndEditingText;
+- (id)_repsForStorage:(id)a0;
+- (BOOL)canHandleGesture:(id)a0;
+- (BOOL)cellCommentsAllowedForTableInfo:(id)a0;
+- (void)closeHyperlinkPopover;
+- (id)closestRepToPoint:(struct CGPoint { double x0; double x1; })a0;
+- (void)didBeginEditingText;
+- (void)gestureSequenceDidEnd;
+- (void)gestureSequenceWillBegin;
+- (BOOL)hyperlinkPopoverIsShown;
+- (id)infosToHideForCanvas:(id)a0;
+- (id)p_beginEditingPossibleContainedRep:(id *)a0;
+- (void)p_recursivelyAddRep:(id)a0 forStorage:(id)a1 toSet:(id)a2;
+- (id)p_repsForStorage:(id)a0;
+- (void)resumeEditing;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })scrollFocusRectForModel:(id)a0 withSelection:(id)a1;
+- (void)setShowsComments:(BOOL)a0;
+- (void)showHyperlinkInfoForField:(id)a0 inRep:(id)a1 openInEditMode:(BOOL)a2;
+- (BOOL)showsComments;
+- (BOOL)suppressDoubleTapForSelection;
+- (struct CGImage { } *)textImageFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)textRepsShouldTileAggressively;
+- (void)withLayoutForModel:(id)a0 withSelection:(id)a1 performBlock:(id /* block */)a2;
+- (BOOL)zoomColumnAtPoint:(struct CGPoint { double x0; double x1; })a0;
+
+@end

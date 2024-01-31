@@ -1,0 +1,3 @@
+@interface __FeaturedRadioShowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

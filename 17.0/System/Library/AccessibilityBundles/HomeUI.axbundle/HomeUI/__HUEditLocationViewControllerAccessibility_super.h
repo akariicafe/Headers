@@ -1,0 +1,3 @@
+@interface __HUEditLocationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

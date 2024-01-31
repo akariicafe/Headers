@@ -1,0 +1,3 @@
+@interface __SUUIPreviewProgressIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface PKDisbursementSummaryItem : PKPaymentSummaryItem
+
+@end

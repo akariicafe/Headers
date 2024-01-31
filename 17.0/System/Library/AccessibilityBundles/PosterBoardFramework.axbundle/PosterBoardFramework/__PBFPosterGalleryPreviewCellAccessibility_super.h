@@ -1,0 +1,3 @@
+@interface __PBFPosterGalleryPreviewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

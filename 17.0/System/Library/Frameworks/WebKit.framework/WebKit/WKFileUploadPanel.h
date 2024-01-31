@@ -1,0 +1,83 @@
+@class NSString;
+@protocol WKFileUploadPanelDelegate;
+
+@interface WKFileUploadPanel : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIDocumentPickerDelegate, UIAdaptivePresentationControllerDelegate, UIContextMenuInteractionDelegate, PHPickerViewControllerDelegate> {
+    struct WeakObjCPtr<WKContentView> { id m_weakReference; } _view;
+    struct RefPtr<WebKit::WebOpenPanelResultListenerProxy, WTF::RawPtrTraits<WebKit::WebOpenPanelResultListenerProxy>, WTF::DefaultRefDerefTraits<WebKit::WebOpenPanelResultListenerProxy>> { struct WebOpenPanelResultListenerProxy *m_ptr; } _listener;
+    struct RetainPtr<NSSet<NSString *>> { void *m_ptr; } _acceptedUTIs;
+    struct OptionSet<WKFileUploadPanelImagePickerType> { unsigned char m_storage; } _allowedImagePickerTypes;
+    struct CGPoint { double x; double y; } _interactionPoint;
+    BOOL _allowMultipleFiles;
+    BOOL _usingCamera;
+    struct RetainPtr<WKFileUploadMediaTranscoder> { void *m_ptr; } _mediaTranscoder;
+    struct RetainPtr<UIImagePickerController> { void *m_ptr; } _cameraPicker;
+    struct RetainPtr<PHPickerViewController> { void *m_ptr; } _photoPicker;
+    struct RetainPtr<UIViewController> { void *m_ptr; } _presentationViewController;
+    BOOL _isPresentingSubMenu;
+    BOOL _isRepositioningContextMenu;
+    struct RetainPtr<UIContextMenuInteraction> { void *m_ptr; } _documentContextMenuInteraction;
+    struct RetainPtr<UIDocumentPickerViewController> { void *m_ptr; } _documentPickerController;
+    unsigned char _mediaCaptureType;
+    struct Vector<WTF::RetainPtr<NSURL>, 0UL, WTF::CrashOnOverflow, 16UL, WTF::FastMalloc> { void *m_buffer; unsigned int m_capacity; unsigned int m_size; } _temporaryUploadedFileURLs;
+    struct RetainPtr<NSFileManager> { void *m_ptr; } _uploadFileManager;
+    struct RetainPtr<NSFileCoordinator> { void *m_ptr; } _uploadFileCoordinator;
+}
+
+@property (weak, nonatomic) id<WKFileUploadPanelDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dismiss;
+- (id)initWithView:(id)a0;
+- (void)_cancel;
+- (id)contextMenuInteraction:(id)a0 configuration:(id)a1 highlightPreviewForItemWithIdentifier:(id)a2;
+- (void)dealloc;
+- (id)_contextMenuInteraction:(id)a0 styleForMenuWithConfiguration:(id)a1;
+- (void)contextMenuInteraction:(id)a0 willEndForConfiguration:(id)a1 animator:(id)a2;
+- (void)presentationControllerDidDismiss:(id)a0;
+- (id).cxx_construct;
+- (id)contextMenuInteraction:(id)a0 configurationForMenuAtLocation:(struct CGPoint { double x0; double x1; })a1;
+- (void).cxx_destruct;
+- (id)_mediaTypesForPickerSourceType:(long long)a0;
+- (void)imagePickerControllerDidCancel:(id)a0;
+- (void)_adjustMediaCaptureType;
+- (id)_cameraButtonLabel;
+- (void)_dismissDisplayAnimated:(BOOL)a0;
+- (void)_dispatchDidDismiss;
+- (void)_presentFullscreenViewController:(id)a0 animated:(BOOL)a1;
+- (void)_processMediaInfoDictionaries:(id)a0 successBlock:(id /* block */)a1 failureBlock:(id /* block */)a2;
+- (BOOL)_shouldMediaCaptureOpenMediaDevice;
+- (void)_uploadItemForImageData:(id)a0 imageName:(id)a1 successBlock:(id /* block */)a2 failureBlock:(id /* block */)a3;
+- (void)_uploadItemForJPEGRepresentationOfImage:(id)a0 successBlock:(id /* block */)a1 failureBlock:(id /* block */)a2;
+- (void)_uploadItemFromMediaInfo:(id)a0 successBlock:(id /* block */)a1 failureBlock:(id /* block */)a2;
+- (BOOL)_willMultipleSelectionDelegateBeCalled;
+- (void)documentPicker:(id)a0 didPickDocumentsAtURLs:(id)a1;
+- (void)documentPickerWasCancelled:(id)a0;
+- (void)imagePickerController:(id)a0 didFinishPickingMediaWithInfo:(id)a1;
+- (void)imagePickerController:(id)a0 didFinishPickingMultipleMediaWithInfo:(id)a1;
+- (void)picker:(id)a0 didFinishPicking:(id)a1;
+- (void)_chooseFiles:(id)a0 displayString:(id)a1 iconImage:(id)a2;
+- (id)_chooseFilesButtonLabel;
+- (void)_chooseMediaItems:(id)a0;
+- (struct pair<WTF::RetainPtr<NSURL>, WTF::RetainPtr<NSURL>> { struct RetainPtr<NSURL> { void *x0; } x0; struct RetainPtr<NSURL> { void *x0; } x1; })_copyToNewTemporaryDirectory:(id)a0;
+- (id)_photoLibraryButtonLabel;
+- (void)_processMediaInfoDictionaries:(id)a0 atIndex:(unsigned long long)a1 processedResults:(id)a2 successBlock:(id /* block */)a3 failureBlock:(id /* block */)a4;
+- (void)_processPickerResults:(id)a0 atIndex:(unsigned long long)a1 processedResults:(id)a2 successBlock:(id /* block */)a3 failureBlock:(id /* block */)a4;
+- (void)_processPickerResults:(id)a0 successBlock:(id /* block */)a1 failureBlock:(id /* block */)a2;
+- (void)_showCamera;
+- (void)_showPhotoPicker;
+- (void)_uploadItemFromResult:(id)a0 successBlock:(id /* block */)a1 failureBlock:(id /* block */)a2;
+- (void)_uploadMediaItemsTranscodingVideo:(id)a0;
+- (id)acceptedTypeIdentifiers;
+- (id)currentAvailableActionTitles;
+- (id)ensureContextMenuInteraction;
+- (BOOL)platformSupportsPickerViewController;
+- (void)presentWithParameters:(void *)a0 resultListener:(void *)a1;
+- (void)removeContextMenuInteraction;
+- (void)repositionContextMenuIfNeeded;
+- (void)showDocumentPickerMenu;
+- (void)showFilePickerMenu;
+
+@end

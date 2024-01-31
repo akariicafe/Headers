@@ -1,0 +1,3 @@
+@interface __CCUISensorAttributionExpandedViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

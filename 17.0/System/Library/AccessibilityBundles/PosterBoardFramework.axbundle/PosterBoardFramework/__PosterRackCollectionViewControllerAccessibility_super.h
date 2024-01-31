@@ -1,0 +1,3 @@
+@interface __PosterRackCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

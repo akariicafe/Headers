@@ -1,0 +1,18 @@
+@class NSNumber, NSArray;
+
+@interface MTRElectricalMeasurementClusterGetProfileInfoResponseCommandParams : NSObject <NSCopying>
+
+@property (copy, nonatomic) NSNumber *profileCount;
+@property (copy, nonatomic) NSNumber *profileIntervalPeriod;
+@property (copy, nonatomic) NSNumber *maxNumberOfIntervals;
+@property (copy, nonatomic) NSArray *listOfAttributes;
+@property (copy, nonatomic) NSNumber *timedInvokeTimeoutMs;
+
+- (id)init;
+- (id)description;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (struct ChipError { unsigned int x0; char *x1; unsigned int x2; })_setFieldsFromDecodableStruct:(const void *)a0;
+- (id)initWithResponseValue:(id)a0 error:(id *)a1;
+
+@end

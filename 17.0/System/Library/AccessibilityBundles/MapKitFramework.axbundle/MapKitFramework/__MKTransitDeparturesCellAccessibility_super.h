@@ -1,0 +1,3 @@
+@interface __MKTransitDeparturesCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

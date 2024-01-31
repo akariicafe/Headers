@@ -1,0 +1,3 @@
+@interface __AccessibilityNodeAccessibility__Translate__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

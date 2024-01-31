@@ -1,0 +1,3 @@
+@interface __MediaControlsExpandableButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

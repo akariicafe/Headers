@@ -1,0 +1,3 @@
+@interface __CKSyndicationContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

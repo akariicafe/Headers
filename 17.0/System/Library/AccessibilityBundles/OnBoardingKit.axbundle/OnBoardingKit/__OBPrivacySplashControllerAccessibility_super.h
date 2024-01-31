@@ -1,0 +1,3 @@
+@interface __OBPrivacySplashControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

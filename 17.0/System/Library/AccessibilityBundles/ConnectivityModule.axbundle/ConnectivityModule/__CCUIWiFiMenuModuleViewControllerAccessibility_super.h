@@ -1,0 +1,3 @@
+@interface __CCUIWiFiMenuModuleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUIHorizontalLockupViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

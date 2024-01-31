@@ -1,0 +1,3 @@
+@interface __MFComposeStyleSelectorViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

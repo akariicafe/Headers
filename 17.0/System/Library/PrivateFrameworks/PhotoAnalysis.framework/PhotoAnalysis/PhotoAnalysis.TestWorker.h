@@ -1,0 +1,7 @@
+@interface PhotoAnalysis.TestWorker : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ taskRecorder;
+    void /* unknown type, empty encoding */ changeReader;
+    void /* unknown type, empty encoding */ requirements;
+}
+
+@end

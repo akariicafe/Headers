@@ -1,0 +1,3 @@
+@interface __AKAuthorizationScopeDetailTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

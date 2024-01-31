@@ -1,0 +1,3 @@
+@interface __EKCalendarItemEditorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

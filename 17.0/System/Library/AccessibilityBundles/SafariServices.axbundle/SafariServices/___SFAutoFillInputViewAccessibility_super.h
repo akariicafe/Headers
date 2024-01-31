@@ -1,0 +1,3 @@
+@interface ___SFAutoFillInputViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

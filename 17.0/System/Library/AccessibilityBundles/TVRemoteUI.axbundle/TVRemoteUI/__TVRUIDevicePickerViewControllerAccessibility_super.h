@@ -1,0 +1,3 @@
+@interface __TVRUIDevicePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

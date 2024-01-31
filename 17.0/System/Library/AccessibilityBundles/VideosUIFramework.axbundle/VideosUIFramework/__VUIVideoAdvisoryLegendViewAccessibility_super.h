@@ -1,0 +1,3 @@
+@interface __VUIVideoAdvisoryLegendViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

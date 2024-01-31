@@ -1,0 +1,3 @@
+@interface __HomeOrthogonalSectionTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

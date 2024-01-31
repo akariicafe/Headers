@@ -1,0 +1,8 @@
+@interface VKImageAnalysisBarButtonItemAccessibility : __VKImageAnalysisBarButtonItemAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
++ (id)imageForMode:(unsigned long long)a0;
+
+@end

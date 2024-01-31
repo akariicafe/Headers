@@ -1,0 +1,3 @@
+@interface __WFActionDrawerSiriSuggestionsCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

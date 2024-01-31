@@ -1,0 +1,3 @@
+@interface VNImageAnalyzerMultiDetectorVNVYvzEtX1JlUdu8xx5qhDIConfiguration : _VNImageAnalyzerMultiDetectorPostProcessingConfiguration
+
+@end

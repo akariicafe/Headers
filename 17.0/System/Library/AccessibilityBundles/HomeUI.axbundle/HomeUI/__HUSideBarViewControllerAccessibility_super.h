@@ -1,0 +1,3 @@
+@interface __HUSideBarViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKEntryViewPlusButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

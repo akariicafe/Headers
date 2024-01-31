@@ -1,0 +1,3 @@
+@interface Summaries.GAD7AssessmentCurrentValueSummarySharableModelGenerator : Summaries.MostRecentSampleCurrentValueSummarySharableModelGenerator
+
+@end

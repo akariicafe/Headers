@@ -1,0 +1,3 @@
+@interface __AppTrailerLockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

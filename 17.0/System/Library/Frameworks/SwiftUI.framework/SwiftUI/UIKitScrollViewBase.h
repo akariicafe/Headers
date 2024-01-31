@@ -1,0 +1,3 @@
+@interface UIKitScrollViewBase : UIScrollView
+
+@end

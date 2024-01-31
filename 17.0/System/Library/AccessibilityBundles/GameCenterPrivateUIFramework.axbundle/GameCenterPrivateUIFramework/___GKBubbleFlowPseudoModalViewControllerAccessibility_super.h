@@ -1,0 +1,3 @@
+@interface ___GKBubbleFlowPseudoModalViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

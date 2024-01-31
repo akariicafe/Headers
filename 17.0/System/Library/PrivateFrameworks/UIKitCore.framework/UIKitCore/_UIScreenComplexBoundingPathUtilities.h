@@ -1,0 +1,15 @@
+@class _UIBoundingPathBitmap;
+
+@interface _UIScreenComplexBoundingPathUtilities : _UIScreenBoundingPathUtilities {
+    long long _type;
+    _UIBoundingPathBitmap *_bitmap;
+}
+
++ (BOOL)isScreenSupported:(id)a0;
+
+- (void)_loadBitmapForScreen:(id)a0 type:(long long)a1;
+- (id)initWithScreen:(id)a0;
+- (void).cxx_destruct;
+- (id)boundingPathForWindow:(id)a0;
+
+@end

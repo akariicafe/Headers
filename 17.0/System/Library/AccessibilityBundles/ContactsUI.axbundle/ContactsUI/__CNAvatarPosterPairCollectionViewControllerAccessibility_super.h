@@ -1,0 +1,3 @@
+@interface __CNAvatarPosterPairCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

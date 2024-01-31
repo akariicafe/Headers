@@ -1,0 +1,3 @@
+@interface __VKCDataDetectorElementViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

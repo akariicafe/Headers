@@ -1,0 +1,3 @@
+@interface __PREditingContentStyleItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

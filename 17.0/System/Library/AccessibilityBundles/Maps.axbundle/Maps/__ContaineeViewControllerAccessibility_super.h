@@ -1,0 +1,3 @@
+@interface __ContaineeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

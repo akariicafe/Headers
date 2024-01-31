@@ -1,0 +1,3 @@
+@interface __WFCompactDialogViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

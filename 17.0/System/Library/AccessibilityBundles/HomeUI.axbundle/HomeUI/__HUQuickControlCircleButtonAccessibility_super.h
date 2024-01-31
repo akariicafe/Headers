@@ -1,0 +1,3 @@
+@interface __HUQuickControlCircleButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

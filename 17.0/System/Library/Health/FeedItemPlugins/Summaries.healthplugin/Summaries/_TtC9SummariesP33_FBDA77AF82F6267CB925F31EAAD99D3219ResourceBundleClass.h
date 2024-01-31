@@ -1,0 +1,3 @@
+@interface _TtC9SummariesP33_FBDA77AF82F6267CB925F31EAAD99D3219ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

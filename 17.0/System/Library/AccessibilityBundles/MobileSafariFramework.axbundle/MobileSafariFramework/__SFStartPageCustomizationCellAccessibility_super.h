@@ -1,0 +1,3 @@
+@interface __SFStartPageCustomizationCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

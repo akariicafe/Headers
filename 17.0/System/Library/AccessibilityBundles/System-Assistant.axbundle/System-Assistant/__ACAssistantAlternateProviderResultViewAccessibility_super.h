@@ -1,0 +1,3 @@
+@interface __ACAssistantAlternateProviderResultViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

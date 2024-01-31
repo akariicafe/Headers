@@ -1,0 +1,3 @@
+@interface __RAPCheckmarkTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

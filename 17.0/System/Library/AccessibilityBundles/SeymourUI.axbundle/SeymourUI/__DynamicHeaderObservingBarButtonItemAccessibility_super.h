@@ -1,0 +1,3 @@
+@interface __DynamicHeaderObservingBarButtonItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

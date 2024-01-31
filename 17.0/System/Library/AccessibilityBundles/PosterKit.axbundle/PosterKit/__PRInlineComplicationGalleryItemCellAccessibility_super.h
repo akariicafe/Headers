@@ -1,0 +1,3 @@
+@interface __PRInlineComplicationGalleryItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

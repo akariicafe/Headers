@@ -1,0 +1,3 @@
+@interface __CKAvatarPickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

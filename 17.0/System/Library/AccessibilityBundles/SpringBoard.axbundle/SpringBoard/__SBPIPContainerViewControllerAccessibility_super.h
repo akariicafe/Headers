@@ -1,0 +1,3 @@
+@interface __SBPIPContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

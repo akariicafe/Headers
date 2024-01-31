@@ -1,0 +1,3 @@
+@interface __PBA_SBUICallToActionLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

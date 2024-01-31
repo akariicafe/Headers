@@ -1,0 +1,3 @@
+@interface __HKUnitPreferenceControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

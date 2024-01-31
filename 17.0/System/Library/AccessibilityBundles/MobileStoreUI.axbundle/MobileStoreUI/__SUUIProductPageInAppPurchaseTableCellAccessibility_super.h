@@ -1,0 +1,3 @@
+@interface __SUUIProductPageInAppPurchaseTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

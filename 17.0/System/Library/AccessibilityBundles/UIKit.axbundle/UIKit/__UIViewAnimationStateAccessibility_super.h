@@ -1,0 +1,3 @@
+@interface __UIViewAnimationStateAccessibility_super : UIAccessibilitySafeCategory
+
+@end

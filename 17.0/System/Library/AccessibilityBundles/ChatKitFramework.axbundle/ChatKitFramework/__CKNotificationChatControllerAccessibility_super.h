@@ -1,0 +1,3 @@
+@interface __CKNotificationChatControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

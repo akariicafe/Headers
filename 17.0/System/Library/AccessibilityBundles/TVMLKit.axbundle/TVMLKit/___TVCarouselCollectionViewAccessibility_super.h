@@ -1,0 +1,3 @@
+@interface ___TVCarouselCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

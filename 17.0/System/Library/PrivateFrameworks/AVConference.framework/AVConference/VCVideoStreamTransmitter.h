@@ -1,0 +1,72 @@
+@class VCMediaStreamStats, AVCStatisticsCollector, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
+
+@interface VCVideoStreamTransmitter : VCVideoTransmitterBase {
+    struct tagHANDLE { int x0; } *_videoRTP;
+    NSObject<OS_dispatch_queue> *_transmitterQueue;
+    struct tagVCRealTimeThread { unsigned int x0; unsigned int x1; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x2; id x3; void /* function */ *x4; void *x5; struct OpaqueFigThread *x6; int x7; char x8[60]; unsigned int x9; unsigned int x10; } *_encoderThread;
+    BOOL _terminateEncoderThread;
+    NSObject<OS_dispatch_semaphore> *_bufferQueueSemaphore;
+    struct opaqueCMBufferQueue { } *_bufferQueue;
+    char *_buffer;
+    unsigned long long _bufferSize;
+    int _maxPacketCount;
+    int *_packetSizes;
+    int *_packetFlags;
+    unsigned long long _lastKeyFrameSampleBufferSize;
+    int _iSMBCount;
+    unsigned int _keyFrameIntervalDuration;
+    unsigned short _recommendedMTU;
+    long long _videoCodecType;
+    int _videoSource;
+    unsigned int _dwRefreshFrameCounter;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _xMBs;
+    int _shouldGenerateKeyFrame;
+    VCMediaStreamStats *_stats;
+    double _reportingIntervalStartTime;
+    double _reportingLastUpdateTime;
+    unsigned char _lastCameraStatusBits;
+    BOOL _enableCVO;
+    unsigned long long _cvoExtensionID;
+    struct opaqueRTCReporting { } *_reportingAgent;
+    int _reportingModuleID;
+    struct { struct *encoderVTable; int type; struct tagHANDLE *encoderHandle; } _encoder;
+    struct tagVCMemoryPool { struct { void *x0; long long x1; } x0; unsigned long long x1; } *_encodingArgPool;
+    BOOL _forceDisableBitrateCap;
+    AVCStatisticsCollector *_statisticsCollector;
+    unsigned int _totalPacketsSent;
+    unsigned long long _totalBytesSent;
+    unsigned int _tilesPerFrame;
+    unsigned int _totalKeyFramesSent;
+    struct __CFAllocator { } *_videoPacketAllocator;
+}
+
+- (id)initWithConfig:(id)a0;
+- (void)dealloc;
+- (void)setMediaSuggestion:(struct VCRateControlMediaSuggestion { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; BOOL x7; } *)a0;
+- (void)encodeVideoFrame:(struct opaqueCMSampleBuffer { } *)a0;
+- (struct __CFDictionary { } *)forceKeyFrameProperties;
+- (void)gatherRealtimeStats:(struct __CFDictionary { } *)a0;
+- (void)generateKeyFrameWithFIRType:(int)a0;
+- (void)handleActiveConnectionChange:(id)a0;
+- (void)handleThermalLevelChange:(int)a0;
+- (void)initVideoCompressionWithWidth:(unsigned int)a0 height:(unsigned int)a1 bitrate:(unsigned int)a2 keyFrameIntervalDuration:(unsigned int)a3;
+- (BOOL)isKeyFrame:(struct opaqueCMSampleBuffer { } *)a0;
+- (BOOL)prependSPSPPS:(unsigned long long *)a0 dataPointer:(char *)a1 sampleBuffer:(struct opaqueCMSampleBuffer { } *)a2;
+- (void)reportingVideoStreamEvent:(unsigned short)a0;
+- (BOOL)setEncodingMode:(int)a0;
+- (void)setFECRedundancyVector:(const struct { unsigned short x0; struct { unsigned char x0; unsigned char x1; } x1[32]; } *)a0;
+- (void)setKeyFrameOnlyStreamID:(unsigned short)a0;
+- (void)setStreamIDs:(unsigned short *)a0 numOfStreamIDs:(unsigned char)a1 repairedStreamIDs:(unsigned short *)a2 numOfRepairedStreamIDs:(unsigned char)a3;
+- (void)setTargetBitrate:(unsigned int)a0;
+- (unsigned int)setTemporaryMaximumBitrate:(unsigned int)a0;
+- (void)startVideo;
+- (void)stopVideo;
+- (void)transmitEncodedVideoFrame:(struct opaqueCMSampleBuffer { } *)a0 cameraStatusBits:(unsigned char)a1;
+- (int)transmitEncodedVideoFrame:(char *)a0 size:(unsigned long long)a1 timestamp:(unsigned int)a2 hostTime:(double)a3 cameraStatusBits:(unsigned char)a4;
+- (int)transmitFrameInGroups:(char *)a0 numOfPackets:(int)a1 timestamp:(unsigned int)a2 hostTime:(double)a3 cameraStatusBits:(unsigned char)a4;
+- (int)transmitVideoPackets:(const char *)a0 packetSizes:(int *)a1 startPacket:(int)a2 packetCount:(int)a3 lastGroup:(int)a4 timestamp:(unsigned int)a5 hostTime:(double)a6 cameraStatusBits:(unsigned char)a7 bytesSent:(int *)a8;
+- (void)updateSendStatisticsWithTimestamp:(unsigned int)a0 frameSize:(unsigned int)a1 packetsInFrame:(unsigned int)a2;
+- (void)updateWindowState:(int)a0 isLocal:(BOOL)a1 windowRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2;
+
+@end

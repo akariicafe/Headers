@@ -1,0 +1,3 @@
+@interface __MOSuggestionSheetInterstitialViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

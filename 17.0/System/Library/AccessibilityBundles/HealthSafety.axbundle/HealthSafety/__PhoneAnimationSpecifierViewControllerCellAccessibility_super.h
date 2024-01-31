@@ -1,0 +1,3 @@
+@interface __PhoneAnimationSpecifierViewControllerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

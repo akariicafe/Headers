@@ -1,0 +1,3 @@
+@interface __SUiBooksOverrideWebViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CSMagSafeAccessoryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

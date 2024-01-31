@@ -1,0 +1,3 @@
+@interface _TtC21MentalHealthAppPluginP33_2B6DBDF3269262B98BCF62A93AB9CDE119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

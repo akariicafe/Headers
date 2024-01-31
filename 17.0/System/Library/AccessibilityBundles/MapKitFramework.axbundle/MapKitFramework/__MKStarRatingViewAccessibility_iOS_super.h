@@ -1,0 +1,3 @@
+@interface __MKStarRatingViewAccessibility_iOS_super : UIAccessibilitySafeCategory
+
+@end

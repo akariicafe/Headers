@@ -1,0 +1,3 @@
+@interface __WDProfileTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBHProxiedApplicationPlaceholderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

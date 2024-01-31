@@ -1,0 +1,3 @@
+@interface __UIButtonAccessibility__AnnotationKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

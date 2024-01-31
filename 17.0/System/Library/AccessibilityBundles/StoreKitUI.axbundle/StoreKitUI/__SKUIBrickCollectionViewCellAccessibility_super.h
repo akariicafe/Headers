@@ -1,0 +1,3 @@
+@interface __SKUIBrickCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

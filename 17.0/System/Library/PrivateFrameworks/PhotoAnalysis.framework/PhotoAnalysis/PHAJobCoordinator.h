@@ -1,0 +1,82 @@
+@class PHAActivityGovernor, PHAWorkerWarmer, NSDictionary, PHAJobGenerator, PHAJobConstraintsObserver, NSObject, NSMutableArray, NSString, PHAManager, NSMutableSet, PHAJobConstraints, PHAWorkerHealthMonitor, PHAWorkerJob, PHAJobCoalescer;
+@protocol PHAJobCoordinatorDelegate, OS_dispatch_source, OS_dispatch_queue, OS_os_transaction;
+
+@interface PHAJobCoordinator : NSObject <PHAJobCoalescerDelegate, PHAJobConstraintsObserverDelegate, PHAWorkerJobDelegate, PHAActivityGovernorDelegate, PHAServiceOperationHandling> {
+    _Atomic int _pendingAsyncTasksCount;
+    _Atomic unsigned long long _processingQOS;
+    NSDictionary *_cachedWorkersByType;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _workersByTypeLock;
+}
+
+@property (readonly, nonatomic) PHAJobCoalescer *jobCoalescer;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) NSObject<OS_dispatch_source> *maintenanceTimer;
+@property (nonatomic) BOOL newConstraintsPending;
+@property (nonatomic) BOOL shouldIgnoreConstraintChanges;
+@property (readonly, nonatomic) PHAWorkerHealthMonitor *healthMonitor;
+@property (readonly, nonatomic) PHAActivityGovernor *activityGovernor;
+@property (readonly, nonatomic) PHAJobGenerator *jobGenerator;
+@property (weak, nonatomic) PHAManager *manager;
+@property (retain, nonatomic) PHAWorkerJob *currentBackgroundJob;
+@property (retain, nonatomic) NSObject<OS_os_transaction> *runningJobTransaction;
+@property (retain, nonatomic) NSMutableSet *workerTypesServicedForUserFG;
+@property (retain, nonatomic) NSObject<OS_os_transaction> *foregroundTransaction;
+@property (nonatomic) BOOL activityGovernorOverride;
+@property (readonly, nonatomic) NSDictionary *workersByType;
+@property (weak, nonatomic) id<PHAJobCoordinatorDelegate> delegate;
+@property (readonly, nonatomic) PHAJobConstraintsObserver *constraintsObserver;
+@property (nonatomic) double maxIntervalSinceLastJobReport;
+@property (retain, nonatomic) PHAWorkerJob *currentForegroundJob;
+@property (readonly, nonatomic) NSMutableArray *waitingForegroundJobs;
+@property (readonly, copy) PHAJobConstraints *currentConstraints;
+@property (readonly, nonatomic, getter=isQuiescent) BOOL quiescent;
+@property (readonly, nonatomic) PHAWorkerWarmer *warmer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)photoLibrary;
+- (id)statusAsDictionary;
+- (void)shutdown;
+- (void)operationDidFinish:(id)a0;
+- (void)addWorker:(id)a0;
+- (void)dealloc;
+- (void)governorDidRevokeBackgroundAccess:(id)a0;
+- (void)setActivityGovernorOverride:(BOOL)a0;
+- (void)handleOperation:(id)a0;
+- (void)governorDidGrantBackgroundAccess:(id)a0;
+- (void)_inq_stopJobsAfterConstraintOrActivityChange;
+- (void)jobCoalescer:(id)a0 didProduceJob:(id)a1;
+- (void)_inq_reconsiderWantsFGActivityBasedOnConstraints:(id)a0;
+- (id)_nextAdditionalJobForWorkerTypeObj:(id)a0 scenario:(unsigned long long)a1;
+- (BOOL)_inq_isQuiescent;
+- (BOOL)activityGovernorOverride;
+- (void)jobConstraintsObserver:(id)a0 constraintsDidChange:(id)a1 mask:(id)a2 completion:(id /* block */)a3;
+- (void)_installMaintenanceTimer;
+- (void)enforceTimeouts;
+- (void)_inq_enqueueForegroundJob:(id)a0;
+- (id)_defaultWorkersByType;
+- (void)enqueueForegroundJob:(id)a0;
+- (void)_inq_handleNoMoreJobsExpected;
+- (id)initWithManager:(id)a0;
+- (id)initWithManager:(id)a0 initialConstraints:(id)a1 additionalWorkersByType:(id)a2;
+- (void)governorDidGrantForegroundAccess:(id)a0;
+- (void)_inq_enforceTimeoutForJob:(id)a0;
+- (id)_inq_nextForegroundJobCanRunAutomatic:(BOOL)a0 canRunUserFG:(BOOL)a1 canRunImmediate:(BOOL)a2;
+- (void).cxx_destruct;
+- (void)_dispatchTransactionAsyncWithName:(const char *)a0 block:(id /* block */)a1;
+- (BOOL)validateOperation:(id)a0 forConnection:(id)a1;
+- (id)_inq_runningJobs;
+- (void)_inq_stopJobDueToConstraintOrActivityChange:(id)a0;
+- (void)setCurrentConstraints:(id)a0;
+- (id)_workerForJob:(id)a0;
+- (void)_inq_launchJob:(id)a0;
+- (void)governorDidRevokeForegroundAccess:(id)a0;
+- (void)_scheduleNextJob;
+- (void)didFinishJob:(id)a0;
+- (void)_inq_timeoutJob:(id)a0;
+- (void)processJobs;
+- (void)_inq_handleJobFinished:(id)a0;
+
+@end

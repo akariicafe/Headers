@@ -1,0 +1,3 @@
+@interface __PSSoftwareUpdateTitleCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

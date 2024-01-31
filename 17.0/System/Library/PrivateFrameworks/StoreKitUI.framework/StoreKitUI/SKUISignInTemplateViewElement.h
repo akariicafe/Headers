@@ -1,0 +1,3 @@
+@interface SKUISignInTemplateViewElement : SKUIViewElement
+
+@end

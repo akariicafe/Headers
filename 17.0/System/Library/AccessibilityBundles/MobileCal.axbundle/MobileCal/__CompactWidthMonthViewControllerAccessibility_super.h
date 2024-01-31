@@ -1,0 +1,3 @@
+@interface __CompactWidthMonthViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

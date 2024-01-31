@@ -1,0 +1,3 @@
+@interface __HKMedicalIDEditorHeightCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

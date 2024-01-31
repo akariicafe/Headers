@@ -1,0 +1,3 @@
+@interface __PHHandsetDialerDeleteButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

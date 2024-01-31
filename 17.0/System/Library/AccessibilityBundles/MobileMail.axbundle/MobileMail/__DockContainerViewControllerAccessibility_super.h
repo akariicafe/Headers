@@ -1,0 +1,3 @@
+@interface __DockContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

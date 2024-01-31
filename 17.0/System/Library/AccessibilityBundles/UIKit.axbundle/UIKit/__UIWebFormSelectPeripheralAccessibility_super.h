@@ -1,0 +1,3 @@
+@interface __UIWebFormSelectPeripheralAccessibility_super : UIAccessibilitySafeCategory
+
+@end

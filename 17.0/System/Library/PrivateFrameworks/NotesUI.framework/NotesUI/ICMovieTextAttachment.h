@@ -1,0 +1,3 @@
+@interface ICMovieTextAttachment : ICTextAttachment
+
+@end

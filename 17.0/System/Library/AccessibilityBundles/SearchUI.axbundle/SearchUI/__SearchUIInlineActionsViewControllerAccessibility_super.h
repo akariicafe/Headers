@@ -1,0 +1,3 @@
+@interface __SearchUIInlineActionsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

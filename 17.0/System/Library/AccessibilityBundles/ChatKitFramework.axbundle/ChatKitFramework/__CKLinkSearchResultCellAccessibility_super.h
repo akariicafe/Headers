@@ -1,0 +1,3 @@
+@interface __CKLinkSearchResultCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

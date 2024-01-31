@@ -1,0 +1,3 @@
+@interface __tvOS_AVUnifiedPlayerInfoPanelDescriptionButton_super : UIAccessibilitySafeCategory
+
+@end

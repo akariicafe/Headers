@@ -1,0 +1,3 @@
+@interface __NonSelectableCollectionViewListCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.HomeManagerSyncInProgressResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

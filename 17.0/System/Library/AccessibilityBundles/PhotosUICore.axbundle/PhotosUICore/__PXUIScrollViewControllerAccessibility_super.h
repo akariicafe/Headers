@@ -1,0 +1,3 @@
+@interface __PXUIScrollViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

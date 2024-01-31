@@ -1,0 +1,3 @@
+@interface __PKDrawingPaletteInputAssistantViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

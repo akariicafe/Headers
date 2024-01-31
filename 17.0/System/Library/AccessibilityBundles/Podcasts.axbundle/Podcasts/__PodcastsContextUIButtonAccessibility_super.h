@@ -1,0 +1,3 @@
+@interface __PodcastsContextUIButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

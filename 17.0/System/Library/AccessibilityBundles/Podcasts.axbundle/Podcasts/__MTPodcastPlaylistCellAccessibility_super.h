@@ -1,0 +1,3 @@
+@interface __MTPodcastPlaylistCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBElasticHUDViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

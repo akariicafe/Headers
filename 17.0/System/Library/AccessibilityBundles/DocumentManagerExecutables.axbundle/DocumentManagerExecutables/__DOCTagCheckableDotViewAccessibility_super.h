@@ -1,0 +1,3 @@
+@interface __DOCTagCheckableDotViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CIDVRGBCameraShutterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface DMFFetchInstalledProvisioningProfilesResultObject : DMFFetchProvisioningProfilesResultObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIDatePickerWeekMonthDayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

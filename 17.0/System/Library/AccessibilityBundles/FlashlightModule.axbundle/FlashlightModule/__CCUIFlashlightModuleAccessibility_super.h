@@ -1,0 +1,3 @@
+@interface __CCUIFlashlightModuleAccessibility_super : UIAccessibilitySafeCategory
+
+@end

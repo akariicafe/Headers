@@ -1,0 +1,3 @@
+@interface __CKPinnedConversationCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

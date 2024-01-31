@@ -1,0 +1,3 @@
+@interface __SUUIReviewListTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKTranscriptCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

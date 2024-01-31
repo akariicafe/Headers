@@ -1,0 +1,3 @@
+@interface __DefaultHeaderCollectionReusableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

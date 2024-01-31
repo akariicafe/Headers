@@ -1,0 +1,29 @@
+@class NUImageGeometry, NSMutableArray, NSString;
+@protocol NUTextureImage, NUPurgeableTextureImage;
+
+@interface NUTiledImageLayer : CALayer <CALayerDelegate>
+
+@property (retain) id<NUPurgeableTextureImage> _image;
+@property (retain) NUImageGeometry *_geometry;
+@property (retain) NSMutableArray *_tileLayers;
+@property (retain) id<NUTextureImage> image;
+@property (retain) NUImageGeometry *geometry;
+@property (readonly, nonatomic) BOOL nu_contentsAreFlipped;
+@property (retain) struct CGColor { } *debugColor;
+@property (nonatomic) struct { long long x; long long y; } validRegionInsets;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)defaultActionForKey:(id)a0;
+
+- (id)init;
+- (void)dealloc;
+- (id)actionForLayer:(id)a0 forKey:(id)a1;
+- (id)snapshotImage;
+- (void)layoutSublayers;
+- (void).cxx_destruct;
+- (void)_updateSublayers;
+
+@end

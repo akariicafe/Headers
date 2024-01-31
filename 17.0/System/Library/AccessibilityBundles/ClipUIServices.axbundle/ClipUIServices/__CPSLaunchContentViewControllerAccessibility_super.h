@@ -1,0 +1,3 @@
+@interface __CPSLaunchContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUISegmentedTableHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

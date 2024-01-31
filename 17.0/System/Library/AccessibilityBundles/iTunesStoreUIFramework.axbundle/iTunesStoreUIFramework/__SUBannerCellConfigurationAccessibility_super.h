@@ -1,0 +1,3 @@
+@interface __SUBannerCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __EKTextViewWithLabelTextMetricsAccessibility_super : UIAccessibilitySafeCategory
+
+@end

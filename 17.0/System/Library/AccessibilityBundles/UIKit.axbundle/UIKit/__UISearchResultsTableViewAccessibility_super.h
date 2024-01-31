@@ -1,0 +1,3 @@
+@interface __UISearchResultsTableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

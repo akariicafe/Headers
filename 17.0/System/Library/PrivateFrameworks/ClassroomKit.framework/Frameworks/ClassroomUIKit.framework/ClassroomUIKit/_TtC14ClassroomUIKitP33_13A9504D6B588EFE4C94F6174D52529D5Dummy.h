@@ -1,0 +1,3 @@
+@interface _TtC14ClassroomUIKitP33_13A9504D6B588EFE4C94F6174D52529D5Dummy : _TtCs12_SwiftObject
+
+@end

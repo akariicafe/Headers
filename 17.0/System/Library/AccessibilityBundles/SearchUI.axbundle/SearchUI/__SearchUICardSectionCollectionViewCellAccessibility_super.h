@@ -1,0 +1,3 @@
+@interface __SearchUICardSectionCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

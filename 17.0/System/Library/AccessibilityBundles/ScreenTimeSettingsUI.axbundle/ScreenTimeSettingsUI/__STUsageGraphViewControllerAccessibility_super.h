@@ -1,0 +1,3 @@
+@interface __STUsageGraphViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKNicknameBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

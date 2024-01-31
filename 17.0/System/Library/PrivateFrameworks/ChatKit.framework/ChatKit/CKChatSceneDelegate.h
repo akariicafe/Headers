@@ -1,0 +1,70 @@
+@class CKSendMenuPresentation, NSString, CKInteractionNotificationView, CKCoreChatController, CKNavigationController, CKDetailsNavigationController;
+
+@interface CKChatSceneDelegate : CKSceneDelegate <CKChatControllerDelegate, CKInteractionNotificationViewDelegate, CKChatControllerSendMenuDelegate, CKSendMenuPresentationDelegate>
+
+@property (retain, nonatomic) CKCoreChatController *chatController;
+@property (retain, nonatomic) CKInteractionNotificationView *dismissOnInteractionView;
+@property (retain, nonatomic) CKSendMenuPresentation *sendMenuPresentation;
+@property (weak, nonatomic) CKDetailsNavigationController *detailsNavigationController;
+@property (retain, nonatomic) CKNavigationController *navigationController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)scene:(id)a0 continueUserActivity:(id)a1;
+- (void)scene:(id)a0 openURLContexts:(id)a1;
+- (id)init;
+- (void)sceneDidDisconnect:(id)a0;
+- (void)sceneDidEnterBackground:(id)a0;
+- (void)scene:(id)a0 willConnectToSession:(id)a1 options:(id)a2;
+- (void)sceneWillEnterForeground:(id)a0;
+- (id)stateRestorationActivityForScene:(id)a0;
+- (void).cxx_destruct;
+- (id)conversation;
+- (long long)type;
+- (void)_scene:(id)a0 openItemProviders:(id)a1;
+- (void)setupCKDismissOnInteractionView;
+- (void)__updateAppSnapshot;
+- (void)_chatItemsDidChange:(id)a0;
+- (void)_handleChatDisplayNameChangedNotification:(id)a0;
+- (void)_handleMovedMessagesInChatsWithGUIDsToRecentlyDeletedNotification:(id)a0;
+- (void)_handleRegistryWillUnregisterChatNotification:(id)a0;
+- (void)_updateAppSnapshot;
+- (id)activeSendMenuPresentationForChatController:(id)a0;
+- (id)canActivatePredicate;
+- (void)chatController:(id)a0 didDetachDetailsNavigationController:(id)a1;
+- (void)chatController:(id)a0 didFinishDismissAnimationForSendMenuViewController:(id)a1;
+- (void)chatController:(id)a0 didReportSpamForConversation:(id)a1;
+- (void)chatController:(id)a0 didSendCompositionInConversation:(id)a1;
+- (void)chatController:(id)a0 forwardComposition:(id)a1;
+- (void)chatController:(id)a0 requestDeleteJunkConversation:(id)a1;
+- (void)chatController:(id)a0 requestPresentSendMenu:(id)a1 withPresentationContext:(id)a2 completion:(id /* block */)a3;
+- (void)chatController:(id)a0 requestRecoverJunkConversation:(id)a1;
+- (void)chatController:(id)a0 willSendComposition:(id)a1 inConversation:(id)a2;
+- (void)chatControllerDidChangeDeferringSystemNavigationPopGestureForPlusButton:(id)a0;
+- (void)didDismissSendMenu:(id)a0 usingPresentationContext:(id)a1;
+- (void)dismissAndReopenDetailsNavigationController;
+- (void)dismissDetailsNavigationController;
+- (void)doneButtonPressedForChatController:(id)a0;
+- (BOOL)hasDetailsNavigationController;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })initialSystemMinimumLayoutMarginsForChatController:(id)a0;
+- (void)interactionNotificationViewWasTapped:(id)a0;
+- (BOOL)isDetailsNavigationControllerDetached;
+- (void)loadAndShowConversationWithMessageGUID:(id)a0 withInlineReplyOverlay:(BOOL)a1;
+- (id)newInputSnapshotView;
+- (id)prefersToActivatePredicate;
+- (void)presentDetailsNavigationController:(id)a0;
+- (void)prewarmCameraIfNecessaryForChatController:(id)a0;
+- (void)requestDismissKeyboardSnapshotForSendMenu;
+- (void)requestShowKeyboardSnapshotForSendMenu;
+- (void)sendMenuPresentationWillDismiss:(id)a0;
+- (BOOL)shouldConfigureChatControllerAsCollapsed;
+- (void)showConversation:(id)a0;
+- (void)showConversation:(id)a0 scrollToMessage:(id)a1 withInlineReplyOverlay:(BOOL)a2;
+- (void)showConversationAndMessageForChatGUID:(id)a0 messageGUID:(id)a1 withInlineReplyOverlay:(BOOL)a2 animate:(BOOL)a3;
+- (void)tearDownCKDismissOnInteractionView;
+- (id)viewToSizeEffectPreviewOverlay;
+- (void)windowSceneDidBecomeVisible:(id)a0;
+
+@end

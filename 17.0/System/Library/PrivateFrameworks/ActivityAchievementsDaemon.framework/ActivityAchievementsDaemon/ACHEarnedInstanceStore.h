@@ -1,0 +1,70 @@
+@class ACHDatabaseAssertionClient, ACHEarnedInstanceEntityWrapper, NSHashTable, NSArray, ACHEarnedInstanceDuplicateUtility, NSString, HDProfile, NSObject, ACHAwardsClient, NSMutableArray, NSCache;
+@protocol OS_dispatch_queue;
+
+@interface ACHEarnedInstanceStore : NSObject <ACHEarnedInstanceEntitySyncedEarnedInstancesObserver, ACHEarnedInstanceEntityJournalEntryAppliedObserver>
+
+@property (retain, nonatomic) ACHAwardsClient *client;
+@property (retain, nonatomic) ACHDatabaseAssertionClient *assertionClient;
+@property (weak, nonatomic) HDProfile *profile;
+@property (retain, nonatomic) ACHEarnedInstanceEntityWrapper *entityWrapper;
+@property (retain, nonatomic) ACHEarnedInstanceDuplicateUtility *duplicateUtility;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *earnedInstanceQueue;
+@property (retain, nonatomic) NSMutableArray *allEarnedInstances;
+@property (nonatomic) BOOL initialEarnedInstanceFetchComplete;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *observerQueue;
+@property (retain, nonatomic) NSHashTable *observers;
+@property (nonatomic) unsigned char device;
+@property (nonatomic) int syncedEarnedInstancesToken;
+@property (nonatomic) BOOL needsUpdateWhenProtectedDataAvailable;
+@property (retain, nonatomic) NSCache *earnedInstancesForTemplateUniqueNameCache;
+@property (retain, nonatomic) NSCache *earnedInstancesForEarnedDateComponentsCache;
+@property (readonly, nonatomic) BOOL isUsingNewAwardingSystem;
+@property (readonly, nonatomic) NSArray *earnedInstances;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)mostRecentEarnedInstanceForTemplateUniqueName:(id)a0 error:(id *)a1;
+- (id)_client_earnedInstances;
+- (void)_notifyObserversOfRemovedEarnedInstances:(id)a0;
+- (BOOL)removeEarnedInstances:(id)a0 error:(id *)a1;
+- (BOOL)_daemon_removeAllEarnedInstancesWithError:(id *)a0;
+- (id)earnedInstancesForTemplateUniqueName:(id)a0 error:(id *)a1;
+- (BOOL)earnedInstanceEntityDidReceiveSyncedEarnedInstances:(id)a0 provenance:(long long)a1;
+- (void)removeObserver:(id)a0;
+- (BOOL)removeAllEarnedInstancesWithError:(id *)a0;
+- (void)_queue_removeEarnedInstanceFromInMemoryStore:(id)a0;
+- (BOOL)_queue_client_removeEarnedInstances:(id)a0 error:(id *)a1;
+- (id)_queue_client_addEarnedInstancesWithSingleTemplate:(id)a0 provenance:(long long)a1 error:(id *)a2;
+- (void)_notifyObserversOfAddedEarnedInstances:(id)a0;
+- (id)initWithProfile:(id)a0 earnedInstanceEntityWrapper:(id)a1 earnedInstanceDuplicateUtility:(id)a2 device:(unsigned char)a3;
+- (id)initWithClient:(id)a0 assertionClient:(id)a1 earnedInstanceDuplicateUtility:(id)a2 device:(unsigned char)a3;
+- (BOOL)addEarnedInstances:(id)a0 error:(id *)a1;
+- (void)_notifyInitialFetchComplete;
+- (BOOL)addEarnedInstances:(id)a0 databaseContext:(id)a1 error:(id *)a2;
+- (BOOL)_queue_daemon_removeEarnedInstances:(id)a0 error:(id *)a1;
+- (BOOL)_queue_daemon_loadAllEarnedInstancesFromDatabaseIfNecessary;
+- (id)countOfEarnedInstancesForTemplateUniqueNames:(id)a0 error:(id *)a1;
+- (void)earnedInstanceEntityDidApplyJournalEntriesInsertedEarnedInstances:(id)a0 removedEarnedInstances:(id)a1;
+- (void)_notifyObserversOfSync;
+- (id)mostRecentEarnedInstancesForTemplateUniqueNames:(id)a0 error:(id *)a1;
+- (id)_queue_earnedInstancesArray;
+- (void)_queue_purgeCaches;
+- (BOOL)_queue_addEarnedInstances:(id)a0 provenance:(long long)a1 databaseContext:(id)a2 triggerSync:(BOOL)a3 error:(id *)a4;
+- (id)_client_earnedInstancesForTemplateUniqueName:(id)a0 error:(id *)a1;
+- (id)earnedInstancesForEarnedDateComponents:(id)a0 error:(id *)a1;
+- (void).cxx_destruct;
+- (id)_queue_earnedInstancesFilteredForDuplicates:(id)a0;
+- (BOOL)_client_removeAllEarnedInstancesWithError:(id *)a0;
+- (unsigned long long)countOfEarnedInstancesForTemplateUniqueName:(id)a0 error:(id *)a1;
+- (id)_queue_orphanedEarnedInstancesWithFetchedInstances:(id)a0;
+- (id)_daemon_earnedInstancesForTemplateUniqueName:(id)a0;
+- (BOOL)loadAllEarnedInstancesFromDatabaseIfNecessary;
+- (id)_queue_daemon_addEarnedInstancesWithSingleTemplate:(id)a0 provenance:(long long)a1 databaseContext:(id)a2 error:(id *)a3;
+- (void)_queue_appendOrInsertEarnedInstanceToInMemoryStore:(id)a0;
+- (void)addObserver:(id)a0;
+- (unsigned long long)countOfEarnedInstancesForTemplateUniqueName:(id)a0 inDateComponentInterval:(id)a1 withCalendar:(id)a2 error:(id *)a3;
+- (id)_daemon_earnedInstances;
+
+@end

@@ -1,0 +1,3 @@
+@interface __CFXFilterPickerCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

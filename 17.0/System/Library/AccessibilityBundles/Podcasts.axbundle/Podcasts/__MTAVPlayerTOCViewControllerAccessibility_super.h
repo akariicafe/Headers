@@ -1,0 +1,3 @@
+@interface __MTAVPlayerTOCViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface CCApplyBlurMapArgs : ApplyBlurMapArgs
+
+@end

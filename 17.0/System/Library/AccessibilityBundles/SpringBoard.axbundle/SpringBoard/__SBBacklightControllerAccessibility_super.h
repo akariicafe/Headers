@@ -1,0 +1,3 @@
+@interface __SBBacklightControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

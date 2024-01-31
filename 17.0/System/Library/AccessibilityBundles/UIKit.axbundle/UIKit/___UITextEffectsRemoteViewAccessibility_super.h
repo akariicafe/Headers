@@ -1,0 +1,3 @@
+@interface ___UITextEffectsRemoteViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

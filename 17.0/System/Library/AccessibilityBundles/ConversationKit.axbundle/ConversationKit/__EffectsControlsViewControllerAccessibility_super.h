@@ -1,0 +1,3 @@
+@interface __EffectsControlsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

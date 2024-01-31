@@ -1,0 +1,9 @@
+@interface SKUIStackListCollectionViewCellAccessibility : __SKUIStackListCollectionViewCellAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (id)accessibilityLabel;
+
+@end

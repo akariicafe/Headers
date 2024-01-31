@@ -1,0 +1,3 @@
+@interface __PosterGalleryAffordanceCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

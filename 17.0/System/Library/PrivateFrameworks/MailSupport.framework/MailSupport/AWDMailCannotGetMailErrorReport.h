@@ -1,0 +1,35 @@
+@class NSString, AWDMailError;
+
+@interface AWDMailCannotGetMailErrorReport : PBCodable <NSCopying> {
+    struct { unsigned char timestamp : 1; unsigned char protocol : 1; unsigned char provider : 1; } _has;
+}
+
+@property (nonatomic) BOOL hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (readonly, nonatomic) BOOL hasHostname;
+@property (retain, nonatomic) NSString *hostname;
+@property (nonatomic) BOOL hasProtocol;
+@property (nonatomic) int protocol;
+@property (nonatomic) BOOL hasProvider;
+@property (nonatomic) int provider;
+@property (readonly, nonatomic) BOOL hasMailError;
+@property (retain, nonatomic) AWDMailError *mailError;
+@property (readonly, nonatomic) BOOL hasServerInfo;
+@property (retain, nonatomic) NSString *serverInfo;
+
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (int)StringAsProtocol:(id)a0;
+- (int)StringAsProvider:(id)a0;
+- (id)protocolAsString:(int)a0;
+- (id)providerAsString:(int)a0;
+
+@end

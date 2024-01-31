@@ -1,0 +1,3 @@
+@interface __NSSingleLineTypesetterAccessibility__UIKit__UIFoundation_super : UIAccessibilitySafeCategory
+
+@end

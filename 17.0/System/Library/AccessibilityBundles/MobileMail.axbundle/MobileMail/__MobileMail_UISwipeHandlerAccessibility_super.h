@@ -1,0 +1,3 @@
+@interface __MobileMail_UISwipeHandlerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

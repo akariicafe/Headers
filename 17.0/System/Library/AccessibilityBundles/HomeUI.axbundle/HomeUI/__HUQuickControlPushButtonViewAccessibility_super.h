@@ -1,0 +1,3 @@
+@interface __HUQuickControlPushButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

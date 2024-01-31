@@ -1,0 +1,3 @@
+@interface __AXRemoteElementAccessibility__PosterKit__AXRuntime_super : UIAccessibilitySafeCategory
+
+@end

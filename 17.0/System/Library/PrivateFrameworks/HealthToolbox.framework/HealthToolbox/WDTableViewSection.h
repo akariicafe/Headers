@@ -1,0 +1,31 @@
+@protocol WDTableViewSectionDelegate;
+
+@interface WDTableViewSection : NSObject
+
+@property (readonly, weak, nonatomic) id<WDTableViewSectionDelegate> delegate;
+@property (readonly, nonatomic) unsigned long long section;
+
+- (unsigned long long)numberOfRows;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)applicationWillEnterForeground;
+- (void)activate;
+- (void).cxx_destruct;
+- (void)applicationDidEnterBackground;
+- (void)deactivate;
+- (void)reloadAnimated:(BOOL)a0;
+- (double)estimatedHeightForRow:(unsigned long long)a0;
+- (double)heightForRow:(unsigned long long)a0;
+- (id)titleForHeader;
+- (double)heightForHeader;
+- (double)heightForFooter;
+- (void)accessoryButtonTappedForRow:(unsigned long long)a0;
+- (id)cellForRow:(unsigned long long)a0 table:(id)a1;
+- (void)didSelectRow:(unsigned long long)a0 representedByCell:(id)a1 withCompletion:(id /* block */)a2;
+- (id)initWithDelegate:(id)a0 atSection:(unsigned long long)a1;
+- (void)setUpWithTableViewController:(id)a0;
+- (id)titleForFooter;
+- (id)viewForFooter:(id)a0;
+- (id)viewForHeader:(id)a0;
+- (id)willSelectRow:(id)a0;
+
+@end

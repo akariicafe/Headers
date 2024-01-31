@@ -1,0 +1,3 @@
+@interface __CSLUILayoutClockViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

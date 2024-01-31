@@ -1,0 +1,3 @@
+@interface __UGCRatingCategoryCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

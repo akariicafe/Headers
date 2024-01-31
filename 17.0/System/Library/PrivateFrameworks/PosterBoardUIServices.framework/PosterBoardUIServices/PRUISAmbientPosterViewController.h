@@ -1,0 +1,103 @@
+@class NSUUID, NSString, NSArray, UIView, FBScene, PRSPosterConfiguration, UIImageView, PRUISAmbientPosterSceneLayerHostView, PRUISPosterSnapshotController;
+@protocol UITraitChangeRegistration, BSInvalidatable, PRUISAmbientPosterViewControllerDelegate, UIScenePresenter, PRUISSessionReconnectPolicy;
+
+@interface PRUISAmbientPosterViewController : UIViewController <FBSceneDelegate> {
+    PRSPosterConfiguration *_configuration;
+    FBScene *_scene;
+    id<UIScenePresenter> _scenePresenter;
+    UIView *_sceneView;
+    NSUUID *_sceneExtensionInstanceIdentifier;
+    id<PRUISSessionReconnectPolicy> _reconnectPolicy;
+    id<BSInvalidatable> _snapshotControllerKeepaliveAssertion;
+    unsigned long long _loadedPosterSnapshotLayers;
+    UIView *_snapshotContainerView;
+    UIImageView *_snapshotBackgroundLayerView;
+    UIImageView *_snapshotForegroundLayerView;
+    UIImageView *_snapshotFloatingLayerView;
+    PRUISAmbientPosterSceneLayerHostView *_backgroundSceneLayerView;
+    PRUISAmbientPosterSceneLayerHostView *_foregroundSceneLayerView;
+    PRUISAmbientPosterSceneLayerHostView *_floatingSceneLayerView;
+    double _backgroundOpacity;
+    double _foregroundOpacity;
+    double _floatingOpacity;
+    id<UITraitChangeRegistration> _ambientPresentationTraitChangeRegistration;
+    long long _pendingScreenWakeCount;
+    BOOL _clientWantsScreenWakeEvents;
+    BOOL _clientEverWantedScreenWakeEvents;
+}
+
+@property (class, readonly, nonatomic) NSArray *suggestedInstanceIdentifiers;
+
+@property (nonatomic) unsigned long long visibility;
+@property (nonatomic) unsigned long long presentationMode;
+@property (nonatomic) unsigned long long visibleSnapshotLayers;
+@property (retain, nonatomic) PRUISPosterSnapshotController *snapshotController;
+@property (weak, nonatomic) id<PRUISAmbientPosterViewControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)defaultSnapshotCacheURLInCurrentContainer:(BOOL)a0;
++ (id)defaultSnapshotCacheURL;
+
+- (BOOL)updateConfiguration:(id)a0;
+- (void)scene:(id)a0 clientDidConnect:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)scene:(id)a0 didUpdateClientSettingsWithDiff:(id)a1 oldClientSettings:(id)a2 transitionContext:(id)a3;
+- (void)sceneDidDeactivate:(id)a0 withError:(id)a1;
+- (void)viewDidLoad;
+- (void)invalidate;
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (id)scene:(id)a0 handleActions:(id)a1;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void).cxx_destruct;
+- (void)viewDidMoveToWindow:(id)a0 shouldAppearOrDisappear:(BOOL)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)sceneContentStateDidChange:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)viewIsAppearing:(BOOL)a0;
+- (long long)_currentOrientation;
+- (void)_setupScene;
+- (unsigned long long)_effectivePresentationMode;
+- (void)setOpacity:(double)a0 forLayers:(unsigned long long)a1;
+- (BOOL)_shouldSnapshot;
+- (void)_noteWindowWillRotate:(id)a0;
+- (void)_registerForAmbientPresentationTraitChanges;
+- (void)userTapEventOccurredWithLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_backlightLuminanceTraitDidChange:(id)a0 previousTraitCollection:(id)a1;
+- (id)_currentSnapshotDefinition;
+- (void)_enumerateSnapshotLayerViews:(id /* block */)a0;
+- (void)_fetchSnapshotsWithRequest:(id)a0 animated:(BOOL)a1;
+- (id)_posterProviderForPosterPath:(id)a0;
+- (long long)_renderingModeForVisibility:(unsigned long long)a0;
+- (void)_resetScreenWakeStateForTeardown:(BOOL)a0;
+- (void)_screenDidTurnOff;
+- (void)_screenDidTurnOn;
+- (void)_screenWillTurnOff;
+- (void)_screenWillTurnOn;
+- (void)_setClientWantsScreenWakeEvents:(BOOL)a0;
+- (id)_snapshotBundle:(id)a0 imageForLayer:(unsigned long long)a1;
+- (void)_takeNewSnapshots;
+- (void)_teardownScene;
+- (unsigned long long)_titleAlignmentForInterfaceOrientation:(long long)a0;
+- (void)_updateAmbientPresentationSettingsForSceneSettings:(id)a0;
+- (void)_updateForCurrentPresentationMode;
+- (void)_updateForCurrentVisibility;
+- (void)_updateForSnapshotBundle:(id)a0;
+- (void)_updateSceneLayerPresenters;
+- (void)_updateSceneWithCompletion:(id /* block */)a0;
+- (void)_updateSceneWithCompletion:(id /* block */)a0 window:(id)a1;
+- (void)_updateSceneWithCompletion:(id /* block */)a0 window:(id)a1 orientation:(long long)a2;
+- (void)_updateSeparatedLayerHosting;
+- (void)_updateSnapshotLayerVisibility;
+- (void)_updateSnapshotOpacities;
+- (void)_updateSnapshots;
+- (void)_updateSnapshotsAnimated:(BOOL)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __TPSSingleTipViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

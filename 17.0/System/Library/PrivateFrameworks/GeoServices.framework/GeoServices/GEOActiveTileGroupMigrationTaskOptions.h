@@ -1,0 +1,3 @@
+@interface GEOActiveTileGroupMigrationTaskOptions : NSObject
+
+@end

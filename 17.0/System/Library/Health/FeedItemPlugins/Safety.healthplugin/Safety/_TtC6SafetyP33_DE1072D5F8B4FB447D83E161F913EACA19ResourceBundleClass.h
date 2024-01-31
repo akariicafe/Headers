@@ -1,0 +1,3 @@
+@interface _TtC6SafetyP33_DE1072D5F8B4FB447D83E161F913EACA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

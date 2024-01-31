@@ -1,0 +1,3 @@
+@interface XRXMLIgnoreElementParser : XRXMLElementParser
+
+@end

@@ -1,0 +1,61 @@
+@class NSString, CADisplayLink, NSHashTable, NSDate, NSObject, NSCalendar;
+@protocol OS_dispatch_source;
+
+@interface CLKClockTimer : NSObject {
+    CADisplayLink *_displayLink;
+    NSHashTable *_handlersByUpdateFrequency[5];
+    NSHashTable *_allHandlers;
+    unsigned long long _nextToken;
+    NSDate *_lastNow;
+    long long _lastHour;
+    long long _lastMinute;
+    long long _lastSecond;
+    long long _last15fps;
+    long long _last30fps;
+    long long _last60fps;
+    BOOL _paused;
+    BOOL _isForeground;
+    BOOL _backlightOn;
+    BOOL _permittedToRun;
+    NSDate *_waitTimerScheduledFireTime;
+    NSObject<OS_dispatch_source> *_waitForNextEventTimer;
+    NSCalendar *_calendar;
+}
+
+@property (nonatomic) BOOL ignoreScreenState;
+@property (readonly, nonatomic) NSString *identifier;
+
++ (id)sharedInstance;
++ (id)now;
+
+- (void)_updateDisplayLink;
+- (id)initWithIdentifier:(id)a0;
+- (void)pause;
+- (void)_handleTimePassed;
+- (id)init;
+- (void)_onDisplayLink:(id)a0;
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (void)unpause;
+- (id)startUpdatesWithUpdateFrequency:(long long)a0 withHandler:(id /* block */)a1 identificationLog:(id /* block */)a2;
+- (void)stopUpdatesForToken:(id)a0;
+- (void)setHandler:(id)a0 wantsCommit:(BOOL)a1;
+- (void)_createDisplayLinkIfNeeded;
+- (long long)_minimumPossibleUpdateFrequency;
+- (void)_cancelWaitTimer;
+- (BOOL)_hasHandlers;
+- (void)_maybeClearLastSeenTimeComponents;
+- (id)_nextTokenWithUpdateFrequency:(long long)a0 wantsCommit:(BOOL)a1 wantsHighAccuracy:(BOOL)a2 identificationLog:(id /* block */)a3 handler:(id /* block */)a4;
+- (void)_setDisplayLinkFrameInterval:(long long)a0;
+- (double)_timeUntilNextHighAccuracyEventFromHour:(long long)a0 minute:(long long)a1 second:(long long)a2 nanosecond:(long long)a3;
+- (double)_timeUntilNextHighAccuracyEventFromNow;
+- (void)_updateDisplayLinkWithTimeUntilNextHighAccuracyEvent:(double)a0 withMinimumUpdateFrequency:(long long)a1;
+- (void)_updateIsPermittedToRun;
+- (id)start15fpsUpdatesWithHandler:(id /* block */)a0 identificationLog:(id /* block */)a1;
+- (id)start30fpsUpdatesWithHandler:(id /* block */)a0 identificationLog:(id /* block */)a1;
+- (id)start60fpsUpdatesWithHandler:(id /* block */)a0 identificationLog:(id /* block */)a1;
+- (id)startMinuteUpdatesWithHandler:(id /* block */)a0 identificationLog:(id /* block */)a1;
+- (id)startSecondUpdatesWithHandler:(id /* block */)a0 identificationLog:(id /* block */)a1;
+
+@end

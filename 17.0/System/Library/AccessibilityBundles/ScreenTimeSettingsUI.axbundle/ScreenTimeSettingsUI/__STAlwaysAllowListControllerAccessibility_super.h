@@ -1,0 +1,3 @@
+@interface __STAlwaysAllowListControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

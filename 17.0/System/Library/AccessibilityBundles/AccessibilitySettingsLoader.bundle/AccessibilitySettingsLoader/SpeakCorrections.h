@@ -1,0 +1,29 @@
+@class AVSpeechSynthesizer, NSString, NSDictionary, NSArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SpeakCorrections : NSObject <AVSpeechSynthesizerDelegate> {
+    AVSpeechSynthesizer *_synthesizer;
+    BOOL _correctionCanceled;
+    NSDictionary *_keyboardToLanguage;
+    NSArray *_availableLanguageCodes;
+    NSObject<OS_dispatch_queue> *_speakingQueue;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)enable;
++ (void)disable;
++ (void)initialize;
++ (void)updateStatus;
+
+- (id)init;
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_correctionDisplayed:(id)a0;
+- (void)_speakCorrection:(id)a0;
+- (void)loadUIAccessibilityIfNecessary;
+
+@end

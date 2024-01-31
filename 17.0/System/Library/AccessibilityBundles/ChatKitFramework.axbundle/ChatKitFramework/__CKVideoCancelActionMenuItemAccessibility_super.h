@@ -1,0 +1,3 @@
+@interface __CKVideoCancelActionMenuItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

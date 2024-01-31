@@ -1,0 +1,3 @@
+@interface __CCUIPerformanceTraceModuleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

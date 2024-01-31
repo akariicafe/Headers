@@ -1,0 +1,77 @@
+@class NSString, NSArray, NSOrderedSet, DOCTagEditorTextFieldCell, DOCAddTagView, NSMutableSet, UICollectionView, NSLayoutConstraint, NSMutableOrderedSet, UIBarButtonItem;
+@protocol DOCTagEditorDelegate;
+
+@interface DOCTagEditorViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, DOCAddTagTextFieldDelegate, DOCTagEditorPresenter>
+
+@property (retain, nonatomic) UICollectionView *collectionView;
+@property (retain, nonatomic) DOCAddTagView *addTagTextFieldView;
+@property (retain, nonatomic) DOCTagEditorTextFieldCell *addTagCell;
+@property (readonly, nonatomic) NSLayoutConstraint *collectionViewHeightConstraint;
+@property (nonatomic, getter=isAddingTag) BOOL addingTag;
+@property (readonly, nonatomic) NSOrderedSet *userTags;
+@property (readonly, nonatomic) NSMutableOrderedSet *discoveredTags;
+@property (retain, nonatomic) NSMutableSet *intersectionSelectedTags;
+@property (retain, nonatomic) NSMutableSet *unionSelectedTags;
+@property (nonatomic) BOOL userChangedTags;
+@property (retain, nonatomic) NSString *navigationTitleForTagListOnly;
+@property (retain, nonatomic) NSString *navigationTitleForTagListInInfoPanel;
+@property (retain, nonatomic) NSString *navigationTitleForTagMaker;
+@property (retain, nonatomic) UIBarButtonItem *doneButton;
+@property (retain, nonatomic) UIBarButtonItem *cancelButton;
+@property (nonatomic) BOOL isInfoInPopoverMode;
+@property (nonatomic) BOOL inTagListMode;
+@property (readonly, nonatomic) double maxListPresentationHeight;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) BOOL useCompactColorPicker;
+@property (nonatomic) BOOL delayResizingUntilAppeared;
+@property (weak, nonatomic) id<DOCTagEditorDelegate> delegate;
+@property (retain, nonatomic) NSArray *items;
+
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (BOOL)collectionView:(id)a0 shouldHighlightItemAtIndexPath:(id)a1;
+- (void)loadView;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)doneButtonTapped:(id)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (id)initWithCoder:(id)a0;
+- (void)_updateNavigationItem;
+- (void)cancelButtonTapped:(id)a0;
+- (void)_updateSelection;
+- (id)_tagForIndexPath:(id)a0;
+- (void)doc_commonInit;
+- (void)addTagTextFieldDidBeginEditing:(id)a0;
+- (id)_panelAppearance;
+- (void)_updateMixedSelectionForCell:(id)a0;
+- (void)_updatePreferredContentSize:(BOOL)a0;
+- (void)_updateSelectionForSection:(unsigned long long)a0 withTags:(id)a1;
+- (BOOL)addTagTextField:(id)a0 userDidCreateTagWithName:(id)a1;
+- (void)addTagTextFieldDidChange:(id)a0;
+- (void)addTagTextFieldDidEndEditing:(id)a0;
+- (BOOL)addTagTextFieldShouldEndEditing:(id)a0;
+- (double)bottomEdgeSpacing;
+- (id)cellForIndexPath:(id)a0 dequeueCell:(id /* block */)a1;
+- (void)deselectTag:(id)a0;
+- (void)registerCells:(id)a0;
+- (void)scheduleSetTagsOperationWithTag:(id)a0 adding:(BOOL)a1;
+- (void)selectTag:(id)a0;
+- (void)setSelectedTags:(id)a0;
+- (void)setTagsWithItems:(id)a0;
+- (void)tagRegistryDidUpdate;
+- (double)topEdgeSpacing;
+- (void)updateDiscoveredTags;
+- (void)updateSelectedTags;
+
+@end

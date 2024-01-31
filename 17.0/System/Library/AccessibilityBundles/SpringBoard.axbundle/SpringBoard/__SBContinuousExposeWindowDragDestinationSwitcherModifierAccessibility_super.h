@@ -1,0 +1,3 @@
+@interface __SBContinuousExposeWindowDragDestinationSwitcherModifierAccessibility_super : UIAccessibilitySafeCategory
+
+@end

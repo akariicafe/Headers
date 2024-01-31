@@ -1,0 +1,3 @@
+@interface __HUQuickControlSummaryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

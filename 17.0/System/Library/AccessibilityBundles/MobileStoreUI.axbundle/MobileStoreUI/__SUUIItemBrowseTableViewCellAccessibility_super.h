@@ -1,0 +1,3 @@
+@interface __SUUIItemBrowseTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

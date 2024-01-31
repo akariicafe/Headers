@@ -1,0 +1,3 @@
+@interface __HUQuickControlStepperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

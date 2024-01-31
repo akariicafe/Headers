@@ -1,0 +1,3 @@
+@interface __SWTodayRowOrnamentControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

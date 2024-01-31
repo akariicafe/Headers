@@ -1,0 +1,3 @@
+@interface __SiriUIReusableHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

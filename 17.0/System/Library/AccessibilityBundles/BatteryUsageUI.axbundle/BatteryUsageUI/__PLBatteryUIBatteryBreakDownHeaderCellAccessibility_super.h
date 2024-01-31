@@ -1,0 +1,3 @@
+@interface __PLBatteryUIBatteryBreakDownHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

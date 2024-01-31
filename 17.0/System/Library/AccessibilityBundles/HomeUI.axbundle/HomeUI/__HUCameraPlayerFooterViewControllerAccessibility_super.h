@@ -1,0 +1,3 @@
+@interface __HUCameraPlayerFooterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

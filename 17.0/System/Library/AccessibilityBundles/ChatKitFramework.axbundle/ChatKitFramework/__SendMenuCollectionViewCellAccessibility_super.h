@@ -1,0 +1,3 @@
+@interface __SendMenuCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

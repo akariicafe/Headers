@@ -1,0 +1,3 @@
+@interface __SBFolderContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __RKEntityInteractionAccessibilityWrapperAccessibility_super : UIAccessibilitySafeCategory
+
+@end

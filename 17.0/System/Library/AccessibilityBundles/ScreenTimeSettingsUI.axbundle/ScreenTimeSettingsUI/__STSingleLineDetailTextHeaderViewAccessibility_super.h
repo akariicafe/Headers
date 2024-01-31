@@ -1,0 +1,3 @@
+@interface __STSingleLineDetailTextHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

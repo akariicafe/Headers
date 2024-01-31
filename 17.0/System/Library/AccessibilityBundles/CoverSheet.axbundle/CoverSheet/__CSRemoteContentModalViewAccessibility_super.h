@@ -1,0 +1,3 @@
+@interface __CSRemoteContentModalViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

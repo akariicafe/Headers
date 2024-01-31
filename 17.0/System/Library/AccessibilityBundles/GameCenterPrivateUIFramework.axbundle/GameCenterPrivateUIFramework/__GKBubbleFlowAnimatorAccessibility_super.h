@@ -1,0 +1,3 @@
+@interface __GKBubbleFlowAnimatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

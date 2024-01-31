@@ -1,0 +1,14 @@
+@interface TSDCanvasZoomPinchGestureRecognizer : UIPinchGestureRecognizer {
+    BOOL mZoomTimedOut;
+}
+
+- (void)touchesCancelled:(id)a0 withEvent:(id)a1;
+- (void)reset;
+- (void)touchesBegan:(id)a0 withEvent:(id)a1;
+- (void)touchesEnded:(id)a0 withEvent:(id)a1;
+- (void)touchesMoved:(id)a0 withEvent:(id)a1;
+- (void)p_cancelAfterDelay;
+- (void)p_startCancellationTimer;
+- (void)p_stopCancellationTimer;
+
+@end

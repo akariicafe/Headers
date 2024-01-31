@@ -1,0 +1,3 @@
+@interface __SBHWidgetWrapperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

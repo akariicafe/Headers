@@ -1,0 +1,3 @@
+@interface __DOCProgressIndicatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

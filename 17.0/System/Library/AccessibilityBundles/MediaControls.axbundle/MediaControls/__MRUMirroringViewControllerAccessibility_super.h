@@ -1,0 +1,3 @@
+@interface __MRUMirroringViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CAMDepthEffectSuggestionButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

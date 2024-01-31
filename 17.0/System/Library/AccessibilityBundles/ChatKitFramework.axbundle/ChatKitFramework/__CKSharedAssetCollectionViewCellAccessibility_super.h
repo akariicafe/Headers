@@ -1,0 +1,3 @@
+@interface __CKSharedAssetCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

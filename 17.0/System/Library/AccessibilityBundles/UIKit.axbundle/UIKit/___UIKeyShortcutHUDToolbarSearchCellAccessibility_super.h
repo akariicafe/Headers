@@ -1,0 +1,3 @@
+@interface ___UIKeyShortcutHUDToolbarSearchCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

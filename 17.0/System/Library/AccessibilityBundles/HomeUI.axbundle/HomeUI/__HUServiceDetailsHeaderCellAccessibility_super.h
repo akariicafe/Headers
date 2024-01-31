@@ -1,0 +1,3 @@
+@interface __HUServiceDetailsHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

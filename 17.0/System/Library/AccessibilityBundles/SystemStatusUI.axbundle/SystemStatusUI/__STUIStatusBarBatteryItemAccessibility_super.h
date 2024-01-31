@@ -1,0 +1,3 @@
+@interface __STUIStatusBarBatteryItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

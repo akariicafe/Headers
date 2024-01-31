@@ -1,0 +1,3 @@
+@interface ___UIFocusSystemKeyboardSceneComponentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

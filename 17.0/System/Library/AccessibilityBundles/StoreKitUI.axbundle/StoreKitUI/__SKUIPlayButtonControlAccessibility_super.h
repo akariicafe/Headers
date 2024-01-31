@@ -1,0 +1,3 @@
+@interface __SKUIPlayButtonControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

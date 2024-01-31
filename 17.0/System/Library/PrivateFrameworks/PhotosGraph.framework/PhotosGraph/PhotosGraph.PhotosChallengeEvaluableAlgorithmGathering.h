@@ -1,0 +1,3 @@
+@interface PhotosGraph.PhotosChallengeEvaluableAlgorithmGathering : PhotosGraph.PhotosChallengeEvaluableMeaningAlgorithm
+
+@end

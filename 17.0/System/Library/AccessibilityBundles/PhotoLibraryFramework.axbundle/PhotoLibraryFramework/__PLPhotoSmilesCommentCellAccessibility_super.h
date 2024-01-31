@@ -1,0 +1,3 @@
+@interface __PLPhotoSmilesCommentCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

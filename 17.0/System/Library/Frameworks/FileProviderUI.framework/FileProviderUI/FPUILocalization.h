@@ -1,0 +1,3 @@
+@interface FPUILocalization : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __DNDUIControlCenterModuleAccessibility_super : UIAccessibilitySafeCategory
+
+@end

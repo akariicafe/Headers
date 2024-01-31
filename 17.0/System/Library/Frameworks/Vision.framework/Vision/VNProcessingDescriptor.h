@@ -1,0 +1,3 @@
+@interface VNProcessingDescriptor : VisionCoreProcessingDescriptor
+
+@end

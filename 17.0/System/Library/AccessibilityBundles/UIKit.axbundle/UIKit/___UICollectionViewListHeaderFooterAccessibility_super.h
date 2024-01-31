@@ -1,0 +1,3 @@
+@interface ___UICollectionViewListHeaderFooterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

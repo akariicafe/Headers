@@ -1,0 +1,3 @@
+@interface __UberNavigationBarTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

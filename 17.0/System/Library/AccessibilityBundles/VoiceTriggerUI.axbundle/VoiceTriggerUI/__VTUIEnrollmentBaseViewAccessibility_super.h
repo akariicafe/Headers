@@ -1,0 +1,3 @@
+@interface __VTUIEnrollmentBaseViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CCUIButtonModuleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

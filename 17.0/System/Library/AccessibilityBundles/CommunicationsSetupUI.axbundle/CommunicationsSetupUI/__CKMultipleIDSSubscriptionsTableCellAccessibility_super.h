@@ -1,0 +1,3 @@
+@interface __CKMultipleIDSSubscriptionsTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUItemCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

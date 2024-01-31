@@ -1,0 +1,3 @@
+@interface __VideosUICollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

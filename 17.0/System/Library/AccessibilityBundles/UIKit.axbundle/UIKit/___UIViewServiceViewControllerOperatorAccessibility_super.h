@@ -1,0 +1,3 @@
+@interface ___UIViewServiceViewControllerOperatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

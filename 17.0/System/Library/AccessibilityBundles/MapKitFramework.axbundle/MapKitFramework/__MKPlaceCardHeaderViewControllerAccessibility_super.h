@@ -1,0 +1,3 @@
+@interface __MKPlaceCardHeaderViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

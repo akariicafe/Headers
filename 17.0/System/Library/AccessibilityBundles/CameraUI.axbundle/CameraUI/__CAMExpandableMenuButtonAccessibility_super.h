@@ -1,0 +1,3 @@
+@interface __CAMExpandableMenuButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

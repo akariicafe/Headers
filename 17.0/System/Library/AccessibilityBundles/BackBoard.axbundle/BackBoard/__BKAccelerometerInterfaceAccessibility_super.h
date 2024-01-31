@@ -1,0 +1,3 @@
+@interface __BKAccelerometerInterfaceAccessibility_super : UIAccessibilitySafeCategory
+
+@end

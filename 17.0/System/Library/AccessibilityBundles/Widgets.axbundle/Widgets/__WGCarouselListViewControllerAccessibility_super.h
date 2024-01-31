@@ -1,0 +1,3 @@
+@interface __WGCarouselListViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

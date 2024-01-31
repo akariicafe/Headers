@@ -1,0 +1,3 @@
+@interface __CKLocationAttachmentItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

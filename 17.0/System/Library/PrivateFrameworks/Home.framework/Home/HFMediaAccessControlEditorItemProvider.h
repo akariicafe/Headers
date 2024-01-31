@@ -1,0 +1,17 @@
+@class NSArray, NSMutableDictionary, HFStaticItem, HMHome;
+
+@interface HFMediaAccessControlEditorItemProvider : HFStaticItemProvider
+
+@property (copy, nonatomic) NSArray *accessControlItems;
+@property (copy, nonatomic) HFStaticItem *passwordEnableItem;
+@property (copy, nonatomic) HFStaticItem *passwordItem;
+@property (readonly, nonatomic) NSMutableDictionary *itemForIdentifier;
+@property (readonly, nonatomic) HMHome *home;
+
+- (id)initWithItems:(id)a0;
+- (id)items;
+- (void).cxx_destruct;
+- (id)initWithHome:(id)a0;
+- (id)_buildItems;
+
+@end

@@ -1,0 +1,3 @@
+@interface __UIStatusBarBreadcrumbItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

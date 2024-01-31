@@ -1,0 +1,3 @@
+@interface __MUPhotoTileCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

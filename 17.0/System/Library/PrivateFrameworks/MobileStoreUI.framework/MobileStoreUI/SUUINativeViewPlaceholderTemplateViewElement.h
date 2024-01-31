@@ -1,0 +1,3 @@
+@interface SUUINativeViewPlaceholderTemplateViewElement : SUUIViewElement
+
+@end

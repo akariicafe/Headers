@@ -1,0 +1,3 @@
+@interface __ACSportsPlaySummaryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,93 @@
+@class NSMutableDictionary, NSMapTable, NSDictionary, NSObject, FBScene, NSMutableArray, NSString, NSHashTable, PRPosterConfiguredProperties, PRSServerPosterPath, NSArray, PBFPosterSnapshotRequest, RBSAssertion, NSError;
+@protocol PRPosterExtensionDescribing, PBFRuntimeAssertionProviding, PBFExtensionProviding, OS_dispatch_queue, PBFDisplayContext;
+
+@interface PBFPosterSnapshotter : NSObject <FBSceneDelegate, BSInvalidatable> {
+    FBScene *_scene;
+    NSString *_identifier;
+    BOOL _lock_started;
+    BOOL _lock_finished;
+    BOOL _lock_cleanedUp;
+    BOOL _lock_sceneReady;
+    BOOL _lock_isProcessingReceivedSnapshots;
+    BOOL _lock_didLoadAllFromDisk;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSObject<OS_dispatch_queue> *_backgroundQueue;
+    double _lock_startTime;
+    double _lock_snapshotsRequestedTime;
+    double _lock_endTime;
+    NSHashTable *_lock_observers;
+    NSMutableDictionary *_lock_snapshotsByDefinition;
+    NSMapTable *_lock_snapshotImagesByDefinition;
+    id<PBFDisplayContext> _context;
+    NSMutableArray *_outstandingDefinitionsNeedingSnapshots;
+    unsigned long long _significantEventsCounter;
+    NSString *_previewIdentifier;
+    BOOL _shouldWaitForComplicationRendering;
+    BOOL _complicationRenderingCompleted;
+    BOOL _isCapturingSnapshots;
+    RBSAssertion *_extensionPrewarmRuntimeAssertion;
+}
+
+@property (nonatomic) BOOL readFromPosterPathCacheIfAvailable;
+@property (readonly, nonatomic) BOOL needsToBootupExtension;
+@property (readonly, nonatomic) id<PRPosterExtensionDescribing> extension;
+@property (readonly, nonatomic) id<PBFExtensionProviding> extensionProvider;
+@property (readonly, nonatomic) id<PBFRuntimeAssertionProviding> runtimeAssertionProvider;
+@property (readonly, nonatomic) PRSServerPosterPath *serverPosterPath;
+@property (readonly, nonatomic) PRPosterConfiguredProperties *configuredProperties;
+@property (readonly, nonatomic) NSArray *definitions;
+@property (readonly, nonatomic) PBFPosterSnapshotRequest *request;
+@property (readonly, nonatomic) double elapsedTime;
+@property (readonly, nonatomic) BOOL isFinished;
+@property (readonly, nonatomic) NSError *error;
+@property (readonly, nonatomic) NSDictionary *snapshotsByDefinition;
+@property (readonly, nonatomic) NSDictionary *snapshotImagesByDefinition;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)new;
++ (id)createSnapshotUsingIOSurface:(id)a0 snapshotScale:(double)a1 imageEncoder:(id)a2 error:(out id *)a3;
+
+- (void)_cleanup;
+- (void)scene:(id)a0 didReceiveActions:(id)a1;
+- (id)init;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)_lock_enumerateObservers:(id /* block */)a0;
+- (void)sceneWillDeactivate:(id)a0 withError:(id)a1;
+- (BOOL)start;
+- (void)scene:(id)a0 didUpdateClientSettingsWithDiff:(id)a1 oldClientSettings:(id)a2 transitionContext:(id)a3;
+- (void)_enumerateObservers:(id /* block */)a0;
+- (void)invalidate;
+- (id)extensionWithError:(out id *)a0;
+- (void).cxx_destruct;
+- (void)sceneContentStateDidChange:(id)a0;
+- (void)addObserver:(id)a0;
+- (void)_finishWithError:(id)a0;
+- (BOOL)_hasStarted;
+- (BOOL)_lock_didAccumulateAllSnapshots;
+- (void)_backgroundQueue_createSnapshotsUsingFetchedImagesWithError:(id)a0;
+- (void)_cancelWithErrorCode:(long long)a0 reason:(id)a1;
+- (void)_captureSnapshotWithScene:(id)a0;
+- (id)_encoderForDefinition:(id)a0;
+- (id)_fetchExtensionWithError:(out id *)a0;
+- (BOOL)_isProcessingReceivedSnapshots;
+- (BOOL)_isSceneReady;
+- (BOOL)_lock_isSnapshotPopulatedForDefinition:(id)a0;
+- (BOOL)_lock_populateSnapshotsFromAssetCatalogIfPossible;
+- (BOOL)_lock_populateSnapshotsFromDiskIfPossible;
+- (BOOL)_lock_storeImage:(id)a0 definition:(id)a1 error:(out id *)a2;
+- (void)_main_requestTimedOut;
+- (void)_main_start;
+- (void)_processOutstandingSnapshotDefinitionsWithScene:(id)a0;
+- (long long)_snapshotSettingsDeviceOrientation;
+- (long long)_snapshotSettingsInterfaceOrientation;
+- (BOOL)_wasCleanedUp;
+- (void)cancelWithReason:(id)a0;
+- (BOOL)checkIfSnapshotterIsPreparedToExecute:(out id *)a0;
+- (id)initWithExtensionProvider:(id)a0 contents:(id)a1 definitions:(id)a2 configuredProperties:(id)a3 context:(id)a4 intention:(unsigned long long)a5 previewIdentifier:(id)a6 significantEventsCounter:(unsigned long long)a7 runtimeAssertionProvider:(id)a8;
+- (id)initWithRequest:(id)a0 extensionProvider:(id)a1 runtimeAssertionProvider:(id)a2;
+
+@end

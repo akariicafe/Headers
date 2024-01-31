@@ -1,0 +1,3 @@
+@interface __PreferredMusicGenreCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

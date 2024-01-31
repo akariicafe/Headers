@@ -1,0 +1,3 @@
+@interface __ZoomUI_UIKeyShortcutHUDServiceOverride_super : UIAccessibilitySafeCategory
+
+@end

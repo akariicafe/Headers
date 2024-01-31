@@ -1,0 +1,3 @@
+@interface PUWallpaperNightlySuggestionsPosterConfigurationBrowserViewCell : UITableViewCell
+
+@end

@@ -1,0 +1,3 @@
+@interface __LAUIPhysicalButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

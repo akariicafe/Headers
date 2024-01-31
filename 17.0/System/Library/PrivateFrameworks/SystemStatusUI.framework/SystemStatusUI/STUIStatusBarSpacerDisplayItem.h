@@ -1,0 +1,15 @@
+@class UILayoutGuide, NSArray;
+
+@interface STUIStatusBarSpacerDisplayItem : STUIStatusBarDisplayItem
+
+@property (retain, nonatomic) UILayoutGuide *layoutGuide;
+@property (retain, nonatomic) NSArray *constraints;
+@property (nonatomic) struct CGSize { double width; double height; } size;
+
+- (void)applyUpdate:(id)a0;
+- (id)initWithIdentifier:(id)a0 item:(id)a1;
+- (void)setContainerView:(id)a0;
+- (void).cxx_destruct;
+- (void)_applyConstraintsIfNeeded;
+
+@end

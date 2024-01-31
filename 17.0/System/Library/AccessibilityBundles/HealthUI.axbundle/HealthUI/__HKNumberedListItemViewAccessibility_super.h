@@ -1,0 +1,3 @@
+@interface __HKNumberedListItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

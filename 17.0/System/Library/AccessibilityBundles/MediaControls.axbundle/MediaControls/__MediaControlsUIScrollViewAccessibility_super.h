@@ -1,0 +1,3 @@
+@interface __MediaControlsUIScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

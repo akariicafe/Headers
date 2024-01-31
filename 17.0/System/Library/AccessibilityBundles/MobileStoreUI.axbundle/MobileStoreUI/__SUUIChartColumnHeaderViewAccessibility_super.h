@@ -1,0 +1,3 @@
+@interface __SUUIChartColumnHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

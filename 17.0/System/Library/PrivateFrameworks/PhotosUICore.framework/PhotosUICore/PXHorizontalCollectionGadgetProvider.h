@@ -1,0 +1,38 @@
+@class NSString, NSDictionary, PXGadgetProvider, PXHorizontalCollectionGadget;
+
+@interface PXHorizontalCollectionGadgetProvider : PXGadgetProvider <PXGadgetProviderDelegate, PXHorizontalCollectionGadgetDelegate> {
+    PXHorizontalCollectionGadget *_horizontalGadget;
+    BOOL _hasLoaded;
+    Class _horizontalCollectionGadgetClass;
+}
+
+@property (readonly, copy, nonatomic) NSString *title;
+@property (nonatomic) unsigned long long gadgetType;
+@property (nonatomic) unsigned long long headerStyle;
+@property (nonatomic) long long defaultColumnSpan;
+@property (copy, nonatomic) NSDictionary *columnSpanForTraitCollection;
+@property (nonatomic) BOOL prefersPagingEnabled;
+@property (nonatomic) BOOL isFixedHeight;
+@property (readonly, nonatomic) PXGadgetProvider *contentGadgetProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)initWithIdentifier:(id)a0;
+- (id)init;
+- (unsigned long long)estimatedNumberOfGadgets;
+- (void)generateGadgets;
+- (void).cxx_destruct;
+- (void)loadDataForGadgets;
+- (id)_createHorizontalGadget;
+- (void)_updateHorizontalGadget;
+- (void)horizontalCollectionGadgetDatasourceDidUpdate:(id)a0;
+- (id)initWithContentGadgetProvider:(id)a0 title:(id)a1;
+- (id)initWithContentGadgetProvider:(id)a0 title:(id)a1 horizontalCollectionGadgetClass:(Class)a2;
+- (id)initWithIdentifier:(id)a0 contentGadgetProvider:(id)a1 title:(id)a2 horizontalCollectionGadgetClass:(Class)a3;
+- (void)invalidateGadgets;
+- (void)loadDataForPriority;
+- (void)resetPriorityDate;
+
+@end

@@ -1,0 +1,3 @@
+@interface __MetadataRibbonIconWithLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

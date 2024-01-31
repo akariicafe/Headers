@@ -1,0 +1,3 @@
+@interface ___HKMedicalIDMultilineStringCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

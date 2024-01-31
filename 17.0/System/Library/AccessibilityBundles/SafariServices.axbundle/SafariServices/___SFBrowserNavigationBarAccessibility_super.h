@@ -1,0 +1,3 @@
+@interface ___SFBrowserNavigationBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

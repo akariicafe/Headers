@@ -1,0 +1,3 @@
+@interface ___UIFocusScrollManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

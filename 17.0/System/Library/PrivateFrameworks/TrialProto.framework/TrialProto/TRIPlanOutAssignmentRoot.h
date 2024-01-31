@@ -1,0 +1,3 @@
+@interface TRIPlanOutAssignmentRoot : TRIPBRootObject
+
+@end

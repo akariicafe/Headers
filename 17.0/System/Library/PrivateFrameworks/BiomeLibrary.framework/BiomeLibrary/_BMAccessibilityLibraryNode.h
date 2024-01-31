@@ -1,0 +1,53 @@
+@interface _BMAccessibilityLibraryNode : _BMLibraryNode
+
++ (id)validKeyPaths;
++ (id)identifier;
++ (id)sublibraries;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)ClassicInvert;
++ (id)ColorFilters;
++ (id)ReduceTransparency;
++ (id)SmartInvert;
++ (id)SoundDetection;
++ (id)storeConfigurationForWhitePoint;
++ (id)syncPolicyForReduceTransparency;
++ (id)Contrast;
++ (id)ReduceMotion;
++ (id)VoiceControl;
++ (id)VoiceOver;
++ (id)WhitePoint;
++ (id)Zoom;
++ (id)configurationForClassicInvert;
++ (id)configurationForColorFilters;
++ (id)configurationForContrast;
++ (id)configurationForReduceMotion;
++ (id)configurationForReduceTransparency;
++ (id)configurationForSmartInvert;
++ (id)configurationForSoundDetection;
++ (id)configurationForVoiceControl;
++ (id)configurationForVoiceOver;
++ (id)configurationForWhitePoint;
++ (id)configurationForZoom;
++ (id)storeConfigurationForClassicInvert;
++ (id)storeConfigurationForColorFilters;
++ (id)storeConfigurationForContrast;
++ (id)storeConfigurationForReduceMotion;
++ (id)storeConfigurationForReduceTransparency;
++ (id)storeConfigurationForSmartInvert;
++ (id)storeConfigurationForSoundDetection;
++ (id)storeConfigurationForVoiceControl;
++ (id)storeConfigurationForVoiceOver;
++ (id)storeConfigurationForZoom;
++ (id)syncPolicyForClassicInvert;
++ (id)syncPolicyForColorFilters;
++ (id)syncPolicyForContrast;
++ (id)syncPolicyForReduceMotion;
++ (id)syncPolicyForSmartInvert;
++ (id)syncPolicyForSoundDetection;
++ (id)syncPolicyForVoiceControl;
++ (id)syncPolicyForVoiceOver;
++ (id)syncPolicyForWhitePoint;
++ (id)syncPolicyForZoom;
+
+@end

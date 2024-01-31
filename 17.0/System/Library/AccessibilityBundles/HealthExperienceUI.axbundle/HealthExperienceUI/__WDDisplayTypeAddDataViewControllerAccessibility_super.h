@@ -1,0 +1,3 @@
+@interface __WDDisplayTypeAddDataViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

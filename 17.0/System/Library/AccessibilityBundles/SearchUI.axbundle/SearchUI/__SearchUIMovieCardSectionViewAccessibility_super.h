@@ -1,0 +1,3 @@
+@interface __SearchUIMovieCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

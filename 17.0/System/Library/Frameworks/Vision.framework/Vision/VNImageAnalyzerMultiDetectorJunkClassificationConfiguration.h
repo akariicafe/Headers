@@ -1,0 +1,3 @@
+@interface VNImageAnalyzerMultiDetectorJunkClassificationConfiguration : _VNImageAnalyzerMultiDetectorPostProcessingConfiguration
+
+@end

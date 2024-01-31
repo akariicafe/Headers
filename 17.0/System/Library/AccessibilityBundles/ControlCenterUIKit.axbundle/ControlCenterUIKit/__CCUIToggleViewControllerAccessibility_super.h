@@ -1,0 +1,3 @@
+@interface __CCUIToggleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

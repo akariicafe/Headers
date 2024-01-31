@@ -1,0 +1,3 @@
+@interface __EKEventAttachmentsEditItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

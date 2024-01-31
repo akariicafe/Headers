@@ -1,0 +1,3 @@
+@interface __CAMPhotoFormatStatusIndicatorAccessibility_super : UIAccessibilitySafeCategory
+
+@end

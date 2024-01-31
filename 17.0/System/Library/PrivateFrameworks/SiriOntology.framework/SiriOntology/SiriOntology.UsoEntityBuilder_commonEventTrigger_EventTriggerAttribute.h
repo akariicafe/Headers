@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_commonEventTrigger_EventTriggerAttribute : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

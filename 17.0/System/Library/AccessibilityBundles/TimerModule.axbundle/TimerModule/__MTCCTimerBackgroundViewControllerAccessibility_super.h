@@ -1,0 +1,3 @@
+@interface __MTCCTimerBackgroundViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

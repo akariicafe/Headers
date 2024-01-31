@@ -1,0 +1,3 @@
+@interface __WeatherStackViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

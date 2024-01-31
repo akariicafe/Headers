@@ -1,0 +1,3 @@
+@interface __TPSetPINKeyPadButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

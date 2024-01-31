@@ -1,0 +1,3 @@
+@interface __AccountActionSectionFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

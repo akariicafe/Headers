@@ -1,0 +1,3 @@
+@interface CCSDOFMetadata : SDOFMetadata
+
+@end

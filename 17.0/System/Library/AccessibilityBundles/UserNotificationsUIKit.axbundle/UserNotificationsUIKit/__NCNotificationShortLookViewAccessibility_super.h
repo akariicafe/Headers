@@ -1,0 +1,3 @@
+@interface __NCNotificationShortLookViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

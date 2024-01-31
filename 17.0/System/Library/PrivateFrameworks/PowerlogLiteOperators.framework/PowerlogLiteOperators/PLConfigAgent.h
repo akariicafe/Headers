@@ -1,0 +1,87 @@
+@class PLXPCListenerOperatorComposition, PLCFNotificationOperatorComposition, PLIOKitOperatorComposition;
+
+@interface PLConfigAgent : PLAgent
+
+@property (readonly) PLCFNotificationOperatorComposition *notificationKeyboardClicks;
+@property (readonly) PLCFNotificationOperatorComposition *notificationKeyboardHaptics;
+@property (retain) PLCFNotificationOperatorComposition *semEnabledListener;
+@property (retain) PLXPCListenerOperatorComposition *photoSharingListener;
+@property (readonly) PLXPCListenerOperatorComposition *continuityCameraNotification;
+@property (readonly) PLXPCListenerOperatorComposition *ambientModeListener;
+@property (retain) PLCFNotificationOperatorComposition *consoleModeListener;
+@property (readonly) PLIOKitOperatorComposition *iokitExpertDevice;
+@property (retain) PLCFNotificationOperatorComposition *sysdiagnoseStartListener;
+@property (retain) PLCFNotificationOperatorComposition *sysdiagnoseStopListener;
+
++ (id)defaults;
++ (id)entryEventNoneDefinitions;
++ (void)load;
++ (id)entryEventForwardDefinitionKeyboardHaptics;
++ (id)accountingGroupDefinitions;
++ (id)entryEventForwardDefinitions;
++ (id)entryEventForwardDefinitionContinuityCamera;
++ (id)entryEventForwardDefinitionAmbientMode;
++ (id)entryEventBackwardDefinitions;
++ (id)entryEventForwardDefinitionPhotoSharing;
++ (id)entryEventNoneDefinitionPairedDeviceConfig;
++ (id)entryEventForwardDefintionRinger;
++ (long long)getOSVersionNumber;
++ (id)entryEventPointDefinitions;
++ (void)resetRAPIDTaskingConfig;
++ (void)removeFilesFromPath:(id)a0 withMaxFiles:(long long)a1;
++ (id)entryEventNoneDefinitionAdapterInformation;
++ (id)entryEventForwardDefinitionKeyboardClicks;
++ (id)getVersionDirectory:(long long)a0;
++ (id)entryEventNoneDefinitionConfig;
++ (id)railDefinitions;
+
+- (id)logLastBackupTime;
+- (id)init;
+- (unsigned long long)volumeFreespace:(id)a0;
+- (id)deviceName;
+- (void)dealloc;
+- (void)copyPowerlogsForPreUpgradeOSVersion:(long long)a0;
+- (void)logDeviceCapability;
+- (void)logEventForwardRingerState;
+- (id)logAndUpdateLastUpgradeTime:(id)a0;
+- (void)logEntryToCA:(id)a0;
+- (void)log;
+- (void)logToPPSBuild:(id)a0 atDate:(id)a1;
+- (id)bootArgs;
+- (void)initOperatorDependancies;
+- (void)logEventForwardContinuityCamera:(id)a0;
+- (int)getDeviceType;
+- (void)cleanupOldPowerlogs;
+- (BOOL)getMDMStatus;
+- (id)seedGroup;
+- (void)logConfigEntry:(id)a0;
+- (void)logEventForwardAmbientModeEnabled:(id)a0;
+- (void)maintainPreUpgradePowerlogs;
+- (void)logEventNoneConfig;
+- (id)getSplatVersionString;
+- (void)logEventForwardSEMMode;
+- (void)logEventNonePairedDeviceConfig;
+- (void)fileSizeSafeguards;
+- (id)hwConfig;
+- (long long)autolockTime;
+- (BOOL)noWatchdogs;
+- (id)hwBoardRevision;
+- (id)getDeviceSerialNumber;
+- (void)logEventForwardSysdiagnoseEvent:(BOOL)a0;
+- (id)logIcloudAccountType;
+- (void)logEventForwardKeyboardHaptics;
+- (id)basebandFirmware;
+- (void).cxx_destruct;
+- (void)logEventForwardKeyboardClicks;
+- (void)pairStatusDidChange:(id)a0;
+- (long long)checkAndUpdateOSVersion;
+- (void)logEventForwardPhotoSharing:(id)a0;
+- (id)logAndUpdateLastBuild:(id)a0;
+- (int)getOSVariant;
+- (double)logDeviceDiskSize;
+- (id)deviceShutdownReasons;
+- (id)baseband;
+- (unsigned long long)getEnclosureMaterial;
+- (BOOL)disableCABlanking;
+
+@end

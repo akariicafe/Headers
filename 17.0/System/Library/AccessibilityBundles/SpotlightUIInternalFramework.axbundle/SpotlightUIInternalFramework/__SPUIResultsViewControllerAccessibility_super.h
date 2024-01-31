@@ -1,0 +1,3 @@
+@interface __SPUIResultsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

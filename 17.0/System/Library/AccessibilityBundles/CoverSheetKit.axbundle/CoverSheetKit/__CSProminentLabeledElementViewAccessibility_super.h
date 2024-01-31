@@ -1,0 +1,3 @@
+@interface __CSProminentLabeledElementViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

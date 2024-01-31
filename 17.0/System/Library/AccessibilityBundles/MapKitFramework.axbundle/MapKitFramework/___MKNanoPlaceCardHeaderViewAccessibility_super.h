@@ -1,0 +1,3 @@
+@interface ___MKNanoPlaceCardHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

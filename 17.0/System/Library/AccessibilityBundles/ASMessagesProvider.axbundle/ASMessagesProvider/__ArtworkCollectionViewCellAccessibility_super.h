@@ -1,0 +1,3 @@
+@interface __ArtworkCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

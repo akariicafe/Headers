@@ -1,0 +1,3 @@
+@interface CRXFLocalization : NSObject
+
+@end

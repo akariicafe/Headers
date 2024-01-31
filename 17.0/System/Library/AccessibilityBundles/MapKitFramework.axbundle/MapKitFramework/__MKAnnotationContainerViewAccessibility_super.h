@@ -1,0 +1,3 @@
+@interface __MKAnnotationContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

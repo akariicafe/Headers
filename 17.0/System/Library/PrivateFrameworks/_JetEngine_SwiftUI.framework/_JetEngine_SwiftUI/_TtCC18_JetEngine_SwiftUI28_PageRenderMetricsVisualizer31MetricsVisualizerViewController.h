@@ -1,0 +1,12 @@
+@interface _TtCC18_JetEngine_SwiftUI28_PageRenderMetricsVisualizer31MetricsVisualizerViewController : UIViewController {
+    void /* unknown type, empty encoding */ borderSize;
+    void /* unknown type, empty encoding */ borderView;
+    void /* unknown type, empty encoding */ eventLabel;
+}
+
+- (void)viewDidLoad;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,94 @@
+@class NSString, NSArray, NSDictionary, NSMutableDictionary, NSObject;
+@protocol FlexSongAssetProviderProtocol;
+
+@interface FlexSong : FlexSongBackend {
+    NSDictionary *_analysisData;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _cachedNaturalDuration;
+    NSMutableDictionary *_segmentCache;
+}
+
+@property (readonly, nonatomic) NSString *audioFileExtension;
+@property (readonly, nonatomic) NSObject<FlexSongAssetProviderProtocol> *assetProvider;
+@property (readonly, nonatomic) NSArray *mainSegments;
+@property (readonly, nonatomic) NSArray *crossFadeSegments;
+@property (readonly, nonatomic) NSArray *introSegments;
+@property (readonly, nonatomic) NSArray *bodySegments;
+@property (readonly, nonatomic) NSArray *outroSegments;
+@property (readonly, nonatomic) NSArray *transSegments;
+
++ (BOOL)_transitionIsPossibleFromSegment:(id)a0 toSegment:(id)a1 forBodyClipPlaylist:(id)a2;
++ (id)numberToString:(long long)a0;
++ (long long)_durationInSamplesToReserveForOutroSegment:(id)a0 withOptions:(id)a1;
++ (long long)_findEarlyFadeStartOffsetInSamplesForOutroSegment:(id)a0 withOptions:(id)a1;
++ (long long)_findMaxLengthInSamplesToReserveForOutroSegment:(id)a0 withOptions:(id)a1;
++ (long long)_findMinLengthInSamplesForEarlyFadeOutForOutroSegment:(id)a0 withOptions:(id)a1;
++ (id)loadSongInFolderWithPath:(id)a0;
++ (id)outroInfoForClipPlaylist:(id)a0;
+
+- (BOOL)canPlay;
+- (BOOL)isLoaded;
+- (id)description;
+- (void).cxx_destruct;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })minimumDuration;
+- (id)analysisData;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })naturalDuration;
+- (id)idealDurations;
+- (id)encodeAsDictionary;
+- (void)_populateCache;
+- (long long)_actualOutroDurationForAssemblyList:(id)a0 currentDuration:(long long)a1;
+- (BOOL)_addBodySegmentsForAssemblyList:(id)a0 forDuration:(long long)a1 unusedDuration:(long long *)a2 testingContext:(id)a3 timedOut:(BOOL *)a4;
+- (BOOL)_addIntroSegmentsToAssemblyList:(id)a0 forDuration:(long long)a1 testingContext:(id)a2;
+- (BOOL)_addOutroSegmentsToAssemblyList:(id)a0 forDuration:(long long)a1 allowTrim:(BOOL)a2 testingContext:(id)a3;
+- (BOOL)_addSegment:(id)a0 withDuration:(long long)a1 toAssemblyList:(id)a2 indexOfNewSegment:(long long *)a3;
+- (BOOL)_addSegment:(id)a0 withDuration:(long long)a1 toAssemblyList:(id)a2 timeRemaining:(long long)a3 reusedSegment:(id *)a4 indexofNewSegment:(long long *)a5;
+- (BOOL)_buildIntroAndOutroOnlySegmentAssemblyList:(id)a0 forDuration:(long long)a1 testingContext:(id)a2;
+- (BOOL)_buildSegmentAssemblyList:(id)a0 forDuration:(long long)a1 withOptions:(id)a2 testingContext:(id)a3;
+- (id)_cacheObjectForKey:(id)a0;
+- (void)_cacheSegmentsByType;
+- (id)_clipPlaylistForDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 withOptions:(id)a1 testingContext:(id)a2;
+- (id)_decodedMainSegmentsFromCache;
+- (void)_destroyCache;
+- (id)_fullSongLoopedClipPlaylistForDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 withOptions:(id)a1 testingContext:(id)a2;
+- (unsigned long long)_highestIndexForSegmentType:(unsigned long long)a0;
+- (void)_loadAnalysisData;
+- (void)_loadSegments;
+- (id)_longestSegmentForType:(unsigned long long)a0;
+- (id)_longestSegmentsForType:(unsigned long long)a0;
+- (id)_mainSegmentsFromCache;
+- (long long)_maxIntroDuration;
+- (long long)_maxOutroDuration;
+- (id)_metadataDictFromCache;
+- (long long)_minBodySegmentDuration;
+- (long long)_minIntroDuration;
+- (long long)_minOutroDuration;
+- (long long)_minimumPermittedIntroAndOutroDuration;
+- (id)_naturalDurationAssemblyList;
+- (BOOL)_rebuildBodySegmentsInAssemblyList:(id)a0 forDuration:(long long)a1 unusedDuration:(long long *)a2 testingContext:(id)a3;
+- (void)_removeSegmentInfo:(id)a0 fromAssemblyList:(id)a1;
+- (BOOL)_removeUnpermittedTransitionsInAssemblyList:(id)a0 final:(BOOL)a1 testingContext:(id)a2 removedIndexes:(id)a3;
+- (BOOL)_removeUnpermittedTransitionsInAssemblyList:(id)a0 final:(BOOL)a1 testingContext:(id)a2 removedIndexes:(id)a3 conflictList:(id)a4;
+- (long long)_sampleDurationOfClipPlaylist:(id)a0;
+- (long long)_samplesForDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (id)_segmentsForIndex:(unsigned long long)a0 andType:(unsigned long long)a1;
+- (id)_segmentsforType:(unsigned long long)a0;
+- (void)_sequenceBodySegmentList:(id)a0 forIndexes:(id)a1;
+- (void)_setupInitialAssets:(id)a0;
+- (id)_shortestSegmentForType:(unsigned long long)a0;
+- (id)_shortestSegmentsForType:(unsigned long long)a0;
+- (id)_sortFlexSegmentsShortestToLongest:(id)a0;
+- (id)_transitionSegmentForSegmentInfo:(id)a0 fromBarIndex:(long long)a1 inSegmentList:(id)a2;
+- (id)_transitionSegmentForSegmentInfo:(id)a0 toSegmentInfo:(id)a1 fromBarIndex:(long long)a2 inSegmentList:(id)a3;
+- (BOOL)_updateTransitionBodySegmentsForAssemblyList:(id)a0 usingNewSegment:(id)a1 indexOfNewTransitionSegment:(id)a2;
+- (BOOL)_validateAuthoringIssuesInRendition:(id)a0 failureReason:(id *)a1;
+- (BOOL)_validateStructureForRendition:(id)a0 failureReason:(id *)a1;
+- (BOOL)_validateTransitionsInRendition:(id)a0 failureReason:(id *)a1;
+- (BOOL)_verifyAssetsForSegment:(id)a0 withFailureReason:(id *)a1;
+- (id)initCommonWithUID:(id)a0 songName:(id)a1 artistName:(id)a2 tagIDs:(id)a3 keywords:(id)a4 weightedKeywords:(id)a5 hidden:(BOOL)a6 sampleRate:(long long)a7 mainSegments:(id)a8 crossFadeSegments:(id)a9 audioFileExtension:(id)a10 audioEncoderPresetName:(id)a11 metadataVersion:(long long)a12 customOptions:(id)a13;
+- (id)initWithDictionary:(id)a0 assets:(id)a1;
+- (id)initWithUID:(id)a0 songName:(id)a1 artistName:(id)a2 tagIDs:(id)a3 keywords:(id)a4 weightedKeywords:(id)a5 hidden:(BOOL)a6 sampleRate:(long long)a7 mainSegments:(id)a8 crossFadeSegments:(id)a9 assets:(id)a10 audioFileExtension:(id)a11 audioEncoderPresetName:(id)a12 metadataVersion:(long long)a13 customOptions:(id)a14;
+- (id)renditionForDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 withOptions:(id)a1 testingContext:(id)a2;
+- (id)timedMetadataItemsWithIdentifier:(id)a0 forRendition:(id)a1;
+- (BOOL)verifyAssetsWithFailureReason:(id *)a0;
+- (BOOL)verifyRendition:(id)a0 forDuration:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 failureReason:(id *)a2;
+
+@end

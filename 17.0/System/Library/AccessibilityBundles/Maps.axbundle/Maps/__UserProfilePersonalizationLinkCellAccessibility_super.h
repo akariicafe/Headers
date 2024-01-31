@@ -1,0 +1,3 @@
+@interface __UserProfilePersonalizationLinkCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

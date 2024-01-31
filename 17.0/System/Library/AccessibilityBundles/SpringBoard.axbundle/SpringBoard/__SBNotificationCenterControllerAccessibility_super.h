@@ -1,0 +1,3 @@
+@interface __SBNotificationCenterControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface ___UIStatusBarIndicatorLocationItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

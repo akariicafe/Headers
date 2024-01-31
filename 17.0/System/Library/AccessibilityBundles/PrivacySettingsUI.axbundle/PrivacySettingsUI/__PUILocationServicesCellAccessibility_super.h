@@ -1,0 +1,3 @@
+@interface __PUILocationServicesCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CenteredIconDescriptionCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

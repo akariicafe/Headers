@@ -1,0 +1,3 @@
+@interface __SBNotificationBannerDestinationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

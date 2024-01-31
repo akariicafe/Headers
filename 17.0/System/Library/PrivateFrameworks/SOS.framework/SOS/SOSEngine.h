@@ -1,0 +1,93 @@
+@class NSDate, FKFriendsManager, NSString, SOSStatusManager, SOSPersistentTimerLocationManager, _MKLocationShifter, SOSButtonPressState, SOSCoordinator, NSMutableArray, CLLocation, SOSContactsManager;
+@protocol SOSFlowManagerCoexProtocol, SOSCoreAnalyticsReporting, NSXPCListenerDelegate;
+
+@interface SOSEngine : NSObject <SOSInternalServerProtocol, SOSPersistentTimerLocationManagerDelegate, SOSServerProtocol, NSXPCListenerDelegate> {
+    NSDate *_timeToStopSendingMessages;
+    NSDate *_timeLastMessageSent;
+    SOSContactsManager *_contactsManager;
+    NSString *_medicalIDName;
+    long long _notifyContactsReason;
+    SOSStatusManager *_sosStatusManager;
+    BOOL _isEmergencyCallOngoing;
+    long long _currentSOSInitiationState;
+    long long _currentSOSInteractiveState;
+    SOSButtonPressState *_currentSOSButtonPressState;
+    SOSCoordinator *_sosCoordinator;
+}
+
+@property (retain, nonatomic) FKFriendsManager *friendsManager;
+@property (retain, nonatomic) _MKLocationShifter *locationShifter;
+@property (retain, nonatomic) NSMutableArray *clientConnections;
+@property (retain, nonatomic) id<SOSCoreAnalyticsReporting> coreAnalyticsReporter;
+@property (readonly, nonatomic) CLLocation *lastLocationSent;
+@property (readonly, nonatomic) SOSPersistentTimerLocationManager *sosPersistentTimerLocationManager;
+@property (readonly, nonatomic) long long currentSOSFlowState;
+@property (weak, nonatomic) id<NSXPCListenerDelegate> sosStatusManager;
+@property (weak, nonatomic) id<SOSFlowManagerCoexProtocol> sosFlowManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)meContact;
++ (void)_sendMessage:(id)a0 location:(id)a1 recipients:(id)a2 useStandalone:(BOOL)a3 critical:(BOOL)a4 failureBlock:(id /* block */)a5;
++ (id)getUrlForTrigger:(long long)a0;
++ (id)locationShifter;
++ (void)preloadContactStoreIfNecessary;
++ (id)_sosMessageForLocation:(id)a0 isFirstMessage:(BOOL)a1 withMMS:(BOOL)a2 callbackNumber:(id)a3 medicalIDName:(id)a4 Reason:(long long)a5;
++ (id)fullNameForContact:(id)a0;
++ (BOOL)_isBasebandDevice;
++ (void)_sendSMSMessage:(id)a0 MMSMessage:(id)a1 location:(id)a2 recipients:(id)a3 critical:(BOOL)a4 failureBlock:(id /* block */)a5;
++ (id)additionalTextForCallbackNumber:(id)a0 fullName:(id)a1 firstName:(id)a2;
++ (id)_sosMessageForLocation:(id)a0 isFirstMessage:(BOOL)a1 withMMS:(BOOL)a2 myFullName:(id)a3 myFirstName:(id)a4 callbackNumber:(id)a5 Reason:(long long)a6;
++ (id)firstNameForContact:(id)a0;
++ (id)mapTriggerToActivationReason:(long long)a0;
++ (BOOL)authorizedToUseContactStore;
++ (id)contactStore;
++ (void)shiftedLocationWithLocation:(id)a0 completion:(id /* block */)a1;
++ (id)additionalTextForCallbackNumber:(id)a0;
++ (id)GPSCoordinatesURLForLocation:(id)a0;
++ (void)_sendMessageToRecipients:(id)a0 withLocation:(id)a1 isFirstMessage:(BOOL)a2 medicalIDName:(id)a3 Reason:(long long)a4;
++ (void)_sendCKMessage:(id)a0 failureBlock:(id /* block */)a1;
+
+- (void)didDismissSOSBeforeSOSCall:(long long)a0;
+- (id)init;
+- (id)contactsManager;
+- (void)dealloc;
+- (void)mostRecentLocationSentWithCompletion:(id /* block */)a0;
+- (void)start;
+- (void)sosPersistentTimerLocationManagerTimerFired:(id)a0 location:(id)a1;
+- (void)contactStoreDidChange;
+- (void)handoffFallbackWithUUID:(id)a0 trigger:(long long)a1;
+- (void)dismissSOSWithCompletion:(id /* block */)a0;
+- (void)updateCurrentSOSInitiationState:(long long)a0;
+- (void)fetchMedicalIDName;
+- (void)_tuCallCenterStatusChanged:(id)a0;
+- (void)updateCurrentSOSButtonPressState:(id)a0;
+- (BOOL)listener:(id)a0 shouldAcceptNewConnection:(id)a1;
+- (void)stopSendingLocationUpdate;
+- (void)triggerSOSWithUUID:(id)a0 triggerMechanism:(long long)a1 source:(long long)a2 completion:(id /* block */)a3;
+- (void)syncState:(id /* block */)a0;
+- (void)SOSSendingLocationUpdateChanged:(id)a0;
+- (BOOL)isTriggerEnabled:(long long)a0;
+- (BOOL)notificationEnabledAndContactsExist;
+- (void)startSendingLocationUpdateForReason:(long long)a0 WithCompletion:(id /* block */)a1;
+- (void)updateCurrentSOSInteractiveState:(long long)a0;
+- (void)_checkEmergencyCallStatus;
+- (void).cxx_destruct;
+- (void)_onEmergencyCallStatusChanged:(id)a0;
+- (void)startSendingLocationUpdateWithCompletion:(id /* block */)a0;
+- (void)broadcastUpdatedSOSStatus:(id)a0;
+- (void)notifySafetyKitWithSOSStatus:(id)a0;
+- (void)willStartSendingLocationUpdate;
+- (void)notifyEmergencyReasonToSafetyBuddy;
+- (BOOL)locationIsValidToSend:(id)a0;
+- (BOOL)isSendingLocationUpdate;
+- (void)handleNotifyThirdPartyClientsWithSOSStatus:(id)a0;
+- (void)retriggerSOSWithUUID:(id)a0 trigger:(long long)a1;
+- (void)triggerSOSWithUUID:(id)a0 triggerMechanism:(long long)a1 completion:(id /* block */)a2;
+- (id)initWithoutEntitlement;
+- (void)_checkSOSCallStatus;
+
+@end

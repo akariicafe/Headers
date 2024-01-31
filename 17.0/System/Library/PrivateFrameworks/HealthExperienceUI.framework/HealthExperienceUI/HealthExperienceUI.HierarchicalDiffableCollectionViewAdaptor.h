@@ -1,0 +1,3 @@
+@interface HealthExperienceUI.HierarchicalDiffableCollectionViewAdaptor : HealthExperienceUI.DiffableCollectionViewAdaptor
+
+@end

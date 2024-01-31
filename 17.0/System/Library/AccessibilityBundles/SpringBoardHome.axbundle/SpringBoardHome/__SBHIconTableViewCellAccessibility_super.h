@@ -1,0 +1,3 @@
+@interface __SBHIconTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

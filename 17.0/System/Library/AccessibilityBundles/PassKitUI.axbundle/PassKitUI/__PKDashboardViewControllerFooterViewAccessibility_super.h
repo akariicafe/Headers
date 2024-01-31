@@ -1,0 +1,3 @@
+@interface __PKDashboardViewControllerFooterViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

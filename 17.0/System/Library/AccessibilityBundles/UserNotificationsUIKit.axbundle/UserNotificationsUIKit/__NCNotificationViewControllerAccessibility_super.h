@@ -1,0 +1,3 @@
+@interface __NCNotificationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

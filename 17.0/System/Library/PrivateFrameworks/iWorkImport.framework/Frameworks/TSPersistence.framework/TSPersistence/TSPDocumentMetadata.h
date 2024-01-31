@@ -1,0 +1,28 @@
+@class NSSet, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface TSPDocumentMetadata : TSPObject {
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    struct DigestMap<TSP::DataProperties> { struct __hash_table<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, std::__unordered_map_hasher<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestHash, TSP::TSPDigestEqualTo>, std::__unordered_map_equal<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestEqualTo, TSP::TSPDigestHash>, std::allocator<std::__hash_value_type<TSPDigest *, TSP::DataProperties>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestHash, TSP::TSPDigestEqualTo>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestEqualTo, TSP::TSPDigestHash>> { float __value_; } __p3_; } __table_; } _dataPropertiesMap;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _archivingLock;
+    BOOL _isInCollaborationModeForArchiving;
+    struct DigestMap<TSP::DataProperties> { struct __hash_table<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, std::__unordered_map_hasher<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestHash, TSP::TSPDigestEqualTo>, std::__unordered_map_equal<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestEqualTo, TSP::TSPDigestHash>, std::allocator<std::__hash_value_type<TSPDigest *, TSP::DataProperties>>> { struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>>> { struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> **, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>>> { void **__value_; struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>> { struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> *>> { unsigned long long __value_; } __data_; } __value_; } __ptr_; } __bucket_list_; struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *>, std::allocator<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *>>> { struct __hash_node_base<std::__hash_node<std::__hash_value_type<TSPDigest *, TSP::DataProperties>, void *> *> { void *__next_; } __value_; } __p1_; struct __compressed_pair<unsigned long, std::__unordered_map_hasher<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestHash, TSP::TSPDigestEqualTo>> { unsigned long long __value_; } __p2_; struct __compressed_pair<float, std::__unordered_map_equal<TSPDigest *, std::__hash_value_type<TSPDigest *, TSP::DataProperties>, TSP::TSPDigestEqualTo, TSP::TSPDigestHash>> { float __value_; } __p3_; } __table_; } _dataPropertiesMapForArchiving;
+    NSSet *_knownDataDigests;
+}
+
+- (void)commonInit;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (id)packageLocator;
+- (long long)tsp_identifier;
+- (void)saveToArchiver:(id)a0;
+- (void)loadFromUnarchiver:(id)a0;
+- (void)setKnownDataDigestsForAutosave:(id)a0;
+- (unsigned char)componentRequiredPackageIdentifier;
+- (struct DataProperties { int x0; id x1; unsigned long long x2; id x3; unsigned int x4; })propertiesForData:(id)a0;
+- (void)propertiesForData:(id)a0 usingBlock:(id /* block */)a1;
+- (void)setPropertiesForData:(id)a0 usingBlock:(id /* block */)a1;
+- (void)takeSnapshotWithCollaborationMode:(BOOL)a0;
+- (void)updateForSuccessfulSave;
+
+@end

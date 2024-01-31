@@ -1,0 +1,3 @@
+@interface __ProductPageLinkCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

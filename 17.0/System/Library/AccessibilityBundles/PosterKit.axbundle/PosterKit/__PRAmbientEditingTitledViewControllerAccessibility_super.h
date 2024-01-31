@@ -1,0 +1,3 @@
+@interface __PRAmbientEditingTitledViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SwiftUIAccessibilityNode__WallpaperSettings__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

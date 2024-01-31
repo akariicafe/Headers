@@ -1,0 +1,3 @@
+@interface __SFPrivacyReportBannerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

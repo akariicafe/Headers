@@ -1,0 +1,98 @@
+@class NSHashTable, NSString, NSSet, AXAssetController, NSMutableDictionary, AXAssetsService, AXAsset, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface TTSAXResourceManager : NSObject <AXAssetControllerObserver> {
+    NSMutableDictionary *_resourcesById;
+    NSMutableDictionary *_resources;
+    NSHashTable *_observers;
+}
+
+@property (retain, nonatomic) AXAssetController *assetController;
+@property (retain, nonatomic) AXAssetController *legacyCombinedVocalizerAssetController;
+@property (retain, nonatomic) AXAssetController *legacyMacinTalkAssetController;
+@property (retain, nonatomic) AXAssetsService *assetsService;
+@property (retain, nonatomic) NSSet *allAvailableLanguages;
+@property (retain, nonatomic) AXAsset *samplesAsset;
+@property (retain, nonatomic) NSString *catalogBuildVersion;
+@property (nonatomic) BOOL downloadingSamples;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *preferenceWriteQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *assetLoadingQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)freeSharedInstance;
+
+- (void)assetController:(id)a0 asset:(id)a1 downloadProgressTotalWritten:(long long)a2 totalExpected:(long long)a3 isStalled:(BOOL)a4 expectedTimeRemaining:(double)a5;
+- (id)resources;
+- (void)_downloadLegacyResourceForTesting:(id)a0;
+- (id)init;
+- (void)updateCatalogIfNeeded;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)downloadResourceWithVoiceId:(id)a0;
+- (id)_axAssetsForTTSAXResourceModel:(BOOL)a0;
+- (void)_writeResourcesToPreferences:(id)a0;
+- (void)_writeResourceCacheVersionToPreferences;
+- (id)_dictionaryForResources:(id)a0;
+- (id)_findLocalResourcesForPath:(id)a0;
+- (id)sampleURLForVoiceId:(id)a0;
+- (void)_downloadSiriVoiceAssetWithResource:(id)a0;
+- (void)resetInMemoryAssetCatalogs;
+- (void)_deleteSiriVoiceAssetWithResource:(id)a0;
+- (id)_refreshSamples:(BOOL)a0;
+- (void)_notifyObserversOfCacheUpdate;
+- (void)rebuildSystemCacheForActionType:(unsigned long long)a0;
+- (id)speechVoiceWithVoiceId:(id)a0;
+- (id)_resourcesWithType:(unsigned long long)a0 subType:(unsigned long long)a1 languageCode:(id)a2;
+- (void)updateCatalogBuildVersion:(id)a0;
+- (id)languageCodeForResourceName:(id)a0 withType:(unsigned long long)a1;
+- (void)_downloadResource:(id)a0 userInitiated:(BOOL)a1;
+- (void)_updateCachedResources:(id)a0;
+- (id)superCompactVoiceIdForCompactVoiceId:(id)a0;
+- (id)allVoices:(BOOL)a0;
+- (id)allLanguagesForVoices:(BOOL)a0;
+- (unsigned long long)_managerTypeForResourceType:(unsigned long long)a0;
+- (id)_findAndSwapLegacyMacinTalkAssetsForMacinTalkResources:(id)a0;
+- (long long)readResourceCacheVersionFromPreferences;
+- (BOOL)_isValidResourceTypeKey:(id)a0;
+- (id)_refreshResourcesForManagerType:(unsigned long long)a0;
+- (id)_debugCountSummaryForResources:(id)a0;
+- (void)_deleteResource:(id)a0;
+- (id)_findResourcesForLegacyAssets;
+- (id)_getSynthesisProviderResources;
+- (id)_refreshSiriResources:(BOOL)a0;
+- (void)downloadResourceWithAssetId:(id)a0;
+- (id)_readResourcesFromPreferences;
+- (id)resourcesWithType:(unsigned long long)a0 subType:(unsigned long long)a1;
+- (void)updateDidMigrateUninformedSiriVoices:(BOOL)a0;
+- (void)_mergeInExpensiveInstalledAssets:(BOOL)a0 notifyObservers:(BOOL)a1;
+- (void).cxx_destruct;
+- (void)_stopDownloadSiriVoiceAssetWithResource:(id)a0;
+- (id)resourceWithAssetId:(id)a0;
+- (id)_refreshAssetForResource:(id)a0 withAssetController:(id)a1 installedOnly:(BOOL)a2;
+- (void)purgeLegacyResourceCache;
+- (void)assetController:(id)a0 didFinishDownloadingAsset:(id)a1 wasSuccessful:(BOOL)a2 error:(id)a3 hasRemainingDownloads:(BOOL)a4;
+- (void)stopDownloadResourceWithVoiceId:(id)a0;
+- (id)refreshAssetForResource:(id)a0 installedOnly:(BOOL)a1;
+- (void)_performBlockOnObservers:(id /* block */)a0;
+- (id)resourcesWithLanguage:(id)a0 type:(unsigned long long)a1;
+- (void)deleteResourceWithAssetId:(id)a0;
+- (id)defaultVoiceForLanguage:(id)a0;
+- (void)_stopDownloadResource:(id)a0;
+- (id)_resourcesForAssets:(id)a0;
+- (id)_readCatalogBuildNumberFromPreferences;
+- (id)refreshResourcesCacheForManagerType:(unsigned long long)a0;
+- (id)_resourceWithVoiceId:(id)a0 assetId:(id)a1;
+- (id)refreshedResourcesForResources:(id)a0;
+- (void)downloadResourceWithVoiceId:(id)a0 userInitiated:(BOOL)a1;
+- (id)resourceWithVoiceId:(id)a0;
+- (void)addObserver:(id)a0;
+- (void)downloadSamplesIfNecessary;
+- (void)deleteResourceWithVoiceId:(id)a0;
+- (void)resetResourcesCache;
+- (BOOL)readDidMigrateUninformedSiriVoicesFromPreferences;
+
+@end

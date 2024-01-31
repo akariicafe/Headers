@@ -1,0 +1,3 @@
+@interface __VideosExtrasCarouselCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

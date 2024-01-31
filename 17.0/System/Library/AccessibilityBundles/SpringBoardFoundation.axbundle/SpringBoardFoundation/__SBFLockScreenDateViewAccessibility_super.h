@@ -1,0 +1,3 @@
+@interface __SBFLockScreenDateViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

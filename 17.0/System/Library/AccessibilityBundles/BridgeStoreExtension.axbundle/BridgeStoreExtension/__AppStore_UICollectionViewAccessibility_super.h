@@ -1,0 +1,3 @@
+@interface __AppStore_UICollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

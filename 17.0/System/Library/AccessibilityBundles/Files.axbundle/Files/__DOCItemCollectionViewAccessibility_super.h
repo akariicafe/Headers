@@ -1,0 +1,3 @@
+@interface __DOCItemCollectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

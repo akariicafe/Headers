@@ -1,0 +1,3 @@
+@interface __PKPassPaymentPayStateViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SearchUIScoreSummaryCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __LoggingCardCarouselViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

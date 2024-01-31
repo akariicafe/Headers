@@ -1,0 +1,3 @@
+@interface __SUUIStarRatingControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

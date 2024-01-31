@@ -1,0 +1,3 @@
+@interface __FeaturedPlaylistCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

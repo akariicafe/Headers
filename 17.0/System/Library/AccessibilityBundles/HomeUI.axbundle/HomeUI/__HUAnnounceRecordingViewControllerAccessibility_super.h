@@ -1,0 +1,3 @@
+@interface __HUAnnounceRecordingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

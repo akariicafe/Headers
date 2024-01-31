@@ -1,0 +1,3 @@
+@interface __LiveActivitiesHostingControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

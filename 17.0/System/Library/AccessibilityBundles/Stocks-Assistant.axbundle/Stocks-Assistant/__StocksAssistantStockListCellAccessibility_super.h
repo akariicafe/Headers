@@ -1,0 +1,3 @@
+@interface __StocksAssistantStockListCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

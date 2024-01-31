@@ -1,0 +1,3 @@
+@interface HealthAppHealthDaemonPlugin : HDHealthAppPlugin
+
+@end

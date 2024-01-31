@@ -1,0 +1,82 @@
+@class SMReceiverSessionStatus, SMSafetyCacheStore, NSUUID, CKContainer, SMCloudKitFunction, SMMessagingService, SMCache, RTXPCTimerAlarm, RTDefaultsManager, NSObject, SMReceiverContact;
+@protocol OS_dispatch_queue, SMReceiverCacheManagerDelegateProtocol;
+
+@interface SMReceiverCacheManager : NSObject
+
+@property (retain, nonatomic) RTXPCTimerAlarm *cachePersistenceTimerAlarm;
+@property (retain, nonatomic) SMReceiverSessionStatus *sessionStatus;
+@property (retain, nonatomic) SMReceiverContact *receiverContact;
+@property (nonatomic) BOOL receiverContactStored;
+@property (nonatomic) BOOL receiverContactStoreInProgress;
+@property (nonatomic) BOOL receiverContactUpdatePending;
+@property (nonatomic) BOOL acceptShareInvitationInProgress;
+@property (nonatomic) BOOL safetyCacheFetchPending;
+@property (readonly, nonatomic) SMSafetyCacheStore *safetyCacheStore;
+@property (readonly, nonatomic) RTDefaultsManager *defaultsManager;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, nonatomic) CKContainer *container;
+@property (readonly, nonatomic) SMCloudKitFunction *cloudKitFunction;
+@property (readonly, nonatomic) double cachePersistenceTime;
+@property (readonly, nonatomic) SMMessagingService *messagingService;
+@property (nonatomic) long long cacheDownloadRetryCount;
+@property (nonatomic) long long zoneShareRetryCount;
+@property (weak, nonatomic) id<SMReceiverCacheManagerDelegateProtocol> delegate;
+@property (readonly, nonatomic) NSUUID *sessionID;
+@property (readonly, nonatomic) SMCache *phoneCache;
+@property (readonly, nonatomic) SMCache *watchCache;
+
++ (id)receiverEventToString:(long long)a0;
+
+- (void).cxx_destruct;
+- (void)deleteReceiverContactFromStore:(unsigned long long)a0;
+- (void)acceptShareInvitation:(long long)a0;
+- (void)cachePersistenceStartTimer;
+- (void)cachePersistenceStopTimer;
+- (id)computeReceiverSessionMetrics;
+- (void)copyKeyReleaseMessageParameters:(id)a0;
+- (void)copySessionStartMessageParameters:(id)a0;
+- (void)decryptAndStoreSafetyCacheDataWithPhoneCacheData:(id)a0 watchCacheData:(id)a1 metricsDict:(id *)a2;
+- (id)decryptSafetyCacheData:(id)a0 device:(long long)a1 metricsDict:(id *)a2 hashString:(id *)a3;
+- (void)fetchSafetyCacheData:(long long)a0;
+- (id)getCachePersistenceAlarmDate;
+- (id)initWithReceiverContact:(id)a0 safetyCacheStore:(id)a1 defaultsManager:(id)a2 queue:(id)a3 messagingService:(id)a4;
+- (id)initWithSessionID:(id)a0 initiatorHandle:(id)a1 safetyCacheStore:(id)a2 defaultsManager:(id)a3 queue:(id)a4 messagingService:(id)a5;
+- (void)onCacheDownloadResult:(BOOL)a0 withError:(id)a1;
+- (void)onCachePersistenceExpiry;
+- (void)onCacheUpdatedMessageReceived:(id)a0;
+- (void)onEstimatedEndTimeUpdateMessageReceived:(id)a0;
+- (void)onKeyReleaseInfoMessageReceived:(id)a0;
+- (void)onKeyReleaseMessageReceived:(id)a0;
+- (void)onSessionEndMessageReceived:(id)a0;
+- (void)onSessionStartInfoMessageReceived:(id)a0;
+- (void)onSessionStartMessageReceived:(id)a0;
+- (void)onSessionStatusLoadedFromDisk;
+- (void)onShareInvitationAcceptenceResult:(BOOL)a0 withError:(id)a1;
+- (void)onUserCacheDownloadRequest;
+- (void)requestMissingKeyReleaseInfo;
+- (BOOL)shouldRetryCacheDownloadForError:(id)a0;
+- (BOOL)shouldRetryZoneShareAcceptanceForError:(id)a0;
+- (void)storeReceiverContactInStore:(unsigned long long)a0;
+- (void)transitionFromActiveToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromActiveToMissingKeyReleaseInfoDueToEvent:(long long)a0;
+- (void)transitionFromActiveToTriggeredDueToEvent:(long long)a0;
+- (void)transitionFromCachePersistenceToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromCacheReleasedToCachePersistenceDueToEvent:(long long)a0;
+- (void)transitionFromCacheReleasedToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToActiveDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToCachePersistenceDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToCacheReleasedDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToMissingKeyReleaseInfoDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToMissingSessionInfoDueToEvent:(long long)a0;
+- (void)transitionFromInitializingToTriggeredDueToEvent:(long long)a0;
+- (void)transitionFromMissingKeyReleaseInfoToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromMissingKeyReleaseInfoToTriggeredDueToEvent:(long long)a0;
+- (void)transitionFromMissingSessionInfoToCleanupDueToEvent:(long long)a0;
+- (void)transitionFromMissingSessionInfoToTriggeredDueToEvent:(long long)a0;
+- (void)transitionFromTriggeredToCacheReleasedDueToEvent:(long long)a0;
+- (void)transitionFromTriggeredToCleanupDueToEvent:(long long)a0;
+- (void)transitionToState:(long long)a0 event:(long long)a1;
+- (void)updateReceiverContactInStore;
+
+@end

@@ -1,0 +1,3 @@
+@interface __ParticipantMonogramViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

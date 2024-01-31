@@ -1,0 +1,3 @@
+@interface __VideosUI_CanonicalTitleBannerViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

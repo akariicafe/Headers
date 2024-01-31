@@ -1,0 +1,3 @@
+@interface __CNSharingProfileAvatarItemProviderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

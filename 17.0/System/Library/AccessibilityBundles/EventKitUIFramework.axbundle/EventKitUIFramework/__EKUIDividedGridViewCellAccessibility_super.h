@@ -1,0 +1,3 @@
+@interface __EKUIDividedGridViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

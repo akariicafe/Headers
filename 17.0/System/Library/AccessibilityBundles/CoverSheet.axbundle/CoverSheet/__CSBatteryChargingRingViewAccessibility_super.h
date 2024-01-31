@@ -1,0 +1,3 @@
+@interface __CSBatteryChargingRingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

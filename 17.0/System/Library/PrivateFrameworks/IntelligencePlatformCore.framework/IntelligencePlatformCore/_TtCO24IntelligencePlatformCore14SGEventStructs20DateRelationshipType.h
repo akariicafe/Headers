@@ -1,0 +1,15 @@
+@interface _TtCO24IntelligencePlatformCore14SGEventStructs20DateRelationshipType : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ predicate;
+    void /* unknown type, empty encoding */ entityClass;
+    void /* unknown type, empty encoding */ source;
+    void /* unknown type, empty encoding */ startTime_predicate;
+    void /* unknown type, empty encoding */ startTime;
+    void /* unknown type, empty encoding */ imputedStartTime_predicate;
+    void /* unknown type, empty encoding */ imputedStartTime;
+    void /* unknown type, empty encoding */ endTime_predicate;
+    void /* unknown type, empty encoding */ endTime;
+    void /* unknown type, empty encoding */ imputedEndTime_predicate;
+    void /* unknown type, empty encoding */ imputedEndTime;
+}
+
+@end

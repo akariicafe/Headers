@@ -1,0 +1,3 @@
+@interface __SBMainSwitcherWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

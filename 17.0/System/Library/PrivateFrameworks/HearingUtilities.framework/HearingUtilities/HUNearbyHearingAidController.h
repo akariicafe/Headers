@@ -1,0 +1,85 @@
+@class AXRemoteHearingAidDevice, NSTimer, AXDispatchTimer, NSObject;
+@protocol OS_dispatch_queue, HUNearbyHearingAidControllerDelegate;
+
+@interface HUNearbyHearingAidController : HUDeviceController
+
+@property (nonatomic) BOOL hasStarted;
+@property (retain, nonatomic) AXRemoteHearingAidDevice *localDevice;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *mediaQueue;
+@property (retain, nonatomic) AXDispatchTimer *sendConnectionToCompanionTimer;
+@property (nonatomic) BOOL holdingMediaForConnection;
+@property (nonatomic) BOOL holdingPhoneForConnection;
+@property (nonatomic) unsigned long long idsMessagesCount;
+@property (retain, nonatomic) NSTimer *idsMessagesTimer;
+@property (retain, nonatomic) AXDispatchTimer *requestConnectionTimer;
+@property (retain, nonatomic) AXDispatchTimer *relinquishConnectionTimer;
+@property (nonatomic) BOOL processingHandoff;
+@property (nonatomic) long long state;
+@property (weak, nonatomic) id<HUNearbyHearingAidControllerDelegate> delegate;
+@property (readonly, nonatomic) BOOL shouldConnect;
+@property (readonly, nonatomic) BOOL shouldDisconnect;
+
++ (id)sharedInstance;
+
+- (id)init;
+- (void)start;
+- (void)updateState;
+- (void)stop;
+- (void)mediaServerDied;
+- (void).cxx_destruct;
+- (id)timeStamp;
+- (id)availableDevices;
+- (id)descriptionForState:(long long)a0;
+- (void)sendMessage:(id)a0 toDevices:(id)a1;
+- (void)checkConnectionToHearingDevice:(id /* block */)a0;
+- (void)callStatusDidChange:(id)a0;
+- (void)checkConnectionPeers:(id /* block */)a0;
+- (void)checkConnectionRelinquishedAfterTimeout;
+- (void)checkConnectionRequestedAfterTimeout;
+- (id)connectedPeer;
+- (id)connectingPeer;
+- (id)descriptionForCurrentState;
+- (id)device:(id)a0 didReceiveMessage:(id)a1;
+- (void)disconnectFromPairedDevice;
+- (void)getConnectedPeer:(id /* block */)a0;
+- (id)hearingAidForDeviceID:(id)a0;
+- (id)hearingDevice;
+- (void)logAvailableDevicesWithTitle:(id)a0;
+- (void)logNewDevices:(id)a0;
+- (void)mediaPlaybackDidChange:(id)a0;
+- (BOOL)peerHasConnectionToHearingDevice;
+- (id)peerWithState:(long long)a0;
+- (void)processReadMessageFromPeerDevice:(id)a0 value:(id)a1;
+- (void)processReadProperty:(id)a0 fromPeerDevice:(id)a1;
+- (void)processStateMessageFromPeer:(id)a0 state:(id)a1 response:(id)a2;
+- (void)processWriteMessageWithValue:(id)a0 response:(id)a1;
+- (void)registerMediaNotifications;
+- (void)relinquishConnection;
+- (BOOL)relinquishConnectionForReason:(long long)a0;
+- (BOOL)relinquishConnectionForReason:(long long)a0 toDevice:(id)a1 sendHandoffMessage:(BOOL)a2;
+- (BOOL)representsLocalDevices;
+- (void)requestConnection;
+- (void)requestConnectionForReason:(long long)a0;
+- (void)requestHandoffForMedia;
+- (void)routesDidChange:(id)a0;
+- (void)sendConnectionToCompanionIfPossible;
+- (void)sendConnectionToCompanionIfPossible:(BOOL)a0;
+- (void)sendConnectionUpdateToPeers;
+- (void)sendMessageToAllDevices:(id)a0;
+- (void)sendStateMessage:(id)a0 toDevices:(id)a1;
+- (void)sendStateMessageToAllDevices:(id)a0;
+- (void)sendWrite:(id)a0 toDevices:(id)a1;
+- (void)sendWriteToAllDevices:(id)a0;
+- (BOOL)shouldRelinquishConnectionForReason:(long long)a0;
+- (void)shouldRequestAudioConnectionForCall:(BOOL)a0 withCompletion:(id /* block */)a1;
+- (void)systemStatusDidChange:(id)a0;
+- (void)unregisterMediaNotifications;
+- (void)updateForBluetoothStateChange;
+- (void)updateProperty:(unsigned long long)a0 forDeviceID:(id)a1;
+- (void)updateResponse:(id)a0 withState:(long long)a1;
+- (void)updateStateOnDeviceQueue;
+- (void)validateResponse:(id)a0;
+- (void)writeValue:(id)a0 forProperty:(unsigned long long)a1 andDeviceID:(id)a2;
+- (void)writeValue:(id)a0 forProperty:(unsigned long long)a1 andDeviceID:(id)a2 toDevices:(id)a3;
+
+@end

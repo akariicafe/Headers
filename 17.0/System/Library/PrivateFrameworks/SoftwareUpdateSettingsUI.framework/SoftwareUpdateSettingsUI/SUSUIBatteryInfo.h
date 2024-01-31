@@ -1,0 +1,3 @@
+@interface SUSUIBatteryInfo : NSObject
+
+@end

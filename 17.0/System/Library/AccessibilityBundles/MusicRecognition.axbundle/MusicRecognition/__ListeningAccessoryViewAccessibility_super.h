@@ -1,0 +1,3 @@
+@interface __ListeningAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

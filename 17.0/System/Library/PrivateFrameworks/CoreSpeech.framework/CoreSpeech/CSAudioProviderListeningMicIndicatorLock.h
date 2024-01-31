@@ -1,0 +1,3 @@
+@interface CSAudioProviderListeningMicIndicatorLock : CSAudioProviderRequestLock
+
+@end

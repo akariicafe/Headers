@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.MotionStateBehaviorHistogram : IntelligencePlatformCore.BehaviorHistogramBase
+
+@end

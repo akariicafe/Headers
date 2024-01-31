@@ -1,0 +1,3 @@
+@interface __CKNanoApplicationLauncherViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SearchUIHomeScreenAppIconViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

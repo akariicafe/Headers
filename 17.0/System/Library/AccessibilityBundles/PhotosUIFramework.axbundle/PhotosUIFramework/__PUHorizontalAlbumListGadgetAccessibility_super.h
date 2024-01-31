@@ -1,0 +1,3 @@
+@interface __PUHorizontalAlbumListGadgetAccessibility_super : UIAccessibilitySafeCategory
+
+@end

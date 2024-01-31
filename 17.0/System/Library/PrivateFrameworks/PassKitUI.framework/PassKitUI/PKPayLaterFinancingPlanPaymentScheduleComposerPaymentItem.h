@@ -1,0 +1,20 @@
+@class PKPayLaterPayment, NSString, PKPayLaterFinancingPlan;
+
+@interface PKPayLaterFinancingPlanPaymentScheduleComposerPaymentItem : NSObject <PKPayLaterFinancingPlanPaymentScheduleComposerItem>
+
+@property (readonly, nonatomic) PKPayLaterFinancingPlan *financingPlan;
+@property (readonly, nonatomic) PKPayLaterPayment *payment;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)date;
+- (void).cxx_destruct;
+- (unsigned long long)type;
+- (id)installmentIdentifier;
+- (id)paymentIdentifier;
+- (id)initWithFinancingPlan:(id)a0 payment:(id)a1;
+- (void)populateRow:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __MUPlacePhotoGalleryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

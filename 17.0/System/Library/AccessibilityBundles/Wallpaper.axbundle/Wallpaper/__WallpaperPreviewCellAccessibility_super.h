@@ -1,0 +1,3 @@
+@interface __WallpaperPreviewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

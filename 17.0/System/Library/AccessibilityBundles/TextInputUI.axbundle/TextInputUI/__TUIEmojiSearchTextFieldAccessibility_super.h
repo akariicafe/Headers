@@ -1,0 +1,3 @@
+@interface __TUIEmojiSearchTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

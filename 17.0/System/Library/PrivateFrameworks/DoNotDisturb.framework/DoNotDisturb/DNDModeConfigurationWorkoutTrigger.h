@@ -1,0 +1,3 @@
+@interface DNDModeConfigurationWorkoutTrigger : DNDModeConfigurationTrigger
+
+@end

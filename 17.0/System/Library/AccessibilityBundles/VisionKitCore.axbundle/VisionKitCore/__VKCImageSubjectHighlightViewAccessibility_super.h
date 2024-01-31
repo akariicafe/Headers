@@ -1,0 +1,3 @@
+@interface __VKCImageSubjectHighlightViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

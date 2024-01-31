@@ -1,0 +1,3 @@
+@interface __PSUICellularPlanOptionTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBMoveFloatingApplicationGestureWorkspaceTransactionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

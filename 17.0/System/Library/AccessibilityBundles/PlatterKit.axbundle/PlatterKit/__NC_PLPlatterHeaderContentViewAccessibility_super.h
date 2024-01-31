@@ -1,0 +1,3 @@
+@interface __NC_PLPlatterHeaderContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

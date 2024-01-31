@@ -1,0 +1,3 @@
+@interface __InAppPurchaseLockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

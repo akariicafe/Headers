@@ -1,0 +1,81 @@
+@class BSUIPartialStylingLabelView, PLGrabberView, UILabel, UIAction, UITapGestureRecognizer, UIView, NSString, NCUNUIKitPrototypeSettings, UIViewFloatAnimatableProperty, NSArray, MTVisualStylingProvider, NCBadgedIconView, UIImageView;
+@protocol NCNotificationStaticContentProviding, BSUIDateLabel;
+
+@interface NCFullScreenStagingBannerView : UIView <UIGestureRecognizerDelegate, BSUIDateLabelDelegate, MTVisualStylingRequiring> {
+    PLGrabberView *_grabberView;
+    NCBadgedIconView *_badgedIconView;
+    BSUIPartialStylingLabelView *_briefPrimaryLabelView;
+    UILabel *_briefSecondaryLabel;
+    UILabel<BSUIDateLabel> *_referenceDateLabel;
+    UILabel *_dateLabel;
+    UILabel *_detailPrimaryLabel;
+    UILabel *_detailSecondaryLabel;
+    UIImageView *_thumbnailView;
+    UIViewFloatAnimatableProperty *_floatAnimatablePropertyForBriefIcon;
+    UIViewFloatAnimatableProperty *_floatAnimatablePropertyForBriefTextPosition;
+    UIViewFloatAnimatableProperty *_floatAnimatablePropertyForDetailIconPosition;
+    UIViewFloatAnimatableProperty *_floatAnimatablePropertyForDetailText;
+    UITapGestureRecognizer *_tapGesture;
+    UIView *_contentHitRectView;
+    MTVisualStylingProvider *_strokeVisualStylingProvider;
+    MTVisualStylingProvider *_importantTextVisualStylingProvider;
+}
+
+@property (readonly, copy, nonatomic) NCUNUIKitPrototypeSettings *settings;
+@property (retain, nonatomic) id<NCNotificationStaticContentProviding> staticContentProvider;
+@property (copy, nonatomic) UIAction *contentTapAction;
+@property (copy, nonatomic) UIAction *defaultTapAction;
+@property (nonatomic) long long stage;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } contentFrame;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy, nonatomic) NSArray *requiredVisualStyleCategories;
+
+- (void)_visualStylingProviderDidChange:(id)a0 forCategory:(long long)a1 outgoingProvider:(id)a2;
+- (void)_updateVisualStylingOfView:(id)a0 style:(long long)a1 visualStylingProvider:(id)a2 outgoingProvider:(id)a3;
+- (void)setVisualStylingProvider:(id)a0 forCategory:(long long)a1;
+- (id)_prominentIconImageView;
+- (void)_handleTap:(id)a0;
+- (void).cxx_destruct;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)dateLabelDidChange:(id)a0;
+- (void)layoutSubviews;
+- (id)initWithSettings:(id)a0;
+- (id)_subordinateIconImageBrandingBadge;
+- (void)_configureInitialViewsForStage:(long long)a0;
+- (void)_configureTapGestureIfNecessary;
+- (void)_layoutForDismissedStageFromDetailStageWithSettings:(id)a0 completion:(id /* block */)a1;
+- (id)_briefPrimaryLabelViewFont;
+- (id)_composedDateStringWithDateString:(id)a0 staticContentProvider:(id)a1;
+- (void)_configureBadgedIconViewIfNecessary;
+- (void)_configureContentHitRectViewIfNecessary;
+- (void)_configureDateLabelIfNecessaryWithStaticContentProvider:(id)a0;
+- (void)_configureGrabberViewIfNecessary;
+- (void)_configureInitialViewsForBriefStage;
+- (void)_configureInitialViewsForDetailStage;
+- (void)_configureThumbnailViewIfNecessaryWithStaticContentProvider:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_contentFrameForActiveStage;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_contentHitRectForActiveStage;
+- (double)_detailTextMaxWidthForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 thumbnailVisible:(BOOL)a1;
+- (void)_layoutContentHitRectViewForActiveStage;
+- (void)_layoutForBriefStageWithSettings:(id)a0 completion:(id /* block */)a1;
+- (void)_layoutForDetailStageWithSettings:(id)a0 completion:(id /* block */)a1;
+- (void)_layoutForDismissedStageFromBriefStageWithSettings:(id)a0 completion:(id /* block */)a1;
+- (void)_layoutForStage:(long long)a0 fromStage:(long long)a1 settings:(id)a2 completion:(id /* block */)a3;
+- (void)_prepareForTransitionToBriefStage;
+- (void)_prepareForTransitionToDetailStage;
+- (void)_prepareForTransitionToStage:(long long)a0;
+- (id)_prominentIcon;
+- (id)_prominentIconView;
+- (void)_setImportantTextVisualStylingProvider:(id)a0;
+- (void)_setProminentIcon:(id)a0;
+- (void)_setProminentIconView:(id)a0;
+- (void)_setSubordinateIcon:(id)a0;
+- (id)_subordinateIcon;
+- (void)_transitionToStage:(long long)a0 fromStage:(long long)a1 settings:(id)a2 completion:(id /* block */)a3;
+- (void)_updateWithStaticContentForStage:(long long)a0;
+- (void)transitionToStage:(long long)a0 completion:(id /* block */)a1;
+
+@end

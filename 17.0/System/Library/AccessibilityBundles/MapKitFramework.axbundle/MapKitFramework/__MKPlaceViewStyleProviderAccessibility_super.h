@@ -1,0 +1,3 @@
+@interface __MKPlaceViewStyleProviderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

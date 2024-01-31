@@ -1,0 +1,3 @@
+@interface __MiniPlayerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

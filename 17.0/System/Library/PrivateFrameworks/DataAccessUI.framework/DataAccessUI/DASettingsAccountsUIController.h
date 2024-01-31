@@ -1,0 +1,75 @@
+@class DAAccount, NSString;
+
+@interface DASettingsAccountsUIController : ACUIViewController <DAValidityCheckConsumer, UIActionSheetDelegate, UIAlertViewDelegate>
+
+@property (nonatomic) BOOL isSettingUpNewAccount;
+@property (nonatomic) BOOL accountNeedsAdd;
+@property (nonatomic) BOOL validatedSuccessfully;
+@property (nonatomic) BOOL confirmedUnvalidatedAccount;
+@property (nonatomic) BOOL haveRegisteredForAccountsChanged;
+@property (nonatomic) BOOL transitioningToFinishedAccountSetup;
+@property (retain, nonatomic) DAAccount *account;
+@property (nonatomic) BOOL didSetFullHostURL;
+@property (nonatomic) BOOL needsSave;
+@property (nonatomic) BOOL attemptedValidation;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)viewWillAppear:(BOOL)a0;
+- (id)tableView:(id)a0 cellForRowAtIndexPath:(id)a1;
+- (void)dealloc;
+- (void)_accountsChanged:(id)a0;
+- (id)specifiers;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)doneButtonTapped:(id)a0;
+- (void)updateDoneButton;
+- (void)cancelButtonTapped:(id)a0;
+- (void)reloadAccount;
+- (void)account:(id)a0 isValid:(BOOL)a1 validationError:(id)a2;
+- (void)finishedAccountSetup;
+- (void)operationsHelper:(id)a0 didRemoveAccount:(id)a1 withSuccess:(BOOL)a2 error:(id)a3;
+- (void)operationsHelper:(id)a0 didSaveAccount:(id)a1 withSuccess:(BOOL)a2 error:(id)a3;
+- (id)accountSpecifiers;
+- (id)lastGroupSpecifierInSpecifiers:(id)a0;
+- (id)_defaultAccountDescription;
+- (BOOL)validateAccount;
+- (void)_beginAccountValidation;
+- (void)_confirmSaveUnvalidatedAccount;
+- (void)showIdenticalAccountFailureView;
+- (void)_deleteAccount;
+- (void)_dismissAndUpdateParent;
+- (void)_finishSaveAccountDismissWhenDone:(BOOL)a0;
+- (void)_saveAccountDismissWhenDone:(BOOL)a0;
+- (id)accountBooleanPropertyWithSpecifier:(id)a0;
+- (id)accountFromSpecifier;
+- (BOOL)accountIsManaged;
+- (id)accountPropertyWithSpecifier:(id)a0;
+- (id)currentlyEditingCell;
+- (id)daAccountWithBackingAccountInfo:(id)a0;
+- (void)deleteAccountButtonTapped;
+- (void)didConfirmSaveUnvalidatedAccount:(BOOL)a0;
+- (void)didConfirmTryWithoutSSL:(BOOL)a0;
+- (BOOL)dismissesAfterInitialSetup;
+- (BOOL)haveEnoughValues;
+- (void)hideProgressWithPrompt:(id)a0;
+- (int)indexOfCurrentlyEditingCell;
+- (BOOL)isRunningFromMobileMailApp;
+- (id)localizedAccountSetupTitleString;
+- (id)localizedAccountTitleString;
+- (id)localizedConfirmSaveUnvalidatedAccountMessageString;
+- (id)localizedConfirmSaveUnvalidatedAccountTitleString;
+- (id)localizedValidationFailureTitleString;
+- (id)newDefaultAccount;
+- (void)propertyValueChanged:(id)a0;
+- (void)setAccountBooleanProperty:(id)a0 withSpecifier:(id)a1;
+- (void)setAccountProperty:(id)a0 withSpecifier:(id)a1;
+- (void)setHostString:(id)a0;
+- (void)setNeedsSaveAndValidation:(BOOL)a0;
+- (void)showAlertWithButtons:(id)a0 title:(id)a1 message:(id)a2 completion:(id /* block */)a3;
+- (void)showSSLFailureView;
+- (BOOL)transitionsAfterInitialSetup;
+
+@end

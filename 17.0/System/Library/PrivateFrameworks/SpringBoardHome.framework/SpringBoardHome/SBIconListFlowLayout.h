@@ -1,0 +1,3 @@
+@interface SBIconListFlowLayout : SBIconListGridLayout
+
+@end

@@ -1,0 +1,3 @@
+@interface __CNPostalAddressEditorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

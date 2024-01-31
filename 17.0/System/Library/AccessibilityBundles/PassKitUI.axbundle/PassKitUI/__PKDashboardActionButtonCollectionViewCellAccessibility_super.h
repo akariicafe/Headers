@@ -1,0 +1,3 @@
+@interface __PKDashboardActionButtonCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

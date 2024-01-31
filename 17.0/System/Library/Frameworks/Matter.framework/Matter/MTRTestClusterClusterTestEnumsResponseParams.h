@@ -1,0 +1,3 @@
+@interface MTRTestClusterClusterTestEnumsResponseParams : MTRUnitTestingClusterTestEnumsResponseParams
+
+@end

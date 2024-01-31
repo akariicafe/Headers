@@ -1,0 +1,3 @@
+@interface __STUIStatusBarAccessibility__SpringBoardFramework__SystemStatusUI_super : UIAccessibilitySafeCategory
+
+@end

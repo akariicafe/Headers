@@ -1,0 +1,3 @@
+@interface __PuppetCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

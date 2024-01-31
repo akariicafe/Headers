@@ -1,0 +1,3 @@
+@interface __WGWidgetAttributionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

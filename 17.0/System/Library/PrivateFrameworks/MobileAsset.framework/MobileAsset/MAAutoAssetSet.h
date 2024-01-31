@@ -1,0 +1,98 @@
+@class NSString, NSArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface MAAutoAssetSet : NSObject <SUCoreConnectClientDelegate, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSString *clientDomainName;
+@property (retain, nonatomic) NSString *autoAssetSetClientName;
+@property (retain, nonatomic) NSString *assetSetIdentifier;
+@property (retain, nonatomic) NSArray *autoAssetEntries;
+@property (retain, nonatomic) NSString *updateCategoryDesiredByClient;
+@property (readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)frameworkInstanceSetLogDomain;
++ (id)defaultDispatchQueue;
++ (id)frameworkInstanceUUID;
++ (long long)waitOnSemaphore:(id)a0 withDaemonTriggeredTimeout:(long long)a1;
++ (id)frameworkDispatchQueue;
++ (void)eliminateAtomic:(id)a0 usingClientDomain:(id)a1 forAssetSetIdentifier:(id)a2 completion:(id /* block */)a3;
++ (id)eliminateAtomicSync:(id)a0 usingClientDomain:(id)a1 forAssetSetIdentifier:(id)a2;
++ (void)endAtomicLocks:(id)a0 usingClientDomain:(id)a1 forClientName:(id)a2 forAssetSetIdentifier:(id)a3 ofAtomicInstance:(id)a4 removingLockCount:(long long)a5 completion:(id /* block */)a6;
++ (id)endAtomicLocksSync:(id)a0 usingClientDomain:(id)a1 forClientName:(id)a2 forAssetSetIdentifier:(id)a3 ofAtomicInstance:(id)a4 removingLockCount:(long long)a5;
+
+- (void)connectionClosed;
+- (id)summary;
+- (void)encodeWithCoder:(id)a0;
+- (void)connectToServerFrameworkCompletion:(id /* block */)a0;
+- (void).cxx_destruct;
+- (void)handleMessage:(id)a0 reply:(id /* block */)a1;
+- (id)initWithCoder:(id)a0;
+- (void)handleResponse:(id)a0 error:(id)a1;
+- (void)_eliminateAtomic:(id)a0 completion:(id /* block */)a1;
+- (id)_eliminateAtomicSync:(id)a0;
+- (void)_endAtomicLocks:(id)a0 usingClientDomain:(id)a1 forClientName:(id)a2 forAssetSetIdentifier:(id)a3 ofAtomicInstance:(id)a4 removingLockCount:(long long)a5 completion:(id /* block */)a6;
+- (id)_endAtomicLocksSync:(id)a0 usingClientDomain:(id)a1 forClientName:(id)a2 forAssetSetIdentifier:(id)a3 ofAtomicInstance:(id)a4 removingLockCount:(long long)a5;
+- (void)_failedCheckAtomic:(id)a0 forAssetSetIdentifier:(id)a1 withErrorCode:(long long)a2 withResponseError:(id)a3 description:(id)a4 completion:(id /* block */)a5;
+- (void)_failedCurrentSetStatus:(id)a0 forAssetSetIdentifier:(id)a1 withErrorCode:(long long)a2 withResponseError:(id)a3 description:(id)a4 completion:(id /* block */)a5;
+- (void)_failedFormSubAtomicInstance:(id)a0 withErrorCode:(long long)a1 withResponseError:(id)a2 description:(id)a3 completion:(id /* block */)a4;
+- (void)_failedLockAtomic:(id)a0 forAssetSetIdentifier:(id)a1 withErrorCode:(long long)a2 withResponseError:(id)a3 description:(id)a4 completion:(id /* block */)a5;
+- (void)_failedOperation:(id)a0 forAssetSetIdentifier:(id)a1 withErrorCode:(long long)a2 withResponseError:(id)a3 description:(id)a4 completion:(id /* block */)a5;
+- (void)_lockAtomicStatusProgress:(id)a0 lockAtomicError:(id)a1 progressBlock:(id /* block */)a2;
+- (id)_newProxyObjectForSetProgressBlock:(id /* block */)a0;
+- (void)_successCheckAtomic:(id)a0 forAssetSetIdentifier:(id)a1 newerInstanceDiscovered:(id)a2 discoveredAtomicEntries:(id)a3 completion:(id /* block */)a4;
+- (void)_successCurrentSetStatus:(id)a0 forAssetSetIdentifier:(id)a1 withAssetSetStatus:(id)a2 completion:(id /* block */)a3;
+- (void)_successFormSubAtomicInstance:(id)a0 formedSubAtomicInstance:(id)a1 completion:(id /* block */)a2;
+- (void)_successLockAtomic:(id)a0 forAssetSetIdentifier:(id)a1 lockedAtomicInstance:(id)a2 lockedAtomicEntries:(id)a3 completion:(id /* block */)a4;
+- (void)_successOperation:(id)a0 forAssetSetIdentifier:(id)a1 completion:(id /* block */)a2;
+- (void)alterEntriesRepresentingAtomic:(id)a0 toBeComprisedOfEntries:(id)a1 completion:(id /* block */)a2;
+- (void)alterEntriesRepresentingAtomic:(id)a0 toBeComprisedOfEntries:(id)a1 withNeedPolicy:(id)a2 completion:(id /* block */)a3;
+- (id)alterEntriesRepresentingAtomicSync:(id)a0 toBeComprisedOfEntries:(id)a1;
+- (id)alterEntriesRepresentingAtomicSync:(id)a0 toBeComprisedOfEntries:(id)a1 withNeedPolicy:(id)a2;
+- (void)assetSetForStaging:(id)a0 asEntriesWhenTargeting:(id)a1 completion:(id /* block */)a2;
+- (id)assetSetForStagingSync:(id)a0 asEntriesWhenTargeting:(id)a1;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withNeedPolicy:(id)a3 withTimeout:(long long)a4 completion:(id /* block */)a5;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withNeedPolicy:(id)a3 withTimeout:(long long)a4 reportingProgress:(id /* block */)a5 completion:(id /* block */)a6;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withTimeout:(long long)a3 completion:(id /* block */)a4;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withTimeout:(long long)a3 reportingProgress:(id /* block */)a4 completion:(id /* block */)a5;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 completion:(id /* block */)a4;
+- (void)checkAtomic:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 completion:(id /* block */)a3;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withNeedPolicy:(id)a3 withTimeout:(long long)a4 discoveredAtomicEntries:(id *)a5 error:(id *)a6;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withNeedPolicy:(id)a3 withTimeout:(long long)a4 discoveredAtomicEntries:(id *)a5 error:(id *)a6 reportingProgress:(id /* block */)a7;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withTimeout:(long long)a3 discoveredAtomicEntries:(id *)a4 error:(id *)a5;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 awaitingDownload:(BOOL)a2 withTimeout:(long long)a3 discoveredAtomicEntries:(id *)a4 error:(id *)a5 reportingProgress:(id /* block */)a6;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 discoveredAtomicEntries:(id *)a4 error:(id *)a5;
+- (id)checkAtomicSync:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 discoveredAtomicEntries:(id *)a3 error:(id *)a4;
+- (void)continueAtomicLock:(id)a0 ofAtomicInstance:(id)a1 completion:(id /* block */)a2;
+- (void)continueAtomicLock:(id)a0 ofAtomicInstance:(id)a1 withNeedPolicy:(id)a2 completion:(id /* block */)a3;
+- (id)continueAtomicLockSync:(id)a0 ofAtomicInstance:(id)a1;
+- (id)continueAtomicLockSync:(id)a0 ofAtomicInstance:(id)a1 withNeedPolicy:(id)a2;
+- (void)currentSetStatus:(id /* block */)a0;
+- (id)currentSetStatusSync:(id *)a0;
+- (void)endAtomicLock:(id)a0 ofAtomicInstance:(id)a1 completion:(id /* block */)a2;
+- (id)endAtomicLockSync:(id)a0 ofAtomicInstance:(id)a1;
+- (void)formSubAtomicInstance:(id)a0 fromAtomicInstance:(id)a1 toBeComprisedOfEntries:(id)a2 completion:(id /* block */)a3;
+- (id)formSubAtomicInstanceSync:(id)a0 fromAtomicInstance:(id)a1 toBeComprisedOfEntries:(id)a2 error:(id *)a3;
+- (id)initUsingClientDomain:(id)a0 forClientName:(id)a1 forAssetSetIdentifier:(id)a2 comprisedOfEntries:(id)a3 completingFromQueue:(id)a4 error:(id *)a5;
+- (id)initUsingClientDomain:(id)a0 forClientName:(id)a1 forAssetSetIdentifier:(id)a2 comprisedOfEntries:(id)a3 error:(id *)a4;
+- (id)initUsingClientDomain:(id)a0 forClientName:(id)a1 forAssetSetIdentifier:(id)a2 comprisedOfEntries:(id)a3 usingDesiredPolicyCategory:(id)a4 completingFromQueue:(id)a5 error:(id *)a6;
+- (id)initUsingClientDomain:(id)a0 forClientName:(id)a1 forAssetSetIdentifier:(id)a2 comprisedOfEntries:(id)a3 usingDesiredPolicyCategory:(id)a4 error:(id *)a5;
+- (void)lockAtomic:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 completion:(id /* block */)a4;
+- (void)lockAtomic:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 reportingProgress:(id /* block */)a4 completion:(id /* block */)a5;
+- (void)lockAtomic:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 completion:(id /* block */)a3;
+- (void)lockAtomic:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 reportingProgress:(id /* block */)a3 completion:(id /* block */)a4;
+- (id)lockAtomicSync:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 lockedAtomicEntries:(id *)a4 error:(id *)a5;
+- (id)lockAtomicSync:(id)a0 forAtomicInstance:(id)a1 withNeedPolicy:(id)a2 withTimeout:(long long)a3 lockedAtomicEntries:(id *)a4 error:(id *)a5 reportingProgress:(id /* block */)a6;
+- (id)lockAtomicSync:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 lockedAtomicEntries:(id *)a3 error:(id *)a4;
+- (id)lockAtomicSync:(id)a0 forAtomicInstance:(id)a1 withTimeout:(long long)a2 lockedAtomicEntries:(id *)a3 error:(id *)a4 reportingProgress:(id /* block */)a5;
+- (void)needForAtomic:(id)a0 completion:(id /* block */)a1;
+- (void)needForAtomic:(id)a0 withNeedPolicy:(id)a1 completion:(id /* block */)a2;
+- (id)needForAtomicSync:(id)a0;
+- (id)needForAtomicSync:(id)a0 withNeedPolicy:(id)a1;
+
+@end

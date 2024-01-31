@@ -1,0 +1,3 @@
+@interface __MonogramSimulationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

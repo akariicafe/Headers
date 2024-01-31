@@ -1,0 +1,3 @@
+@interface __MailStatusProgressBarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __APNetworksControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

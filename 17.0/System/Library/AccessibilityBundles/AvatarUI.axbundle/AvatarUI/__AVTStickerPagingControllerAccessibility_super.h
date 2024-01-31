@@ -1,0 +1,3 @@
+@interface __AVTStickerPagingControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

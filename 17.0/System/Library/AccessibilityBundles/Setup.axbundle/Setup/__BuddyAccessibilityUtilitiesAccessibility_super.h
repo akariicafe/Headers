@@ -1,0 +1,3 @@
+@interface __BuddyAccessibilityUtilitiesAccessibility_super : UIAccessibilitySafeCategory
+
+@end

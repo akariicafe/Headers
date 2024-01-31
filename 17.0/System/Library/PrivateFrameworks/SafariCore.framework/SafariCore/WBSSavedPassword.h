@@ -1,0 +1,3 @@
+@interface WBSSavedPassword : WBSSavedAccount
+
+@end

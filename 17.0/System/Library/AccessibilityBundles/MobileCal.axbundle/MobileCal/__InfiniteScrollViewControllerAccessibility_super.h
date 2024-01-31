@@ -1,0 +1,3 @@
+@interface __InfiniteScrollViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

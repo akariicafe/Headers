@@ -1,0 +1,3 @@
+@interface __SFAirDropMagicHeadViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

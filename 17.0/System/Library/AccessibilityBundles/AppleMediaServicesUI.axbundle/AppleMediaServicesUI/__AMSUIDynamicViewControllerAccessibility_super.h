@@ -1,0 +1,3 @@
+@interface __AMSUIDynamicViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

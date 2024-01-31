@@ -1,0 +1,3 @@
+@interface __SUUIOnboardingAffiliationCirclesViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

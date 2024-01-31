@@ -1,0 +1,3 @@
+@interface __tvOS_AVInfoPanelMetadataViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

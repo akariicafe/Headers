@@ -1,0 +1,3 @@
+@interface __NCClickInteractionPresentedControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

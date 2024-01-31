@@ -1,0 +1,3 @@
+@interface __AccessibilityNodeAccessibility__VideosUI__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

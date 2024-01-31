@@ -1,0 +1,3 @@
+@interface __PREditingAmbientContentStylePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

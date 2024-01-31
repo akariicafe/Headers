@@ -1,0 +1,88 @@
+@class NSHashTable, NSString, NSArray, CXCallObserver, SASCallRouteObserver, CARSessionStatus, AFNotifyObserver, SASLockStateMonitor, NSMutableSet, CARAutomaticDNDStatus, FBSDisplayLayoutMonitor;
+
+@interface SASSystemState : NSObject <SASEmptyProtocol, CXCallObserverDelegate, CARSessionObserving>
+
+@property (nonatomic) int carPlayConnectionState;
+@property (nonatomic) BOOL accessibilityShortcutEnabled;
+@property (retain, nonatomic) CXCallObserver *callObserver;
+@property (retain, nonatomic) NSMutableSet *activeCalls;
+@property (retain, nonatomic) SASCallRouteObserver *callRouteObserver;
+@property (retain, nonatomic) FBSDisplayLayoutMonitor *displayLayoutMonitor;
+@property (nonatomic) BOOL liftToWakeDetected;
+@property (retain, nonatomic) NSArray *currentCarPlaySupportedOEMAppIdList;
+@property (retain, nonatomic) CARSessionStatus *carPlaySessionStatus;
+@property (retain, nonatomic) CARAutomaticDNDStatus *carAutomaticDNDStatus;
+@property (retain, nonatomic) NSString *vehicleName;
+@property (retain, nonatomic) NSString *vehicleModel;
+@property (retain, nonatomic) NSString *vehicleManufacturer;
+@property (nonatomic) BOOL rightHandDrive;
+@property (nonatomic) BOOL enabled;
+@property (retain, nonatomic) NSHashTable *listeners;
+@property (retain, nonatomic) AFNotifyObserver *observerWirelessSplitter;
+@property (retain, nonatomic) AFNotifyObserver *observerBluetoothGuestConnected;
+@property (retain, nonatomic) AFNotifyObserver *remoteWebcamModeEnabled;
+@property (nonatomic) unsigned long long carPlayEnhancedSiriCharacteristics;
+@property (nonatomic) long long carPlayEnhancedVoiceTriggerMode;
+@property (nonatomic) long long carPlayTransportType;
+@property (retain, nonatomic) SASLockStateMonitor *lockStateMonitor;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)new;
++ (id)sharedSystemState;
+
+- (BOOL)isPad;
+- (BOOL)isConnectedToCarPlay;
+- (void)_fetchOEMAppContext;
+- (id)init;
+- (void)_fetchVehicleInformation;
+- (BOOL)hasUnlockedSinceBoot;
+- (void)_pairedVehiclesDidChange:(id)a0;
+- (BOOL)_deviceIsUnlocked;
+- (void)_setCarPlayConnectionState:(int)a0;
+- (void)_updateEnhancedVoiceTriggerMode;
+- (BOOL)deviceIsBlocked;
+- (BOOL)siriIsRestricted;
+- (void)addStateChangeListener:(id)a0;
+- (void)_updateAccessibilityState;
+- (BOOL)_internalAlwaysEyesFreeEnabled;
+- (void)sessionDidConnect:(id)a0;
+- (long long)_carPlayTransportTypeFromConfiguration:(id)a0;
+- (void)_voiceTriggerModeChanged:(id)a0;
+- (BOOL)carDNDActiveOrEyesFreeAndShouldHaveFullScreenPresentation:(BOOL)a0;
+- (BOOL)isInActiveCall;
+- (void)removeStateChangeListener:(id)a0;
+- (BOOL)deviceLiftToWake;
+- (BOOL)isConnectedToEyesFreeDevice;
+- (BOOL)_mapsAppIsVisibleOnLockscreen;
+- (BOOL)siriIsSupported;
+- (BOOL)smartCoverClosed;
+- (BOOL)carPlaySupportsAnyEnhancedSiriCharacteristics;
+- (void).cxx_destruct;
+- (BOOL)deviceIsPasscodeLocked;
+- (BOOL)isWirelessSplitterOn;
+- (id)_initForTesting;
+- (unsigned long long)carDNDStatus;
+- (BOOL)siriInCallEnabled;
+- (BOOL)hasRingingCall;
+- (id)currentSpokenLanguageCode;
+- (BOOL)isCallAudioRouteAllowed;
+- (void)callObserver:(id)a0 callChanged:(id)a1;
+- (BOOL)callHangUpEnabled;
+- (BOOL)isConnectedToTrustedCarPlay;
+- (BOOL)siriIsEnabled;
+- (BOOL)isGuestConnected;
+- (BOOL)isRemoteWebcamMode;
+- (void)monitorLockState;
+- (BOOL)isRightHandDrive;
+- (BOOL)isATV;
+- (BOOL)carDNDActive;
+- (BOOL)deviceScreenIsOn;
+- (void)sessionDidDisconnect:(id)a0;
+- (void)monitorCarSessions;
+- (void)_updateCarPlayConnectionState;
+- (BOOL)carPlaySupportsEnhancedSiriCharacteristic:(unsigned long long)a0;
+
+@end

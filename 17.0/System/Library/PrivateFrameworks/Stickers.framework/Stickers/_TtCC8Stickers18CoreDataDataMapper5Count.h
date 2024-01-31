@@ -1,0 +1,3 @@
+@interface _TtCC8Stickers18CoreDataDataMapper5Count : _TtCC8Stickers18CoreDataDataMapper15ExtractedMethod
+
+@end

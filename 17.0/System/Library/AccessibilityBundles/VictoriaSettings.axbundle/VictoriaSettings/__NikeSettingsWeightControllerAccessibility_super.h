@@ -1,0 +1,3 @@
+@interface __NikeSettingsWeightControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

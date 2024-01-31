@@ -1,0 +1,3 @@
+@interface CPGraphicRegion : CPRegion
+
+@end

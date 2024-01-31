@@ -1,0 +1,3 @@
+@interface __SUUIVideoThumbnailViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

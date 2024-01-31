@@ -1,0 +1,3 @@
+@interface __STHistoricalScreenTimeCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

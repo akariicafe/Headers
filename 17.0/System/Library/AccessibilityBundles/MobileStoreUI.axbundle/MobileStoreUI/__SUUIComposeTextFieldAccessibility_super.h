@@ -1,0 +1,3 @@
+@interface __SUUIComposeTextFieldAccessibility_super : UIAccessibilitySafeCategory
+
+@end

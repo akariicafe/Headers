@@ -1,0 +1,71 @@
+@class NSString, AFPeerInfo;
+
+@interface _AFPeerInfoMutation : NSObject <AFPeerInfoMutating> {
+    AFPeerInfo *_base;
+    BOOL _isDeviceOwnedByCurrentUser;
+    NSString *_assistantIdentifier;
+    NSString *_sharedUserIdentifier;
+    NSString *_idsIdentifier;
+    NSString *_idsDeviceUniqueIdentifier;
+    NSString *_rapportEffectiveIdentifier;
+    NSString *_homeKitAccessoryIdentifier;
+    NSString *_mediaSystemIdentifier;
+    NSString *_mediaRouteIdentifier;
+    BOOL _isCommunalDevice;
+    NSString *_roomName;
+    NSString *_name;
+    NSString *_productType;
+    NSString *_buildVersion;
+    NSString *_userInterfaceIdiom;
+    NSString *_aceVersion;
+    BOOL _isLocationSharingDevice;
+    BOOL _isSiriCloudSyncEnabled;
+    struct _mutationFlags { unsigned char isDirty : 1; unsigned char hasIsDeviceOwnedByCurrentUser : 1; unsigned char hasAssistantIdentifier : 1; unsigned char hasSharedUserIdentifier : 1; unsigned char hasIdsIdentifier : 1; unsigned char hasIdsDeviceUniqueIdentifier : 1; unsigned char hasRapportEffectiveIdentifier : 1; unsigned char hasHomeKitAccessoryIdentifier : 1; unsigned char hasMediaSystemIdentifier : 1; unsigned char hasMediaRouteIdentifier : 1; unsigned char hasIsCommunalDevice : 1; unsigned char hasRoomName : 1; unsigned char hasName : 1; unsigned char hasProductType : 1; unsigned char hasBuildVersion : 1; unsigned char hasUserInterfaceIdiom : 1; unsigned char hasAceVersion : 1; unsigned char hasIsLocationSharingDevice : 1; unsigned char hasIsSiriCloudSyncEnabled : 1; } _mutationFlags;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)setProductType:(id)a0;
+- (void)setUserInterfaceIdiom:(id)a0;
+- (void)setBuildVersion:(id)a0;
+- (id)initWithBase:(id)a0;
+- (void)setMediaRouteIdentifier:(id)a0;
+- (id)getHomeKitAccessoryIdentifier;
+- (id)getRapportEffectiveIdentifier;
+- (BOOL)isDirty;
+- (void)setHomeKitAccessoryIdentifier:(id)a0;
+- (void)setAceVersion:(id)a0;
+- (void)setName:(id)a0;
+- (void)setRapportEffectiveIdentifier:(id)a0;
+- (id)getAssistantIdentifier;
+- (id)getBuildVersion;
+- (void)setAssistantIdentifier:(id)a0;
+- (id)getMediaRouteIdentifier;
+- (BOOL)getIsSiriCloudSyncEnabled;
+- (void)setIdsIdentifier:(id)a0;
+- (id)getName;
+- (void)setIsLocationSharingDevice:(BOOL)a0;
+- (id)getSharedUserIdentifier;
+- (id)getIdsIdentifier;
+- (void)setMediaSystemIdentifier:(id)a0;
+- (BOOL)getIsCommunalDevice;
+- (id)getIdsDeviceUniqueIdentifier;
+- (BOOL)getIsDeviceOwnedByCurrentUser;
+- (void)setRoomName:(id)a0;
+- (id)getUserInterfaceIdiom;
+- (void)setSharedUserIdentifier:(id)a0;
+- (void)setIsDeviceOwnedByCurrentUser:(BOOL)a0;
+- (void)setIdsDeviceUniqueIdentifier:(id)a0;
+- (void).cxx_destruct;
+- (BOOL)getIsLocationSharingDevice;
+- (void)setIsCommunalDevice:(BOOL)a0;
+- (id)getAceVersion;
+- (id)getMediaSystemIdentifier;
+- (id)getRoomName;
+- (void)setIsSiriCloudSyncEnabled:(BOOL)a0;
+- (id)getProductType;
+
+@end

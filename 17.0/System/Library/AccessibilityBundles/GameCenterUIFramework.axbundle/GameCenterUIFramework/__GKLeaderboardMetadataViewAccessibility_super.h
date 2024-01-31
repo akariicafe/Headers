@@ -1,0 +1,3 @@
+@interface __GKLeaderboardMetadataViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,57 @@
+@class SUUIStackDocumentViewController, NSString, NSArray, SUUICommentTemplateViewElement, SUUIMediaSocialAuthor, SUUILayoutCache, SUUICommentPostBarView, NSMutableSet, SUUIViewElementLayoutContext, SUUIStackTemplateElement;
+
+@interface SUUICommentDocumentViewController : SUUIViewController <SUUIArtworkRequestDelegate, SUUILayoutCacheDelegate, SUUICommentDelegate, SUUIDocumentViewController> {
+    SUUIMediaSocialAuthor *_authorForActiveAccount;
+    SUUIStackDocumentViewController *_childViewController;
+    NSArray *_commenters;
+    BOOL _didShowKeyboard;
+    BOOL _keyboardVisible;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _keyboardRect;
+    SUUIViewElementLayoutContext *_layoutContext;
+    NSMutableSet *_observedArtworkRequestIDs;
+    SUUICommentPostBarView *_postView;
+    BOOL _scrollNewCommentToView;
+    long long _selectedCommenter;
+    SUUIStackTemplateElement *_stackTemplateElement;
+    SUUICommentTemplateViewElement *_templateElement;
+    SUUILayoutCache *_textLayoutCache;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)_backgroundColor;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)loadView;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (id)_layoutContext;
+- (void)_keyboardWillChangeFrameNotification:(id)a0;
+- (void)_keyboardWillShowNotification:(id)a0;
+- (void)_layoutKeyboard;
+- (void)_changeCommenter;
+- (void)_checkAdminStatus;
+- (id)_getSelectedCommenter;
+- (void)_keyboardDidHideChangeNotification:(id)a0;
+- (void)_keyboardWillChangeNotification:(id)a0 accountForGuideLines:(BOOL)a1 applyKeyboardOffset:(BOOL)a2;
+- (void)_keyboardWillHideNotification:(id)a0;
+- (void)_layoutScrollView:(double)a0;
+- (BOOL)_loadImageForURL:(id)a0 cacheKey:(id)a1 dataConsumer:(id)a2 reason:(long long)a3;
+- (void)_preloadCommenterImages;
+- (void)_reloadContentSize:(double)a0;
+- (void)_setSelectedCommenter:(long long)a0;
+- (void)artworkRequest:(id)a0 didLoadImage:(id)a1;
+- (void)commentPostBarView:(id)a0 changeCommenter:(id)a1;
+- (void)commentPostBarView:(id)a0 text:(id)a1 as:(id)a2;
+- (void)documentDidUpdate:(id)a0;
+- (id)initWithTemplateElement:(id)a0;
+- (void)layoutCacheDidFinishBatch:(id)a0;
+- (void)updateStackElement:(id)a0 withView:(id)a1;
+
+@end

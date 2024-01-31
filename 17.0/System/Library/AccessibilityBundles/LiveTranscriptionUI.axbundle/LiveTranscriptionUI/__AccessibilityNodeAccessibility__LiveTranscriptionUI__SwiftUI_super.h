@@ -1,0 +1,3 @@
+@interface __AccessibilityNodeAccessibility__LiveTranscriptionUI__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

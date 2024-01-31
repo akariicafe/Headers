@@ -1,0 +1,3 @@
+@interface __PSTableCellAccessibility__ScreenTimeUI__Preferences_super : UIAccessibilitySafeCategory
+
+@end

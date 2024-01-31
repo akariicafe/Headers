@@ -1,0 +1,3 @@
+@interface __MKPlacePhotosViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ActivationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

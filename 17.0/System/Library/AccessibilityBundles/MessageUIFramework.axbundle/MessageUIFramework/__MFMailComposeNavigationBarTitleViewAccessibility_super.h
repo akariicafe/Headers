@@ -1,0 +1,3 @@
+@interface __MFMailComposeNavigationBarTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

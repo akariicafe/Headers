@@ -1,0 +1,3 @@
+@interface __CKNavbarCanvasViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

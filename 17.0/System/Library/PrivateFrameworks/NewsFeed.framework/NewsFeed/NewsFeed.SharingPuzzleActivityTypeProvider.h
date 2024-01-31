@@ -1,0 +1,5 @@
+@interface NewsFeed.SharingPuzzleActivityTypeProvider : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ supportedActivityTypes;
+}
+
+@end

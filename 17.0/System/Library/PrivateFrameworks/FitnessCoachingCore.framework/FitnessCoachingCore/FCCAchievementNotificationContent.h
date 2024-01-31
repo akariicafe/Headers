@@ -1,0 +1,11 @@
+@class ACHAchievement, NSString;
+
+@interface FCCAchievementNotificationContent : NSObject <FCCDataSerializable>
+
+@property (readonly, nonatomic) ACHAchievement *achievement;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+@end

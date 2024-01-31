@@ -1,0 +1,3 @@
+@interface __EKCalendarChooserCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

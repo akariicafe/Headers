@@ -1,0 +1,5 @@
+@interface PGSocialGroupMemoryNodeFeatureExtractor : PGGraphMemoryNodeFeatureExtractor
+
+- (id)initWithError:(id *)a0;
+
+@end

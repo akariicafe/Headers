@@ -1,0 +1,3 @@
+@interface __CKNanoComposeControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

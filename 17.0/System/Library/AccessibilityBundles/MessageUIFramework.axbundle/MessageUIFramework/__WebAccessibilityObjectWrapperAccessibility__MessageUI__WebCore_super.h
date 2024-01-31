@@ -1,0 +1,3 @@
+@interface __WebAccessibilityObjectWrapperAccessibility__MessageUI__WebCore_super : UIAccessibilitySafeCategory
+
+@end

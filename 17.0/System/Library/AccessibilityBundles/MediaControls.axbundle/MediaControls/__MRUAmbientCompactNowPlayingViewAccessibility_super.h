@@ -1,0 +1,3 @@
+@interface __MRUAmbientCompactNowPlayingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

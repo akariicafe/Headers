@@ -1,0 +1,3 @@
+@interface __CKMessagesControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

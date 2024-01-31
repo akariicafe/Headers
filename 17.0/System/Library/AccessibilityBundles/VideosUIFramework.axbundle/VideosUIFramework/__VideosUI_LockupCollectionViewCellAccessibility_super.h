@@ -1,0 +1,3 @@
+@interface __VideosUI_LockupCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

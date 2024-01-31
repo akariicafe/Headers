@@ -1,0 +1,3 @@
+@interface SiriContactsIntents.GetContactAttributeHandleIntentWithNoOutputStrategy : _TtCs12_SwiftObject
+
+@end

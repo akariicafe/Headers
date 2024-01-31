@@ -1,0 +1,3 @@
+@interface __CKMentionSuggestionCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

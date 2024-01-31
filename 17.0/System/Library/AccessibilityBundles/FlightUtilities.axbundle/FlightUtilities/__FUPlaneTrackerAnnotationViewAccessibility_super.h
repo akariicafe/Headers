@@ -1,0 +1,3 @@
+@interface __FUPlaneTrackerAnnotationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

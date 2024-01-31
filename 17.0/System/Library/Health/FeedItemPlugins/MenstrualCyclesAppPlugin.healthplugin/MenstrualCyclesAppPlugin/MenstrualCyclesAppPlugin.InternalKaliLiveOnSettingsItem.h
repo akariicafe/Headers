@@ -1,0 +1,3 @@
+@interface MenstrualCyclesAppPlugin.InternalKaliLiveOnSettingsItem : MenstrualCyclesAppPlugin.TextItem
+
+@end

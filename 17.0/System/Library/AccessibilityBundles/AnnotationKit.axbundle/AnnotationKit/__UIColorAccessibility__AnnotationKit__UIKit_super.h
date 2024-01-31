@@ -1,0 +1,3 @@
+@interface __UIColorAccessibility__AnnotationKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

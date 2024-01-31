@@ -1,0 +1,3 @@
+@interface UMError : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __NCNotificationListCountIndicatorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

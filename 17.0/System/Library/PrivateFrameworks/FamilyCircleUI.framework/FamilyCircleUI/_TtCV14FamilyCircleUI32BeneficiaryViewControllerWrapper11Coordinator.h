@@ -1,0 +1,3 @@
+@interface _TtCV14FamilyCircleUI32BeneficiaryViewControllerWrapper11Coordinator : _TtCs12_SwiftObject
+
+@end

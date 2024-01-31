@@ -1,0 +1,3 @@
+@interface __MTAWorldClockCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

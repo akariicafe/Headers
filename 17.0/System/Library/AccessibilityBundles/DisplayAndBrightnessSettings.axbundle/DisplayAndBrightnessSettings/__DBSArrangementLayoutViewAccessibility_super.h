@@ -1,0 +1,3 @@
+@interface __DBSArrangementLayoutViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

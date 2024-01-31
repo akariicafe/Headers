@@ -1,0 +1,3 @@
+@interface ___TVMLCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

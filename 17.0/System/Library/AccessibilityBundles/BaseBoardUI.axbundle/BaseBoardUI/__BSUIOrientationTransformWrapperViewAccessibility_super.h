@@ -1,0 +1,3 @@
+@interface __BSUIOrientationTransformWrapperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

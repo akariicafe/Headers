@@ -1,0 +1,3 @@
+@interface __FullWidthDetailHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

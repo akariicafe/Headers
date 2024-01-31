@@ -1,0 +1,3 @@
+@interface __VideosRentalCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

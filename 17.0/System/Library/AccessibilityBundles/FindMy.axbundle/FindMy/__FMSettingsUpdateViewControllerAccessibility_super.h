@@ -1,0 +1,3 @@
+@interface __FMSettingsUpdateViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

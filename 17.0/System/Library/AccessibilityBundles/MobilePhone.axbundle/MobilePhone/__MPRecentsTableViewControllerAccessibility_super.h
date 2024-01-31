@@ -1,0 +1,3 @@
+@interface __MPRecentsTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SLWeeAppButtonBackgroundViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

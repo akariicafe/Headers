@@ -1,0 +1,3 @@
+@interface __SUUIProfileSettingDescriptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

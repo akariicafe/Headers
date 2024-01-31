@@ -1,0 +1,3 @@
+@interface __UITableViewCellAccessibility__LoginUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CPSPermissionItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

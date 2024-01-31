@@ -1,0 +1,3 @@
+@interface __HKInteractiveChartViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKMacRecipientsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface SUUILimitViewElement : SUUIViewElement
+
+@end

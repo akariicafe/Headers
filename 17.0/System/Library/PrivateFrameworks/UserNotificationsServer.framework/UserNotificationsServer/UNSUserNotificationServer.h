@@ -1,0 +1,92 @@
+@class _UNNotificationCommunicationContextService, UNSNotificationSchedulingService, UNSUserNotificationServerSettingsConnectionListener, UNSNotificationAuthorizationService, UNCBundleLibrarian, UNSDefaultDataProviderFactory, UNSAttachmentsRepository, NSString, UNSNotificationSettingsService, UNCRemoteNotificationServer, UNSNotificationScheduleRepository, UNSPendingNotificationRepository, UNSSettingsGateway, UNSNotificationRepository, UNSContentProtectionManager, UNSApplicationService, UNSDaemonLauncher, UNSAttachmentsService, UNSUserNotificationServerConnectionListener, UNCPushRegistrationRepository, UNSNotificationTopicRepository, BKSApplicationStateMonitor, NSSet, NSObject, UNSLocalizationService, UNSNotificationCategoryRepository, UNSLocationMonitor, UNSApplicationLauncher, UNSUserNotificationServerRemoteNotificationConnectionListener;
+@protocol OS_dispatch_queue;
+
+@interface UNSUserNotificationServer : NSObject <LSApplicationWorkspaceObserverProtocol, UNSContentProtectionObserver, UNSDefaultDataProviderFactoryObserver, UNSNotificationRepositoryDelegate, UNCRemoteNotificationServerObserver> {
+    UNCPushRegistrationRepository *_pushRegistrationRepository;
+    UNSApplicationLauncher *_applicationLauncher;
+    UNSApplicationService *_applicationService;
+    UNSAttachmentsRepository *_attachmentsRepository;
+    UNCBundleLibrarian *_librarian;
+    UNSContentProtectionManager *_contentProtectionManager;
+    UNSDefaultDataProviderFactory *_dataProviderFactory;
+    UNSLocalizationService *_localizationService;
+    _UNNotificationCommunicationContextService *_communicationContextService;
+    UNSUserNotificationServerConnectionListener *_userNotificationServerConnectionListener;
+    UNSUserNotificationServerSettingsConnectionListener *_userNotificationServerSettingsConnectionListener;
+    UNSUserNotificationServerRemoteNotificationConnectionListener *_userNotificationServerRemoteNotificationConnectionListener;
+    UNSNotificationCategoryRepository *_categoryRepository;
+    UNSNotificationSchedulingService *_notificationSchedulingService;
+    UNSNotificationAuthorizationService *_notificationAuthorizationService;
+    UNSNotificationSettingsService *_notificationSettingsService;
+    UNSNotificationRepository *_notificationRepository;
+    UNSPendingNotificationRepository *_pendingNotificationRepository;
+    UNCRemoteNotificationServer *_remoteNotificationService;
+    UNSNotificationScheduleRepository *_notificationScheduleRepository;
+    UNSNotificationTopicRepository *_topicRepository;
+    UNSAttachmentsService *_attachmentsService;
+    UNSLocationMonitor *_locationMonitor;
+    UNSDaemonLauncher *_daemonLauncher;
+    BKSApplicationStateMonitor *_applicationStateMonitor;
+    NSSet *_systemSourceBundleIdentifiers;
+    NSString *_libraryDirectory;
+    NSString *_directory;
+    UNSSettingsGateway *_settingsGateway;
+    NSObject<OS_dispatch_queue> *_installedSourceQueue;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (id)_sharedInstanceCreateIfNecessary:(BOOL)a0;
++ (id)sharedInstanceIfExists;
+
+- (void)applicationsDidInstall:(id)a0;
+- (void)applicationInstallsDidChange:(id)a0;
+- (void)_migrateAttachments;
+- (void)applicationsDidUninstall:(id)a0;
+- (id)init;
+- (void)_addObserverForDataProviderFactoryChanges;
+- (id)_sourceDescriptionsForApplications:(id)a0;
+- (void)_addObserverForBackgroundRefreshApplicationChanges;
+- (void)_migratePendingNotificationRequests;
+- (void)_localeDidChange;
+- (void)contentProtectionStateChangedForFirstUnlock:(BOOL)a0;
+- (void)_installedSourceQueue_notificationSourcesDidUninstall:(id)a0;
+- (void)_migrateNotificationSchedule;
+- (void)_migrateNotificationRepository;
+- (void)_addObserverForApplicationStateRestore;
+- (void)_registerLoggers;
+- (BOOL)isApplicationForeground:(id)a0;
+- (void)_timeDidChangeSignificantly;
+- (void)_removeNotificationSourceDirectories:(id)a0;
+- (void)_addObserverForContentProtectionChanges;
+- (void)initialSystemNotificationSourcesDidInstall:(id)a0 applicationsDidInstall:(id)a1;
+- (void)_addObserverForApplicationWorkspaceChanges;
+- (void)_installedSourceQueue_notificationSourcesDidInstall:(id)a0;
+- (BOOL)observeLaunchProhibitedApps;
+- (id)_loadAllSystemNotificationSourceDescriptions;
+- (void)_validateNotificationRepository;
+- (void)_migratePushRegistrations;
+- (void)_didChangeApplicationState:(unsigned int)a0 forBundleIdentifier:(id)a1;
+- (void)_addObserverForSignificantTimeChanges;
+- (void).cxx_destruct;
+- (void)_addObserverForApplicationStateMonitor;
+- (void)_applicationStateDidRestore;
+- (void)applicationStateDidChange:(id)a0;
+- (void)_migrateNotificationCategories;
+- (void)_removePushStore;
+- (void)_addObserverForLocaleChanges;
+- (void)_backgroundRefreshApplicationsDidChange;
+- (void)_triggerLocationArrowForBundleIdentifier:(id)a0;
+- (void)_removeBundleLibrarianMappingsForSourceDescriptions:(id)a0;
+- (void)_ensureAttachmentsIntegrity;
+- (void)didChangeNotificationSettings:(id)a0 forBundleIdentifier:(id)a1;
+- (void)didReceiveDeviceToken:(id)a0 forBundleIdentifier:(id)a1;
+- (void)_addObserverForRemoteNotificationServiceChanges;
+- (void)willPresentNotification:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_applicationsDidInstall:(id)a0;
+
+@end

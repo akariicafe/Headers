@@ -1,0 +1,3 @@
+@interface __CKChatController_ClickyOrb_QSExtras_super : UIAccessibilitySafeCategory
+
+@end

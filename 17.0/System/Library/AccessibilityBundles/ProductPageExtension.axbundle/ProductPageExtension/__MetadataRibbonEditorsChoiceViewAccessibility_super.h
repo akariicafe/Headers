@@ -1,0 +1,3 @@
+@interface __MetadataRibbonEditorsChoiceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

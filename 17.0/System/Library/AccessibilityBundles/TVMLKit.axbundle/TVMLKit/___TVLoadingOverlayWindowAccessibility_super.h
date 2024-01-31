@@ -1,0 +1,3 @@
+@interface ___TVLoadingOverlayWindowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

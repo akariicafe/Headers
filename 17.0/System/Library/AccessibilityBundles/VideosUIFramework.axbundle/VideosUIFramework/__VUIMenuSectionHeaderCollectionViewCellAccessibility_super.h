@@ -1,0 +1,3 @@
+@interface __VUIMenuSectionHeaderCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC8VideosUI27Tier1PlusLiveUpdateProvider21SubscriptionTaskActor : _TtCs12_SwiftObject
+
+@end

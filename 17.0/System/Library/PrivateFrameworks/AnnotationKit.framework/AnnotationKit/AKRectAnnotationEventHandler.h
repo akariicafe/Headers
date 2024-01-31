@@ -1,0 +1,3 @@
+@interface AKRectAnnotationEventHandler : AKRectangularAnnotationEventHandler
+
+@end

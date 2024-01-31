@@ -1,0 +1,3 @@
+@interface __SMUGradientBackedLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

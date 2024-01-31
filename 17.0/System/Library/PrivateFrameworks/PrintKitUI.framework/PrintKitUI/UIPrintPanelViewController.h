@@ -1,0 +1,95 @@
+@class NSURL, UIBarButtonItem, UIPrintPanelWindow, UIActivityViewController, UIPrinter, UITableView, NSObject, UIViewController, UIPrintOptionsTableViewController, UIView, NSLayoutConstraint, NSString, UIPrintPanelNavigationController, UIPopoverController, UIAlertController, UIPrintPreviewViewController, NSArray, UIPrintInteractionController, UIPrintInfo;
+@protocol OS_dispatch_queue, UIPrintAppExtensionProtocol;
+
+@interface UIPrintPanelViewController : UIViewController <UIPopoverPresentationControllerDelegate, UIPrintPanelAppearanceDelegate, UINavigationControllerDelegate> {
+    NSObject<OS_dispatch_queue> *_lookupPrinterQueue;
+}
+
+@property (retain, nonatomic) UIPrintPanelWindow *printPanelWindow;
+@property (retain, nonatomic) UIPrintPanelNavigationController *printPanelNavigationController;
+@property (weak, nonatomic) UIViewController *parentController;
+@property (retain, nonatomic) UIView *previewSeparatorView;
+@property (retain, nonatomic) UIBarButtonItem *shareButton;
+@property (retain, nonatomic) UIPrintPreviewViewController *previewViewController;
+@property (retain, nonatomic) UIView *previewPanelView;
+@property (retain, nonatomic) NSLayoutConstraint *previewHeightConstraint;
+@property (retain, nonatomic) UIPrintOptionsTableViewController *printOptionsTableViewController;
+@property (retain, nonatomic) NSLayoutConstraint *printOptionsWidthConstraint;
+@property (nonatomic) long long lastUsedPrinterIndex;
+@property (retain) NSArray *lastUsedPrinterArray;
+@property (retain, nonatomic) NSArray *vertScrollPrintPanelConstraints;
+@property (retain, nonatomic) NSArray *horizScrollPrintPanelConstraints;
+@property (retain, nonatomic) UIPopoverController *poverController;
+@property (retain, nonatomic) UIActivityViewController *activityViewController;
+@property (retain) NSURL *quickLookPDFURL;
+@property (retain) NSString *shareablePDFDirectoryPath;
+@property (retain) UIAlertController *pdfCreationProgressController;
+@property BOOL quickLookPDFGenerationInProgress;
+@property BOOL quickLookPDFGenerationCancelled;
+@property double progressPresentationTime;
+@property (nonatomic) BOOL dismissed;
+@property (nonatomic) BOOL animated;
+@property (retain, nonatomic) UIPrinter *observedPrinter;
+@property (retain, nonatomic) UIPrintInfo *printInfo;
+@property (retain, nonatomic) UIPrintPanelNavigationController *printOptionsNavController;
+@property (retain, nonatomic) UITableView *printOptionsTableView;
+@property (retain, nonatomic) UIViewController<UIPrintAppExtensionProtocol> *appPrintExtensionController;
+@property (retain, nonatomic) UIPrintInteractionController *printInteractionController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)_preventsAppearanceProxyCustomization;
+
+- (void)applicationDidBecomeActive:(id)a0;
+- (void)updateViewConstraints;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)dismissKeyboard;
+- (void)viewDidLoad;
+- (void)loadView;
+- (id)keyCommands;
+- (void)setPrinter:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void).cxx_destruct;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)dismissAnimated:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (void)cancelButtonPressed:(id)a0;
+- (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)a0;
+- (void)backButtonPressed:(id)a0;
+- (void)updatePageRange;
+- (void)_presentInParentAnimated:(BOOL)a0;
+- (void)addCanelButtonToNavItem:(id)a0;
+- (void)addPrintShareButtonsToNavItem:(id)a0;
+- (void)cancelPrinting;
+- (void)cancelQuickLookPDFGeneration;
+- (id)createShareablePDFFileURL:(id)a0;
+- (void)dismissPrintPanelWithAction:(long long)a0 animated:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)generateQuickLookPDFWithCompletionHandler:(id /* block */)a0;
+- (void)hideGeneratingPDFProgress:(id)a0;
+- (id)initWithPrintInterationController:(id)a0 inParentController:(id)a1;
+- (void)lookupLastUsedPrinter;
+- (void)presentPrintPanelAnimated:(BOOL)a0 hostingScene:(id)a1;
+- (void)presentPrintPanelFromBarButtonItem:(id)a0 animated:(BOOL)a1;
+- (void)presentPrintPanelFromRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1 animated:(BOOL)a2;
+- (void)printButtonPressed:(id)a0;
+- (void)printNavigationConrollerDidDismiss;
+- (void)printPanelDidDisappear;
+- (id)printerDisplayName:(id)a0;
+- (void)removeShareablePDFFiles;
+- (void)shareButtonPress:(id)a0;
+- (id)shareableURLForPreviewing;
+- (BOOL)shouldShowDuplex;
+- (BOOL)shouldShowLayout;
+- (BOOL)shouldShowOrientation;
+- (BOOL)shouldShowPageRange;
+- (BOOL)shouldShowScaling;
+- (void)showGeneratingPDFProgressPanel;
+- (void)showSharePanelForPDFURL:(id)a0;
+- (BOOL)showingVerticalPreview;
+- (void)startPrinting;
+- (void)updatePreviewLayoutConstraints;
+
+@end

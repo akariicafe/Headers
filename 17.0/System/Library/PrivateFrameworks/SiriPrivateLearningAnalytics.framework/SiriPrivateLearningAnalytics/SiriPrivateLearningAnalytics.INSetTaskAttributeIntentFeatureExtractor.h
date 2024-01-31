@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningAnalytics.INSetTaskAttributeIntentFeatureExtractor : _TtCs12_SwiftObject
+
+@end

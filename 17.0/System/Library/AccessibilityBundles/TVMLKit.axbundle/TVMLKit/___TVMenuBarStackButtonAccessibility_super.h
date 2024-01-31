@@ -1,0 +1,3 @@
+@interface ___TVMenuBarStackButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

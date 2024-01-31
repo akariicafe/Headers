@@ -1,0 +1,3 @@
+@interface __MTPodcastCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKMessageAcknowledgmentPickerBarItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

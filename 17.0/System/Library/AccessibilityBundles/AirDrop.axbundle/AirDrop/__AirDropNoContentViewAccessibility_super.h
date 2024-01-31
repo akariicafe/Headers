@@ -1,0 +1,3 @@
+@interface __AirDropNoContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

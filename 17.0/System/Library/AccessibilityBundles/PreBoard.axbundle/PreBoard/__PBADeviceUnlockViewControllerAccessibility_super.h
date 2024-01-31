@@ -1,0 +1,3 @@
+@interface __PBADeviceUnlockViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

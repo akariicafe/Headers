@@ -1,0 +1,3 @@
+@interface __CKTranscriptGroupHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

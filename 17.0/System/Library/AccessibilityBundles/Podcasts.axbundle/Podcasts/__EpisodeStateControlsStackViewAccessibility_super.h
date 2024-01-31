@@ -1,0 +1,3 @@
+@interface __EpisodeStateControlsStackViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

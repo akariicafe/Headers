@@ -1,0 +1,83 @@
+@class PLPersistentContainer, PLPersonInfoManager, PLConstraintsDirector, PLPhotoKitVariationCache, PLLazyObject, NSError, PLPhotoLibraryBundleController, PLClientSandboxExtensionCache, PLPhotoAnalysisServiceClient, NSArray, PLLibraryServicesManager, PLAssetsdClient, PFTimeZoneLookup, PLIndicatorFileCoordinator, PLAtomicObject, PLChangeHandlingContainer, PLFetchRecorder, PLFileSystemVolumeUnmountMonitor, PLEmailAddressManager, NSURL, PLPhotoLibraryPathManager, NSNumber;
+
+@interface PLPhotoLibraryBundle : NSObject <PLFileSystemVolumeUnmountObserver> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSError *_shutdownReason;
+    PLAtomicObject *_atomicPhotoLibraries;
+    PLLazyObject *_lazyPersistentContainer;
+    PLLazyObject *_lazyIndicatorFileCoordinator;
+    PLLazyObject *_lazyChangeHandlingContainer;
+    PLLazyObject *_lazyAssetsdClient;
+    PLLazyObject *_lazyLibraryServicesManager;
+    PLLazyObject *_lazyVariationCache;
+    PLLazyObject *_lazyPersonInfoManager;
+    PLLazyObject *_lazyEmailAddressManager;
+    PLLazyObject *_lazyBoundAssetsdServicesTable;
+    PLLazyObject *_lazyPhotoAnalysisServiceClient;
+    PLLazyObject *_lazyConstraintsDirector;
+    PLLazyObject *_lazyTimeZoneLookup;
+    PLLazyObject *_lazyChangeHandlingObserverTargetNotifyWorkloop;
+    PLLazyObject *_lazyFetchRecorder;
+    NSNumber *_sqliteErrorIndicatorFileExists;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _sqliteErrorIndicatorLock;
+    PLFileSystemVolumeUnmountMonitor *_volumeUnmountMonitor;
+}
+
+@property (readonly, copy) NSURL *libraryURL;
+@property (readonly) BOOL isShuttingDown;
+@property (readonly, copy) NSError *shutdownReason;
+@property (readonly) PLPhotoLibraryPathManager *pathManager;
+@property (readonly) PLIndicatorFileCoordinator *indicatorFileCoordinator;
+@property (readonly) PLPersistentContainer *persistentContainer;
+@property (readonly, nonatomic) long long connectionType;
+@property (readonly) PLChangeHandlingContainer *changeHandlingContainer;
+@property (readonly) PLPhotoKitVariationCache *variationCache;
+@property (readonly) PLPersonInfoManager *personInfoManager;
+@property (readonly) PLEmailAddressManager *emailAddressManager;
+@property (readonly, weak, nonatomic) PLPhotoLibraryBundleController *bundleController;
+@property (readonly) PLPhotoAnalysisServiceClient *photoAnalysisServiceClient;
+@property (readonly) PLConstraintsDirector *constraintsDirector;
+@property (readonly) PFTimeZoneLookup *timeZoneLookup;
+@property (readonly) PLClientSandboxExtensionCache *clientSandboxExtensionCache;
+@property (readonly) PLFetchRecorder *fetchRecorder;
+@property (readonly) PLAssetsdClient *assetsdClient;
+@property (readonly) PLLibraryServicesManager *libraryServicesManager;
+@property (readonly) NSArray *boundAssetsdServices;
+
+- (void)touch;
+- (void)close;
+- (void)volumeWillUnmount:(id)a0;
+- (void)setSharedAlbumEnabled:(BOOL)a0;
+- (BOOL)calculateTotalSizeWithResult:(id /* block */)a0;
+- (id)newLibraryServicesManager;
+- (void)dealloc;
+- (id)boundAssetsdServicesTable;
+- (void)_invalidateChangeHandlingContainer;
+- (BOOL)sqliteErrorIndicatorFileExists;
+- (id)transferPersons:(id)a0 toBundle:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (BOOL)registerPLPhotoLibrary:(id)a0;
+- (id)makeChangeHandlingNotificationObserverWithLowPriorityThrottleInterval:(double)a0;
+- (void)_invalidatePersistentContainer;
+- (void)setPhotoStreamEnabled:(BOOL)a0;
+- (id)newAssetsdClient;
+- (id)initWithLibraryURL:(id)a0 bundleController:(id)a1;
+- (id)transferAssets:(id)a0 toBundle:(id)a1 options:(id)a2 completion:(id /* block */)a3;
+- (void)resetClientSandboxExtensionCache;
+- (void)setCloudPhotoLibraryEnabled:(BOOL)a0;
+- (void)unbindAssetsdService:(id)a0;
+- (id)description;
+- (void)_invalidateClientSandboxExtensionCache;
+- (id)newBoundAssetsdServicesTable;
+- (BOOL)isSystemPhotoLibrary;
+- (void).cxx_destruct;
+- (id)newChangeHandlingContainer;
+- (id)newChangePublisher;
+- (void)initializeChangeHandling;
+- (void)beginObservingChanges;
+- (BOOL)bindAssetsdService:(id)a0 error:(id *)a1;
+- (void)_invalidatePhotoAnalysisServiceClient;
+- (void)distributeChangesSinceLastCheckpoint;
+- (void)shutdownWithReason:(id)a0;
+- (void)endObservingChanges;
+
+@end

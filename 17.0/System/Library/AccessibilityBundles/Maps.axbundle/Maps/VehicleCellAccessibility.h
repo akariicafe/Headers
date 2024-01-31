@@ -1,0 +1,9 @@
+@interface VehicleCellAccessibility : __VehicleCellAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (id)accessibilityLabel;
+
+@end

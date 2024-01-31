@@ -1,0 +1,42 @@
+@class NSArray, JFXComposition, NSString, UIImage, NSTimer;
+@protocol JFXExportDelegate;
+
+@interface JFXExportController : NSObject
+
+@property unsigned long long exportStartTime;
+@property (retain, nonatomic) JFXComposition *composition;
+@property (retain, nonatomic) NSArray *presets;
+@property (retain, nonatomic) NSString *currentPreset;
+@property (retain, nonatomic) UIImage *poster;
+@property (retain, nonatomic) id<JFXExportDelegate> delegate;
+@property (retain, nonatomic) NSString *exportPath;
+@property (retain, nonatomic) NSTimer *progressTimer;
+@property (nonatomic) unsigned long long exportingIndexPresets;
+@property (nonatomic) long long status;
+@property (nonatomic) BOOL cancel;
+
++ (unsigned long long)audioDataRateForPreset:(id)a0;
++ (unsigned long long)dataRateForPreset:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
++ (unsigned long long)estimatedFileSizeForDuration:(int)a0 frameRate:(double)a1 preset:(id)a2 size:(struct CGSize { double x0; double x1; })a3;
++ (id)presetNameForCGSize:(struct CGSize { double x0; double x1; })a0;
++ (unsigned long long)videoDataRateForPreset:(id)a0 size:(struct CGSize { double x0; double x1; })a1;
+
+- (float)progress;
+- (void)stopProgressTimer;
+- (void).cxx_destruct;
+- (void)startProgressTimer;
+- (unsigned long long)exportDuration;
+- (void)analyticsForSessionBegin;
+- (void)analyticsForSessionCompleteWithStatus:(long long)a0;
+- (void)beginAsynchronousExport;
+- (void)cancelExportWithStatus:(long long)a0;
+- (void)closeSessionWithStatus:(long long)a0;
+- (void)continueExportAfterDelay;
+- (void)informDelegateOfCompletion;
+- (id)initWithWithComposition:(id)a0 presets:(id)a1 toFile:(id)a2 poster:(id)a3 delegate:(id)a4;
+- (id)metadataToAdd;
+- (void)nextPreset;
+- (void)serviceProgressTimer:(id)a0;
+- (void)updateProgressViewWithProgress:(float)a0 reduced:(BOOL)a1;
+
+@end

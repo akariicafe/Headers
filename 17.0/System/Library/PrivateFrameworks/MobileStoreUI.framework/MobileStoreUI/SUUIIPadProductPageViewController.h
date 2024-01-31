@@ -1,0 +1,82 @@
+@class NSURL, SUUILoadProductPageOperation, SUUIMetricsController, NSURLRequest, SUUIProductPageHeaderViewController, SUUIClientContext, SUUIProductPage, SUUIItem, NSString, SUUINetworkErrorViewController, SUUIProductPageDetailsViewController, SSMetricsPageEvent, SUUIMessageBanner, NSOperationQueue, UIView, SUUIProductPagePlaceholderViewController, SUUISwooshArrayViewController, SUUIProductPageReviewsViewController, SUUIIncompatibleAppViewController;
+@protocol SUUIIPadProductPageDelegate;
+
+@interface SUUIIPadProductPageViewController : UIViewController <SUUIMetricsViewController, SUUINetworkErrorDelegate, SUUIProductPageHeaderViewDelegate, SUUIProductPageChildViewControllerDelegate, SUUIMessageBannerDelegate> {
+    SUUIMessageBanner *_banner;
+    long long _defaultSelectedSectionIndex;
+    SUUIProductPageDetailsViewController *_detailsViewController;
+    BOOL _didSendCannotOpen;
+    SUUIProductPageHeaderViewController *_headerViewController;
+    SUUIIncompatibleAppViewController *_incompatibleViewController;
+    SSMetricsPageEvent *_lastPageEvent;
+    SUUILoadProductPageOperation *_loadOperation;
+    long long _lookupItemIdentifier;
+    SUUIMetricsController *_metricsController;
+    SUUINetworkErrorViewController *_networkErrorViewController;
+    NSOperationQueue *_operationQueue;
+    UIView *_overlayView;
+    SUUIProductPagePlaceholderViewController *_placeholderViewController;
+    SUUISwooshArrayViewController *_relatedViewController;
+    SUUIProductPageReviewsViewController *_reviewsViewController;
+    long long _selectedSectionIndex;
+    NSURLRequest *_urlRequest;
+}
+
+@property (readonly, nonatomic) SUUIItem *item;
+@property (readonly, nonatomic) SUUIProductPage *productPage;
+@property (readonly, nonatomic) NSURL *URL;
+@property (retain, nonatomic) SUUIClientContext *clientContext;
+@property (weak, nonatomic) id<SUUIIPadProductPageDelegate> delegate;
+@property (nonatomic) BOOL askPermission;
+@property (copy, nonatomic) NSString *bannerText;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)didRotateFromInterfaceOrientation:(long long)a0;
+- (id)initWithURL:(id)a0;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (id)initWithURLRequest:(id)a0;
+- (void)reloadData;
+- (void)viewDidLayoutSubviews;
+- (void)loadView;
+- (void).cxx_destruct;
+- (id)initWithItem:(id)a0;
+- (id)initWithItemIdentifier:(long long)a0;
+- (void)_showError:(id)a0;
+- (id)_placeholderViewController;
+- (id)_detailsViewController;
+- (void)_metricsEnterEventNotification:(id)a0;
+- (id)_viewControllerForSectionIndex:(long long)a0;
+- (void)_sendCannotOpen;
+- (BOOL)_isIncompatibleItem;
+- (id)_relatedViewController;
+- (void)_reloadHeaderViewController;
+- (id)_reviewsViewController;
+- (void)_selectSectionIndex:(long long)a0;
+- (void)_setDefaultSectionIndexWithFragment:(long long)a0;
+- (void)_setMetricsController:(id)a0;
+- (void)_setProductPage:(id)a0 error:(id)a1;
+- (void)_showBanner;
+- (void)_showIncompatibleView;
+- (void)_showViewController:(id)a0;
+- (id)activeMetricsController;
+- (void)askPermissionBannerDidSelect:(id)a0;
+- (void)configureMetricsWithPageEvent:(id)a0;
+- (id)initWithProductPage:(id)a0;
+- (id)metricsControllerForProductPageHeader:(id)a0;
+- (void)networkErrorViewControllerInvalidated:(id)a0;
+- (void)productPageChildOpenItem:(id)a0;
+- (void)productPageChildOpenURL:(id)a0 viewControllerBlock:(id /* block */)a1;
+- (void)productPageChildViewControllerDidLoad:(id)a0;
+- (void)productPageChildViewControllerDidLoadScrollView:(id)a0;
+- (void)productPageChildViewControllerDidScroll:(id)a0;
+- (void)productPageHeaderView:(id)a0 didSelectSectionIndex:(long long)a1;
+- (void)productPageHeaderView:(id)a0 didSelectURL:(id)a1;
+- (void)productPageHeaderViewDidWantAskPermissionBanner:(id)a0;
+- (struct CGPoint { double x0; double x1; })topContentOffset;
+- (id)_initSUUIIPadProductPageViewController;
+
+@end

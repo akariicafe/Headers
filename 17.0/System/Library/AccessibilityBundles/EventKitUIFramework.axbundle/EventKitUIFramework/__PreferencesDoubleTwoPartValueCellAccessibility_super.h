@@ -1,0 +1,3 @@
+@interface __PreferencesDoubleTwoPartValueCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PRComplicationGalleryApplicationCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

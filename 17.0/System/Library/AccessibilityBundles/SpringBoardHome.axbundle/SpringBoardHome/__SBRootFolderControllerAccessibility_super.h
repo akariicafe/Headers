@@ -1,0 +1,3 @@
+@interface __SBRootFolderControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

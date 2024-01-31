@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.LongTermTrendingBehaviorHistogram : IntelligencePlatformCore.BehaviorHistogramBase
+
+@end

@@ -1,0 +1,3 @@
+@interface __SFPersonCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

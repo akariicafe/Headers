@@ -1,0 +1,3 @@
+@interface __CNComposeHeaderLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

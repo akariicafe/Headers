@@ -1,0 +1,3 @@
+@interface __CDPRemoteSecretEntryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

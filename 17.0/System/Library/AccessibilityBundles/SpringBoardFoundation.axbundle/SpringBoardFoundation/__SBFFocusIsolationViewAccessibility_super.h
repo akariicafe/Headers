@@ -1,0 +1,3 @@
+@interface __SBFFocusIsolationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

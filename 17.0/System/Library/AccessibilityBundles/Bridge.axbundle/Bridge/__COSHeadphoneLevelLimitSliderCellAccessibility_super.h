@@ -1,0 +1,3 @@
+@interface __COSHeadphoneLevelLimitSliderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

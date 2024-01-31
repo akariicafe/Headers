@@ -1,0 +1,3 @@
+@interface __TLKSelectableGridButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

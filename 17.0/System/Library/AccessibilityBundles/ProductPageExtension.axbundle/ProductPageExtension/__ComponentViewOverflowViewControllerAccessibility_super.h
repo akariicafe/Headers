@@ -1,0 +1,3 @@
+@interface __ComponentViewOverflowViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

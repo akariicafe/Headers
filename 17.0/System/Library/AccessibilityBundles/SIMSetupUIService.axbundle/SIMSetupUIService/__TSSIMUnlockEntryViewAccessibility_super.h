@@ -1,0 +1,3 @@
+@interface __TSSIMUnlockEntryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

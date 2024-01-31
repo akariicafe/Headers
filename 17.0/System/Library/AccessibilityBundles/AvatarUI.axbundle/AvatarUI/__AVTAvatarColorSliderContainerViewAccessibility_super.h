@@ -1,0 +1,3 @@
+@interface __AVTAvatarColorSliderContainerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

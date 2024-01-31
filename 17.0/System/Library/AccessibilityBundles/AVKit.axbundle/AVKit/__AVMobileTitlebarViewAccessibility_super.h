@@ -1,0 +1,3 @@
+@interface __AVMobileTitlebarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

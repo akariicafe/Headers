@@ -1,0 +1,3 @@
+@interface __TextStyleEditingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

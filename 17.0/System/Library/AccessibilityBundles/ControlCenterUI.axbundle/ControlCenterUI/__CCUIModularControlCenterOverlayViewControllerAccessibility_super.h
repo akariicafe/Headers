@@ -1,0 +1,3 @@
+@interface __CCUIModularControlCenterOverlayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

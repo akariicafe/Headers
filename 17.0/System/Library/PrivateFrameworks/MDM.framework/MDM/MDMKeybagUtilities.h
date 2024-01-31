@@ -1,0 +1,3 @@
+@interface MDMKeybagUtilities : NSObject
+
+@end

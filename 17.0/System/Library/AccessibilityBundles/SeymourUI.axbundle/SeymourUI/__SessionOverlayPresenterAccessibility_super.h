@@ -1,0 +1,3 @@
+@interface __SessionOverlayPresenterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

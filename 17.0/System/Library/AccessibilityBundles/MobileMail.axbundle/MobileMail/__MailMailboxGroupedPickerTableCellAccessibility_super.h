@@ -1,0 +1,3 @@
+@interface __MailMailboxGroupedPickerTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

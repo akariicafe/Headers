@@ -1,0 +1,3 @@
+@interface __MRUControlCenterCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

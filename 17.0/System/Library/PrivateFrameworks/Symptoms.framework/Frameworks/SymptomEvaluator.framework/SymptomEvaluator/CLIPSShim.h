@@ -1,0 +1,98 @@
+@class NSObject, NSString, NSMutableString, NSMutableSet, NSMutableDictionary, AnalyticsWorkspace, ImpoExpoService;
+@protocol OS_dispatch_queue, CLIPSShimDelegate;
+
+@interface CLIPSShim : NSObject {
+    AnalyticsWorkspace *_clipsWorkspace;
+    ImpoExpoService *_ieService;
+    NSObject<OS_dispatch_queue> *_queue;
+}
+
+@property (nonatomic) unsigned int strongAddressType;
+@property (nonatomic) void *environment;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } consoleNameRegex;
+@property (nonatomic) struct { int re_magic; unsigned long long re_nsub; char *re_endp; struct re_guts *re_g; } dumpStringRegex;
+@property (retain, nonatomic) NSMutableString *dumpedString;
+@property (retain, nonatomic) NSMutableString *consoleContents;
+@property (retain, nonatomic) NSString *currentCommand;
+@property (nonatomic) unsigned long long commandStringLoc;
+@property (retain, nonatomic) NSMutableSet *clipsHeldObjects;
+@property (retain, nonatomic) NSMutableDictionary *invocationMap;
+@property (retain, nonatomic) NSMutableDictionary *pendingOTAUpdates;
+@property (weak, nonatomic) id<CLIPSShimDelegate> delegate;
+@property (readonly, nonatomic) NSMutableDictionary *modules;
+
++ (id)sharedInstance;
++ (id)createDecryptedCLPData:(const void *)a0 length:(unsigned long long)a1;
++ (id)decryptCLIPSData:(id)a0 forModule:(id)a1;
++ (struct _CCCryptor { } *)cryptor;
++ (id)decodeAndInflateCLIPSString:(id)a0;
++ (id)dataSectionNameForModule:(id)a0;
+
+- (id)loadDataSection:(id)a0;
+- (void)clear;
+- (id)deftemplatesMatchingPrefix:(id)a0;
+- (id)init;
+- (void)updateModuleInfoForModule:(id)a0 slotValues:(id)a1;
+- (long long)run:(long long)a0;
+- (long long)run;
+- (void)reset;
+- (void)dealloc;
+- (id)getValueForSlotNamed:(id)a0 fromFact:(void *)a1;
+- (void)deactivateModule:(id)a0;
+- (BOOL)loadConstructsForModule:(id)a0;
+- (void)setOTAUpdate:(id)a0 version:(id)a1 module:(id)a2;
+- (id)factStringForFactDictionary:(id)a0;
+- (void)addCallbackInvocation:(id)a0 invocation:(id)a1;
+- (int)executeBatchCommand:(id)a0 module:(id)a1;
+- (void)_logFactsForModule:(id)a0 limit:(long long)a1 when:(long long)a2;
+- (id)dumpEngineStatusWithContext:(id)a0;
+- (unsigned long long)factCount;
+- (id)stringFromConstructsLoadState:(long long)a0;
+- (long long)releaseAllFreeMemory;
+- (id)factDictionaryForFact:(void *)a0;
+- (id)parseCLIPSModuleInfoFromConstructs:(id)a0;
+- (BOOL)factIsImportant:(id)a0;
+- (id)consoleBuffer;
+- (void *)deftemplateNamed:(id)a0 moduleName:(id)a1;
+- (id)swapConsoleBuffer:(id)a0;
+- (id)matchFactsWithDeftemplateName:(id)a0 withSlotKeyValues:(id)a1;
+- (BOOL)addModuleNamed:(id)a0 withConstruct:(id)a1;
+- (void)unloadConstructsForModule:(id)a0 unconditionally:(BOOL)a1;
+- (void)retainFact:(void *)a0;
+- (void)releaseFact:(void *)a0;
+- (id)currentRuleName;
+- (BOOL)addNewConstruct:(id)a0;
+- (void)registerCallbackFunction:(id)a0 selector:(SEL)a1 target:(id)a2;
+- (BOOL)conservePrettyPrintMemory:(BOOL)a0;
+- (void)logMemoryStatistics:(id)a0;
+- (id)currentModule;
+- (void *)addObjectToEnvironment:(id)a0;
+- (BOOL)initializeWorkspace;
+- (void)pushFocus:(id)a0;
+- (id)setCurrentModule:(id)a0;
+- (void)listAllDeftemplates;
+- (void)updateAllModuleInfos;
+- (void)setQueue:(id)a0;
+- (id)objectForDO:(struct dataObject { void *x0; unsigned short x1; void *x2; long long x3; long long x4; struct dataObject *x5; } *)a0;
+- (void)removeCallbackInvocation:(id)a0;
+- (id)moduleNames;
+- (void).cxx_destruct;
+- (long long)constructLoadStateForModule:(id)a0;
+- (id)otaUpdatePlatformStringForDeviceClass:(long long)a0;
+- (void)logFacts:(long long)a0;
+- (void)setCommandString:(id)a0;
+- (void)log:(id)a0;
+- (void)reportError:(id)a0;
+- (void)performOnFactsWithDeftemplateName:(id)a0 usingBlock:(id /* block */)a1;
+- (id)slotsStringForTemplate:(id)a0 fromDictionary:(id)a1 moduleName:(id)a2;
+- (void)logMemoryStatistics:(id)a0 verboseOnly:(BOOL)a1;
+- (void *)assertFactString:(id)a0 moduleName:(id)a1;
+- (void *)getNextFact:(void *)a0;
+- (id)moduleRulesByName:(id)a0;
+- (id)printedFacts:(id)a0 limit:(long long)a1;
+- (void)executeCommand:(id)a0 moduleName:(id)a1;
+- (long long)memoryUsed;
+- (id)objectFromMultifieldArg:(void *)a0 start:(long long)a1 end:(long long)a2;
+- (void)retractFact:(void *)a0;
+
+@end

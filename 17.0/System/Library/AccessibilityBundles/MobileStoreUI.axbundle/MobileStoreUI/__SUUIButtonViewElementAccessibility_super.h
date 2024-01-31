@@ -1,0 +1,3 @@
+@interface __SUUIButtonViewElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

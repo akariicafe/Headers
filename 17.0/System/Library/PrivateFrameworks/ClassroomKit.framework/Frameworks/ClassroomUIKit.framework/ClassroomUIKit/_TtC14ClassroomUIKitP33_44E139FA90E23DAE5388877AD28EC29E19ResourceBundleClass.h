@@ -1,0 +1,3 @@
+@interface _TtC14ClassroomUIKitP33_44E139FA90E23DAE5388877AD28EC29E19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

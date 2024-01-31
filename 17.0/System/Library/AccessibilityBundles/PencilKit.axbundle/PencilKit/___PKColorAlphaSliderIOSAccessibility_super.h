@@ -1,0 +1,3 @@
+@interface ___PKColorAlphaSliderIOSAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface MKFAppleMediaAccessoryDatabaseID : MKFMediaAccessoryDatabaseID
+
+@end

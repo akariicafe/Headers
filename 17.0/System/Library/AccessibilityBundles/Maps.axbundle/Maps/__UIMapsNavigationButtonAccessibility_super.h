@@ -1,0 +1,3 @@
+@interface __UIMapsNavigationButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

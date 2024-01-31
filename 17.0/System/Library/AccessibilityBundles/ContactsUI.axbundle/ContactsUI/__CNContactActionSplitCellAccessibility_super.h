@@ -1,0 +1,3 @@
+@interface __CNContactActionSplitCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

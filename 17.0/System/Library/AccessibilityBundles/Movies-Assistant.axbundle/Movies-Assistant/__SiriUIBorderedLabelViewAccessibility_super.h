@@ -1,0 +1,3 @@
+@interface __SiriUIBorderedLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

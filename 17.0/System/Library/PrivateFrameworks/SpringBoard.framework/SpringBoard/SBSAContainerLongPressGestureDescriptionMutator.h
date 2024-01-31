@@ -1,0 +1,3 @@
+@interface SBSAContainerLongPressGestureDescriptionMutator : SBSAGestureDescriptionMutator
+
+@end

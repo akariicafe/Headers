@@ -1,0 +1,3 @@
+@interface __WeekdayPlannerAddCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

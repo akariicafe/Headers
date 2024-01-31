@@ -1,0 +1,3 @@
+@interface __COSPasscodeChoiceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

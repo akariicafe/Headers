@@ -1,0 +1,3 @@
+@interface ___TVDescriptiveAlertTemplateControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

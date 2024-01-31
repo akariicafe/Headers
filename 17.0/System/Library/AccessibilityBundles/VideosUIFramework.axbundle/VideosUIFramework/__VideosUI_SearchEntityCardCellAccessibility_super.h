@@ -1,0 +1,3 @@
+@interface __VideosUI_SearchEntityCardCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

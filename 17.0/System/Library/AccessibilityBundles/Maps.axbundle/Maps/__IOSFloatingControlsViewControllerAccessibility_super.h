@@ -1,0 +1,3 @@
+@interface __IOSFloatingControlsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

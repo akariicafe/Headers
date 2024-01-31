@@ -1,0 +1,3 @@
+@interface HMBProcessingModelCreation : HMBProcessingModelResult
+
+@end

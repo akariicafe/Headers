@@ -1,0 +1,3 @@
+@interface __SocialProfileButtonUIViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

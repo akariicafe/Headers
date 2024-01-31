@@ -1,0 +1,3 @@
+@interface __HUCalendarScrubberViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

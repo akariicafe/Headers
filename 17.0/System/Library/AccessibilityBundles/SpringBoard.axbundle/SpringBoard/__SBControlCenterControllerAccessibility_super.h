@@ -1,0 +1,3 @@
+@interface __SBControlCenterControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __WDMedicalRecordSectionHeaderCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

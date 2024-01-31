@@ -1,0 +1,3 @@
+@interface __DataTypeDetailFavoritesCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKFunCameraViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

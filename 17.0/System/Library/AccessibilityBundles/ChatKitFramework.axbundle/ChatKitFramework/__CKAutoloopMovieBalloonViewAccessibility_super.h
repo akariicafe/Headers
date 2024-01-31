@@ -1,0 +1,3 @@
+@interface __CKAutoloopMovieBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

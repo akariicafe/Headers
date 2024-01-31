@@ -1,0 +1,81 @@
+@class NSError, NSString, NSExtension, _UIResilientRemoteViewContainerViewController, ServiceCardContainerViewController, NSDictionary, SKProductPageRemoteViewController, NSMutableArray, SKRemoteProductViewController, SKStoreProductViewController;
+@protocol NSCopying;
+
+@interface SKProductRemoteViewTask : NSObject <SKProductPageRemoteViewControllerDelegate, UIAdaptivePresentationControllerDelegate> {
+    BOOL _isClientEntitled;
+    BOOL _isAskToBuy;
+    NSString *_extensionID;
+    BOOL _isFetchingExtension;
+    BOOL _isPreview;
+    BOOL _didLoad;
+    BOOL _visibleInClientWindow;
+    NSString *_logKey;
+    NSString *_hostApplicationOverride;
+    NSDictionary *_cachedParameters;
+    NSDictionary *_lookupResult;
+    NSError *_lookupError;
+    NSExtension *_productPageExtension;
+    id<NSCopying> _extensionRequest;
+    NSMutableArray *_entitledConfigurationActions;
+    NSMutableArray *_configurationActions;
+    _UIResilientRemoteViewContainerViewController *_extensionRemoteContainerViewController;
+    SKProductPageRemoteViewController *_extensionRemoteViewController;
+    ServiceCardContainerViewController *_extensionRemoteCardContainerViewController;
+    SKRemoteProductViewController *_uiServiceRemoteViewController;
+    SKStoreProductViewController *_storeController;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)setPresentationStyle:(id)a0;
+- (void)presentationControllerDidDismiss:(id)a0;
+- (void)finishImmediately;
+- (void).cxx_destruct;
+- (void)setClientIdentifier:(id)a0;
+- (void)setHostBundleIdentifier:(id)a0;
+- (void)setPreview:(id)a0;
+- (void)setRightBarButtonTitle:(id)a0;
+- (void)setAffiliateIdentifier:(id)a0;
+- (void)setScriptContextDictionary:(id)a0;
+- (id)_hostApplicationIdentifier;
+- (void)setAskToBuy:(BOOL)a0;
+- (void)setCancelButtonTitle:(id)a0;
+- (void)_addChildController:(id)a0 toController:(id)a1;
+- (void)_addConfigurationAction:(id /* block */)a0 needsEntitlement:(BOOL)a1;
+- (void)_didReceiveExtensionRemoteViewController:(id)a0;
+- (void)_executeConfigurationActionsForExtension:(id)a0;
+- (void)_executeConfigurationActionsForUIService:(id)a0;
+- (void)_finishWithResult:(long long)a0;
+- (BOOL)_isProductUnavailableError:(id)a0;
+- (BOOL)_isViewControllerDescendant:(id)a0 ofViewController:(id)a1;
+- (id)_keyProfileForProductLookup;
+- (void)_killExtensionIfNecessary;
+- (void)_loadUIServiceIfNecessaryWithCompletion:(id /* block */)a0;
+- (id)_productIDFromParameters:(id)a0;
+- (void)_showErrorController;
+- (void)_showExtensionFromUIService;
+- (void)_showExtensionIfNeeded;
+- (void)_showExtensionWithID:(id)a0;
+- (id)initWithStoreController:(id)a0;
+- (void)loadProductWithPageDictionary:(id)a0 completionBlock:(id /* block */)a1;
+- (void)loadProductWithRequest:(id)a0 completionBlock:(id /* block */)a1;
+- (void)loadProductWithURL:(id)a0 completionBlock:(id /* block */)a1;
+- (void)lookupProductWithParameters:(id)a0 completion:(id /* block */)a1;
+- (void)productPageRemoteViewController:(id)a0 didTerminateWithError:(id)a1;
+- (void)productPageRemoteViewController:(id)a0 finishWithResult:(unsigned long long)a1 completion:(id /* block */)a2;
+- (void)productPageRemoteViewControllerLoadDidFinish:(id)a0;
+- (void)setAdditionalBuyParameters:(id)a0;
+- (void)setProductPageStyle:(id)a0;
+- (void)setPromptString:(id)a0;
+- (void)setShowsRightBarButton:(BOOL)a0;
+- (void)setShowsStoreButton:(id)a0;
+- (void)setUsageContext:(id)a0;
+- (void)setVisibleInClientWindow:(id)a0;
+- (void)storeProductViewControllerDidAppear;
+- (void)storeProductViewControllerWillAppear;
+
+@end

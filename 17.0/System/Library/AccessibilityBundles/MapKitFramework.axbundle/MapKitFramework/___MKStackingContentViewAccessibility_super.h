@@ -1,0 +1,3 @@
+@interface ___MKStackingContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

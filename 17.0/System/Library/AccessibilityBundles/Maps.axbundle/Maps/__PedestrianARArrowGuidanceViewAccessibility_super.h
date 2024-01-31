@@ -1,0 +1,3 @@
+@interface __PedestrianARArrowGuidanceViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

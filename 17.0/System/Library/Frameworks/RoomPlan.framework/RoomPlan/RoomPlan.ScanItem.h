@@ -1,0 +1,52 @@
+@interface RoomPlan.ScanItem : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ uuid;
+    void /* unknown type, empty encoding */ parentUUID;
+    void /* unknown type, empty encoding */ type;
+    void /* unknown type, empty encoding */ category;
+    void /* unknown type, empty encoding */ color;
+    void /* unknown type, empty encoding */ rawTransform;
+    void /* unknown type, empty encoding */ rawDimensions;
+    void /* unknown type, empty encoding */ rawCurve;
+    void /* unknown type, empty encoding */ rawLeftStrut;
+    void /* unknown type, empty encoding */ rawRightStrut;
+    void /* unknown type, empty encoding */ rawScanItemEdges;
+    void /* unknown type, empty encoding */ initialAnimationTime;
+    void /* unknown type, empty encoding */ fadeOutAnimationTime;
+    void /* unknown type, empty encoding */ worldSpacePosition;
+    void /* unknown type, empty encoding */ worldSpaceDimensions;
+    void /* unknown type, empty encoding */ worldSpaceOrientation;
+    void /* unknown type, empty encoding */ worldSpaceScanItemEdges;
+    void /* unknown type, empty encoding */ worldSpaceCurve;
+    void /* unknown type, empty encoding */ dollhousePosition;
+    void /* unknown type, empty encoding */ dollhouseDimensions;
+    void /* unknown type, empty encoding */ dollhouseOrientation;
+    void /* unknown type, empty encoding */ dollhouseScanItemEdges;
+    void /* unknown type, empty encoding */ dollhouseCurve;
+    void /* unknown type, empty encoding */ dollhouseLeftStrut;
+    void /* unknown type, empty encoding */ dollhouseRightStrut;
+    void /* unknown type, empty encoding */ animationOrigin;
+    void /* unknown type, empty encoding */ animationGraph;
+    void /* unknown type, empty encoding */ animationTrajectory;
+    void /* unknown type, empty encoding */ bodyStartTime;
+    void /* unknown type, empty encoding */ floorExtensionFactor;
+    void /* unknown type, empty encoding */ completedSides;
+    void /* unknown type, empty encoding */ completedCorners;
+    void /* unknown type, empty encoding */ initialWorldAnimationPosition;
+    void /* unknown type, empty encoding */ initialWorldAnimationDimensions;
+    void /* unknown type, empty encoding */ initialWorldAnimationCurve;
+    void /* unknown type, empty encoding */ initialWorldAnimationOrientation;
+    void /* unknown type, empty encoding */ initialAnimationPosition;
+    void /* unknown type, empty encoding */ initialAnimationOrientation;
+    void /* unknown type, empty encoding */ initialAnimationDimensions;
+    void /* unknown type, empty encoding */ initialAnimationScanItemEdges;
+    void /* unknown type, empty encoding */ finalAnimationScanItemEdges;
+    void /* unknown type, empty encoding */ initialAnimationCurve;
+    void /* unknown type, empty encoding */ initialAnimationLeftStrut;
+    void /* unknown type, empty encoding */ initialAnimationRightStrut;
+    void /* unknown type, empty encoding */ currentRawDollhouseDimensions;
+    void /* unknown type, empty encoding */ currentRawDollhouseCurve;
+    void /* unknown type, empty encoding */ currentRawDollhouseLeftStrut;
+    void /* unknown type, empty encoding */ currentRawDollhouseRightStrut;
+}
+
+@end

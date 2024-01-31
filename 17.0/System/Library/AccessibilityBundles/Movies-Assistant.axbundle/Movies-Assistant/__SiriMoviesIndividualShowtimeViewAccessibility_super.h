@@ -1,0 +1,3 @@
+@interface __SiriMoviesIndividualShowtimeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

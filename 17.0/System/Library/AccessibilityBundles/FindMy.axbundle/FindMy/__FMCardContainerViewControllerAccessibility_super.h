@@ -1,0 +1,3 @@
+@interface __FMCardContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

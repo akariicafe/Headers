@@ -1,0 +1,3 @@
+@interface __STUIStatusBarIndicatorRingerSilenceItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

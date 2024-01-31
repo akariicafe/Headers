@@ -1,0 +1,3 @@
+@interface __PUAssetPickerSearchSuggestionsHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

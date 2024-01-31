@@ -1,0 +1,3 @@
+@interface __CKConversationListCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBUIPasscodeLockNumberPadAccessibility_super : UIAccessibilitySafeCategory
+
+@end

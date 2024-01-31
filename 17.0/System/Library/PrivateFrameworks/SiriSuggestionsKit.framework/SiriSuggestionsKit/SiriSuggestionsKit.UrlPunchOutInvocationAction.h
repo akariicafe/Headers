@@ -1,0 +1,6 @@
+@interface SiriSuggestionsKit.UrlPunchOutInvocationAction : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ appBundleId;
+    void /* unknown type, empty encoding */ url;
+}
+
+@end

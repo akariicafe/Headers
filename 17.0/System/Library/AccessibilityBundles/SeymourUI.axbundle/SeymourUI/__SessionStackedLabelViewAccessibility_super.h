@@ -1,0 +1,3 @@
+@interface __SessionStackedLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

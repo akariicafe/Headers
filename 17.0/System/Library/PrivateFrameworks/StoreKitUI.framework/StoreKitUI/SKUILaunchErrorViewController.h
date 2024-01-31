@@ -1,0 +1,3 @@
+@interface SKUILaunchErrorViewController : UIViewController
+
+@end

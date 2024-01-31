@@ -1,0 +1,3 @@
+@interface __PHAudioControlsButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUILockupItemCellLayoutAccessibility_super : UIAccessibilitySafeCategory
+
+@end

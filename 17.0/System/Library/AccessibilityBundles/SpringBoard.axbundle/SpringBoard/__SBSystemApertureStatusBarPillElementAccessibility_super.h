@@ -1,0 +1,3 @@
+@interface __SBSystemApertureStatusBarPillElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

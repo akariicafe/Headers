@@ -1,0 +1,86 @@
+@class NSString, NSMutableArray, NSDate;
+@protocol NUNISceneObserver;
+
+@interface NUNIScene : NSObject <NUNIAnimatable> {
+    NSMutableArray *_animations;
+    NSDate *_date;
+    BOOL _isUpdateNeeded;
+    struct NUNISceneStructure { void /* unknown type, empty encoding */ cameraPosition; void /* unknown type, empty encoding */ cameraTarget; void /* unknown type, empty encoding */ cameraUp; float cameraOrbit; float cameraRoll; unsigned long long snap; unsigned long long backgroundType; unsigned long long collectionType; unsigned long long projectionType; BOOL isUpdatable; float yearsSince1970; void /* unknown type, empty encoding */ cameraOffset; union { void /* unknown type, empty encoding */ vector; struct { float longitude; float latitude; } ; } offsetCoordinate; float locationDotAlpha; float locationDotPulse; float locationDotPulseOverrideAlpha; float locationDotMaximumRadius; } _structure;
+}
+
+@property (weak, nonatomic) id<NUNISceneObserver> observer;
+@property (readonly, copy, nonatomic) NSMutableArray *spheroids;
+@property (readonly, nonatomic) NSDate *date;
+@property (copy, nonatomic) id /* block */ currentDateBlock;
+@property (readonly, nonatomic) const struct NUNISceneStructure { float x0; float x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; BOOL x6; float x7; union { struct { float x0; float x1; } x0; } x8; float x9; float x10; float x11; float x12; } *structure;
+@property (readonly, nonatomic) void /* unknown type, empty encoding */ cameraPosition;
+@property (readonly, nonatomic) void /* unknown type, empty encoding */ cameraTarget;
+@property (readonly, nonatomic) void /* unknown type, empty encoding */ cameraUp;
+@property (nonatomic) float cameraOrbit;
+@property (readonly, nonatomic) float cameraRoll;
+@property (nonatomic) unsigned long long snap;
+@property (nonatomic) unsigned long long backgroundType;
+@property (nonatomic) unsigned long long collectionType;
+@property (readonly, nonatomic) unsigned long long projectionType;
+@property (nonatomic, getter=isUpdatable) BOOL updatable;
+@property (readonly, nonatomic) float yearsSince1970;
+@property (nonatomic) void /* unknown type, empty encoding */ cameraOffset;
+@property (nonatomic) struct CLLocationCoordinate2D { double x0; double x1; } offsetCoordinate;
+@property (nonatomic) float locationDotAlpha;
+@property (nonatomic) float locationDotPulse;
+@property (nonatomic) float locationDotPulseOverrideAlpha;
+@property (nonatomic) float locationDotMaximumRadius;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (unsigned long long)collectionType;
+- (void)update:(float)a0;
+- (void /* unknown type, empty encoding */)cameraPosition;
+- (void)setCollectionType:(unsigned long long)a0;
+- (void)removeAllAnimations;
+- (void).cxx_destruct;
+- (void)addAnimation:(id)a0;
+- (void)setBackgroundType:(unsigned long long)a0;
+- (unsigned long long)backgroundType;
+- (void)removeAnimation:(id)a0;
+- (unsigned long long)projectionType;
+- (id)initWithSphereoids:(unsigned long long)a0 currentDateBlock:(id /* block */)a1;
+- (void)setSnap:(unsigned long long)a0;
+- (void)setUpdatable:(BOOL)a0;
+- (void /* unknown type, empty encoding */)cameraTarget;
+- (void)unpackFromBlob:(id)a0;
+- (void)setCameraOrbit:(float)a0;
+- (id)spheroidOfType:(unsigned long long)a0;
+- (void /* unknown type, empty encoding */)animatedFloatForKey:(unsigned long long)a0;
+- (void /* unknown type, empty encoding */)cameraOffset;
+- (float)cameraOrbit;
+- (float)cameraRoll;
+- (void /* unknown type, empty encoding */)cameraUp;
+- (id)initWithSphereoids:(unsigned long long)a0 projectionType:(unsigned long long)a1 currentDateBlock:(id /* block */)a2;
+- (BOOL)isAnimating:(id)a0 forKeys:(unsigned long long)a1;
+- (float)locationDotAlpha;
+- (float)locationDotMaximumRadius;
+- (float)locationDotPulse;
+- (float)locationDotPulseOverrideAlpha;
+- (struct CLLocationCoordinate2D { double x0; double x1; })offsetCoordinate;
+- (id)packIntoBlob;
+- (void)removeAllAnimationsFor:(id)a0 withKeys:(unsigned long long)a1;
+- (float)restingCameraRoll;
+- (void)setAnimatedFloat:(SEL)a0 forKey:(unsigned long long)a1;
+- (void)setCamera:(id)a0 target:(SEL)a1 up:(float)a2 roll:(void /* unknown type, empty encoding */)a3;
+- (void)setCameraOffset:(SEL)a0;
+- (void)setLocationDotAlpha:(float)a0;
+- (void)setLocationDotMaximumRadius:(float)a0;
+- (void)setLocationDotPulse:(float)a0;
+- (void)setLocationDotPulseOverrideAlpha:(float)a0;
+- (void)setOffsetCoordinate:(struct CLLocationCoordinate2D { double x0; double x1; })a0;
+- (unsigned long long)snap;
+- (void)updateCamera;
+- (void)updateFromDateIfNeeded;
+- (void)updateSunLocationAnimated:(BOOL)a0 lightingPreference:(unsigned long long)a1 adjustEarthRotation:(BOOL)a2;
+- (void)updateSunLocationForDate:(id)a0 animated:(BOOL)a1 lightingPreference:(unsigned long long)a2 adjustEarthRotation:(BOOL)a3;
+- (float)yearsSince1970;
+
+@end

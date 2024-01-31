@@ -1,0 +1,3 @@
+@interface __PLBatteryUIGraphLastChargeCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

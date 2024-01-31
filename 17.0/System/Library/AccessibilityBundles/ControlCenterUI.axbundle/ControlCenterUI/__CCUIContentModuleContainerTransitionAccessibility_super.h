@@ -1,0 +1,3 @@
+@interface __CCUIContentModuleContainerTransitionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

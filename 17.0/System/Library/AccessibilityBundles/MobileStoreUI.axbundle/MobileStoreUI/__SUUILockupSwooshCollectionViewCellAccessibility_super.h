@@ -1,0 +1,3 @@
+@interface __SUUILockupSwooshCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

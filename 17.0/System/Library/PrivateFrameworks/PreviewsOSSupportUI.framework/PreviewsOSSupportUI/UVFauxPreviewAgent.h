@@ -1,0 +1,3 @@
+@interface UVFauxPreviewAgent : NSObject
+
+@end

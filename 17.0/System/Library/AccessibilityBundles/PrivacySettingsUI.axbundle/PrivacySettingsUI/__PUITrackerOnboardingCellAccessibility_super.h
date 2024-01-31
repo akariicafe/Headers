@@ -1,0 +1,3 @@
+@interface __PUITrackerOnboardingCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

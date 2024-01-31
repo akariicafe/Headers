@@ -1,0 +1,3 @@
+@interface __SleepScheduleComponentsHeaderAccessibility_super : UIAccessibilitySafeCategory
+
+@end

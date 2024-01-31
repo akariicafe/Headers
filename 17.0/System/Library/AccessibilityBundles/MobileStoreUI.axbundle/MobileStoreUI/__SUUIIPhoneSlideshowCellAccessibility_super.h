@@ -1,0 +1,3 @@
+@interface __SUUIIPhoneSlideshowCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

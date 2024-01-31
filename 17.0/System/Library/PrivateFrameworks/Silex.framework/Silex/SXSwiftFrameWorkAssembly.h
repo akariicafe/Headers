@@ -1,0 +1,3 @@
+@interface SXSwiftFrameWorkAssembly : SXFrameworkAssembly
+
+@end

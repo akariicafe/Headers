@@ -1,0 +1,3 @@
+@interface __CAMSemanticStyleControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

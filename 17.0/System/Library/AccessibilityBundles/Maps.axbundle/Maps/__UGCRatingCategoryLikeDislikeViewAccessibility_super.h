@@ -1,0 +1,3 @@
+@interface __UGCRatingCategoryLikeDislikeViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

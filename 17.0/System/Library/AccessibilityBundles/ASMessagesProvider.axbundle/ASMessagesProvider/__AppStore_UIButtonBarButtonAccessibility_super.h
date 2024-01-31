@@ -1,0 +1,3 @@
+@interface __AppStore_UIButtonBarButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

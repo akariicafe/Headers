@@ -1,0 +1,3 @@
+@interface __MTPodcastPlaylistSheetHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

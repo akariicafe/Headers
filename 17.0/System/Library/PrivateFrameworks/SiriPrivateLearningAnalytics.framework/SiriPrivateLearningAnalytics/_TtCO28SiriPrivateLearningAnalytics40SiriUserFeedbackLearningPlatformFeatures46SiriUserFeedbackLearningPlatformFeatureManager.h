@@ -1,0 +1,3 @@
+@interface _TtCO28SiriPrivateLearningAnalytics40SiriUserFeedbackLearningPlatformFeatures46SiriUserFeedbackLearningPlatformFeatureManager : SiriPrivateLearningAnalytics.FeatureManager
+
+@end

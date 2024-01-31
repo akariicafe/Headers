@@ -1,0 +1,3 @@
+@interface VGFrameSelectionState : VGFaceSelectionState
+
+@end

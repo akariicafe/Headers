@@ -1,0 +1,3 @@
+@interface __PKTextInputHandwritingShotAccessibility_super : UIAccessibilitySafeCategory
+
+@end

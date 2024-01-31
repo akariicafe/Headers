@@ -1,0 +1,3 @@
+@interface __CAMSharedLibraryButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

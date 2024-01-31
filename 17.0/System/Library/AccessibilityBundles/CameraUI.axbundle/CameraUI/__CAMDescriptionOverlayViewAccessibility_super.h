@@ -1,0 +1,3 @@
+@interface __CAMDescriptionOverlayViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore39StateReplicatorPairingRelationshipStore : _TtCC9ChronoKit19ChronoMetadataStore16DatabaseAccessor
+
+@end

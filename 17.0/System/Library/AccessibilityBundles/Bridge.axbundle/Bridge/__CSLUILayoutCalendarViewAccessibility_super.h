@@ -1,0 +1,3 @@
+@interface __CSLUILayoutCalendarViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

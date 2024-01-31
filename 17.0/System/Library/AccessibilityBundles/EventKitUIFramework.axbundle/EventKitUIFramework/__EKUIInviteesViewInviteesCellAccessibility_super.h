@@ -1,0 +1,3 @@
+@interface __EKUIInviteesViewInviteesCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __GuidedWorkoutBrickItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

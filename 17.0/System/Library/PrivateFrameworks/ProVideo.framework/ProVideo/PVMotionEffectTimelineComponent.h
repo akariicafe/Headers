@@ -1,0 +1,85 @@
+@class PVTimelineMarker;
+
+@interface PVMotionEffectTimelineComponent : PVMotionEffectComponent <PVEffectTimeline> {
+    unsigned int _numFrames;
+    double _frameRate;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _frameDuration;
+    struct METimeRemap { struct { long long value; int timescale; unsigned int flags; long long epoch; } _introDuration; struct { long long value; int timescale; unsigned int flags; long long epoch; } _outroDuration; struct { long long value; int timescale; unsigned int flags; long long epoch; } _scaleableDuration; BOOL _isIntroOptional; BOOL _isOutroOptional; BOOL _isStartTimeAligned; BOOL _isEndTimeAligned; BOOL _isLoop; BOOL _forceDisableLoop; BOOL _forceDisableBuildAnimation; struct OZChannelBool *_pBuildInEnableChan; struct OZChannelBool *_pBuildOutEnableChan; } _timeRemap;
+    PVTimelineMarker *_posterFrameMarker;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _renderStartOffset;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _loopTime;
+    BOOL _loopTimeOverrideEnabled;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _loopTimeOverride;
+    struct OZChannelBool { void /* function */ **x0; struct OZFactory *x1; void /* function */ **x2; unsigned int x3; struct PCString { struct __CFString *x0; } x4; struct PCString *x5; struct OZChannelFolder *x6; unsigned long long x7; unsigned long long x8; void *x9; struct __CFString *x10; struct __CFString *x11; struct __CFString *x12; struct OZChannelTimeConverter *x13; struct OZChannelImpl *x14; struct OZChannelImpl *x15; struct OZChannelInfo *x16; struct OZChannelInfo *x17; struct OZCurve *x18; } *_buildInEnableChan;
+    struct OZChannelBool { void /* function */ **x0; struct OZFactory *x1; void /* function */ **x2; unsigned int x3; struct PCString { struct __CFString *x0; } x4; struct PCString *x5; struct OZChannelFolder *x6; unsigned long long x7; unsigned long long x8; void *x9; struct __CFString *x10; struct __CFString *x11; struct __CFString *x12; struct OZChannelTimeConverter *x13; struct OZChannelImpl *x14; struct OZChannelImpl *x15; struct OZChannelInfo *x16; struct OZChannelInfo *x17; struct OZCurve *x18; } *_buildOutEnableChan;
+    BOOL _needsToUpdateSceneDuration;
+}
+
+@property (nonatomic) BOOL loopTimeOverrideEnabled;
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } loopTimeOverride;
+@property (nonatomic) BOOL forceDisableLoop;
+@property (nonatomic) BOOL forceDisableBuildAnimation;
+@property (nonatomic) BOOL useLocalLoopTime;
+
+- (void)dealloc;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineDuration;
+- (id)timelineMarkers;
+- (void)computeIntroOutroPoints_NoLock:(const void *)a0;
+- (unsigned int)timelineDurationInFrames_NoLock;
+- (void)applyProperties_NoLock:(id)a0 defaultProperties:(id)a1 documentInfo:(const void *)a2;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })componentTimeFromTimelineTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })componentTimeFromTimelineTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 documentInfo:(const void *)a1;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })componentTimeFromTimelineTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 editRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 documentInfo:(const void *)a2;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })componentTimeRangeFromTimelineTimeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })componentTimeRangeFromTimelineTimeRange_NoLock:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 documentInfo:(const void *)a1;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })componentTimeRangeFromTimelineTimeRange_NoLock:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 editRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 documentInfo:(const void *)a2;
+- (void)effect:(id)a0 updateProperties:(id)a1 allProperties:(id)a2;
+- (BOOL)forceDisableBuildAnimation_NoLock;
+- (BOOL)forceDisableLoop_NoLock;
+- (id)initWithMotionEffect:(id)a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })introDuration_NoLock;
+- (BOOL)isForceRenderAtPosterFrameEnabled;
+- (BOOL)isForceRenderAtPosterFrameEnabled:(id)a0;
+- (BOOL)loopTimeOverrideEnabled_NoLock;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })loopTimeOverride_NoLock;
+- (void)motionEffect:(id)a0 didBecomeReady:(const void *)a1 properties:(id)a2;
+- (BOOL)motionEffect:(id)a0 propertiesDisableCache:(id)a1 time:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 forcePosterFrame:(BOOL)a3;
+- (BOOL)motionEffect:(id)a0 shouldInvalidateCachedRenderForProperty:(id)a1 oldValue:(id)a2 newValue:(id)a3;
+- (void)motionEffectDidUnload:(id)a0;
+- (id)motionEffectPropertyKeysThatInvalidateCachedRender:(id)a0;
+- (id)posterFrameMarker;
+- (id)posterFrameMarker_NoLock:(const void *)a0;
+- (void)setBuildInEnabled_NoLock:(BOOL)a0;
+- (void)setBuildOutEnabled_NoLock:(BOOL)a0;
+- (void)setForceDisableBuildAnimation_NoLock:(BOOL)a0;
+- (void)setForceDisableLoop_NoLock:(BOOL)a0;
+- (void)setLoopTimeOverrideEnabled_NoLock:(BOOL)a0;
+- (void)setLoopTimeOverride_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)setNeedsToUpdateSceneDuration_NoLock;
+- (void)setRenderStartOffset_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (unsigned int)timelineDurationInFrames;
+- (double)timelineDurationInSeconds;
+- (double)timelineDurationInSeconds_NoLock;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineDuration_NoLock;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineFrameDuration;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineFrameDuration_NoLock;
+- (double)timelineFrameRate;
+- (double)timelineFrameRate_NoLock;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineLastFrame;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineLastFrame_NoLock;
+- (id)timelineMarkersOfType:(int)a0;
+- (id)timelineMarkersOfType_NoLock:(int)a0 documentInfo:(const void *)a1;
+- (id)timelineMarkers_NoLock:(const void *)a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineTimeFromComponentTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineTimeFromComponentTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 documentInfo:(const void *)a1;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineTimeFromComponentTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 editRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 documentInfo:(const void *)a2;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineTimeFromComponentTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 editRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 forcePosterFrame:(BOOL)a2 documentInfo:(const void *)a3;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })timelineTimeFromComponentTime_NoLock:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 forcePosterFrame:(BOOL)a1 documentInfo:(const void *)a2;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })timelineTimeRangeFromComponentTimeRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })timelineTimeRangeFromComponentTimeRange_NoLock:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 documentInfo:(const void *)a1;
+- (struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })timelineTimeRangeFromComponentTimeRange_NoLock:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a0 editRange:(struct { struct { long long x0; int x1; unsigned int x2; long long x3; } x0; struct { long long x0; int x1; unsigned int x2; long long x3; } x1; })a1 documentInfo:(const void *)a2;
+- (void)updateSceneDuration_NoLock:(const void *)a0;
+
+@end

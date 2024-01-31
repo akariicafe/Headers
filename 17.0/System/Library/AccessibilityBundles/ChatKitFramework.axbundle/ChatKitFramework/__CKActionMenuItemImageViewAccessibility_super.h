@@ -1,0 +1,3 @@
+@interface __CKActionMenuItemImageViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

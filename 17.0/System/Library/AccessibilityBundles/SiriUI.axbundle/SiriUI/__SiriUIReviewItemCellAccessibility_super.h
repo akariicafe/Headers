@@ -1,0 +1,3 @@
+@interface __SiriUIReviewItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

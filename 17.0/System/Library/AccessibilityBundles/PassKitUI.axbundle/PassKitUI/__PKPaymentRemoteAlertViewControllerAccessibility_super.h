@@ -1,0 +1,3 @@
+@interface __PKPaymentRemoteAlertViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

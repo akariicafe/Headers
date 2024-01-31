@@ -1,0 +1,3 @@
+@interface __SBActivityAmbientFullOverlayViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

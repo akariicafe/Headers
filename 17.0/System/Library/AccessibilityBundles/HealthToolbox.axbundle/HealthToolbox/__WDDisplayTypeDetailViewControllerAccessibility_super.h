@@ -1,0 +1,3 @@
+@interface __WDDisplayTypeDetailViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

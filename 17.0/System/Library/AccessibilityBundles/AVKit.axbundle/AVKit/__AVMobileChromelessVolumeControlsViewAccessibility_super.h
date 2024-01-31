@@ -1,0 +1,3 @@
+@interface __AVMobileChromelessVolumeControlsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

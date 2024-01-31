@@ -1,0 +1,3 @@
+@interface __SUUIGiftRecipientTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

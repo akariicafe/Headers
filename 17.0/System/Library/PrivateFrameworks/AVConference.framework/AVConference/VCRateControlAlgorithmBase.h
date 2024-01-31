@@ -1,0 +1,87 @@
+@class NSString, VCRateControlMediaController;
+
+@interface VCRateControlAlgorithmBase : NSObject <VCRateControlAlgorithm> {
+    struct tagVCRateControlAlgorithmVTable { void /* function */ *configure; void /* function */ *doRateControl; void /* function */ *stateEnter; void /* function */ *stateExit; } _vTable;
+    _Atomic BOOL _paused;
+    double _pauseStartTime;
+    int _state;
+    int _rampUpStatus;
+    int _rampDownStatus;
+    int _currentTierIndex;
+    int _previousTierIndex;
+    double _targetBitrateContinuous;
+    unsigned int _rateControlCounter;
+    double _rateControlTime;
+    double _rampUpFrozenTime;
+    unsigned int _consecutiveRampDown;
+    double _lastTimeStartRampingDown;
+    double _lastCongestionTime;
+    double _lastRampDownTimeDueToFeedback;
+    double _lastRampDownTimeDueToBaseband;
+    double _stabilizationTime;
+    double _lastNoOvershootBWEstimationTime;
+    double _firstBelowNoRampUpBandwidthTime;
+    BOOL _belowNoRampUpBandwidth;
+    BOOL _isOvershoot;
+    struct { double time[100]; double owrd[100]; int frontIndex; int rearIndex; unsigned int size; double nowrd; double nowrdShort; double nowrdAcc; BOOL isOWRDListTooShortDuringInitialRampUp; } _owrdList;
+    BOOL _isOWRDListReady;
+    BOOL _isOWRDConstant;
+    double _nowrd;
+    double _nowrdShort;
+    double _nowrdAcc;
+    double _lastOWRDChangeTime;
+    struct tagVCRateControlLossEvent { double time; double packetLossRate; double packetLossRateVideo; BOOL isLossIncreasing; struct tagVCStatisticsECNStats { unsigned short ecnECT1Count; unsigned short ecnCECount; } ecnStats; } _lossEventBuffer[64];
+    unsigned int _lossEventBufferIndex;
+    double _lastLossEventRampDownTime;
+    double _firstLossEventRampDownTime;
+    int _packetLossRateBadTrendCount;
+    unsigned int _lossEventBandwidthLimit;
+    unsigned int _lossEventBandwidthConfidence;
+    struct tagVCStatisticsECNStats { unsigned short ecnECT1Count; unsigned short ecnCECount; } _currentECNStats;
+    double _previousPacketLossRate;
+    double _packetLossRateThreshold;
+    double _packetLossRateAvgLong;
+    double _packetLossRateAvgLongPrevious;
+    double _packetLossRateAvgLongAtLBAStart;
+    double _packetLossRateAvgLongAtLBAExit;
+    BOOL _shouldConsiderVideoInLossEvent;
+    void *_logDump;
+    void *_logBasebandDump;
+    BOOL _isPeriodicLoggingEnabled;
+}
+
+@property (retain, nonatomic) VCRateControlMediaController *mediaController;
+@property (readonly, nonatomic) struct tagVCRateControlAlgorithmConfig { unsigned int serverBagProfileNumber; unsigned int *tierBitrates; int initialTierIndex; int maxTierIndex; int minTierIndex; int softMaxTierIndex[2]; int lowestNonEmergencyTierIndex; int lowestNonEmergencyTierIndexWiFi; int lowestEffectiveBWETierIndex; int lowestTierIndexReactToNoServerActivity; int rampUpTierNumber; int rampDownTierNumber; int rampUpAdditionalTierAtInitial; int rampDownAdditionalTierAtInitial; int rampDownBurstyLossThreshold; int lowestTierForBurstyLossRampDown; int lowestTierToDisableRateLimited; double rampDownNOWRDThreshold; double rampDownNOWRDAccThreshold; double rampDownAggressiveNOWRDThreshold; double rampDownAggressiveNOWRDAccThreshold; double rampDownConstantOWRDDuration; double rampDownOvershootDuration; double rampDownOvershootNextTierRatio; double rampUpFrozenDuration; double rampUpSettleDuration; double rampUpOWRDThreshold; double rampUpNOWRDThreshold; double rampUpNOWRDAccThreshold; double rampUpOverBandwidthCalmDuration; double rampUpBlockedTimeout; int rampUpOverBandwidthTierNumber; int rampDownLossEventThreshold; int rampDownLossEventBadTrendThreshold; double rampDownLossEventThresholdRatio; double rampDownLossEventWindowDuration; double rampDownLossEventNOWRDThreshold; double rampUpFrozenPLRThreshold; double rampUpRateLimitedRatio; double unstableRateLimitedDuration; double congestionWaitDuration; double owrdWindowDuration; double owrdShortWindowDuration; double minimumNOWRDTimeDifference; double owrdInitialRampUpReadyDuration; unsigned int owrdHistorySize; unsigned int owrdMininumHistorySize; unsigned int fastRampDownBitrateRange; unsigned int fastRampUpBitrateRange; unsigned int consecutiveRampDownThresholdForCongestion; BOOL receivedBandwidthEstimationEnabled; BOOL basebandAdaptationEnabled; BOOL rateLimitedEnabled; BOOL randomRampUpFrozenDurationEnabled; BOOL oscillationAvoidanceEnabled; BOOL fastRampUpEnabled; BOOL blockRampUpInSaturatedNetworkEnabled; BOOL blockRampUpInBluetoothCoexEnabled; BOOL wifiEmergencyTiersEnabled; BOOL burstyTrafficEnabled; BOOL lowLatencyWANEnabled; BOOL rampDownToActualSendBitrate; int rampDownToActualSendBitrateMinTier; BOOL rampDownSuppressionEnabled; double rampDownSuppressionMinRTT; double rampDownSuppressionFactor; int fastRampUpHighestTier; double fastRampUpRTTRatio; int fastRampUpTierGap; double fastRampUpNetworkStableDuration; double networkSaturatedRTTToMinRTTRatio; double networkSaturatedOWRDToMinRTTRatio; int networkSaturatedPersistFeedbackNumber; double networkSaturatedRTTDecreasingThreshold; int oscillationAvoidanceTierChangeThreshold; int oscillationAvoidanceTiersHitThreshold; double oscillationAvoidanceDurationRatio; double oscillationAvoidanceDurationRatioAggressive; int stabilizationScheme; double rampDownNBDCDThreshold; double rampDownAggressiveNBDCDThreshold; double rampDownNormalizedQueuingDelayThreshold; double rampDownMediumQueuingDelayThreshold; double rampDownHighQueuingDelayThreshold; double rampDownEmergencyTierCoolDownTime; double rampDownWiFiEmergencyTierCoolDownTime; double rampUpNBDCDThreshold; double rampUpQueuingDelayThreshold; double rampUpNBDCDCoolDownTime; double rampUpAudioFractionCoolDownTime; double basebandRATSwitchCoolDownTime; double basebandAdaptationCrossTrafficRatio; double rampUpNetworkUnstableCoolDownTime; double autoResumeDurationAfterPaused; double pauseOffChannelHighRatio; double unpauseOffChannelLowRatio; BOOL oscillationDetectionEnabled; double oscillationCoolDownTime; int oscillationDeviationTierNumber; int oscillationDeviationCountThreshold; BOOL preventBasebandRampDownCloseToKeyFrame; int basebandRampDownSlowDownFactor; double networkUnstableRTTThreshold; double networkUnstablePLRThreshold; double packetLossRateThresholdInitial; double packetLossRateThresholdMin; double packetLossRateThresholdMax; double packetLossRateThresholdTarget; unsigned int rampUpUplinkBLERThreshold; unsigned int rampDownUplinkBLERThreshold; double rampUpUplinkBLERDuration; double rampDownUplinkBLERDuration; double rampDownECNCERatioLow; double rampDownECNCERatioMedium; double rampDownECNCERatioHigh; unsigned int rampDownECNBitrateHigh; unsigned int rampDownECNBitrateMedium; unsigned int rampDownECNBitrateLow; double ceRatioDurationToRTTFactor; double ceRatioDurationMin; double ceRatioDurationMax; int smartBrakeStrategy; } config;
+@property (readonly, nonatomic) unsigned int targetBitrate;
+@property (readonly, nonatomic) unsigned int rateChangeCounter;
+@property (readonly, nonatomic) BOOL isCongested;
+@property (readonly, nonatomic) unsigned int mostBurstLoss;
+@property (readonly, nonatomic) double packetLossRate;
+@property (readonly, nonatomic) double packetLossRateAudio;
+@property (readonly, nonatomic) double packetLossRateVideo;
+@property (readonly, nonatomic) unsigned int totalPacketReceived;
+@property (readonly, nonatomic) double roundTripTime;
+@property (readonly, nonatomic) double worstRecentRoundTripTime;
+@property (readonly, nonatomic) unsigned int worstRecentBurstLoss;
+@property (readonly, nonatomic) double owrd;
+@property (readonly, nonatomic) BOOL isNewRateSentOut;
+@property (nonatomic) unsigned int localBandwidthEstimation;
+@property (readonly, nonatomic) unsigned int remoteBandwidthEstimation;
+@property (readonly, nonatomic) unsigned int actualBitrate;
+@property (nonatomic) BOOL didMBLRampDown;
+@property (readonly, nonatomic) BOOL isSendBitrateLimited;
+@property (readonly, nonatomic) BOOL isFirstInitialRampUpDone;
+@property (nonatomic) unsigned int rateSharingCount;
+@property (readonly, nonatomic) BOOL isLossBasedAdaptationOn;
+@property (nonatomic) BOOL isFirstTimestampArrived;
+@property (readonly, nonatomic) struct tagVCRateControlAlgorithmReportStats { unsigned int index; int type; union { struct tagVCRateControlAlgorithmSmartBrakeStats { double duration; int bandwidthEnd; int bandwidthStart; int targetBitrateStart; unsigned char trialVersion; } smartBrake; } ; } reportStatistics;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void)dealloc;
+- (BOOL)setUpVTable;
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKPaymentSetupBuiltInCardOnFilePrimaryAccountNumberFieldCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,51 @@
+@interface VFXCore.Renderer : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ device;
+    void /* unknown type, empty encoding */ features;
+    void /* unknown type, empty encoding */ lock;
+    void /* unknown type, empty encoding */ uploadLock;
+    void /* unknown type, empty encoding */ renderOutputs;
+    void /* unknown type, empty encoding */ renderOutputsForThisFrame;
+    void /* unknown type, empty encoding */ shaderCache;
+    void /* unknown type, empty encoding */ textureCache;
+    void /* unknown type, empty encoding */ depthStencilCache;
+    void /* unknown type, empty encoding */ GPUToolBox;
+    void /* unknown type, empty encoding */ texturePool;
+    void /* unknown type, empty encoding */ renderGraph;
+    void /* unknown type, empty encoding */ bufferPool;
+    void /* unknown type, empty encoding */ wholeFrameBufferPool;
+    void /* unknown type, empty encoding */ captureInProgress;
+    void /* unknown type, empty encoding */ commandQueue;
+    void /* unknown type, empty encoding */ showDebugMenu;
+    void /* unknown type, empty encoding */ additiveWritesToAlpha;
+    void /* unknown type, empty encoding */ hideOpaquePass;
+    void /* unknown type, empty encoding */ hideTransparentPass;
+    void /* unknown type, empty encoding */ canUseImgui;
+    void /* unknown type, empty encoding */ isPostFXEnabled;
+    void /* unknown type, empty encoding */ unscheduledCommandBuffersLock;
+    void /* unknown type, empty encoding */ unscheduledCommandBuffers;
+    void /* unknown type, empty encoding */ currentCommandBuffer;
+    void /* unknown type, empty encoding */ currentEncoder;
+    void /* unknown type, empty encoding */ currentEncoderWrapper;
+    void /* unknown type, empty encoding */ currentRenderPassDescriptor;
+    void /* unknown type, empty encoding */ renderPassDescriptorPool;
+    void /* unknown type, empty encoding */ counterRecorder;
+    void /* unknown type, empty encoding */ renderOutputRenderPassFormat;
+    void /* unknown type, empty encoding */ encoders;
+    void /* unknown type, empty encoding */ globalFunctionConstants;
+    void /* unknown type, empty encoding */ mtkMeshBufferAllocator;
+    void /* unknown type, empty encoding */ inFlightSemaphore;
+    void /* unknown type, empty encoding */ options;
+    void /* unknown type, empty encoding */ _current;
+    void /* unknown type, empty encoding */ _reRenderPasses;
+    void /* unknown type, empty encoding */ _scnRenderPasses;
+    void /* unknown type, empty encoding */ _deferredDisabledRenderPasses;
+    void /* unknown type, empty encoding */ _deferredEnabledRenderPasses;
+    void /* unknown type, empty encoding */ activeRenderVariantDescriptors;
+    void /* unknown type, empty encoding */ colorRamps;
+    void /* unknown type, empty encoding */ curves;
+    void /* unknown type, empty encoding */ monotonicIncreasingOrder;
+    void /* unknown type, empty encoding */ stripIndexBuffers;
+    void /* unknown type, empty encoding */ deformedBuffers;
+}
+
+@end

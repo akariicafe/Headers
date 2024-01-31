@@ -1,0 +1,73 @@
+@class _TtC11DockKitCore24CameraSessionInformation, NSArray, NSString, _TtC11DockKitCore13TrackingStand, NSError, CIImage, _TtC11DockKitCore12DockCoreInfo;
+
+@interface ObjectTrackingAgent : NSObject <DockKitCore.DockClientDebugProtocol, DockKitCore.StateEventProtocol, DockKitCore.DockCoreManagerConnectionDelegate, DockKitCore.SystemTrackingProtocol, DockKitCore.XPCTrackingConfigClientProtocol> {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ tracker;
+    void /* unknown type, empty encoding */ appID;
+    void /* unknown type, empty encoding */ _trackingEnabled;
+    void /* unknown type, empty encoding */ expectingDisconnect;
+    void /* unknown type, empty encoding */ manager;
+    void /* unknown type, empty encoding */ logger;
+    void /* unknown type, empty encoding */ configDict;
+    void /* unknown type, empty encoding */ agentQueue;
+    void /* unknown type, empty encoding */ setupOngoing;
+    void /* unknown type, empty encoding */ setupComplete;
+    void /* unknown type, empty encoding */ lastImage;
+    void /* unknown type, empty encoding */ lastFaces;
+    void /* unknown type, empty encoding */ trackerLock;
+    void /* unknown type, empty encoding */ currentCameraSession;
+}
+
+- (void)accessoryDescriptionFeedbackWithProcessID:(int)a0 info:(id)a1 accessoryDescription:(id)a2 err:(id)a3;
+- (void)diagnosticsFeedbackWithProcessID:(int)a0 info:(id)a1 path:(id)a2 err:(id)a3;
+- (void)fwUpdateFeedbackWithProcessID:(int)a0 info:(id)a1 message:(id)a2 complete:(BOOL)a3 err:(id)a4;
+- (void)haltFeedbackWithProcessID:(int)a0 info:(id)a1 success:(BOOL)a2 complete:(BOOL)a3 err:(id)a4;
+- (void)rebootFeedbackWithProcessID:(int)a0 info:(id)a1 success:(BOOL)a2 complete:(BOOL)a3 err:(id)a4;
+- (id)init;
+- (void)dealloc;
+- (void)stop;
+- (void).cxx_destruct;
+- (BOOL)docked;
+- (id)initWithAppID:(id)a0;
+- (id)getSelectedBodyIds;
+- (id)getSelectedFaceIds;
+- (void)trackWithMetadata:(NSArray *)a0 image:(CIImage *)a1 cameraPortType:(NSString *)a2 cameraIntrinsics:(NSArray *)a3 referenceDimensions:(struct CGSize { double x0; double x1; })a4 orientation:(int)a5 completionHandler:(void (^)(NSError *))a6;
+- (void)disconnectedWithErr:(id)a0;
+- (void)stateEventWithInfo:(id)a0 connectedState:(long long)a1 dockState:(long long)a2 trackingButtonState:(long long)a3;
+- (void)dumpTrackerDiagnosticsWithPath:(id)a0;
+- (void)setRectOfInterestEventWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)xpcDisconnected;
+- (void)_processConfigDictWithDict:(id)a0;
+- (void)deRegisterForDebugNotificationsWithCompletionHandler:(void (^)(void))a0;
+- (void)dumpTrackerStateWithPath:(id)a0;
+- (void)getConnectedTrackerWithCompletionHandler:(void (^)(_TtC11DockKitCore13TrackingStand *))a0;
+- (id)getDockCoreObservationsFrom:(id)a0;
+- (id)getTrackedObjects;
+- (void)isTrackingWithCompletionHandler:(void (^)(BOOL))a0;
+- (void)pauseTracker;
+- (void)processConfigDictWithDict:(id)a0;
+- (void)processImageWithImage:(CIImage *)a0 faces:(NSArray *)a1 completionHandler:(void (^)(void))a2;
+- (void)registerForDebugNotificationsWithCompletionHandler:(void (^)(void))a0;
+- (void)resumeTracker;
+- (void)returnToBase;
+- (void)searchWithCalibrate:(BOOL)a0;
+- (void)selectSubjectAtEventWithX:(id)a0 y:(id)a1;
+- (void)sendUsageMetricWithCompletionHandler:(void (^)(void))a0;
+- (void)setConfigDictWithDict:(id)a0;
+- (void)setConfigWithKey:(id)a0 value:(id)a1;
+- (void)setFramingModeEventWithMode:(long long)a0;
+- (void)setRectOfInterestLocallyWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 completionHandler:(void (^)(NSError *))a1;
+- (void)setRectOfInterestWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 completionHandler:(void (^)(NSError *))a1;
+- (void)setupAgentWithTrustNotifications:(BOOL)a0 completionHandler:(void (^)(void))a1;
+- (void)stateEventWithInfo:(_TtC11DockKitCore12DockCoreInfo *)a0 connectedState:(long long)a1 dockState:(long long)a2 trackingButtonState:(long long)a3 completionHandler:(void (^)(void))a4;
+- (void)stopReturnToBase;
+- (void)stopSearchWithCalibrate:(BOOL)a0;
+- (void)trackWithMetadata:(NSArray *)a0 cameraPortType:(NSString *)a1 cameraIntrinsics:(NSArray *)a2 referenceDimensions:(struct CGSize { double x0; double x1; })a3 orientation:(int)a4 completionHandler:(void (^)(NSError *))a5;
+- (void)trackingButtonEnabledWithCompletionHandler:(void (^)(BOOL))a0;
+- (void)trackingButtonStateChangedWithInfo:(id)a0 state:(long long)a1;
+- (void)trackingEnabledForAppWithCompletionHandler:(void (^)(BOOL))a0;
+- (void)trackingEnabledWithEnabled:(BOOL)a0 appID:(id)a1;
+- (void)updateCameraSessionWithSession:(_TtC11DockKitCore24CameraSessionInformation *)a0 completionHandler:(void (^)(NSArray *))a1;
+- (void)xpcConnected;
+
+@end

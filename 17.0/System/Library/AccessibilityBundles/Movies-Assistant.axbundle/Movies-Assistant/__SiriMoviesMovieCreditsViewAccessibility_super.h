@@ -1,0 +1,3 @@
+@interface __SiriMoviesMovieCreditsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

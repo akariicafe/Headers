@@ -1,0 +1,73 @@
+@class UIImage, UILabel, NSDate, BluetoothDevice, AVSystemController, OBTrayButton, UIView, OBWelcomeController, NSLayoutConstraint, OBLinkTrayButton, UIActivityIndicatorView, UIStackView, AVAudioPlayer, HPSDeviceAnalytics, UIImageView;
+
+@interface BTSFitTestController : UIViewController {
+    BluetoothDevice *currentDevice;
+    OBWelcomeController *_fitTestController;
+    OBTrayButton *_playButton;
+    OBLinkTrayButton *_debugCopyResultsButton;
+    NSLayoutConstraint *_topSpacerConstraint;
+    AVSystemController *_avSystemController;
+    AVAudioPlayer *_player;
+    UIView *_fitTestContentView;
+    UIStackView *_stackViewImages;
+    UIImageView *_leftImView;
+    UIImageView *_rightImView;
+    UIView *_leftBudLabel;
+    UILabel *_leftBudLabelText;
+    UIView *_rightBudLabel;
+    UILabel *_rightBudLabelText;
+    UILabel *_leftBudResultLabel;
+    UILabel *_rightBudResultLabel;
+    UIImage *_buttonImage;
+    UIActivityIndicatorView *_spinner;
+    UILabel *_resultDetailLabel;
+    BOOL _budsInEar;
+    BOOL _testActive;
+    BOOL _callActive;
+    BOOL _darkMode;
+    BOOL _volumeModified;
+    float _initialVolume;
+    id /* block */ _completionHandler;
+    HPSDeviceAnalytics *_deviceAnalytics;
+    NSDate *_startFitTestTimestamp;
+    NSDate *_endFitTestTimestamp;
+}
+
+- (void)applicationDidBecomeActive:(id)a0;
+- (void)setCompletionHandler:(id /* block */)a0;
+- (BOOL)isiPad;
+- (BOOL)isCallActive;
+- (void)dealloc;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidLoad;
+- (void)setupConstraints;
+- (void)loadView;
+- (BOOL)isDebugModeEnabled;
+- (id)initWithDevice:(id)a0;
+- (void).cxx_destruct;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)applicationDidEnterBackground:(id)a0;
+- (BOOL)isSmallScreenDevice;
+- (void)callCompletionHandler;
+- (void)handleAudioSessionInterruption:(id)a0;
+- (void)cleanupAudio;
+- (void)copyToClipboard;
+- (void)setCancelAction;
+- (void)deviceDisconnectedHandler:(id)a0;
+- (void)dismissFitTest;
+- (void)fitTestStopped;
+- (float)getConfidenceThreshold;
+- (id)getImageFileName:(unsigned int)a0 forSide:(BOOL)a1;
+- (float)getSealThreshold;
+- (void)handleCallIsActiveDidChangeNotification:(id)a0;
+- (void)handleMediaServerConnectionDied:(id)a0;
+- (void)inEarStatusChanged:(id)a0;
+- (void)powerChangedHandler:(id)a0;
+- (void)removeDoneButton;
+- (void)resetVolume;
+- (void)sealValueChanged:(id)a0;
+- (void)setupFitTestContentView;
+- (void)startFitTest;
+- (void)updateFitTestActiveState;
+
+@end

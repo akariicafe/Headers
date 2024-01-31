@@ -1,0 +1,71 @@
+@class VCRateControlSmartBrake;
+
+@interface VCRateControlAlgorithmStabilizedNOWRD : VCRateControlAlgorithmBase {
+    unsigned short _echoedTimestamp;
+    unsigned short _previousTimestamp;
+    unsigned short _queuingDelayTimestamp;
+    unsigned int _receiveTimestamp;
+    unsigned int _timestampWrapAroundCounter;
+    unsigned int _lastRateChangeCounter;
+    unsigned int _newOWRDSampleCollected;
+    BOOL _isRemoteBandwidthEstimationStable;
+    struct tagVCRateControlHistoryElement { double owrd; double roundTripTime; double roundTripTimeMinEnvelope; double packetLossRate; int tierIndex; } _history[500];
+    int _currentHistorySize;
+    int _currentHistoryIndex;
+    double _previousNOWRD;
+    double _firstOWRDFrozenTime;
+    double _sendBitrateLimitedStartTime;
+    double _rampUpFrozenDuration;
+    double _extendedRampUpFrozenExitTime;
+    double _stabilizationTime;
+    double _rateChangeSystemTime;
+    double _lastPositiveOWRDTime;
+    double _lastAllowRampUpTime;
+    BOOL _isRampUpSettling;
+    BOOL _isStable;
+    double _inVideoBitrate;
+    double _outVideoBitrate;
+    double _inAudioBitrate;
+    double _outAudioBitrate;
+    unsigned int _fastRampDownBitrateRange;
+    double _rampUpSettleDuration;
+    BOOL _shouldSuppressRampDown;
+    unsigned int _rampDownSuppressionBitrateThreshold;
+    unsigned int _additionalTierForRampDown;
+    double _ecnCERatio;
+    double _basebandNotificationArrivalTime;
+    unsigned int _basebandAverageBitrate;
+    unsigned int _basebandTotalQueueDepth;
+    double _basebandExpectedQueuingDelay;
+    double _basebandNormalizedBDCD;
+    double _basebandNormalizedQueuingDelay;
+    double _basebandLTEOrGreaterRATSwitchTime;
+    int _basebandRadioTechnology;
+    BOOL _isWaitingForBasebandRampDown;
+    double _lastBasebandRampDownTime;
+    double _lastHighNBDCDTime;
+    int _basebandAdditionalTiersForRampUp;
+    BOOL _basebandAdaptationEnabled;
+    unsigned int _packetReceivedVideo;
+    unsigned int _packetBurstLoss;
+    unsigned int _roundTripTimeTick;
+    double _roundTripTimeMinEnvelope;
+    double _previousRoundTripTime;
+    double _lastNetworkUnstableTime;
+    BOOL _withBTCoex;
+    BOOL _abnormalNetworkDetected;
+    VCRateControlSmartBrake *_smartBrake;
+    struct tagVCRateControlSmartBrakeInput { float time; float bitrate; float owrd; float rtt; float aplr; float vplr; } _smartBrakeInput;
+    struct tagVCRateControlSmartBrakeOutput { float networkCongestionProbability; unsigned int bandwidth; unsigned int bandwidthSigma; } _smartBrakeOutput;
+    double _lastSmartBrakeEngageTime;
+    BOOL _isSmartBrakeCongestionTimeAboveThreshold;
+}
+
+- (id)init;
+- (void)dealloc;
+- (void)setLocalBandwidthEstimation:(unsigned int)a0;
+- (BOOL)setUpVTable;
+- (unsigned int)worstRecentBurstLoss;
+- (double)worstRecentRoundTripTime;
+
+@end

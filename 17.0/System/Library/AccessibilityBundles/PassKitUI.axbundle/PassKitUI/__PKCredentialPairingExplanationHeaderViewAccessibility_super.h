@@ -1,0 +1,3 @@
+@interface __PKCredentialPairingExplanationHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

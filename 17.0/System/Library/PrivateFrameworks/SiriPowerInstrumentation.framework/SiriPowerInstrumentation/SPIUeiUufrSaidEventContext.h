@@ -1,0 +1,7 @@
+@interface SPIUeiUufrSaidEventContext : SPIUeiEventContext
+
++ (id)context;
+
+- (void)setContextForUsage:(id)a0;
+
+@end

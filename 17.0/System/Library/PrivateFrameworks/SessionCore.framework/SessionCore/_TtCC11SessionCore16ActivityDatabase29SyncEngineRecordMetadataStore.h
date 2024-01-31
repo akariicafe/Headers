@@ -1,0 +1,3 @@
+@interface _TtCC11SessionCore16ActivityDatabase29SyncEngineRecordMetadataStore : _TtCC11SessionCore16ActivityDatabase16DatabaseAccessor
+
+@end

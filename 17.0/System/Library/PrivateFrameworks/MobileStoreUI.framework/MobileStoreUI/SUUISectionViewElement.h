@@ -1,0 +1,3 @@
+@interface SUUISectionViewElement : SUUIViewElement
+
+@end

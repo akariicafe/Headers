@@ -1,0 +1,3 @@
+@interface __WADetailedSnippetViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

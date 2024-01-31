@@ -1,0 +1,3 @@
+@interface __SBMedusaDecoratedDeviceApplicationSceneViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

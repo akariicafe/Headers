@@ -1,0 +1,3 @@
+@interface __TVApplicationAccessibility__TVMLKit__TVKit_super : UIAccessibilitySafeCategory
+
+@end

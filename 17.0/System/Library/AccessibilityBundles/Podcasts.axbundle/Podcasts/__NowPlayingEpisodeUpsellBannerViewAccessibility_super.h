@@ -1,0 +1,3 @@
+@interface __NowPlayingEpisodeUpsellBannerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

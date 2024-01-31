@@ -1,0 +1,3 @@
+@interface __CIDVRGBCaptureSelfieVCAccessibility_super : UIAccessibilitySafeCategory
+
+@end

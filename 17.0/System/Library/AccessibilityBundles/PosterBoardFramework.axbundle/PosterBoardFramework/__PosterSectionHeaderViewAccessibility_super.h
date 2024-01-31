@@ -1,0 +1,3 @@
+@interface __PosterSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

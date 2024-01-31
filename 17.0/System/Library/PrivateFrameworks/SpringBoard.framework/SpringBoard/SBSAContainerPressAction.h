@@ -1,0 +1,3 @@
+@interface SBSAContainerPressAction : SBSAContainerStaticTouchAction
+
+@end

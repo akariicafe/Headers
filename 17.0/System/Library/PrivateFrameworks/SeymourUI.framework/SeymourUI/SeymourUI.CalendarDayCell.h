@@ -1,0 +1,13 @@
+@interface SeymourUI.CalendarDayCell : UICollectionViewCell {
+    void /* unknown type, empty encoding */ dayLabel;
+    void /* unknown type, empty encoding */ highlightView;
+    void /* unknown type, empty encoding */ indicatorView;
+    void /* unknown type, empty encoding */ styleProvider;
+}
+
+- (void)prepareForReuse;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __SleepOnboardingItemCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

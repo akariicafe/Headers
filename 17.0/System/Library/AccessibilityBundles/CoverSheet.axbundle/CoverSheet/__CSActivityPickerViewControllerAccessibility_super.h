@@ -1,0 +1,3 @@
+@interface __CSActivityPickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

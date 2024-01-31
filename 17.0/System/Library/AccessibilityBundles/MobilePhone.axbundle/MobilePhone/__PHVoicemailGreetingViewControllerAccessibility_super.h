@@ -1,0 +1,3 @@
+@interface __PHVoicemailGreetingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

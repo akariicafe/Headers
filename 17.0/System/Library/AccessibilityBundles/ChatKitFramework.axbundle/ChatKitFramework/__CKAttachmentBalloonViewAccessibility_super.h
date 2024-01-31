@@ -1,0 +1,3 @@
+@interface __CKAttachmentBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __HomeScreenConfigurationPosterControlContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

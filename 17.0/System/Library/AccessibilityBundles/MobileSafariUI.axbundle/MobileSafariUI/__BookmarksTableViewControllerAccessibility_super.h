@@ -1,0 +1,3 @@
+@interface __BookmarksTableViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

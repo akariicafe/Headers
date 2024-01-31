@@ -1,0 +1,3 @@
+@interface CNUIUserActionListModelCache : CNCache
+
+@end

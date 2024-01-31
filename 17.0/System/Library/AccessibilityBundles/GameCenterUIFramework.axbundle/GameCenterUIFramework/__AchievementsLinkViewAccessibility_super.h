@@ -1,0 +1,3 @@
+@interface __AchievementsLinkViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __TUIAutofillExtraCandidateCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

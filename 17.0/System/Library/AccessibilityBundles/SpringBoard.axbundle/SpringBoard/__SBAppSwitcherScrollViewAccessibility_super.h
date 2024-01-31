@@ -1,0 +1,3 @@
+@interface __SBAppSwitcherScrollViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

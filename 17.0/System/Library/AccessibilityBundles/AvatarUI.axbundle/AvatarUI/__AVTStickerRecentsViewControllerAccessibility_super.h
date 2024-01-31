@@ -1,0 +1,3 @@
+@interface __AVTStickerRecentsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

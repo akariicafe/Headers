@@ -1,0 +1,3 @@
+@interface __HKAudiogramChartViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUIBadgeTextAttachmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

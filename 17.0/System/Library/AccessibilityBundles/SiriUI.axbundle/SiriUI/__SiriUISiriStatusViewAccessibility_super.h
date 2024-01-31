@@ -1,0 +1,3 @@
+@interface __SiriUISiriStatusViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

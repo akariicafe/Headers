@@ -1,0 +1,97 @@
+@class NSString, NSArray, NSMutableOrderedSet;
+@protocol SBLeafIconDataSource;
+
+@interface SBLeafIcon : SBIcon <NSCopying> {
+    NSString *_leafIdentifier;
+    NSString *_applicationBundleID;
+    NSMutableOrderedSet *_dataSources;
+    id<SBLeafIconDataSource> _activeDataSource;
+    id<SBLeafIconDataSource> _manuallySetDataSource;
+    id<SBLeafIconDataSource> _dataSourceAtUninstallation;
+    unsigned long long _coalescedDataSourceUpdates;
+}
+
+@property (readonly, copy, nonatomic) NSString *sbh_iconLibraryItemIdentifier;
+@property (readonly, nonatomic, getter=_bestDataSource) id<SBLeafIconDataSource> bestDataSource;
+@property (readonly, nonatomic, getter=_fallbackBestDataSource) id<SBLeafIconDataSource> fallbackBestDataSource;
+@property (readonly, copy, nonatomic) NSString *applicationBundleID;
+@property (readonly, nonatomic) BOOL leafIdentifierAndApplicationBundleIDMatches;
+@property (retain, nonatomic) id<SBLeafIconDataSource> activeDataSource;
+@property (readonly, copy, nonatomic) NSArray *iconDataSources;
+@property (readonly, nonatomic) id<SBLeafIconDataSource> firstIconDataSource;
+@property (readonly, nonatomic) id<SBLeafIconDataSource> lastIconDataSource;
+@property (readonly, nonatomic) unsigned long long iconDataSourceCount;
+
++ (id)formattedBadgeNumberOrString:(id)a0;
++ (id)iconImageForDataSource:(id)a0 ofIcon:(id)a1 info:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a2;
+
+- (id)copyWithLeafIdentifier:(id)a0;
+- (id)iTunesCategoriesOrderedByRelevancy;
+- (BOOL)isTimedOut;
+- (id)leafIdentifier;
+- (id)init;
+- (id)displayNameForLocation:(id)a0;
+- (void)_setPropertiesFromIcon:(id)a0;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (id)tags;
+- (id)genericIconImageWithInfo:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a0;
+- (double)progressPercent;
+- (id)generateIconImageWithInfo:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a0;
+- (id)nodeIdentifier;
+- (void)didAddIconDataSource:(id)a0;
+- (long long)progressState;
+- (id)unmaskedIconImageWithInfo:(struct SBIconImageInfo { struct CGSize { double x0; double x1; } x0; double x1; double x2; })a0;
+- (BOOL)isProgressPaused;
+- (unsigned long long)supportedGridSizeClasses;
+- (void).cxx_destruct;
+- (id)badgeNumberOrString;
+- (id)initWithLeafIdentifier:(id)a0 applicationBundleID:(id)a1;
+- (BOOL)isUninstallSupported;
+- (BOOL)canGenerateIconsInBackground;
+- (void)addObserver:(id)a0;
+- (long long)labelAccessoryType;
+- (void)didRemoveIconDataSource:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (BOOL)supportsRasterization;
+- (BOOL)hasObserver:(id)a0;
+- (void)enumerateObserversUsingBlock:(id /* block */)a0;
+- (BOOL)canTightenLabel;
+- (id)firstIconDataSourcePassingTest:(id /* block */)a0;
+- (BOOL)isLaunchEnabled;
+- (void)_noteActiveDataSourceDidChangeAndReloadIcon:(BOOL)a0;
+- (void)_noteActiveDataSourceDidChangeNotification:(id)a0;
+- (void)_noteActiveDataSourceDidGenerateImageNotification:(id)a0;
+- (void)_noteDataSourceDidInvalidateNotification:(id)a0;
+- (void)_updateActiveDataSource;
+- (id)accessoryTextForLocation:(id)a0;
+- (long long)accessoryTypeForLocation:(id)a0;
+- (void)addIconDataSource:(id)a0;
+- (void)addIconDataSources:(id)a0;
+- (BOOL)canTruncateLabel;
+- (void)completeUninstall;
+- (void)didChangeActiveDataSource:(id)a0;
+- (id)displayNameForObscuredDisabledLaunchForLocation:(id)a0;
+- (id)firstIconDataSourceOfClass:(Class)a0;
+- (id)firstIconDataSourceWithUniqueIdentifier:(id)a0;
+- (id)folderFallbackTitle;
+- (id)folderTitleOptions;
+- (BOOL)hasIconDataSource:(id)a0;
+- (id)iconDataSourcesOfClass:(Class)a0;
+- (id)initWithUniqueLeafIdentifier;
+- (void)insertIconDataSource:(id)a0 beforeIconDataSource:(id)a1;
+- (void)insertIconDataSources:(id)a0 atIndexes:(id)a1;
+- (BOOL)isLaunchDisabledForObscuredReason;
+- (BOOL)isLeafIcon;
+- (void)performCoalescedDataSourceUpdate:(id /* block */)a0;
+- (BOOL)performLaunchFromLocation:(id)a0 context:(id)a1;
+- (void)removeAllIconDataSources;
+- (void)removeIconDataSource:(id)a0;
+- (void)removeIconDataSourcesOfClass:(Class)a0;
+- (void)removeIconDataSourcesPassingTest:(id /* block */)a0;
+- (void)replaceIconDataSource:(id)a0 withIconDataSource:(id)a1;
+- (void)selectNextActiveDataSource;
+- (void)setUninstalled;
+- (id)statusDescriptionForLocation:(id)a0;
+
+@end

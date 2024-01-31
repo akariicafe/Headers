@@ -1,0 +1,3 @@
+@interface ARParticipantAnchor : ARAnchor
+
+@end

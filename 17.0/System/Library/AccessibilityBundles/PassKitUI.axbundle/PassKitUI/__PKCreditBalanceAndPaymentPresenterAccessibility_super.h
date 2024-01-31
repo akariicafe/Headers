@@ -1,0 +1,3 @@
+@interface __PKCreditBalanceAndPaymentPresenterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __TransportTypeSegmentAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PBFAmbientEditingCollectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE19HealthMedicationsUICSo8NSBundleP33_E7BAFBB1AF1AB83FF8EA3346B984C12E30HealthMedicationsUIBundleClass : _TtCs12_SwiftObject
+
+@end

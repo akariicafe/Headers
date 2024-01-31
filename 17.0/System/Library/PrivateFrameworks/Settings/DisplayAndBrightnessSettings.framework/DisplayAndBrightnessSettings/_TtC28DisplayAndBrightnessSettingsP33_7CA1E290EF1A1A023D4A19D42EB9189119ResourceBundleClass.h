@@ -1,0 +1,3 @@
+@interface _TtC28DisplayAndBrightnessSettingsP33_7CA1E290EF1A1A023D4A19D42EB9189119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

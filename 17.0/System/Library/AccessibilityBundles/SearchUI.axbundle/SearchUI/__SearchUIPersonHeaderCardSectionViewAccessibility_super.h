@@ -1,0 +1,3 @@
+@interface __SearchUIPersonHeaderCardSectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

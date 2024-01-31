@@ -1,0 +1,3 @@
+@interface __SBAppSwitcherPeopleButtonAndLabelViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ACSportsMatchupLineScoreViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBUIActionPlatterViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

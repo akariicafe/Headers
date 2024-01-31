@@ -1,0 +1,3 @@
+@interface __MTCollectionSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

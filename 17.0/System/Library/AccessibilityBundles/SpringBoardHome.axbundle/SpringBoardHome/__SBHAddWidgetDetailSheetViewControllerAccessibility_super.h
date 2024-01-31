@@ -1,0 +1,3 @@
+@interface __SBHAddWidgetDetailSheetViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

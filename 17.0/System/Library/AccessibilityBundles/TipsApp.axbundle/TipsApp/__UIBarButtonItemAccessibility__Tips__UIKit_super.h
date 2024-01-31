@@ -1,0 +1,3 @@
+@interface __UIBarButtonItemAccessibility__Tips__UIKit_super : UIAccessibilitySafeCategory
+
+@end

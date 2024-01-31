@@ -1,0 +1,3 @@
+@interface __SocialPersonVerticalCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

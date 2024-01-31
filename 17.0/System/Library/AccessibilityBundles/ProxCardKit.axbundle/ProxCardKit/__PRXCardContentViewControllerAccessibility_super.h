@@ -1,0 +1,3 @@
+@interface __PRXCardContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

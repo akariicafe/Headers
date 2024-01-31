@@ -1,0 +1,3 @@
+@interface __WDAddDataManualEntryItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

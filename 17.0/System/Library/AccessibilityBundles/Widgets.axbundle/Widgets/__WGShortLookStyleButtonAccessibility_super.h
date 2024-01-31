@@ -1,0 +1,3 @@
+@interface __WGShortLookStyleButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface DMFInstalledProfile : DMFProfile
+
+@end

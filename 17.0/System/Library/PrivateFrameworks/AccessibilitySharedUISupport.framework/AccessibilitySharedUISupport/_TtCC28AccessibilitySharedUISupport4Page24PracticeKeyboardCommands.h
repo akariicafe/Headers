@@ -1,0 +1,3 @@
+@interface _TtCC28AccessibilitySharedUISupport4Page24PracticeKeyboardCommands : _TtCC28AccessibilitySharedUISupport4Page25PracticeCommandsCheckmark
+
+@end

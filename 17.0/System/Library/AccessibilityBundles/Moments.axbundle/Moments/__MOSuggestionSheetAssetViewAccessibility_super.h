@@ -1,0 +1,3 @@
+@interface __MOSuggestionSheetAssetViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

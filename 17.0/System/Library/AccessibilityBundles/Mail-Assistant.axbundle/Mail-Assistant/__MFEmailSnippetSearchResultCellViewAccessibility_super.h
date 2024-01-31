@@ -1,0 +1,3 @@
+@interface __MFEmailSnippetSearchResultCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

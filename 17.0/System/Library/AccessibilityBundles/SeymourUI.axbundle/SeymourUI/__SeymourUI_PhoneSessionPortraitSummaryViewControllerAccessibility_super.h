@@ -1,0 +1,3 @@
+@interface __SeymourUI_PhoneSessionPortraitSummaryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

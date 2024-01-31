@@ -1,0 +1,52 @@
+@interface SeymourServices.SessionDaemon : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ analyticsReporter;
+    void /* unknown type, empty encoding */ appForegrounder;
+    void /* unknown type, empty encoding */ appLauncher;
+    void /* unknown type, empty encoding */ appRequirementCoordinator;
+    void /* unknown type, empty encoding */ carouselSessionCoordinator;
+    void /* unknown type, empty encoding */ connectionPool;
+    void /* unknown type, empty encoding */ dataProtectionMonitor;
+    void /* unknown type, empty encoding */ distributedSessionCoordinator;
+    void /* unknown type, empty encoding */ eventHub;
+    void /* unknown type, empty encoding */ multiUserIdentityProvider;
+    void /* unknown type, empty encoding */ idleMonitor;
+    void /* unknown type, empty encoding */ localDeviceProvider;
+    void /* unknown type, empty encoding */ multiUserConnection;
+    void /* unknown type, empty encoding */ multiUserLink;
+    void /* unknown type, empty encoding */ multiUserListener;
+    void /* unknown type, empty encoding */ multiUserSessionAdapter;
+    void /* unknown type, empty encoding */ multiUserSystem;
+    void /* unknown type, empty encoding */ pairedCompanionConnection;
+    void /* unknown type, empty encoding */ pairedCompanionLink;
+    void /* unknown type, empty encoding */ remoteParticipantHandshakeRegistry;
+    void /* unknown type, empty encoding */ remoteDisplayLink;
+    void /* unknown type, empty encoding */ remoteDisplayBroadcastConnection;
+    void /* unknown type, empty encoding */ remoteKeyDeliveryCoordinator;
+    void /* unknown type, empty encoding */ remoteKeyDeliveryListener;
+    void /* unknown type, empty encoding */ remoteKeyDeliverySystem;
+    void /* unknown type, empty encoding */ remoteParticipantConnectionBrokerProvider;
+    void /* unknown type, empty encoding */ remoteParticipantLink;
+    void /* unknown type, empty encoding */ remoteParticipantBroadcastConnection;
+    void /* unknown type, empty encoding */ remoteParticipantListener;
+    void /* unknown type, empty encoding */ remoteParticipantSystem;
+    void /* unknown type, empty encoding */ sessionCompletionCoordinator;
+    void /* unknown type, empty encoding */ sessionHeartbeatCoordinator;
+    void /* unknown type, empty encoding */ sessionListener;
+    void /* unknown type, empty encoding */ sessionSystem;
+    void /* unknown type, empty encoding */ sessionAppTerminationMonitor;
+    void /* unknown type, empty encoding */ sessionBiomeCoordinator;
+    void /* unknown type, empty encoding */ sessionHandshakeCoordinator;
+    void /* unknown type, empty encoding */ sessionRemoteDisplayCoordinator;
+    void /* unknown type, empty encoding */ sessionTransactionCoordinator;
+    void /* unknown type, empty encoding */ sessionScanningCoordinator;
+    void /* unknown type, empty encoding */ sigTermHandler;
+    void /* unknown type, empty encoding */ wristStateObserver;
+    void /* unknown type, empty encoding */ xpcBroadcastConnection;
+    void /* unknown type, empty encoding */ xpcStreamHandler;
+    void /* unknown type, empty encoding */ xpcStreamPublisher;
+    void /* unknown type, empty encoding */ mindfulMinutesAccumulator;
+    void /* unknown type, empty encoding */ distributedSessionEventPublisher;
+    void /* unknown type, empty encoding */ caloriesAccumulator;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBDragAndDropWorkspaceTransactionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PodcastsUIApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

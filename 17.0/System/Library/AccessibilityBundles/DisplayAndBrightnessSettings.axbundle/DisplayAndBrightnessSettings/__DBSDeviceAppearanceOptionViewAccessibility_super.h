@@ -1,0 +1,3 @@
+@interface __DBSDeviceAppearanceOptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

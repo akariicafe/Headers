@@ -1,0 +1,3 @@
+@interface __CAMDrawerApertureButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

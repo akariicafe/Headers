@@ -1,0 +1,3 @@
+@interface __VTUIVoiceSelectionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

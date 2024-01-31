@@ -1,0 +1,3 @@
+@interface __SFStartPageSectionHeaderTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

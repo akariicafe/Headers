@@ -1,0 +1,3 @@
+@interface __BuddyMagnifyControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

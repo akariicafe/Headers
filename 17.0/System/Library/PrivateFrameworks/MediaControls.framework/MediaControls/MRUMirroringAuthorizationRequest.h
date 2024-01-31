@@ -1,0 +1,3 @@
+@interface MRUMirroringAuthorizationRequest : MRUPairingAuthorizationRequest
+
+@end

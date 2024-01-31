@@ -1,0 +1,3 @@
+@interface __PSKeyboardNavigationSearchBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

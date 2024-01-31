@@ -1,0 +1,3 @@
+@interface __SBUIRingViewLabelButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

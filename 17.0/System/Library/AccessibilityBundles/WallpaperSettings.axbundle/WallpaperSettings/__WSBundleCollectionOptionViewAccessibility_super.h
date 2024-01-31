@@ -1,0 +1,3 @@
+@interface __WSBundleCollectionOptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

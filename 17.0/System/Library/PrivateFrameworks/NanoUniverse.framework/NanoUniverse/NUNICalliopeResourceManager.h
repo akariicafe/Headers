@@ -1,0 +1,93 @@
+@class NSString, CLKUIResourceProviderKey, MTLFunctionConstantValues, NSMapTable, _TtC12NanoUniverse22AegirCloudCoverService, CLKUITexture;
+@protocol MTLBuffer, MTLDevice, MTLLibrary, MTLRenderPipelineState, MTLComputePipelineState;
+
+@interface NUNICalliopeResourceManager : NSObject <CLKUIResourceProviderDelegate> {
+    id<MTLDevice> _device;
+    CLKUIResourceProviderKey *_resourceProviderKey;
+    unsigned long long _clients;
+    unsigned long long _displayPixelFormat;
+    id<MTLLibrary> _library;
+    id<MTLRenderPipelineState> _pipelineStateLocationDot;
+    id<MTLRenderPipelineState> _pipelineStatePost;
+    id<MTLRenderPipelineState> _pipelineStateDisplay;
+    id<MTLRenderPipelineState> _pipelineStateStarfield;
+    id<MTLRenderPipelineState> _pipelineStateStar;
+    id<MTLRenderPipelineState> _pipelineStateSaturnRing;
+    id<MTLRenderPipelineState> _pipelineStateAtmosphere;
+    id<MTLRenderPipelineState> _pipelineStateSpheroids[2][24][2];
+    id<MTLRenderPipelineState> _pipelineStateDebugDraw;
+    id<MTLRenderPipelineState> _pipelineStateForBloomDownsampleUsingTileShader;
+    id<MTLRenderPipelineState> _pipelineStateForBloomDownsample;
+    id<MTLComputePipelineState> _pipelineStateForBloomChainDownsample;
+    id<MTLComputePipelineState> _pipelineStateForBloomChainUpsample;
+    id<MTLBuffer> _rectVerticesBuffer;
+    id<MTLBuffer> _discVerticesBuffer;
+    id<MTLBuffer> _starVerticesBuffer;
+    id<MTLBuffer> _atmosphereRingVerticesBuffer;
+    id<MTLBuffer> _saturnRingVerticesBuffer;
+    id<MTLBuffer> _starfieldVerticesBuffer;
+    id<MTLBuffer> _starfieldIndicesBuffer;
+    MTLFunctionConstantValues *_pipelineConstants;
+    NSMapTable *_textureGroupHashTable;
+    id<MTLBuffer> _patchVerticesBuffer;
+    id<MTLBuffer> _patchIndicesBuffer[4];
+    struct { CLKUITexture *albedo; CLKUITexture *normal; CLKUITexture *emissive; CLKUITexture *cloud; } _patchTextureGroupTable[24][24];
+    struct { void /* unknown type, empty encoding */ min; void /* unknown type, empty encoding */ max; } _patchBoundingBoxes[24];
+    struct { void /* unknown type, empty encoding */ min; void /* unknown type, empty encoding */ max; } _patchBoundingBoxForSpheroid;
+}
+
+@property (readonly, nonatomic) _TtC12NanoUniverse22AegirCloudCoverService *cloudsService;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)_deallocInstance:(id)a0;
++ (id)sharedInstanceWithDisplayPixelFormat:(unsigned long long)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_asyncDeallocInstance;
+- (void)_loadGeometry;
+- (void)addClient;
+- (id)provideAtlasBacking:(id)a0;
+- (void)removeClient;
+- (id)resourceProviderKey;
+- (void)_deferredCloudDataFetchIfNeeded;
+- (void)_handleCloudCoverTextureExpired;
+- (id)_generatePipelineCshName:(id)a0;
+- (id)_generatePipelineTshName:(id)a0 pixelFormat0:(unsigned long long)a1 pixelFormat1:(unsigned long long)a2;
+- (id)_generatePipelineVshName:(id)a0 fshName:(id)a1 config:(unsigned long long)a2 blend0:(unsigned long long)a3 blend1:(unsigned long long)a4 pixelFormat0:(unsigned long long)a5 pixelFormat1:(unsigned long long)a6;
+- (id)_provideEarthCloudsAtlasBacking:(id)a0;
+- (id)atmosphereRingVerticesBuffer;
+- (id)computePipelineForBloomChainDownsample;
+- (id)computePipelineForBloomChainUpsample;
+- (id)discVerticesBuffer;
+- (id)initWithDisplayPixelFormat:(unsigned long long)a0;
+- (const struct { } *)patchBoundingBoxForSpheroid;
+- (const struct { } *)patchBoundingBoxes;
+- (unsigned short)patchIndexCountForLod:(unsigned long long)a0;
+- (id)patchIndicesBufferForLod:(unsigned long long)a0;
+- (struct { id x0; id x1; id x2; id x3; } *)patchTextureGroupForSpheroid:(unsigned long long)a0 index:(unsigned long long)a1 suffix:(id)a2;
+- (id)patchVerticesBuffer;
+- (void)purgeAllCloudCoverTextures;
+- (id)rectVerticesBuffer;
+- (id)renderDisplayPipeline;
+- (id)renderOffscreenPipelineForAtmosphere;
+- (id)renderOffscreenPipelineForBloomDownsample;
+- (id)renderOffscreenPipelineForBloomDownsampleUsingTileShader;
+- (id)renderOffscreenPipelineForDebugDraw;
+- (id)renderOffscreenPipelineForLocationDot;
+- (id)renderOffscreenPipelineForPost;
+- (id)renderOffscreenPipelineForSaturnRing;
+- (id)renderOffscreenPipelineForSpheroid:(unsigned long long)a0 layer:(int)a1 config:(unsigned long long)a2;
+- (id)renderOffscreenPipelineForStar;
+- (id)renderOffscreenPipelineForStarfield;
+- (id)saturnRingVerticesBuffer;
+- (void)setPipelineConstants:(union NUNICalliopePipelineConstants { struct { void /* unknown type, blank encoding */ x0; void /* unknown type, blank encoding */ x1; void /* unknown type, blank encoding */ x2; void /* unknown type, blank encoding */ x3; void /* unknown type, blank encoding */ x4; void /* unknown type, blank encoding */ x5; void /* unknown type, blank encoding */ x6; void /* unknown type, blank encoding */ x7; void /* unknown type, blank encoding */ x8; void /* unknown type, blank encoding */ x9; void /* unknown type, blank encoding */ x10; void /* unknown type, blank encoding */ x11; void /* unknown type, blank encoding */ x12; void /* unknown type, blank encoding */ x13; void /* unknown type, blank encoding */ x14; void /* unknown type, blank encoding */ x15; void /* unknown type, blank encoding */ x16; void /* unknown type, blank encoding */ x17; void /* unknown type, blank encoding */ x18; void /* unknown type, blank encoding */ x19; void /* unknown type, blank encoding */ x20; void /* unknown type, blank encoding */ x21; void /* unknown type, blank encoding */ x22; void /* unknown type, blank encoding */ x23; void /* unknown type, blank encoding */ x24; void /* unknown type, blank encoding */ x25; void /* unknown type, blank encoding */ x26; void /* unknown type, blank encoding */ x27; void /* unknown type, blank encoding */ x28; void /* unknown type, blank encoding */ x29; void /* unknown type, blank encoding */ x30; void /* unknown type, blank encoding */ x31; void /* unknown type, blank encoding */ x32; void /* unknown type, blank encoding */ x33; void /* unknown type, blank encoding */ x34; } x0; void /* unknown type, blank encoding */ x1[35]; })a0;
+- (id)starVerticesBuffer;
+- (id)starfieldIndicesBuffer;
+- (id)starfieldVerticesBuffer;
+- (id)textureGroupWithSuffix:(id)a0;
+
+@end

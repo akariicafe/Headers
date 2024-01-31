@@ -1,0 +1,3 @@
+@interface __SUSSoftwareUpdateTitleCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

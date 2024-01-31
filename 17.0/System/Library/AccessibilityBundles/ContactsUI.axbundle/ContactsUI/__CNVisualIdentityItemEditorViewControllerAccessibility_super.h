@@ -1,0 +1,3 @@
+@interface __CNVisualIdentityItemEditorViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

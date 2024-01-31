@@ -1,0 +1,83 @@
+@class PPSCadence, NSString, PPSUnit, PPSRounding, NSDictionary, NSArray, PPSMetricType;
+
+@interface PPSMetric : NSObject
+
+@property (readonly) NSString *name;
+@property (readonly) NSString *subsystem;
+@property (readonly) NSString *category;
+@property (readonly) double version;
+@property (readonly) int datatype;
+@property (readonly) PPSUnit *unit;
+@property (readonly) PPSCadence *cadence;
+@property (readonly) int directionality;
+@property (readonly) int storage;
+@property (readonly) unsigned int timeToLive;
+@property (readonly) int mode;
+@property (readonly) int deviceCapability;
+@property (readonly) int enabledPopulation;
+@property (readonly) int obfuscation;
+@property (readonly) int privacyClassification;
+@property (readonly) PPSRounding *rounding;
+@property (readonly) NSString *source;
+@property (readonly) NSDictionary *enumMapping;
+@property (readonly) NSArray *groupBy;
+@property (readonly) PPSMetricType *metricType;
+@property (readonly, copy) NSString *build;
+
++ (BOOL)isValidName:(id)a0;
++ (id)setOptionalFields:(id)a0;
++ (id)groupByToProto:(id)a0;
++ (BOOL)isValidStorage:(int)a0;
++ (BOOL)isValidVersion:(double)a0;
++ (id)dictionaryWithPropertiesOfPPSMetric:(id)a0;
++ (id)enumMappingToProto:(id)a0;
++ (id)enumMappingWithProto:(id)a0;
++ (id)groupByWithProto:(id)a0;
++ (BOOL)isValidBuild:(id)a0;
++ (BOOL)isValidCategory:(id)a0;
++ (BOOL)isValidDatatype:(int)a0;
++ (BOOL)isValidDeviceCapability:(int)a0;
++ (BOOL)isValidDirectionality:(int)a0;
++ (BOOL)isValidEnumDeclaration:(id)a0;
++ (BOOL)isValidEnumDeclarationJSON:(id)a0;
++ (BOOL)isValidGroupingDimensions:(id)a0;
++ (BOOL)isValidGroupingDimensionsJSON:(id)a0;
++ (BOOL)isValidMetricJSON:(id)a0;
++ (BOOL)isValidMetricType:(id)a0;
++ (BOOL)isValidMode:(int)a0;
++ (BOOL)isValidObfuscation:(int)a0;
++ (BOOL)isValidOptionalPayload:(id)a0;
++ (BOOL)isValidPopulation:(int)a0;
++ (BOOL)isValidPrivacyClassification:(int)a0;
++ (BOOL)isValidRounding:(id)a0;
++ (BOOL)isValidSource:(id)a0;
++ (BOOL)isValidSourceJSON:(id)a0;
++ (BOOL)isValidSubsystem:(id)a0;
++ (BOOL)isValidTTL:(unsigned int)a0;
++ (id)jsonDataWithMetrics:(id)a0;
++ (id)metricWithJSONObject:(id)a0;
++ (id)metricWithProto:(id)a0;
++ (id)metricWithProto:(id)a0 withBuild:(id)a1;
++ (id)metricsWithJSONData:(id)a0;
++ (id)metricsWithPlist:(id)a0 subsystem:(id)a1;
++ (void)setMetadataDefaults:(id)a0;
++ (id)sourceToProto:(id)a0;
++ (id)sourceWithProto:(id)a0;
+
+- (id)init;
+- (void)setBuild:(id)a0;
+- (id)proto;
+- (id)data;
+- (id)json;
+- (void).cxx_destruct;
+- (void)addSource:(id)a0;
+- (id)protoData;
+- (void)addEnumMapping:(id)a0;
+- (void)addGroupingDimensions:(id)a0;
+- (void)addMetricType:(id)a0;
+- (void)addOptionalFields:(id)a0;
+- (void)addRounding:(id)a0;
+- (id)initWithName:(id)a0 subsystem:(id)a1 category:(id)a2 version:(double)a3 datatype:(int)a4 unit:(id)a5 cadence:(id)a6 directionality:(int)a7 storage:(int)a8 timeToLive:(unsigned int)a9 mode:(int)a10 deviceCapability:(int)a11 population:(int)a12 obfuscation:(int)a13 privacyClassification:(int)a14 optionalPayload:(id)a15;
+- (id)initWithName:(id)a0 version:(double)a1 datatype:(int)a2 unit:(id)a3 baseMetric:(id)a4 optionalPayload:(id)a5;
+
+@end

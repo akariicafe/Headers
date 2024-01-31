@@ -1,0 +1,3 @@
+@interface __MOSuggestionCollectionViewSingleAssetCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

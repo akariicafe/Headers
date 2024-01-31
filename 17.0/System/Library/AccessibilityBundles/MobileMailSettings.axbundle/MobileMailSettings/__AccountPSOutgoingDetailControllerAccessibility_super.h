@@ -1,0 +1,3 @@
+@interface __AccountPSOutgoingDetailControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

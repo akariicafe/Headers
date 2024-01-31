@@ -1,0 +1,6 @@
+@interface XPC._XPCSingleValueDecodingContainer : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ codingPath;
+    void /* unknown type, empty encoding */ buffer;
+}
+
+@end

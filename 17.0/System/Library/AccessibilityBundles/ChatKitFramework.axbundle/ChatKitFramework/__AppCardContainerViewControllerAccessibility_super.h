@@ -1,0 +1,3 @@
+@interface __AppCardContainerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

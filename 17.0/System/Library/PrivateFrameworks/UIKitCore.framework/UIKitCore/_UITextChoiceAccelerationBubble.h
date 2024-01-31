@@ -1,0 +1,70 @@
+@class _UITextOption, UIVisualEffectView, UITapGestureRecognizer, TIKeyboardCandidate, UILayoutGuide, UIView, NSLayoutConstraint, NSString, _UIReplacementCandidate, UIScrollView, UIStackView, CAShapeLayer, NSArray;
+
+@interface _UITextChoiceAccelerationBubble : UIControl <UIGestureRecognizerDelegate>
+
+@property (retain, nonatomic) UITapGestureRecognizer *tapGesture;
+@property (retain, nonatomic) UILayoutGuide *textAnchor;
+@property (retain, nonatomic) NSLayoutConstraint *anchorLeading;
+@property (retain, nonatomic) NSLayoutConstraint *anchorTop;
+@property (retain, nonatomic) NSLayoutConstraint *anchorWidth;
+@property (retain, nonatomic) NSLayoutConstraint *anchorHeight;
+@property (retain, nonatomic) NSArray *boundaryConstraints;
+@property (retain, nonatomic) NSLayoutConstraint *leadingSpacing;
+@property (retain, nonatomic) NSArray *belowTextConstraints;
+@property (retain, nonatomic) NSArray *aboveTextConstraints;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } referenceRect;
+@property (retain, nonatomic) TIKeyboardCandidate *candidate;
+@property (nonatomic) BOOL shouldRejectCandidate;
+@property (retain, nonatomic) _UIReplacementCandidate *replacement;
+@property (readonly, nonatomic) NSString *selectedChoice;
+@property (weak, nonatomic) UIView *parentView;
+@property (nonatomic) long long buttonType;
+@property (retain, nonatomic) UIVisualEffectView *backgroundView;
+@property (retain, nonatomic) CAShapeLayer *backgroundMaskLayer;
+@property (retain, nonatomic) UIStackView *contentsView;
+@property (retain, nonatomic) UIScrollView *backingScrollView;
+@property (retain, nonatomic) _UITextOption *sideButton;
+@property (retain, nonatomic) NSArray *buttonConstraints;
+@property (retain, nonatomic) UIView *textHighlightView;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (id)backgroundImageView;
+- (void)reset;
+- (BOOL)pointInside:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)removeFromSuperview;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (int)textEffectsVisibilityLevel;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (void)anchorToTextIfNeeded;
+- (id)bubblePathInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)dismissWithCancel;
+- (void)dismissWithRevert:(id)a0;
+- (void)dismissWithText:(id)a0;
+- (void)hideForNow;
+- (id)optionForPoint:(struct CGPoint { double x0; double x1; })a0 withEvent:(id)a1;
+- (void)prepareGesture;
+- (BOOL)promptWillCollideWithKeyboard:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)removeAnimated;
+- (void)showChoices:(BOOL)a0;
+- (void)showTextHighlightView:(BOOL)a0;
+- (id)squaredOffBubblePathInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)tappedInside:(id)a0;
+- (int)textEffectsVisibilityLevelInKeyboardWindow;
+- (id)textOptionWithText:(id)a0 type:(long long)a1;
+- (void)updateButtonForType:(long long)a0;
+- (void)updateButtonName:(id)a0 placement:(long long)a1 originalText:(id)a2;
+- (void)updateForSingleWord:(id)a0 textAnchorRect:(id)a1 inTextView:(id)a2 parentView:(id)a3 highlightColor:(id)a4;
+- (void)updateSelfWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)updateTextAnchorForParentView:(id)a0;
+- (void)updateTextBoxHighlightForRect:(id)a0 inTextView:(id)a1 parentView:(id)a2 highlightColor:(id)a3;
+- (void)updateTextHighlightViewWithColor:(id)a0 convertedRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)updateViewForOptions:(id)a0;
+- (void)updateWithChoices:(id)a0 fromParentView:(id)a1 referenceTextView:(id)a2 presentedFromRect:(id)a3;
+
+@end

@@ -1,0 +1,82 @@
+@class NSArray, WBSSQLiteDatabase, NSURL, NSMutableDictionary, NSObject, WBSSQLiteStatement;
+@protocol OS_dispatch_queue;
+
+@interface SFBrowserStateSQLiteStore : NSObject {
+    NSURL *_databaseURL;
+    WBSSQLiteDatabase *_database;
+    NSObject<OS_dispatch_queue> *_databaseQueue;
+    NSMutableDictionary *_tabUUIDStrings;
+    NSMutableDictionary *_browserWindowDatabaseIDs;
+    WBSSQLiteStatement *_cachedTabDeleteStatement;
+    BOOL _generateUUIDFunctionAttached;
+}
+
+@property (readonly, copy, nonatomic) NSArray *browserWindows;
+@property (readonly, copy, nonatomic) NSArray *recentlyClosedWindows;
+
+- (id)init;
+- (id)initWithDatabaseURL:(id)a0;
+- (void)dealloc;
+- (int)_migrateToSchemaVersion_5;
+- (void)_closeDatabase;
+- (int)_migrateToSchemaVersion_2;
+- (int)_migrateToSchemaVersion_6;
+- (int)_setDatabaseSchemaVersion:(int)a0;
+- (int)_migrateToSchemaVersion_4;
+- (void)closeDatabase;
+- (int)_migrateToSchemaVersion:(int)a0;
+- (int)_createFreshDatabaseSchema;
+- (int)_migrateToSchemaVersion_8;
+- (void).cxx_destruct;
+- (int)_schemaVersion;
+- (BOOL)_isDatabaseOpen;
+- (int)_migrateToSchemaVersion_3;
+- (int)_migrateToSchemaVersion_7;
+- (int)_migrateToCurrentSchemaVersionIfNeeded;
+- (void)_migrateFromLegacyPlistIfNeeded;
+- (void)_openDatabaseAndCheckIntegrity:(BOOL)a0;
+- (void)_vacuum;
+- (void)mergeAllWindows;
+- (id)tabStatesWithBrowserWindowUUID:(id)a0;
+- (void)_cacheUUIDForTabStateData:(id)a0;
+- (BOOL)_checkDatabaseIntegrity;
+- (int)_createTableForTabSession;
+- (int)_createTableForTabs;
+- (long long)_databaseIDForBrowserWindow:(id)a0;
+- (void)_insertTabStateWithData:(id)a0;
+- (BOOL)_isTabStateCached:(id)a0;
+- (int)_mergeAllWindowsIfNeeded;
+- (void)_migrateFromLegacyPlistWithPath:(id)a0;
+- (id)_readSavedSessionStateDataForTabWithUUIDString:(id)a0;
+- (void)_readTabStatesWithBrowserWindowUUID:(id)a0 completion:(id /* block */)a1;
+- (int)_recoverFromDatabaseInconsistencyFromSchemaVersion3Migration;
+- (void)_regenerateTabUUIDsForDeviceRestoration;
+- (void)_removeSavedSessionStateDataForTabsWithUUIDStrings:(id)a0;
+- (long long)_saveBrowserWindowStateWithData:(id)a0;
+- (long long)_saveBrowserWindowStateWithDictionary:(id)a0;
+- (void)_setDatabaseID:(long long)a0 browserWindow:(id)a1;
+- (id)_sqliteStatementForTabDeleting;
+- (id)_tabStateDataForUUID:(id)a0;
+- (id)_tabUUIDsInWindow:(id)a0;
+- (void)_updateBrowserWindowStateWithDictionary:(id)a0;
+- (void)_updateBrowserWindowWithData:(id)a0 tabs:(id)a1;
+- (void)_updateOrInsertTabStateWithData:(id)a0;
+- (BOOL)_updateTabStateWithData:(id)a0;
+- (void)checkPointWriteAheadLog;
+- (void)deleteRecentlyClosedWindowsWithProfileIdentifier:(id)a0;
+- (void)deleteSavedStatesForProfileWithIdentifier:(id)a0;
+- (void)deleteTabStateWithBrowserWindowUUID:(id)a0 andRemoveWindow:(BOOL)a1;
+- (id)readSavedSessionStateDataForTabWithUUIDString:(id)a0;
+- (void)readTabStatesWithBrowserWindowUUID:(id)a0 completion:(id /* block */)a1;
+- (void)regenerateTabUUIDsForDeviceRestoration;
+- (void)removeSavedSessionStateDataForTabsWithUUIDStrings:(id)a0;
+- (void)removeTabWithTabData:(id)a0;
+- (void)saveTabStateWithDictionary:(id)a0;
+- (void)setSecureDeleteEnabled:(BOOL)a0;
+- (id)tabStateDataForUUID:(id)a0;
+- (void)updateBrowserWindowStateWithDictionary:(id)a0 completion:(id /* block */)a1;
+- (void)updateBrowserWindowWithData:(id)a0 tabs:(id)a1;
+- (BOOL)updateSceneID:(id)a0;
+- (void)updateTabWithTabStateData:(id)a0;
+
+@end

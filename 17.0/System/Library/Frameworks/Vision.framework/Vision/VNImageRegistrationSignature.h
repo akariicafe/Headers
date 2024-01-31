@@ -1,0 +1,3 @@
+@interface VNImageRegistrationSignature : VNImageSignature
+
+@end

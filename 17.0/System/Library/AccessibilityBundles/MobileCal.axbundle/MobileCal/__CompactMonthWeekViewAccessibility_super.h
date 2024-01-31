@@ -1,0 +1,3 @@
+@interface __CompactMonthWeekViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

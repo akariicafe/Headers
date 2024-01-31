@@ -1,0 +1,3 @@
+@interface __CNPropertyPostalAddressEditingCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

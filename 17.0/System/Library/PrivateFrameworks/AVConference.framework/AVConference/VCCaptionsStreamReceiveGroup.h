@@ -1,0 +1,3 @@
+@interface VCCaptionsStreamReceiveGroup : VCVideoStreamReceiveGroup
+
+@end

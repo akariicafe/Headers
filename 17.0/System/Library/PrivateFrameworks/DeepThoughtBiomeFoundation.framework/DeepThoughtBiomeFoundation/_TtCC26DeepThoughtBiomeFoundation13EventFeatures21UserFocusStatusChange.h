@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation13EventFeatures21UserFocusStatusChange : _TtCs12_SwiftObject
+
+@end

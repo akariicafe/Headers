@@ -1,0 +1,3 @@
+@interface PhotosUICore.AnimatedImageRepresentationContentController : PhotosUICore.MediaRepresentationContentController
+
+@end

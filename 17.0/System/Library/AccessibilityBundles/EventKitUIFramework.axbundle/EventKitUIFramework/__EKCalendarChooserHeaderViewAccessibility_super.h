@@ -1,0 +1,3 @@
+@interface __EKCalendarChooserHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

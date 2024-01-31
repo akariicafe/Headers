@@ -1,0 +1,3 @@
+@interface __HRMetadataEducationTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

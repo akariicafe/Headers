@@ -1,0 +1,3 @@
+@interface __HUSceneActionEditorViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,100 @@
+@class UIView, NSString, SPUIRemoteSearchViewController, FBSDisplayConfiguration, _UILegibilitySettings, SBDeviceApplicationSceneHandle, SBWindowSceneStatusBarSettingsAssertion, SBScrollToTopSceneProxyView, SBMedusaHostedKeyboardWindowLevelAssertion;
+@protocol SBScenePresentingDelegate, SPUIRemoteSearchViewDelegate, BSInvalidatable, UIScenePresenter, SBSpotlightMultiplexingViewControllerDelegate;
+
+@interface SBSpotlightMultiplexingViewController : UIViewController <SBMultiplexedSpotlightDelegate, FBSceneManagerObserver, FBSceneObserver, SBScrollToTopSceneProxyViewDelegate, SBDeviceApplicationSceneStatusBarStateObserver, SBMainDisplaySceneManagerObserver, SBMedusaHostedKeyboardWindowControllerObserver, SBScenePresenting> {
+    SBScrollToTopSceneProxyView *_scrollToTopView;
+    SBDeviceApplicationSceneHandle *_sceneHandle;
+    SBWindowSceneStatusBarSettingsAssertion *_hideStatusBarAssertion;
+    SBWindowSceneStatusBarSettingsAssertion *_statusBarStyleAssertion;
+    id<SBScenePresentingDelegate> _inputUIPresentingDelegate;
+    id<BSInvalidatable> _inputUIPresenterAssertion;
+}
+
+@property (class, readonly, nonatomic) double effectiveSpotlightSearchFieldAvoidanceHeight;
+@property (class, readonly, nonatomic) SPUIRemoteSearchViewController *sharedRemoteSearchViewController;
+@property (class, readonly, nonatomic) SPUIRemoteSearchViewController *sharedRemoteSearchViewControllerIfExists;
+
+@property (nonatomic, getter=isActiveDelegate) BOOL activeDelegate;
+@property (retain, nonatomic) SBMedusaHostedKeyboardWindowLevelAssertion *medusaHostedKeyboardWindowLevelAssertion;
+@property (nonatomic, getter=isInvalidated) BOOL invalidated;
+@property (retain, nonatomic) UIView *externalKeyboardView;
+@property (retain, nonatomic) UIView *keyboardHostView;
+@property (retain, nonatomic) UIView *inputUIView;
+@property (retain, nonatomic) UIView *hostedInputUIView;
+@property (retain, nonatomic) id<UIScenePresenter> keyboardPresenter;
+@property (nonatomic, getter=isSearchContentAvailable) BOOL searchContentAvailable;
+@property (readonly, nonatomic) struct SBSpotlightHostedContentMetrics { double x0; double x1; struct CGSize { double x0; double x1; } x2; struct CGSize { double x0; double x1; } x3; double x4; } spotlightHostedContentMetrics;
+@property (copy, nonatomic) _UILegibilitySettings *legibilitySettings;
+@property (readonly, nonatomic) unsigned long long level;
+@property (weak, nonatomic) id<SBSpotlightMultiplexingViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<SPUIRemoteSearchViewDelegate> spotlightDelegate;
+@property (nonatomic) BOOL wantsExternalKeyboardView;
+@property (readonly, nonatomic) BOOL externalKeyboardViewContainsKeyboard;
+@property (weak, nonatomic) FBSDisplayConfiguration *targetDisplayConfiguration;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (struct SBSpotlightHostedContentMetrics { double x0; double x1; struct CGSize { double x0; double x1; } x2; struct CGSize { double x0; double x1; } x3; double x4; })_class_spotlightHostedContentMetrics;
++ (BOOL)isShownWithinWindow:(id)a0;
++ (BOOL)isShownWithinWindowScene:(id)a0;
++ (id)spotlightSceneIdentityTokenIfActiveForeground;
+
+- (void)sceneWithIdentifier:(id)a0 didChangeStatusBarAlphaTo:(double)a1;
+- (void)setPresentingDelegate:(id)a0;
+- (void)dismissSearchView;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)sceneWithIdentifier:(id)a0 didChangeStatusBarStyleTo:(long long)a1;
+- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
+- (void)dealloc;
+- (void)sceneWithIdentifier:(id)a0 didChangeStatusBarHiddenTo:(BOOL)a1 withAnimation:(long long)a2;
+- (void)viewDidLayoutSubviews;
+- (void)sceneManager:(id)a0 didCreateScene:(id)a1;
+- (unsigned long long)remoteSearchViewPresentationSource;
+- (void)invalidate;
+- (void)sceneManager:(id)a0 didDestroyScene:(id)a1;
+- (id)sceneHandle;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void)searchViewKeyboardPresentationStateDidChange;
+- (void).cxx_destruct;
+- (void)searchViewContentAvailabilityDidChange;
+- (void)viewDidMoveToWindow:(id)a0 shouldAppearOrDisappear:(BOOL)a1;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)sceneContentStateDidChange:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)_updateStatusBarHiddenAssertion;
+- (void)_configureExternalKeyboardView:(BOOL)a0;
+- (void)_acquireInputUIPresentingAssertionIfNecessary;
+- (unsigned long long)_appStatusBarSettingsLevelForSpotlightMultiplexingLevel:(unsigned long long)a0;
+- (void)_clearStatusBarHiddenAssertion;
+- (void)_clearStatusBarStyleAssertionAnimated:(BOOL)a0;
+- (void)_configureExternalKeyboardView;
+- (void)_configureSceneObservation:(BOOL)a0 forScene:(id)a1;
+- (void)_configureStatusBarScrollToTopView;
+- (id)_effectiveKeyboardContentView;
+- (void)_evaluateSearchContentAvailabilityForScene:(id)a0;
+- (void)_invalidateInputUIPresentingAssertion;
+- (BOOL)_isStatusBarEffectivelyHidden;
+- (void)_notifyExternalKeyboardViewContainsKeyboard:(BOOL)a0;
+- (void)_registerStatusBarScrollToTopView;
+- (void)_registerStatusBarScrollToTopViewWithWindow:(id)a0;
+- (BOOL)_remoteSearchViewControllerHasKeyboardPresented;
+- (void)_returnKeyboardToSpotlightIfNecessary;
+- (id)_spotlightSceneIdentifier;
+- (void)_unregisterStatusBarScrollToTopView;
+- (void)_unregisterStatusBarScrollToTopViewWithWindow:(id)a0;
+- (void)_updateStatusBarStyleAssertion;
+- (void)_updateStatusBarStyleAssertionToStyle:(long long)a0 animated:(BOOL)a1;
+- (void)didBecomeActiveDelegate;
+- (void)didResignActiveDelegate:(BOOL)a0;
+- (id)dismissScene:(id)a0;
+- (BOOL)isVisibleOnScreen;
+- (void)keyboardLayersDidChange:(id)a0;
+- (id)parentSceneIdentityToken;
+- (id)presentScene:(id)a0 viewControllerBuilderBlock:(id /* block */)a1;
+- (void)scrollToTopSceneProxyViewDidEnterViewHierarchy:(id)a0 rootedAtWindow:(id)a1;
+- (void)scrollToTopSceneProxyViewWillExitViewHierarchy:(id)a0 rootedAtWindow:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKFullscreenBrowserNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

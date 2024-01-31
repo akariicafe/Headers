@@ -1,0 +1,3 @@
+@interface _TtC14HealthArticlesP33_DBB0B31BB23C98B0791F9D0AF0B4B25219ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface __BPSSetupOptinViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

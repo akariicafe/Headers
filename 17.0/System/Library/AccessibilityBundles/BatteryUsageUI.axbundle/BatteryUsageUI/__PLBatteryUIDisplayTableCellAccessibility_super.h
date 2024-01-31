@@ -1,0 +1,3 @@
+@interface __PLBatteryUIDisplayTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,87 @@
+@class NSData, NSString, NSMutableDictionary, NSObject, NSMutableSet, CDXClient, NSMutableArray, TimingCollection;
+@protocol OS_dispatch_source;
+
+@interface GKConnectionInternal : GKConnection <CDXClientDelegate, CDXClientSessionDelegate> {
+    unsigned int _gckPID;
+    NSString *_pidGUID;
+    struct OpaqueGCKSession { } *_gckSession;
+    NSMutableArray *_gckEventList;
+    id _eventDelegate;
+    NSData *_preblob;
+    id /* block */ _preblobCallback;
+    double _preblobCallbackCancelTime;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _xPreblobFetch;
+    struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } _cPreblobFetch;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _xPrepareThread;
+    struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } _cPrepareThread;
+    int _fPrepareThread;
+    double _wakeTime;
+    NSMutableDictionary *_preblobToPIDMap;
+    NSMutableDictionary *_pidToPreblobMap;
+    NSMutableDictionary *_pidToConnectionDataMap;
+    NSMutableArray *_pendingConnectionPIDList;
+    BOOL _fAllowMoreRelay;
+    NSMutableArray *_allowRelayPIDList;
+    NSMutableDictionary *_pidToPlayerIDMap;
+    struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } _xRelay;
+    NSMutableDictionary *_pidToRelayInitiateInfoMap;
+    NSMutableDictionary *_pidToRelayConnectionDataMap;
+    NSMutableDictionary *_pidToRelayUpdateInfoMap;
+    NSMutableDictionary *_initRelayQueue;
+    NSMutableDictionary *_updateRelayQueue;
+    int _fPreReleased;
+    int _localGamingCDXSocket;
+    unsigned short _localGamingCDXPort;
+    NSObject<OS_dispatch_source> *_localGamingCDXListenSource;
+    NSMutableDictionary *_localGamingSocketToPIDMap;
+    NSMutableDictionary *_localGamingSocketToConnectionDataMap;
+    NSMutableSet *_pidsPreparedForConnection;
+    struct opaqueRTCReporting { } *_reportingAgent;
+    TimingCollection *_perfTimers;
+}
+
+@property (retain, nonatomic) CDXClient *cdxClient;
+@property (retain) NSMutableDictionary *cdxSessions;
+@property (retain) NSMutableDictionary *pidToConnectTimeoutSource;
+
+- (void)dealloc;
+- (id)eventDelegate;
+- (id)timerQueue;
+- (id)initWithParticipantID:(id)a0;
+- (void)connectParticipantsWithConnectionData:(id)a0 withSessionInfo:(id)a1;
+- (BOOL)convertParticipantID:(id)a0 toPeerID:(id *)a1;
+- (BOOL)convertPeerID:(id)a0 toParticipantID:(id *)a1;
+- (id)getLocalConnectionDataForLocalGaming;
+- (void)getLocalConnectionDataWithCompletionHandler:(id /* block */)a0;
+- (void)initiateRelayWithParticipant:(id)a0 withConnectionData:(id)a1 withRelayInfo:(id)a2 didInitiate:(BOOL)a3;
+- (id)networkStatistics;
+- (void)updateRelayWithParticipant:(id)a0 withConnectionData:(id)a1 withRelayInfo:(id)a2 didInitiate:(BOOL)a3;
+- (struct opaqueRTCReporting { } *)reportingAgent;
+- (void)setReportingAgent:(struct opaqueRTCReporting { } *)a0;
+- (id)asyncWorkQueue;
+- (unsigned int)gckPID;
+- (struct OpaqueGCKSession { } *)gckSession;
+- (void)CDXClient:(id)a0 preblob:(id)a1;
+- (BOOL)startListeningForLocalGamingCDX;
+- (void)CDXClient:(id)a0 error:(id)a1;
+- (void)CDXClientSession:(id)a0 receivedData:(id)a1 from:(long long)a2;
+- (void)addEvent:(struct { int x0; char *x1; int x2; unsigned int x3; } *)a0 remotePeer:(unsigned int)a1;
+- (void)cancelConnectParticipant:(id)a0;
+- (void)connectPendingConnectionsFromList:(id)a0 sessionInfo:(id)a1;
+- (id)createInitiateRelayDictionaryForParticipant:(id)a0 remotePeerID:(id)a1;
+- (id)createInsecureTicketUsingSortedConnectionsFromList:(id)a0;
+- (void)doRelayCheckForRemotePeerID:(id)a0;
+- (id)extractBlobUsingData:(id)a0 withSourcePID:(unsigned int)a1 destPID:(unsigned int)a2;
+- (void)internalInitiateRelayWithParticipant:(id)a0 withConnectionData:(id)a1 withRelayInfo:(id)a2 didInitiate:(BOOL)a3;
+- (void)internalUpdateRelayWithParticipant:(id)a0 withConnectionData:(id)a1 withRelayInfo:(id)a2 didInitiate:(BOOL)a3;
+- (void)internal_setRemoteConnectionData:(id)a0 fromParticipantID:(id)a1 pendingConnectionPIDList:(id)a2;
+- (BOOL)localGamingCheckEstablishConnection:(id)a0 connectionData:(id)a1;
+- (void)localGamingReceiveDataHandler:(id)a0 data:(id)a1 time:(double)a2 error:(id)a3;
+- (id)networkStatisticsDictionaryForGCKStats:(void *)a0;
+- (id)newRelayUpdateDictionaryForParticipant:(id)a0 didInitiate:(BOOL)a1;
+- (void)preRelease;
+- (void)setEventDelegate:(id)a0;
+- (void)setParticipantID:(id)a0 forPeerID:(id)a1;
+- (BOOL)shouldWeInitiateRelayWithPID:(unsigned int)a0;
+
+@end

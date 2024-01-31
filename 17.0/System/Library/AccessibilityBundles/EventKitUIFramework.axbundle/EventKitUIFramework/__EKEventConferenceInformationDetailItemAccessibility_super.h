@@ -1,0 +1,3 @@
+@interface __EKEventConferenceInformationDetailItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,9 @@
+@interface SiriNotificationsIntents.RNFlow : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ notificationManager;
+    void /* unknown type, empty encoding */ request;
+    void /* unknown type, empty encoding */ sharedObjects;
+    void /* unknown type, empty encoding */ featureFlags;
+    void /* unknown type, empty encoding */ isWatchSupported;
+}
+
+@end

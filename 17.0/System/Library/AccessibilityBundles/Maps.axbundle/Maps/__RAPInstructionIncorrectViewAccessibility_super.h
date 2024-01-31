@@ -1,0 +1,3 @@
+@interface __RAPInstructionIncorrectViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

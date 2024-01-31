@@ -1,0 +1,3 @@
+@interface __InCallControlsParticipantCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

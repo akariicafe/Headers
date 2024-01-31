@@ -1,0 +1,3 @@
+@interface __WeekDayInitialsHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

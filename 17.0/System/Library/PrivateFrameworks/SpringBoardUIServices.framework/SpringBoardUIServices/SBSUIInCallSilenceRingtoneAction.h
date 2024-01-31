@@ -1,0 +1,3 @@
+@interface SBSUIInCallSilenceRingtoneAction : BSAction
+
+@end

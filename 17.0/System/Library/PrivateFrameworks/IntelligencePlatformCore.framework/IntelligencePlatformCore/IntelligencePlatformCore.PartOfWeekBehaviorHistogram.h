@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.PartOfWeekBehaviorHistogram : IntelligencePlatformCore.BehaviorHistogramBase
+
+@end

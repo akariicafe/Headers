@@ -1,0 +1,3 @@
+@interface CLKCComplication : NSObject
+
+@end

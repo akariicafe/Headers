@@ -1,0 +1,3 @@
+@interface __CSDNDBedtimeGreetingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

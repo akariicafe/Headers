@@ -1,0 +1,3 @@
+@interface __CKAvatarTitleCollectionReusableViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

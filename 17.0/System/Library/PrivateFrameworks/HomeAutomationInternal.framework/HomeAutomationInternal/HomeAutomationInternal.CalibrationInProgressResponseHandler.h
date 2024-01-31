@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.CalibrationInProgressResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

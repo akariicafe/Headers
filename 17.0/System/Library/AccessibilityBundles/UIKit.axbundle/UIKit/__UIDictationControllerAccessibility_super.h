@@ -1,0 +1,3 @@
+@interface __UIDictationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

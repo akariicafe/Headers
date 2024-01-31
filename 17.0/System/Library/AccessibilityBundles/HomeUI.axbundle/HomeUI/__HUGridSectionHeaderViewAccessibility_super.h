@@ -1,0 +1,3 @@
+@interface __HUGridSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

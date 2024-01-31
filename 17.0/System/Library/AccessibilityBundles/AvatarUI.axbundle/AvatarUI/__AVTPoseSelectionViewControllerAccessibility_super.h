@@ -1,0 +1,3 @@
+@interface __AVTPoseSelectionViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

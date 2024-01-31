@@ -1,0 +1,3 @@
+@interface __CKMentionSuggestionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

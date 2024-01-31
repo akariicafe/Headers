@@ -1,0 +1,3 @@
+@interface __HUDashboardNavigationTitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

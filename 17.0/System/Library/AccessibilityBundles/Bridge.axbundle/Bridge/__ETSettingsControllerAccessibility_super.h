@@ -1,0 +1,3 @@
+@interface __ETSettingsControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

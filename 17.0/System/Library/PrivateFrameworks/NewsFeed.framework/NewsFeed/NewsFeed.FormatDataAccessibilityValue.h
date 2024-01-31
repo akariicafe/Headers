@@ -1,0 +1,6 @@
+@interface NewsFeed.FormatDataAccessibilityValue : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ layoutValue;
+    void /* unknown type, empty encoding */ data;
+}
+
+@end

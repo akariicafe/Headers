@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerAnimojiProviderItemAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,97 @@
+@class NSString, NSUUID, MPArtworkRepresentationCollection, MPArtworkImageAttachments, NSCache;
+@protocol MPArtworkDataSourceVisualIdenticality, MPArtworkDataSource, _MPArtworkCatalogOverlayDelegate, NSCopying;
+
+@interface MPArtworkCatalog : NSObject {
+    long long _modelRevisionID;
+    NSUUID *_UUID;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (readonly, nonatomic) long long MP_artworkType;
+@property (readonly, weak, nonatomic) id destination;
+@property (readonly, nonatomic, getter=isMainThreadBound) BOOL mainThreadBound;
+@property (copy, nonatomic) id /* block */ configurationBlock;
+@property (nonatomic) unsigned long long representationKinds;
+@property (retain, nonatomic) MPArtworkRepresentationCollection *bestAvailableRepresentationCollection;
+@property (getter=isLoadingRepresentation) BOOL loadingRepresentation;
+@property (copy, nonatomic) NSString *cacheIdentifier;
+@property (weak, nonatomic) id requestingContext;
+@property (copy, nonatomic) id<NSCopying> loadingKey;
+@property (readonly, nonatomic) NSUUID *UUID;
+@property (readonly, nonatomic) id token;
+@property (readonly, weak, nonatomic) id<MPArtworkDataSource> dataSource;
+@property (readonly, nonatomic) NSCache *cache;
+@property (readonly, nonatomic) NSCache *videoCache;
+@property (readonly, nonatomic) id<MPArtworkDataSourceVisualIdenticality> visualIdenticalityIdentifier;
+@property (nonatomic) unsigned long long renderHint;
+@property (nonatomic) unsigned long long videoCacheStoragePolicy;
+@property (weak, nonatomic) id<_MPArtworkCatalogOverlayDelegate> overlayDelegate;
+@property (retain, nonatomic) id overlayToken;
+@property (retain, nonatomic) id overlayStorage;
+@property (nonatomic) double destinationScale;
+@property (nonatomic) struct CGSize { double width; double height; } fittingSize;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } scaledFittingSize;
+@property (readonly, nonatomic) BOOL hasImageOnDisk;
+@property (nonatomic) BOOL allowsVideoConstrainedNetworkAccess;
+@property (nonatomic) long long preferredVideoFormat;
+@property (readonly, nonatomic) MPArtworkImageAttachments *imageAttachments;
+@property (readonly, nonatomic) BOOL hasExportableArtworkProperties;
+
++ (id)artworkCacheForIdentifier:(id)a0 requestingContext:(id)a1 representationKind:(long long)a2;
++ (id)placeholderCatalogWithSymbolName:(id)a0;
++ (void)setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 cacheReference:(id)a2 representationKind:(long long)a3;
++ (id)artworkCatalogWithDataSourceShortDescription:(id)a0 dataSourceIdentifier:(id)a1 tokenParameters:(id)a2;
++ (void)_setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2 representationKind:(long long)a3;
++ (id)staticArtworkCatalogWithImage:(id)a0;
++ (id)_artworkLoadQueue;
++ (void)_setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2;
++ (id)_registeredIdentifiableDataSourceAndTokenClasses;
++ (void)setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2;
++ (void)setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 cacheReference:(id)a2;
++ (void)setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2 representationKind:(long long)a3;
++ (void)setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2 representationKind:(long long)a3;
++ (id)_artworkCacheForIdentifier:(id)a0 requestingContext:(id)a1 representationKind:(long long)a2;
++ (void)setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 cacheReference:(id)a2;
++ (id)staticArtworkCatalogWithRepresentationCollection:(id)a0;
++ (void)setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 cacheReference:(id)a2 representationKind:(long long)a3;
++ (void)_setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2;
++ (void)setCachePurgesWhenEnteringBackground:(BOOL)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2;
++ (void)_setCacheLimit:(long long)a0 forCacheIdentifier:(id)a1 requestingContext:(id)a2 representationKind:(long long)a3;
+
+- (BOOL)isArtworkVisuallyIdenticalToCatalog:(id)a0;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (void)requestImageWithCompletion:(id /* block */)a0;
+- (void)_setDestination:(id)a0 isMainThreadBound:(BOOL)a1 forRepresentationKinds:(unsigned long long)a2 configurationBlock:(id /* block */)a3;
+- (void)setDestination:(id)a0 forRepresentationKinds:(unsigned long long)a1 configurationBlock:(id /* block */)a2;
+- (void)requestRadiosityImageWithCompletionHandler:(id /* block */)a0;
+- (void)_loadRepresentationOfKind:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)_updateRepresentationOfKind:(long long)a0;
+- (void)setCacheIdentifier:(id)a0 forRequestingContext:(id)a1;
+- (void)_callConfigurationWithRevisionID:(long long)a0;
+- (void)_updateRepresentations;
+- (void)requestVideoWithCompletionHandler:(id /* block */)a0;
+- (void)requestImageWithCompletionHandler:(id /* block */)a0;
+- (void)requestColorAnalysisWithAlgorithm:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)setDestination:(id)a0 configurationBlock:(id /* block */)a1;
+- (id)description;
+- (id)bestImageFromDisk;
+- (void)setMainThreadBoundDestination:(id)a0 forRepresentationKinds:(unsigned long long)a1 configurationBlock:(id /* block */)a2;
+- (void)_clearDestination;
+- (void)_setCacheIdentifier:(id)a0 forRequestingContext:(id)a1;
+- (void).cxx_destruct;
+- (void)_updateWithRepresentation:(id)a0 isBestRepresentation:(BOOL)a1 modelRevisionID:(long long)a2;
+- (void)setDestination:(id)a0 progressiveConfigurationBlock:(id /* block */)a1;
+- (void)setPreferredVideoKind:(long long)a0;
+- (void)requestColorAnalysisWithAlgorithm:(long long)a0 completion:(id /* block */)a1;
+- (BOOL)isEqual:(id)a0;
+- (void)setCacheIdentifier:(id)a0 forCacheReference:(id)a1;
+- (void)_setDestination:(id)a0 isMainThreadBound:(BOOL)a1;
+- (void)_loadBestRepresentationIfNeededOfKind:(long long)a0;
+- (void)_requestBestRepresentationOfKind:(long long)a0 completionHandler:(id /* block */)a1;
+- (id)existingColorAnalysisWithAlgorithm:(long long)a0;
+- (id)initWithToken:(id)a0 dataSource:(id)a1;
+- (id)_existingRepresentationOfKind:(long long)a0;
+- (void)requestExportableArtworkPropertiesWithCompletion:(id /* block */)a0;
+
+@end

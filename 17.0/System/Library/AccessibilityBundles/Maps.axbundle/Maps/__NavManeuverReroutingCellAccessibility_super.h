@@ -1,0 +1,3 @@
+@interface __NavManeuverReroutingCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

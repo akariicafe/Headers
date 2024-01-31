@@ -1,0 +1,3 @@
+@interface __HUCardViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

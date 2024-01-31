@@ -1,0 +1,3 @@
+@interface __PRXCardContentWrapperViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

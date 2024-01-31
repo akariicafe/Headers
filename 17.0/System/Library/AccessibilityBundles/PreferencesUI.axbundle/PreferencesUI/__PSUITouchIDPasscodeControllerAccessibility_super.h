@@ -1,0 +1,3 @@
+@interface __PSUITouchIDPasscodeControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

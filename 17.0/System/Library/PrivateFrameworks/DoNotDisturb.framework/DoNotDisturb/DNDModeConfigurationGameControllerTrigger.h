@@ -1,0 +1,3 @@
+@interface DNDModeConfigurationGameControllerTrigger : DNDModeConfigurationTrigger
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTEpisodeDownloadCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

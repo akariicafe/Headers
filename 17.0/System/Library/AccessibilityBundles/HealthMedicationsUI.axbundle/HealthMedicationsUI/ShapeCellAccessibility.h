@@ -1,0 +1,9 @@
+@interface ShapeCellAccessibility : __ShapeCellAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (unsigned long long)accessibilityTraits;
+
+@end

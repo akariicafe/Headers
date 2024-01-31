@@ -1,0 +1,3 @@
+@interface __PREditingFontAndColorPickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

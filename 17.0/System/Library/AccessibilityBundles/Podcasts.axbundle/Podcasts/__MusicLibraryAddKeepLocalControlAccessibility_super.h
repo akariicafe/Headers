@@ -1,0 +1,3 @@
+@interface __MusicLibraryAddKeepLocalControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

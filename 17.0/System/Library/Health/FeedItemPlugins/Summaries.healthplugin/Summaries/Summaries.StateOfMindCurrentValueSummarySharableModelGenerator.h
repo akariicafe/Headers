@@ -1,0 +1,3 @@
+@interface Summaries.StateOfMindCurrentValueSummarySharableModelGenerator : Summaries.MostRecentSampleCurrentValueSummarySharableModelGenerator
+
+@end

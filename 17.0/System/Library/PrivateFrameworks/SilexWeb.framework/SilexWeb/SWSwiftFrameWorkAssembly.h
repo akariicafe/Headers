@@ -1,0 +1,3 @@
+@interface SWSwiftFrameWorkAssembly : SWFrameworkAssembly
+
+@end

@@ -1,0 +1,3 @@
+@interface __RectangleLabelDetailsPlatterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __HUHomePodStereoSwapperCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

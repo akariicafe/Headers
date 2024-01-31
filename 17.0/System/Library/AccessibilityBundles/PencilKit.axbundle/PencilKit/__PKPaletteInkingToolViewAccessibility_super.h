@@ -1,0 +1,3 @@
+@interface __PKPaletteInkingToolViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

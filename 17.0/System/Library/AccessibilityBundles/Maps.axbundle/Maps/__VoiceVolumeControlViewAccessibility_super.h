@@ -1,0 +1,3 @@
+@interface __VoiceVolumeControlViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

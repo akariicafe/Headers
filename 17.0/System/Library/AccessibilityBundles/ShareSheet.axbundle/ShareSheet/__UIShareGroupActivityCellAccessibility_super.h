@@ -1,0 +1,3 @@
+@interface __UIShareGroupActivityCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

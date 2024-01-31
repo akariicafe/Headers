@@ -1,0 +1,11 @@
+@interface PKGSVWalletHeaderViewAccessibility : __PKGSVWalletHeaderViewAccessibility_super
+
++ (Class)safeCategoryBaseClass;
++ (void)_accessibilityPerformValidations:(id)a0;
++ (id)safeCategoryTargetClassName;
+
+- (void)didMoveToWindow;
+- (void)setShowActivityIndicator:(BOOL)a0;
+- (void)_accessibilityLoadAccessibilityInformation;
+
+@end

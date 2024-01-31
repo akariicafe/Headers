@@ -1,0 +1,3 @@
+@interface __CKDetailsChildViewControllerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

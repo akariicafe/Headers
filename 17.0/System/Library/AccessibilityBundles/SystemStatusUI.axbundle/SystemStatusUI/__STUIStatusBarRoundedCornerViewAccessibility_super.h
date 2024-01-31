@@ -1,0 +1,3 @@
+@interface __STUIStatusBarRoundedCornerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __HOAddLocationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

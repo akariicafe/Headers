@@ -1,0 +1,3 @@
+@interface __ACSportsSoccerScoreboardViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __LocalParticipantViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SUUIProductInformationViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

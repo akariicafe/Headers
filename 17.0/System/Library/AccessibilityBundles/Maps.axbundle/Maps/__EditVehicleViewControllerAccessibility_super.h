@@ -1,0 +1,3 @@
+@interface __EditVehicleViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

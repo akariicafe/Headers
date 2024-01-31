@@ -1,0 +1,3 @@
+@interface __CNPropertyPhoneNumberCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __CKNanoAudioBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

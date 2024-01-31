@@ -1,0 +1,3 @@
+@interface __ASVPreviewViewControllerInternalAccessibility_super : UIAccessibilitySafeCategory
+
+@end

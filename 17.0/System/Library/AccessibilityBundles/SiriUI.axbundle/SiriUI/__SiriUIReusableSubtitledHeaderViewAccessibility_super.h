@@ -1,0 +1,3 @@
+@interface __SiriUIReusableSubtitledHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

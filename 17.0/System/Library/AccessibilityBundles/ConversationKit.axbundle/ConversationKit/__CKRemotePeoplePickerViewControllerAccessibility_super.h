@@ -1,0 +1,3 @@
+@interface __CKRemotePeoplePickerViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __PKTransactionHistoryViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

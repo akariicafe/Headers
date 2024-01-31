@@ -1,0 +1,3 @@
+@interface __MRUActivityNowPlayingViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

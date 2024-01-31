@@ -1,0 +1,3 @@
+@interface ___CSDoubleBatteryChargingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

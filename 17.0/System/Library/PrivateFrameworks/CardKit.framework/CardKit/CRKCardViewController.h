@@ -1,0 +1,90 @@
+@class NSString, NSMapTable, CRKComposedStackView, NSMutableArray;
+@protocol CRCard, CRKCardSectionViewSourcing, CRKCardViewControllerDelegate;
+
+@interface CRKCardViewController : UIViewController <CRKCardSectionViewControllerDelegate, CRKCardSectionViewProviderDelegate, CRKCardViewControlling> {
+    NSMutableArray *_cardSectionViewControllers;
+    NSMapTable *_cardSectionsToCardSectionViewControllersMapTable;
+    NSMapTable *_handledParametersForInteraction;
+    NSMutableArray *_pendingDismissalCommands;
+    BOOL _loaded;
+    id<CRKCardSectionViewSourcing> _builtInCardSectionViewSource;
+    NSMutableArray *_loadingCardSections;
+}
+
+@property (retain, nonatomic) CRKComposedStackView *view;
+@property long long preferredPunchoutIndex;
+@property (weak, nonatomic) id<CRKCardViewControllerDelegate> delegate;
+@property (readonly, nonatomic, getter=isLoading) BOOL loading;
+@property (readonly, nonatomic, getter=isIndicatingActivity) BOOL indicatingActivity;
+@property (nonatomic) BOOL loadBundles;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) id<CRCard> card;
+@property (retain, nonatomic) id<CRKCardSectionViewSourcing> cardSectionViewSource;
+@property (weak, nonatomic) id<CRKCardViewControllerDelegate> cardViewControllerDelegate;
+
++ (void)initialize;
++ (void)_registerCardSectionViewControllers;
+
+- (id)init;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)willDismissViewController:(id)a0;
+- (void)didEngageCardSection:(id)a0;
+- (void)viewDidLayoutSubviews;
+- (void)cardSectionViewDidSelectPreferredPunchoutIndex:(long long)a0;
+- (void)loadView;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (BOOL)_canShowWhileLocked;
+- (void)didMoveToParentViewController:(id)a0;
+- (void)presentViewController:(id)a0;
+- (void).cxx_destruct;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)initWithCoder:(id)a0;
+- (struct CGSize { double x0; double x1; })preferredContentSize;
+- (void)_finishLoading;
+- (double)contentHeightForWidth:(double)a0;
+- (void)cardSectionViewWillAppearForCardSection:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)_cancelTouchesIfNecessary;
+- (id)_cardSectionViewControllerForCardSection:(id)a0;
+- (id)_initWithCard:(id)a0 delegate:(id)a1 loadProvidersImmediately:(BOOL)a2;
+- (void)_resumeTouchesIfNecessary;
+- (struct CGSize { double x0; double x1; })boundingSizeForCardSectionViewController:(id)a0;
+- (void)cardEventDidOccur:(unsigned long long)a0 withIdentifier:(id)a1 userInfo:(id)a2;
+- (void)cardSectionView:(id)a0 willProcessEngagementFeedback:(id)a1;
+- (void)cardSectionViewControllerBoundsDidChange:(id)a0;
+- (void)cardSectionViewDidAppearForCardSection:(id)a0 withAppearanceFeedback:(id)a1;
+- (void)cardSectionViewDidDisappearForCardSection:(id)a0 withDisappearanceFeedback:(id)a1;
+- (void)handleCardCommand:(id)a0 reply:(id /* block */)a1;
+- (id)initWithCard:(id)a0 delegate:(id)a1;
+- (void)userDidEngageCardSection:(id)a0 withEngagementFeedback:(id)a1;
+- (void)userDidReportFeedback:(id)a0 fromCardSection:(id)a1;
+- (void)_addCardSectionViewControllersAsChildViewControllers:(id)a0;
+- (BOOL)_askDelegateToPerformReferentialCommand:(id)a0;
+- (void)_configureCardSectionViewController:(id)a0 forCardSection:(id)a1;
+- (long long)_convertSFSeparatorStyleToCRKKeylineStyle:(int)a0;
+- (long long)_defaultKeylineStyleBetweenLeadingCardSection:(id)a0 andTrailingCardSection:(id)a1;
+- (BOOL)_fireAndForgetOutboundCommand:(id)a0;
+- (id)_generateCardViewAppearanceFeedback;
+- (id)_initWithCard:(id)a0;
+- (id)_initWithCard:(id)a0 delegate:(id)a1 loadBundles:(BOOL)a2 loadProvidersImmediately:(BOOL)a3;
+- (BOOL)_isActuallyVisible;
+- (long long)_keylineStyleBetweenLeadingCardSectionViewController:(id)a0 andTrailingCardSectionViewController:(id)a1;
+- (id)_loadCardSectionViewControllerFromCardSection:(id)a0;
+- (void)_loadCardSectionViewControllersFromCard:(id)a0 currentSourceInvalid:(BOOL)a1;
+- (void)_removeCardSectionViewControllersFromParentViewController:(id)a0;
+- (void)_setCard:(id)a0 loadProvidersImmediately:(BOOL)a1;
+- (void)_setCardWithLoadedBundles:(id)a0 loadProvidersImmediately:(BOOL)a1;
+- (void)cardSectionViewController:(id)a0 didSelectPreferredPunchoutIndex:(long long)a1;
+- (void)cardSectionViewController:(id)a0 requestsHandlingOfIntent:(id)a1;
+- (void)cardSectionViewControllerDidFinishLoading:(id)a0;
+- (void)cardSectionViewControllerShouldBeRemoved:(id)a0;
+- (id)defaultFeedbackDelegateForProvider:(id)a0;
+- (BOOL)performCommand:(id)a0 forCardSectionViewController:(id)a1;
+- (long long)preferredPunchoutIndexForCardSectionViewController:(id)a0;
+- (void)presentViewController:(id)a0 forCardSectionViewController:(id)a1;
+
+@end

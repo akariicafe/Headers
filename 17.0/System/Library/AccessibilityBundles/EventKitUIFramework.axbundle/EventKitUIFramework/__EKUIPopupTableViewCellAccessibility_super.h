@@ -1,0 +1,3 @@
+@interface __EKUIPopupTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

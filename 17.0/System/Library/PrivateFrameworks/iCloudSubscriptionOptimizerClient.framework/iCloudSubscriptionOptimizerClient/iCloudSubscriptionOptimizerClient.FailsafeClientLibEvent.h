@@ -1,0 +1,3 @@
+@interface iCloudSubscriptionOptimizerClient.FailsafeClientLibEvent : iCloudSubscriptionOptimizerClient.ClientLibEvent
+
+@end

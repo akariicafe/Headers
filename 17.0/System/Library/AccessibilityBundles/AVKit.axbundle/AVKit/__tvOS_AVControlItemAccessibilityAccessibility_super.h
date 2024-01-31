@@ -1,0 +1,3 @@
+@interface __tvOS_AVControlItemAccessibilityAccessibility_super : UIAccessibilitySafeCategory
+
+@end

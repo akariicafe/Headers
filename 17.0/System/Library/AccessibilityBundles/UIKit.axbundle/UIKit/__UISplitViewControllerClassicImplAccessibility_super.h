@@ -1,0 +1,3 @@
+@interface __UISplitViewControllerClassicImplAccessibility_super : UIAccessibilitySafeCategory
+
+@end

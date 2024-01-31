@@ -1,0 +1,3 @@
+@interface MUIPlatformViewController : UIViewController
+
+@end

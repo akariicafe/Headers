@@ -1,0 +1,93 @@
+@class MTRCommissionableBrowser, NSMutableDictionary, MTRDeviceControllerFactory, NSNumber, NSObject;
+@protocol OS_dispatch_queue, MTRKeypair;
+
+@interface MTRDeviceController : NSObject {
+    struct atomic<unsigned char> { struct __cxx_atomic_impl<unsigned char, std::__cxx_atomic_base_impl<unsigned char>> { _Atomic unsigned char __a_value; } __a_; } _storedFabricIndex;
+}
+
+@property (readonly, nonatomic) NSNumber *controllerNodeId;
+@property (readonly) NSObject<OS_dispatch_queue> *chipWorkQueue;
+@property (readonly) void *cppCommissioner;
+@property (readonly) void *partialDACVerifier;
+@property (readonly) struct MTRDeviceControllerDelegateBridge { void /* function */ **x0; id x1; id x2; id x3; } *deviceControllerDelegateBridge;
+@property (readonly) void *operationalCredentialsDelegate;
+@property (readonly) struct MTRP256KeypairBridge { void /* function */ **_vptr$ECPKeypair; struct P256PublicKey { void /* function */ **_vptr$ECPKey; unsigned char bytes[65]; } mPublicKey; struct P256KeypairContext { unsigned char mBytes[512]; } mKeypair; BOOL mInitialized; id<MTRKeypair> mKeypair; struct P256PublicKey { void /* function */ **_vptr$ECPKey; unsigned char bytes[65]; } mPubkey; } signingKeypairBridge;
+@property (readonly) struct MTRP256KeypairBridge { void /* function */ **_vptr$ECPKeypair; struct P256PublicKey { void /* function */ **_vptr$ECPKey; unsigned char bytes[65]; } mPublicKey; struct P256KeypairContext { unsigned char mBytes[512]; } mKeypair; BOOL mInitialized; id<MTRKeypair> mKeypair; struct P256PublicKey { void /* function */ **_vptr$ECPKey; unsigned char bytes[65]; } mPubkey; } operationalKeypairBridge;
+@property (readonly) void *deviceAttestationDelegateBridge;
+@property (readonly) MTRDeviceControllerFactory *factory;
+@property (readonly) NSMutableDictionary *nodeIDToDeviceMap;
+@property (readonly) struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } deviceMapLock;
+@property (readonly) MTRCommissionableBrowser *commissionableBrowser;
+@property (readonly) unsigned char fabricIndex;
+@property (readonly) NSNumber *compressedFabricID;
+@property (readonly, nonatomic, getter=isRunning) BOOL running;
+@property (readonly, nonatomic) NSNumber *controllerNodeID;
+
++ (BOOL)checkForError:(struct ChipError { unsigned int x0; char *x1; unsigned int x2; })a0 logMsg:(id)a1 error:(id *)a2;
++ (id)computePASEVerifierForSetupPasscode:(id)a0 iterations:(id)a1 salt:(id)a2 error:(id *)a3;
++ (id)decodeXPCReadParams:(id)a0;
++ (id)decodeXPCResponseValues:(id)a0;
++ (id)decodeXPCSubscribeParams:(id)a0;
++ (id)encodeXPCReadParams:(id)a0;
++ (id)encodeXPCResponseValues:(id)a0;
++ (id)encodeXPCSubscribeParams:(id)a0;
++ (id)sharedControllerWithID:(id)a0 xpcConnectBlock:(id /* block */)a1;
++ (id)sharedControllerWithId:(id)a0 xpcConnectBlock:(id /* block */)a1;
++ (id)xpcInterfaceForClientProtocol;
++ (id)xpcInterfaceForServerProtocol;
+
+- (void)shutdown;
+- (void)cleanup;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)removeDevice:(id)a0;
+- (id)openPairingWindowWithPIN:(unsigned long long)a0 duration:(unsigned long long)a1 discriminator:(unsigned long long)a2 setupPIN:(unsigned long long)a3 error:(id *)a4;
+- (BOOL)checkIsRunning:(id *)a0;
+- (void)asyncDispatchToMatterQueue:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (void)asyncGetCommissionerOnMatterQueue:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (id)attestationChallengeForDeviceID:(id)a0;
+- (id)baseDeviceForNodeID:(id)a0;
+- (BOOL)cancelCommissioningForNodeID:(id)a0 error:(id *)a1;
+- (BOOL)checkForInitError:(BOOL)a0 logMsg:(id)a1;
+- (BOOL)checkForStartError:(struct ChipError { unsigned int x0; char *x1; unsigned int x2; })a0 logMsg:(id)a1;
+- (BOOL)checkIsRunning;
+- (void)cleanupAfterStartup;
+- (void)clearDeviceAttestationDelegateBridge;
+- (BOOL)commissionDevice:(unsigned long long)a0 commissioningParams:(id)a1 error:(id *)a2;
+- (BOOL)commissionNodeWithID:(id)a0 commissioningParams:(id)a1 error:(id *)a2;
+- (id)computePaseVerifier:(unsigned int)a0 iterations:(unsigned int)a1 salt:(id)a2;
+- (BOOL)continueCommissioningDevice:(void *)a0 ignoreAttestationFailure:(BOOL)a1 error:(id *)a2;
+- (void)deinitFromFactory;
+- (id)deviceBeingCommissionedWithNodeID:(id)a0 error:(id *)a1;
+- (id)deviceForNodeID:(id)a0;
+- (id)fetchAttestationChallengeForDeviceId:(unsigned long long)a0;
+- (BOOL)getBaseDevice:(unsigned long long)a0 queue:(id)a1 completionHandler:(id /* block */)a2;
+- (id)getDeviceBeingCommissioned:(unsigned long long)a0 error:(id *)a1;
+- (void)getSessionForCommissioneeDevice:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)getSessionForNode:(unsigned long long)a0 completion:(id /* block */)a1;
+- (id)initWithFactory:(id)a0 queue:(id)a1;
+- (void)invalidateCASESessionForNode:(unsigned long long)a0;
+- (struct ChipError { unsigned int x0; char *x1; unsigned int x2; })isRunningOnFabric:(void *)a0 fabricIndex:(unsigned char)a1 isRunning:(BOOL *)a2;
+- (BOOL)openPairingWindow:(unsigned long long)a0 duration:(unsigned long long)a1 error:(id *)a2;
+- (void)operationalInstanceAdded:(unsigned long long)a0;
+- (BOOL)pairDevice:(unsigned long long)a0 address:(id)a1 port:(unsigned short)a2 setupPINCode:(unsigned int)a3 error:(id *)a4;
+- (BOOL)pairDevice:(unsigned long long)a0 discriminator:(unsigned short)a1 setupPINCode:(unsigned int)a2 error:(id *)a3;
+- (BOOL)pairDevice:(unsigned long long)a0 onboardingPayload:(id)a1 error:(id *)a2;
+- (void)preWarmCommissioningSession;
+- (unsigned char)sessionTransportTypeForDevice:(id)a0;
+- (void)setDeviceControllerDelegate:(id)a0 queue:(id)a1;
+- (void)setNocChainIssuer:(id)a0 queue:(id)a1;
+- (BOOL)setOperationalCertificateIssuer:(id)a0 queue:(id)a1;
+- (void)setPairingDelegate:(id)a0 queue:(id)a1;
+- (BOOL)setupCommissioningSessionWithDiscoveredDevice:(id)a0 payload:(id)a1 newNodeID:(id)a2 error:(id *)a3;
+- (BOOL)setupCommissioningSessionWithPayload:(id)a0 newNodeID:(id)a1 error:(id *)a2;
+- (void)shutDownCppController;
+- (BOOL)startBrowseForCommissionables:(id)a0 queue:(id)a1;
+- (BOOL)startup:(id)a0;
+- (BOOL)stopBrowseForCommissionables;
+- (BOOL)stopDevicePairing:(unsigned long long)a0 error:(id *)a1;
+- (void)syncRunOnWorkQueue:(id /* block */)a0 error:(id *)a1;
+- (BOOL)syncRunOnWorkQueueWithBoolReturnValue:(id /* block */)a0 error:(id *)a1;
+- (id)syncRunOnWorkQueueWithReturnValue:(id /* block */)a0 error:(id *)a1;
+
+@end

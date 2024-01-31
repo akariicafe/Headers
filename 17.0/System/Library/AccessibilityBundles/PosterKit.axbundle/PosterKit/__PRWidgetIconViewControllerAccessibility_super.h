@@ -1,0 +1,3 @@
+@interface __PRWidgetIconViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

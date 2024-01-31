@@ -1,0 +1,3 @@
+@interface __WFWidgetConfigurationCardHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

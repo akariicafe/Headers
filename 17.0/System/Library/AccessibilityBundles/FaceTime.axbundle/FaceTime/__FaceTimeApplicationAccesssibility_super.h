@@ -1,0 +1,3 @@
+@interface __FaceTimeApplicationAccesssibility_super : UIAccessibilitySafeCategory
+
+@end

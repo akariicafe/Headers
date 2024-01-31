@@ -1,0 +1,3 @@
+@interface __CollectionsFilterCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MTAWorldClockMapViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

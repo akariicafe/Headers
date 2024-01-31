@@ -1,0 +1,3 @@
+@interface __SBIsolatedSceneOrientationFollowingWrapperViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

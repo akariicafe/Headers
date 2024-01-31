@@ -1,0 +1,3 @@
+@interface __PXSearchResultTitledCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

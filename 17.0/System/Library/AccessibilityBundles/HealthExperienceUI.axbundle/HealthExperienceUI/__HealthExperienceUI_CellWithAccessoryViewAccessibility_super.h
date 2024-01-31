@@ -1,0 +1,3 @@
+@interface __HealthExperienceUI_CellWithAccessoryViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

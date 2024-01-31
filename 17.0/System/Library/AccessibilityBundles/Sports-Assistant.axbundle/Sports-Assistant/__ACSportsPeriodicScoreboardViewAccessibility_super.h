@@ -1,0 +1,3 @@
+@interface __ACSportsPeriodicScoreboardViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

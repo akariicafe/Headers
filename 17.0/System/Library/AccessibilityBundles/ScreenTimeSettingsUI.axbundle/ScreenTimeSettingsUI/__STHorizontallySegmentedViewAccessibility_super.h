@@ -1,0 +1,3 @@
+@interface __STHorizontallySegmentedViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __ProximityStatusViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

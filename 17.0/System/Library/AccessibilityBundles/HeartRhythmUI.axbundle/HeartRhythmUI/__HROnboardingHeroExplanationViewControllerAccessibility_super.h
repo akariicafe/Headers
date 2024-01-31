@@ -1,0 +1,3 @@
+@interface __HROnboardingHeroExplanationViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __RPCCUIOptionsControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

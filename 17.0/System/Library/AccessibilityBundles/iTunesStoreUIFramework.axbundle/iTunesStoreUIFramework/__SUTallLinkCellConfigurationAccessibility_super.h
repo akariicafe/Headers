@@ -1,0 +1,3 @@
+@interface __SUTallLinkCellConfigurationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

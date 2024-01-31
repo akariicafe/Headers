@@ -1,0 +1,3 @@
+@interface __VUIDownloadEntityTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __RoutePlanningWaypointCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

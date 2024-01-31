@@ -1,0 +1,3 @@
+@interface __MusicUINavigationButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

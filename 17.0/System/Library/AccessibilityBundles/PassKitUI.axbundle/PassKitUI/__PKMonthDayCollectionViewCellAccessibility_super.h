@@ -1,0 +1,3 @@
+@interface __PKMonthDayCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

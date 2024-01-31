@@ -1,0 +1,3 @@
+@interface __NowPlayingAutoPlayButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

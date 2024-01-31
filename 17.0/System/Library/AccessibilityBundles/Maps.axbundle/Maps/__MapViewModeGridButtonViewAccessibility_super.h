@@ -1,0 +1,3 @@
+@interface __MapViewModeGridButtonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

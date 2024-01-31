@@ -1,0 +1,3 @@
+@interface __MUPlaceRibbonItemViewModelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

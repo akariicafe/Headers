@@ -1,0 +1,3 @@
+@interface _TtCC24IntelligencePlatformCore19FeedbackLogDatabase6Writer : _TtCC24IntelligencePlatformCore19FeedbackLogDatabase6Reader
+
+@end

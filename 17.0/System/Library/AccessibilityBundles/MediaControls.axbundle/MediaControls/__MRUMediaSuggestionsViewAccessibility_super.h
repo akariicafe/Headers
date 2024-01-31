@@ -1,0 +1,3 @@
+@interface __MRUMediaSuggestionsViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

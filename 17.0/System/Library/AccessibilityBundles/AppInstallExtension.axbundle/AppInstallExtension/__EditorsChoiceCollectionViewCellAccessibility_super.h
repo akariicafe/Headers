@@ -1,0 +1,3 @@
+@interface __EditorsChoiceCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __MUPlaceSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

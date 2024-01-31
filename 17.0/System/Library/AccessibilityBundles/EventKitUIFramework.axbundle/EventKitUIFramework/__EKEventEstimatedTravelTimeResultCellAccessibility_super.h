@@ -1,0 +1,3 @@
+@interface __EKEventEstimatedTravelTimeResultCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBFLockScreenDateSubtitleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

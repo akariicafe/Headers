@@ -1,0 +1,83 @@
+@class HFDurationEventBuilder, NSString, HFTriggerActionSetsBuilder, HFMutableSetDiff, NSArray, HFConditionCollection, HMTrigger;
+@protocol HFTriggerBuilderContextProviding;
+
+@interface HFTriggerBuilder : HFItemBuilder <HFComparable>
+
+@property (readonly, nonatomic) BOOL supportsHomeKitAutomationBuilders;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) HFTriggerActionSetsBuilder *triggerActionSets;
+@property (retain, nonatomic) HFMutableSetDiff *endEventBuildersDiff;
+@property (retain, nonatomic) id<HFTriggerBuilderContextProviding> context;
+@property (retain, nonatomic) HFConditionCollection *conditionCollection;
+@property (readonly, nonatomic) BOOL supportsConditions;
+@property (readonly, nonatomic) BOOL supportsEndEvents;
+@property (readonly, nonatomic) HMTrigger *trigger;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *displayName;
+@property (nonatomic) BOOL nameIsConfigured;
+@property (nonatomic) BOOL enabled;
+@property (readonly, nonatomic) NSArray *endEventBuilders;
+@property (readonly, nonatomic) BOOL requiresConfirmationToRun;
+@property (readonly, nonatomic) BOOL secureActionsRequireConfirmationToRun;
+@property (readonly, nonatomic) BOOL requiresLocationServicesAuthorization;
+@property (readonly, nonatomic) BOOL requiresHomeHub;
+@property (readonly, nonatomic) BOOL requiresUpdatedHomeHub;
+@property (readonly, nonatomic) BOOL requiresFMFDeviceToRun;
+@property (readonly, nonatomic, getter=areActionsAffectedByEndEvents) BOOL actionsAffectedByEndEvents;
+@property (readonly, nonatomic) BOOL isShortcutOwned;
+@property (readonly, nonatomic) HFDurationEventBuilder *designatedDurationEventBuilder;
+
++ (id)triggerBuilderForTrigger:(id)a0 inHome:(id)a1 context:(id)a2;
++ (id)triggerBuilderForTrigger:(id)a0 inHome:(id)a1 context:(id)a2 assertsFailure:(BOOL)a3;
++ (Class)homeKitRepresentationClass;
+
+- (void)setTrigger:(id)a0;
+- (void).cxx_destruct;
+- (void)setEndEvent:(id)a0;
+- (id)initWithHome:(id)a0;
+- (id)_updateEnabledState;
+- (id)_updateName;
+- (id)deleteTrigger;
+- (id)validationError;
+- (id)naturalLanguageNameWithOptions:(id)a0;
+- (id)asGeneric;
+- (id)commitItem;
+- (id)initWithExistingObject:(id)a0 inHome:(id)a1;
+- (id)initWithExistingObject:(id)a0 inHome:(id)a1 context:(id)a2;
+- (id)initWithHome:(id)a0 context:(id)a1;
+- (id)naturalLanguageDetailsWithOptions:(id)a0;
+- (id)naturalLanguageNameOfType:(unsigned long long)a0;
+- (void)removeAllEndEventBuilders;
+- (void)removeServiceLikeItem:(id)a0;
+- (id)triggerBuilderWithContext:(id)a0;
+- (id)_commitAddTriggerToHome:(id)a0;
+- (id)_commitUsingBuilders;
+- (id)_deleteTrigger:(id)a0 fromHome:(id)a1;
+- (void)_didReplaceBackingTrigger;
+- (id)_lazy_performValidation;
+- (id)_legacyCommitItem;
+- (void)_notifyObserversOfAddingTrigger:(id)a0;
+- (void)_notifyObserversOfChangingTrigger:(id)a0;
+- (id)_uniquelyRenameTrigger:(id)a0 pendingReplaceByNewTriggerWithName:(id)a1;
+- (id)_updateActionSets;
+- (id)_updateAnonymousActionSet;
+- (id)_updateConditions;
+- (id)_updateEndEvents;
+- (void)addEndEventBuilder:(id)a0;
+- (id)commitCreateTrigger;
+- (id)commitEditTrigger;
+- (id)compareToObject:(id)a0;
+- (id)createNewTriggerBuilder;
+- (id)getOrCreateTriggerBuilder;
+- (id)lazilyFinishCommitingTrigger;
+- (void)removeEndEventBuilder:(id)a0;
+- (void)replaceConditionsWithConditions:(id)a0;
+- (id)replaceCurrentTriggerWithTrigger:(id)a0;
+- (BOOL)supportsHomeKitAutomationBuilders;
+- (void)updateEndEventBuilder:(id)a0;
+- (id)updateTriggerBuilder:(id)a0;
+
+@end

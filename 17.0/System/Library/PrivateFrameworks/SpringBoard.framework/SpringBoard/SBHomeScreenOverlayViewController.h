@@ -1,0 +1,85 @@
+@class SBTitledHomeScreenButton, SBHRootFolderVisualConfiguration, SBHRootSidebarController, UIViewController, NSString, NSCountedSet, NSLayoutConstraint, MTMaterialView, UIViewFloatAnimatableProperty, SBFTodayGestureSettings;
+@protocol SBHVisibleContentPresenter, SBHomeScreenOverlayViewControllerDelegate, SBIconListLayoutProvider;
+
+@interface SBHomeScreenOverlayViewController : UIViewController <WGWidgetGroupViewControllerDelegate, SBHLibraryViewControllerPresenter, SBHWidgetSheetViewControllerPresenter, SBHVisibleContentPresenter> {
+    NSCountedSet *_reasonsToSnapshotBackgroundView;
+    unsigned long long _defaultAnimationCount;
+    unsigned long long _fadingAnimationCount;
+    struct CGSize { double width; double height; } _boundsSizeForConstraints;
+}
+
+@property (readonly, nonatomic) id<SBIconListLayoutProvider> listLayoutProvider;
+@property (readonly, nonatomic) MTMaterialView *backgroundView;
+@property (readonly, nonatomic) SBHRootFolderVisualConfiguration *rootFolderVisualConfiguration;
+@property (retain, nonatomic) NSLayoutConstraint *contentLeadingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *contentWidthConstraint;
+@property (retain, nonatomic) SBTitledHomeScreenButton *doneButton;
+@property (retain, nonatomic) SBTitledHomeScreenButton *widgetButton;
+@property (nonatomic) BOOL showsDoneButton;
+@property (nonatomic) BOOL showsAddWidgetButton;
+@property (retain, nonatomic) SBFTodayGestureSettings *gestureSettings;
+@property (retain, nonatomic) UIViewFloatAnimatableProperty *overlayPresentationFloatAnimatableProperty;
+@property (nonatomic, getter=isTransitioningPresentationProgress) BOOL transitioningPresentationProgress;
+@property (weak, nonatomic) id<SBHomeScreenOverlayViewControllerDelegate> delegate;
+@property (nonatomic) double presentationProgress;
+@property (readonly, nonatomic) double layerPresentationProgress;
+@property (nonatomic, getter=isFromLeading) BOOL fromLeading;
+@property (readonly, nonatomic) double contentWidth;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } contentRect;
+@property (nonatomic) BOOL shouldUseReducedMotionAnimation;
+@property (readonly, nonatomic, getter=isHeaderVisible) BOOL headerVisible;
+@property (readonly, nonatomic) SBHRootSidebarController *contentViewController;
+@property (retain, nonatomic) UIViewController<SBHVisibleContentPresenter> *leadingSidebarViewController;
+@property (retain, nonatomic) UIViewController<SBHVisibleContentPresenter> *trailingSidebarViewController;
+@property (nonatomic) BOOL suppressesExtraEditingButtons;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic, getter=isLibraryPresentationModal) BOOL libraryPresentationModal;
+@property (nonatomic) double titledButtonsAlpha;
+@property (nonatomic) unsigned long long contentVisibility;
+
+- (void)widgetButtonTriggered:(id)a0;
+- (void)setSuppressesEditingStateForListView:(BOOL)a0;
+- (BOOL)isDisplayingEditingButtons;
+- (unsigned long long)presenterType;
+- (void)_updateBackgroundView;
+- (id)makeTitledButtonOfClass:(Class)a0;
+- (void)setShowsAddWidgetButton:(BOOL)a0 animated:(BOOL)a1;
+- (void)doneButtonTriggered:(id)a0;
+- (BOOL)bs_endAppearanceTransition;
+- (id)newHomeScreenButtonBackgroundView;
+- (void)setShowsDoneButton:(BOOL)a0 animated:(BOOL)a1;
+- (void)viewWillAppear:(BOOL)a0;
+- (void)_button:(id)a0 appearAnimated:(BOOL)a1;
+- (void)setPresentationProgress:(double)a0 withAnimationUpdateMode:(long long)a1 overrideAnimationSettings:(id)a2 completionHandler:(id /* block */)a3;
+- (void)viewWillLayoutSubviews;
+- (void)updateExtraButtonVisibilityAnimated:(BOOL)a0;
+- (void)_button:(id)a0 disappearAnimated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)loadView;
+- (void)animatePresentationProgress:(double)a0 withGestureLiftOffVelocity:(double)a1 completionHandler:(id /* block */)a2;
+- (id)acquireUseSnapshotAsBackgroundViewAssertionForReason:(id)a0;
+- (void)_configureMatchMoveAnimationForBackgroundView:(id)a0 withSourceView:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (struct CGSize { double x0; double x1; })widgetGroupViewController:(id)a0 sizeForInterfaceOrientation:(long long)a1;
+- (BOOL)_canShowWhileLocked;
+- (void)setPresentationProgress:(double)a0 interactive:(BOOL)a1 animated:(BOOL)a2 completionHandler:(id /* block */)a3;
+- (void).cxx_destruct;
+- (BOOL)isPresentingLibraryInMostForegroundState:(id)a0;
+- (void)viewDidMoveToWindow:(id)a0 shouldAppearOrDisappear:(BOOL)a1;
+- (BOOL)bs_endAppearanceTransition:(BOOL)a0;
+- (void)viewDidAppear:(BOOL)a0;
+- (void)_updateLayoutForEditButtonsWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_updateConstraintsForPresentationProgress:(double)a0 layoutIfNeeded:(BOOL)a1;
+- (id)currentSidebarViewController;
+- (void)viewWillTransitionToSize:(struct CGSize { double x0; double x1; })a0 withTransitionCoordinator:(id)a1;
+- (double)contentWidthWithContainerWidth:(double)a0;
+- (BOOL)bs_beginAppearanceTransition:(BOOL)a0 animated:(BOOL)a1;
+- (id)initWithListLayoutProvider:(id)a0;
+- (struct CGSize { double x0; double x1; })_suggestedTodayViewSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (unsigned long long)childContentVisibility;
+- (void)viewDidDisappear:(BOOL)a0;
+- (void)_updateConstraintsForPresentationProgress:(double)a0;
+
+@end

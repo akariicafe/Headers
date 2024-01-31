@@ -1,0 +1,3 @@
+@interface __AttributeStylingControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

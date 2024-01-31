@@ -1,0 +1,3 @@
+@interface __CNPhotoPickerCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

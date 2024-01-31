@@ -1,0 +1,3 @@
+@interface __EpisodeUpNextCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

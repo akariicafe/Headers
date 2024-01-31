@@ -1,0 +1,3 @@
+@interface __ACSportsAthleteStandingViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

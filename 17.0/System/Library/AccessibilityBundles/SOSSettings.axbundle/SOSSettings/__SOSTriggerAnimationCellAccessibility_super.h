@@ -1,0 +1,3 @@
+@interface __SOSTriggerAnimationCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

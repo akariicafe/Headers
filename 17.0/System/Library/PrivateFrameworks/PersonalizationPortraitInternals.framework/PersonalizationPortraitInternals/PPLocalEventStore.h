@@ -1,0 +1,33 @@
+@class _PASLock, _PASCoalescingTimer, PPEventCache, PPEventStorage, PPTrialWrapper, _PASNotificationToken;
+
+@interface PPLocalEventStore : NSObject <PPFeedbackAccepting> {
+    PPEventCache *_eventCache;
+    PPEventStorage *_storage;
+    _PASNotificationToken *_assetUpdateNotificationToken;
+    PPTrialWrapper *_trialWrapper;
+    _PASLock *_lock;
+    _PASCoalescingTimer *_bufferedChanges;
+}
+
++ (id)defaultStore;
+
+- (void)registerFeedback:(id)a0 completion:(id /* block */)a1;
+- (void)clearCaches;
+- (id)init;
+- (id)scoredEventsWithQuery:(id)a0;
+- (id)initWithTrialWrapper:(id)a0 eventStorage:(id)a1;
+- (id)eventNameRecordsForClient:(id)a0 error:(id *)a1;
+- (id)eventsFromDate:(id)a0 toDate:(id)a1;
+- (void)runBlockWithPurgerDisabled:(id /* block */)a0;
+- (void)enumerateEventsFromEKObjectIDs:(id)a0 expandingRecurrencesInRange:(id)a1 usingBlock:(id /* block */)a2;
+- (id)eventWithExternalID:(id)a0;
+- (id)eventHighlightsFrom:(id)a0 to:(id)a1 options:(int)a2;
+- (void).cxx_destruct;
+- (id)nlEventsFromDate:(id)a0 toDate:(id)a1;
+- (id)eventWithIdentifier:(id)a0;
+- (id)resolveEventNameRecordChanges:(id)a0 client:(id)a1 error:(id *)a2;
+- (id)customObjectForKey:(id)a0 eventIdentifier:(id)a1;
+- (BOOL)iterEventNameRecordsForClient:(id)a0 error:(id *)a1 block:(id /* block */)a2;
+- (BOOL)attemptToPurgeImmediately;
+
+@end

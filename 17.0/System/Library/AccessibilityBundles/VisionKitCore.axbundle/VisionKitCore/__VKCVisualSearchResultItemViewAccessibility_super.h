@@ -1,0 +1,3 @@
+@interface __VKCVisualSearchResultItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,81 @@
+@class CIImage, NSURL, NSNumber;
+
+@interface CRImage : NSObject
+
+@property (retain, nonatomic) CIImage *ciImage;
+@property (nonatomic) struct __CVBuffer { } *pixelBuffer;
+@property (nonatomic) struct CGImage { } *cgImage;
+@property (nonatomic) BOOL vImageDataIsCopy;
+@property (retain) NSURL *url;
+@property (readonly) struct vImage_Buffer { void *data; unsigned long long height; unsigned long long width; unsigned long long rowBytes; } vImage;
+@property (readonly) unsigned long long width;
+@property (readonly) unsigned long long height;
+@property (readonly) struct CGSize { double x0; double x1; } size;
+@property (readonly) int colorSpace;
+@property (readonly) BOOL isFullRange;
+@property (retain, nonatomic) NSNumber *sceneStabilityMetric;
+@property (readonly) BOOL hasBackingPixelBuffer;
+
++ (struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })allocateVImageBufferWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 bytesPerPixel:(int)a2;
++ (struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })allocateVImageBufferWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 colorSpace:(int)a2;
++ (struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })applyEXIFTransformsOnImage:(const struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a0 inColorSpace:(int)a1 properties:(id)a2;
++ (unsigned long long)bytesPerPixelForColorSpace:(int)a0;
++ (void)cgOrientation:(unsigned int)a0 toVImageRotationMode:(char *)a1 andReflection:(int *)a2;
++ (unsigned long long)channelsForColorSpace:(int)a0;
++ (BOOL)convertVImage:(const struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a0 inColorSpace:(int)a1 toVImage:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a2 toColorSpace:(int)a3;
++ (void)drawVerticalLineAtXOffset:(double)a0 image:(id)a1;
++ (id)nameForColorSpace:(int)a0;
+
+- (id)init;
+- (void)dealloc;
+- (void)writeToFile:(id)a0;
+- (id)description;
+- (void).cxx_destruct;
+- (unsigned long long)bytesPerPixel;
+- (unsigned long long)numChannels;
+- (id)imageByDilating;
+- (unsigned long long)bufferHash;
+- (struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })createFloatBuffer;
+- (id)imageByAdjustingBrightnessAlpha:(double)a0 beta:(double)a1;
+- (id)imageByApplyingBinaryMask:(id)a0;
+- (id)imageByApplyingHistogramCorrection;
+- (id)imageByConvertingToColorSpace:(int)a0;
+- (id)imageByConvertingToColorSpace:(int)a0 forceDataCopy:(BOOL)a1;
+- (id)imageByCorrectingFromOrientation:(unsigned int)a0;
+- (id)imageByCroppingRectangle:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)imageByCroppingRectangle:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textFeaturePoints:(id)a1 radians:(float)a2 rotatedRoi:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a3;
+- (id)imageByCroppingRectangle:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toHeight:(unsigned long long)a1 andWidth:(unsigned long long)a2 withRotationAngle:(float)a3;
+- (id)imageByCroppingTextFeature:(id)a0 correctedBoundingBox:(id)a1 padding:(struct CGPoint { double x0; double x1; })a2 networkInputSize:(struct CGSize { double x0; double x1; })a3;
+- (id)imageByInvertingIntensity;
+- (id)imageByOverlayingRects:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 count:(long long)a1;
+- (id)imageByOverlayingRects:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 count:(long long)a1 strings:(id)a2 lineWidth:(double)a3 red:(double)a4 green:(double)a5 blue:(double)a6 alpha:(double)a7;
+- (id)imageByOverlayingRegions:(id)a0 strings:(id)a1 lineWidth:(double)a2 red:(double)a3 green:(double)a4 blue:(double)a5 alpha:(double)a6;
+- (id)imageByPaddingToRatioAndScalingToWidth:(unsigned long long)a0 height:(unsigned long long)a1 paddingMode:(unsigned long long)a2;
+- (id)imageByPaddingToRatioAndScalingToWidth:(unsigned long long)a0 height:(unsigned long long)a1 paddingMode:(unsigned long long)a2 alignCenter:(BOOL)a3;
+- (id)imageByRectifyingRegion:(id)a0 homography:(struct { void /* unknown type, empty encoding */ x0[3]; } *)a1;
+- (id)imageByRotating180;
+- (id)imageByRotating90CW;
+- (id)imageByScaling:(double)a0 paddingToSize:(struct CGSize { double x0; double x1; })a1 adjustedToSize:(struct CGSize { double x0; double x1; } *)a2 paddingMode:(unsigned long long)a3;
+- (id)imageByScalingToWidth:(unsigned long long)a0 height:(unsigned long long)a1;
+- (id)initARGB8888WithCVPixelBuffer:(struct __CVBuffer { } *)a0;
+- (id)initAYUV8888WithCVPixelBuffer:(struct __CVBuffer { } *)a0;
+- (id)initWithCGImage:(struct CGImage { } *)a0 properties:(id)a1 toColorSpace:(int)a2;
+- (id)initWithCGImage:(struct CGImage { } *)a0 toColorSpace:(int)a1;
+- (id)initWithCIImage:(id)a0 toColorSpace:(int)a1;
+- (id)initWithCVPixelBuffer:(struct __CVBuffer { } *)a0 toColorSpace:(int)a1;
+- (id)initWithCVPixelBuffer:(struct __CVBuffer { } *)a0 toColorSpace:(int)a1 forceDataCopy:(BOOL)a2;
+- (id)initWithContentsOfURL:(id)a0 toColorSpace:(int)a1;
+- (id)initWithMTLTexture:(id)a0 toColorSpace:(int)a1;
+- (id)initWithMat:(const struct Mat { void /* function */ **x0; char *x1; int x2; int x3; int x4; int x5[32]; int x6[32]; struct SmartPtr { void /* function */ **x0; void *x1; int *x2; } x7; int x8; int x9; int x10[32]; int x11[32]; unsigned long long x12; } *)a0;
+- (id)initWithVImageBuffer:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0 inColorSpace:(int)a1;
+- (id)initWithVImageBuffer:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0 inColorSpace:(int)a1 toColorSpace:(int)a2;
+- (id)initWithWidth:(unsigned long long)a0 height:(unsigned long long)a1 colorSpace:(int)a2;
+- (id)initY8WithCVPixelBuffer:(struct __CVBuffer { } *)a0 forceDataCopy:(BOOL)a1;
+- (id)initYUV888WithCVPixelBuffer:(struct __CVBuffer { } *)a0;
+- (struct __CVBuffer { } *)pixelBufferWithScale:(double)a0 paddedToSize:(struct CGSize { double x0; double x1; })a1;
+- (struct __CVBuffer { } *)pixelBufferWithScale:(double)a0 paddedToSize:(struct CGSize { double x0; double x1; })a1 adjustedToSize:(struct CGSize { double x0; double x1; } *)a2;
+- (struct __CVBuffer { } *)pixelBufferWithScale:(double)a0 paddedToSize:(struct CGSize { double x0; double x1; })a1 adjustedToSize:(struct CGSize { double x0; double x1; } *)a2 paddingMode:(unsigned long long)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rotatedRoiByCroppingRectangle:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 textFeaturePoints:(id)a1 radians:(float)a2;
+- (void)runBlockWithARGB8888Image:(id /* block */)a0 blockOwnsMemory:(BOOL)a1;
+
+@end

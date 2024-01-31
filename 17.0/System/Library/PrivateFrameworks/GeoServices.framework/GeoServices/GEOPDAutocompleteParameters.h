@@ -1,0 +1,96 @@
+@class GEOPDAutocompleteParametersLocalitiesAndLandmarks, GEOPDAutocompleteParametersFullEntriesOnly, PBUnknownFields, GEOPDAutocompleteParametersCollectionOnly, GEOPDAutocompleteParametersVenueSearch, GEOPDAutocompleteParametersBrandProfileSearch, GEOPDAutocompleteParametersAllEntriesWithBrowse, GEOPDAutocompleteParametersAddressOnly, GEOPDAutocompleteParametersAllEntries, PBDataReader, GEOPDAutocompleteParametersOfflineRegionSearch, GEOPDAutocompleteFilter, GEOPDAutocompleteParametersPoiAddressOnly, GEOPDAutocompleteParametersSiriSearch, GEOPDAutocompleteSessionData;
+
+@interface GEOPDAutocompleteParameters : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    struct { int *list; unsigned long long count; unsigned long long size; } _supportedClientResolvedTypeWithSetupPrompts;
+    GEOPDAutocompleteParametersAddressOnly *_addressOnly;
+    GEOPDAutocompleteParametersAllEntriesWithBrowse *_allEntriesWithBrowse;
+    GEOPDAutocompleteParametersAllEntries *_allEntries;
+    GEOPDAutocompleteFilter *_autocompleteFilter;
+    GEOPDAutocompleteSessionData *_autocompleteSessionData;
+    GEOPDAutocompleteParametersBrandProfileSearch *_brandProfileSearch;
+    GEOPDAutocompleteParametersCollectionOnly *_collectionOnly;
+    GEOPDAutocompleteParametersFullEntriesOnly *_fullEntries;
+    GEOPDAutocompleteParametersLocalitiesAndLandmarks *_localitiesAndLandmarks;
+    GEOPDAutocompleteParametersOfflineRegionSearch *_offlineRegionSearch;
+    GEOPDAutocompleteParametersPoiAddressOnly *_poiAddressOnly;
+    GEOPDAutocompleteParametersSiriSearch *_siriSearch;
+    GEOPDAutocompleteParametersVenueSearch *_venueSearch;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _requestType;
+    BOOL _shouldPopulateMapsIdentifier;
+    BOOL _supportAutocompleteSessionData;
+    struct { unsigned char has_requestType : 1; unsigned char has_shouldPopulateMapsIdentifier : 1; unsigned char has_supportAutocompleteSessionData : 1; unsigned char read_unknownFields : 1; unsigned char read_supportedClientResolvedTypeWithSetupPrompts : 1; unsigned char read_addressOnly : 1; unsigned char read_allEntriesWithBrowse : 1; unsigned char read_allEntries : 1; unsigned char read_autocompleteFilter : 1; unsigned char read_autocompleteSessionData : 1; unsigned char read_brandProfileSearch : 1; unsigned char read_collectionOnly : 1; unsigned char read_fullEntries : 1; unsigned char read_localitiesAndLandmarks : 1; unsigned char read_offlineRegionSearch : 1; unsigned char read_poiAddressOnly : 1; unsigned char read_siriSearch : 1; unsigned char read_venueSearch : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (nonatomic) BOOL hasRequestType;
+@property (nonatomic) int requestType;
+@property (readonly, nonatomic) BOOL hasFullEntries;
+@property (retain, nonatomic) GEOPDAutocompleteParametersFullEntriesOnly *fullEntries;
+@property (readonly, nonatomic) BOOL hasAllEntries;
+@property (retain, nonatomic) GEOPDAutocompleteParametersAllEntries *allEntries;
+@property (readonly, nonatomic) BOOL hasLocalitiesAndLandmarks;
+@property (retain, nonatomic) GEOPDAutocompleteParametersLocalitiesAndLandmarks *localitiesAndLandmarks;
+@property (readonly, nonatomic) BOOL hasAllEntriesWithBrowse;
+@property (retain, nonatomic) GEOPDAutocompleteParametersAllEntriesWithBrowse *allEntriesWithBrowse;
+@property (readonly, nonatomic) BOOL hasSiriSearch;
+@property (retain, nonatomic) GEOPDAutocompleteParametersSiriSearch *siriSearch;
+@property (readonly, nonatomic) BOOL hasAddressOnly;
+@property (retain, nonatomic) GEOPDAutocompleteParametersAddressOnly *addressOnly;
+@property (readonly, nonatomic) BOOL hasVenueSearch;
+@property (retain, nonatomic) GEOPDAutocompleteParametersVenueSearch *venueSearch;
+@property (readonly, nonatomic) BOOL hasBrandProfileSearch;
+@property (retain, nonatomic) GEOPDAutocompleteParametersBrandProfileSearch *brandProfileSearch;
+@property (readonly, nonatomic) BOOL hasOfflineRegionSearch;
+@property (retain, nonatomic) GEOPDAutocompleteParametersOfflineRegionSearch *offlineRegionSearch;
+@property (readonly, nonatomic) BOOL hasPoiAddressOnly;
+@property (retain, nonatomic) GEOPDAutocompleteParametersPoiAddressOnly *poiAddressOnly;
+@property (readonly, nonatomic) BOOL hasAutocompleteFilter;
+@property (retain, nonatomic) GEOPDAutocompleteFilter *autocompleteFilter;
+@property (nonatomic) BOOL hasShouldPopulateMapsIdentifier;
+@property (nonatomic) BOOL shouldPopulateMapsIdentifier;
+@property (nonatomic) BOOL hasSupportAutocompleteSessionData;
+@property (nonatomic) BOOL supportAutocompleteSessionData;
+@property (readonly, nonatomic) BOOL hasAutocompleteSessionData;
+@property (retain, nonatomic) GEOPDAutocompleteSessionData *autocompleteSessionData;
+@property (readonly, nonatomic) BOOL hasCollectionOnly;
+@property (retain, nonatomic) GEOPDAutocompleteParametersCollectionOnly *collectionOnly;
+@property (readonly, nonatomic) unsigned long long supportedClientResolvedTypeWithSetupPromptsCount;
+@property (readonly, nonatomic) int *supportedClientResolvedTypeWithSetupPrompts;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
+
+- (id)init;
+- (unsigned long long)hash;
+- (void)dealloc;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)description;
+- (id)requestTypeAsString:(int)a0;
+- (void)clearUnknownFields:(BOOL)a0;
+- (int)StringAsRequestType:(id)a0;
+- (void).cxx_destruct;
+- (id)jsonRepresentation;
+- (void)clearSensitiveFields:(unsigned long long)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (void)readAll:(BOOL)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithJSON:(id)a0;
+- (int)StringAsSupportedClientResolvedTypeWithSetupPrompts:(id)a0;
+- (void)addSupportedClientResolvedTypeWithSetupPrompt:(int)a0;
+- (void)clearSupportedClientResolvedTypeWithSetupPrompts;
+- (void)setSupportedClientResolvedTypeWithSetupPrompts:(int *)a0 count:(unsigned long long)a1;
+- (int)supportedClientResolvedTypeWithSetupPromptAtIndex:(unsigned long long)a0;
+- (id)supportedClientResolvedTypeWithSetupPromptsAsString:(int)a0;
+
+@end

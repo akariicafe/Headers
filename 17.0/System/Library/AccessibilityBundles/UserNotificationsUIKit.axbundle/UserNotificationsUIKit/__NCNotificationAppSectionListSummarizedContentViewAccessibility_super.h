@@ -1,0 +1,3 @@
+@interface __NCNotificationAppSectionListSummarizedContentViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

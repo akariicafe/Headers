@@ -1,0 +1,3 @@
+@interface ___TVOrganizerCellViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

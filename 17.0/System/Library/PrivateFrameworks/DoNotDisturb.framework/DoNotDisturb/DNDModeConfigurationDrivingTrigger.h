@@ -1,0 +1,3 @@
+@interface DNDModeConfigurationDrivingTrigger : DNDModeConfigurationTrigger
+
+@end

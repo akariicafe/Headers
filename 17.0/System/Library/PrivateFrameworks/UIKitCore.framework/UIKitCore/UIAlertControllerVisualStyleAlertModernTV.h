@@ -1,0 +1,45 @@
+@interface UIAlertControllerVisualStyleAlertModernTV : UIAlertControllerVisualStyleAlertTV
+
+- (id)contentBackdropView;
+- (double)contentCornerRadius;
+- (double)maximumWidth;
+- (id)titleLabelColor;
+- (double)_titleAndMessageHorizontalInset;
+- (double)_labelHorizontalInsets;
+- (double)_marginAboveDetailMessageFirstBaseline;
+- (double)_marginBelowDetailMessage;
+- (double)_minimumAlertWidthWithContentView:(id)a0 withCandidateSizes:(id)a1 preferredSizeForContentContainers:(struct CGSize { double x0; double x1; })a2;
+- (double)_minimumAlertWidthWithTitleLabel:(id)a0 withCandidateSizes:(id)a1;
+- (double)_minimumSpacingAboveTopmostLabelSafeAscender;
+- (double)actionWidthForMinimumActionWidth:(double)a0 availableWidth:(double)a1;
+- (void)animateAlertControllerView:(id)a0 ofAlertController:(id)a1 forPresentation:(BOOL)a2 inContainerView:(id)a3 descendantOfContainerView:(id)a4 duration:(double)a5 completionBlock:(id /* block */)a6;
+- (BOOL)contentClipsToBounds;
+- (BOOL)contentHasShadow;
+- (struct UIEdgeInsets { double x0; double x1; double x2; double x3; })contentInsetsForContainerView:(id)a0;
+- (id)contentShadowColor;
+- (struct CGSize { double x0; double x1; })contentShadowOffset;
+- (double)contentShadowOpacity;
+- (double)contentShadowRadius;
+- (BOOL)definesWidthByContentFitting;
+- (id)dimmingViewForAlertController:(id)a0;
+- (BOOL)focusAvoidsNonDefaultActionsIfPossible;
+- (double)marginAboveMessageLabelFirstBaseline;
+- (double)marginAboveTitleLabelFirstBaseline;
+- (double)marginBelowLastLabelLastBaseline;
+- (double)marginBelowMessageLabelLastBaseline;
+- (double)maximumContentHeight;
+- (long long)maximumNumberOfLinesInMessageLabel;
+- (long long)maximumNumberOfLinesInTitleLabel;
+- (double)maximumWidthForTitleAndMessageContentView;
+- (id)messageCompositingFilter;
+- (id)messageLabelColor;
+- (id)messageLabelFont;
+- (double)minimumContentHeight;
+- (double)minimumWidthFittingContentView:(id)a0 titleLabel:(id)a1 minimumWidthForAllActions:(double)a2 preferredSizeForContentContainers:(struct CGSize { double x0; double x1; })a3;
+- (long long)permittedActionLayoutDirection;
+- (id)preferredActionForActions:(id)a0 suggestedPreferredAction:(id)a1;
+- (BOOL)shouldRespectContentViewControllerClippingPreference;
+- (id)tintColorForAlertController:(id)a0;
+- (id)titleLabelFont;
+
+@end

@@ -1,0 +1,3 @@
+@interface __GKDashboardSectionHeaderViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

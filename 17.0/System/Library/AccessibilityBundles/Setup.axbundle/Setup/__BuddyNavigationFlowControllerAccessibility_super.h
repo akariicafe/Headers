@@ -1,0 +1,3 @@
+@interface __BuddyNavigationFlowControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

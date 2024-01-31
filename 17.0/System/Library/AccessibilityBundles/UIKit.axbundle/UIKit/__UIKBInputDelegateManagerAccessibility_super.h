@@ -1,0 +1,3 @@
+@interface __UIKBInputDelegateManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

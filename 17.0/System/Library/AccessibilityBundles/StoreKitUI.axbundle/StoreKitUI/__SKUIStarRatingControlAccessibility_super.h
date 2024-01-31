@@ -1,0 +1,3 @@
+@interface __SKUIStarRatingControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

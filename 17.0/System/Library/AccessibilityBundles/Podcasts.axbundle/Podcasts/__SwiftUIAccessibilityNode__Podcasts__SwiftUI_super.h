@@ -1,0 +1,3 @@
+@interface __SwiftUIAccessibilityNode__Podcasts__SwiftUI_super : UIAccessibilitySafeCategory
+
+@end

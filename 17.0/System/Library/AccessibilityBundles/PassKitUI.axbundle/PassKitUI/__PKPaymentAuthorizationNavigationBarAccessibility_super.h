@@ -1,0 +1,3 @@
+@interface __PKPaymentAuthorizationNavigationBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

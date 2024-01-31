@@ -1,0 +1,3 @@
+@interface __CapsuleNavigationBarRegistrationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

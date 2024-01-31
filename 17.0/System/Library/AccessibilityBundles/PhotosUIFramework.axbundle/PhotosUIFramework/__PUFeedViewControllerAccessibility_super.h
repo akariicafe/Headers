@@ -1,0 +1,3 @@
+@interface __PUFeedViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

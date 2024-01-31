@@ -1,0 +1,3 @@
+@interface __HWFavoritesPickerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

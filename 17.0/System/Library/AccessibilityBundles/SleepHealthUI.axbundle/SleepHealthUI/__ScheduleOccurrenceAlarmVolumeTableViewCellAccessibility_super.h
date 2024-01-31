@@ -1,0 +1,3 @@
+@interface __ScheduleOccurrenceAlarmVolumeTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

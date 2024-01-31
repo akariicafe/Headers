@@ -1,0 +1,3 @@
+@interface WebCoreAudioBundleClass : NSObject
+
+@end

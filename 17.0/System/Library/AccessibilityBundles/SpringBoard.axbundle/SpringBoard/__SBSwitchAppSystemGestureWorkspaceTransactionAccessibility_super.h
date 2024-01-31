@@ -1,0 +1,3 @@
+@interface __SBSwitchAppSystemGestureWorkspaceTransactionAccessibility_super : UIAccessibilitySafeCategory
+
+@end

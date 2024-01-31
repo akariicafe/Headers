@@ -1,0 +1,3 @@
+@interface FCNewsTabiEventAggregationArticleSeenConditions : FCNewsTabiEventAggregationDurationEventConditions
+
+@end

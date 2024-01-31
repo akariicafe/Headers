@@ -1,0 +1,3 @@
+@interface __VenueFloorPickerCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

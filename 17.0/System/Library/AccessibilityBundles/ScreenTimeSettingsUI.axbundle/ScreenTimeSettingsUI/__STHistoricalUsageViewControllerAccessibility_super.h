@@ -1,0 +1,3 @@
+@interface __STHistoricalUsageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

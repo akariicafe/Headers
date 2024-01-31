@@ -1,0 +1,3 @@
+@interface __VideosUI_EpicInlineViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

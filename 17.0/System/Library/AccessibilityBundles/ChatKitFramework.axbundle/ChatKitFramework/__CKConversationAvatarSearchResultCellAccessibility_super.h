@@ -1,0 +1,3 @@
+@interface __CKConversationAvatarSearchResultCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

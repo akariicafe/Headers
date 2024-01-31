@@ -1,0 +1,3 @@
+@interface __HUQuickControlColorViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

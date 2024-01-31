@@ -1,0 +1,3 @@
+@interface _TtCC16SiriAudioSupport22PodcastPlaybackHandler18ControllerProvider : _TtCs12_SwiftObject
+
+@end

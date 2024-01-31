@@ -1,0 +1,3 @@
+@interface __LoggingCardCarouselCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBSlideOverTongueViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

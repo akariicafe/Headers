@@ -1,0 +1,84 @@
+@class NSString, NSMutableDictionary, BiometricKitXPCServerMesa, NSDate;
+
+@interface BiometricKitDStatistics : NSObject
+
+@property (retain) NSMutableDictionary *templateStats;
+@property BOOL fingerOn;
+@property BOOL unlockOperationInProgress;
+@property BOOL unlockOperationStartedByCommand;
+@property BOOL matchOperationInProgress;
+@property BOOL haveMatchResult;
+@property BOOL waitingForMatchResult;
+@property BOOL haveImageToProcess;
+@property BOOL matchWithDesensePauseLogged;
+@property BOOL deviceWokeUpByHomeButton;
+@property BOOL deviceWokeUpByLiftToWake;
+@property BOOL pressureMitigationUsed;
+@property BOOL prearmedApplePay;
+@property BOOL lastMatchResultWakePin;
+@property BOOL homeButtonPressedDuringTouch;
+@property int lastBioOp;
+@property long long lastStartedMatch;
+@property int lastMatchUseCase;
+@property (retain) NSString *clientName;
+@property unsigned long long lastMatchResultID;
+@property unsigned int sksLockState;
+@property unsigned int previousSKSLockState;
+@property unsigned long long sensorOperationMode;
+@property (retain) NSDate *sensorOperationStartDate;
+@property unsigned long long imagesPerFingerDown;
+@property unsigned long long sensorCaptureRestartsPerFingerDown;
+@property unsigned long long imageCaptureRestartsPerFingerDown;
+@property unsigned long long failTouchesToUnlock;
+@property unsigned long long failQuickTapsToUnlock;
+@property unsigned long long failTouchesToMatch;
+@property unsigned long long matchRestarts;
+@property long long calibrationDataState;
+@property float modulationRatio;
+@property BiometricKitXPCServerMesa *server;
+
++ (id)statistics;
++ (unsigned int)clusterCount:(const struct { short x0; short x1; short x2; short x3; short x4; short x5; short x6; unsigned char x7[16]; unsigned char x8[16]; short x9; struct { struct { short x0; short x1; short x2; } x0; short x1; short x2; } x10[300]; short x11; short x12; short x13; short x14; short x15; short x16; } *)a0;
+
+- (id)init;
+- (void)startMatchOperation:(id)a0;
+- (void)statusMessage:(unsigned int)a0;
+- (void).cxx_destruct;
+- (void)removeIdentity:(id)a0;
+- (void)cancel;
+- (void)startBioOperation:(id)a0;
+- (void)timestampEvent:(unsigned long long)a0 absoluteTime:(unsigned long long)a1;
+- (BOOL)passcodeNedded:(long long)a0;
+- (void)addIdentitity:(id)a0;
+- (void)displayStatusChanged:(BOOL)a0;
+- (void)handleSensorOperationStatusMessage:(unsigned int)a0;
+- (void)homeButtonStateChanged:(BOOL)a0;
+- (void)initSensor;
+- (BOOL)isMesaEnabled;
+- (BOOL)isPasscodeNeeded;
+- (void)lastImageIsProcessed;
+- (void)lockStateUpdated:(unsigned int)a0;
+- (void)logFingerOff;
+- (void)matchAttemptFinished:(BOOL)a0;
+- (void)matchOperationFinished:(BOOL)a0;
+- (void)matchOperationStarted;
+- (void)matchResult:(id)a0 withDictionary:(id)a1;
+- (void)removeAllIdentities;
+- (void)resetMatchCounts;
+- (void)serviceMatch;
+- (void)templateUpdate:(id)a0 withDictionary:(id)a1;
+- (double)totalArea;
+- (unsigned long long)totalClusterCount;
+- (unsigned long long)totalNodeCount;
+- (double)totalPrimaryClusterArea;
+- (unsigned long long)totalPrimaryClusterNodeCount;
+- (void)unlockAttemptCanceled:(BOOL)a0;
+- (void)unlockAttemptFinished;
+- (void)unlockAttemptStarted:(BOOL)a0;
+- (void)unlockedByMesa;
+- (void)unlockedByPasscode;
+- (void)wakeGestureUpdate:(long long)a0;
+- (BOOL)wasDeviceHibernated:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; unsigned long long x6; unsigned char x7; } *)a0;
+- (BOOL)wasPasscodeNeeded;
+
+@end

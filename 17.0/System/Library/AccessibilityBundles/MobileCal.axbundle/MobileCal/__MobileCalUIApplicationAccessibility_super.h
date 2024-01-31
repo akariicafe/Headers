@@ -1,0 +1,3 @@
+@interface __MobileCalUIApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

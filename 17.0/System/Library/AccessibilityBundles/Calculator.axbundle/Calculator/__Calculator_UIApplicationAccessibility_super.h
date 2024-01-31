@@ -1,0 +1,3 @@
+@interface __Calculator_UIApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

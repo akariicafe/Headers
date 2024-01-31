@@ -1,0 +1,3 @@
+@interface __PKEnterCurrencyAmountViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

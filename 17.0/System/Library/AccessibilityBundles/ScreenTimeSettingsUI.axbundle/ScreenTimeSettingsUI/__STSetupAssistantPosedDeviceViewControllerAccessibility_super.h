@@ -1,0 +1,3 @@
+@interface __STSetupAssistantPosedDeviceViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

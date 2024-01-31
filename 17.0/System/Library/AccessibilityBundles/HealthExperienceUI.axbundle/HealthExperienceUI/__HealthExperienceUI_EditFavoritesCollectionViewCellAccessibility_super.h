@@ -1,0 +1,3 @@
+@interface __HealthExperienceUI_EditFavoritesCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

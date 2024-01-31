@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockMulticardinalRequestsHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

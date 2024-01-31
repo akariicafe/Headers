@@ -1,0 +1,3 @@
+@interface __MessageStatusIndicatorManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

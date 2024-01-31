@@ -1,0 +1,81 @@
+@class _TtC11FMFindingUI16FMR1DistanceView, _TtC11FMFindingUI16FMBTDistanceView, NSString, UILabel;
+
+@interface FMFindingUI.FMFindingViewController : UIViewController {
+    void /* unknown type, empty encoding */ isInternalBuild;
+    void /* unknown type, empty encoding */ style;
+    void /* unknown type, empty encoding */ experienceType;
+    void /* unknown type, empty encoding */ session;
+    void /* unknown type, empty encoding */ stateTransitionCoordinator;
+    void /* unknown type, empty encoding */ sleepPreventer;
+    void /* unknown type, empty encoding */ snapshotContainer;
+    void /* unknown type, empty encoding */ reducedMotion;
+    void /* unknown type, empty encoding */ titleLabel;
+    void /* unknown type, empty encoding */ nameLabel;
+    void /* unknown type, empty encoding */ findingView;
+    void /* unknown type, empty encoding */ pickerView;
+    void /* unknown type, empty encoding */ pickerViewContainer;
+    void /* unknown type, empty encoding */ instructionsController;
+    void /* unknown type, empty encoding */ instructionsLabelsStackView;
+    void /* unknown type, empty encoding */ instructionsTopLabel;
+    void /* unknown type, empty encoding */ instructionsLabel;
+    void /* unknown type, empty encoding */ closeButton;
+    void /* unknown type, empty encoding */ hapticsController;
+    void /* unknown type, empty encoding */ torchButton;
+    void /* unknown type, empty encoding */ showTorchButtonWorkItem;
+    void /* unknown type, empty encoding */ rightActionButton;
+    void /* unknown type, empty encoding */ r1DistanceView;
+    void /* unknown type, empty encoding */ foundPlayerView;
+    void /* unknown type, empty encoding */ foundPlayerVideoInfo;
+    void /* unknown type, empty encoding */ foundItemWorkItem;
+    void /* unknown type, empty encoding */ lastTimeFoundItemVideo;
+    void /* unknown type, empty encoding */ autoStopPlayingVideoWorkItem;
+    void /* unknown type, empty encoding */ btDistanceView;
+    void /* unknown type, empty encoding */ pulseTimer;
+    void /* unknown type, empty encoding */ insufficientFeaturesARTrackingErrorCount;
+    void /* unknown type, empty encoding */ updateTorchPeriodicCount;
+    void /* unknown type, empty encoding */ gotFirstARFrame;
+    void /* unknown type, empty encoding */ errorAlertIsShown;
+    void /* unknown type, empty encoding */ errorAlertCount;
+    void /* unknown type, empty encoding */ configuration;
+    void /* unknown type, empty encoding */ state;
+    void /* unknown type, empty encoding */ FMR1MaxErrorAlertCount;
+    void /* unknown type, empty encoding */ isSoundPlaying;
+    void /* unknown type, empty encoding */ playSoundHandler;
+    void /* unknown type, empty encoding */ willAppearHandler;
+    void /* unknown type, empty encoding */ willDisappearHandler;
+    void /* unknown type, empty encoding */ dismissedHandler;
+}
+
+@property (nonatomic, readonly) UILabel *accessibilityTitleLabel;
+@property (nonatomic, readonly) UILabel *accessibilityNameLabel;
+@property (nonatomic, readonly) unsigned int accessibilityModeRawValue;
+@property (nonatomic, readonly) UILabel *accessibilityInstructionsLabel;
+@property (nonatomic, readonly) _TtC11FMFindingUI16FMBTDistanceView *accessibilityBTDistanceView;
+@property (nonatomic, readonly) _TtC11FMFindingUI16FMR1DistanceView *accessibilityR1DistanceView;
+@property (nonatomic, readonly) BOOL accessibilityFoundPlayerViewIsVisible;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } accessibilityFoundPlayerViewAXFrame;
+@property (nonatomic, readonly) NSString *description;
+@property (nonatomic, readonly) BOOL shouldAutorotate;
+@property (nonatomic, readonly) unsigned long long supportedInterfaceOrientations;
+@property (nonatomic, readonly) long long preferredStatusBarStyle;
+
+- (void)viewWillAppear:(BOOL)a0;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)applicationWillEnterForeground;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (void)applicationDidEnterBackground;
+- (void)viewDidAppear:(BOOL)a0;
+- (id)initWithCoder:(id)a0;
+- (void)closeActionWithSender:(id)a0;
+- (void)accessibilityShowViewHandler;
+- (void)accessibilityDidUpdateWithTopLabelMessage:(id)a0 instruction:(id)a1;
+- (void)accessibilityDistanceAndDirectionUpdated;
+- (void)handlePartPickerWithSender:(id)a0;
+- (void)openMessagesActionWithSender:(id)a0;
+- (void)playSoundActionWithSender:(id)a0;
+- (void)torchActionWithSender:(id)a0;
+
+@end

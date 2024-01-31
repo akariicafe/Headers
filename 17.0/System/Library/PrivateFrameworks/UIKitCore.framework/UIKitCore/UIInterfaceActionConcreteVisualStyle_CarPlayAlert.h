@@ -1,0 +1,3 @@
+@interface UIInterfaceActionConcreteVisualStyle_CarPlayAlert : UIInterfaceActionConcreteVisualStyle_CarPlay
+
+@end

@@ -1,0 +1,3 @@
+@interface TSKDrawableContentDescription : TSPObject
+
+@end

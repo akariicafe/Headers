@@ -1,0 +1,84 @@
+@class NSSet, NSString, NSMutableSet, NSDate, ISLivePhotoVitalityFilter;
+
+@interface ISLivePhotoPlayer : ISBasePlayer <ISLivePhotoSettleBehaviorDelegate, ISChangeObserver> {
+    NSMutableSet *_playbackFilters;
+    _Atomic int _fadeInRequestID;
+    struct { BOOL scale; BOOL apertureMode; } _isValid;
+    double _lastAppliedScale;
+}
+
+@property (nonatomic, setter=_setCurrentPlaybackStyle:) long long currentPlaybackStyle;
+@property (nonatomic, setter=_setStyleToPlayWhenReady:) long long _styleToPlayWhenReady;
+@property (nonatomic, setter=_setIsAttemptingToPlayback:) BOOL isAttemptingToPlayback;
+@property (nonatomic, setter=_setSettleAutomaticallyWhenReady:) BOOL _settleAutomaticallyWhenReady;
+@property (nonatomic, setter=_setShouldPrepareForVitalityWhenReady:) BOOL _shouldPrepareForVitalityWhenReady;
+@property (nonatomic, setter=_setShouldPlayVitalityWhenReady:) BOOL _shouldPlayVitalityWhenReady;
+@property (nonatomic, setter=_setShouldPrepareForHintWhenReady:) BOOL _shouldPrepareForHintWhenReady;
+@property (nonatomic, getter=isPlayingVitality, setter=_setPlayingVitality:) BOOL playingVitality;
+@property (nonatomic, getter=isHinting, setter=_setHinting:) BOOL hinting;
+@property (retain, nonatomic, setter=_setVitalityTimeoutDate:) NSDate *_vitalityTimeoutDate;
+@property (readonly, nonatomic) BOOL _canPlayVitality;
+@property (readonly, nonatomic) NSSet *playbackFilters;
+@property (retain, nonatomic) ISLivePhotoVitalityFilter *vitalityFilter;
+@property (nonatomic) BOOL immediatelyShowsPhotoWhenPlaybackEnds;
+@property (nonatomic, getter=isPlaybackAllowed) BOOL playbackAllowed;
+@property (nonatomic) long long targetReadiness;
+@property (readonly, nonatomic) struct { long long value; int timescale; unsigned int flags; long long epoch; } seekTime;
+@property (nonatomic) struct { struct { long long value; int timescale; unsigned int flags; long long epoch; } start; struct { long long value; int timescale; unsigned int flags; long long epoch; } duration; } trimTimeRange;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)didPerformChanges;
+- (void)stopPlayback;
+- (void).cxx_destruct;
+- (void)startPlaybackWithStyle:(long long)a0;
+- (void)statusDidChange;
+- (void)startPlaybackWithStyle:(long long)a0 settleAutomatically:(BOOL)a1;
+- (void)startPlaybackWithStyleWhenReady:(long long)a0;
+- (void)playHintWhenReady;
+- (void)playerItemDidChange;
+- (void)prepareForHintWhenReady;
+- (void)setSeekTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0 completion:(id /* block */)a1;
+- (void)stopPlaybackAnimated:(BOOL)a0;
+- (void)_handleVitalityFilterDidChange:(id)a0;
+- (double)_coalescedPlaybackFilterHintProgress;
+- (long long)_coalescedPlaybackFilterState;
+- (void)_configurePlaybackFilter:(id)a0;
+- (void)_configurePlaybackFilters;
+- (id)_createVitalityBehavior;
+- (void)_fadeInAudioIfNeeded;
+- (void)_handlePlaybackFilterDidChange;
+- (void)_invalidateApertureMode;
+- (void)_invalidateScale;
+- (double)_photoTransitionDuration;
+- (void)_playIfNeeded;
+- (void)_prepareForVitalityIfNeeded;
+- (void)_resetPlaybackFilters;
+- (void)_updateApertureModeIfNeeded;
+- (void)_updateHintingAndVitality;
+- (void)_updatePlayerItemLoadingTarget;
+- (void)_updateScaleIfNeeded;
+- (BOOL)_wantsAudioForPlaybackStyle:(long long)a0;
+- (void)activeBehaviorDidChange;
+- (void)addPlaybackFilter:(id)a0;
+- (void)configurePlayerItem;
+- (double)lastAppliedScale;
+- (void)livePhotoPlaybackBehaviorDidBeginPlaying:(id)a0;
+- (void)livePhotoPlaybackBehaviorDidFinish:(id)a0;
+- (void)livePhotoPlaybackBehaviorWillTransitionToPhoto:(id)a0;
+- (void)livePhotoSettleBehaviorDidFinish:(id)a0;
+- (void)playVitality;
+- (void)prepareForVitality;
+- (void)removePlaybackFilter:(id)a0;
+- (void)setIsAttemptingToPlayback:(BOOL)a0;
+- (void)startPlaybackWithStyleWhenReady:(long long)a0 settleAutomatically:(BOOL)a1;
+- (double)videoWillPlayToPhotoInterval;
+- (void)vitalityBehaviorDidBeginPlaying:(id)a0;
+- (void)vitalityBehaviorDidEndPlaying:(id)a0;
+- (BOOL)vitalityBehaviorShouldEndPlayingAtPhoto:(id)a0;
+
+@end

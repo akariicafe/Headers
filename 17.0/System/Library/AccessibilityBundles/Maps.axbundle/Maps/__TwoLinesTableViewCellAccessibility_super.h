@@ -1,0 +1,3 @@
+@interface __TwoLinesTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

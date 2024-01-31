@@ -1,0 +1,3 @@
+@interface __PRComplicationWrapperViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

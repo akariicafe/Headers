@@ -1,0 +1,3 @@
+@interface __PosterCoupledTitlesViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

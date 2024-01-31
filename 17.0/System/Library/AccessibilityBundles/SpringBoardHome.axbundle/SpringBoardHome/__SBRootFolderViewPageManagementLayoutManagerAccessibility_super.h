@@ -1,0 +1,3 @@
+@interface __SBRootFolderViewPageManagementLayoutManagerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

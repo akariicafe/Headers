@@ -1,0 +1,3 @@
+@interface __StoryCardCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

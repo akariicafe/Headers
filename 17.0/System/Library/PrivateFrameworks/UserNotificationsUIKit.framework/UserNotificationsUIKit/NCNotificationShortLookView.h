@@ -1,0 +1,85 @@
+@class NSDate, NCNotificationListStackDimmingOverlayView, UIAction, PLPlatterView, NSTimeZone, UIView, UIColor, NSString, UIImageConfiguration, NSAttributedString, MTMaterialView, BSUIFontProvider, NSArray, MTVisualStylingProvider, NCAuxiliaryOptionsView, UIImage;
+@protocol NCNotificationContentDisplaying;
+
+@interface NCNotificationShortLookView : UIView <PLPlatter, NCNotificationStaticContentAccepting, NCAuxiliaryOptionsSupporting, PLContentSizeCategoryAdjusting, MTMaterialGrouping, NCNotificationListDimmable> {
+    PLPlatterView *_platterView;
+    BSUIFontProvider *_fontProvider;
+    UIView<NCNotificationContentDisplaying> *_notificationContentView;
+    NCAuxiliaryOptionsView *_auxiliaryOptionsView;
+    NCNotificationListStackDimmingOverlayView *_stackDimmingOverlayView;
+}
+
+@property (nonatomic, getter=_isBanner, setter=_setBanner:) BOOL banner;
+@property (nonatomic, getter=isNotificationContentViewHidden) BOOL notificationContentViewHidden;
+@property (readonly, nonatomic) MTMaterialView *backgroundMaterialView;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+@property (readonly, nonatomic, getter=isTruncatingSecondaryText) BOOL truncatingSecondaryText;
+@property (nonatomic) BOOL alignContentToBottom;
+@property (readonly, nonatomic) UIView *customContentView;
+@property (nonatomic) BOOL hasShadow;
+@property (nonatomic, getter=isBackgroundBlurred) BOOL backgroundBlurred;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) UIImage *prominentIcon;
+@property (copy, nonatomic) UIImage *subordinateIcon;
+@property (copy, nonatomic) NSString *primaryText;
+@property (copy, nonatomic) NSString *primarySubtitleText;
+@property (copy, nonatomic) NSString *secondaryText;
+@property (copy, nonatomic) NSDate *date;
+@property (nonatomic, getter=isDateAllDay) BOOL dateAllDay;
+@property (copy, nonatomic) NSTimeZone *timeZone;
+@property (nonatomic) long long dateFormatStyle;
+@property (nonatomic) BOOL screenCaptureProhibited;
+@property (copy, nonatomic) UIView *prominentIconView;
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *summaryText;
+@property (copy, nonatomic) NSString *importantText;
+@property (copy, nonatomic) NSAttributedString *importantAttributedText;
+@property (readonly, copy, nonatomic) UIImageConfiguration *importantTextImageConfiguration;
+@property (retain, nonatomic) MTVisualStylingProvider *importantTextVisualStylingProvider;
+@property (copy, nonatomic) UIAction *inlineAction;
+@property (copy, nonatomic) NSString *footerText;
+@property (copy, nonatomic) UIImage *thumbnail;
+@property (retain, nonatomic) NSArray *interfaceActions;
+@property (copy, nonatomic) NSArray *menuActions;
+@property (retain, nonatomic) UIView *accessoryView;
+@property (nonatomic) unsigned long long maximumNumberOfPrimaryTextLines;
+@property (nonatomic) unsigned long long maximumNumberOfSecondaryTextLines;
+@property (nonatomic) BOOL auxiliaryOptionsVisible;
+@property (copy, nonatomic) NSString *auxiliaryOptionsSummaryText;
+@property (retain, nonatomic) NSArray *auxiliaryOptionActions;
+@property (readonly, nonatomic) NSArray *auxiliaryOptionButtons;
+@property (copy, nonatomic) UIColor *auxiliaryOptionsTextColor;
+@property (nonatomic) long long materialRecipe;
+@property (copy, nonatomic) UIColor *materialTintColor;
+@property (copy, nonatomic) NSString *materialGroupNameBase;
+@property (copy, nonatomic) NSString *preferredContentSizeCategory;
+@property (nonatomic) BOOL adjustsFontForContentSizeCategory;
+
+- (id)_fontProvider;
+- (BOOL)adjustForContentSizeCategoryChange;
+- (void)_setContinuousCornerRadius:(double)a0;
+- (void)_setFontProvider:(id)a0;
+- (void)_configureNotificationContentViewIfNecessary;
+- (void)_configureAuxiliaryOptionsViewIfNecessary;
+- (id)_newNotificationContentView;
+- (struct CGSize { double x0; double x1; })_sizeThatFitsContentWithSize:(struct CGSize { double x0; double x1; })a0 withAuxiliaryOptionsViewVisible:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })contentSizeForSize:(struct CGSize { double x0; double x1; })a0;
+- (void)configureStackDimmingForTransform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
+- (id)_notificationContentView;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })sizeThatFitsContentWithSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_setCornerRadius:(double)a0;
+- (id)notificationContentView;
+- (void)_layoutAuxiliaryOptionsView;
+- (double)_cornerRadius;
+- (void)_configurePlatterViewIfNeccesary;
+- (void).cxx_destruct;
+- (double)_continuousCornerRadius;
+- (void)_layoutNotificationContentView;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+
+@end

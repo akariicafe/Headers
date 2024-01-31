@@ -1,0 +1,3 @@
+@interface __PREditingReticleViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

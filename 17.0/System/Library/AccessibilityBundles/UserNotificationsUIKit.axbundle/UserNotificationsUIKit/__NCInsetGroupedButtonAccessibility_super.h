@@ -1,0 +1,3 @@
+@interface __NCInsetGroupedButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface SBHUDWindow : SBFSecureTouchPassThroughWindow
+
+@end

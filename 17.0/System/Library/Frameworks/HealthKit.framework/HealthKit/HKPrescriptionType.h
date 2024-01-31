@@ -1,0 +1,3 @@
+@interface HKPrescriptionType : HKSampleType
+
+@end

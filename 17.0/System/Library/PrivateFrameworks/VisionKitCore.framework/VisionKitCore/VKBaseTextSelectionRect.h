@@ -1,0 +1,3 @@
+@interface VKBaseTextSelectionRect : UITextSelectionRect
+
+@end

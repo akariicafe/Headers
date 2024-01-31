@@ -1,0 +1,3 @@
+@interface __MRUMediaSuggestionCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBHWidgetStackViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

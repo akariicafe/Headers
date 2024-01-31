@@ -1,0 +1,3 @@
+@interface __SUICStreamingTextViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

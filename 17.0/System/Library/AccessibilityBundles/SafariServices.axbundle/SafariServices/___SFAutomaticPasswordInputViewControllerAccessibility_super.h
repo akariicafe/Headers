@@ -1,0 +1,3 @@
+@interface ___SFAutomaticPasswordInputViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

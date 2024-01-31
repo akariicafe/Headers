@@ -1,0 +1,3 @@
+@interface __PXCuratedLibraryZoomLevelControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

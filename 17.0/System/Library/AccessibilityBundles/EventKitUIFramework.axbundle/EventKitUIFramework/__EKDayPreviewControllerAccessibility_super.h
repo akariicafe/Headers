@@ -1,0 +1,3 @@
+@interface __EKDayPreviewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

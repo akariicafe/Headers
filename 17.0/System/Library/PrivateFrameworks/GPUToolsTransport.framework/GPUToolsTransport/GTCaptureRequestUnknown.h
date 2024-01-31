@@ -1,0 +1,3 @@
+@interface GTCaptureRequestUnknown : GTCaptureRequest
+
+@end

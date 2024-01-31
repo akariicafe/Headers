@@ -1,0 +1,3 @@
+@interface __UIButtonAccessibility__PlatterKit__UIKit_super : UIAccessibilitySafeCategory
+
+@end

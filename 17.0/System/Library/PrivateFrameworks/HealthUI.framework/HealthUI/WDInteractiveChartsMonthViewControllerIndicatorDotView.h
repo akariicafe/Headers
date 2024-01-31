@@ -1,0 +1,3 @@
+@interface WDInteractiveChartsMonthViewControllerIndicatorDotView : UIView
+
+@end

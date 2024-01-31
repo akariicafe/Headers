@@ -1,0 +1,3 @@
+@interface AVTAvatarEditorStateUpdaterFactory : NSObject
+
+@end

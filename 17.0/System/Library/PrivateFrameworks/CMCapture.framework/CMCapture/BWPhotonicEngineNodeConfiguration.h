@@ -1,0 +1,71 @@
+@class NSDictionary, NSArray, BWSensorConfiguration;
+@protocol BWStillImageProcessingStatusDelegate;
+
+@interface BWPhotonicEngineNodeConfiguration : BWStillImageNodeConfiguration {
+    int _stillImageProcessingMode;
+    int _stillImageFusionScheme;
+    NSDictionary *_sensorConfigurationsByPortType;
+    NSArray *_sensorConfigurations;
+    BWSensorConfiguration *_jasperSensorConfiguration;
+    BOOL _alwaysAllowModifyingInputBuffers;
+    BOOL _inputIs10Bit;
+    int _retainedBufferCount;
+    int _outputBufferCount;
+    int _minimumOutputBufferCount;
+    int _maxNumberOfBurstCapturesAllowedInFlight;
+    BOOL _outputPoolBackPressureEnabled;
+    id<BWStillImageProcessingStatusDelegate> _referenceFrameSelectionDelegate;
+    BOOL _softISPSupportEnabled;
+    BOOL _quadraProcessingSupportEnabled;
+    unsigned int _sensorRawPixelFormat;
+    struct { int width; int height; } _rawSensorDimensions;
+    struct { int width; int height; } _ultraHighResolutionSensorRawDimensions;
+    BOOL _ultraHighResolutionProcessingEnabled;
+    BOOL _fusionSupportEnabled;
+    BOOL _digitalFlashSupportEnabled;
+    NSArray *_portTypesWithRawNightModeEnabled;
+    BOOL _deepFusionSyntheticsInNRSupportEnabled;
+    BOOL _deepFusionWaitForPreprocessingToFinish;
+    BOOL _deepFusionSupportEnabled;
+    int _maxDeepFusionOutputCount;
+    unsigned int _learnedNRMode;
+    int _deepZoomVersion;
+    int _deepZoomMode;
+    float _gainMapMainImageDownscalingFactor;
+    float _inferenceMainImageDownscalingFactor;
+    NSDictionary *_providedInferenceAttachedMediaByMode;
+    int _swfrVersion;
+    BOOL _redEyeReductionEnabled;
+    int _semanticRenderingVersion;
+    int _semanticDevelopmentVersion;
+    int _personSemanticsVersion;
+    BOOL _semanticStyleRenderingEnabled;
+    BOOL _generateInferencesForSemanticProcessingIfNeeded;
+    struct { int width; int height; } _standardFormatDimensions;
+    struct { int width; int height; } _outputDimensions;
+    NSArray *_portTypesWithGeometricDistortionCorrectionEnabled;
+    struct { int width; int height; } _geometricDistortionCorrectionExpandedImageDimensions;
+    NSArray *_portTypesWithIntelligentDistortionCorrectionEnabled;
+    int _intelligentDistortionCorrectionVersion;
+    BOOL _intelligentDistortionCorrectionAppliesFinalDimensions;
+    BOOL _dcProcessingWithDepthSupported;
+    int _horizontalSensorBinningFactor;
+    int _verticalSensorBinningFactor;
+    int _greenGhostMitigationVersion;
+    BOOL _depthDataDeliveryEnabled;
+    NSArray *_portTypesWithDepthSegmentationPortraitParameters;
+    struct { int width; int height; } _depthDataOutputDimensions;
+    BOOL _continuousZoomWithDepthSupported;
+    BOOL _zoomingDisparityAllowed;
+    BOOL _shouldComputeDisparityWhenCalibrationFails;
+    BOOL _demosaicedRawEnabled;
+    unsigned int _demosaicedRawPixelFormat;
+    NSDictionary *_rawColorCalibrationsByPortType;
+    NSDictionary *_rawLensShadingCorrectionCoefficientsByPortType;
+    BOOL _cmiResourceEnabled;
+    BOOL _generateLiDARDepth;
+}
+
+- (void)dealloc;
+
+@end

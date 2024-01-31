@@ -1,0 +1,3 @@
+@interface __GKValueWithCaptionBubbleControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

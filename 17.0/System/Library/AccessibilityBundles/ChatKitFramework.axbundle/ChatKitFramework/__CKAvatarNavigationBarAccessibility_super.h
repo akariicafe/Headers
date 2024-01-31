@@ -1,0 +1,3 @@
+@interface __CKAvatarNavigationBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

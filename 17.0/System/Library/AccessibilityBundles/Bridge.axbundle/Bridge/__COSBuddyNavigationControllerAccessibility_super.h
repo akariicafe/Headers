@@ -1,0 +1,3 @@
+@interface __COSBuddyNavigationControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

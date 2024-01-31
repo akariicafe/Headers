@@ -1,0 +1,3 @@
+@interface TSPBundleLookupClass : NSObject
+
+@end

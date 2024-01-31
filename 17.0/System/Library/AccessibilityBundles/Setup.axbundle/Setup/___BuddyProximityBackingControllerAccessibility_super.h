@@ -1,0 +1,3 @@
+@interface ___BuddyProximityBackingControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

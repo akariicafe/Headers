@@ -1,0 +1,3 @@
+@interface __MKPlaceInfoContactRowViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

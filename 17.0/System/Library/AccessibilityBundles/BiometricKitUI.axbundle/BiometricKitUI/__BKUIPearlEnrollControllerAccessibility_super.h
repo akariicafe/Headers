@@ -1,0 +1,3 @@
+@interface __BKUIPearlEnrollControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

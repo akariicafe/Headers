@@ -1,0 +1,3 @@
+@interface __UIImageViewAccessibility__PassKitUI__UIKit_super : UIAccessibilitySafeCategory
+
+@end

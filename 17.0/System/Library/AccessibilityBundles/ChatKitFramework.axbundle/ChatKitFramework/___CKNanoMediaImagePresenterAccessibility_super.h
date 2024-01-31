@@ -1,0 +1,3 @@
+@interface ___CKNanoMediaImagePresenterAccessibility_super : UIAccessibilitySafeCategory
+
+@end

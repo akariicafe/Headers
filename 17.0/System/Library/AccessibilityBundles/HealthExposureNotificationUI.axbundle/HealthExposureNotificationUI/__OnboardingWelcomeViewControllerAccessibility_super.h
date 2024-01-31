@@ -1,0 +1,3 @@
+@interface __OnboardingWelcomeViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

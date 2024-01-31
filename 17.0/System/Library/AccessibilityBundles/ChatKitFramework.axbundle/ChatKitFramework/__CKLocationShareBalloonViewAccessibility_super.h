@@ -1,0 +1,3 @@
+@interface __CKLocationShareBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

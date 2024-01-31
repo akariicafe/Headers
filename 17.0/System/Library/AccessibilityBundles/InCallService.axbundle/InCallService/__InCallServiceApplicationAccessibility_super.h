@@ -1,0 +1,3 @@
+@interface __InCallServiceApplicationAccessibility_super : UIAccessibilitySafeCategory
+
+@end

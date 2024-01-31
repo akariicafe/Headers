@@ -1,0 +1,3 @@
+@interface _TtCC26DeepThoughtBiomeFoundation12TurnFeatures10Embeddings : _TtCs12_SwiftObject
+
+@end

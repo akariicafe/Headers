@@ -1,0 +1,3 @@
+@interface __SFDownloadsBarButtonItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

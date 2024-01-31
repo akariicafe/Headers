@@ -1,0 +1,3 @@
+@interface __HUCCCompactModuleContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

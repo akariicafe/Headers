@@ -1,0 +1,3 @@
+@interface __DOCMetadataKeyValueRowAccessibility_super : UIAccessibilitySafeCategory
+
+@end

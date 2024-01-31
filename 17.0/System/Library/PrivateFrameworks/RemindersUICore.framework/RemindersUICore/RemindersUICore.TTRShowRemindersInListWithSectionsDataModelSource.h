@@ -1,0 +1,16 @@
+@interface RemindersUICore.TTRShowRemindersInListWithSectionsDataModelSource : RemindersUICore.TTRRemindersListDataModelSourceBase {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ list;
+    void /* unknown type, empty encoding */ countCompleted;
+    void /* unknown type, empty encoding */ store;
+    void /* unknown type, empty encoding */ showCompletedContextInstance;
+    void /* unknown type, empty encoding */ hideEmptySectionsContextInstance;
+    void /* unknown type, empty encoding */ layoutContextInstance;
+    void /* unknown type, empty encoding */ tipKitContextInstance;
+    void /* unknown type, empty encoding */ dataViewMonitor;
+    void /* unknown type, empty encoding */ userDefaults;
+    void /* unknown type, empty encoding */ newReminderContextInstance;
+    void /* unknown type, empty encoding */ shouldSkipReloadingListUponChangingSortingStyle;
+}
+
+@end

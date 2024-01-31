@@ -1,0 +1,3 @@
+@interface __MUPDFContentViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

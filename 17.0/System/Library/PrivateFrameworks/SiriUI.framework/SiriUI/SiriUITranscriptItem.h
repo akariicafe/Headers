@@ -1,0 +1,3 @@
+@interface SiriUITranscriptItem : SiriSharedUITranscriptItem
+
+@end

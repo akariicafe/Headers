@@ -1,0 +1,3 @@
+@interface __CKAudioMessageBalloonViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

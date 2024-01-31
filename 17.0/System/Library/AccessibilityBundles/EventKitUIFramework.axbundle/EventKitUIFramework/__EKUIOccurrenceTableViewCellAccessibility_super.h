@@ -1,0 +1,3 @@
+@interface __EKUIOccurrenceTableViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

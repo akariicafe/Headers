@@ -1,0 +1,3 @@
+@interface __MFQuickReplySendAccessoryButtonAccessibility_super : UIAccessibilitySafeCategory
+
+@end

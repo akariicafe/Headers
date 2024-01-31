@@ -1,0 +1,85 @@
+@class NSString, NSArray, NSOrderedSet, WBSSiriIntelligenceHistorySearch, History, UICollectionViewDiffableDataSource, SFHistoryViewDataSource, UISearchBar, NSMutableSet, UIBarButtonItem, SafariClearBrowsingDataController;
+@protocol _SFNavigationIntentHandling, BookmarksPanelViewControllerDelegate, TabGroupProvider, LinkPreviewProvider;
+
+@interface SFHistoryViewController : UICollectionViewController <SFHistoryViewDataSourceDelegate, UICollectionViewDragDelegate, UISearchBarDelegate, BookmarksPanelStateRestoring, BookmarksToolbarItemProvider> {
+    UICollectionViewDiffableDataSource *_collectionDataSource;
+    SFHistoryViewDataSource *_historyDataSource;
+    NSOrderedSet *_sessions;
+    BOOL _hasLoadedHistory;
+    BOOL _allowClearingHistory;
+    UIBarButtonItem *_clearHistoryButton;
+    UIBarButtonItem *_editButton;
+    UIBarButtonItem *_doneEditingButton;
+    UIBarButtonItem *_deleteItemsButton;
+    UISearchBar *_searchBar;
+    WBSSiriIntelligenceHistorySearch *_siriHistorySearch;
+    BOOL _shouldUseSearchControllerInNavigationItem;
+    BOOL _needsContentOffsetUpdate;
+    NSMutableSet *_expandedSessionIdentifiers;
+    NSMutableSet *_collapsedSessionIdentifiers;
+    SafariClearBrowsingDataController *_clearBrowsingDataController;
+}
+
+@property (weak, nonatomic) id<BookmarksPanelViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<_SFNavigationIntentHandling> navigationIntentHandler;
+@property (weak, nonatomic) id<LinkPreviewProvider> linkPreviewProvider;
+@property (weak, nonatomic) id<TabGroupProvider> tabGroupProvider;
+@property (readonly, nonatomic) History *history;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSArray *bookmarksPanelToolbarItems;
+
+- (void)searchBarCancelButtonClicked:(id)a0;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (void)_updateContentOffsetIfNeeded;
+- (void)searchBar:(id)a0 textDidChange:(id)a1;
+- (id)_toolbarItems;
+- (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
+- (void)collectionView:(id)a0 dragSessionWillBegin:(id)a1;
+- (void)setEditing:(BOOL)a0 animated:(BOOL)a1;
+- (id)collectionView:(id)a0 contextMenuConfigurationForItemsAtIndexPaths:(id)a1 point:(struct CGPoint { double x0; double x1; })a2;
+- (void)collectionView:(id)a0 willPerformPreviewActionForMenuWithConfiguration:(id)a1 animator:(id)a2;
+- (void)viewWillDisappear:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)collectionView:(id)a0 contextMenuConfiguration:(id)a1 dismissalPreviewForItemAtIndexPath:(id)a2;
+- (void)searchBarSearchButtonClicked:(id)a0;
+- (id)collectionView:(id)a0 itemsForAddingToDragSession:(id)a1 atIndexPath:(id)a2 point:(struct CGPoint { double x0; double x1; })a3;
+- (void)willMoveToParentViewController:(id)a0;
+- (void)viewDidDisappear:(BOOL)a0;
+- (id)collectionView:(id)a0 itemsForBeginningDragSession:(id)a1 atIndexPath:(id)a2;
+- (id)_doneBarButtonItem;
+- (BOOL)safari_wantsDoneButtonInModalBookmarksPanel;
+- (void)_restoreScrollPositionIfNeeded;
+- (id)currentStateDictionary;
+- (id)_editBarButtonItem;
+- (id)_createCollectionViewLayout;
+- (id)initWithHistory:(id)a0;
+- (id)_trailingSwipeActionConfigurationForIndexPath:(id)a0;
+- (void)_reloadItemsInSession:(id)a0 animated:(BOOL)a1;
+- (void)updateClearHistoryButtonEnabled;
+- (void)_deselectHistoryItemsInSession:(id)a0;
+- (void)_toggleEditMode;
+- (void)_adjustContentOffsetHidingSearchBar;
+- (id)_clearHistoryBarButtonItem;
+- (id)_clearHistoryText;
+- (void)_configureClearHistoryButton;
+- (void)_deleteCurrentlySelectedItems;
+- (id)_deleteSelectedBarButtonItem;
+- (id)_makeHeaderRegistration;
+- (id)_makeHistoryCellRegistration;
+- (id)_makeSearchBarContainerRegistration;
+- (id)_previewMenuForHistoryItems:(id)a0;
+- (void)_reloadWithSessions:(id)a0 animated:(BOOL)a1;
+- (void)_saveViewState;
+- (id)_savedStateDictionary;
+- (BOOL)_shouldSessionBeExpanded:(id)a0;
+- (void)_showClearHistoryMenu:(id)a0;
+- (void)_updateDeleteSelectedItemsButtonEnabled;
+- (void)historyViewDataSource:(id)a0 didComputeSessions:(id)a1;
+- (BOOL)restoreStateWithDictionary:(id)a0;
+
+@end

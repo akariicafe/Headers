@@ -1,0 +1,96 @@
+@class PBDataReader, NSString, GEOClientMetrics, NSMutableArray, PBUnknownFields;
+
+@interface GEONetworkEventData : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    PBUnknownFields *_unknownFields;
+    NSMutableArray *_additionalStates;
+    NSString *_appIdentifier;
+    GEOClientMetrics *_clientMetrics;
+    NSString *_countryCode;
+    long long _errorCode;
+    NSString *_errorDomain;
+    double _eventTimestamp;
+    NSString *_locale;
+    NSString *_manifestEnvironment;
+    NSString *_requestingAppIdentifier;
+    NSString *_requestingAppMajorVer;
+    NSString *_requestingAppMinorVer;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _dataRequestKindSubtype;
+    int _dataRequestKindType;
+    unsigned int _datasetId;
+    int _networkService;
+    unsigned int _tilesetId;
+    BOOL _usedBackgroundUrl;
+    struct { unsigned char has_errorCode : 1; unsigned char has_eventTimestamp : 1; unsigned char has_dataRequestKindSubtype : 1; unsigned char has_dataRequestKindType : 1; unsigned char has_datasetId : 1; unsigned char has_networkService : 1; unsigned char has_tilesetId : 1; unsigned char has_usedBackgroundUrl : 1; unsigned char read_unknownFields : 1; unsigned char read_additionalStates : 1; unsigned char read_appIdentifier : 1; unsigned char read_clientMetrics : 1; unsigned char read_countryCode : 1; unsigned char read_errorDomain : 1; unsigned char read_locale : 1; unsigned char read_manifestEnvironment : 1; unsigned char read_requestingAppIdentifier : 1; unsigned char read_requestingAppMajorVer : 1; unsigned char read_requestingAppMinorVer : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) BOOL hasClientMetrics;
+@property (retain, nonatomic) GEOClientMetrics *clientMetrics;
+@property (nonatomic) BOOL hasDataRequestKindType;
+@property (nonatomic) int dataRequestKindType;
+@property (nonatomic) BOOL hasDataRequestKindSubtype;
+@property (nonatomic) int dataRequestKindSubtype;
+@property (nonatomic) BOOL hasNetworkService;
+@property (nonatomic) int networkService;
+@property (nonatomic) BOOL hasUsedBackgroundUrl;
+@property (nonatomic) BOOL usedBackgroundUrl;
+@property (readonly, nonatomic) BOOL hasRequestingAppIdentifier;
+@property (retain, nonatomic) NSString *requestingAppIdentifier;
+@property (readonly, nonatomic) BOOL hasRequestingAppMajorVer;
+@property (retain, nonatomic) NSString *requestingAppMajorVer;
+@property (readonly, nonatomic) BOOL hasRequestingAppMinorVer;
+@property (retain, nonatomic) NSString *requestingAppMinorVer;
+@property (readonly, nonatomic) BOOL hasErrorDomain;
+@property (retain, nonatomic) NSString *errorDomain;
+@property (nonatomic) BOOL hasErrorCode;
+@property (nonatomic) long long errorCode;
+@property (retain, nonatomic) NSMutableArray *additionalStates;
+@property (nonatomic) BOOL hasEventTimestamp;
+@property (nonatomic) double eventTimestamp;
+@property (readonly, nonatomic) BOOL hasCountryCode;
+@property (retain, nonatomic) NSString *countryCode;
+@property (nonatomic) BOOL hasTilesetId;
+@property (nonatomic) unsigned int tilesetId;
+@property (readonly, nonatomic) BOOL hasLocale;
+@property (retain, nonatomic) NSString *locale;
+@property (nonatomic) BOOL hasDatasetId;
+@property (nonatomic) unsigned int datasetId;
+@property (readonly, nonatomic) BOOL hasManifestEnvironment;
+@property (retain, nonatomic) NSString *manifestEnvironment;
+@property (readonly, nonatomic) BOOL hasAppIdentifier;
+@property (retain, nonatomic) NSString *appIdentifier;
+@property (readonly, nonatomic) PBUnknownFields *unknownFields;
+
++ (BOOL)isValid:(id)a0;
++ (Class)additionalStatesType;
+
+- (id)init;
+- (unsigned long long)hash;
+- (BOOL)readFrom:(id)a0;
+- (int)StringAsNetworkService:(id)a0;
+- (void)writeTo:(id)a0;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)description;
+- (void)clearUnknownFields:(BOOL)a0;
+- (void).cxx_destruct;
+- (id)jsonRepresentation;
+- (void)clearSensitiveFields:(unsigned long long)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (BOOL)isEqual:(id)a0;
+- (id)networkServiceAsString:(int)a0;
+- (void)readAll:(BOOL)a0;
+- (void)mergeFrom:(id)a0;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)initWithJSON:(id)a0;
+- (void)addAdditionalStates:(id)a0;
+- (id)additionalStatesAtIndex:(unsigned long long)a0;
+- (unsigned long long)additionalStatesCount;
+- (void)clearAdditionalStates;
+
+@end

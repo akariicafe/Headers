@@ -1,0 +1,3 @@
+@interface __DSDictionaryTableCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

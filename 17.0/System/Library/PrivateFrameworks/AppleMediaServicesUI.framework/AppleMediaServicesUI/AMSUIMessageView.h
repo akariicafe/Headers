@@ -1,0 +1,70 @@
+@class UIImageView, AMSUIPopoverShapeLayerView, AMSUICommonImageView, UIView, UIColor, AMSDialogAction, AMSUIMessageViewLayoutContext, UIScrollView, NSAttributedString, AMSUICommonTextView, NSArray, MicaPlayer, AMSUICommonVisualEffectView;
+
+@interface AMSUIMessageView : AMSUICommonView
+
+@property (nonatomic) unsigned long long imageStyle;
+@property (nonatomic) unsigned long long style;
+@property (retain, nonatomic) AMSUICommonVisualEffectView *backgroundVisualEffectView;
+@property (retain, nonatomic) UIScrollView *containerView;
+@property (retain, nonatomic) UIView *imageContainerView;
+@property (retain, nonatomic) AMSUIMessageViewLayoutContext *layoutContext;
+@property (retain, nonatomic) MicaPlayer *micaPlayer;
+@property (retain, nonatomic) NSArray *separatorViews;
+@property (retain, nonatomic) AMSUIPopoverShapeLayerView *maskShapeView;
+@property (retain, nonatomic) NSArray *ams_accessibilitySupplementaryFooterViews;
+@property (retain, nonatomic) UIView *accessoryView;
+@property (retain, nonatomic) UIView *accessorySecondaryView;
+@property (retain, nonatomic) NSArray *footerButtonViews;
+@property (retain, nonatomic) UIImageView *backgroundImageView;
+@property (copy, nonatomic) UIColor *iconColor;
+@property (readonly, nonatomic) AMSUICommonImageView *imageView;
+@property (nonatomic) BOOL isImageSymbolImage;
+@property (nonatomic) BOOL isSizing;
+@property (retain, nonatomic) NSAttributedString *message;
+@property (copy, nonatomic) UIColor *separatorColor;
+@property (readonly, nonatomic) AMSUICommonTextView *textView;
+@property (readonly, nonatomic) AMSDialogAction *bodyAction;
+@property (retain, nonatomic) NSAttributedString *title;
+@property (nonatomic) BOOL preLayoutImageView;
+
+- (void)setBackgroundColor:(id)a0;
+- (void)dealloc;
+- (void)traitCollectionDidChange:(id)a0;
+- (id)initWithStyle:(unsigned long long)a0;
+- (BOOL)canBecomeFocused;
+- (void)_setupImageView;
+- (void)didMoveToSuperview;
+- (id)focusItemsInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setNeedsLayout;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void).cxx_destruct;
+- (void)_setupDefaults;
+- (BOOL)_layoutHeightDependsOnWidth;
+- (void)layoutSubviews;
+- (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+- (unsigned long long)_axesForDerivingIntrinsicContentSizeFromLayoutSize;
+- (id)_accessibilitySupplementaryFooterViews;
+- (void)_setupInitialLayout;
+- (void)_setAccessibilityIdentifier;
+- (id)_makeSeparatorView;
+- (double)_textViewParagraphSpacingBefore;
+- (void)_endObservations;
+- (void)_recordNewsDebugEventWithCategory:(id)a0;
+- (void)_setAccessibility;
+- (void)_setBackground;
+- (void)_setMICAPlayerTintColor:(id)a0;
+- (void)_setShadow;
+- (void)_setTextAlignment;
+- (void)_setTextViewText;
+- (void)_setupImageViewDefault;
+- (void)_setupMICAAssetWithData:(id)a0 originalURL:(id)a1;
+- (void)_startObservations;
+- (void)_syncRectsFromContext;
+- (void)removeBubbleArrowMaskView;
+- (void)setAccessorySecondaryViewForDialogAction:(id)a0 target:(id)a1 action:(SEL)a2;
+- (void)setAccessoryViewForDialogAction:(id)a0 target:(id)a1 action:(SEL)a2;
+- (void)setBodyDialogAction:(id)a0 target:(id)a1 action:(SEL)a2;
+- (void)setFooterForDialogActions:(id)a0 target:(id)a1 action:(SEL)a2;
+- (void)setupBubbleArrowMaskView;
+
+@end

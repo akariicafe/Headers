@@ -1,0 +1,3 @@
+@interface __BuddyUINavigationBarAccessibility_super : UIAccessibilitySafeCategory
+
+@end

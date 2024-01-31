@@ -1,0 +1,3 @@
+@interface ___TVRatingTemplateControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

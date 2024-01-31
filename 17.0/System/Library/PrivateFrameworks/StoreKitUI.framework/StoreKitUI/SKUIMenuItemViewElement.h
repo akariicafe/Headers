@@ -1,0 +1,3 @@
+@interface SKUIMenuItemViewElement : SKUIViewElement
+
+@end

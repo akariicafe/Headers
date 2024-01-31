@@ -1,0 +1,39 @@
+@class UIInputViewSetPlacement;
+
+@interface UIInputViewSetPlacementWrapper : UIInputViewSetPlacement <NSSecureCoding> {
+    UIInputViewSetPlacement *_actualPlacement;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
++ (id)placementWithPlacement:(id)a0;
+
+- (BOOL)isUndocked;
+- (BOOL)isInteractive;
+- (void)encodeWithCoder:(id)a0;
+- (BOOL)accessoryViewWillAppear;
+- (double)alpha;
+- (BOOL)showsInputOrAssistantViews;
+- (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transform;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })remoteIntrinsicContentSizeForInputViewInSet:(id)a0 includingIAV:(BOOL)a1;
+- (id)description;
+- (id)verticalConstraintForInputViewSet:(id)a0 hostView:(id)a1 containerView:(id)a2;
+- (BOOL)isVisible;
+- (Class)applicatorClassForKeyboard:(BOOL)a0;
+- (void).cxx_destruct;
+- (BOOL)showsInputViews;
+- (BOOL)inputViewWillAppear;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)showsKeyboard;
+- (BOOL)showsEditItems;
+- (id)initWithCoder:(id)a0;
+- (id)applicatorInfoForOwner:(id)a0;
+- (unsigned long long)computeComparisonMask;
+- (id)horizontalConstraintForInputViewSet:(id)a0 hostView:(id)a1 containerView:(id)a2;
+- (unsigned long long)indexForPurpose:(unsigned long long)a0;
+- (double)inputAssistantViewHeightForInputViewSet:(id)a0;
+- (void)setDirty;
+- (id)subPlacements;
+- (id)widthConstraintForInputViewSet:(id)a0 hostView:(id)a1 containerView:(id)a2;
+
+@end

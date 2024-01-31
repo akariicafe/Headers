@@ -1,0 +1,3 @@
+@interface __CKSyndicationPageViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

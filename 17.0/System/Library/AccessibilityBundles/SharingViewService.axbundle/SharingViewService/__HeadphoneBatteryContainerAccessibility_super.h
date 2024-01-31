@@ -1,0 +1,3 @@
+@interface __HeadphoneBatteryContainerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

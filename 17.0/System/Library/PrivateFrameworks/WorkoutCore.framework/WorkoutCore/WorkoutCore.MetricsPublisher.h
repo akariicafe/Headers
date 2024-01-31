@@ -1,0 +1,63 @@
+@interface WorkoutCore.MetricsPublisher : _TtCs12_SwiftObject <_HKWheelchairUseCharacteristicCacheObserver> {
+    void /* unknown type, empty encoding */ isFaked;
+    void /* unknown type, empty encoding */ _workoutIdentifier;
+    void /* unknown type, empty encoding */ _workoutConfigurationType;
+    void /* unknown type, empty encoding */ _multisportWorkoutInAutoMode;
+    void /* unknown type, empty encoding */ elapsedTimeMetricsPublisher;
+    void /* unknown type, empty encoding */ videoTimeProvider;
+    void /* unknown type, empty encoding */ gymKitTimeProvider;
+    void /* unknown type, empty encoding */ activitySummaryMetricsPublisher;
+    void /* unknown type, empty encoding */ heartRateMetricsPublisher;
+    void /* unknown type, empty encoding */ energyMetricsPublisher;
+    void /* unknown type, empty encoding */ trackRunningMetricsPublisher;
+    void /* unknown type, empty encoding */ platterPublisher;
+    void /* unknown type, empty encoding */ goalPublisher;
+    void /* unknown type, empty encoding */ _distance;
+    void /* unknown type, empty encoding */ _secondsAheadOfPacer;
+    void /* unknown type, empty encoding */ _currentPace;
+    void /* unknown type, empty encoding */ _averagePace;
+    void /* unknown type, empty encoding */ _rollingPace;
+    void /* unknown type, empty encoding */ _requiredPace;
+    void /* unknown type, empty encoding */ _fastestPace;
+    void /* unknown type, empty encoding */ lapsMetricsPublisher;
+    void /* unknown type, empty encoding */ _elevationGain;
+    void /* unknown type, empty encoding */ _currentElevation;
+    void /* unknown type, empty encoding */ _elevationChartData;
+    void /* unknown type, empty encoding */ _elevationChartUnit;
+    void /* unknown type, empty encoding */ _currentCadence;
+    void /* unknown type, empty encoding */ _averageCadence;
+    void /* unknown type, empty encoding */ powerMetricsPublisher;
+    void /* unknown type, empty encoding */ _flightsClimbed;
+    void /* unknown type, empty encoding */ workoutStatePublisher;
+    void /* unknown type, empty encoding */ intervalsMetricsPublisher;
+    void /* unknown type, empty encoding */ multisportMetricsPublisher;
+    void /* unknown type, empty encoding */ raceInformationPublisher;
+    void /* unknown type, empty encoding */ racePositionStatePublisher;
+    void /* unknown type, empty encoding */ _distanceGoalFinishTime;
+    void /* unknown type, empty encoding */ _segmentIndex;
+    void /* unknown type, empty encoding */ _segmentDuration;
+    void /* unknown type, empty encoding */ _segmentDistance;
+    void /* unknown type, empty encoding */ _segmentPace;
+    void /* unknown type, empty encoding */ _segmentActiveEnergy;
+    void /* unknown type, empty encoding */ _segmentTotalEnergy;
+    void /* unknown type, empty encoding */ _segmentAveragePower;
+    void /* unknown type, empty encoding */ _splitIndex;
+    void /* unknown type, empty encoding */ _splitStartDate;
+    void /* unknown type, empty encoding */ _splitDuration;
+    void /* unknown type, empty encoding */ _splitDistance;
+    void /* unknown type, empty encoding */ _splitPace;
+    void /* unknown type, empty encoding */ _splitAveragePower;
+    void /* unknown type, empty encoding */ _timerRemainingTime;
+    void /* unknown type, empty encoding */ _timerRemainingTimeWithOffset;
+    void /* unknown type, empty encoding */ _timerDuration;
+    void /* unknown type, empty encoding */ _currentStrideLength;
+    void /* unknown type, empty encoding */ _averageStrideLength;
+    void /* unknown type, empty encoding */ _currentVerticalOscillation;
+    void /* unknown type, empty encoding */ _averageVerticalOscillation;
+    void /* unknown type, empty encoding */ _currentGroundContactTime;
+    void /* unknown type, empty encoding */ _averageGroundContactTime;
+}
+
+- (void)wheelchairUseCharacteristicCache:(id)a0 wheelchairUsageDidChange:(BOOL)a1;
+
+@end

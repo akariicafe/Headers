@@ -1,0 +1,3 @@
+@interface __PHAbstractDialerViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

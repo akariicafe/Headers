@@ -1,0 +1,3 @@
+@interface __EditorialSearchResultCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

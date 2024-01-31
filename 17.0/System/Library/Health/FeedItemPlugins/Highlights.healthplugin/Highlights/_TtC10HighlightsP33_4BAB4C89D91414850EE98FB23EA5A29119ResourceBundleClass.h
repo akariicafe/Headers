@@ -1,0 +1,3 @@
+@interface _TtC10HighlightsP33_4BAB4C89D91414850EE98FB23EA5A29119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

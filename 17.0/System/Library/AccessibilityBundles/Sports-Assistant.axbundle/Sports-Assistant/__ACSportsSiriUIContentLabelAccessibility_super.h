@@ -1,0 +1,3 @@
+@interface __ACSportsSiriUIContentLabelAccessibility_super : UIAccessibilitySafeCategory
+
+@end

@@ -1,0 +1,3 @@
+@interface __SBAppThumbnailGridViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

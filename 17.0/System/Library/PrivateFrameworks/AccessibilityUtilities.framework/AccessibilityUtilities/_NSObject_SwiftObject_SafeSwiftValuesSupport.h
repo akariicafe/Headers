@@ -1,0 +1,46 @@
+@interface _NSObject_SwiftObject_SafeSwiftValuesSupport : NSObject
+
+- (id)safeSwiftOptionalCGFloatForKey:(id)a0;
+- (id)safeSwiftOptionalCGPointForKey:(id)a0;
+- (id)_safeSwiftDebugPrintAllFields;
+- (id)safeSwiftArrayForKey:(id)a0;
+- (BOOL)safeSwiftBoolForKey:(id)a0;
+- (double)safeSwiftCGFloatForKey:(id)a0;
+- (struct CGPoint { double x0; double x1; })safeSwiftCGPointForKey:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })safeSwiftCGRectForKey:(id)a0;
+- (struct CGSize { double x0; double x1; })safeSwiftCGSizeForKey:(id)a0;
+- (id)safeSwiftDictionaryForKey:(id)a0;
+- (double)safeSwiftDoubleForKey:(id)a0;
+- (id)safeSwiftEnumAssociatedObject;
+- (id)safeSwiftEnumCase;
+- (float)safeSwiftFloatForKey:(id)a0;
+- (short)safeSwiftInt16ForKey:(id)a0;
+- (int)safeSwiftInt32ForKey:(id)a0;
+- (long long)safeSwiftInt64ForKey:(id)a0;
+- (char)safeSwiftInt8ForKey:(id)a0;
+- (long long)safeSwiftIntForKey:(id)a0;
+- (id)safeSwiftOptionalBoolForKey:(id)a0;
+- (id)safeSwiftOptionalCGRectForKey:(id)a0;
+- (id)safeSwiftOptionalCGSizeForKey:(id)a0;
+- (id)safeSwiftOptionalDoubleForKey:(id)a0;
+- (id)safeSwiftOptionalFloatForKey:(id)a0;
+- (id)safeSwiftOptionalInt16ForKey:(id)a0;
+- (id)safeSwiftOptionalInt32ForKey:(id)a0;
+- (id)safeSwiftOptionalInt64ForKey:(id)a0;
+- (id)safeSwiftOptionalInt8ForKey:(id)a0;
+- (id)safeSwiftOptionalIntForKey:(id)a0;
+- (id)safeSwiftOptionalUInt16ForKey:(id)a0;
+- (id)safeSwiftOptionalUInt32ForKey:(id)a0;
+- (id)safeSwiftOptionalUInt64ForKey:(id)a0;
+- (id)safeSwiftOptionalUInt8ForKey:(id)a0;
+- (id)safeSwiftOptionalUIntForKey:(id)a0;
+- (id)safeSwiftSetForKey:(id)a0;
+- (id)safeSwiftStringForKey:(id)a0;
+- (unsigned short)safeSwiftUInt16ForKey:(id)a0;
+- (unsigned int)safeSwiftUInt32ForKey:(id)a0;
+- (unsigned long long)safeSwiftUInt64ForKey:(id)a0;
+- (unsigned char)safeSwiftUInt8ForKey:(id)a0;
+- (unsigned long long)safeSwiftUIntForKey:(id)a0;
+- (id)safeSwiftValueForKey:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface __PREditingColorItemViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

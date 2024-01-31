@@ -1,0 +1,3 @@
+@interface __SUUIPlayButtonControlAccessibility_super : UIAccessibilitySafeCategory
+
+@end

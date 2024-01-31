@@ -1,0 +1,85 @@
+@class NSHashTable, NSLock, MKMapItem, GEOAutomobileOptions, NSString, GEOWalkingOptions, GEOTransitOptions, _MKQuickRouteManager, NSTimer, CLLocation, NSNumber, GEOCyclingOptions;
+@protocol GEOTransitLineItem, MKETAProviderDelegate, _MKPlaceItem;
+
+@interface MKETAProvider : NSObject <MKLocationManagerObserver, MKQuickRouteManagerDelegate, MKQuickRouteConfigurableView, MKQuickRouteTransportTypeFinding> {
+    _MKQuickRouteManager *_quickRouteManager;
+    NSNumber *_lastTransportTypeFound;
+    MKMapItem *_nearestStationItem;
+    BOOL _distanceOrETAIsSuppressed;
+    BOOL _distanceOrETAWasFound;
+    NSString *_distanceTextItem;
+    NSString *_rawDistanceString;
+    unsigned long long _etaTransportType;
+    double _etaTravelTime;
+    BOOL _active;
+    BOOL _paused;
+    BOOL _inactiveInBackground;
+    NSTimer *_refreshTimer;
+}
+
+@property (retain, nonatomic) NSHashTable *observers;
+@property (retain, nonatomic) NSLock *observersLock;
+@property (readonly, nonatomic) CLLocation *currentLocation;
+@property (weak, nonatomic) id<MKETAProviderDelegate> delegate;
+@property (retain, nonatomic) GEOAutomobileOptions *automobileOptions;
+@property (retain, nonatomic) GEOWalkingOptions *walkingOptions;
+@property (retain, nonatomic) GEOTransitOptions *transitOptions;
+@property (retain, nonatomic) GEOCyclingOptions *cyclingOptions;
+@property (nonatomic) BOOL allowsDistantETA;
+@property (readonly, nonatomic) MKMapItem *mapItem;
+@property (readonly, nonatomic) id<_MKPlaceItem> placeItem;
+@property (readonly, nonatomic) id<GEOTransitLineItem> lineItem;
+@property (readonly, nonatomic) NSString *rawDistanceString;
+@property (readonly, nonatomic) NSString *distanceString;
+@property (readonly, nonatomic) unsigned long long etaTransportType;
+@property (readonly, nonatomic) double etaTravelTime;
+@property (readonly, nonatomic) NSNumber *transportTypePreferenceNumber;
+@property (readonly, nonatomic) BOOL isLikelyToReturnETA;
+@property (readonly, nonatomic) BOOL hasFoundDistanceOrETA;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)_cancelTimer;
+- (id)initWithMapItem:(id)a0;
+- (void)pause;
+- (void)locationManager:(id)a0 didUpdateVehicleHeading:(double)a1 timestamp:(id)a2;
+- (void)locationManagerDidPauseLocationUpdates:(id)a0;
+- (void)dealloc;
+- (void)removeObserver:(id)a0;
+- (void)start;
+- (void)locationManagerDidResumeLocationUpdates:(id)a0;
+- (void)_didEnterBackground;
+- (void)_refreshTimer;
+- (void).cxx_destruct;
+- (void)restart;
+- (void)locationManager:(id)a0 didUpdateVehicleSpeed:(double)a1 timestamp:(id)a2;
+- (void)cancel;
+- (void)addObserver:(id)a0;
+- (void)_commonInit;
+- (void)_startTimer;
+- (void)locationManagerUpdatedLocation:(id)a0;
+- (BOOL)_areDistanceAndETAInformationAvailable;
+- (void)_configureETAForMapItem:(id)a0;
+- (void)_locationManagerApprovalDidChange:(id)a0;
+- (void)_notifyETAAllObservers;
+- (void)_notifyLocationAllObservers;
+- (BOOL)_shouldUpdateETAForMapView:(id)a0;
+- (void)_updateETA;
+- (void)_updateETADisplayWithTransportType:(unsigned long long)a0 travelTime:(double)a1 distance:(double)a2;
+- (void)_updateETAHandler:(id)a0;
+- (void)_willEnterForeground;
+- (void)configureWithNearestStationMapItem:(id)a0;
+- (id)currentMapItem;
+- (void)findDirectionsTypeForOriginCoordinate:(struct CLLocationCoordinate2D { double x0; double x1; })a0 destinationCoordinate:(struct CLLocationCoordinate2D { double x0; double x1; })a1 handler:(id /* block */)a2;
+- (id)initWithLineItem:(id)a0;
+- (id)initWithPlaceItem:(id)a0;
+- (void)locationManagerDidReset:(id)a0;
+- (void)locationManagerFailedToUpdateLocation:(id)a0 withError:(id)a1;
+- (BOOL)locationManagerShouldPauseLocationUpdates:(id)a0;
+- (void)quickRouteManager:(id)a0 didUpdateETA:(id)a1 error:(id)a2 animated:(BOOL)a3;
+- (BOOL)quickRouteShouldIncludeTransitWhenNotPreferredTransportType;
+- (BOOL)quickRouteShouldOnlyUseAutomobile;
+
+@end

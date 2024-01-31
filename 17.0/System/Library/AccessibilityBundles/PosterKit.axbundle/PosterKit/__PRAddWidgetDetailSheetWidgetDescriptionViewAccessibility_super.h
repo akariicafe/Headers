@@ -1,0 +1,3 @@
+@interface __PRAddWidgetDetailSheetWidgetDescriptionViewAccessibility_super : UIAccessibilitySafeCategory
+
+@end

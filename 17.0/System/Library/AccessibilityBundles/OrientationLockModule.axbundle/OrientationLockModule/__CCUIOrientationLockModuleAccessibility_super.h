@@ -1,0 +1,3 @@
+@interface __CCUIOrientationLockModuleAccessibility_super : UIAccessibilitySafeCategory
+
+@end

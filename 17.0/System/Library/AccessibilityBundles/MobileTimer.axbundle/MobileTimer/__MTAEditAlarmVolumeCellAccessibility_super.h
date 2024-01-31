@@ -1,0 +1,3 @@
+@interface __MTAEditAlarmVolumeCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

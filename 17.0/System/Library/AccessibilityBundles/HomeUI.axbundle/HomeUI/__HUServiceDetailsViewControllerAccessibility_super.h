@@ -1,0 +1,3 @@
+@interface __HUServiceDetailsViewControllerAccessibility_super : UIAccessibilitySafeCategory
+
+@end

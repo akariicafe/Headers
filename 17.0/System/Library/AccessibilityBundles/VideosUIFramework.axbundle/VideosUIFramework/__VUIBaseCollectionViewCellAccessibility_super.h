@@ -1,0 +1,3 @@
+@interface __VUIBaseCollectionViewCellAccessibility_super : UIAccessibilitySafeCategory
+
+@end

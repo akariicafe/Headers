@@ -1,0 +1,3 @@
+@interface CRSRequest : NSObject
+
+@end

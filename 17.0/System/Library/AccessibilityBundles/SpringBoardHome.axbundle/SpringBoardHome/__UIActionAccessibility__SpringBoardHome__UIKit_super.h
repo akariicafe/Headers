@@ -1,0 +1,3 @@
+@interface __UIActionAccessibility__SpringBoardHome__UIKit_super : UIAccessibilitySafeCategory
+
+@end

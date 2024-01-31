@@ -1,0 +1,3 @@
+@interface __SBRingerAlertElementAccessibility_super : UIAccessibilitySafeCategory
+
+@end

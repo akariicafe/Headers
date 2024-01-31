@@ -1,0 +1,3 @@
+@interface __SKUIRatingStarsCacheAccessibility_super : UIAccessibilitySafeCategory
+
+@end
